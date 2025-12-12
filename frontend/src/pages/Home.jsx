@@ -97,43 +97,25 @@ const Home = () => {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left content */}
-            <div className={`transition-all duration-1000 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}>
-              <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                The hyperscaler engineered for AI
-              </h1>
-              <p className="text-xl text-white/80 mb-8">
-                A full-stack, scalable, and sustainable AI cloud platform.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/contact">
-                  <Button className="bg-white text-[#0A1F3D] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-                    Reserve GPUs
-                  </Button>
-                </Link>
-                <Link to="/docs">
-                  <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                    Start Building →
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right 3D graphic */}
-            <div className="relative h-[500px] hidden lg:block">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  <img 
-                    src="https://images.unsplash.com/photo-1639815188546-c43c240ff4df"
-                    alt="AI Infrastructure"
-                    className="w-full h-full object-contain opacity-80"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F3D] via-transparent to-transparent" />
-                </div>
-              </div>
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Centered content */}
+            <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              The hyperscaler engineered for AI
+            </h1>
+            <p className="text-xl text-white/80 mb-8">
+              A full-stack, scalable, and sustainable AI cloud platform.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link to="/contact">
+                <Button className="bg-white text-[#0A1F3D] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+                  Reserve GPUs
+                </Button>
+              </Link>
+              <Link to="/docs">
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+                  Start Building →
+                </Button>
+              </Link>
             </div>
           </div>
 
