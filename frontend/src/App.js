@@ -10,6 +10,9 @@ import Solutions from './pages/Solutions';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Pricing from './pages/Pricing';
+import About from './pages/About';
+import Documentation from './pages/Documentation';
+import Partners from './pages/Partners';
 
 function App() {
   return (
@@ -23,7 +26,10 @@ function App() {
             <Route path="/solutions/*" element={<Solutions />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/company/blog" element={<Blog />} />
+            <Route path="/company/about" element={<About />} />
+            <Route path="/partners" element={<Partners />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/docs" element={<Documentation />} />
             {/* Catch all other routes to Home */}
             <Route path="*" element={<Home />} />
           </Routes>
