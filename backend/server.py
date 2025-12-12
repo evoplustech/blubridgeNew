@@ -103,6 +103,90 @@ async def get_status_checks():
     
     return status_checks
 
+# Contact Form Endpoint
+@api_router.post("/contact")
+async def submit_contact_form(form: ContactForm):
+    try:
+        doc = form.model_dump()
+        doc['created_at'] = doc['created_at'].isoformat()
+        await db.contact_forms.insert_one(doc)
+        return {"message": "Contact form submitted successfully", "id": form.id}
+    except Exception as e:
+        logging.error(f"Error submitting contact form: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit form")
+
+@api_router.get("/contact/submissions")
+async def get_contact_submissions():
+    submissions = await db.contact_forms.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
+    for submission in submissions:
+        if isinstance(submission['created_at'], str):
+            submission['created_at'] = datetime.fromisoformat(submission['created_at'])
+    return submissions
+
+# Newsletter Subscription
+@api_router.post("/newsletter/subscribe")
+async def subscribe_newsletter(subscription: NewsletterSubscribe):
+    try:
+        # Check if email already exists
+        existing = await db.newsletter_subscribers.find_one({"email": subscription.email})
+        if existing:
+            raise HTTPException(status_code=400, detail="Email already subscribed")
+        
+        doc = subscription.model_dump()
+        doc['subscribed_at'] = doc['subscribed_at'].isoformat()
+        await db.newsletter_subscribers.insert_one(doc)
+        return {"message": "Successfully subscribed to newsletter", "id": subscription.id}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error subscribing to newsletter: {e}")
+        raise HTTPException(status_code=500, detail="Failed to subscribe")
+
+@api_router.get("/newsletter/subscribers")
+async def get_newsletter_subscribers():
+    subscribers = await db.newsletter_subscribers.find({}, {"_id": 0}).sort("subscribed_at", -1).to_list(1000)
+    for subscriber in subscribers:
+        if isinstance(subscriber['subscribed_at'], str):
+            subscriber['subscribed_at'] = datetime.fromisoformat(subscriber['subscribed_at'])
+    return subscribers
+
+# Blog Posts
+@api_router.post("/blog/posts", response_model=BlogPost)
+async def create_blog_post(post: BlogPostCreate):
+    try:
+        post_obj = BlogPost(**post.model_dump())
+        doc = post_obj.model_dump()
+        doc['created_at'] = doc['created_at'].isoformat()
+        doc['updated_at'] = doc['updated_at'].isoformat()
+        await db.blog_posts.insert_one(doc)
+        return post_obj
+    except Exception as e:
+        logging.error(f"Error creating blog post: {e}")
+        raise HTTPException(status_code=500, detail="Failed to create post")
+
+@api_router.get("/blog/posts", response_model=List[BlogPost])
+async def get_blog_posts(limit: int = 50):
+    posts = await db.blog_posts.find({}, {"_id": 0}).sort("created_at", -1).to_list(limit)
+    for post in posts:
+        if isinstance(post['created_at'], str):
+            post['created_at'] = datetime.fromisoformat(post['created_at'])
+        if isinstance(post['updated_at'], str):
+            post['updated_at'] = datetime.fromisoformat(post['updated_at'])
+    return posts
+
+@api_router.get("/blog/posts/{slug}", response_model=BlogPost)
+async def get_blog_post_by_slug(slug: str):
+    post = await db.blog_posts.find_one({"slug": slug}, {"_id": 0})
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    
+    if isinstance(post['created_at'], str):
+        post['created_at'] = datetime.fromisoformat(post['created_at'])
+    if isinstance(post['updated_at'], str):
+        post['updated_at'] = datetime.fromisoformat(post['updated_at'])
+    
+    return BlogPost(**post)
+
 # Include the router in the main app
 app.include_router(api_router)
 
