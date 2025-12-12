@@ -37,6 +37,43 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class ContactForm(BaseModel):
+    firstName: str
+    lastName: str
+    email: EmailStr
+    company: Optional[str] = None
+    phone: Optional[str] = None
+    message: str
+    interest: str = "general"
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+
+class NewsletterSubscribe(BaseModel):
+    email: EmailStr
+    firstName: str
+    lastName: str
+    subscribed_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+
+class BlogPost(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    slug: str
+    excerpt: str
+    content: str
+    image: str
+    author: str
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class BlogPostCreate(BaseModel):
+    title: str
+    slug: str
+    excerpt: str
+    content: str
+    image: str
+    author: str
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
