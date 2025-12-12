@@ -3,17 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const products = [
     {
