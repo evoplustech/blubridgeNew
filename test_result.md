@@ -101,3 +101,77 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Test all backend API endpoints for BluBrg website: Newsletter Subscription, Contact Form, Blog Posts, and Blog Post by Slug"
+
+backend:
+  - task: "Newsletter Subscription API"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ All newsletter subscription tests passed: Valid subscription with email validation, duplicate prevention (returns 400 error), invalid email format rejection (422 error). Data persistence verified in MongoDB. API endpoint: POST /api/newsletter/subscribe"
+
+  - task: "Contact Form API"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ All contact form tests passed: Complete form submission with all fields, minimal form with required fields only, invalid email rejection (422 error). Data persistence verified in MongoDB. API endpoint: POST /api/contact"
+
+  - task: "Blog Posts List API"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ Blog posts list test passed: Successfully retrieved 3 blog posts with all required fields (title, slug, excerpt, content, image, author, created_at). Proper date formatting confirmed. API endpoint: GET /api/blog/posts"
+
+  - task: "Blog Post by Slug API"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ Blog post by slug tests passed: Successfully retrieved post with valid slug 'building-tomorrows-ai-data-centres', correctly returned 404 for invalid slug. All required fields present. API endpoint: GET /api/blog/posts/{slug}"
+
+frontend:
+  # No frontend testing performed as per instructions
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Newsletter Subscription API"
+    - "Contact Form API"
+    - "Blog Posts List API"
+    - "Blog Post by Slug API"
+  stuck_tasks: []
+  test_all: true
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "testing"
+    message: "Comprehensive backend API testing completed successfully. All 4 main API endpoints tested with 10 individual test cases. All tests passed with 100% success rate. Data persistence verified in MongoDB. Backend URL: https://blubrg-clone.preview.emergentagent.com/api. Created backend_test.py for future testing needs."
