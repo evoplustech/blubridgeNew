@@ -221,7 +221,7 @@ const Header = () => {
             <Link to="/docs" className="text-white/90 hover:text-white transition-colors">Docs</Link>
           </div>
 
-          {/* CTA Buttons */}
+          {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link 
               to="/contact" 
@@ -237,7 +237,143 @@ const Header = () => {
               <span>→</span>
             </Link>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu */}
+      <div className={`fixed top-[104px] right-0 bottom-0 w-80 bg-[#0F2847] z-50 lg:hidden transform transition-transform duration-300 overflow-y-auto ${
+        mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}>
+        <div className="p-6 space-y-6">
+          {/* Products */}
+          <div>
+            <button
+              onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'products' ? null : 'products')}
+              className="flex items-center justify-between w-full text-white text-lg font-medium"
+            >
+              <span>Products</span>
+              <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'products' ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileSubmenuOpen === 'products' && (
+              <div className="mt-4 space-y-4 pl-4">
+                {products.map((section, idx) => (
+                  <div key={idx}>
+                    <div className="text-white/80 font-semibold text-sm mb-2">{section.title}</div>
+                    {section.items.map((item, i) => (
+                      <Link
+                        key={i}
+                        to={item.link}
+                        className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Solutions */}
+          <div>
+            <button
+              onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions' ? null : 'solutions')}
+              className="flex items-center justify-between w-full text-white text-lg font-medium"
+            >
+              <span>Solutions</span>
+              <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions' ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileSubmenuOpen === 'solutions' && (
+              <div className="mt-4 space-y-4 pl-4">
+                <div>
+                  <div className="text-white/80 font-semibold text-sm mb-2">By Use Case</div>
+                  {solutions.useCase.map((item, i) => (
+                    <Link
+                      key={i}
+                      to={item.link}
+                      className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <div>
+                  <div className="text-white/80 font-semibold text-sm mb-2">By Industry</div>
+                  {solutions.industry.slice(0, 4).map((item, i) => (
+                    <Link
+                      key={i}
+                      to={item.link}
+                      className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Company */}
+          <div>
+            <button
+              onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'company' ? null : 'company')}
+              className="flex items-center justify-between w-full text-white text-lg font-medium"
+            >
+              <span>Company</span>
+              <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'company' ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileSubmenuOpen === 'company' && (
+              <div className="mt-4 space-y-2 pl-4">
+                {company.map((item, i) => (
+                  <Link
+                    key={i}
+                    to={item.link}
+                    className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Direct Links */}
+          <Link to="/contact" className="block text-white text-lg font-medium">Contact</Link>
+          <Link to="/docs" className="block text-white text-lg font-medium">Docs</Link>
+
+          {/* Mobile CTA Buttons */}
+          <div className="space-y-3 pt-4 border-t border-white/10">
+            <Link 
+              to="/contact" 
+              className="block w-full px-6 py-3 bg-white text-[#0A1F3D] rounded-md font-medium text-center"
+            >
+              Contact Sales
+            </Link>
+            <Link 
+              to="/login" 
+              className="block w-full px-6 py-3 border border-white text-white rounded-md font-medium text-center"
+            >
+              Login →
+            </Link>
+          </div>
+        </div>
       </div>
     </header>
   );
