@@ -59,20 +59,20 @@ const Header = () => {
 
   const solutions = {
     useCase: [
-      { name: 'Model Training', link: '/solutions /training' },
-      { name: 'AI & ML Inference', link: '/solutions /inference' },
-      { name: 'AI Development', link: '/solutions /ai-development' },
-      { name: 'Model Fine-Tuning', link: '/solutions /fine-tuning' }
+      { name: 'Model Training', link: '/solutions/training' },
+      { name: 'AI & ML Inference', link: '/solutions/inference' },
+      { name: 'AI Development', link: '/solutions/ai-development' },
+      { name: 'Model Fine-Tuning', link: '/solutions/fine-tuning' }
     ],
     industry: [
-      { name: 'Telco', link: '/solutions /industry/telco' },
-      { name: 'Software & Technology', link: '/solutions /industry/software-technology' },
-      { name: 'Finance & Insurance', link: '/solutions /industry/finance-insurance' },
-      { name: 'Manufacturing', link: '/solutions /industry/manufacturing' },
-      { name: 'Education', link: '/solutions /industry/education' },
-      { name: 'Government', link: '/solutions /industry/government' },
-      { name: 'Legal', link: '/solutions /industry/legal' },
-      { name: 'Healthcare', link: '/solutions /industry/healthcare' }
+      { name: 'Telco', link: '/solutions/industry/telco' },
+      { name: 'Software & Technology', link: '/solutions/industry/software-technology' },
+      { name: 'Finance & Insurance', link: '/solutions/industry/finance-insurance' },
+      { name: 'Manufacturing', link: '/solutions/industry/manufacturing' },
+      { name: 'Education', link: '/solutions/industry/education' },
+      { name: 'Government', link: '/solutions/industry/government' },
+      { name: 'Legal', link: '/solutions/industry/legal' },
+      { name: 'Healthcare', link: '/solutions/industry/healthcare' }
     ]
   };
 
@@ -115,7 +115,7 @@ const Header = () => {
               
               {activeDropdown === 'products' && (
                 <div className="absolute top-full pt-4 w-[800px]">
-                  <div className="bg-[#000] rounded-lg shadow-2xl p-8 grid grid-cols-3 gap-8" style={{ marginLeft: "-160px" }}>
+                  <div className="bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg shadow-2xl p-8 grid grid-cols-3 gap-8" style={{ marginLeft: "-160px" }}>
                     {products.map((section, idx) => (
                       <div key={idx}>
                         <h3 className="text-white font-semibold mb-2">{section.title}</h3>
@@ -217,7 +217,7 @@ const Header = () => {
               
               {activeDropdown === 'company' && (
                 <div className="absolute top-full left-0 pt-4 w-[250px]">
-                  <div className="bg-[#0F2847] rounded-lg shadow-2xl p-6">
+                  <div className="bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg shadow-2xl p-6">
                     <div className="space-y-2">
                       {company.map((item, i) => (
                         <Link
