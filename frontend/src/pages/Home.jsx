@@ -268,7 +268,7 @@ const Home = () => {
 
       {/* Testimonial Section */}
       <section className="py-24 bg-[#0A1F3D]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Testimonials</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <Card className="bg-white/5 border-white/10">
