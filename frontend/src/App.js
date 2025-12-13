@@ -19,6 +19,8 @@ import Training from './pages/products/Training';
 import Inference from './pages/products/Inference';
 import FineTuning from './pages/products/FineTuning';
 import Serverless from './pages/products/Serverless';
+import SovereignCloud from './pages/products/SovereignCloud';
+import Narvik from './pages/products/Narvik';
 
 function App() {
   return (
