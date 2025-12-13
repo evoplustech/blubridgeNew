@@ -30,7 +30,7 @@ const Header = () => {
     {
       title: 'AI Services',
       subtitle: 'Develop, train, tune, and deploy AI using our on demand services.',
-      link: '/products/ai-services',
+      link: '/products/serverless',
       items: [
         { name: 'Serverless Inference', link: '/products/serverless', desc: 'API endpoints for instant and scalable AI inference.' },
         { name: 'Fine-tuning', link: '/products/fine-tuning', desc: 'On-demand, serverless fine-tuning' }
@@ -39,20 +39,20 @@ const Header = () => {
     {
       title: 'AI Private Cloud',
       subtitle: 'Reserved large scale GPU clusters purpose-built for AI.',
-      link: '/products/private-cloud',
+      link: '/products/training',
       items: [
         { name: 'Training Clusters', link: '/products/training', desc: 'Easy to deploy GPU clusters with SLURM scheduler.' },
         { name: 'Inference Clusters', link: '/products/inference', desc: 'Autoscaling dedicated inference clusters.' },
-        { name: 'Bare Metal Clusters', link: '/products/gpu-nodes', desc: 'Scalable, high performance bare metal GPU clusters.' }
+        { name: 'GPU Nodes', link: '/products/gpu-nodes', desc: 'Scalable, high performance bare metal GPU clusters.' }
       ]
     },
     {
-      title: 'AI Factories',
-      subtitle: 'Data centres powering the future of innovation.',
-      link: '/products/ai-factories',
+      title: 'Infrastructure',
+      subtitle: 'Data centres and sovereign cloud solutions.',
+      link: '/products/sovereign-cloud',
       items: [
-        { name: 'Sovereign Cloud', link: '/products/sovereign-cloud', desc: 'Hyperscaler performance with sovereign governance.' },
-        { name: 'Narvik', link: '/products/gpu-infrastructure', desc: 'Stargate Norway, an Nscale–Aker joint venture DC in the arctic circle.' }
+        { name: 'Sovereign Cloud', link: '/products/sovereign-cloud', desc: 'Complete jurisdictional control for regulated workloads.' },
+        { name: 'Narvik Campus', link: '/products/narvik', desc: 'Arctic hyperscale infrastructure powered by renewables.' }
       ]
     }
   ];
