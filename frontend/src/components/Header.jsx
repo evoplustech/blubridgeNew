@@ -139,7 +139,7 @@ const Header = () => {
               )}
             </div>
 
-            {/* Solutions Dropdown - REBUILT TO MATCH NSCALE.COM EXACTLY */}
+            {/* Solutions Dropdown */}
             <div 
               className="relative"
               onMouseEnter={() => setActiveDropdown('solutions')}
@@ -151,54 +151,46 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[1010px]" 
-                  style={{ zIndex: 1000,  }}
+                <div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in slide-in-from-top-1 duration-200" 
+                  style={{ zIndex: 1000, width: '1180px' }}
                 >
                   <div 
-                    className="bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg " 
-                    style={{ padding: '15px', marginLeft:'200px' }}
+                    className="rounded-xl shadow-2xl overflow-hidden"
+                    style={{ 
+                      background: 'linear-gradient(135deg, #1a2744 0%, #0f1e3a 100%)',
+                      padding: '40px 48px'
+                    }}
                   >
-                    <div className="flex gap-[39px]">
-                      {/* By Use Case - Image Cards (2x2 Grid) */}
-                      <div style={{ width: '360px' }}>
-                        <h3 
-                          className="text-white font-semibold mb-[15px]" 
-                          style={{ fontSize: '16px', paddingLeft: '0px' }}
-                        >
-                          By Use Case
-                        </h3>
-                        <div className="grid grid-cols-2" style={{ gap: '15px 28px' }}>
+                    <div className="flex gap-16">
+                      <div style={{ flex: '0 0 580px' }}>
+                        <h3 className="text-white font-medium mb-6 text-base">By Use Case</h3>
+                        <div className="grid grid-cols-2 gap-4">
                           {solutions.useCase.map((item, i) => {
-                            const cardGradients = [
-                              'from-purple-900/60 via-indigo-900/50 to-purple-800/60',
-                              'from-slate-700/60 via-gray-800/50 to-slate-600/60',
-                              'from-amber-900/60 via-orange-900/50 to-amber-800/60',
-                              'from-emerald-900/60 via-teal-900/50 to-green-800/60'
+                            const gradients = [
+                              'linear-gradient(135deg, #6b46c1 0%, #4c1d95 100%)',
+                              'linear-gradient(135deg, #475569 0%, #1e293b 100%)',
+                              'linear-gradient(135deg, #d97706 0%, #92400e 100%)',
+                              'linear-gradient(135deg, #059669 0%, #064e3b 100%)'
                             ];
                             return (
                               <Link
                                 key={i}
                                 to={item.link}
-                                className="relative block overflow-hidden group"
+                                className="relative block overflow-hidden rounded-xl group cursor-pointer"
                                 style={{ 
-                                  width: '160px', 
-                                  height: '144px',
-                                  borderRadius: '5px'
+                                  width: '280px',
+                                  height: '180px',
+                                  background: gradients[i]
                                 }}
                               >
-                                <div className={`absolute inset-0 bg-gradient-to-br ${cardGradients[i]}`}>
-                                  <div className="absolute inset-0 opacity-30" style={{
-                                    backgroundImage: 'linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%), linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%)',
-                                    backgroundSize: '30px 30px',
-                                    backgroundPosition: '0 0, 15px 15px'
-                                  }}></div>
-                                </div>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-                                <div className="relative h-full flex items-start" style={{ padding: '15px' }}>
-                                  <span 
-                                    className="text-white font-semibold leading-tight group-hover:scale-[1.02] transition-transform duration-200" 
-                                    style={{ fontSize: '16px' }}
-                                  >
+                                <div className="absolute inset-0 opacity-20" style={{
+                                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
+                                  backgroundSize: '40px 40px'
+                                }}></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                <div className="relative h-full flex items-end p-5">
+                                  <span className="text-white font-medium text-base leading-snug group-hover:translate-y-[-2px] transition-transform duration-150">
                                     {item.name}
                                   </span>
                                 </div>
@@ -208,29 +200,19 @@ const Header = () => {
                         </div>
                       </div>
                       
-                      {/* By Industry - List Items */}
-                      <div style={{ width: '360px' }}>
-                        <h3 
-                          className="text-white font-semibold mb-[15px]" 
-                          style={{ fontSize: '16px', paddingLeft: '0px' }}
-                        >
-                          By Industry
-                        </h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                      <div style={{ flex: '1' }}>
+                        <h3 className="text-white font-medium mb-6 text-base">By Industry</h3>
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                           {solutions.industry.map((item, i) => (
                             <Link
                               key={i}
                               to={item.link}
-                              className="block text-white hover:bg-[#38487D] transition-colors duration-200"
+                              className="block text-white rounded-lg transition-all duration-150 cursor-pointer hover:brightness-125"
                               style={{ 
-                                backgroundColor: '#2D3864',
-                                borderRadius: '5px',
-                                padding: '10px 15px',
-                                fontSize: '16px',
-                                fontWeight: '400',
-                                height: '43px',
-                                display: 'flex',
-                                alignItems: 'center'
+                                background: '#2d3a54',
+                                padding: '12px 20px',
+                                fontSize: '15px',
+                                fontWeight: '400'
                               }}
                             >
                               {item.name}
