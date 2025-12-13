@@ -14,25 +14,42 @@ import About from './pages/About';
 import Documentation from './pages/Documentation';
 import Partners from './pages/Partners';
 
+// Product Pages
+import Training from './pages/products/Training';
+import Inference from './pages/products/Inference';
+import FineTuning from './pages/products/FineTuning';
+import Serverless from './pages/products/Serverless';
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <main className="pt-32" style={{
-    paddingTop: "7rem"
-  }}>
+        <main className="pt-32" style={{ paddingTop: "7rem" }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            
+            {/* Product Routes - Each unique */}
+            <Route path="/products/training" element={<Training />} />
+            <Route path="/products/inference" element={<Inference />} />
+            <Route path="/products/fine-tuning" element={<FineTuning />} />
+            <Route path="/products/serverless" element={<Serverless />} />
             <Route path="/products/*" element={<Products />} />
+            
+            {/* Solutions Routes */}
             <Route path="/solutions/*" element={<Solutions />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/company/blog" element={<Blog />} />
+            
+            {/* Company Routes */}
             <Route path="/company/about" element={<About />} />
+            <Route path="/company/blog" element={<Blog />} />
+            
+            {/* Other Routes */}
+            <Route path="/contact" element={<Contact />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/docs" element={<Documentation />} />
-            {/* Catch all other routes to Home */}
+            
+            {/* Catch all */}
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
