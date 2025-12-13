@@ -20,6 +20,7 @@ import Inference from './pages/products/Inference';
 import FineTuning from './pages/products/FineTuning';
 import Serverless from './pages/products/Serverless';
 import SovereignCloud from './pages/products/SovereignCloud';
+import Glomfjord from './pages/products/Glomfjord';
 import Narvik from './pages/products/Narvik';
 
 // Solution Pages - Cases
@@ -57,6 +58,7 @@ function App() {
             <Route path="/products/fine-tuning" element={<FineTuning />} />
             <Route path="/products/serverless" element={<Serverless />} />
             <Route path="/products/sovereign-cloud" element={<SovereignCloud />} />
+            <Route path="/products/glomfjord" element={<Glomfjord />} />
             <Route path="/products/narvik" element={<Narvik />} />
             <Route path="/products/*" element={<Products />} />
             
