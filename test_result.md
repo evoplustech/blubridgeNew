@@ -174,4 +174,4 @@ test_plan:
 
 agent_communication:
   - agent: "testing"
-    message: "Comprehensive backend API testing completed successfully. All 4 main API endpoints tested with 10 individual test cases. All tests passed with 100% success rate. Data persistence verified in MongoDB. Backend URL: https://blubrg-clone.preview.emergentagent.com/api. Created backend_test.py for future testing needs."
+    message: "Comprehensive backend API testing completed successfully. All 4 main API endpoints tested with 10 individual test cases. All tests passed with 100% success rate. Data persistence verified in MongoDB. Backend URL: https://aicompute.preview.emergentagent.com/api. Created backend_test.py for future testing needs."
