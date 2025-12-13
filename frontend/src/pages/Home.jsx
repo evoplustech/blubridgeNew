@@ -236,7 +236,7 @@ const Home = () => {
 
       {/* Use Cases Section */}
       <section className="py-24 bg-gradient-to-b from-[#0D2847] to-[#0A1F3D]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-6">
               Use cases
