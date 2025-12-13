@@ -28,6 +28,10 @@ import SolutionInference from './pages/solutions/Inference';
 import SolutionFineTuning from './pages/solutions/FineTuning';
 import AIDevelopment from './pages/solutions/AIDevelopment';
 
+// Company Pages
+import MediaKit from './pages/MediaKit';
+import Careers from './pages/Careers';
+
 // Solution Pages - Industry
 import Telco from './pages/solutions/industry/Telco';
 import SoftwareTechnology from './pages/solutions/industry/SoftwareTechnology';
