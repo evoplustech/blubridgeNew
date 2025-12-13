@@ -54,9 +54,9 @@ const FineTuning = () => {
               { step: '04', title: 'Deploy', desc: 'Instantly deploy to production inference endpoints' }
             ].map((item, i) => (
               <div key={i} className="relative">
-                {i < 3 && (
+                {/* {i < 3 && (
                   <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-[#0066FF]/30" />
-                )}
+                )} */}
                 <Card className="bg-white/5 border-white/10 relative z-10">
                   <CardContent className="p-6">
                     <div className="text-5xl font-bold text-[#0066FF]/30 mb-3">{item.step}</div>

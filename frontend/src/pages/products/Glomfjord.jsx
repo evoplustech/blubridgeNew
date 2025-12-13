@@ -58,11 +58,11 @@ const Glomfjord = () => {
                 </p>
               </div>
 
-              <div className="relative aspect-video rounded-2xl overflow-hidden mb-8">
+              {/* <div className="relative aspect-video rounded-2xl overflow-hidden mb-8">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/20 to-[#0D2847]/20 flex items-center justify-center">
                   <div className="text-white/40 text-xl">Video Content Placeholder</div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ const Glomfjord = () => {
 
       <section className="py-32 bg-[#0B1F35]">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-col items-center">
             <div>
               <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">Sustainable Energy Infrastructure</h2>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
@@ -142,13 +142,13 @@ const Glomfjord = () => {
                 Our facility operates exclusively on this renewable energy supply, guaranteeing that we deliver sustainable and efficient AI computing power without compromising environmental responsibility.
               </p>
             </div>
-            <div className="relative">
+            {/* <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/20 to-[#0D2847]/20 flex items-center justify-center">
                   <div className="text-white/40 text-xl">Infrastructure Diagram</div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

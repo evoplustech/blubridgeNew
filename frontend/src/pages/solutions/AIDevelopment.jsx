@@ -85,7 +85,7 @@ const AIDevelopment = () => {
             ].map((stage, i) => (
               <div key={i} className="grid lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-2">
-                  <div className="text-8xl font-bold text-white/5">{stage.phase}</div>
+                  <div className="text-8xl font-bold text-white">{stage.phase}</div>
                 </div>
                 <div className="lg:col-span-10">
                   <Card className="bg-gradient-to-r from-white/5 to-transparent border-l-4 border-[#0066FF] hover:from-white/10 transition-all">

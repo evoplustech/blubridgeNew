@@ -154,11 +154,11 @@ const Careers = () => {
                   <div className="text-6xl font-bold text-white/10 mb-4">{phase.step}</div>
                   <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
                   <p className="text-white/60 leading-relaxed">{phase.desc}</p>
-                  {i < 3 && (
+                  {/* {i < 3 && (
                     <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-white/10">
                       <ArrowRight className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" />
                     </div>
-                  )}
+                  )} */}
                 </div>
               ))}
             </div>
