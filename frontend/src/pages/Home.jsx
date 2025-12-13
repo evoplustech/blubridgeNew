@@ -96,8 +96,8 @@ const Home = () => {
           <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#0052CC] rounded-full filter blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="container-custom relative z-10">
+          <div className="max-w-5xl mx-auto text-center">
             {/* Centered content */}
             <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               The hyperscaler engineered for AI
