@@ -151,8 +151,8 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 pt-4 w-[800px]" style={{ zIndex: 1000, marginLeft: "-160px" }}>
-                  <div className="bg-gradient-to-br from-[#0A1F3D] to-[#0D2847] rounded-2xl shadow-2xl border border-white/10 p-8">
+                <div className="absolute top-full left-0 pt-4 w-[970px]" style={{ zIndex: 1000, marginLeft: "-280px" }}>
+                  <div className="bg-gradient-to-br from-[#000] to-[#0D2847] rounded-2xl shadow-2xl p-8">
                     <div className="grid grid-cols-2 gap-8">
                       {/* Left Column - By Use Case */}
                       <div>
