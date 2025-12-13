@@ -36,6 +36,8 @@ function App() {
             <Route path="/products/inference" element={<Inference />} />
             <Route path="/products/fine-tuning" element={<FineTuning />} />
             <Route path="/products/serverless" element={<Serverless />} />
+            <Route path="/products/sovereign-cloud" element={<SovereignCloud />} />
+            <Route path="/products/narvik" element={<Narvik />} />
             <Route path="/products/*" element={<Products />} />
             
             {/* Solutions Routes */}
