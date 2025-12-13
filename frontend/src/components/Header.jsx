@@ -277,31 +277,16 @@ const Header = () => {
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions' ? 'rotate-180' : ''}`} />
             </button>
             {mobileSubmenuOpen === 'solutions' && (
-              <div className="mt-4 space-y-4 pl-4">
-                <div>
-                  <div className="text-white/80 font-semibold text-sm mb-2">By Use Case</div>
-                  {solutions.useCase.map((item, i) => (
-                    <Link
-                      key={i}
-                      to={item.link}
-                      className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-                <div>
-                  <div className="text-white/80 font-semibold text-sm mb-2">By Industry</div>
-                  {solutions.industry.slice(0, 4).map((item, i) => (
-                    <Link
-                      key={i}
-                      to={item.link}
-                      className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
+              <div className="mt-4 space-y-2 pl-4">
+                {solutions.map((item, i) => (
+                  <Link
+                    key={i}
+                    to={item.link}
+                    className="block text-white/70 hover:text-[#0066FF] py-2 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
