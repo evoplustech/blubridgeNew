@@ -139,7 +139,7 @@ const Header = () => {
               )}
             </div>
 
-            {/* Solutions Dropdown */}
+            {/* Solutions Dropdown - REBUILT TO MATCH NSCALE.COM EXACTLY */}
             <div 
               className="relative"
               onMouseEnter={() => setActiveDropdown('solutions')}
@@ -151,41 +151,88 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 pt-4 w-[920px]" style={{ zIndex: 1000 }}>
-                  <div className="bg-gradient-to-br from-[#0a1929] to-[#0d1f32] rounded-2xl shadow-2xl border border-white/10 p-10">
-                    <div className="grid grid-cols-[1.2fr,1fr] gap-10">
-                      {/* By Use Case - Image Cards */}
-                      <div>
-                        <h3 className="text-white font-bold mb-6 text-sm tracking-wide">By Use Case</h3>
-                        <div className="grid grid-cols-2 gap-4">
-                          {solutions.useCase.map((item, i) => (
-                            <Link
-                              key={i}
-                              to={item.link}
-                              className="relative block rounded-xl overflow-hidden group aspect-[4/3] shadow-lg hover:shadow-xl transition-all duration-300"
-                            >
-                              <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-blue-900/40">
-                                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-40"></div>
-                              </div>
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                              <div className="relative h-full flex items-start p-4">
-                                <span className="text-white font-bold text-base leading-tight group-hover:scale-105 transition-transform duration-300">{item.name}</span>
-                              </div>
-                              <div className="absolute inset-0 border border-white/10 rounded-xl group-hover:border-blue-400/40 transition-colors duration-300"></div>
-                            </Link>
-                          ))}
+                <div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4" 
+                  style={{ zIndex: 1000, width: '759px' }}
+                >
+                  <div 
+                    className="rounded-[5px]" 
+                    style={{ backgroundColor: '#19234B', padding: '15px' }}
+                  >
+                    <div className="flex gap-[39px]">
+                      {/* By Use Case - Image Cards (2x2 Grid) */}
+                      <div style={{ width: '360px' }}>
+                        <h3 
+                          className="text-white font-semibold mb-[15px]" 
+                          style={{ fontSize: '16px', paddingLeft: '0px' }}
+                        >
+                          By Use Case
+                        </h3>
+                        <div className="grid grid-cols-2" style={{ gap: '15px 28px' }}>
+                          {solutions.useCase.map((item, i) => {
+                            const cardGradients = [
+                              'from-purple-900/60 via-indigo-900/50 to-purple-800/60',
+                              'from-slate-700/60 via-gray-800/50 to-slate-600/60',
+                              'from-amber-900/60 via-orange-900/50 to-amber-800/60',
+                              'from-emerald-900/60 via-teal-900/50 to-green-800/60'
+                            ];
+                            return (
+                              <Link
+                                key={i}
+                                to={item.link}
+                                className="relative block overflow-hidden group"
+                                style={{ 
+                                  width: '160px', 
+                                  height: '144px',
+                                  borderRadius: '5px'
+                                }}
+                              >
+                                <div className={`absolute inset-0 bg-gradient-to-br ${cardGradients[i]}`}>
+                                  <div className="absolute inset-0 opacity-30" style={{
+                                    backgroundImage: 'linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%), linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%)',
+                                    backgroundSize: '30px 30px',
+                                    backgroundPosition: '0 0, 15px 15px'
+                                  }}></div>
+                                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+                                <div className="relative h-full flex items-start" style={{ padding: '15px' }}>
+                                  <span 
+                                    className="text-white font-semibold leading-tight group-hover:scale-[1.02] transition-transform duration-200" 
+                                    style={{ fontSize: '16px' }}
+                                  >
+                                    {item.name}
+                                  </span>
+                                </div>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                       
-                      {/* By Industry - Text Buttons */}
-                      <div>
-                        <h3 className="text-white font-bold mb-6 text-sm tracking-wide">By Industry</h3>
-                        <div className="space-y-2">
+                      {/* By Industry - List Items */}
+                      <div style={{ width: '360px' }}>
+                        <h3 
+                          className="text-white font-semibold mb-[15px]" 
+                          style={{ fontSize: '16px', paddingLeft: '0px' }}
+                        >
+                          By Industry
+                        </h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                           {solutions.industry.map((item, i) => (
                             <Link
                               key={i}
                               to={item.link}
-                              className="block px-5 py-3 bg-white/5 hover:bg-white/10 rounded-lg text-white/90 hover:text-white text-[15px] font-medium transition-all duration-200 border border-transparent hover:border-white/10"
+                              className="block text-white hover:bg-[#38487D] transition-colors duration-200"
+                              style={{ 
+                                backgroundColor: '#2D3864',
+                                borderRadius: '5px',
+                                padding: '10px 15px',
+                                fontSize: '16px',
+                                fontWeight: '400',
+                                height: '43px',
+                                display: 'flex',
+                                alignItems: 'center'
+                              }}
                             >
                               {item.name}
                             </Link>
