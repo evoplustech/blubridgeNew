@@ -30,6 +30,7 @@ import SolutionFineTuning from './pages/solutions/FineTuning';
 import AIDevelopment from './pages/solutions/AIDevelopment';
 
 // Company Pages
+import AboutUs from './pages/AboutUs';
 import MediaKit from './pages/MediaKit';
 import Careers from './pages/Careers';
 
@@ -82,6 +83,7 @@ function App() {
             <Route path="/solutions/*" element={<Solutions />} />
             
             {/* Company Routes */}
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/media-kit" element={<MediaKit />} />
             <Route path="/careers" element={<Careers />} />
             
