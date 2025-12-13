@@ -53,7 +53,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0A1F3D] text-white">
-      <div className="container mx-auto px-6 py-16">
+      <div className="container-custom py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Product Links */}
           <div>
