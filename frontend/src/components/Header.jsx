@@ -152,18 +152,18 @@ const Header = () => {
               
               {activeDropdown === 'solutions' && (
                 <div 
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in slide-in-from-top-1 duration-200" 
-                  style={{ zIndex: 1000, width: '1180px' }}
+                  className="absolute top-full -translate-x-1/2 pt-4 " 
+                  style={{ zIndex: 1000, width: '950px', marginLeft: '200px' }}
                 >
                   <div 
-                    className="rounded-xl shadow-2xl overflow-hidden"
+                    className="shadow-2xl overflow-hidden bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg "
                     style={{ 
-                      background: 'linear-gradient(135deg, #1a2744 0%, #0f1e3a 100%)',
-                      padding: '40px 48px'
+                      
+                      padding: '20px 28px 30px 28px'
                     }}
                   >
-                    <div className="flex gap-16">
-                      <div style={{ flex: '0 0 580px' }}>
+                    <div className="flex gap-10">
+                      <div style={{ flex: '0 0 430px' }}>
                         <h3 className="text-white font-medium mb-6 text-base">By Use Case</h3>
                         <div className="grid grid-cols-2 gap-4">
                           {solutions.useCase.map((item, i) => {
@@ -179,8 +179,8 @@ const Header = () => {
                                 to={item.link}
                                 className="relative block overflow-hidden rounded-xl group cursor-pointer"
                                 style={{ 
-                                  width: '280px',
-                                  height: '180px',
+                                  width: '205px',
+                                  height: '103px',
                                   background: gradients[i]
                                 }}
                               >
