@@ -22,6 +22,22 @@ import Serverless from './pages/products/Serverless';
 import SovereignCloud from './pages/products/SovereignCloud';
 import Narvik from './pages/products/Narvik';
 
+// Solution Pages - Cases
+import SolutionTraining from './pages/solutions/Training';
+import SolutionInference from './pages/solutions/Inference';
+import SolutionFineTuning from './pages/solutions/FineTuning';
+import AIDevelopment from './pages/solutions/AIDevelopment';
+
+// Solution Pages - Industry
+import Telco from './pages/solutions/industry/Telco';
+import SoftwareTechnology from './pages/solutions/industry/SoftwareTechnology';
+import FinanceInsurance from './pages/solutions/industry/FinanceInsurance';
+import Manufacturing from './pages/solutions/industry/Manufacturing';
+import Education from './pages/solutions/industry/Education';
+import Government from './pages/solutions/industry/Government';
+import Legal from './pages/solutions/industry/Legal';
+import Healthcare from './pages/solutions/industry/Healthcare';
+
 function App() {
   return (
     <div className="App">
@@ -40,7 +56,23 @@ function App() {
             <Route path="/products/narvik" element={<Narvik />} />
             <Route path="/products/*" element={<Products />} />
             
-            {/* Solutions Routes */}
+            {/* Solution Routes - Cases */}
+            <Route path="/solutions/training" element={<SolutionTraining />} />
+            <Route path="/solutions/inference" element={<SolutionInference />} />
+            <Route path="/solutions/fine-tuning" element={<SolutionFineTuning />} />
+            <Route path="/solutions/ai-development" element={<AIDevelopment />} />
+            
+            {/* Solution Routes - Industry */}
+            <Route path="/solutions/industry/telco" element={<Telco />} />
+            <Route path="/solutions/industry/software-technology" element={<SoftwareTechnology />} />
+            <Route path="/solutions/industry/finance-insurance" element={<FinanceInsurance />} />
+            <Route path="/solutions/industry/manufacturing" element={<Manufacturing />} />
+            <Route path="/solutions/industry/education" element={<Education />} />
+            <Route path="/solutions/industry/government" element={<Government />} />
+            <Route path="/solutions/industry/legal" element={<Legal />} />
+            <Route path="/solutions/industry/healthcare" element={<Healthcare />} />
+            
+            {/* Solutions Fallback */}
             <Route path="/solutions/*" element={<Solutions />} />
             
             {/* Company Routes */}
