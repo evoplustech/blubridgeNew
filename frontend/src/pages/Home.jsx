@@ -297,7 +297,7 @@ const Home = () => {
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full filter blur-[100px]" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full filter blur-[100px]" />
         </div>
-        <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="container-custom text-center relative z-10">
           <h2 className="text-5xl font-bold text-white mb-6">
             Access thousands of GPUs tailored to your requirements
           </h2>
