@@ -182,8 +182,8 @@ const Home = () => {
                   <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
                   <p className="text-white/70 mb-4">{service.description}</p>
                   <Link to={service.link} className="text-[#0066FF] hover:text-[#0052CC] flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
-                    <span>Learn more</span>
-                    <ArrowRight className="w-4 h-4" />
+                    {/* <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4" /> */}
                   </Link>
                 </CardContent>
               </Card>
@@ -224,8 +224,8 @@ const Home = () => {
                     ))}
                   </div>
                   <Link to={feature.link} className="text-[#0066FF] hover:text-[#0052CC] flex items-center space-x-2">
-                    <span>See More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    {/* <span>See More</span>
+                    <ArrowRight className="w-4 h-4" /> */}
                   </Link>
                 </CardContent>
               </Card>
@@ -248,7 +248,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {useCases.map((useCase, idx) => (
-              <Link key={idx} to={useCase.link}>
+              // <Link key={idx} to={useCase.link}>
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:scale-105 transition-transform duration-300">
                   <div className="h-48 overflow-hidden">
                     <img src={useCase.image} alt={useCase.title} className="w-full h-full object-cover" />
@@ -260,14 +260,14 @@ const Home = () => {
                     ))}
                   </CardContent>
                 </Card>
-              </Link>
+              // </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-24 bg-[#0A1F3D]">
+      {/* <section className="py-24 bg-[#0A1F3D]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Testimonials</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -289,7 +289,7 @@ const Home = () => {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC] relative overflow-hidden">

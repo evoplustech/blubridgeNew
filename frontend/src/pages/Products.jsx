@@ -105,10 +105,10 @@ const Products = () => {
                       </div>
                     ))}
                   </div>
-                  <Link to={product.link} className="text-[#0066FF] hover:text-[#0052CC] flex items-center space-x-2">
+                  {/* <Link to={product.link} className="text-[#0066FF] hover:text-[#0052CC] flex items-center space-x-2">
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </Link> */}
                 </CardContent>
               </Card>
             ))}
