@@ -332,8 +332,9 @@ const Header = () => {
                       className="block text-white/70 hover:text-[#0066FF] py-2 text-sm"
                     >
                       {item.name}
-                  </Link>
-                ))}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
