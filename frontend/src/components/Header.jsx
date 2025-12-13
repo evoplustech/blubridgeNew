@@ -252,15 +252,16 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 lg:hidden"
+          style={{ zIndex: 45, top: '104px' }}
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Menu */}
-      <div className={`fixed top-[104px] right-0 bottom-0 w-80 bg-[#0F2847] z-50 lg:hidden transform transition-transform duration-300 overflow-y-auto ${
+      <div className={`fixed top-[104px] right-0 bottom-0 w-80 bg-[#0F2847] lg:hidden transform transition-transform duration-300 overflow-y-auto ${
         mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
+      }`} style={{ zIndex: 50 }}>
         <div className="p-6 space-y-6">
           {/* Products */}
           <div>
