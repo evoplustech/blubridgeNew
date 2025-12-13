@@ -6,28 +6,28 @@ import { Button } from '../components/ui/button';
 const About = () => {
   const values = [
     {
-      title: 'Innovation',
-      description: 'Pushing the boundaries of AI infrastructure with cutting-edge technology.'
+      title: 'Performance First',
+      description: 'Engineering every layer of our infrastructure for maximum GPU utilization and minimum latency in AI workloads.'
     },
     {
-      title: 'Sustainability',
-      description: 'Building environmentally responsible data centres powered by 100% renewable energy.'
+      title: 'Sustainable Computing',
+      description: 'Operating energy-efficient data centers with renewable power sources and advanced liquid cooling technology.'
     },
     {
-      title: 'Sovereignty',
-      description: 'Providing secure, compliant infrastructure with data sovereignty guarantees.'
+      title: 'Open Ecosystem',
+      description: 'Supporting open standards, open-source frameworks, and seamless integration with existing AI toolchains.'
     },
     {
-      title: 'Performance',
-      description: 'Delivering the highest performance AI compute available in the market.'
+      title: 'Customer Success',
+      description: 'Empowering research teams and enterprises with responsive support and expert guidance for AI deployment.'
     }
   ];
 
   const team = [
-    { name: 'Sarah Chen', role: 'CEO & Co-Founder', image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1' },
-    { name: 'Michael Rodriguez', role: 'CTO & Co-Founder', image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b' },
-    { name: 'Emily Watson', role: 'Chief Infrastructure Officer', image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg' },
-    { name: 'David Kumar', role: 'VP of Engineering', image: 'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg' }
+    { name: 'Dr. Alexandra Kim', role: 'Chief Executive Officer', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2' },
+    { name: 'Marcus Thompson', role: 'Chief Technology Officer', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d' },
+    { name: 'Priya Sharma', role: 'VP of Engineering', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956' },
+    { name: 'James O\'Connor', role: 'Head of Infrastructure', image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef' }
   ];
 
   return (
