@@ -97,10 +97,10 @@ const Home = () => {
         </div>
 
         <div className="container-custom relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             {/* Centered content */}
             <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              The hyperscaler engineered for AI
+              The hyperscaler Engineered for AI
             </h1>
             <p className="text-xl text-white/80 mb-8">
               A full-stack, scalable, and sustainable AI cloud platform.
