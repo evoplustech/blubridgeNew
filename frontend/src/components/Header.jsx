@@ -57,24 +57,12 @@ const Header = () => {
     }
   ];
 
-  const solutions = {
-    useCase: [
-      { name: 'Model Training', link: '/solutions/training' },
-      { name: 'AI & ML Inference', link: '/solutions/inference' },
-      { name: 'AI Development', link: '/solutions/ai-development' },
-      { name: 'Model Fine-Tuning', link: '/solutions/fine-tuning' }
-    ],
-    industry: [
-      { name: 'Telco', link: '/solutions/industry/telco' },
-      { name: 'Software & Technology', link: '/solutions/industry/software-technology' },
-      { name: 'Finance & Insurance', link: '/solutions/industry/finance-insurance' },
-      { name: 'Manufacturing', link: '/solutions/industry/manufacturing' },
-      { name: 'Education', link: '/solutions/industry/education' },
-      { name: 'Government', link: '/solutions/industry/government' },
-      { name: 'Legal', link: '/solutions/industry/legal' },
-      { name: 'Healthcare', link: '/solutions/industry/healthcare' }
-    ]
-  };
+  const solutions = [
+    { name: 'Training', link: '/solutions/training' },
+    { name: 'Inference', link: '/solutions/inference' },
+    { name: 'Fine-Tuning', link: '/solutions/fine-tuning' },
+    { name: 'AI Development', link: '/solutions/ai-development' }
+  ];
 
   const company = [
     { name: 'About Us', link: '/company/about' },
