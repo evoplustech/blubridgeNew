@@ -52,7 +52,7 @@ const Header = () => {
       link: '/products/ai-factories',
       items: [
         { name: 'Sovereign Cloud', link: '/products/sovereign-cloud', desc: 'Hyperscaler performance with sovereign governance.' },
-        { name: 'GPU Infrastructure', link: '/products/gpu-infrastructure', desc: 'Purpose-built infrastructure for AI workloads.' }
+        { name: 'Narvik', link: '/products/gpu-infrastructure', desc: 'Stargate Norway, an Nscale–Aker joint venture DC in the arctic circle.' }
       ]
     }
   ];
