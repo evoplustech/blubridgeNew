@@ -151,34 +151,41 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 pt-4 w-[700px]" style={{ zIndex: 1000 }}>
-                  <div className="bg-gradient-to-br from-[#0A1F3D] to-[#0D2847] rounded-2xl shadow-2xl border border-white/10 p-8">
-                    <div className="grid grid-cols-2 gap-8">
-                      {/* Cases Column */}
+                <div className="absolute top-full left-0 pt-4 w-[920px]" style={{ zIndex: 1000 }}>
+                  <div className="bg-gradient-to-br from-[#0a1929] to-[#0d1f32] rounded-2xl shadow-2xl border border-white/10 p-10">
+                    <div className="grid grid-cols-[1.2fr,1fr] gap-10">
+                      {/* By Use Case - Image Cards */}
                       <div>
-                        <h3 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Cases</h3>
-                        <div className="space-y-3">
+                        <h3 className="text-white font-bold mb-6 text-sm tracking-wide">By Use Case</h3>
+                        <div className="grid grid-cols-2 gap-4">
                           {solutions.useCase.map((item, i) => (
                             <Link
                               key={i}
                               to={item.link}
-                              className="block px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#0066FF]/50 rounded-lg text-white/80 hover:text-white transition-all duration-200"
+                              className="relative block rounded-xl overflow-hidden group aspect-[4/3] shadow-lg hover:shadow-xl transition-all duration-300"
                             >
-                              {item.name}
+                              <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-blue-900/40">
+                                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-40"></div>
+                              </div>
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                              <div className="relative h-full flex items-start p-4">
+                                <span className="text-white font-bold text-base leading-tight group-hover:scale-105 transition-transform duration-300">{item.name}</span>
+                              </div>
+                              <div className="absolute inset-0 border border-white/10 rounded-xl group-hover:border-blue-400/40 transition-colors duration-300"></div>
                             </Link>
                           ))}
                         </div>
                       </div>
                       
-                      {/* Industry Column */}
+                      {/* By Industry - Text Buttons */}
                       <div>
-                        <h3 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Industry</h3>
-                        <div className="space-y-3">
+                        <h3 className="text-white font-bold mb-6 text-sm tracking-wide">By Industry</h3>
+                        <div className="space-y-2">
                           {solutions.industry.map((item, i) => (
                             <Link
                               key={i}
                               to={item.link}
-                              className="block px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#0066FF]/50 rounded-lg text-white/80 hover:text-white transition-all duration-200"
+                              className="block px-5 py-3 bg-white/5 hover:bg-white/10 rounded-lg text-white/90 hover:text-white text-[15px] font-medium transition-all duration-200 border border-transparent hover:border-white/10"
                             >
                               {item.name}
                             </Link>
