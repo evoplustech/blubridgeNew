@@ -251,23 +251,22 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 bg-black/50 lg:hidden transition-opacity duration-300 ${
-          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-        style={{ zIndex: 110, top: '104px' }}
-        onClick={() => setMobileMenuOpen(false)}
-      />
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 lg:hidden"
+          style={{ zIndex: 110, top: '104px' }}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Panel */}
       <div 
-        className={`fixed right-0 bottom-0 w-80 max-w-[85vw] bg-[#0F2847] lg:hidden transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-[#0F2847] lg:hidden shadow-2xl transition-transform duration-300 ease-in-out overflow-y-auto ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`} 
-        style={{ zIndex: 120, top: '104px' }}
-        onClick={(e) => e.stopPropagation()}
+        style={{ zIndex: 120 }}
       >
-        <div className="p-6 space-y-6" onClick={(e) => e.stopPropagation()}>
+        <div className="p-6 space-y-6">
           {/* Products */}
           <div>
             <button
