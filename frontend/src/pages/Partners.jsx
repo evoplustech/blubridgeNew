@@ -45,7 +45,7 @@ const Partners = () => {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
         </div>
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-6xl font-bold text-white mb-6">
               Our Partners
@@ -59,7 +59,7 @@ const Partners = () => {
 
       {/* Partner Logos */}
       <section className="py-24 bg-[#0D2847]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <div className="grid grid-cols-3 md:grid-cols-5 gap-8">
             {partnerLogos.map((partner, idx) => (
               <Card key={idx} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300">
@@ -74,7 +74,7 @@ const Partners = () => {
 
       {/* Partner Types */}
       <section className="py-24 bg-[#0A1F3D]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Partnership Ecosystem</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {partnerTypes.map((type, idx) => (
@@ -99,7 +99,7 @@ const Partners = () => {
 
       {/* Become a Partner */}
       <section className="py-24 bg-[#0D2847]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6 text-center">Become a Partner</h2>
             <p className="text-xl text-white/80 text-center mb-12">
@@ -131,7 +131,7 @@ const Partners = () => {
 
       {/* CTA */}
       <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC]">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-5xl font-bold text-white mb-6">
             Let's build together
           </h2>

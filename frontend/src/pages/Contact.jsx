@@ -66,7 +66,7 @@ const Contact = () => {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
         </div>
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-6xl font-bold text-white mb-6">
               Get in touch
@@ -80,7 +80,7 @@ const Contact = () => {
 
       {/* Contact Form */}
       <section className="py-24 bg-[#0D2847]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-12">

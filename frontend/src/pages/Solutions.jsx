@@ -53,7 +53,7 @@ const Solutions = () => {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
         </div>
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-6xl font-bold text-white mb-6">
               AI solutions for every use case
@@ -67,7 +67,7 @@ const Solutions = () => {
 
       {/* Use Cases */}
       <section className="py-24 bg-[#0D2847]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">By Use Case</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {useCases.map((useCase, idx) => (
@@ -96,7 +96,7 @@ const Solutions = () => {
 
       {/* Industries */}
       <section className="py-24 bg-[#0A1F3D]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">By Industry</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((industry, idx) => (
@@ -114,7 +114,7 @@ const Solutions = () => {
 
       {/* CTA */}
       <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC]">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-5xl font-bold text-white mb-6">
             Let's build your AI solution
           </h2>
