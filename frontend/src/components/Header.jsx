@@ -249,23 +249,24 @@ const Header = () => {
           </button>
         </nav>
       </div>
+    </header>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/60 lg:hidden"
-          style={{ zIndex: 110, top: '104px' }}
-          onClick={() => setMobileMenuOpen(false)}
-        />
-      )}
-
-      {/* Mobile Menu Panel */}
+    {/* Mobile Menu Overlay - Rendered outside header for proper z-index */}
+    {mobileMenuOpen && (
       <div 
-        className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-[#0F2847] lg:hidden shadow-2xl transition-transform duration-300 ease-in-out overflow-y-auto ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`} 
-        style={{ zIndex: 120 }}
-      >
+        className="fixed inset-0 bg-black/60 lg:hidden"
+        style={{ zIndex: 1100, top: '104px' }}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+    )}
+
+    {/* Mobile Menu Panel - Rendered outside header for proper z-index */}
+    <div 
+      className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-[#0F2847] lg:hidden shadow-2xl transition-transform duration-300 ease-in-out overflow-y-auto ${
+        mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`} 
+      style={{ zIndex: 1200 }}
+    >
         <div className="p-6 space-y-6">
           {/* Products */}
           <div>
