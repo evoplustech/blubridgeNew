@@ -151,19 +151,40 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 pt-4 w-[500px]" style={{ zIndex: 1000 }}>
+                <div className="absolute top-full left-0 pt-4 w-[700px]" style={{ zIndex: 1000 }}>
                   <div className="bg-gradient-to-br from-[#0A1F3D] to-[#0D2847] rounded-2xl shadow-2xl border border-white/10 p-8">
-                    <h3 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Cases</h3>
-                    <div className="space-y-3">
-                      {solutions.map((item, i) => (
-                        <Link
-                          key={i}
-                          to={item.link}
-                          className="block px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#0066FF]/50 rounded-lg text-white/80 hover:text-white transition-all duration-200"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                    <div className="grid grid-cols-2 gap-8">
+                      {/* Cases Column */}
+                      <div>
+                        <h3 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Cases</h3>
+                        <div className="space-y-3">
+                          {solutions.useCase.map((item, i) => (
+                            <Link
+                              key={i}
+                              to={item.link}
+                              className="block px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#0066FF]/50 rounded-lg text-white/80 hover:text-white transition-all duration-200"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* Industry Column */}
+                      <div>
+                        <h3 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Industry</h3>
+                        <div className="space-y-3">
+                          {solutions.industry.map((item, i) => (
+                            <Link
+                              key={i}
+                              to={item.link}
+                              className="block px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#0066FF]/50 rounded-lg text-white/80 hover:text-white transition-all duration-200"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
