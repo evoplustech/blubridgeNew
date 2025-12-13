@@ -10,7 +10,6 @@ import Solutions from './pages/Solutions';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Pricing from './pages/Pricing';
-import About from './pages/About';
 import Documentation from './pages/Documentation';
 import Partners from './pages/Partners';
 
