@@ -123,20 +123,31 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Technology */}
       <section className="py-24 bg-[#0A1F3D]">
         <div className="container-custom">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Technology Leadership</h2>
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { value: '200,000+', label: 'GPU Capacity' },
-              { value: '100%', label: 'Renewable Energy' },
-              { value: '15+', label: 'Data Centers' },
-              { value: '50+', label: 'Enterprise Clients' }
-            ].map((stat, idx) => (
-              <div key={idx}>
-                <div className="text-5xl font-bold text-[#0066FF] mb-2">{stat.value}</div>
-                <div className="text-white/70">{stat.label}</div>
-              </div>
+              {
+                title: 'Advanced Cooling',
+                description: 'Direct-to-chip liquid cooling enables 3X higher GPU density while reducing energy consumption by 40% compared to air-cooled systems.'
+              },
+              {
+                title: 'High-Speed Fabric',
+                description: 'Custom-designed GPU interconnects with RDMA support deliver 400 Gbps bandwidth for efficient distributed training at massive scale.'
+              },
+              {
+                title: 'Smart Orchestration',
+                description: 'AI-driven workload scheduling maximizes GPU utilization, automatically optimizing for training speed, cost, or energy efficiency.'
+              }
+            ].map((tech, i) => (
+              <Card key={i} className="bg-white/5 border-white/10">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-bold text-white mb-3">{tech.title}</h3>
+                  <p className="text-white/70">{tech.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
