@@ -33,30 +33,55 @@ const About = () => {
   return (
     <div className="min-h-screen bg-[#0A1F3D]">
       {/* Hero */}
-      <section className="py-24 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D] relative overflow-hidden">
+      <section className="py-32 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
         </div>
         <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-6xl font-bold text-white mb-6">
-              Building the future of AI infrastructure
+          <div className="max-w-4xl">
+            <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
+              Powering the next generation of artificial intelligence
             </h1>
-            <p className="text-xl text-white/80">
-              BluBrg is revolutionizing AI computing with sustainable, sovereign, and high-performance infrastructure.
+            <p className="text-xl text-white/80 max-w-3xl">
+              BluBrg builds hyperscale AI infrastructure that enables researchers and enterprises to train, fine-tune, and deploy breakthrough models with unprecedented speed and efficiency.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
+      {/* Story */}
       <section className="py-24 bg-[#0D2847]">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Our Mission</h2>
-            <p className="text-xl text-white/80 leading-relaxed">
-              To democratize access to world-class AI infrastructure while maintaining environmental responsibility and data sovereignty. We believe that the future of AI should be sustainable, secure, and accessible to organizations of all sizes.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-white mb-6">Our Story</h2>
+              <div className="space-y-4 text-white/70 text-lg">
+                <p>
+                  Founded in 2023 by AI researchers and infrastructure engineers, BluBrg emerged from a simple observation: the compute demands of modern AI far exceed what traditional cloud providers can efficiently deliver.
+                </p>
+                <p>
+                  We set out to build purpose-designed infrastructure from the ground up—optimizing every layer from data center cooling to GPU interconnects specifically for AI training and inference workloads.
+                </p>
+                <p>
+                  Today, BluBrg powers breakthrough AI research at leading institutions and enables enterprises to deploy production AI systems at scale. Our platform processes billions of AI requests daily across text, vision, audio, and multimodal applications.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { value: '50,000+', label: 'GPUs Deployed' },
+                { value: '15', label: 'Data Centers' },
+                { value: '100%', label: 'Renewable Energy' },
+                { value: '200+', label: 'Enterprise Customers' }
+              ].map((stat, i) => (
+                <Card key={i} className="bg-white/5 border-white/10">
+                  <CardContent className="p-6 text-center">
+                    <div className="text-4xl font-bold text-[#0066FF] mb-2">{stat.value}</div>
+                    <div className="text-white/70 text-sm">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
