@@ -114,8 +114,8 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'products' && (
-                <div className="absolute top-full left-0 pt-4 w-[800px]">
-                  <div className="bg-[#0F2847] rounded-lg shadow-2xl p-8 grid grid-cols-3 gap-8">
+                <div className="absolute top-full pt-4 w-[800px]">
+                  <div className="bg-[#000] rounded-lg shadow-2xl p-8 grid grid-cols-3 gap-8" style={{ marginLeft: "-160px" }}>
                     {products.map((section, idx) => (
                       <div key={idx}>
                         <h3 className="text-white font-semibold mb-2">{section.title}</h3>
@@ -151,8 +151,8 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 pt-4 w-[600px]">
-                  <div className="bg-[#0F2847] rounded-lg shadow-2xl p-8">
+                <div className="absolute top-full left-0 pt-4 w-[800px]" style={{ marginLeft: "-160px" }}>
+                  <div className="bg-[#000] rounded-lg shadow-2xl p-8">
                     <div className="grid grid-cols-2 gap-8">
                       <div>
                         <h3 className="text-white font-semibold mb-4">By Use Case</h3>
