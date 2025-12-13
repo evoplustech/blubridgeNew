@@ -78,7 +78,8 @@ const Header = () => {
   };
 
   const company = [
-    { name: 'About Us', link: '/about-us' },
+    { name: 'About Us', link: '/about' },
+    { name: 'Media Kit', link: '/media-kit' },
     { name: 'Careers', link: '/careers' }
   ];
 
