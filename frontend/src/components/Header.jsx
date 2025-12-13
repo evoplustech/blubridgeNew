@@ -151,13 +151,12 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div 
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4" 
-                  style={{ zIndex: 1000, width: '759px' }}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[1010px]" 
+                  style={{ zIndex: 1000,  }}
                 >
                   <div 
-                    className="rounded-[5px]" 
-                    style={{ backgroundColor: '#19234B', padding: '15px' }}
+                    className="bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg " 
+                    style={{ padding: '15px', marginLeft:'200px' }}
                   >
                     <div className="flex gap-[39px]">
                       {/* By Use Case - Image Cards (2x2 Grid) */}
