@@ -151,31 +151,47 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 pt-4 w-[800px]" style={{ marginLeft: "-160px" }}>
-                  <div className="bg-[#000] rounded-lg shadow-2xl p-8">
+                <div className="absolute top-full left-0 pt-4 w-[800px]" style={{ zIndex: 1000, marginLeft: "-160px" }}>
+                  <div className="bg-gradient-to-br from-[#0A1F3D] to-[#0D2847] rounded-2xl shadow-2xl border border-white/10 p-8">
                     <div className="grid grid-cols-2 gap-8">
+                      {/* Left Column - By Use Case */}
                       <div>
-                        <h3 className="text-white font-semibold mb-4">By Use Case</h3>
-                        <div className="space-y-2">
-                          {solutions.useCase.map((item, i) => (
+                        <h3 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">By Use Case</h3>
+                        <div className="grid grid-cols-2 gap-4">
+                          {[
+                            { name: 'Model Training', image: 'https://images.unsplash.com/photo-1674027444485-cec3da58eef4', link: '/solutions/training' },
+                            { name: 'AI & ML Inference', image: 'https://images.unsplash.com/photo-1624701928517-44c8ac49d93c', link: '/solutions/inference' },
+                            { name: 'AI Development', image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f', link: '/solutions/ai-development' },
+                            { name: 'Model Fine-Tuning', image: 'https://images.unsplash.com/photo-1697577418970-95d99b5a55cf', link: '/solutions/fine-tuning' }
+                          ].map((item, i) => (
                             <Link
                               key={i}
                               to={item.link}
-                              className="block text-white/80 hover:text-[#0066FF] transition-colors text-sm"
+                              className="group relative rounded-lg overflow-hidden h-32 hover:scale-105 transition-transform duration-300"
                             >
-                              {item.name}
+                              <img 
+                                src={item.image} 
+                                alt={item.name}
+                                className="w-full h-full object-cover"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                              <div className="absolute bottom-0 left-0 right-0 p-3">
+                                <span className="text-white font-medium text-sm leading-tight">{item.name}</span>
+                              </div>
                             </Link>
                           ))}
                         </div>
                       </div>
+                      
+                      {/* Right Column - By Industry */}
                       <div>
-                        <h3 className="text-white font-semibold mb-4">By Industry</h3>
-                        <div className="space-y-2">
+                        <h3 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">By Industry</h3>
+                        <div className="flex flex-wrap gap-2">
                           {solutions.industry.map((item, i) => (
                             <Link
                               key={i}
                               to={item.link}
-                              className="block text-white/80 hover:text-[#0066FF] transition-colors text-sm"
+                              className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-full text-white/80 hover:text-white text-sm transition-all duration-200"
                             >
                               {item.name}
                             </Link>
