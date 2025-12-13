@@ -92,14 +92,14 @@ const Header = () => {
         <Link to="/news" className="ml-2 underline hover:no-underline">See More →</Link>
       </div>
 
-      <div className="container mx-auto px-6">
+      <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-white tracking-wider">
             BLUBRG
           </Link>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {/* Products Dropdown */}
             <div 
