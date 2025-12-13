@@ -80,8 +80,8 @@ function App() {
             <Route path="/solutions/*" element={<Solutions />} />
             
             {/* Company Routes */}
-            <Route path="/company/about" element={<About />} />
-            <Route path="/company/blog" element={<Blog />} />
+            <Route path="/media-kit" element={<MediaKit />} />
+            <Route path="/careers" element={<Careers />} />
             
             {/* Other Routes */}
             <Route path="/contact" element={<Contact />} />
