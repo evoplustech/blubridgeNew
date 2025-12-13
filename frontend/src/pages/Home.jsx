@@ -194,7 +194,7 @@ const Home = () => {
 
       {/* Infrastructure Section */}
       <section className="py-24 bg-[#0D2847]">
-        <div className="container mx-auto px-6">
+        <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-6">
               BluBrg's Infrastructure
