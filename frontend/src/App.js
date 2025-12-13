@@ -19,7 +19,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <main className="pt-32">
+        <main className="pt-32" style={{
+    paddingTop: "7rem"
+  }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products/*" element={<Products />} />

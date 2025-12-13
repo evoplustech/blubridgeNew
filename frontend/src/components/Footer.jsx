@@ -139,7 +139,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2">
               <span className="text-2xl font-bold">BLUBRG</span>
             </div>
-            <p className="text-white/50 text-sm">©2025 BluBrg Global Holdings Limited. All rights reserved</p>
+            <p className="text-white/50 text-sm">©2025 BluBrg Technologies Private Limited. All rights reserved</p>
             <div className="flex space-x-6 text-sm">
               <Link to="/policies/privacy" className="text-white/70 hover:text-[#0066FF] transition-colors">Privacy Policy</Link>
               <Link to="/policies/terms" className="text-white/70 hover:text-[#0066FF] transition-colors">Terms & Conditions</Link>
