@@ -129,12 +129,36 @@ const Home = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { img: '/api/placeholder/400/250', title: 'BluBrg announces $500M Series B funding round' },
-              { img: '/api/placeholder/400/250', title: 'Expanding infrastructure across three continents' },
-              { img: '/api/placeholder/400/250', title: 'New partnership with leading AI research labs' }
+              { 
+                gradient: 'from-purple-900/60 via-blue-900/40 to-indigo-900/60',
+                title: 'BluBrg announces $500M Series B funding round',
+                pattern: 'radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)'
+              },
+              { 
+                gradient: 'from-blue-900/60 via-cyan-900/40 to-teal-900/60',
+                title: 'Expanding infrastructure across three continents',
+                pattern: 'radial-gradient(circle at 60% 30%, rgba(6, 182, 212, 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 70%, rgba(14, 165, 233, 0.3) 0%, transparent 50%)'
+              },
+              { 
+                gradient: 'from-indigo-900/60 via-violet-900/40 to-purple-900/60',
+                title: 'New partnership with leading AI research labs',
+                pattern: 'radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(109, 40, 217, 0.3) 0%, transparent 50%)'
+              }
             ].map((item, i) => (
               <Card key={i} className="bg-[#161B22] border-[#30363D] hover:border-[#0066FF]/50 transition-all duration-300 overflow-hidden group cursor-pointer">
-                <div className="h-48 bg-gradient-to-br from-[#0066FF]/20 to-[#0D2847]/20" />
+                <div className="relative h-48 overflow-hidden">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
+                  <div 
+                    className="absolute inset-0 opacity-60" 
+                    style={{ background: item.pattern }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#161B22] to-transparent opacity-60" />
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: 'linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%), linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%)',
+                    backgroundSize: '60px 60px',
+                    backgroundPosition: '0 0, 30px 30px'
+                  }} />
+                </div>
                 <CardContent className="p-6">
                   <h3 className="text-white text-lg font-medium group-hover:text-[#0066FF] transition-colors">{item.title}</h3>
                 </CardContent>
@@ -224,18 +248,52 @@ const Home = () => {
           <h2 className="text-4xl font-light text-white mb-16">Use cases</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { title: 'Model Training', color: 'from-purple-900/40 to-indigo-900/40', metrics: '10x faster' },
-              { title: 'AI & ML Inference', color: 'from-blue-900/40 to-cyan-900/40', metrics: '<50ms latency' },
-              { title: 'Model Fine-Tuning', color: 'from-orange-900/40 to-amber-900/40', metrics: 'Serverless' },
-              { title: 'AI Development', color: 'from-emerald-900/40 to-teal-900/40', metrics: 'Full control' }
+              { 
+                title: 'Model Training', 
+                color: 'from-purple-900/50 via-indigo-900/40 to-violet-900/50', 
+                metrics: '10x faster',
+                pattern: 'radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.3) 0%, transparent 50%)',
+                accent: '#8B5CF6'
+              },
+              { 
+                title: 'AI & ML Inference', 
+                color: 'from-blue-900/50 via-cyan-900/40 to-sky-900/50', 
+                metrics: '<50ms latency',
+                pattern: 'radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, transparent 50%), radial-gradient(circle at 30% 70%, rgba(14, 165, 233, 0.3) 0%, transparent 50%)',
+                accent: '#06B6D4'
+              },
+              { 
+                title: 'Model Fine-Tuning', 
+                color: 'from-orange-900/50 via-amber-900/40 to-yellow-900/50', 
+                metrics: 'Serverless',
+                pattern: 'radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 50%)',
+                accent: '#F97316'
+              },
+              { 
+                title: 'AI Development', 
+                color: 'from-emerald-900/50 via-teal-900/40 to-green-900/50', 
+                metrics: 'Full control',
+                pattern: 'radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.4) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(20, 184, 166, 0.3) 0%, transparent 50%)',
+                accent: '#10B981'
+              }
             ].map((item, i) => (
-              <div key={i} className={`relative h-80 bg-gradient-to-br ${item.color} rounded-2xl overflow-hidden group cursor-pointer`}>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div key={i} className={`relative h-80 bg-gradient-to-br ${item.color} rounded-2xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300`}>
+                <div 
+                  className="absolute inset-0 opacity-70" 
+                  style={{ background: item.pattern }}
+                />
+                <div className="absolute inset-0" style={{
+                  backgroundImage: 'linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)), linear-gradient(150deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03))',
+                  backgroundSize: '80px 140px'
+                }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-10">
-                  <h3 className="text-3xl font-medium text-white mb-3">{item.title}</h3>
-                  <div className="text-[#0066FF] font-semibold">{item.metrics}</div>
+                  <h3 className="text-3xl font-medium text-white mb-3 group-hover:scale-105 transition-transform duration-300">{item.title}</h3>
+                  <div className="inline-block px-4 py-2 rounded-lg font-semibold text-sm" style={{ backgroundColor: `${item.accent}20`, color: item.accent }}>
+                    {item.metrics}
+                  </div>
                 </div>
-                <div className="absolute inset-0 border-2 border-white/10 rounded-2xl group-hover:border-[#0066FF]/50 transition-colors" />
+                <div className="absolute inset-0 border-2 border-white/10 rounded-2xl group-hover:border-[#0066FF]/60 transition-colors" />
               </div>
             ))}
           </div>
