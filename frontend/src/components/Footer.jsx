@@ -84,7 +84,7 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">COMPANY</h3>
             <ul className="space-y-3">
               <li><Link to="/company/about" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">About</Link></li>
-              <li><Link to="/company/media-kit" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Media Kit</Link></li>
+             
               <li><Link to="/company/careers" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Careers</Link></li>
               <li><Link to="/contact" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Contact</Link></li>
               <li><a href="https://www.linkedin.com/company/blubrg" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">LinkedIn</a></li>
@@ -94,7 +94,7 @@ const Footer = () => {
 
           {/* Newsletter Signup */}
           <div className="lg:col-span-2">
-            <h3 className="font-semibold text-lg mb-4">NEWSLETTER SIGNUP</h3>
+            <h3 className="font-semibold text-lg mb-4">CONTACT US</h3>
             <form onSubmit={handleSubscribe} className="space-y-4">
               <Input
                 type="text"
@@ -122,7 +122,7 @@ const Footer = () => {
                 disabled={loading}
                 className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white"
               >
-                {loading ? 'Subscribing...' : 'Subscribe'}
+                {loading ? 'Subscribing...' : 'Contact Now'}
               </Button>
               <p className="text-xs text-white/50">
                 BluBrg is committed to protecting your privacy. We'll only use your information to provide requested content.

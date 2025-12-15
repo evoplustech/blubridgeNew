@@ -111,7 +111,7 @@ const Home = () => {
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/docs">
+              <Link to="/contact">
                 <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
                   Start Building →
                 </Button>

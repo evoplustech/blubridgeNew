@@ -42,11 +42,12 @@ import Education from './pages/solutions/industry/Education';
 import Government from './pages/solutions/industry/Government';
 import Legal from './pages/solutions/industry/Legal';
 import Healthcare from './pages/solutions/industry/Healthcare';
-
+import ScrollToTop from './components/ScrollToTop';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <ScrollToTop />
         <Header />
         <main className="pt-32" style={{ paddingTop: "7rem" }}>
           <Routes>

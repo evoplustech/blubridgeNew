@@ -79,7 +79,6 @@ const Header = () => {
 
   const company = [
     { name: 'About Us', link: '/about' },
-    { name: 'Media Kit', link: '/media-kit' },
     { name: 'Careers', link: '/careers' }
   ];
 
@@ -257,7 +256,7 @@ const Header = () => {
             </div>
 
             <Link to="/contact" className="text-white/90 hover:text-white transition-colors">Contact</Link>
-            <Link to="/docs" className="text-white/90 hover:text-white transition-colors">Docs</Link>
+            {/* <Link to="/docs" className="text-white/90 hover:text-white transition-colors">Docs</Link> */}
           </div>
 
           {/* Desktop CTA Buttons */}

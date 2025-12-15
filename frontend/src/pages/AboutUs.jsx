@@ -33,12 +33,12 @@ const AboutUs = () => {
 
       <section className="py-32 bg-[#0B1F35]">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-video rounded-2xl overflow-hidden">
+          <div className="grid lg:grid-col gap-16 items-center">
+            {/* <div className="relative aspect-video rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/20 to-[#0D2847]/20 flex items-center justify-center">
                 <div className="text-white/40 text-xl">Image Placeholder</div>
               </div>
-            </div>
+            </div> */}
             
             <div>
               <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">Who we are</h2>
@@ -84,7 +84,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-[#0A1F3D]">
+      {/* <section className="py-32 bg-[#0A1F3D]">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Our Leadership</h2>
@@ -116,9 +116,9 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="py-32 bg-[#0B1F35]">
+      {/* <section className="py-32 bg-[#0B1F35]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-12 text-center">What our partners say</h2>
@@ -159,7 +159,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-32 bg-[#0A1F3D]">
         <div className="container-custom">
