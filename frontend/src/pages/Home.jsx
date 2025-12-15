@@ -1,190 +1,198 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { ArrowRight, Zap, Shield, Globe, Cpu, Clock, Database } from 'lucide-react';
 
 const Home = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    let time = 0;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const animate = () => {
+      time += 0.003;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const centerX = canvas.width * 0.7;
+      const centerY = canvas.height * 0.5;
+
+      for (let i = 0; i < 3; i++) {
+        ctx.save();
+        ctx.translate(centerX, centerY);
+
+        const offset = i * Math.PI * 0.66;
+        const xPos = Math.sin(time + offset) * 150;
+        const yPos = Math.cos(time * 0.7 + offset) * 80;
+        const rotation = time * 0.5 + offset;
+
+        ctx.translate(xPos, yPos);
+        ctx.rotate(rotation);
+
+        const gradient = ctx.createLinearGradient(-200, -100, 200, 100);
+        gradient.addColorStop(0, `rgba(10, 46, 109, ${0.6 - i * 0.15})`);
+        gradient.addColorStop(0.5, `rgba(11, 60, 143, ${0.8 - i * 0.15})`);
+        gradient.addColorStop(1, `rgba(6, 26, 68, ${0.5 - i * 0.15})`);
+
+        ctx.beginPath();
+        ctx.moveTo(-250, 0);
+        ctx.bezierCurveTo(-250, -120, 250, -120, 250, 0);
+        ctx.bezierCurveTo(250, 120, -250, 120, -250, 0);
+        ctx.closePath();
+
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        ctx.strokeStyle = `rgba(100, 150, 255, ${0.3 - i * 0.1})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
-
-  const partners = [
-    'NVIDIA', 'OpenAI', 'Microsoft', 'AMD', 'Lenovo', 
-    'Dell', 'HPE', 'Nokia', 'Intel', 'IBM',
-    'Google', 'AWS', 'Oracle', 'Cisco', 'VMware'
-  ];
-
-  const useCases = [
-    {
-      title: 'Training',
-      stats: ['80% Lower Cost', '30% Faster'],
-      image: 'https://images.unsplash.com/photo-1674027444485-cec3da58eef4',
-      link: '/solutions/training'
-    },
-    {
-      title: 'Fine-tuning',
-      stats: ['+40% Efficiency', '30% Faster'],
-      image: 'https://images.unsplash.com/photo-1697577418970-95d99b5a55cf',
-      link: '/solutions/fine-tuning'
-    },
-    {
-      title: 'Inference',
-      stats: ['7.2X Performance', '+40% Efficiency'],
-      image: 'https://images.unsplash.com/photo-1624701928517-44c8ac49d93c',
-      link: '/solutions/inference'
-    },
-    {
-      title: 'AI Development',
-      stats: ['80% Lower Cost', '30% Faster'],
-      image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f',
-      link: '/solutions/ai-development'
-    }
-  ];
-
-  const infrastructureFeatures = [
-    {
-      title: 'Data Centres',
-      description: 'Purpose built for AI and the intensive energy demands of GPU-based compute.',
-      features: ['100% Renewable Energy', 'Located in optimal climates', 'Scalable infrastructure'],
-      link: '/products/ai-factories'
-    },
-    {
-      title: 'GPU Nodes',
-      description: 'High-performance NVIDIA GPU options for AI and HPC workloads.',
-      features: ['On demand access', 'NVIDIA Grace Blackwell', 'Optimised for AI'],
-      link: '/products/gpu-nodes'
-    },
-    {
-      title: 'Networking',
-      description: 'GPU fabric optimised for low latency and high bandwidth delivery.',
-      features: ['RoCE enabled', 'Non-blocking design', 'Built for AI at scale'],
-      link: '/products/gpu-infrastructure'
-    },
-    {
-      title: 'Storage',
-      description: 'Fast storage ensures GPUs are kept busy and fully utilised.',
-      features: ['RDMA enabled', 'Parallel filesystems', 'AI storage platform'],
-      link: '/products/gpu-nodes'
-    },
-    {
-      title: 'Kubernetes',
-      description: 'Robust infrastructure for deploying and scaling containerised workloads.',
-      features: ['Bare metal performance', 'Auto-scale to 1000s GPUs', 'Fully managed'],
-      link: '/products/training'
-    },
-    {
-      title: 'SLURM',
-      description: 'Advanced job scheduling and workload management for optimal performance.',
-      features: ['Advanced scheduling', 'Optimal management', 'Effective utilisation'],
-      link: '/solutions/inference'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-[#0A1F3D]">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D]" />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2E6D] via-[#0B3C8F] to-[#061A44]" />
         
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#0052CC] rounded-full filter blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 z-0"
+          style={{ opacity: 0.6 }}
+        />
 
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Centered content */}
-            <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              The hyperscaler Engineered for AI
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }} />
+
+        <div className="container-custom relative z-10 py-32">
+          <div className="max-w-2xl">
+            <h1 className="text-7xl font-light text-white mb-8 leading-tight tracking-tight">
+              The hyperscaler<br />engineered for AI
             </h1>
-            <p className="text-xl text-white/80 mb-8">
+            <p className="text-xl text-white/80 mb-12 font-light">
               A full-stack, scalable, and sustainable AI cloud platform.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button className="bg-white text-[#0A1F3D] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#0A2E6D] px-10 py-7 text-lg font-medium rounded-lg">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  Start Building →
-                </Button>
+              <Link to="/products/serverless">
+                <button className="text-white hover:text-white/80 px-10 py-7 text-lg font-medium transition-colors flex items-center gap-2">
+                  Start Building <ArrowRight className="w-5 h-5" />
+                </button>
               </Link>
             </div>
           </div>
+        </div>
 
-          {/* Partner logos marquee */}
-          <div className="mt-24 overflow-hidden">
-            <div className="flex space-x-12 animate-scroll">
-              {[...partners, ...partners].map((partner, idx) => (
-                <div key={idx} className="flex-shrink-0 text-white/40 font-bold text-2xl">
-                  {partner}
+        <div className="absolute bottom-16 left-0 right-0 z-10">
+          <div className="container-custom">
+            <div className="flex items-center justify-between gap-12 opacity-40">
+              <div className="text-white text-3xl font-bold">AMD</div>
+              <div className="text-white text-2xl font-light">rescale</div>
+              <div className="text-white text-2xl font-bold tracking-wider">ARKON ENERGY</div>
+              <div className="text-white text-3xl font-light">Kog</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-[#0D1117]">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { img: '/api/placeholder/400/250', title: 'BluBrg announces $500M Series B funding round' },
+              { img: '/api/placeholder/400/250', title: 'Expanding infrastructure across three continents' },
+              { img: '/api/placeholder/400/250', title: 'New partnership with leading AI research labs' }
+            ].map((item, i) => (
+              <Card key={i} className="bg-[#161B22] border-[#30363D] hover:border-[#0066FF]/50 transition-all duration-300 overflow-hidden group cursor-pointer">
+                <div className="h-48 bg-gradient-to-br from-[#0066FF]/20 to-[#0D2847]/20" />
+                <CardContent className="p-6">
+                  <h3 className="text-white text-lg font-medium group-hover:text-[#0066FF] transition-colors">{item.title}</h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 bg-[#0A1F3D]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8">A full-stack AI cloud</h2>
+              <p className="text-xl text-white/70 leading-relaxed mb-8">
+                From bare metal to managed services, BluBrg delivers comprehensive infrastructure for every stage of the AI lifecycle. Train massive models, deploy production inference endpoints, and scale effortlessly.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[<Cpu />, <Zap />, <Database />, <Globe />].map((Icon, i) => (
+                <div key={i} className="aspect-square bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/40">
+                  {Icon}
                 </div>
               ))}
             </div>
           </div>
+
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="grid grid-cols-2 gap-4 order-2 lg:order-1">
+              {[<Shield />, <Clock />, <Zap />, <Globe />].map((Icon, i) => (
+                <div key={i} className="aspect-square bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/40">
+                  {Icon}
+                </div>
+              ))}
+            </div>
+            <div className="order-1 lg:order-2">
+              <h2 className="text-5xl font-light text-white mb-8">Built for compliance</h2>
+              <p className="text-xl text-white/70 leading-relaxed">
+                Enterprise-grade security and compliance built into every layer. SOC 2, ISO 27001 certified infrastructure with data sovereignty options and dedicated support.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-[#0A1F3D] to-[#0D2847]">
+      <section className="py-32 bg-[#0D1117]">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">
-              A fully integrated suite of AI services and compute
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
-              {
-                title: 'Turnkey AI development',
-                description: 'The BluBrg Marketplace offers access to various AI/ML tools and resources for efficient model development.',
-                link: '/products/marketplace'
-              },
-              {
-                title: 'Serverless model endpoints',
-                description: 'Seamless, scalable AI inference without infrastructure management. Auto-scales to meet demand.',
-                link: '/products/serverless'
-              },
-              {
-                title: 'Dedicated training clusters',
-                description: 'Optimised GPU clusters designed to reduce training times and boost productivity.',
-                link: '/products/training'
-              },
-              {
-                title: 'High-performance inference',
-                description: 'Fast, affordable, auto-scaling infrastructure optimised for batch and streaming workloads.',
-                link: '/products/inference'
-              },
-              {
-                title: 'Scalable GPU Compute',
-                description: 'High-performance computing power tailored for AI and HPC tasks with advanced cooling.',
-                link: '/products/gpu-nodes'
-              },
-              {
-                title: 'AI Factories',
-                description: 'Purpose-built data centres powered by renewable energy in optimal locations.',
-                link: '/products/ai-factories'
-              }
-            ].map((service, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300 group">
+              { title: 'Serverless Inference', desc: 'Deploy models instantly' },
+              { title: 'Training Clusters', desc: 'Massive scale training' },
+              { title: 'GPU Nodes', desc: 'Bare metal performance' },
+              { title: 'Private Cloud', desc: 'Dedicated infrastructure', highlight: true }
+            ].map((item, i) => (
+              <Card key={i} className={`${item.highlight ? 'bg-gradient-to-br from-[#0066FF]/20 to-[#0066FF]/5 border-[#0066FF]' : 'bg-[#161B22] border-[#30363D]'} hover:scale-105 transition-all duration-300`}>
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                  <p className="text-white/70 mb-4">{service.description}</p>
-                  <Link to={service.link} className="text-[#0066FF] hover:text-[#0052CC] flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
-                    {/* <span>Learn more</span>
-                    <ArrowRight className="w-4 h-4" /> */}
-                  </Link>
+                  <h3 className="text-white text-xl font-medium mb-3">{item.title}</h3>
+                  <p className="text-white/60">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -192,123 +200,78 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Infrastructure Section */}
-      <section className="py-24 bg-[#0D2847]">
+      <section className="py-32 bg-[#0A1F3D]">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">
-              BluBrg's Infrastructure
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto mb-8">
-              We manage every aspect of AI infrastructure—from energy-efficient data centres to cutting-edge compute clusters.
-            </p>
-            <Link to="/products/ai-factories">
-              <Button className="bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-6">
-                Our Infrastructure →
-              </Button>
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            {infrastructureFeatures.map((feature, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all duration-300">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-3">{feature.title}</h3>
-                  <p className="text-white/70 mb-6">{feature.description}</p>
-                  <div className="space-y-2 mb-6">
-                    {feature.features.map((item, i) => (
-                      <div key={i} className="flex items-center space-x-2 text-white/80">
-                        <Check className="w-5 h-5 text-[#0066FF]" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Link to={feature.link} className="text-[#0066FF] hover:text-[#0052CC] flex items-center space-x-2">
-                    {/* <span>See More</span>
-                    <ArrowRight className="w-4 h-4" /> */}
-                  </Link>
-                </CardContent>
-              </Card>
+          <h2 className="text-4xl font-light text-white mb-16 text-center">Testimonials</h2>
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              { quote: 'BluBrg infrastructure enabled us to scale our training by 10x while reducing costs significantly.', name: 'Sarah Chen', role: 'ML Director' },
+              { quote: 'The platform abstraction and automation saved our team months of infrastructure work.', name: 'Marcus Rodriguez', role: 'VP Engineering' },
+              { quote: 'Reliable, fast, and the support team understands AI workloads deeply.', name: 'Dr. Aisha Patel', role: 'Research Lead' }
+            ].map((item, i) => (
+              <div key={i} className="border-l-2 border-white/10 pl-8">
+                <p className="text-white/80 italic mb-6 text-lg leading-relaxed">"{item.quote}"</p>
+                <div className="text-white font-medium">{item.name}</div>
+                <div className="text-white/50 text-sm">{item.role}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Use Cases Section */}
-      <section className="py-24 bg-gradient-to-b from-[#0D2847] to-[#0A1F3D]">
+      <section className="py-32 bg-[#0D1117]">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">
-              Use cases
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Comprehensive AI solutions designed to accelerate your AI initiatives.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {useCases.map((useCase, idx) => (
-              // <Link key={idx} to={useCase.link}>
-                <Card className="bg-white/5 border-white/10 overflow-hidden hover:scale-105 transition-transform duration-300">
-                  <div className="h-48 overflow-hidden">
-                    <img src={useCase.image} alt={useCase.title} className="w-full h-full object-cover" />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-4 uppercase">{useCase.title}</h3>
-                    {useCase.stats.map((stat, i) => (
-                      <div key={i} className="text-[#0066FF] font-semibold mb-1">{stat}</div>
-                    ))}
-                  </CardContent>
-                </Card>
-              // </Link>
+          <h2 className="text-4xl font-light text-white mb-16">Use cases</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { title: 'Model Training', color: 'from-purple-900/40 to-indigo-900/40', metrics: '10x faster' },
+              { title: 'AI & ML Inference', color: 'from-blue-900/40 to-cyan-900/40', metrics: '<50ms latency' },
+              { title: 'Model Fine-Tuning', color: 'from-orange-900/40 to-amber-900/40', metrics: 'Serverless' },
+              { title: 'AI Development', color: 'from-emerald-900/40 to-teal-900/40', metrics: 'Full control' }
+            ].map((item, i) => (
+              <div key={i} className={`relative h-80 bg-gradient-to-br ${item.color} rounded-2xl overflow-hidden group cursor-pointer`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-10">
+                  <h3 className="text-3xl font-medium text-white mb-3">{item.title}</h3>
+                  <div className="text-[#0066FF] font-semibold">{item.metrics}</div>
+                </div>
+                <div className="absolute inset-0 border-2 border-white/10 rounded-2xl group-hover:border-[#0066FF]/50 transition-colors" />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      {/* <section className="py-24 bg-[#0A1F3D]">
+      <section className="py-24 bg-[#0A1F3D] border-y border-white/10">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Testimonials</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="bg-white/5 border-white/10">
-              <CardContent className="p-8">
-                <p className="text-white/80 italic mb-6">
-                  "AI is reshaping the global economy. With BluBrg, we're backing infrastructure that's sovereign, scalable and purpose-built. The scale and quality are testament to BluBrg's vision and momentum."
-                </p>
-                <p className="text-white font-semibold">— Technology Leader, Fortune 500</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/5 border-white/10">
-              <CardContent className="p-8">
-                <p className="text-white/80 italic mb-6">
-                  "BluBrg has moved with focus and velocity. The team is building massive-scale, sovereign infrastructure that enterprises can actually consume – reliable, efficient, and close to their data."
-                </p>
-                <p className="text-white font-semibold">— AI Research Director</p>
-              </CardContent>
-            </Card>
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-3xl font-light text-white mb-3">BluBrg is now an NVIDIA Preferred Partner</h2>
+              <div className="flex gap-4">
+                <Link to="/contact">
+                  <Button className="bg-white hover:bg-white/90 text-[#0A1F3D]">Learn More</Button>
+                </Link>
+                <Link to="/about">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">Follow Us</Button>
+                </Link>
+              </div>
+            </div>
+            <div className="text-6xl font-bold text-white/20">NVIDIA</div>
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full filter blur-[100px]" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full filter blur-[100px]" />
-        </div>
-        <div className="container-custom text-center relative z-10">
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Access thousands of GPUs tailored to your requirements
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link to="/contact">
-              <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+      <section className="py-32 bg-gradient-to-r from-[#0066FF] to-[#0052CC]">
+        <div className="container-custom text-center">
+          <h2 className="text-5xl font-light text-white mb-8">Access thousands of GPUs tailored to your requirements</h2>
+          <div className="flex gap-4 justify-center">
+            <Link to="/products/training">
+              <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-7 text-lg font-medium">
                 Reserve GPUs
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-10 py-7 text-lg">
                 Contact Sales
               </Button>
             </Link>
