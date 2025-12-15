@@ -115,13 +115,114 @@ const Home = () => {
         </div>
 
         {/* Partner Logos */}
-        <div className="absolute bottom-20 left-0 right-0 z-10">
+        <div className="absolute bottom-[480px] left-0 right-0 z-10">
           <div className="container-custom">
             <div className="flex items-center justify-start gap-16 opacity-30">
               <div className="text-white text-3xl font-bold tracking-tight">NVIDIA</div>
               <div className="text-white text-2xl font-light">Computacenter</div>
               <div className="text-white text-2xl tracking-wide">NOKIA</div>
               <div className="text-white text-2xl font-light">Lightning AI</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Executive Announcement Carousel */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 pb-16">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/10 pointer-events-none" />
+          
+          <div className="container-custom relative">
+            <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide">
+              <div className="flex-shrink-0 w-8" />
+              
+              {[
+                {
+                  name: 'LUCAS MARTIN',
+                  role: 'Chief Executive Officer',
+                  date: '14th Dec 2024',
+                  headline: 'BluBrg announces $500M Series B funding to accelerate AI infrastructure expansion',
+                  image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=faces'
+                },
+                {
+                  name: 'SARAH CHEN',
+                  role: 'Chief Technology Officer',
+                  date: '12th Dec 2024',
+                  headline: 'New data center operations launching in three strategic global locations',
+                  image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces'
+                },
+                {
+                  name: 'PARTNERSHIP',
+                  role: 'Strategic Alliance',
+                  date: '10th Dec 2024',
+                  headline: 'BluBrg partners with leading AI research institutions for advanced computing initiatives',
+                  image: null
+                }
+              ].map((announcement, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-[420px] h-[400px] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                  style={{
+                    background: 'rgba(20, 25, 35, 0.6)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.05)'
+                  }}
+                >
+                  <div className="relative h-full p-8 flex flex-col">
+                    <div className="absolute inset-0 opacity-[0.03]" style={{
+                      backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+                      backgroundSize: '24px 24px'
+                    }} />
+                    
+                    <div className="relative flex-1 flex flex-col">
+                      <div className="flex items-start justify-between mb-auto">
+                        <div className="flex-1">
+                          <div className="inline-block px-4 py-2 rounded-full mb-2" style={{
+                            background: 'rgba(255, 255, 255, 0.08)',
+                            backdropFilter: 'blur(10px)'
+                          }}>
+                            <div className="text-white text-sm font-semibold tracking-wider">{announcement.name}</div>
+                          </div>
+                          <div className="text-white/50 text-sm font-light">{announcement.role}</div>
+                        </div>
+                        
+                        {announcement.image ? (
+                          <div className="w-28 h-28 rounded-full overflow-hidden ml-4 flex-shrink-0 ring-1 ring-white/10">
+                            <img 
+                              src={announcement.image} 
+                              alt={announcement.name}
+                              className="w-full h-full object-cover grayscale"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-28 h-28 rounded-full overflow-hidden ml-4 flex-shrink-0 bg-gradient-to-br from-[#0066FF]/20 to-[#0052CC]/20 flex items-center justify-center">
+                            <div className="text-white/30 text-xs text-center px-2">
+                              <div className="text-2xl mb-1">🤝</div>
+                              <div className="text-[10px]">Partnership</div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="mt-8">
+                        <div className="text-white/40 text-xs font-light mb-3 uppercase tracking-wider">{announcement.date}</div>
+                        <h3 className="text-white text-xl font-medium leading-snug group-hover:text-white/90 transition-colors">
+                          {announcement.headline}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              
+              <div className="flex-shrink-0 w-8" />
+            </div>
+            
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-white/50 hover:text-white transition-all">
+                <ArrowRight className="w-5 h-5 rotate-180" />
+              </button>
+              <button className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-white/50 hover:text-white transition-all">
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
