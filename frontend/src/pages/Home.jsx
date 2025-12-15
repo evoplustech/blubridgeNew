@@ -139,8 +139,24 @@ const Home = () => {
                 BluBrg offers an end-to-end AI platform with managed services, customizable infrastructure, and seamless integration across every layer of the stack. From model training to production deployment, access the tools and compute you need without vendor lock-in.
               </p>
             </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-12 aspect-square flex items-center justify-center">
+            {/* <div className="bg-white/5 border border-white/10 rounded-2xl p-12 aspect-square flex items-center justify-center">
               <div className="text-center text-white/40 text-lg">AI Services Diagram</div>
+            </div> */}
+          </div>
+        </div>
+      </section>
+
+       <section className="py-32 bg-[#0D0D0D]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div />
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
+                Serverless model endpoints for inference
+              </h2>
+              <p className="text-lg text-white/70 leading-relaxed">
+                Deploy ML models as serverless APIs in seconds. Pay only for compute time used with automatic scaling from zero to thousands of requests per second. Sub-100ms cold start times ensure responsive applications.
+              </p>
             </div>
           </div>
         </div>
