@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
-import { ArrowRight, Zap, Shield, Globe, Cpu, Clock, Database } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 const Home = () => {
   const canvasRef = useRef(null);
@@ -24,40 +24,40 @@ const Home = () => {
     window.addEventListener('resize', resizeCanvas);
 
     const animate = () => {
-      time += 0.003;
+      time += 0.002;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const centerX = canvas.width * 0.7;
+      const centerX = canvas.width * 0.65;
       const centerY = canvas.height * 0.5;
 
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 4; i++) {
         ctx.save();
         ctx.translate(centerX, centerY);
 
-        const offset = i * Math.PI * 0.66;
-        const xPos = Math.sin(time + offset) * 150;
-        const yPos = Math.cos(time * 0.7 + offset) * 80;
-        const rotation = time * 0.5 + offset;
+        const offset = i * Math.PI * 0.5;
+        const xPos = Math.sin(time + offset) * 120;
+        const yPos = Math.cos(time * 0.6 + offset) * 60;
+        const rotation = time * 0.4 + offset;
 
         ctx.translate(xPos, yPos);
         ctx.rotate(rotation);
 
-        const gradient = ctx.createLinearGradient(-200, -100, 200, 100);
-        gradient.addColorStop(0, `rgba(10, 46, 109, ${0.6 - i * 0.15})`);
-        gradient.addColorStop(0.5, `rgba(11, 60, 143, ${0.8 - i * 0.15})`);
-        gradient.addColorStop(1, `rgba(6, 26, 68, ${0.5 - i * 0.15})`);
+        const gradient = ctx.createLinearGradient(-180, -90, 180, 90);
+        gradient.addColorStop(0, `rgba(10, 46, 109, ${0.5 - i * 0.1})`);
+        gradient.addColorStop(0.5, `rgba(11, 60, 143, ${0.7 - i * 0.1})`);
+        gradient.addColorStop(1, `rgba(6, 26, 68, ${0.4 - i * 0.1})`);
 
         ctx.beginPath();
-        ctx.moveTo(-250, 0);
-        ctx.bezierCurveTo(-250, -120, 250, -120, 250, 0);
-        ctx.bezierCurveTo(250, 120, -250, 120, -250, 0);
+        ctx.moveTo(-200, 0);
+        ctx.bezierCurveTo(-200, -100, 200, -100, 200, 0);
+        ctx.bezierCurveTo(200, 100, -200, 100, -200, 0);
         ctx.closePath();
 
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        ctx.strokeStyle = `rgba(100, 150, 255, ${0.3 - i * 0.1})`;
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = `rgba(80, 130, 235, ${0.2 - i * 0.05})`;
+        ctx.lineWidth = 1.5;
         ctx.stroke();
 
         ctx.restore();
@@ -76,36 +76,37 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#0A1F3D]">
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A2E6D] via-[#0B3C8F] to-[#061A44]" />
         
         <canvas
           ref={canvasRef}
           className="absolute inset-0 z-0"
-          style={{ opacity: 0.6 }}
+          style={{ opacity: 0.5 }}
         />
 
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)',
+        <div className="absolute inset-0 opacity-[0.08]" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)',
           backgroundSize: '40px 40px'
         }} />
 
         <div className="container-custom relative z-10 py-32">
           <div className="max-w-2xl">
-            <h1 className="text-7xl font-light text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-7xl font-light text-white mb-8 leading-[1.1] tracking-tight">
               The hyperscaler<br />engineered for AI
             </h1>
-            <p className="text-xl text-white/80 mb-12 font-light">
+            <p className="text-xl text-white/80 mb-12 font-light leading-relaxed">
               A full-stack, scalable, and sustainable AI cloud platform.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#0A2E6D] px-10 py-7 text-lg font-medium rounded-lg">
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#0A2E6D] px-10 py-6 text-base font-medium rounded-md">
                   Reserve GPUs
                 </Button>
               </Link>
               <Link to="/products/serverless">
-                <button className="text-white hover:text-white/80 px-10 py-7 text-lg font-medium transition-colors flex items-center gap-2">
+                <button className="text-white hover:text-white/80 px-10 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Start Building <ArrowRight className="w-5 h-5" />
                 </button>
               </Link>
@@ -113,110 +114,203 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-16 left-0 right-0 z-10">
+        {/* Partner Logos */}
+        <div className="absolute bottom-20 left-0 right-0 z-10">
           <div className="container-custom">
-            <div className="flex items-center justify-between gap-12 opacity-40">
-              <div className="text-white text-3xl font-bold">AMD</div>
-              <div className="text-white text-2xl font-light">rescale</div>
-              <div className="text-white text-2xl font-bold tracking-wider">ARKON ENERGY</div>
-              <div className="text-white text-3xl font-light">Kog</div>
+            <div className="flex items-center justify-start gap-16 opacity-30">
+              <div className="text-white text-3xl font-bold tracking-tight">NVIDIA</div>
+              <div className="text-white text-2xl font-light">Computacenter</div>
+              <div className="text-white text-2xl tracking-wide">NOKIA</div>
+              <div className="text-white text-2xl font-light">Lightning AI</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-[#0D1117]">
+      {/* A fully integrated suite section */}
+      <section className="py-32 bg-[#0D0D0D]">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
+                A fully integrated suite of AI services and compute
+              </h2>
+              <p className="text-lg text-white/70 leading-relaxed">
+                BluBrg offers an end-to-end AI platform with managed services, customizable infrastructure, and seamless integration across every layer of the stack. From model training to production deployment, access the tools and compute you need without vendor lock-in.
+              </p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-12 aspect-square flex items-center justify-center">
+              <div className="text-center text-white/40 text-lg">AI Services Diagram</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Turnkey AI development */}
+      <section className="py-32 bg-[#0D0D0D]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
+                Turnkey AI development and deployment
+              </h2>
+              <p className="text-lg text-white/70 leading-relaxed mb-8">
+                Launch pre-configured development environments with popular frameworks, libraries, and tools already installed. Deploy models instantly with serverless endpoints that auto-scale based on demand.
+              </p>
+              <Link to="/products/serverless">
+                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                  Start with Marketplace
+                </Button>
+              </Link>
+            </div>
+            <div />
+          </div>
+        </div>
+      </section>
+
+      {/* Serverless model endpoints */}
+      <section className="py-32 bg-[#0D0D0D]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div />
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
+                Serverless model endpoints for inference
+              </h2>
+              <p className="text-lg text-white/70 leading-relaxed">
+                Deploy ML models as serverless APIs in seconds. Pay only for compute time used with automatic scaling from zero to thousands of requests per second. Sub-100ms cold start times ensure responsive applications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dedicated training clusters */}
+      <section className="py-32 bg-[#0D0D0D]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
+                Dedicated training clusters ready to go
+              </h2>
+              <p className="text-lg text-white/70 leading-relaxed mb-8">
+                Access clusters of NVIDIA H100, A100, and other premium GPUs configured for large-scale model training. Pre-installed frameworks, distributed training support, and high-bandwidth networking included.
+              </p>
+              <Link to="/products/training">
+                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                  Start with Training
+                </Button>
+              </Link>
+            </div>
+            <div />
+          </div>
+        </div>
+      </section>
+
+      {/* Setting a new standard */}
+      <section className="py-32 bg-[#0D0D0D]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div />
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
+                Setting a new standard for inference
+              </h2>
+              <p className="text-lg text-white/70 leading-relaxed mb-8">
+                Achieve industry-leading inference performance with optimized runtimes, tensor compilation, and hardware acceleration. Support for ONNX, TensorRT, and custom model formats at production scale.
+              </p>
+              <Link to="/products/inference">
+                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                  Start with Inference
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Scalable flexible AI Compute */}
+      <section className="py-32 bg-[#0D0D0D]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
+                Scalable, flexible AI Compute
+              </h2>
+              <p className="text-lg text-white/70 leading-relaxed mb-8">
+                Deploy bare-metal GPU nodes with full root access and complete control over your environment. Choose from on-demand, reserved, or spot instances to optimize for performance and cost.
+              </p>
+              <Link to="/products/gpu-nodes">
+                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                  Start with GPU Nodes
+                </Button>
+              </Link>
+            </div>
+            <div />
+          </div>
+        </div>
+      </section>
+
+      {/* BluBrg's Infrastructure */}
+      <section className="py-32 bg-[#1A1A1A] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/10 to-transparent" />
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-4xl mb-16">
+            <h2 className="text-5xl font-light text-white mb-8">BluBrg's Infrastructure</h2>
+            <p className="text-lg text-white/70 leading-relaxed">
+              Purpose-built data centers powered by 100% renewable energy, optimized networking for GPU workloads, and enterprise-grade storage systems. Every layer of our stack is engineered for AI at scale.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { 
-                gradient: 'from-purple-900/60 via-blue-900/40 to-indigo-900/60',
-                title: 'BluBrg announces $500M Series B funding round',
-                pattern: 'radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)'
+              {
+                title: 'Data Centres',
+                desc: 'Purpose built for AI and the intensive energy demands of GPU-based compute.',
+                features: ['100% Renewable Energy', 'Located in optimal climates', 'Scalable infrastructure']
               },
-              { 
-                gradient: 'from-blue-900/60 via-cyan-900/40 to-teal-900/60',
-                title: 'Expanding infrastructure across three continents',
-                pattern: 'radial-gradient(circle at 60% 30%, rgba(6, 182, 212, 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 70%, rgba(14, 165, 233, 0.3) 0%, transparent 50%)'
+              {
+                title: 'GPU Nodes',
+                desc: 'High-performance NVIDIA GPU options for AI and HPC workloads.',
+                features: ['On demand access', 'NVIDIA Grace Blackwell', 'Optimised for AI']
               },
-              { 
-                gradient: 'from-indigo-900/60 via-violet-900/40 to-purple-900/60',
-                title: 'New partnership with leading AI research labs',
-                pattern: 'radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(109, 40, 217, 0.3) 0%, transparent 50%)'
+              {
+                title: 'Networking',
+                desc: 'GPU fabric optimised for low latency and high bandwidth delivery.',
+                features: ['RoCE enabled', 'Non-blocking design', 'Built for AI at scale']
+              },
+              {
+                title: 'Storage',
+                desc: 'Fast storage ensures GPUs are kept busy and fully utilised.',
+                features: ['RDMA enabled', 'Parallel filesystems', 'AI storage platform']
+              },
+              {
+                title: 'Kubernetes',
+                desc: 'Robust infrastructure for deploying and scaling containerised workloads.',
+                features: ['Bare metal performance', 'Auto-scale to 1000s GPUs', 'Fully managed'],
+                highlight: true
+              },
+              {
+                title: 'SLURM',
+                desc: 'Advanced job scheduling and workload management for optimal performance.',
+                features: ['Advanced scheduling', 'Optimal management', 'Effective utilisation']
               }
             ].map((item, i) => (
-              <Card key={i} className="bg-[#161B22] border-[#30363D] hover:border-[#0066FF]/50 transition-all duration-300 overflow-hidden group cursor-pointer">
-                <div className="relative h-48 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
-                  <div 
-                    className="absolute inset-0 opacity-60" 
-                    style={{ background: item.pattern }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#161B22] to-transparent opacity-60" />
-                  <div className="absolute inset-0" style={{
-                    backgroundImage: 'linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%), linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%)',
-                    backgroundSize: '60px 60px',
-                    backgroundPosition: '0 0, 30px 30px'
-                  }} />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-white text-lg font-medium group-hover:text-[#0066FF] transition-colors">{item.title}</h3>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
-            <div>
-              <h2 className="text-5xl font-light text-white mb-8">A full-stack AI cloud</h2>
-              <p className="text-xl text-white/70 leading-relaxed mb-8">
-                From bare metal to managed services, BluBrg delivers comprehensive infrastructure for every stage of the AI lifecycle. Train massive models, deploy production inference endpoints, and scale effortlessly.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[<Cpu />, <Zap />, <Database />, <Globe />].map((Icon, i) => (
-                <div key={i} className="aspect-square bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/40">
-                  {Icon}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="grid grid-cols-2 gap-4 order-2 lg:order-1">
-              {[<Shield />, <Clock />, <Zap />, <Globe />].map((Icon, i) => (
-                <div key={i} className="aspect-square bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/40">
-                  {Icon}
-                </div>
-              ))}
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-5xl font-light text-white mb-8">Built for compliance</h2>
-              <p className="text-xl text-white/70 leading-relaxed">
-                Enterprise-grade security and compliance built into every layer. SOC 2, ISO 27001 certified infrastructure with data sovereignty options and dedicated support.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 bg-[#0D1117]">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              { title: 'Serverless Inference', desc: 'Deploy models instantly' },
-              { title: 'Training Clusters', desc: 'Massive scale training' },
-              { title: 'GPU Nodes', desc: 'Bare metal performance' },
-              { title: 'Private Cloud', desc: 'Dedicated infrastructure', highlight: true }
-            ].map((item, i) => (
-              <Card key={i} className={`${item.highlight ? 'bg-gradient-to-br from-[#0066FF]/20 to-[#0066FF]/5 border-[#0066FF]' : 'bg-[#161B22] border-[#30363D]'} hover:scale-105 transition-all duration-300`}>
+              <Card key={i} className={`${item.highlight ? 'bg-gradient-to-br from-[#0066FF]/20 to-[#0066FF]/5 border-[#0066FF]' : 'bg-white/5 border-white/10'} hover:scale-105 transition-all duration-300`}>
                 <CardContent className="p-8">
-                  <h3 className="text-white text-xl font-medium mb-3">{item.title}</h3>
-                  <p className="text-white/60">{item.desc}</p>
+                  <h3 className="text-2xl font-medium text-white mb-4">{item.title}</h3>
+                  <p className="text-white/70 mb-6 leading-relaxed">{item.desc}</p>
+                  <div className="space-y-2">
+                    {item.features.map((feature, j) => (
+                      <div key={j} className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-[#0066FF] flex-shrink-0 mt-0.5" />
+                        <span className="text-white/80 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -224,106 +318,143 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-[#0A1F3D]">
+      {/* Testimonials */}
+      <section className="py-32 bg-[#0D0D0D]">
         <div className="container-custom">
-          <h2 className="text-4xl font-light text-white mb-16 text-center">Testimonials</h2>
+          <h2 className="text-4xl font-light text-white mb-20 text-center">Testimonials</h2>
           <div className="grid md:grid-cols-3 gap-12">
             {[
-              { quote: 'BluBrg infrastructure enabled us to scale our training by 10x while reducing costs significantly.', name: 'Sarah Chen', role: 'ML Director' },
-              { quote: 'The platform abstraction and automation saved our team months of infrastructure work.', name: 'Marcus Rodriguez', role: 'VP Engineering' },
-              { quote: 'Reliable, fast, and the support team understands AI workloads deeply.', name: 'Dr. Aisha Patel', role: 'Research Lead' }
-            ].map((item, i) => (
-              <div key={i} className="border-l-2 border-white/10 pl-8">
-                <p className="text-white/80 italic mb-6 text-lg leading-relaxed">"{item.quote}"</p>
-                <div className="text-white font-medium">{item.name}</div>
-                <div className="text-white/50 text-sm">{item.role}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 bg-[#0D1117]">
-        <div className="container-custom">
-          <h2 className="text-4xl font-light text-white mb-16">Use cases</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { 
-                title: 'Model Training', 
-                color: 'from-purple-900/50 via-indigo-900/40 to-violet-900/50', 
-                metrics: '10x faster',
-                pattern: 'radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.3) 0%, transparent 50%)',
-                accent: '#8B5CF6'
+              {
+                quote: 'BluBrg infrastructure enabled us to scale our training by 10x while reducing costs significantly. The platform abstraction saved our team months of work.',
+                name: 'Sarah Chen',
+                role: 'ML Director, Tech Startup'
               },
-              { 
-                title: 'AI & ML Inference', 
-                color: 'from-blue-900/50 via-cyan-900/40 to-sky-900/50', 
-                metrics: '<50ms latency',
-                pattern: 'radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, transparent 50%), radial-gradient(circle at 30% 70%, rgba(14, 165, 233, 0.3) 0%, transparent 50%)',
-                accent: '#06B6D4'
+              {
+                quote: 'The combination of performance, reliability, and support has been exceptional. We moved our entire inference workload and saw immediate improvements.',
+                name: 'Marcus Rodriguez',
+                role: 'VP Engineering, Enterprise SaaS'
               },
-              { 
-                title: 'Model Fine-Tuning', 
-                color: 'from-orange-900/50 via-amber-900/40 to-yellow-900/50', 
-                metrics: 'Serverless',
-                pattern: 'radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 50%)',
-                accent: '#F97316'
-              },
-              { 
-                title: 'AI Development', 
-                color: 'from-emerald-900/50 via-teal-900/40 to-green-900/50', 
-                metrics: 'Full control',
-                pattern: 'radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.4) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(20, 184, 166, 0.3) 0%, transparent 50%)',
-                accent: '#10B981'
+              {
+                quote: 'Access to cutting-edge hardware with enterprise support gave us confidence to deploy production AI at scale. Best infrastructure decision we made.',
+                name: 'Dr. Aisha Patel',
+                role: 'Research Lead, AI Lab'
               }
             ].map((item, i) => (
-              <div key={i} className={`relative h-80 bg-gradient-to-br ${item.color} rounded-2xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300`}>
-                <div 
-                  className="absolute inset-0 opacity-70" 
-                  style={{ background: item.pattern }}
-                />
-                <div className="absolute inset-0" style={{
-                  backgroundImage: 'linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)), linear-gradient(150deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03))',
-                  backgroundSize: '80px 140px'
-                }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-10">
-                  <h3 className="text-3xl font-medium text-white mb-3 group-hover:scale-105 transition-transform duration-300">{item.title}</h3>
-                  <div className="inline-block px-4 py-2 rounded-lg font-semibold text-sm" style={{ backgroundColor: `${item.accent}20`, color: item.accent }}>
-                    {item.metrics}
-                  </div>
-                </div>
-                <div className="absolute inset-0 border-2 border-white/10 rounded-2xl group-hover:border-[#0066FF]/60 transition-colors" />
+              <div key={i} className="border-l-2 border-white/20 pl-8">
+                <p className="text-white/80 italic mb-8 text-lg leading-relaxed">"{item.quote}"</p>
+                <div className="text-white font-medium text-lg">{item.name}</div>
+                <div className="text-white/50 mt-1">{item.role}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-[#0A1F3D] border-y border-white/10">
+      {/* Use Cases */}
+      <section className="py-32 bg-[#0D0D0D]">
         <div className="container-custom">
-          <div className="flex items-center justify-between">
+          <div className="mb-16">
+            <h2 className="text-4xl font-light text-white mb-6">Use cases</h2>
+            <p className="text-lg text-white/60 max-w-3xl">
+              From model training to production deployment, BluBrg supports every phase of your AI journey with purpose-built infrastructure and tools.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: 'TRAINING',
+                metrics: ['80% Lower Cost', '30% Faster'],
+                gradient: 'from-purple-900/50 via-indigo-900/40 to-violet-900/50',
+                pattern: 'radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.4) 0%, transparent 50%)',
+                link: '/solutions/training'
+              },
+              {
+                title: 'INFERENCE',
+                metrics: ['7.2X Performance', '+40% Efficiency'],
+                gradient: 'from-blue-900/50 via-cyan-900/40 to-sky-900/50',
+                pattern: 'radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, transparent 50%)',
+                link: '/solutions/inference'
+              },
+              {
+                title: 'FINE-TUNING',
+                metrics: ['+40% Efficiency', '30% Faster'],
+                gradient: 'from-orange-900/50 via-amber-900/40 to-yellow-900/50',
+                pattern: 'radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.4) 0%, transparent 50%)',
+                link: '/solutions/fine-tuning'
+              },
+              {
+                title: 'AI DEVELOPMENT',
+                metrics: ['80% Lower Cost', '30% Faster'],
+                gradient: 'from-emerald-900/50 via-teal-900/40 to-green-900/50',
+                pattern: 'radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.4) 0%, transparent 50%)',
+                link: '/solutions/ai-development'
+              }
+            ].map((item, i) => (
+              <Link key={i} to={item.link}>
+                <div className={`relative h-96 bg-gradient-to-br ${item.gradient} rounded-2xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300`}>
+                  <div className="absolute inset-0 opacity-70" style={{ background: item.pattern }} />
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: 'linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%)',
+                    backgroundSize: '80px 140px'
+                  }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  
+                  <div className="absolute bottom-0 left-0 p-10">
+                    <h3 className="text-4xl font-light text-white mb-6 tracking-wider">{item.title}</h3>
+                    <div className="space-y-2">
+                      {item.metrics.map((metric, j) => (
+                        <div key={j} className="text-white/90 text-lg font-light">{metric}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 border-2 border-white/10 rounded-2xl group-hover:border-[#0066FF]/60 transition-colors" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NVIDIA Partnership */}
+      <section className="py-24 bg-[#0D0D0D] border-y border-white/10">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-light text-white mb-3">BluBrg is now an NVIDIA Preferred Partner</h2>
+              <h2 className="text-4xl font-light text-white mb-6">
+                BluBrg is now an NVIDIA Preferred Partner
+              </h2>
+              <p className="text-lg text-white/60 mb-8 leading-relaxed">
+                As an NVIDIA Preferred Partner, BluBrg delivers certified infrastructure optimized for NVIDIA GPUs, with access to the latest hardware and technical support direct from NVIDIA engineering teams.
+              </p>
               <div className="flex gap-4">
                 <Link to="/contact">
-                  <Button className="bg-white hover:bg-white/90 text-[#0A1F3D]">Learn More</Button>
+                  <Button className="bg-white hover:bg-white/90 text-[#0A1F3D] px-8 py-6">
+                    Reserve GPUs
+                  </Button>
                 </Link>
-                <Link to="/about">
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">Follow Us</Button>
+                <Link to="/contact">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-6">
+                    Contact Sales
+                  </Button>
                 </Link>
               </div>
             </div>
-            <div className="text-6xl font-bold text-white/20">NVIDIA</div>
+            <div className="flex justify-center lg:justify-end">
+              <div className="text-8xl font-bold text-white/10 tracking-tight">NVIDIA</div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Final CTA */}
       <section className="py-32 bg-gradient-to-r from-[#0066FF] to-[#0052CC]">
         <div className="container-custom text-center">
-          <h2 className="text-5xl font-light text-white mb-8">Access thousands of GPUs tailored to your requirements</h2>
+          <h2 className="text-5xl font-light text-white mb-8 max-w-4xl mx-auto leading-tight">
+            Access thousands of GPUs tailored to your requirements
+          </h2>
           <div className="flex gap-4 justify-center">
-            <Link to="/products/training">
+            <Link to="/contact">
               <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-7 text-lg font-medium">
                 Reserve GPUs
               </Button>
