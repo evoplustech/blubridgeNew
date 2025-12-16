@@ -108,7 +108,7 @@ const FineTuning = () => {
               MODEL FINE-TUNING
             </h1>
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
-              At BluBrg, our platform streamlines the entire model customisation process, enabling you to adapt pre-trained AI models to your specific domain requirements. Fine-tune with precision, iterate rapidly, and deploy optimised models that deliver exceptional performance for your unique use cases.
+              At Blubrg, we provide GPU cloud computing solutions that help you fine-tune your AI models for optimal performance. Our infrastructure and expert support teams ensure your models are enhanced for accuracy, efficiency, and scalability, helping you reach production readiness faster.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -139,13 +139,13 @@ const FineTuning = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Accelerate Time to Market</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                BluBrg's fine-tuning tools significantly reduce model adaptation time, helping you deploy production-ready models in days, not months.
+                Reduce the time it takes to prepare and deploy your AI solutions. With streamlined fine-tuning processes, you can iterate and refine your models more quickly, allowing innovations to reach users sooner.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Cost-Effective Scalability</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Scale your fine-tuning operations without breaking the bank. Our efficient infrastructure delivers maximum value at minimal cost.
+                Easily grow your AI operations without excessive costs. Blubrg’s GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
               </p>
             </div>
           </div>
@@ -162,13 +162,13 @@ const FineTuning = () => {
                 Fast, efficient model fine-tuning
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
-                Leveraging the latest GPU technology, we deliver unparalleled speed and efficiency to help you fine-tune your AI models. Our advanced infrastructure empowers your AI models to achieve their highest potential and bring value to the market quickly.
+                Our platform leverages the latest in GPU technology to provide exceptional performance, efficiency, and scalability. This ensures your AI models are fine-tuned to deliver strong value while meeting the demands of real-world use cases.
               </p>
 
-              <div className="space-y-8">
+              {/* <div className="space-y-8">
                 <div className="border-l-2 border-emerald-500 pl-5">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-2">30% Faster Time to Value for Your AI Projects</h3>
-                  <p className="text-white/50 text-xs font-medium mb-2">Accelerated Fine-Tuning</p>
+                  <p className="text-white/50 text-xs font-medium mb-2">Accelerate the time to actionable results with an AI stack optimised for rapid experimentation and tuning.</p>
                   <p className="text-white/60 text-sm leading-relaxed">
                     We own the infrastructure so you can focus on the innovation.
                   </p>
@@ -178,10 +178,10 @@ const FineTuning = () => {
                   <h3 className="text-lg font-semibold text-emerald-400 mb-2">40% Efficiency Improvement</h3>
                   <p className="text-white/50 text-xs font-medium mb-2">Optimised Resource Utilisation</p>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    Maximising BluBrg's GPU Cloud reduces costs from your production 30% from day one (compared to hyperscalers).
+                    Increase the effectiveness of compute resources with improved hardware utilisation.
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Right side - Stacked system cards */}
@@ -330,7 +330,7 @@ const FineTuning = () => {
                 metric: '30%', 
                 label: 'FASTER INSIGHTS', 
                 sublabel: 'Accelerate Time to Value',
-                desc: 'BluBrg Cloud accelerates time to insights by up to 30% thanks to its AI-optimised stack.',
+                desc: 'Accelerate the time to actionable results with an AI stack optimised for rapid experimentation and tuning.',
                 link: 'Learn More',
                 linkTo: '/about'
               },
@@ -338,7 +338,7 @@ const FineTuning = () => {
                 metric: '80%', 
                 label: 'LOWER COST', 
                 sublabel: 'More performance for less.',
-                desc: 'BluBrg delivers on average 80% cost-saving in comparison to hyperscalers.',
+                desc: ' Reduce costly cloud compute expenses while maintaining powerful performance.',
                 link: 'Our Data Centres',
                 linkTo: '/products/glomfjord'
               },
@@ -346,7 +346,7 @@ const FineTuning = () => {
                 metric: '40%', 
                 label: 'MORE EFFICIENT', 
                 sublabel: 'Improved Resource Utilisation',
-                desc: 'Up to 40% improvement in efficiency.',
+                desc: ' Increase the effectiveness of compute resources with improved hardware utilisation.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
               },
@@ -354,7 +354,7 @@ const FineTuning = () => {
                 metric: '7.2X', 
                 label: 'FASTER INFERENCE', 
                 sublabel: 'Accelerate time to insights',
-                desc: 'Accurate inference, significantly improves throughput and latency by up to 7.2x.',
+                desc: 'Experience marked improvements in throughput and responsiveness thanks to GPU tuning and system-level optimisation.',
                 link: 'Blog Post',
                 linkTo: '/blog'
               }
@@ -387,7 +387,7 @@ const FineTuning = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-emerald-400 text-sm mb-4">Training</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly scalable, performance-optimised architecture that significantly reduces fine-tuning times and boosts productivity.
+                A highly scalable and performance-optimised compute framework that shortens model training cycles and boosts productivity.
               </p>
             </div>
 
@@ -401,7 +401,7 @@ const FineTuning = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services for developing and fine-tuning AI applications built using BluBrg's tools and other popular AI/ML software.
+                An ecosystem of services and tools that support the entire model lifecycle, enabling development and deployment using both Blubrg offerings and popular AI/ML technologies.
               </p>
             </div>
           </div>
@@ -413,7 +413,7 @@ const FineTuning = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg accelerates the full journey from initial development to deployment, helping teams achieve quicker productivity gains in their AI initiatives.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -496,15 +496,15 @@ const FineTuning = () => {
             {[
               {
                 question: "What makes BluBrg's GPU Cloud different from others?",
-                answer: "BluBrg owns and operates the full AI stack – from its data centre to the sophisticated orchestration layer – and this allows BluBrg to optimise each layer of the stack to deliver high-performance computing by providing our customers with the latest GPU workloads, maximise utilisation, or ensure scalability."
+                answer: "Blubrg owns and operates the entire infrastructure stack, from physical data centres to orchestration software, allowing the company to tune every layer for performance, efficiency, and scalability. This integrated approach delivers superior compute power and expert support for complex AI workloads."
               },
               {
                 question: "What types of GPUs does BluBrg offer?",
-                answer: "We provide access to the latest fine-tuning optimized GPUs including NVIDIA GB200, H100, H200, A100, and AMD MI300X, MI250X. All configurations include high-bandwidth networking and optimized software stacks for efficient model adaptation."
+                answer: "A range of high-performance NVIDIA GPUs are available to support different fine-tuning workloads, giving you flexibility in choosing the right hardware for your model size and performance needs."
               },
               {
                 question: "What industries can benefit from Fine-Tuning?",
-                answer: "Fine-tuning benefits virtually any industry that uses AI, including healthcare (medical diagnosis, drug discovery), finance (risk assessment, fraud detection), legal (document analysis, contract review), retail (recommendation systems), manufacturing (quality control), and more. Any domain with specialized terminology or unique requirements can achieve significant improvements through fine-tuning."
+                answer: "Fine-tuning is valuable across multiple sectors, including:Artificial intelligence and machine learning research and development,Gaming and entertainment for graphics and interactive applications,Healthcare for clinical analysis and advanced imaging,Finance for modelling and predictive analytics,Automotive industries for autonomous and simulation tasks,Aerospace and engineering for simulation and design optimisation"
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-white/10">
