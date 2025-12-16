@@ -1,238 +1,412 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { Card, CardContent } from '../../components/ui/card';
-import { Check, Shield, Lock, MapPin, FileCheck } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Server, Play } from 'lucide-react';
 
 const SovereignCloud = () => {
+  const [openFaq, setOpenFaq] = useState(null);
+  const [activeCard, setActiveCard] = useState(2); // Scalability is highlighted by default
+  const heroRef = useRef(null);
+  const [heroOffset, setHeroOffset] = useState(0);
+
+  // Parallax effect for hero background
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const scrollY = window.scrollY;
+        const heroHeight = heroRef.current.offsetHeight;
+        if (scrollY < heroHeight) {
+          setHeroOffset(scrollY * 0.3);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  // Value Pillars Data (5 cards)
+  const valuePillars = [
+    {
+      id: 0,
+      title: 'DATA SECURITY',
+      description: 'Be in control of your data. BluBrg\'s infrastructure is primarily governed by UK and European laws, operated by local personnel, and architected to minimise or eliminate foreign data access.',
+      bgColor: 'bg-blue-900/80'
+    },
+    {
+      id: 1,
+      title: 'ECONOMIC',
+      description: 'AI that powers local prosperity. Sovereign infrastructure allows nations to retain the value created by AI. Keeping revenue, jobs, and intellectual property within national borders.',
+      bgColor: 'bg-slate-900'
+    },
+    {
+      id: 2,
+      title: 'SCALABILITY',
+      description: 'BluBrg Cloud is designed for organisations that want the performance of a hyperscaler, but the governance of a sovereign cloud. It scales in line with your business needs.',
+      bgColor: 'bg-blue-600',
+      hasLink: true
+    },
+    {
+      id: 3,
+      title: 'MODULARITY',
+      description: 'Infrastructure where you need it. By developing modular private cloud clusters, BluBrg ensures future proof infrastructure that\'s easier to refresh, enhance, adapt and scale on European soil.',
+      bgColor: 'bg-slate-900'
+    },
+    {
+      id: 4,
+      title: 'SUSTAINABILITY',
+      description: 'BluBrg is built to scale. By leveraging local renewable energy sources and optimising data centre efficiency, we deliver eco-conscious cloud services without compromising performance or control.',
+      bgColor: 'bg-slate-900'
+    }
+  ];
+
+  // Related Content Data
+  const relatedContent = [
+    {
+      image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&q=80',
+      date: 'June 5, 2025',
+      category: 'ANNOUNCEMENT',
+      title: 'European business leaders agree sovereign AI infrastructure is essential',
+      excerpt: '74% of European enterprises and AI businesses are concerned about the impact of non-EU data laws'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80',
+      date: 'June 3, 2025',
+      category: 'NEWS/BLOG POST',
+      title: 'Data sovereignty vs. data residency',
+      excerpt: 'What\'s the difference?'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80',
+      date: 'May 28, 2025',
+      category: 'NEWS/BLOG POST',
+      title: 'The importance of sovereign cloud in an AI era',
+      excerpt: 'Why organisations need sovereign infrastructure'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
+      date: 'May 21, 2025',
+      category: 'ANNOUNCEMENT',
+      title: 'AI hyperscaler BluBrg launches Serverless Inference Platform',
+      excerpt: 'New platform for scalable AI inference'
+    }
+  ];
+
+  // FAQ Data
+  const faqs = [
+    {
+      question: "Why is sovereignty important for AI workloads?",
+      answer: "Sovereignty ensures that your AI systems, data, and intellectual property remain under your control and jurisdiction. This is critical for regulated industries, national security applications, and organizations that need to comply with data protection regulations like GDPR."
+    },
+    {
+      question: "Can BluBrg support both public and private sector workloads?",
+      answer: "Yes, BluBrg's sovereign infrastructure is designed to support both public sector entities with strict compliance requirements and private enterprises seeking data sovereignty. We offer flexible deployment models to meet diverse organizational needs."
+    },
+    {
+      question: "How is BluBrg different from other cloud providers?",
+      answer: "BluBrg is built specifically for AI workloads with a sovereign-first approach. Unlike global hyperscalers, we ensure data residency within European jurisdictions, operate with local personnel, and provide infrastructure governed by UK and European laws."
+    },
+    {
+      question: "What GPUs and compute resources are available?",
+      answer: "We offer the latest NVIDIA GPUs including H100, H200, and GB200 NVL72, along with AMD MI300X accelerators. Our infrastructure supports both training and inference workloads at any scale."
+    },
+    {
+      question: "How can I speak with someone about my organisation's sovereign AI needs?",
+      answer: "You can reach our enterprise team directly through our Contact Sales page, or schedule a consultation to discuss your specific compliance requirements and infrastructure needs. We offer personalized assessments for organizations of all sizes."
+    }
+  ];
+
+  // Infrastructure services for diagram
+  const infrastructureServices = [
+    { name: 'Serverless', type: 'top' },
+    { name: 'Marketplace', type: 'top' },
+    { name: 'Inference', type: 'middle' },
+    { name: 'Training', type: 'middle' },
+    { name: 'GPU nodes', type: 'bottom' }
+  ];
+
+  const infrastructureTools = [
+    'LLM Library',
+    'Job Scheduling',
+    'Container Orchestration',
+    'Optimised Libraries',
+    'Optimised Compilers and Tools',
+    'Optimised Runtime'
+  ];
+
   return (
-    <div className="min-h-screen bg-[#0A1F3D]">
-      {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F3D] via-[#0E2744] to-[#0A1F3D]" />
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-[#0066FF] rounded-full filter blur-[150px]" />
-          </div>
-        </div>
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
+      <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
+        {/* Background Landscape Image with Parallax */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80')`,
+            transform: `translateY(${heroOffset}px) scale(1.1)`
+          }}
+        />
         
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">SOVEREIGN AI INFRASTRUCTURE</div>
-            <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-              YOUR AI. YOUR HOME ADVANTAGE.
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        
+        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+          <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+              YOUR AI.<br />
+              YOUR HOME ADVANTAGE.
             </h1>
-            <p className="text-xl text-white/80 mb-8 max-w-3xl">
-              Blubrg’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
+            
+            <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+              BluBrg's Sovereign AI Cloud is made for Europe, by Europe, ensuring data security, scalability while fuelling local economic growth and sustainability.
             </p>
-            <div className="flex flex-wrap gap-4">
+            
+            <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
               <Link to="/contact">
-                <Button className="bg-white text-[#0A1F3D] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-                  Discuss Requirements
-                </Button>
-              </Link>
-              <Link to="/docs">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  Compliance Documentation →
+                <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded font-medium">
+                  Get In Touch
                 </Button>
               </Link>
             </div>
           </div>
         </div>
+
+        <style>{`
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
       </section>
 
-      {/* Key Pillars */}
-      <section className="py-24 bg-[#0D2847]">
-        <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Built for Compliance and Control</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                icon: <Shield className="w-10 h-10" />,
-                title: 'Sovereign',
-                description: 'Blubrg empowers European organisations to design, deploy, and manage AI systems using their own infrastructure, data, teams, and networks. This approach ensures independence from external providers.'
-              },
-              {
-                icon: <Lock className="w-10 h-10" />,
-                title: 'DATA SECURITY',
-                description: 'The platform operates under UK and European regulatory frameworks and is managed by local teams. Its architecture is designed to minimise external exposure and safeguard sensitive information through strong governance and access controls'
-              },
-              {
-                icon: <MapPin className="w-10 h-10" />,
-                title: 'ECONOMIC',
-                description: 'A sovereign cloud model ensures that the economic benefits of AI such as revenue generation, talent development, and innovation remain within national borders, reinforcing long-term economic resilience'
-              },
-              {
-                icon: <FileCheck className="w-10 h-10" />,
-                title: 'SCALABILITY',
-                description: 'Blubrg Cloud delivers hyperscaler-level performance while maintaining the control and governance required by sovereign organisations. The infrastructure can expand seamlessly to meet growing workload demands'
-              }
-            ].map((pillar, i) => (
-              <Card key={i} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all">
-                <CardContent className="p-8 text-center">
-                  <div className="flex justify-center text-[#0066FF] mb-4">{pillar.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-3">{pillar.title}</h3>
-                  <p className="text-white/70 text-sm">{pillar.description}</p>
-                </CardContent>
-              </Card>
+      {/* SECTION 2: Sovereign AI Cloud Intro */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <p className="text-gray-400 text-sm uppercase tracking-wider mb-2">THE ADVANTAGES OF A</p>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                Sovereign AI Cloud
+              </h2>
+            </div>
+            
+            <div>
+              <p className="text-gray-400 leading-relaxed">
+                BluBrg ensures European customers can: Develop and deploy artificial intelligence systems using their own private infrastructure, data, workforce, and business networks; Have control over their own AI capabilities and are less reliant on foreign entities for critical AI technology; Own and manage their own AI data and intelligence that is protected within their borders; Realise the economic benefits to their nation's economy by creating jobs, obtaining intellectual property, and fuelling economic growth; Reduce their exposure to legislation of other nations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: Value Pillars Card Grid (5 Cards) */}
+      <section className="py-12 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {valuePillars.map((pillar, i) => (
+              <div 
+                key={i}
+                className={`p-6 rounded-xl transition-all duration-300 cursor-pointer ${
+                  activeCard === i ? 'bg-blue-600' : pillar.bgColor
+                } ${activeCard === i ? 'ring-2 ring-blue-400' : ''}`}
+                onClick={() => setActiveCard(i)}
+              >
+                <h3 className="text-sm font-bold text-white mb-3 tracking-wider">{pillar.title}</h3>
+                <p className="text-white/80 text-xs leading-relaxed">{pillar.description}</p>
+                {pillar.hasLink && activeCard === i && (
+                  <Link to="/contact" className="text-white text-xs mt-4 inline-flex items-center gap-1 hover:underline">
+                    Contact Sales <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Architecture Details */}
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
+      {/* SECTION 4: What We Offer with Video Embed */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              BluBrg provides a complete platform for running AI workloads in the most efficient and cost-effective way possible.
+            </p>
+          </div>
+
+          {/* Video Embed */}
+          <div className="max-w-4xl mx-auto">
+            <div className="relative bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden aspect-video">
+              {/* Video Thumbnail */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-6xl md:text-8xl font-bold text-white/10 mb-4">model</div>
+                </div>
+              </div>
+              
+              {/* Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer hover:bg-black/20 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
+                  <Play className="w-6 h-6 text-white ml-1" />
+                </div>
+              </div>
+
+              {/* YouTube Attribution */}
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/50 px-3 py-1.5 rounded">
+                <span className="text-xs text-white">Watch on</span>
+                <span className="text-xs text-red-500 font-semibold">▶ YouTube</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: Related Content */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10">Related Content</h2>
+          
+          <div className="grid md:grid-cols-4 gap-6">
+            {relatedContent.map((article, i) => (
+              <div key={i} className="bg-slate-900/50 rounded-xl border border-slate-700/30 overflow-hidden hover:border-slate-600/50 transition-colors cursor-pointer">
+                <div className="aspect-video bg-slate-800 overflow-hidden">
+                  <img 
+                    src={article.image} 
+                    alt={article.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs text-gray-500">{article.date}</span>
+                    <span className="text-xs text-blue-400 uppercase">{article.category}</span>
+                  </div>
+                  <h3 className="text-sm font-semibold text-white mb-2 line-clamp-2">{article.title}</h3>
+                  <p className="text-xs text-gray-400 line-clamp-2">{article.excerpt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: Fully Integrated AI Infrastructure */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-6">What we offer</h2>
-              <p className="text-white/70 text-lg mb-8">
-               Blubrg provides a complete AI-ready platform engineered to deliver cost-effective, high-performance compute for demanding workloads.
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Get access to a fully<br />integrated suite of AI<br />services and compute
+              </h2>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-blue-400 hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
-              <div className="space-y-6">
-                {[
-                  {
-                    title: 'Serverless Marketplace Training Inference GPU nodes',
-                    items: [
-                      'Blubrg’s Data centres',
-                      'Powered by renewable energy',
-                      'LLM Library',
-                      'Pre-configured Software & Infrastructure',
-                      'Job Management',
-                      'Job Scheduling',
-                      'Container Orchestration',
-                      'Optimised Libraries',
-                      'Optimised Compilers and Tools',
-                      'Optimised Runtime'
-                    ]
-                  }
-                ].map((section, i) => (
-                  <div key={i}>
-                    <h3 className="text-xl font-semibold text-white mb-3">{section.title}</h3>
-                    <ul className="space-y-2">
-                      {section.items.map((item, j) => (
-                        <li key={j} className="flex items-center space-x-3 text-white/70">
-                          <Check className="w-5 h-5 text-[#0066FF] flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+            </div>
+            
+            {/* Infrastructure Diagram */}
+            <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6">
+              {/* Service Flow */}
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                  <span className="text-sm text-gray-300">Serverless</span>
+                </div>
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                  <span className="text-sm text-gray-300">Marketplace</span>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                  <span className="text-sm text-blue-300">Inference</span>
+                </div>
+                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                  <span className="text-sm text-blue-300">Training</span>
+                </div>
+              </div>
+              
+              {/* Tools Grid */}
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {infrastructureTools.map((tool, i) => (
+                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-slate-700/20">
+                    <span className="text-xs text-gray-400">{tool}</span>
                   </div>
                 ))}
               </div>
-            </div>
-            <div>
-              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">Technical Guarantees</h3>
-                  <div className="space-y-6">
-                    {[
-                      { label: 'Data Residency', value: 'Guaranteed' },
-                      { label: 'Encryption', value: 'AES-256 at rest, TLS 1.3 in transit' },
-                      { label: 'Key Management', value: 'Customer-controlled HSM' },
-                      { label: 'Network Isolation', value: 'VXLAN with microsegmentation' },
-                      { label: 'Backup Location', value: 'Same jurisdiction only' },
-                      { label: 'Data Deletion', value: 'Cryptographic erasure' }
-                    ].map((item, i) => (
-                      <div key={i} className="flex justify-between items-center pb-4 border-b border-white/10 last:border-0">
-                        <span className="text-white/70">{item.label}</span>
-                        <span className="text-white font-semibold text-sm">{item.value}</span>
-                      </div>
-                    ))}
+              
+              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30 mb-4">
+                <span className="text-sm text-gray-300">GPU nodes</span>
+              </div>
+              
+              {/* Data Center Badge */}
+              <div className="bg-slate-900 rounded-lg p-4 border border-slate-700/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                    <Server className="w-4 h-4 text-blue-400" />
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-xs text-gray-500">Powered by renewable energy</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Industry Use Cases */}
-      <section className="py-24 bg-[#0D2847]">
-        <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-4 text-center">Trusted by Regulated Industries</h2>
-          <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
-            Organizations handling sensitive data trust BluBrg Sovereign Cloud for their most critical AI workloads.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                industry: 'Government & Defense',
-                challenges: 'National security requirements, classified data handling, strict access controls',
-                solution: 'Air-gapped deployments with sovereign operations, dedicated security clearance requirements, and full audit trails.'
-              },
-              {
-                industry: 'Financial Services',
-                challenges: 'DORA compliance, transaction data protection, multi-jurisdiction operations',
-                solution: 'Region-locked processing for payment data, automated compliance reporting, and cross-border data flow controls.'
-              },
-              {
-                industry: 'Healthcare',
-                challenges: 'Patient privacy, medical record protection, research data security',
-                solution: 'HIPAA and GDPR-aligned infrastructure, anonymized processing capabilities, and granular access controls.'
-              }
-            ].map((useCase, i) => (
-              <Card key={i} className="bg-white/5 border-white/10">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-white mb-3">{useCase.industry}</h3>
-                  <div className="mb-4">
-                    <div className="text-[#0066FF] text-sm font-semibold mb-2">Challenges</div>
-                    <p className="text-white/60 text-sm">{useCase.challenges}</p>
-                  </div>
-                  <div>
-                    <div className="text-[#0066FF] text-sm font-semibold mb-2">Our Solution</div>
-                    <p className="text-white/70 text-sm">{useCase.solution}</p>
-                  </div>
-                </CardContent>
-              </Card>
+      {/* SECTION 7: FAQs */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
+          
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className="border-b border-slate-700/50 pb-4"
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex items-center justify-between text-left py-3 group"
+                >
+                  <span className="text-white text-lg pr-4">{faq.question}</span>
+                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-blue-600 rotate-180' : 'bg-blue-600/80'}`}>
+                    {openFaq === index ? (
+                      <Minus className="w-4 h-4 text-white" />
+                    ) : (
+                      <Plus className="w-4 h-4 text-white" />
+                    )}
+                  </span>
+                </button>
+                
+                <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <p className="text-gray-400 pb-4 pr-12">{faq.answer}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Service Levels */}
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-12 text-center">Enterprise Service Levels</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { metric: '99.99%', label: 'Infrastructure Uptime SLA' },
-                { metric: '< 4 hours', label: 'Critical Issue Response' },
-                { metric: '24/7/365', label: 'Dedicated Support Team' },
-                { metric: '100%', label: 'Data Residency Guarantee' }
-              ].map((item, i) => (
-                <Card key={i} className="bg-white/5 border-white/10">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-4xl font-bold text-[#0066FF] mb-2">{item.metric}</div>
-                    <div className="text-white/70">{item.label}</div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC]">
-        <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Deploy AI with complete sovereignty
+      {/* SECTION 8: Final CTA Strip */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+        <div className="container mx-auto px-6 lg:px-16 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Access thousands of GPUs tailored to your<br />requirements.
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Schedule a consultation to discuss your compliance requirements and infrastructure needs.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
-              <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-                Request Consultation
+          
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <Link to="/products/gpu-nodes">
+              <Button className="bg-slate-900 text-white hover:bg-slate-800 px-6 py-3 rounded font-medium">
+                Reserve GPUs
               </Button>
             </Link>
-            <Link to="/docs">
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                Download Compliance Brief
-              </Button>
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+              Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
