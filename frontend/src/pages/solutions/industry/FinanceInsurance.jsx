@@ -203,19 +203,19 @@ const FinanceInsurance = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Support Computational Needs</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Handle complex financial modelling, risk analysis, and big data analytics with BluBrg's GPU cloud platform.
+              Run demanding workloads such as financial modelling, risk assessment, and large-scale analytics using powerful GPU-accelerated infrastructure built for high performance.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Accelerate Data Analysis</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                BluBrg's GPU cloud provides the necessary compute power, enabling faster data processing and real-time analytics, which are critical for making timely decisions.
+                Process vast datasets at speed to generate real-time insights that support informed, time-critical decision-making across financial operations.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Scale on demand</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Handle fluctuating workloads efficiently, ensuring you only pay for the resources you use while maintaining high performance during peak periods.
+              Adapt compute capacity seamlessly as workloads change, ensuring peak performance during high-demand periods while maintaining cost efficiency.
               </p>
             </div>
           </div>
@@ -229,7 +229,7 @@ const FinanceInsurance = () => {
             <p className="text-blue-400 text-sm font-medium mb-3 uppercase tracking-wider">GAIN A COMPETITIVE EDGE</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
             <p className="text-base text-white/60 max-w-3xl">
-              Discover how financial institutions leverage GPU and Cloud technology to transform operations, reduce risk, and deliver superior customer experiences.
+              Financial and insurance organisations that leverage GPU cloud technologies gain competitive advantages through faster insights, improved efficiency, and enhanced customer engagement.
             </p>
           </div>
 
