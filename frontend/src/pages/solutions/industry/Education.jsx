@@ -279,7 +279,7 @@ const Education = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-indigo-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services for developing and deploying AI applications, providing students and researchers with access to popular AI/ML tools and frameworks.
+                 A suite of tools and services that help educators and researchers build, deploy, and scale AI applications using both Blubrg offerings and widely used AI/ML frameworks.
               </p>
             </div>
           </div>
@@ -291,7 +291,7 @@ const Education = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg supports organisations throughout the full AI lifecycle, helping teams and institutions move from early experimentation to large-scale deployment with speed and efficiency.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">

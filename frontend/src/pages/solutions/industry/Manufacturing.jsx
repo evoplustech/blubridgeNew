@@ -259,7 +259,7 @@ const Manufacturing = () => {
               MANUFACTURING
             </h1>
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
-              BluBrg empowers manufacturers with GPU-accelerated AI solutions for simulation, predictive maintenance, quality control, and process optimisation. Our platform enables smarter factories with real-time analytics, digital twins, and intelligent automation that drive operational excellence.
+              Blubrg’s cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -284,19 +284,19 @@ const Manufacturing = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Enhanced Simulation</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Leverage faster and more accurate simulations for manufacturing processes, such as finite element analysis (FEA), computational fluid dynamics (CFD), and digital twin modelling.
+              Run faster and more precise simulations for manufacturing processes such as finite element analysis, computational fluid dynamics, and digital twin modelling to boost design accuracy and throughput.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Improved Predictive Maintenance</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                By leveraging GPU-powered AI and machine learning, manufacturers can analyse vast amounts of sensor data in real-time to predict and prevent equipment failures.
+              Analyse large streams of sensor data in real time using GPU-powered AI and machine learning to anticipate equipment failures and schedule maintenance before breakdowns occur.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Streamlined Automation</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                BluBrg supports advanced AI algorithms for robotics and automation, enabling smarter and more efficient manufacturing processes.
+                Support advanced AI techniques in robotics and automation, helping manufacturing operations become more intelligent, efficient, and adaptable to changing production demands.
               </p>
             </div>
           </div>
@@ -310,7 +310,7 @@ const Manufacturing = () => {
             <p className="text-amber-500 text-sm font-medium mb-3 uppercase tracking-wider">STREAMLINE OPERATIONS</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
             <p className="text-base text-white/60 max-w-3xl">
-              Discover how manufacturers leverage BluBrg's GPU infrastructure to transform production, reduce downtime, and achieve operational excellence through AI-powered solutions.
+              Blubrg’s AI platform combines industry-leading GPU technology with a fully optimised software stack, enabling manufacturers to improve core activities like supply chain coordination, quality assurance, and product design.
             </p>
           </div>
 
@@ -320,7 +320,7 @@ const Manufacturing = () => {
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Predictive Maintenance Models</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Equipment Health Monitoring</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Deploy AI models that analyse sensor data in real-time to predict equipment failures before they occur. Reduce unplanned downtime by up to 50% and extend asset lifespan.
+                Use AI to build and train models that forecast when machines are likely to fail, allowing maintenance teams to act proactively and minimise downtime and repair costs.
               </p>
             </div>
 
@@ -329,7 +329,7 @@ const Manufacturing = () => {
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Supply Chain Logistics Optimisation</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Demand Forecasting & Inventory</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Use AI to forecast demand, optimise inventory levels, and streamline logistics operations. Reduce stockouts, minimise carrying costs, and improve delivery performance.
+                Quickly analyse complex datasets related to inventory, demand forecasting, and logistics, helping teams make better decisions and streamline supply chain processes.
               </p>
             </div>
 
@@ -338,7 +338,7 @@ const Manufacturing = () => {
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Quality Control and Defect Detection</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Computer Vision Inspection</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Implement GPU-accelerated computer vision systems that inspect products at production speed, detecting surface defects and dimensional errors with 99.8% accuracy.
+                Apply GPU-accelerated systems to monitor production lines in real time, detecting defects quickly and ensuring products consistently meet quality standards.
               </p>
             </div>
 
@@ -347,7 +347,7 @@ const Manufacturing = () => {
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Design and Simulation</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Digital Twin & CFD/FEA</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Run complex simulations and digital twin models at unprecedented speed. Accelerate product development cycles and validate designs before physical prototyping.
+                Accelerate design iteration cycles by running complex simulations in the cloud, significantly reducing the time it takes to validate designs, especially in industries like automotive and aerospace where precision is vital.
               </p>
             </div>
           </div>
@@ -369,7 +369,7 @@ const Manufacturing = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-amber-400 text-sm mb-4">Training</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly scalable, performance-optimised architecture that significantly reduces training times for manufacturing AI models.
+                 A scalable compute environment that shortens model training times and increases productivity for data-intensive workloads.
               </p>
             </div>
 
@@ -383,7 +383,8 @@ const Manufacturing = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-amber-400 text-sm mb-4">Inference</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly optimised, scalable platform for real-time inference workloads on the factory floor with sub-10ms latency.
+                A high-performance platform optimised to run inference workloads efficiently and reliably at production scale.
+
               </p>
             </div>
 
@@ -397,7 +398,7 @@ const Manufacturing = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-amber-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services for developing and deploying manufacturing AI applications with pre-built industrial templates.
+                 A set of tools and services that help teams develop, deploy, and scale AI applications using both Blubrg infrastructure and commonly used AI/ML frameworks.
               </p>
             </div>
           </div>
@@ -409,7 +410,7 @@ const Manufacturing = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg supports organisations throughout the AI lifecycle, helping teams move from early development to full deployment with speed and efficiency.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">

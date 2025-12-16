@@ -215,7 +215,7 @@ const Legal = () => {
               LEGAL
             </h1>
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
-              BluBrg empowers legal professionals with GPU-accelerated AI solutions for document analysis, case research, contract management, and predictive analytics. Our platform enables law firms to process vast amounts of legal data efficiently and make data-driven decisions faster.
+              At Blubrg, we offer GPU cluster computing solutions designed to elevate your organisation’s computing capabilities. Our infrastructure supports advanced legal analytics, accelerates case research, and helps legal teams deliver more efficient and impactful services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -240,19 +240,19 @@ const Legal = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Enhanced Document Analysis</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Process and analyse thousands of legal documents in minutes using GPU-accelerated AI models for comprehensive contract review and due diligence.
+              Use powerful AI tools to quickly process and interpret large volumes of legal documents, speeding up tasks such as reviewing case files, contracts, and evidence with greater accuracy.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Improved Predictive Analytics</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Leverage AI to predict case outcomes, assess litigation risks, and provide data-driven legal strategies backed by historical precedent analysis.
+              Apply machine learning techniques to forecast case trends, assess litigation risk, and uncover patterns across historical data, enabling more informed decision-making.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Cost Efficiency and Scalability</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Scale your legal AI workloads on demand with pay-as-you-go pricing. Reduce operational costs while maintaining the highest standards of accuracy.
+                Adopt robust GPU computing resources that adjust to workload demands, helping legal teams increase productivity while managing costs as requirements grow.
               </p>
             </div>
           </div>
@@ -266,7 +266,7 @@ const Legal = () => {
             <p className="text-violet-400 text-sm font-medium mb-3 uppercase tracking-wider">TRANSFORMING LEGAL WORKFLOWS</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
             <p className="text-base text-white/60 max-w-3xl">
-              Discover how law firms and legal departments leverage BluBrg's GPU infrastructure to streamline operations, enhance compliance, and deliver superior client outcomes.
+            Explore how legal organisations use high-performance GPU infrastructure to improve workflows, support critical tasks, and drive innovation across core legal operations.
             </p>
           </div>
 
@@ -276,7 +276,7 @@ const Legal = () => {
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Automated Analysis</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">AI-Powered Document Processing</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Deploy advanced NLP models to automatically extract key information from contracts, briefs, and legal filings. Reduce review time by up to 90% while maintaining accuracy.
+                Reduce preparation time by automating the review and interpretation of large datasets, allowing legal professionals to focus on strategy and judgement.
               </p>
             </div>
 
@@ -285,7 +285,7 @@ const Legal = () => {
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Regulatory Adherence</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Compliance Monitoring</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Use AI to continuously monitor regulatory changes and assess compliance across your document portfolio. Stay ahead of evolving legal requirements automatically.
+                Use AI-driven solutions to track and maintain compliance with evolving legal standards, helping reduce regulatory risk and potential penalties.
               </p>
             </div>
 
@@ -294,7 +294,7 @@ const Legal = () => {
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Case Strategy</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Predictive Legal Intelligence</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Analyse historical case data and judicial patterns to predict outcomes and inform litigation strategy. Make data-driven decisions with confidence.
+              Leverage historical insights and predictive modelling to inform litigation strategies, enabling stronger planning and more effective tactical decisions.
               </p>
             </div>
 
@@ -303,7 +303,7 @@ const Legal = () => {
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Contract Management</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Intelligent Contract Lifecycle</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Automate contract creation, review, and management with AI that identifies risks, suggests clauses, and ensures consistency across your organisation.
+                Improve contract workflows by automatically identifying key clauses, potential risks, and important details, ensuring consistency and reducing manual effort.
               </p>
             </div>
           </div>
@@ -325,7 +325,7 @@ const Legal = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-violet-400 text-sm mb-4">Training</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly scalable, performance-optimised architecture that significantly reduces training times for legal AI models.
+                A scalable compute environment optimised to shorten model training cycles and increase productivity for legal AI workloads.
               </p>
             </div>
 
@@ -339,7 +339,7 @@ const Legal = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-violet-400 text-sm mb-4">Inference</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly optimised, scalable platform for inference workloads with best performance at low cost for real-time legal analysis.
+               A high-performance platform designed to efficiently run inference workloads for production-level AI applications used in legal processes.
               </p>
             </div>
 
@@ -353,7 +353,7 @@ const Legal = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-violet-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services for developing and deploying legal AI applications built using BluBrg's tools and popular frameworks.
+                A collection of tools and frameworks that support the development, deployment, and scaling of AI applications tailored to legal use cases.
               </p>
             </div>
           </div>
@@ -365,7 +365,7 @@ const Legal = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg supports organisations across the entire AI lifecycle, helping legal teams move from experimentation to full production deployment efficiently.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
