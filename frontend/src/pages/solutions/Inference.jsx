@@ -397,19 +397,19 @@ const Inference = () => {
             {[
               {
                 question: "What makes BluBrg's GPU Cloud different from others?",
-                answer: "BluBrg specializes in AI-optimized infrastructure with the latest GPUs, ultra-low latency networking, and pre-configured inference stacks. Our platform delivers up to 7.2x faster inference and 80% cost savings compared to general cloud platforms."
+                answer: "Blubrg controls the full infrastructure stack, enabling deep optimisation across hardware, software, and orchestration layers for better performance and efficiency."
               },
               {
                 question: "What types of GPUs does BluBrg offer?",
-                answer: "We provide access to the latest inference-optimized GPUs including NVIDIA GB200, H100, H200, A100, and AMD MI300X, MI250X. All configurations include high-bandwidth networking and optimized inference runtimes."
+                answer: "A range of NVIDIA GPUs is available to support different inference workloads, providing flexibility for varying performance and scale requirements."
               },
               {
                 question: "How does BluBrg support sustainability?",
-                answer: "All BluBrg data centers run on 100% renewable energy. We optimize infrastructure for maximum efficiency and locate facilities strategically in regions with abundant clean energy sources."
+                answer: "Inference workloads run on energy-efficient infrastructure powered by renewable energy, reducing environmental impact without compromising performance."
               },
               {
                 question: "What makes your AI inference service different from others?",
-                answer: "Our AI inference service leverages cutting-edge GPUs, optimised for both batch and streaming workloads. With our integrated software stack and orchestration using Kubernetes and SLURM, we provide unmatched performance, scalability, and efficiency."
+                answer: "The service combines high-performance GPUs with advanced orchestration to support both batch and streaming inference with low latency and strong scalability."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-white/10">
