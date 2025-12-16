@@ -91,14 +91,15 @@ const Inference = () => {
                 <div className="border-l-2 border-cyan-500 pl-5">
                   <h3 className="text-lg font-semibold text-cyan-400 mb-2">AI & ML Tools</h3>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    Work seamlessly with widely used AI frameworks such as TensorFlow Serving, PyTorch, and ONNX Runtime to ensure smooth and efficient inference execution.
+                    Access the latest frameworks Work seamlessly with widely used AI frameworks such as TensorFlow Serving, PyTorch, and ONNX Runtime to ensure smooth and efficient inference execution.
                   </p>
                 </div>
 
                 <div className="border-l-2 border-cyan-500 pl-5">
                   <h3 className="text-lg font-semibold text-cyan-400 mb-2">Simplified Orchestration and Management</h3>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    Featuring SLURM and Kubernetes. Simplified resource management with automated orchestration and scheduling.
+                   Featuring SLURM and Kubernetes
+ Integrated orchestration and scheduling through SLURM and Kubernetes simplify workload management and ensure efficient resource utilisation across inference jobs.
                   </p>
                 </div>
               </div>
