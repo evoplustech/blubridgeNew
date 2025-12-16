@@ -265,7 +265,7 @@ const Education = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-indigo-400 text-sm mb-4">Training</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity for academic research and student projects.
+                A scalable, performance-optimised compute environment designed to shorten model training cycles and increase productivity for academic researchers and students.
               </p>
             </div>
 
