@@ -104,7 +104,7 @@ const Careers = () => {
     },
     {
       title: "Ownership and Accountability",
-      description: "Every BluBrger is fully accountable for their work, driving it with excellence and integrity. We embrace ownership, taking responsibility for our commitments and delivering results that exceed expectations.",
+      description: "Every team member takes responsibility for their work and its outcomes. We set high standards and strive for excellence in everything we do.",
       image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
       imagePosition: "left"
     },
