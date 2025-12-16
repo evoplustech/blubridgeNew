@@ -178,7 +178,7 @@ const FinanceInsurance = () => {
               FINANCE & INSURANCE
             </h1>
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
-              At BluBrg, we offer GPU cloud computing solutions designed to elevate your computational capabilities to support the finance and insurance industry and bring innovative services to market faster.
+          
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
