@@ -239,7 +239,7 @@ const Inference = () => {
                 metric: '40%', 
                 label: 'MORE EFFICIENT', 
                 sublabel: 'Improved Resource Utilisation',
-                desc: 'Up to 40% improvement on efficiency.',
+                desc: 'Achieve higher utilisation of compute resources, reducing waste while maximising inference performance.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
               },
@@ -247,7 +247,7 @@ const Inference = () => {
                 metric: '7.2X', 
                 label: 'FASTER INFERENCE', 
                 sublabel: 'Accelerate Time to Insights',
-                desc: 'GPUs with GEMM tuning improves throughput and latency by up to 7.2x.',
+                desc: 'Optimised GPU architecture and software tuning significantly increase throughput and reduce latency.',
                 link: 'Blog Post',
                 linkTo: '/blog'
               },
