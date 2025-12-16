@@ -181,13 +181,13 @@ const Telco = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Scale Effortlessly</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Gain support for dynamic scaling of AI applications for 5G, edge, and large networks.
+                Support dynamic scaling of AI applications for modern telecom requirements like 5G, Internet of Things (IoT) workloads, and distributed edge networks without compromising performance.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Improve Operability</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Run energy-efficient telco data centres to lower carbon footprint in telco network operations.
+                Operate energy-efficient infrastructure that reduces overall carbon impact while supporting advanced telco processes and data operations.
               </p>
             </div>
           </div>
@@ -200,7 +200,7 @@ const Telco = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Telco AI Use Cases</h2>
             <p className="text-base text-white/60 max-w-3xl">
-              Discover how Telco companies can leverage BluBrg's GPU infrastructure to deliver AI services, optimise 5G networks, support advanced AI analytics, and drive next-generation telecommunications innovations.
+              Explore the different ways telecommunications companies can use Blubrg’s GPU infrastructure to deliver smarter AI services, optimise next-generation networks, and drive innovation across the industry.
             </p>
           </div>
 
@@ -209,36 +209,38 @@ const Telco = () => {
             <div className="space-y-8">
               <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-blue-400 mb-2">White-label BluBrg's end-to-end Cloud Platform</h3>
-                <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Deliver Advanced AI Services</p>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Launch AI services such as AI-powered chatbots and voice assistants or automated support ticket resolutions faster, thanks to the agility of BluBrg's cloud platform, allowing Telcos to advance customer service delivery to reduce customer churn and maximise customer retention.
+                  Telcos can build their own branded cloud services using Blubrg’s complete cloud platform, giving them the ability to offer AI-powered solutions and services without heavy upfront investment.
                 </p>
               </div>
 
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Analytics and automation to improve satisfaction</h3>
-                <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Enhance Customer Experience</p>
+                <h3 className="text-lg font-semibold text-blue-400 mb-2">Deliver Advanced AI Services</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Deploy AI-driven solutions to personalise customer experiences, automate network management, and proactively improve service delivery, powered by BluBrg's scalable GPU clusters.
-                </p>
+                  Telecom operators can launch AI capabilities such as intelligent chatbots, automated support systems, and virtual assistants faster, improving customer service, reducing churn, and increasing loyalty.
+                 </p>
               </div>
             </div>
 
             {/* Right Column - More use cases */}
             <div className="space-y-8">
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Optimise Power Consumption</h3>
-                <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Operate more sustainably</p>
+                <h3 className="text-lg font-semibold text-blue-400 mb-2">Enhance Customer Experience</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Utilise BluBrg's sustainable AI data centres to optimise power consumption in telco infrastructure and deploy AI models closer to the user for ultra-low latency applications.
+                  Use AI-driven analytics and automation to personalise interactions, proactively address service issues, and deliver seamless experiences that improve overall customer satisfaction.
                 </p>
               </div>
 
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Drive operational efficiency</h3>
-                <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Streamline Operations with AI</p>
+                <h3 className="text-lg font-semibold text-blue-400 mb-2">Operate More Sustainably</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Automate routine workflows, such as provisioning new users or managing network traffic, saving time and reducing errors.
+                  Deploy AI models closer to users with ultra-low latency while using energy-efficient infrastructure that helps lower power consumption and supports greener network operations.
+                </p>
+              </div>
+              <div className="border-l-2 border-blue-500 pl-6">
+                <h3 className="text-lg font-semibold text-blue-400 mb-2">Streamline Operations with AI</h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  Automate repetitive network tasks, such as user provisioning or traffic management, to reduce manual effort, minimise errors, and improve operational efficiency.
                 </p>
               </div>
             </div>
@@ -261,7 +263,7 @@ const Telco = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Training</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity.
+                 A scalable, performance-tuned compute architecture that reduces training times and boosts team productivity.
               </p>
             </div>
 
@@ -275,7 +277,7 @@ const Telco = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">GPU Nodes</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Access GPU accelerators with best-in-class networking, storage and advanced cooling technology, for AI, ML, and HPC workloads.
+                High-performance GPU clusters with advanced networking, storage, and cooling to support AI, machine learning, and high-performance workloads.
               </p>
             </div>
           </div>
@@ -287,7 +289,7 @@ const Telco = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg supports organisations throughout the entire AI journey, helping teams move quickly from early experimentation to full deployment and production.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
