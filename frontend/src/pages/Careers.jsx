@@ -116,7 +116,7 @@ const Careers = () => {
     },
     {
       title: "Full-Speed Collaboration",
-      description: "Collaboration at BluBrg is fast, efficient, and respectful. We work seamlessly across teams, ensuring our shared goals are met with high standards and impactful outcomes that drive success for everyone.",
+      description: "We collaborate efficiently and respectfully to solve problems together. Clear communication and mutual support help us achieve our shared goals.",
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
       imagePosition: "left"
     }
@@ -288,7 +288,7 @@ const Careers = () => {
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
             <p className="text-gray-400 text-lg max-w-2xl">
-              An inside look at our workplace where collaboration, innovation, and continuous learning are at the heart of everything we do.
+              Our workplace culture is one where people come together to innovate, learn, and grow. We support each other, work hard, and celebrate what we achieve as a team.
             </p>
           </div>
 
