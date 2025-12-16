@@ -30,7 +30,7 @@ const Inference = () => {
               AI & ML INFERENCE
             </h1>
             <p className="text-lg lg:text-xl text-white/75 mb-10 leading-relaxed max-w-2xl">
-              We offer GPU-accelerated nodes designed for efficient AI and Machine Learning Inference at competitive prices. Our experienced team at BluBrg manages system optimisations and scaling, allowing you to focus on the science instead of infrastructure administration.
+              We offer GPU-accelerated nodes purpose-built for efficient AI and machine learning inference at competitive cost. Our team handles performance optimisation and scaling in the background, allowing you to focus entirely on deploying and running your models without infrastructure overhead.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -55,19 +55,19 @@ const Inference = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Optimised Performance</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Maximise your throughput and minimise latency with cutting-edge GPU technology designed for AI inference workloads.
+                Boost throughput and reduce response times using advanced GPU technology specifically tuned for inference workloads.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Simplified Workflows</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                BluBrg Cloud simplifies the complexities of managing and scaling inference workflows, allowing developers to concentrate on extracting insights.
+                Blubrg Cloud removes the complexity of managing and scaling inference operations, enabling teams to concentrate on insights and outcomes rather than resource management
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Versatile Platform</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Our platform is optimised for both batch and streaming inference, making it adaptable to varying workloads.
+              The platform supports both batch and continuous inference, including streaming use cases, making it suitable for a wide range of deployment scenarios.
               </p>
             </div>
           </div>
@@ -84,7 +84,7 @@ const Inference = () => {
                 Speed up time-to-<br />insights
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10 max-w-lg">
-                BluBrg's cutting-edge model optimisations and simplified orchestration and management features guarantee quicker results and enhanced performance while maintaining accuracy.
+                Model optimisations combined with streamlined orchestration help deliver faster results while maintaining accuracy, reliability, and consistency.
               </p>
 
               <div className="space-y-8">

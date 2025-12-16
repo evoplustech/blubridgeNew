@@ -15,7 +15,6 @@ const Training = () => {
     <div className="min-h-screen bg-[#000000]">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-[#1a0a2e] via-[#0f051d] to-[#000000]">
-        {/* Abstract Background */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full filter blur-[150px]" />
           <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[500px] bg-indigo-600/20 rounded-full filter blur-[150px]" />
@@ -27,7 +26,10 @@ const Training = () => {
               MODEL TRAINING
             </h1>
             <p className="text-xl text-white/80 mb-12 leading-relaxed max-w-3xl">
-              BluBrg's GPU Cloud offers a highly scalable, performance-optimized architecture that significantly reduces training times. It boosts productivity, enabling you to achieve your AI goals faster and more cost-effectively than alternative cloud platforms.
+              Blubrg’s GPU Cloud provides a highly scalable, performance-driven platform that
+              significantly reduces training times and boosts productivity. This enables teams
+              to achieve AI objectives faster and more cost-effectively than traditional cloud
+              solutions.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -52,15 +54,15 @@ const Training = () => {
             {[
               {
                 title: 'Highly Scalable Architecture',
-                desc: 'Infrastructure designed to scale seamlessly from single GPUs to thousands of nodes for the most demanding training workloads.'
+                desc: 'Easily scale compute resources to match the size and complexity of AI projects, supporting everything from experimentation to large-scale production training.'
               },
               {
                 title: 'Reduced Training Times',
-                desc: 'Optimized GPU configurations and high-bandwidth networking deliver up to 7.2x faster training compared to standard cloud infrastructure.'
+                desc: 'Industry-leading GPUs optimised for training workloads accelerate development cycles and enable faster iteration.'
               },
               {
                 title: 'Increased Productivity',
-                desc: 'Pre-configured frameworks and automated resource management let your team focus on model development instead of infrastructure.'
+                desc: 'Automation and intelligent scheduling reduce operational overhead, allowing teams to focus on innovation rather than infrastructure.'
               }
             ].map((item, i) => (
               <div key={i} className="text-center">
@@ -79,13 +81,17 @@ const Training = () => {
             <div>
               <h2 className="text-5xl font-bold text-white mb-8">Accelerated Model Training</h2>
               <p className="text-lg text-white/70 leading-relaxed mb-6">
-                Training large language models and deep neural networks requires massive computational resources and efficient infrastructure. Traditional cloud platforms often fall short with limited GPU availability, slow inter-node communication, and complex setup processes.
+                Training advanced AI models requires flexible, reliable, and cost-efficient
+                infrastructure. Blubrg simplifies this by delivering purpose-built systems
+                designed specifically for AI workloads.
               </p>
               <p className="text-lg text-white/70 leading-relaxed mb-6">
-                BluBrg solves these challenges with purpose-built AI infrastructure featuring the latest NVIDIA and AMD GPUs, ultra-low latency interconnects, and optimized software stacks. Our platform reduces training times by up to 80% while lowering costs by 40% compared to standard cloud offerings.
+                Integrated Slurm and Kubernetes orchestration enables efficient job scheduling
+                and workload management across distributed GPU clusters with minimal setup.
               </p>
               <p className="text-lg text-white/70 leading-relaxed">
-                Whether you're training foundation models, fine-tuning for specific tasks, or conducting research experiments, BluBrg provides the performance and flexibility you need at a fraction of the cost.
+                High-performance bare-metal GPU nodes ensure consistent, predictable performance
+                for large-scale training and fine-tuning workloads.
               </p>
             </div>
             <div className="space-y-8">
@@ -110,11 +116,11 @@ const Training = () => {
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-white mb-8">Training Stack</h2>
             <p className="text-lg text-white/70 mb-16 max-w-3xl">
-              Our comprehensive training stack provides everything you need from hardware to applications, with full flexibility to customize at any layer.
+              Our comprehensive training stack provides everything you need from hardware to
+              applications, with full flexibility to customise at every layer.
             </p>
 
             <div className="space-y-8">
-              {/* Marketplace */}
               <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-4">
@@ -127,7 +133,6 @@ const Training = () => {
                 </div>
               </div>
 
-              {/* Platform */}
               <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">PLATFORM</h3>
                 <div className="flex flex-wrap gap-4">
@@ -140,7 +145,6 @@ const Training = () => {
                 </div>
               </div>
 
-              {/* Infrastructure */}
               <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-4">
@@ -153,7 +157,6 @@ const Training = () => {
                 </div>
               </div>
 
-              {/* Hardware */}
               <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">HARDWARE</h3>
                 <div className="flex flex-wrap gap-4">
@@ -166,7 +169,6 @@ const Training = () => {
                 </div>
               </div>
 
-              {/* User Experience & Data Centre */}
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
                   <h3 className="text-xl font-bold text-white mb-6">USER EXPERIENCE</h3>
@@ -202,10 +204,10 @@ const Training = () => {
           <h2 className="text-5xl font-bold text-white mb-20 text-center">Performance</h2>
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {[
-              { metric: '30%', label: 'FASTER INSIGHTS', desc: 'Accelerate your model development cycles and bring AI products to market faster with optimized training infrastructure.' },
-              { metric: '80%', label: 'LOWER COST', desc: 'Reduce training expenses significantly compared to major cloud providers through efficient resource utilization and competitive pricing.' },
-              { metric: '40%', label: 'MORE EFFICIENT', desc: 'Achieve higher GPU utilization rates and better resource efficiency with our optimized software stack and scheduling.' },
-              { metric: 'UP TO 7.2X', label: 'FASTER INFERENCE', desc: 'Deploy trained models with industry-leading inference performance for real-time applications and high-throughput scenarios.' }
+              { metric: '30%', label: 'FASTER INSIGHTS', desc: 'Shorten development cycles and accelerate feedback loops with an AI-optimised training platform.' },
+              { metric: '80%', label: 'LOWER COST', desc: 'Reduce training costs significantly while maintaining high performance.' },
+              { metric: '40%', label: 'MORE EFFICIENT', desc: 'Increase utilisation and efficiency across GPU training workloads.' },
+              { metric: 'UP TO 7.2X', label: 'FASTER INFERENCE', desc: 'Optimised infrastructure enables faster deployment and inference throughput.' }
             ].map((item, i) => (
               <div key={i} className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-10">
                 <div className="text-6xl font-bold text-white mb-2">{item.metric}</div>
@@ -225,13 +227,13 @@ const Training = () => {
             {[
               {
                 icon: <Zap className="w-16 h-16 text-purple-400" />,
-                title: 'AI Compute Training',
-                desc: 'Access powerful GPU clusters configured specifically for training large-scale AI models. Scale from single nodes to thousands of GPUs with seamless orchestration and management.'
+                title: 'AI Compute – Training',
+                desc: 'A scalable, performance-optimised compute layer purpose-built for large-scale AI model training.'
               },
               {
                 icon: <ShoppingCart className="w-16 h-16 text-cyan-400" />,
                 title: 'AI Marketplace',
-                desc: 'Browse and deploy pre-configured training environments with popular frameworks and tools already set up. Start training immediately without complex configuration or setup time.'
+                desc: 'A curated ecosystem of tools and frameworks to accelerate AI development and deployment.'
               }
             ].map((item, i) => (
               <Card key={i} className="bg-[#121212] border-white/10 hover:border-purple-500/50 transition-all">
