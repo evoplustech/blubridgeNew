@@ -62,6 +62,7 @@ function App() {
             <Route path="/products/sovereign-cloud" element={<SovereignCloud />} />
             <Route path="/products/glomfjord" element={<Glomfjord />} />
             <Route path="/products/narvik" element={<Narvik />} />
+            <Route path="/products/gpu-nodes" element={<GPUNodes />} />
             <Route path="/products/*" element={<Products />} />
             
             {/* Solution Routes - Cases */}
