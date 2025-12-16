@@ -175,7 +175,7 @@ const Telco = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Increased Performance</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Handle large-scale telco workloads, including real-time traffic analysis and deep learning models.
+                Handle demanding telco workloads, including real-time traffic processing and deep learning models used for network analytics and optimisation.
               </p>
             </div>
             <div>
