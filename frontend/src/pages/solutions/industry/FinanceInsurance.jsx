@@ -266,7 +266,7 @@ const FinanceInsurance = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Customer Service</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Powered by AI Cloud</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Deploy chatbots and virtual assistants to handle customer inquiries and claims submissions, accelerated by GPUs to ensure quick and accurate responses.
+              Deploy AI-powered chatbots and virtual assistants to manage customer interactions efficiently, improving response times and service quality.
               </p>
             </div>
           </div>
@@ -288,8 +288,7 @@ const FinanceInsurance = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Training</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity.
-              </p>
+                A scalable compute environment optimised to reduce training time and increase productivity for machine learning and data science teams.              </p>
             </div>
 
             {/* AI Compute Inference Card */}
