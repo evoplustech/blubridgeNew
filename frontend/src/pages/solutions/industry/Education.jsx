@@ -225,7 +225,7 @@ const Education = () => {
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">Synthetic Biology Research</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Accelerated Discovery</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Run complex molecular simulations and protein folding models at scale. BluBrg enables biology researchers to accelerate discoveries in genomics, drug design, and synthetic biology applications.
+                GPU computing power enables intricate simulations, large-scale data processing, and computational experiments. These capabilities speed up progress in fields like synthetic biology and other data-intensive sciences.
               </p>
             </div>
 
@@ -234,7 +234,7 @@ const Education = () => {
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">AI-Driven Multidisciplinary Studies</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Cross-domain Innovation</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Enable collaborative research across departments by providing shared access to AI infrastructure. Support projects that span computer science, engineering, medicine, and social sciences.
+                Our infrastructure supports complex computational studies that span multiple academic fields. It gives research teams a flexible platform where they can collaborate, test ideas, and run analysis more efficiently.
               </p>
             </div>
 
