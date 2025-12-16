@@ -140,8 +140,7 @@ const Inference = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Inference Stack</h2>
             <p className="text-base text-white/60 max-w-2xl">
-              BluBrg provides a complete technology stack for running intensive inference workloads in the most efficient and high-performing way possible.
-            </p>
+              Blubrg provides a complete inference stack designed to deliver high performance, efficiency, and reliability for production-grade inference workloads.            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
