@@ -1,181 +1,368 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
-import { ArrowRight, MapPin, Briefcase, Users, Rocket, Globe, Heart } from 'lucide-react';
+import { ArrowRight, Plus, Minus } from 'lucide-react';
 
 const Careers = () => {
-  return (
-    <div className="min-h-screen bg-[#0A1F3D]">
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D]" />
-          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#0066FF]/20 rounded-full filter blur-[200px] animate-pulse" />
-        </div>
+  const [openFaq, setOpenFaq] = useState(null);
+  const canvasRef = useRef(null);
+
+  // Animated flowing lines for hero
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrame;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    const drawFlowingLines = () => {
+      time += 0.005;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+
+      // Draw multiple flowing curves
+      for (let i = 0; i < 5; i++) {
+        ctx.beginPath();
+        const startY = height * 0.3 + i * 40;
+        const amplitude = 30 + i * 10;
+        const frequency = 0.003 + i * 0.0005;
+        const phase = time * (1 + i * 0.2);
+
+        ctx.moveTo(0, startY);
         
-        <div className="container-custom relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight">Build the future of AI infrastructure</h1>
-            <p className="text-xl text-white/70 mb-10 leading-relaxed">
-              Join our team of innovators shaping how organizations develop, deploy, and scale artificial intelligence. We're building infrastructure that powers the next generation of intelligent applications.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button className="bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-6 text-lg">
-                View Open Positions <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+        for (let x = 0; x <= width; x += 5) {
+          const y = startY + Math.sin(x * frequency + phase) * amplitude + 
+                    Math.sin(x * frequency * 2 + phase * 1.5) * (amplitude * 0.5);
+          ctx.lineTo(x, y);
+        }
 
-      <section className="py-24 bg-[#0B1F35]">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Why join BluBrg?</h2>
-            <p className="text-lg text-white/60">
-              We're creating technology that transforms industries. Be part of a team where your work directly impacts how companies leverage artificial intelligence.
-            </p>
-          </div>
+        const gradient = ctx.createLinearGradient(0, 0, width, 0);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0)');
+        gradient.addColorStop(0.3, `rgba(59, 130, 246, ${0.3 - i * 0.05})`);
+        gradient.addColorStop(0.7, `rgba(59, 130, 246, ${0.4 - i * 0.05})`);
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+        
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 2 - i * 0.2;
+        ctx.stroke();
+      }
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-[#0066FF]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Rocket className="w-8 h-8 text-[#0066FF]" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Innovation First</h3>
-                <p className="text-white/60 leading-relaxed">
-                  Work on cutting-edge problems in distributed systems, machine learning infrastructure, and cloud computing.
-                </p>
-              </CardContent>
-            </Card>
+      // Add subtle glow particles
+      for (let i = 0; i < 20; i++) {
+        const x = (Math.sin(time + i * 0.5) + 1) * width * 0.5;
+        const y = height * 0.2 + (Math.cos(time * 0.5 + i * 0.3) + 1) * height * 0.3;
+        const size = 2 + Math.sin(time * 2 + i) * 1;
+        
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.2 + Math.sin(time + i) * 0.1})`;
+        ctx.fill();
+      }
 
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-[#0066FF]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Users className="w-8 h-8 text-[#0066FF]" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Collaborative Culture</h3>
-                <p className="text-white/60 leading-relaxed">
-                  Join a diverse team of engineers, researchers, and product leaders who value knowledge sharing and mutual growth.
-                </p>
-              </CardContent>
-            </Card>
+      animationFrame = requestAnimationFrame(drawFlowingLines);
+    };
 
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-[#0066FF]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Globe className="w-8 h-8 text-[#0066FF]" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Global Impact</h3>
-                <p className="text-white/60 leading-relaxed">
-                  Your contributions enable organizations worldwide to accelerate their AI initiatives and solve complex challenges.
-                </p>
-              </CardContent>
-            </Card>
+    resize();
+    window.addEventListener('resize', resize);
+    drawFlowingLines();
 
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-[#0066FF]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Heart className="w-8 h-8 text-[#0066FF]" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Comprehensive Benefits</h3>
-                <p className="text-white/60 leading-relaxed">
-                  Competitive compensation, equity, health coverage, flexible work arrangements, and continuous learning opportunities.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
 
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-12">Open Positions</h2>
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const values = [
+    {
+      title: "Relentless Innovation",
+      description: "At BluBrg, we constantly push the boundaries of innovation, empowering creative ideas to shape the future. Our aim is to deliver cutting-edge technology that transforms industries and empowers our customers.",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
+      imagePosition: "right"
+    },
+    {
+      title: "Openness and Transparency",
+      description: "Trust, collaboration, and transparency are key to our success. We communicate openly both internally and externally, ensuring all stakeholders are informed and included in our journey towards continuous growth and reliable AI infrastructure.",
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
+      imagePosition: "left"
+    },
+    {
+      title: "Sustainability",
+      description: "We are deeply committed to considering the long-term environmental and societal impacts of our technologies. By integrating sustainability into our operations, we contribute positively to the world while delivering exceptional performance.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
+      imagePosition: "right"
+    },
+    {
+      title: "Ownership and Accountability",
+      description: "Every BluBrger is fully accountable for their work, driving it with excellence and integrity. We embrace ownership, taking responsibility for our commitments and delivering results that exceed expectations.",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
+      imagePosition: "left"
+    },
+    {
+      title: "Customer-Centric Focus",
+      description: "Our customers are central to our mission, and we are committed to understanding and exceeding their expectations at all times. We build lasting relationships by consistently delivering exceptional quality and service.",
+      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80",
+      imagePosition: "right"
+    },
+    {
+      title: "Full-Speed Collaboration",
+      description: "Collaboration at BluBrg is fast, efficient, and respectful. We work seamlessly across teams, ensuring our shared goals are met with high standards and impactful outcomes that drive success for everyone.",
+      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
+      imagePosition: "left"
+    }
+  ];
+
+  const cultureImages = [
+    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
+    "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&q=80",
+    "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&q=80",
+    "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&q=80"
+  ];
+
+  const faqs = [
+    {
+      question: "What roles are currently open?",
+      answer: "We're actively hiring across engineering, product, operations, and business functions. Our most in-demand roles include ML Infrastructure Engineers, Backend Engineers, DevOps specialists, and Product Managers. Visit our careers portal for the full list of open positions."
+    },
+    {
+      question: "Do you offer remote or hybrid work?",
+      answer: "Yes! We embrace flexible work arrangements. Many of our roles are remote-first, and we also offer hybrid options for those near our offices in Oslo, London, and other key locations. We believe in empowering our team to work where they're most productive."
+    },
+    {
+      question: "What is the hiring process like?",
+      answer: "Our hiring process typically includes an initial recruiter screen, followed by technical assessments relevant to the role, team interviews, and a final conversation with leadership. We aim to complete the process within 2-3 weeks and provide timely feedback at each stage."
+    },
+    {
+      question: "What benefits do you offer?",
+      answer: "We offer competitive compensation packages including equity, comprehensive health insurance, generous PTO, parental leave, learning and development budgets, home office stipends, and regular team events. We're committed to supporting our team's well-being and growth."
+    },
+    {
+      question: "How can I apply or get in touch?",
+      answer: "You can apply directly through our careers page by selecting a role and submitting your application. For general inquiries or if you don't see a suitable role, feel free to send your resume to careers@blubrg.com. We review every application carefully."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      {/* Hero Section with Animated Flowing Lines */}
+      <section className="relative min-h-[500px] flex items-center overflow-hidden">
+        {/* Dark background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
+        
+        {/* Animated canvas for flowing lines */}
+        <canvas 
+          ref={canvasRef} 
+          className="absolute inset-0 w-full h-full"
+          style={{ background: 'transparent' }}
+        />
+        
+        {/* Content */}
+        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+          <div className="max-w-2xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+              Join the team building<br />next-gen AI infrastructure
+            </h1>
             
-            <div className="space-y-4">
-              {[
-                { title: 'Senior Backend Engineer', department: 'Engineering', location: 'Remote', type: 'Full-time' },
-                { title: 'ML Infrastructure Engineer', department: 'Engineering', location: 'San Francisco, CA', type: 'Full-time' },
-                { title: 'Product Manager - AI Platform', department: 'Product', location: 'New York, NY', type: 'Full-time' },
-                { title: 'DevOps Engineer', department: 'Engineering', location: 'Remote', type: 'Full-time' },
-                { title: 'Technical Writer', department: 'Documentation', location: 'Remote', type: 'Full-time' },
-                { title: 'Customer Success Engineer', department: 'Customer Success', location: 'London, UK', type: 'Full-time' }
-              ].map((job, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/10 hover:border-[#0066FF]/50 transition-all group">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#0066FF] transition-colors">{job.title}</h3>
-                      <div className="flex flex-wrap gap-4 text-white/60">
-                        <span className="flex items-center gap-2">
-                          <Briefcase className="w-4 h-4" />
-                          {job.department}
-                        </span>
-                        <span className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4" />
-                          {job.location}
-                        </span>
-                        <span className="bg-[#0066FF]/10 text-[#0066FF] px-3 py-1 rounded-full text-sm">
-                          {job.type}
-                        </span>
+            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+              We're creating the first AI-native hyperscaler—engineered for performance, efficiency, and scale.
+            </p>
+            
+            <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+              Open Positions
+            </Button>
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
+      </section>
+
+      {/* Our Mission Section */}
+      <section className="py-16 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16 text-center">
+          <p className="text-gray-500 text-sm uppercase tracking-wider mb-4">Our Mission</p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">
+            Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
+          </h2>
+        </div>
+      </section>
+
+      {/* Culture Image Strip */}
+      <section className="py-8 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {cultureImages.map((img, index) => (
+              <div key={index} className="aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src={img} 
+                  alt={`Team culture ${index + 1}`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Value Section */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
+            <p className="text-gray-400 text-lg max-w-2xl">
+              We move fast, think big, and build with purpose—driven by curiosity, collaboration, and a commitment to excellence.
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {values.map((value, index) => (
+              <div 
+                key={index}
+                className={`grid lg:grid-cols-2 gap-12 items-center ${
+                  value.imagePosition === 'left' ? 'lg:flex-row-reverse' : ''
+                }`}
+              >
+                {value.imagePosition === 'right' ? (
+                  <>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="text-xl font-bold text-blue-400 mb-3">{value.title}</h3>
+                          <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                        </div>
                       </div>
                     </div>
-                    <Button className="bg-[#0066FF] hover:bg-[#0052CC] text-white">
-                      Apply Now
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 text-center">
-              <p className="text-white/60 mb-4">Don't see the right role? We're always looking for talented people.</p>
-              <Button variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10">
-                Send General Application
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-[#0B1F35]">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-12 text-center">Our Hiring Process</h2>
-            
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                { step: '01', title: 'Apply', desc: 'Submit your application and resume through our careers portal.' },
-                { step: '02', title: 'Screen', desc: 'Initial conversation with our talent team to discuss your background and interests.' },
-                { step: '03', title: 'Interview', desc: 'Technical interviews and team discussions to assess fit and expertise.' },
-                { step: '04', title: 'Offer', desc: 'Receive your offer and join our team to start making an impact.' }
-              ].map((phase, i) => (
-                <div key={i} className="relative">
-                  <div className="text-6xl font-bold text-white/10 mb-4">{phase.step}</div>
-                  <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{phase.desc}</p>
-                  {/* {i < 3 && (
-                    <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-white/10">
-                      <ArrowRight className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" />
+                    <div className="rounded-2xl overflow-hidden">
+                      <img 
+                        src={value.image} 
+                        alt={value.title}
+                        className="w-full h-[300px] object-cover"
+                      />
                     </div>
-                  )} */}
-                </div>
-              ))}
+                  </>
+                ) : (
+                  <>
+                    <div className="rounded-2xl overflow-hidden order-2 lg:order-1">
+                      <img 
+                        src={value.image} 
+                        alt={value.title}
+                        className="w-full h-[300px] object-cover"
+                      />
+                    </div>
+                    <div className="space-y-4 order-1 lg:order-2">
+                      <div className="flex items-start gap-3">
+                        <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="text-xl font-bold text-blue-400 mb-3">{value.title}</h3>
+                          <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Life at BluBrg - Video Section */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
+            <p className="text-gray-400 text-lg max-w-2xl">
+              An inside look at our workplace where collaboration, innovation, and continuous learning are at the heart of everything we do.
+            </p>
+          </div>
+
+          {/* Video Embed */}
+          <div className="relative rounded-2xl overflow-hidden bg-slate-900 aspect-video max-w-4xl">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+              title="Life at BluBrg"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-gray-400">
+              <span>Watch on</span>
+              <span className="text-white font-semibold">▶ YouTube</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="bg-gradient-to-r from-[#0066FF]/10 to-transparent border border-[#0066FF]/30 rounded-3xl p-16 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to shape the future?</h2>
-            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-              Join our team and help build the infrastructure that powers tomorrow's AI applications.
-            </p>
-            <Button className="bg-[#0066FF] hover:bg-[#0052CC] text-white px-10 py-7 text-lg">
-              Explore Opportunities
-            </Button>
+      {/* FAQ Section */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
+          
+          <div className="space-y-4 max-w-4xl">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border-b border-slate-700/50"
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                >
+                  <span className="text-lg font-medium pr-8">{faq.question}</span>
+                  <div className="flex-shrink-0">
+                    {openFaq === index ? (
+                      <Minus className="w-5 h-5 text-blue-400" />
+                    ) : (
+                      <Plus className="w-5 h-5 text-blue-400" />
+                    )}
+                  </div>
+                </button>
+                
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Strip */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+        <div className="container mx-auto px-6 lg:px-16 text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
+            Access thousands of GPUs tailored to your requirements.
+          </h2>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/products/training">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+                Reserve GPUs
+              </Button>
+            </Link>
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
+              Contact Sales <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
