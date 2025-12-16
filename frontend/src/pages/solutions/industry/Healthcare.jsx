@@ -1,326 +1,213 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
-import { Card, CardContent } from '../../../components/ui/card';
-import { ArrowRight, HeartPulse, Brain, Shield, Activity, Microscope, Users } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid, Cpu } from 'lucide-react';
 
 const Healthcare = () => {
+  const [openFaq, setOpenFaq] = useState(null);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    let animationFrame;
+    let time = 0;
+    const animate = () => {
+      time += 0.004;
+      setOffset({ x: Math.sin(time) * 8, y: Math.cos(time * 0.7) * 6 });
+      animationFrame = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrame;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    const drawHealthcareForms = () => {
+      time += 0.015;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+      const centerX = width * 0.5;
+      const centerY = height * 0.5;
+
+      // DNA Helix
+      const helixLength = height * 0.8;
+      const helixRadius = 50;
+      const helixTurns = 3;
+      const pointsPerTurn = 30;
+      const totalPoints = helixTurns * pointsPerTurn;
+
+      for (let strand = 0; strand < 2; strand++) {
+        const phaseOffset = strand * Math.PI;
+        ctx.beginPath();
+        for (let i = 0; i <= totalPoints; i++) {
+          const t = i / totalPoints;
+          const angle = t * helixTurns * Math.PI * 2 + time + phaseOffset;
+          const x = centerX + Math.cos(angle) * helixRadius;
+          const y = (height - helixLength) / 2 + t * helixLength;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        const gradient = ctx.createLinearGradient(centerX - helixRadius, 0, centerX + helixRadius, height);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.6)');
+        gradient.addColorStop(0.5, 'rgba(147, 51, 234, 0.5)');
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0.6)');
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 4;
+        ctx.stroke();
+      }
+
+      // Base pairs
+      for (let i = 0; i <= totalPoints; i += 3) {
+        const t = i / totalPoints;
+        const angle1 = t * helixTurns * Math.PI * 2 + time;
+        const angle2 = angle1 + Math.PI;
+        const y = (height - helixLength) / 2 + t * helixLength;
+        const x1 = centerX + Math.cos(angle1) * helixRadius;
+        const x2 = centerX + Math.cos(angle2) * helixRadius;
+        ctx.beginPath();
+        ctx.moveTo(x1, y);
+        ctx.lineTo(x2, y);
+        ctx.strokeStyle = `rgba(147, 197, 253, ${0.3 + Math.sin(time + i * 0.2) * 0.1})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x1, y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(96, 165, 250, 0.7)';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x2, y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.7)';
+        ctx.fill();
+      }
+
+      // Floating particles
+      for (let i = 0; i < 15; i++) {
+        const px = (Math.sin(time * 0.5 + i * 2) + 1) * width * 0.5;
+        const py = (Math.cos(time * 0.3 + i * 1.5) + 1) * height * 0.4 + height * 0.1;
+        ctx.beginPath();
+        ctx.arc(px, py, 2 + Math.sin(time + i), 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(96, 165, 250, ${0.4 + Math.sin(time * 2 + i) * 0.2})`;
+        ctx.fill();
+      }
+
+      // Pulse lines
+      for (let i = 0; i < 3; i++) {
+        const py = height * 0.2 + i * height * 0.3;
+        ctx.beginPath();
+        ctx.moveTo(0, py);
+        for (let x = 0; x < width; x += 5) {
+          const pulseY = py + Math.sin((x + time * 100) * 0.02) * 15 * Math.exp(-Math.pow((x - width * 0.5) / (width * 0.3), 2));
+          ctx.lineTo(x, pulseY);
+        }
+        ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 - i * 0.03})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      animationFrame = requestAnimationFrame(drawHealthcareForms);
+    };
+
+    resize();
+    drawHealthcareForms();
+    window.addEventListener('resize', resize);
+    return () => { cancelAnimationFrame(animationFrame); window.removeEventListener('resize', resize); };
+  }, []);
+
+  const toggleFaq = (index) => setOpenFaq(openFaq === index ? null : index);
+
   return (
-    <div className="min-h-screen bg-[#0A1F3D]">
-      {/* Hero - Medical Gradient Design */}
-      <section className="relative min-h-[95vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1F3D] via-[#0e2642] to-[#0A1F3D]" />
-          <div className="absolute top-1/4 left-1/3 w-[800px] h-[800px] bg-cyan-500/15 rounded-full filter blur-[200px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/3 w-[600px] h-[600px] bg-teal-500/15 rounded-full filter blur-[200px] animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
-        
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-6 py-3 mb-8">
-              <HeartPulse className="w-5 h-5 text-cyan-400" />
-              <span className="text-cyan-400 font-semibold">Healthcare & Life Sciences</span>
-            </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.05]">
-              AI infrastructure for the future of medicine
-            </h1>
-            <p className="text-xl text-white/70 mb-12 leading-relaxed">
-              From medical imaging and drug discovery to clinical decision support and personalized treatment, BluBrg provides secure, HIPAA-compliant AI infrastructure that's transforming healthcare delivery and research.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-20">
-              <Link to="/products/training">
-                <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-white px-10 py-7 text-lg">
-                  Explore Solutions <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 px-10 py-7 text-lg">
-                  Contact Healthcare Team
-                </Button>
-              </Link>
-            </div>
-
-            {/* Key Metrics */}
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                { value: '99.95%', label: 'Diagnostic accuracy' },
-                { value: '60%', label: 'Faster drug discovery' },
-                { value: 'HIPAA', label: 'Compliant infrastructure' },
-                { value: '24/7', label: 'Clinical AI availability' }
-              ].map((stat, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">{stat.value}</div>
-                  <div className="text-white/60 text-sm">{stat.label}</div>
-                </div>
-              ))}
+    <div className="min-h-screen bg-[#000000]">
+      {/* HERO */}
+      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#050510] via-[#030308] to-[#000000]" />
+        <canvas ref={canvasRef} className="absolute right-0 top-0 w-[55%] h-full opacity-80" style={{ pointerEvents: 'none', transform: `translate(${offset.x}px, ${offset.y}px)`, transition: 'transform 0.5s ease-out' }} />
+        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-blue-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        <div className="container-custom relative z-10 flex-1 flex items-center py-24">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">HEALTHCARE</h1>
+            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">BluBrg Cloud provides a range of solutions tailored to biotech companies and healthcare research institutions. Offering cost-effective access to advanced GPU computing facilities to advance medical research and personalised treatment.</p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/contact"><Button size="lg" className="bg-white hover:bg-white/90 text-[#050510] px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
+              <Link to="/contact"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Healthcare Challenges */}
-      <section className="py-32 bg-[#0B1F35]">
+      {/* VALUE PROPS */}
+      <section className="py-16 bg-[#050505] border-t border-white/5">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-20">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Challenges facing healthcare today</h2>
-            <p className="text-lg text-white/60">AI is addressing critical challenges in healthcare delivery, research, and patient outcomes.</p>
+          <div className="grid md:grid-cols-3 gap-10 text-center">
+            <div><h3 className="text-xl font-semibold text-white mb-3">Accelerated Analytics</h3><p className="text-white/60 text-sm leading-relaxed">Analyse medical images in real time, improve diagnostic accuracy and reduce patient wait times.</p></div>
+            <div><h3 className="text-xl font-semibold text-white mb-3">Enhanced AI Applications</h3><p className="text-white/60 text-sm leading-relaxed">Accelerate training and inference for advanced AI models leading to quicker and more effective healthcare solutions.</p></div>
+            <div><h3 className="text-xl font-semibold text-white mb-3">Scalability and Cost Efficiency</h3><p className="text-white/60 text-sm leading-relaxed">On-demand access to scalable, powerful computing resources, eliminating the need to acquire an entirely new hardware.</p></div>
           </div>
+        </div>
+      </section>
 
+      {/* EXAMPLE USES */}
+      <section className="py-24 bg-[#000000]">
+        <div className="container-custom">
+          <div className="mb-12">
+            <p className="text-blue-400 text-sm font-medium mb-3 uppercase tracking-wider">FOSTERING COLLABORATION AND INNOVATION</p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Enhancing Efficiency in Healthcare</h2>
+            <p className="text-base text-white/60 max-w-3xl">The fusion of cloud technology and GPUs is revolutionising healthcare, impacting areas like bioinformatics, genomics, drug discovery, medical imaging, and clinical research. These technologies improve the efficiency and accuracy of research and diagnosis and promote collaboration and innovation.</p>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="border-l-2 border-blue-500 pl-6"><h3 className="text-lg font-semibold text-blue-400 mb-2">Drug Discovery</h3><p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Build superior AI models</p><p className="text-white/60 text-sm leading-relaxed">BluBrg Cloud's GPU infrastructure is optimised for training large-scale AI models that can accelerate protein structure predictions, enabling faster drug discovery and development processes.</p></div>
+            <div className="border-l-2 border-blue-500 pl-6"><h3 className="text-lg font-semibold text-blue-400 mb-2">Life Sciences</h3><p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Accelerated Simulations</p><p className="text-white/60 text-sm leading-relaxed">Powerful and numerous GPUs enable high-speed processing of complex biological and chemical simulations, leading to faster insights in life sciences research and innovation.</p></div>
+            <div className="border-l-2 border-blue-500 pl-6"><h3 className="text-lg font-semibold text-blue-400 mb-2">Genomics</h3><p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Personalised medicine</p><p className="text-white/60 text-sm leading-relaxed">Analyse vast amounts of genomic data paving the way for genomics research. Our GPU clusters enable high-performance computing, delivering fast, actionable insights that drive innovation in personalised medicine.</p></div>
+            <div className="border-l-2 border-blue-500 pl-6"><h3 className="text-lg font-semibold text-blue-400 mb-2">Bioinformatics</h3><p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Scalable Storage</p><p className="text-white/60 text-sm leading-relaxed">BluBrg Cloud provides scalable storage solutions for the massive datasets generated in bioinformatics, ensuring that data is readily available when needed.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* KEY SERVICES */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container-custom">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Activity className="w-10 h-10" />,
-                title: 'Diagnostic Accuracy',
-                desc: 'Medical errors cause 250,000+ deaths annually in the US. AI-assisted diagnosis reduces errors and catches conditions earlier.',
-                stat: '3rd leading cause of death'
-              },
-              {
-                icon: <Microscope className="w-10 h-10" />,
-                title: 'Drug Development Speed',
-                desc: 'Traditional drug discovery takes 10-15 years and costs $2.6B. AI accelerates every phase from target identification to clinical trials.',
-                stat: '$2.6B per drug'
-              },
-              {
-                icon: <Users className="w-10 h-10" />,
-                title: 'Healthcare Access',
-                desc: 'Physician shortages and geographic barriers limit access. AI telemedicine and diagnostic tools democratize quality care.',
-                stat: '120K physician shortage'
-              }
-            ].map((item, i) => (
-              <Card key={i} className="bg-gradient-to-br from-white/5 to-transparent border-white/10 hover:border-cyan-500/50 transition-all group">
-                <CardContent className="p-10">
-                  <div className="w-20 h-20 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-6 text-cyan-400 group-hover:scale-110 transition-transform">
-                    {item.icon}
-                  </div>
-                  <div className="text-cyan-400 font-bold text-sm mb-4">{item.stat}</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{item.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center"><Zap className="w-7 h-7 text-blue-400" /></div></div><h3 className="text-xl font-bold text-white mb-2">AI Compute</h3><p className="text-blue-400 text-sm mb-4">Training</p><p className="text-white/60 text-sm leading-relaxed">A highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity.</p></div>
+            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center"><Cpu className="w-7 h-7 text-blue-400" /></div></div><h3 className="text-xl font-bold text-white mb-2">AI Compute</h3><p className="text-blue-400 text-sm mb-4">Inference</p><p className="text-white/60 text-sm leading-relaxed">A highly optimised, scalable platform for inference workloads with best performance at low cost.</p></div>
+            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-purple-600/20 rounded-xl flex items-center justify-center"><LayoutGrid className="w-7 h-7 text-blue-400" /></div></div><h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3><p className="text-blue-400 text-sm mb-4">Marketplace</p><p className="text-white/60 text-sm leading-relaxed">An ecosystem of services for developing and deploying AI applications built using BluBrg's tools and other popular AI/ML software.</p></div>
           </div>
         </div>
       </section>
 
-      {/* AI Use Cases - Medical Focus */}
-      <section className="py-32 bg-[#0A1F3D]">
+      {/* MORE SOLUTIONS */}
+      <section className="py-24 bg-[#000000]">
         <div className="container-custom">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-16">AI applications in healthcare</h2>
-
-          <div className="space-y-12">
-            {/* Medical Imaging */}
-            <div className="grid lg:grid-cols-5 gap-12 items-center">
-              <div className="lg:col-span-3">
-                <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-5 py-2 mb-6">
-                  <Activity className="w-5 h-5 text-cyan-400" />
-                  <span className="text-cyan-400 font-semibold text-sm">Radiology & Pathology</span>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-6">Medical Imaging & Diagnostics</h3>
-                <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  AI models analyze X-rays, CT scans, MRIs, and pathology slides with superhuman accuracy. Detect tumors, fractures, and abnormalities earlier than traditional methods. Computer vision algorithms trained on millions of medical images identify patterns invisible to the human eye.
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    { label: 'Cancer detection', value: '99.5% accuracy' },
-                    { label: 'Diagnosis time', value: '90% reduction' },
-                    { label: 'Early detection', value: '40% improvement' },
-                    { label: 'Radiologist productivity', value: '3x increase' }
-                  ].map((metric, i) => (
-                    <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-5">
-                      <div className="text-white font-semibold mb-1">{metric.label}</div>
-                      <div className="text-cyan-400 font-bold text-lg">{metric.value}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="lg:col-span-2">
-                <div className="bg-gradient-to-br from-cyan-500/10 to-transparent border border-cyan-500/30 rounded-3xl p-10">
-                  <h4 className="text-white font-bold text-xl mb-6">Imaging Modalities</h4>
-                  <div className="space-y-4">
-                    {[
-                      'X-Ray & CT Scans',
-                      'MRI Analysis',
-                      'Ultrasound Imaging',
-                      'Pathology Slides',
-                      'Retinal Screening',
-                      'Mammography'
-                    ].map((modality, i) => (
-                      <div key={i} className="flex items-center gap-3 text-white/80">
-                        <div className="w-2 h-2 bg-cyan-400 rounded-full" />
-                        {modality}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Drug Discovery */}
-            <div className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-3xl p-12">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 rounded-full px-5 py-2 mb-6">
-                    <Microscope className="w-5 h-5 text-teal-400" />
-                    <span className="text-teal-400 font-semibold text-sm">Pharmaceutical R&D</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-6">AI-Powered Drug Discovery</h3>
-                  <p className="text-white/70 text-lg leading-relaxed mb-6">
-                    Accelerate drug development from years to months. AI models predict molecular interactions, identify drug candidates, optimize compounds, and simulate clinical trials. Machine learning analyzes millions of compounds to find promising treatments faster than traditional methods.
-                  </p>
-                  <div className="space-y-3">
-                    {[
-                      'Target identification and validation',
-                      'Compound screening and optimization',
-                      'Toxicity and side effect prediction',
-                      'Clinical trial patient matching',
-                      'Repurposing existing drugs'
-                    ].map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-teal-400 rounded-full" />
-                        <span className="text-white/80">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-6">
-                  {[
-                    { metric: '60%', label: 'Faster discovery', desc: 'Time to identify candidates' },
-                    { metric: '40%', label: 'Cost reduction', desc: 'R&D expenses saved' },
-                    { metric: '10x', label: 'More compounds', desc: 'Screened per day' }
-                  ].map((item, i) => (
-                    <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6">
-                      <div className="flex items-end gap-4 mb-2">
-                        <span className="text-5xl font-bold text-teal-400">{item.metric}</span>
-                        <span className="text-white font-bold text-lg pb-2">{item.label}</span>
-                      </div>
-                      <p className="text-white/60">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Clinical Decision Support */}
-            <div className="grid lg:grid-cols-2 gap-8">
-              {[
-                {
-                  icon: <Brain className="w-10 h-10" />,
-                  title: 'Clinical Decision Support',
-                  desc: 'AI assistants that analyze patient data, medical history, and latest research to recommend evidence-based treatment plans. Real-time alerts for drug interactions and adverse events.',
-                  features: ['Treatment recommendations', 'Risk stratification', 'Drug interaction alerts', 'Evidence-based protocols'],
-                  color: 'from-purple-500/10'
-                },
-                {
-                  icon: <HeartPulse className="w-10 h-10" />,
-                  title: 'Personalized Medicine',
-                  desc: 'Use genomic data and AI to tailor treatments to individual patients. Predict drug response, identify optimal therapies, and minimize adverse reactions based on genetic profiles.',
-                  features: ['Genomic analysis', 'Treatment optimization', 'Adverse reaction prediction', 'Precision dosing'],
-                  color: 'from-pink-500/10'
-                }
-              ].map((item, i) => (
-                <div key={i} className="relative group">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.color} to-transparent rounded-3xl`} />
-                  <div className="relative bg-white/5 border border-white/10 rounded-3xl p-10 hover:border-cyan-500/50 transition-all">
-                    <div className="w-20 h-20 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-6 text-cyan-400">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                    <p className="text-white/60 leading-relaxed mb-6">{item.desc}</p>
-                    <div className="space-y-2">
-                      {item.features.map((feature, j) => (
-                        <div key={j} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full" />
-                          <span className="text-white/80 text-sm">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
+          <p className="text-base text-white/60 mb-12 max-w-2xl">BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.</p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Link to="/solutions/training" className="group"><div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-900/60 via-indigo-900/50 to-violet-900/60"><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" /><div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div><div className="absolute bottom-0 left-0 p-8 w-full"><h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">Training</h3><div className="flex gap-4"><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">80%</span><span className="text-white/60 text-xs ml-2">Lower Cost</span></div><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">+40%</span><span className="text-white/60 text-xs ml-2">Efficiency</span></div></div></div><div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-purple-500/50 transition-colors" /></div></Link>
+            <Link to="/solutions/inference" className="group"><div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800/60 via-gray-900/50 to-slate-900/60"><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" /><div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div><div className="absolute bottom-0 left-0 p-8 w-full"><h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">Inference</h3><div className="flex gap-4"><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">7.2X</span><span className="text-white/60 text-xs ml-2">Performance</span></div><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">+40%</span><span className="text-white/60 text-xs ml-2">Efficiency</span></div></div></div><div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-gray-500/50 transition-colors" /></div></Link>
+            <Link to="/solutions/fine-tuning" className="group"><div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-900/50 via-teal-900/40 to-green-900/50"><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" /><div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div><div className="absolute bottom-0 left-0 p-8 w-full"><h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">Fine-Tuning</h3><div className="flex gap-4"><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">+40%</span><span className="text-white/60 text-xs ml-2">Efficiency</span></div><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">30%</span><span className="text-white/60 text-xs ml-2">Faster</span></div></div></div><div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-emerald-500/50 transition-colors" /></div></Link>
+            <Link to="/solutions/ai-development" className="group"><div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-amber-900/50 via-orange-900/40 to-yellow-900/50"><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" /><div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '30px 30px' }}></div><div className="absolute bottom-0 left-0 p-8 w-full"><h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">AI Development</h3><div className="flex gap-4"><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">80%</span><span className="text-white/60 text-xs ml-2">Lower Cost</span></div><div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2"><span className="text-white text-sm">30%</span><span className="text-white/60 text-xs ml-2">Faster</span></div></div></div><div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-amber-500/50 transition-colors" /></div></Link>
           </div>
         </div>
       </section>
 
-      {/* HIPAA Compliance */}
-      <section className="py-32 bg-[#0B1F35]">
+      {/* BOTTOM CTA */}
+      <section className="py-20 bg-gradient-to-r from-[#0066FF] to-[#0055DD]">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">HIPAA-compliant infrastructure</h2>
-              <p className="text-lg text-white/60 mb-10 leading-relaxed">
-                Healthcare data requires the highest levels of security and privacy. BluBrg's infrastructure is built to meet HIPAA, HITECH, and other healthcare compliance standards from the ground up.
-              </p>
-              <div className="space-y-6">
-                {[
-                  { feature: 'BAA Agreement', desc: 'Business Associate Agreement included' },
-                  { feature: 'Encryption at rest & in transit', desc: 'AES-256 encryption standard' },
-                  { feature: 'Access controls & audit logs', desc: 'Complete activity tracking' },
-                  { feature: 'PHI data isolation', desc: 'Dedicated secure environments' }
-                ].map((item, i) => (
-                  <div key={i} className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-xl p-6 hover:border-cyan-500/50 transition-all">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-400 flex-shrink-0">
-                        <Shield className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="font-bold text-white mb-1">{item.feature}</div>
-                        <div className="text-white/60 text-sm">{item.desc}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-cyan-500/10 to-transparent border-2 border-cyan-500/30 rounded-3xl p-12">
-              <h3 className="text-2xl font-bold text-white mb-8 text-center">Compliance Certifications</h3>
-              <div className="space-y-6">
-                {[
-                  { cert: 'HIPAA', status: 'Compliant', desc: 'Protected Health Information security' },
-                  { cert: 'HITECH', status: 'Compliant', desc: 'Electronic health records standards' },
-                  { cert: 'SOC 2 Type II', status: 'Certified', desc: 'Security and availability controls' },
-                  { cert: 'ISO 27001', status: 'Certified', desc: 'Information security management' }
-                ].map((item, i) => (
-                  <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-bold text-white text-lg">{item.cert}</span>
-                      <span className="bg-green-500/20 text-green-400 px-4 py-1 rounded-full text-sm font-bold">{item.status}</span>
-                    </div>
-                    <p className="text-white/60 text-sm">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-32 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="relative overflow-hidden rounded-3xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500" />
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-            </div>
-            <div className="relative p-16 text-center">
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Transform healthcare with AI</h2>
-              <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Join leading hospitals, research institutions, and healthcare companies using BluBrg to improve patient outcomes and accelerate medical breakthroughs.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Link to="/contact">
-                  <Button size="lg" className="bg-white hover:bg-white/90 text-cyan-600 px-10 py-7 text-lg font-bold">
-                    Schedule Consultation
-                  </Button>
-                </Link>
-                <Link to="/products/training">
-                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-10 py-7 text-lg">
-                    View Products
-                  </Button>
-                </Link>
-              </div>
+          <div className="max-w-3xl">
+            <h2 className="text-3xl lg:text-4xl font-light text-white mb-8 leading-tight">Access thousands of GPUs tailored to your requirements.</h2>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/contact"><Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">Reserve GPUs</Button></Link>
+              <Link to="/contact"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link>
             </div>
           </div>
         </div>
