@@ -382,7 +382,7 @@ const Serverless = () => {
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">100%</p>
               <p className="text-sm font-semibold text-gray-300">RENEWABLE ENERGY</p>
-              <p className="text-sm text-gray-500">→ The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
+              <p className="text-sm text-gray-500"> → The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
             </div>
           </div>
         </div>
@@ -398,7 +398,7 @@ const Serverless = () => {
                 Zero rate limits, maximum<br /><span className="text-blue-400">reliability</span>
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                No rate limits, no cold starts, and no waiting. Simply pay for what you use—just fast, reliable access to the AI tools you need. Scale your workloads seamlessly from development to production without limitations.
+                    
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
                 Learn More <ArrowRight className="w-4 h-4" />
