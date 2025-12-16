@@ -239,7 +239,7 @@ const FinanceInsurance = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Financial Modelling</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Accelerated development</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Financial service researchers can leverage the computational power of GPUs to develop and test complex financial models and in turn accelerate the development of new financial products.
+                Speed up the development and evaluation of complex financial models by using GPU resources that allow quicker iteration and deeper analysis.
               </p>
             </div>
 
@@ -248,7 +248,7 @@ const FinanceInsurance = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Fraud Detection</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Real-time Analysis</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                GPUs enhance the speed of anomaly detection algorithms, making it easier to identify unusual claims or policyholder behaviours that may indicate fraud.
+              Apply GPU-accelerated processing to detect anomalies in real time, helping identify fraudulent activity and reduce financial risk.
               </p>
             </div>
 
@@ -257,7 +257,7 @@ const FinanceInsurance = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Monte Carlo Simulations</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Reduced time to insights</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Used extensively in financial services for pricing derivatives, risk management, and portfolio optimisation, BluBrg's platform can significantly reduce the time required to run these simulations.
+                Execute Monte Carlo simulations more rapidly to support derivative pricing, portfolio optimisation, and advanced risk calculations.
               </p>
             </div>
 
