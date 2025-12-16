@@ -19,10 +19,10 @@ const Inference = () => {
             <div>
               <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">PRODUCTION INFERENCE</div>
               <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-                Lightning-fast inference at any scale
+                Fast, affordable, auto-scaling AI inference
               </h1>
               <p className="text-xl text-white/80 mb-8">
-                Deploy AI models with sub-100ms latency. Auto-scaling infrastructure handles millions of requests per second with guaranteed uptime.
+               Designed for maximum efficiency, the inference offering runs on dynamically scaling GPU capacity, with end-to-end optimisation tailored to support both batch processing and real-time streaming demands.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact">
@@ -85,15 +85,15 @@ const Inference = () => {
       {/* Deployment Options */}
       <section className="py-24 bg-[#0A1F3D]">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12">Deployment Options</h2>
+          <h2 className="text-4xl font-bold text-white mb-12">Easily access optimized inference frameworks</h2>
           <div className="grid lg:grid-cols-2 gap-8">
             <Card className="bg-gradient-to-br from-[#0066FF]/10 to-transparent border-[#0066FF]/30">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">Dedicated Clusters</h3>
                 <p className="text-white/70 mb-6">
-                  Reserved GPU capacity for consistent performance. Ideal for high-volume production workloads requiring predictable latency.
+                  Immediate compatibility is available with TensorFlow Serving, PyTorch, and ONNX Runtime to enable rapid inference execution. Proprietary optimization methods lower response times and enhance throughput while preserving model accuracy.
                 </p>
-                <ul className="space-y-3 mb-6">
+                {/* <ul className="space-y-3 mb-6">
                   {[
                     'Reserved GPU allocation',
                     'Predictable pricing',
@@ -105,22 +105,22 @@ const Inference = () => {
                       <span>{item}</span>
                     </li>
                   ))}
-                </ul>
-                <Link to="/contact">
+                </ul> */}
+                {/* <Link to="/contact">
                   <Button variant="outline" className="border-white text-white hover:bg-white/10">
                     Learn More →
                   </Button>
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
 
             <Card className="bg-gradient-to-br from-white/5 to-transparent border-white/10">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">Serverless Endpoints</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Dedicated endpoints for 100+ open-source models</h3>
                 <p className="text-white/70 mb-6">
-                  Pay-per-request pricing with instant scaling. Perfect for variable workloads and development environments.
+                 Using Inference Endpoints, you can quickly launch Transformers, Diffusers, or bespoke models on dedicated, fully managed compute environments. Choose from over 100 available models, enhanced through Blubrg’s proprietary optimisation layer to achieve maximum performance.
                 </p>
-                <ul className="space-y-3 mb-6">
+                {/* <ul className="space-y-3 mb-6">
                   {[
                     'Pay per request',
                     'Instant auto-scaling',
@@ -137,7 +137,7 @@ const Inference = () => {
                   <Button variant="outline" className="border-white text-white hover:bg-white/10">
                     Explore Serverless →
                   </Button>
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
           </div>
@@ -147,22 +147,22 @@ const Inference = () => {
       {/* Optimization Features */}
       <section className="py-24 bg-[#0D2847]">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Enterprise Optimization</h2>
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Built on high-performance GPU compute</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Model Optimization',
-                description: 'Automatic quantization, pruning, and distillation reduce model size by up to 75% while maintaining accuracy.',
+                title: 'Performance & Scalability',
+                description: 'Dynamically expanding graphics-based compute sits at the core of what we deliver. Confidence comes from knowing artificial intelligence runs with low latency while every assigned resource is used to its fullest potential',
                 features: ['INT8/FP16 quantization', 'Dynamic batching', 'KV cache optimization']
               },
               {
-                title: 'Intelligent Routing',
-                description: 'Smart load balancing across GPU clusters ensures optimal resource utilization and minimal cold starts.',
+                title: 'Purpose-built Stack',
+                description: 'Unlock the full financial and performance advantages of a tightly unified infrastructure platform, specifically engineered to support artificial intelligence workloads ranging from small experiments to massive production-scale deployments',
                 features: ['Geographic routing', 'Version management', 'Canary deployments']
               },
               {
-                title: 'Monitoring & Analytics',
-                description: 'Real-time performance metrics, cost tracking, and alerting built into every deployment.',
+                title: 'No integration hurdles',
+                description: 'Flexibility is a core priority for us. Use ready-made software configurations or seamlessly connect your existing tools and workflows with ease',
                 features: ['Request tracing', 'Latency analysis', 'Cost optimization']
               }
             ].map((feature, i) => (
@@ -170,11 +170,11 @@ const Inference = () => {
                 <CardContent className="p-8">
                   <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
                   <p className="text-white/70 mb-4">{feature.description}</p>
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     {feature.features.map((item, j) => (
                       <div key={j} className="text-white/60 text-sm">• {item}</div>
                     ))}
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             ))}

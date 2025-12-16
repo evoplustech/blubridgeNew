@@ -136,7 +136,7 @@ const Home = () => {
                 A fully integrated suite of AI services and compute
               </h2>
               <p className="text-lg text-white/70 leading-relaxed">
-                BluBrg offers an end-to-end AI platform with managed services, customizable infrastructure, and seamless integration across every layer of the stack. From model training to production deployment, access the tools and compute you need without vendor lock-in.
+                Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Whether you use Blubrg’s native AI/ML tools or your own solutions, the platform is built to simplify the transition from development to production.
               </p>
             </div>
             {/* <div className="bg-white/5 border border-white/10 rounded-2xl p-12 aspect-square flex items-center justify-center">
@@ -152,11 +152,16 @@ const Home = () => {
             <div />
             <div>
               <h2 className="text-5xl font-light text-white mb-8 leading-tight">
-                Serverless model endpoints for inference
+               Turnkey AI development and deployment
               </h2>
               <p className="text-lg text-white/70 leading-relaxed">
-                Deploy ML models as serverless APIs in seconds. Pay only for compute time used with automatic scaling from zero to thousands of requests per second. Sub-100ms cold start times ensure responsive applications.
+                The Blubrg Marketplace provides users with a wide range of AI/ML tools and resources, supporting efficient, scalable model development and seamless deployment.
               </p>
+               <Link to="/products/">
+                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                  Start with Marketplace
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -168,16 +173,12 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <h2 className="text-5xl font-light text-white mb-8 leading-tight">
-                Turnkey AI development and deployment
+                Serverless model endpoints for inference
               </h2>
               <p className="text-lg text-white/70 leading-relaxed mb-8">
-                Launch pre-configured development environments with popular frameworks, libraries, and tools already installed. Deploy models instantly with serverless endpoints that auto-scale based on demand.
+                Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference for widely used Generative AI models.
               </p>
-              <Link to="/products/serverless">
-                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
-                  Start with Marketplace
-                </Button>
-              </Link>
+  
             </div>
             <div />
           </div>
@@ -191,10 +192,10 @@ const Home = () => {
             <div />
             <div>
               <h2 className="text-5xl font-light text-white mb-8 leading-tight">
-                Serverless model endpoints for inference
+                Dedicated training clusters ready to go
               </h2>
               <p className="text-lg text-white/70 leading-relaxed">
-                Deploy ML models as serverless APIs in seconds. Pay only for compute time used with automatic scaling from zero to thousands of requests per second. Sub-100ms cold start times ensure responsive applications.
+                Blubrg’s optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes to create a robust infrastructure that simplifies deploying, managing, and scaling containerized workloads.
               </p>
             </div>
           </div>
@@ -207,16 +208,11 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <h2 className="text-5xl font-light text-white mb-8 leading-tight">
-                Dedicated training clusters ready to go
+                Setting a new standard for inference
               </h2>
               <p className="text-lg text-white/70 leading-relaxed mb-8">
-                Access clusters of NVIDIA H100, A100, and other premium GPUs configured for large-scale model training. Pre-installed frameworks, distributed training support, and high-bandwidth networking included.
+                Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Blubrg has optimized every layer of the stack for both batch and streaming workloads, using high-speed GPUs and advanced orchestration tools to scale inference operations while sustaining peak performance.
               </p>
-              <Link to="/products/training">
-                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
-                  Start with Training
-                </Button>
-              </Link>
             </div>
             <div />
           </div>
@@ -230,39 +226,12 @@ const Home = () => {
             <div />
             <div>
               <h2 className="text-5xl font-light text-white mb-8 leading-tight">
-                Setting a new standard for inference
-              </h2>
-              <p className="text-lg text-white/70 leading-relaxed mb-8">
-                Achieve industry-leading inference performance with optimized runtimes, tensor compilation, and hardware acceleration. Support for ONNX, TensorRT, and custom model formats at production scale.
-              </p>
-              <Link to="/products/inference">
-                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
-                  Start with Inference
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Scalable flexible AI Compute */}
-      <section className="py-32 bg-[#0D0D0D]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-5xl font-light text-white mb-8 leading-tight">
                 Scalable, flexible AI Compute
               </h2>
               <p className="text-lg text-white/70 leading-relaxed mb-8">
-                Deploy bare-metal GPU nodes with full root access and complete control over your environment. Choose from on-demand, reserved, or spot instances to optimize for performance and cost.
+                Blubrg’s GPU Nodes provide powerful computing performance designed for AI and high-performance computing (HPC) workloads, backed by advanced cooling technology.
               </p>
-              <Link to="/products/gpu-nodes">
-                <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
-                  Start with GPU Nodes
-                </Button>
-              </Link>
             </div>
-            <div />
           </div>
         </div>
       </section>
@@ -277,7 +246,7 @@ const Home = () => {
           <div className="max-w-4xl mb-16">
             <h2 className="text-5xl font-light text-white mb-8">BluBrg's Infrastructure</h2>
             <p className="text-lg text-white/70 leading-relaxed">
-              Purpose-built data centers powered by 100% renewable energy, optimized networking for GPU workloads, and enterprise-grade storage systems. Every layer of our stack is engineered for AI at scale.
+              Blubrg manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
             </p>
           </div>
 
@@ -338,22 +307,17 @@ const Home = () => {
       <section className="py-32 bg-[#0D0D0D]">
         <div className="container-custom">
           <h2 className="text-4xl font-light text-white mb-20 text-center">Testimonials</h2>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-2 gap-12">
             {[
               {
-                quote: 'BluBrg infrastructure enabled us to scale our training by 10x while reducing costs significantly. The platform abstraction saved our team months of work.',
-                name: 'Sarah Chen',
-                role: 'ML Director, Tech Startup'
+                quote: 'AI is transforming the global economy and reshaping the role of renewable energy. With Blubrg, we are supporting infrastructure that is sovereign, scalable, and purpose-built to drive this shift forward. Blubrg’s full-stack, GPU-first approach provides a clear execution advantage. The scale and quality of this Series B round reflect Blubrg’s strong vision, growing momentum, and the depth of our partnership. Through both our Series B investment and joint venture, we are making a meaningful, long-term commitment to building industrial relevance in the era of AI.',
+                name: 'Øyvind Eriksen',
+                role: 'President & CEO - Aker ASA'
               },
               {
-                quote: 'The combination of performance, reliability, and support has been exceptional. We moved our entire inference workload and saw immediate improvements.',
-                name: 'Marcus Rodriguez',
-                role: 'VP Engineering, Enterprise SaaS'
-              },
-              {
-                quote: 'Access to cutting-edge hardware with enterprise support gave us confidence to deploy production AI at scale. Best infrastructure decision we made.',
-                name: 'Dr. Aisha Patel',
-                role: 'Research Lead, AI Lab'
+                quote: 'In just a few months, Blubrg has advanced with clear focus and speed, transforming bold plans into real production capacity and achieving meaningful relevance quickly. The team is developing large-scale, sovereign infrastructure that enterprises and governments can truly use, delivering reliability, efficiency, and proximity to their data. We’re excited to support [Josh and the] Blubrg [team] as they scale thoughtfully, empower builders with the right infrastructure, and lay a strong foundation for national AI leadership.',
+                name: 'Larry Aschebrook',
+                role: 'Founder & Managing Partner - G Squared'
               }
             ].map((item, i) => (
               <div key={i} className="border-l-2 border-white/20 pl-8">
@@ -372,7 +336,7 @@ const Home = () => {
           <div className="mb-16">
             <h2 className="text-4xl font-light text-white mb-6">Use cases</h2>
             <p className="text-lg text-white/60 max-w-3xl">
-              From model training to production deployment, BluBrg supports every phase of your AI journey with purpose-built infrastructure and tools.
+              End-to-end AI solutions, covering model training and fine-tuning through to inference and development, all built to accelerate your AI initiatives.
             </p>
           </div>
           
@@ -441,7 +405,7 @@ const Home = () => {
                 BluBrg is now an NVIDIA Preferred Partner
               </h2>
               <p className="text-lg text-white/60 mb-8 leading-relaxed">
-                As an NVIDIA Preferred Partner, BluBrg delivers certified infrastructure optimized for NVIDIA GPUs, with access to the latest hardware and technical support direct from NVIDIA engineering teams.
+                Access thousands of GPUs tailored to your requirements.
               </p>
               <div className="flex gap-4">
                 <Link to="/contact">

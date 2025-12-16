@@ -21,10 +21,10 @@ const Serverless = () => {
           <div className="max-w-4xl">
             <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">SERVERLESS AI</div>
             <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-              AI inference without infrastructure management
+              Most cost-effective AI Inference
             </h1>
             <p className="text-xl text-white/80 mb-8 max-w-3xl">
-              Access pre-trained models through simple API calls. Pay per request with instant scaling from zero to millions of requests per second.
+             Four out of five developers ranked us as the most cost-effective GenAI inferencing provider, offering access to popular models with zero rate limits.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -63,27 +63,28 @@ const Serverless = () => {
             <Card className="bg-gradient-to-br from-[#0066FF]/10 to-transparent border-[#0066FF]/30">
               <CardContent className="p-8">
                 <Zap className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Instant Availability</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">Lower cost, More power
+</h3>
                 <p className="text-white/70">
-                  Models are always warm and ready to serve requests. Zero cold start latency means consistent sub-second response times for all requests.
+                  Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-gradient-to-br from-[#0066FF]/10 to-transparent border-[#0066FF]/30">
               <CardContent className="p-8">
                 <DollarSign className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Cost Effective</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">Engineered for AI workloads</h3>
                 <p className="text-white/70">
-                  Pay only for what you use with per-request pricing. No idle GPU costs, no minimum commitments, and automatic cost optimization.
+                  Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-gradient-to-br from-[#0066FF]/10 to-transparent border-[#0066FF]/30">
               <CardContent className="p-8">
                 <Lock className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Enterprise Security</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">Scale without the overhead</h3>
                 <p className="text-white/70">
-                  Your data never leaves our secure infrastructure. End-to-end encryption, SOC 2 compliance, and guaranteed data privacy.
+                  From testing through to production, scale your AI workloads without bottlenecks or setup but just results.
                 </p>
               </CardContent>
             </Card>
@@ -175,43 +176,33 @@ print(response.text)`}
       {/* Pricing */}
       <section className="py-24 bg-[#0A1F3D]">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Transparent Per-Request Pricing</h2>
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Performance</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
-                type: 'Text Models',
-                price: '$0.0001',
-                unit: 'per 1K tokens',
-                features: ['All LLaMA variants', 'Mixtral models', 'Code generation', 'Embeddings']
+                type: '80% Lower cost - More performance for less',
+               
+                features: ['Blubrg delivers an average cost saving of up to 80% compared to hyperscalers']
               },
               {
-                type: 'Image Models',
-                price: '$0.01',
-                unit: 'per image',
-                features: ['SDXL generation', 'Flux models', 'Upscaling', 'Style transfer']
+                type: '30% Faster on Time to Insights',
+                features: ['Blubrg Cloud shortens the path to actionable insights by as much as 30%']
               },
               {
-                type: 'Multimodal',
-                price: '$0.001',
-                unit: 'per request',
-                features: ['Vision-language', 'Audio processing', 'OCR', 'Video analysis']
+                type: '+40% Efficiency - Resource Utilisation',
+                features: ['Efficiency gains reaching 40%']
               }
             ].map((plan, i) => (
               <Card key={i} className="bg-white/5 border-white/10">
                 <CardContent className="p-8">
                   <h3 className="text-xl font-bold text-white mb-2">{plan.type}</h3>
-                  <div className="mb-6">
-                    <span className="text-4xl font-bold text-[#0066FF]">{plan.price}</span>
-                    <span className="text-white/60 ml-2">{plan.unit}</span>
-                  </div>
-                  <ul className="space-y-3">
+                  <div className="space-y-3">
                     {plan.features.map((feature, j) => (
-                      <li key={j} className="flex items-center space-x-2 text-white/70 text-sm">
-                        <Check className="w-4 h-4 text-[#0066FF]" />
+                      <p key={j} className="flex items-center space-x-2 text-white/70 text-sm">
                         <span>{feature}</span>
-                      </li>
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                 </CardContent>
               </Card>
             ))}

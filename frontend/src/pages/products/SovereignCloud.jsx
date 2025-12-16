@@ -20,10 +20,10 @@ const SovereignCloud = () => {
           <div className="max-w-4xl">
             <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">SOVEREIGN AI INFRASTRUCTURE</div>
             <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-              Complete data control for regulated industries
+              YOUR AI. YOUR HOME ADVANTAGE.
             </h1>
             <p className="text-xl text-white/80 mb-8 max-w-3xl">
-              Deploy AI workloads with guaranteed jurisdictional control, compliance-first architecture, and enterprise-grade security. Your data never leaves your designated regions.
+              Blubrg’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -49,23 +49,23 @@ const SovereignCloud = () => {
             {[
               {
                 icon: <Shield className="w-10 h-10" />,
-                title: 'Data Sovereignty',
-                description: 'All data, models, and processing remain within your specified jurisdiction with cryptographic guarantees.'
+                title: 'Sovereign',
+                description: 'Blubrg empowers European organisations to design, deploy, and manage AI systems using their own infrastructure, data, teams, and networks. This approach ensures independence from external providers.'
               },
               {
                 icon: <Lock className="w-10 h-10" />,
-                title: 'Zero Foreign Access',
-                description: 'Infrastructure immune to extraterritorial data requests. Complete operational independence.'
+                title: 'DATA SECURITY',
+                description: 'The platform operates under UK and European regulatory frameworks and is managed by local teams. Its architecture is designed to minimise external exposure and safeguard sensitive information through strong governance and access controls'
               },
               {
                 icon: <MapPin className="w-10 h-10" />,
-                title: 'Regional Isolation',
-                description: 'Physically separated compute zones with dedicated networking and isolated control planes.'
+                title: 'ECONOMIC',
+                description: 'A sovereign cloud model ensures that the economic benefits of AI such as revenue generation, talent development, and innovation remain within national borders, reinforcing long-term economic resilience'
               },
               {
                 icon: <FileCheck className="w-10 h-10" />,
-                title: 'Audit Ready',
-                description: 'Built-in compliance frameworks for GDPR, DORA, NIS2, and sector-specific regulations.'
+                title: 'SCALABILITY',
+                description: 'Blubrg Cloud delivers hyperscaler-level performance while maintaining the control and governance required by sovereign organisations. The infrastructure can expand seamlessly to meet growing workload demands'
               }
             ].map((pillar, i) => (
               <Card key={i} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all">
@@ -85,28 +85,25 @@ const SovereignCloud = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-6">Purpose-Built Architecture</h2>
+              <h2 className="text-4xl font-bold text-white mb-6">What we offer</h2>
               <p className="text-white/70 text-lg mb-8">
-                BluBrg Sovereign Cloud delivers the performance of hyperscale infrastructure with the control and compliance guarantees required by regulated enterprises.
+               Blubrg provides a complete AI-ready platform engineered to deliver cost-effective, high-performance compute for demanding workloads.
               </p>
               <div className="space-y-6">
                 {[
                   {
-                    title: 'Jurisdictional Boundaries',
+                    title: 'Serverless Marketplace Training Inference GPU nodes',
                     items: [
-                      'Dedicated regional availability zones',
-                      'Isolated networking with no cross-border data flow',
-                      'Local key management and encryption',
-                      'Region-specific operations teams'
-                    ]
-                  },
-                  {
-                    title: 'Compliance Framework',
-                    items: [
-                      'Pre-certified for EU Cloud Code of Conduct',
-                      'SOC 2 Type II, ISO 27001, ISO 27018',
-                      'GDPR-compliant by design',
-                      'Continuous audit logging and reporting'
+                      'Blubrg’s Data centres',
+                      'Powered by renewable energy',
+                      'LLM Library',
+                      'Pre-configured Software & Infrastructure',
+                      'Job Management',
+                      'Job Scheduling',
+                      'Container Orchestration',
+                      'Optimised Libraries',
+                      'Optimised Compilers and Tools',
+                      'Optimised Runtime'
                     ]
                   }
                 ].map((section, i) => (

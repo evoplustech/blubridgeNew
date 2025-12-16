@@ -18,7 +18,7 @@ const Glomfjord = () => {
               Glomfjord, Norway
             </h1>
             <p className="text-2xl text-white/80 mb-12 leading-relaxed max-w-3xl">
-              Located in the Arctic region, our Glomfjord facility operates on entirely renewable energy sources and incorporates the most advanced AI infrastructure to deliver exceptional efficiency alongside peak performance capabilities.
+              Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on renewable energy and integrates cutting-edge AI infrastructure to deliver industry-leading efficiency without compromising performance. 
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -39,13 +39,20 @@ const Glomfjord = () => {
       <section className="py-32 bg-[#0B1F35]">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">A computing center at the edge of innovation</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">The data center on the edge of the Arctic Circle</h2>
             <div className="prose prose-invert max-w-none">
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                Our Glomfjord data center demonstrates that cutting-edge artificial intelligence infrastructure can thrive alongside thriving local communities. This facility showcases how technological advancement and regional development work together to create sustainable growth opportunities.
+                Situated just above the Arctic Circle, the Glomfjord facility demonstrates how future AI growth can coexist with local development. The location offers unique environmental and logistical advantages that support sustainable, high-capacity compute operations. 
+
+              </p>
+              <p className="text-xl text-white/70 leading-relaxed mb-8">
+               Glomfjord itself is a small industrial town in Northern Norway, known for its long history of hydropower generation. This combination of abundant renewable energy, cool climate, and strong connectivity makes it an ideal base for high-performance computing and AI workloads
+              </p>
+              <p className="text-xl text-white/70 leading-relaxed mb-8">
+                Blubrg is also committed to the local community by investing in infrastructure, creating job opportunities, and exploring innovative ways to reuse waste heat, such as heating local facilities. 
               </p>
               
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-12 mb-12">
+              {/* <div className="bg-white/5 border border-white/10 rounded-2xl p-12 mb-12">
                 <h3 className="text-2xl font-bold text-white mb-6">About the Location</h3>
                 <p className="text-lg text-white/70 leading-relaxed mb-6">
                   Situated in a compact industrial community in northern Norway, just beyond the Arctic boundary, this region has been powered by a substantial hydroelectric facility established more than a century ago. The 120MW generation capacity has long served as the economic foundation for this area of approximately 1,000 residents.
@@ -56,7 +63,7 @@ const Glomfjord = () => {
                 <p className="text-lg text-white/70 leading-relaxed">
                   BluBrg is actively contributing to community development through infrastructure investments, employment creation, and innovative heat reuse projects. We're exploring ways to redirect thermal output from our operations to benefit local facilities, including public amenities and residential heating systems.
                 </p>
-              </div>
+              </div> */}
 
               {/* <div className="relative aspect-video rounded-2xl overflow-hidden mb-8">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/20 to-[#0D2847]/20 flex items-center justify-center">
@@ -80,7 +87,7 @@ const Glomfjord = () => {
                 <div className="text-5xl font-bold text-white mb-4">100%</div>
                 <h3 className="text-2xl font-bold text-white mb-4">Renewable Energy</h3>
                 <p className="text-white/70 leading-relaxed">
-                  Glomfjord runs entirely on clean power supplied by the region's hydroelectric infrastructure, ensuring zero carbon emissions from energy consumption.
+                  The entire data centre operates using renewable power sourced from nearby hydropower dams, ensuring environmentally responsible operations. 
                 </p>
               </CardContent>
             </Card>
@@ -93,7 +100,7 @@ const Glomfjord = () => {
                 <div className="text-5xl font-bold text-white mb-4">30MW</div>
                 <h3 className="text-2xl font-bold text-white mb-4">Power Capacity</h3>
                 <p className="text-white/70 leading-relaxed">
-                  Currently operational at 30MW with planned expansion capabilities reaching 60MW to accommodate future computational demands and infrastructure growth.
+                  Glomfjord currently runs at a 30 MW capacity with potential to increase to 60 MW as demand grows.
                 </p>
               </CardContent>
             </Card>
@@ -106,7 +113,7 @@ const Glomfjord = () => {
                 <div className="text-2xl font-bold text-white mb-4">Arctic Location</div>
                 <h3 className="text-2xl font-bold text-white mb-4">Natural Cooling Advantage</h3>
                 <p className="text-white/70 leading-relaxed">
-                  Positioned within the Arctic Circle, the facility leverages naturally cool ambient temperatures for highly efficient adiabatic cooling systems, dramatically reducing energy requirements.
+                  Located in northern Norway, within the Arctic Circle, the site benefits from natural climate conditions that support efficient cooling. 
                 </p>
               </CardContent>
             </Card>
@@ -116,10 +123,10 @@ const Glomfjord = () => {
                 <div className="w-16 h-16 bg-[#0066FF]/10 rounded-xl flex items-center justify-center mb-6">
                   <Network className="w-8 h-8 text-[#0066FF]" />
                 </div>
-                <div className="text-2xl font-bold text-white mb-4">Redundant Fiber</div>
+                <div className="text-2xl font-bold text-white mb-4">Low-latency Fibre</div>
                 <h3 className="text-2xl font-bold text-white mb-4">High-Speed Connectivity</h3>
                 <p className="text-white/70 leading-relaxed">
-                  Built atop dual redundant low-latency fiber connections, ensuring both exceptional transmission speeds and continuous reliability for mission-critical operations.
+                 The data centre sits atop a network of double-redundant, low-latency optical fibre, offering highly reliable performance for data-intensive workloads.
                 </p>
               </CardContent>
             </Card>
@@ -157,10 +164,15 @@ const Glomfjord = () => {
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">
-              Access a comprehensive platform for AI development
+              Power Supply
             </h2>
             <p className="text-xl text-white/70 leading-relaxed">
-              Optimize expenses, accelerate development cycles, and execute AI workloads more effectively on a unified infrastructure. Whether utilizing BluBrg's integrated AI tools or bringing your own frameworks, our platform streamlines the path from concept to deployment.
+              To support robust AI infrastructure, Blubrg chooses locations with consistent excess renewable energy. Glomfjord’s hydroelectric resources provide a reliable and abundant power supply that supports large-scale compute without straining the local grid or increasing energy costs for residents. 
+
+            </p>
+             <p className="text-xl text-white/70 leading-relaxed">
+             The facility’s operation on entirely renewable energy ensures that AI compute can be delivered sustainably and efficiently. 
+
             </p>
           </div>
 

@@ -18,10 +18,10 @@ const Training = () => {
           <div className="max-w-4xl">
             <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">GPU TRAINING CLUSTERS</div>
             <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-              Accelerate model training with purpose-built GPU infrastructure
+            Compute purpose - built for AI workloads
             </h1>
             <p className="text-xl text-white/80 mb-8 max-w-3xl">
-              Deploy high-performance training clusters in minutes. Scale from single GPUs to thousands of interconnected accelerators with industry-leading throughput and efficiency.
+              Develop LLMs along with additional AI systems using powerful GPU-based clusters. Managed Kubernetes and Slurm orchestration choices simplify administration while ensuring maximum usage of available computing resources.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -46,22 +46,22 @@ const Training = () => {
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-8">
                 <Zap className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">80% Faster Training</h3>
-                <p className="text-white/70">Optimized GPU fabric and high-speed interconnects dramatically reduce training time for large language models and deep neural networks.</p>
+                <h3 className="text-2xl font-bold text-white mb-3">+40% Efficiency - Improved Resource Utilisation</h3>
+                <p className="text-white/70">Efficiency gains reaching 40%.</p>
               </CardContent>
             </Card>
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-8">
                 <Database className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Massive Scale</h3>
-                <p className="text-white/70">Scale from 8 to 10,000+ GPUs with automatic orchestration. Train trillion-parameter models with distributed training frameworks.</p>
+                <h3 className="text-2xl font-bold text-white mb-3">7.2x faster on throughput and latency</h3>
+                <p className="text-white/70">AMD MI300X with GEMM boosts performance 7.2×</p>
               </CardContent>
             </Card>
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-8">
                 <Network className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Enterprise Ready</h3>
-                <p className="text-white/70">Built-in monitoring, checkpointing, and fault tolerance. Seamless integration with PyTorch, TensorFlow, and JAX frameworks.</p>
+                <h3 className="text-2xl font-bold text-white mb-3">80% Lower cost - More performance for less</h3>
+                <p className="text-white/70">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
               </CardContent>
             </Card>
           </div>
@@ -73,11 +73,12 @@ const Training = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-6">Technical Architecture</h2>
+              <h2 className="text-4xl font-bold text-white mb-6">Dynamically manage AI workloads and resources
+</h2>
               <p className="text-white/70 mb-8">
-                BluBrg training clusters are engineered for maximum performance and efficiency. Our infrastructure eliminates bottlenecks across compute, networking, and storage layers.
+                Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 {[
                   'NVIDIA H100, H200, and GB200 GPU options',
                   'RDMA-enabled high-bandwidth networking',
@@ -91,33 +92,16 @@ const Training = () => {
                     <span>{item}</span>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
             <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <h3 className="text-2xl font-bold text-white mb-6">Cluster Configurations</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Utilise 100% of your cluster with our advanced scheduler</h3>
               <div className="space-y-6">
                 <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-semibold">Starter</span>
-                    <span className="text-[#0066FF]">8-64 GPUs</span>
-                  </div>
-                  <p className="text-white/60 text-sm">Perfect for model development and experimentation</p>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-semibold">Professional</span>
-                    <span className="text-[#0066FF]">64-512 GPUs</span>
-                  </div>
-                  <p className="text-white/60 text-sm">Ideal for production training workloads</p>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-semibold">Enterprise</span>
-                    <span className="text-[#0066FF]">512+ GPUs</span>
-                  </div>
-                  <p className="text-white/60 text-sm">Hyperscale training for foundation models</p>
+                  <p className="text-white/60 text-sm">Experience a hybrid approach through our Slurm on Kubernetes (SLONK) service. Benefit from sophisticated task queuing, precise capacity distribution, and streamlined workload coordination designed specifically for LLM training.</p>
                 </div>
               </div>
+             
             </div>
           </div>
         </div>
@@ -130,24 +114,14 @@ const Training = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: 'Large Language Models',
-                description: 'Train GPT-style transformers with billions to trillions of parameters. Leverage distributed training with model parallelism and gradient accumulation.',
-                metrics: ['175B+ parameters', '8-10 weeks typical', 'Multi-node scaling']
+                title: 'Managed Kubernetes',
+                description: 'Streamline AI training through our managed Kubernetes offering. Platform operations and capacity growth are handled for you, allowing full attention on creating and improving models.',
+                metrics: ['']
               },
               {
                 title: 'Computer Vision Models',
                 description: 'Train vision transformers, diffusion models, and object detection networks on massive image datasets with accelerated preprocessing.',
-                metrics: ['1B+ images', '2-4 weeks typical', 'Real-time augmentation']
-              },
-              {
-                title: 'Multimodal Foundation Models',
-                description: 'Build models that understand text, images, audio, and video. Handle diverse data types with unified training infrastructure.',
-                metrics: ['Mixed modalities', '6-12 weeks typical', 'Cross-modal learning']
-              },
-              {
-                title: 'Reinforcement Learning',
-                description: 'Train RL agents with PPO, SAC, and DQN algorithms. Support both simulation environments and real-world data collection.',
-                metrics: ['1M+ episodes', '4-8 weeks typical', 'Parallel environments']
+                metrics: ['']
               }
             ].map((useCase, i) => (
               <Card key={i} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all">

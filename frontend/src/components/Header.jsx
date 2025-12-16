@@ -53,7 +53,7 @@ const Header = () => {
       items: [
         { name: 'Sovereign Cloud', link: '/products/sovereign-cloud', desc: 'Complete jurisdictional control for regulated workloads.' },
         { name: 'Glomfjord', link: '/products/glomfjord', desc: 'Powered by 100% renewable energy.' },
-        { name: 'Narvik Campus', link: '/products/narvik', desc: 'Arctic hyperscale infrastructure powered by renewables.' }
+        // { name: 'Narvik Campus', link: '/products/narvik', desc: 'Arctic hyperscale infrastructure powered by renewables.' }
       ]
     }
   ];
