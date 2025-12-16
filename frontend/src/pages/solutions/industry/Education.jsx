@@ -216,7 +216,7 @@ const Education = () => {
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">Foundation Model Training</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">High-performance Infrastructure</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Train large language models and foundation AI systems with BluBrg's scalable GPU clusters. Our platform provides the compute power researchers need to develop and experiment with cutting-edge AI architectures.
+                Researchers can access scalable, high-performance computing for developing and training foundational AI models. This helps accelerate deep learning research and experimentation.
               </p>
             </div>
 
