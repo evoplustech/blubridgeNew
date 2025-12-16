@@ -1,282 +1,542 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
-import { Card, CardContent } from '../../../components/ui/card';
-import { ArrowRight, Scale, FileText, Search, Brain, Shield, Clock } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid, Cpu } from 'lucide-react';
 
 const Legal = () => {
-  return (
-    <div className="min-h-screen bg-[#0A1F3D]">
-      {/* Hero - Split Screen Design */}
-      <section className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1F3D] to-[#1a3a5c]" />
+  const [openFaq, setOpenFaq] = useState(null);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const canvasRef = useRef(null);
+
+  // Animated parallax for hero section
+  useEffect(() => {
+    let animationFrame;
+    let time = 0;
+
+    const animate = () => {
+      time += 0.005;
+      setOffset({
+        x: Math.sin(time) * 10,
+        y: Math.cos(time * 0.7) * 8
+      });
+      animationFrame = requestAnimationFrame(animate);
+    };
+
+    animate();
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
+  // Canvas animation for abstract gavel/legal geometric forms
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let animationFrame;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    const drawLegalForms = () => {
+      time += 0.012;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+      const centerX = width * 0.5;
+      const centerY = height * 0.45;
+
+      // Draw abstract gavel head (rectangular block)
+      const gavelWidth = 120;
+      const gavelHeight = 45;
+      const gavelRotation = Math.sin(time * 0.5) * 0.05;
+      
+      ctx.save();
+      ctx.translate(centerX, centerY);
+      ctx.rotate(gavelRotation);
+      
+      // Gavel head gradient
+      const gavelGradient = ctx.createLinearGradient(-gavelWidth/2, -gavelHeight/2, gavelWidth/2, gavelHeight/2);
+      gavelGradient.addColorStop(0, 'rgba(139, 92, 246, 0.4)');
+      gavelGradient.addColorStop(0.5, 'rgba(167, 139, 250, 0.3)');
+      gavelGradient.addColorStop(1, 'rgba(139, 92, 246, 0.2)');
+      
+      ctx.fillStyle = gavelGradient;
+      ctx.beginPath();
+      ctx.roundRect(-gavelWidth/2, -gavelHeight/2, gavelWidth, gavelHeight, 6);
+      ctx.fill();
+      
+      // Gavel highlight
+      ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      
+      ctx.restore();
+
+      // Draw gavel handle
+      ctx.save();
+      ctx.translate(centerX, centerY + gavelHeight/2);
+      ctx.rotate(gavelRotation);
+      
+      const handleGradient = ctx.createLinearGradient(0, 0, 0, 100);
+      handleGradient.addColorStop(0, 'rgba(139, 92, 246, 0.3)');
+      handleGradient.addColorStop(1, 'rgba(139, 92, 246, 0.1)');
+      
+      ctx.fillStyle = handleGradient;
+      ctx.beginPath();
+      ctx.roundRect(-8, 0, 16, 100, 4);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(167, 139, 250, 0.3)';
+      ctx.stroke();
+      
+      ctx.restore();
+
+      // Draw scale of justice (simplified geometric version)
+      const scaleX = centerX + 80;
+      const scaleY = centerY - 80;
+      const scaleOffset = Math.sin(time) * 15;
+
+      // Scale pillar
+      ctx.strokeStyle = 'rgba(99, 102, 241, 0.4)';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(scaleX, scaleY - 60);
+      ctx.lineTo(scaleX, scaleY + 60);
+      ctx.stroke();
+
+      // Scale beam
+      ctx.beginPath();
+      ctx.moveTo(scaleX - 60, scaleY - 50 + scaleOffset);
+      ctx.lineTo(scaleX + 60, scaleY - 50 - scaleOffset);
+      ctx.stroke();
+
+      // Scale dishes
+      ctx.fillStyle = 'rgba(99, 102, 241, 0.2)';
+      ctx.beginPath();
+      ctx.arc(scaleX - 55, scaleY - 35 + scaleOffset, 25, 0, Math.PI);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(scaleX + 55, scaleY - 35 - scaleOffset, 25, 0, Math.PI);
+      ctx.fill();
+
+      // Draw floating geometric shapes (law books / documents)
+      for (let i = 0; i < 5; i++) {
+        const x = centerX - 100 + i * 50 + Math.sin(time + i) * 10;
+        const y = centerY + 80 + Math.cos(time + i * 0.5) * 15;
+        const bookHeight = 40 + i * 5;
+        const bookWidth = 25;
         
-        <div className="container-custom relative z-10 h-full flex items-center py-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-6 py-3 mb-8">
-                <Scale className="w-5 h-5 text-amber-400" />
-                <span className="text-amber-400 font-semibold">Legal Services</span>
-              </div>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.05]">
-                AI that transforms legal practice
-              </h1>
-              <p className="text-xl text-white/70 mb-10 leading-relaxed">
-                From legal research and contract analysis to e-discovery and document review, BluBrg provides the AI infrastructure that modern law firms and legal departments need to deliver faster, more accurate services.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/products/serverless">
-                  <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white px-10 py-7 text-lg">
-                    Explore Solutions <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 px-10 py-7 text-lg">
-                    Contact Sales
-                  </Button>
-                </Link>
-              </div>
-            </div>
+        const bookGradient = ctx.createLinearGradient(x, y, x + bookWidth, y - bookHeight);
+        bookGradient.addColorStop(0, `rgba(99, 102, 241, ${0.15 + i * 0.05})`);
+        bookGradient.addColorStop(1, `rgba(139, 92, 246, ${0.1 + i * 0.03})`);
+        
+        ctx.fillStyle = bookGradient;
+        ctx.beginPath();
+        ctx.roundRect(x, y - bookHeight, bookWidth, bookHeight, 2);
+        ctx.fill();
+        
+        ctx.strokeStyle = 'rgba(167, 139, 250, 0.3)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
 
-            <div className="space-y-6">
-              {[
-                { icon: <Search className="w-6 h-6" />, title: 'Legal Research', metric: '90% faster', desc: 'AI-powered case law and precedent search' },
-                { icon: <FileText className="w-6 h-6" />, title: 'Contract Analysis', metric: '95% accuracy', desc: 'Automated review and risk identification' },
-                { icon: <Clock className="w-6 h-6" />, title: 'Time Savings', metric: '1000+ hrs/year', desc: 'Reduce billable hours on routine tasks' }
-              ].map((item, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-amber-500/50 transition-all group">
-                  <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 transition-transform">
-                      {item.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                        <span className="text-amber-400 font-bold text-lg">{item.metric}</span>
-                      </div>
-                      <p className="text-white/60">{item.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      // Draw floating particles
+      for (let i = 0; i < 15; i++) {
+        const particleX = (Math.sin(time * 0.4 + i * 2.5) + 1) * width * 0.5;
+        const particleY = (Math.cos(time * 0.3 + i * 1.8) + 1) * height * 0.4 + height * 0.1;
+        const size = 2 + Math.sin(time + i) * 1;
+        
+        ctx.beginPath();
+        ctx.arc(particleX, particleY, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(167, 139, 250, ${0.3 + Math.sin(time * 2 + i) * 0.2})`;
+        ctx.fill();
+      }
 
-      {/* The Cost of Traditional Legal Work */}
-      <section className="py-32 bg-[#0B1F35]">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-20">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">The billable hour problem</h2>
-            <p className="text-lg text-white/60">Legal professionals spend 60% of their time on tasks that AI can handle faster and more accurately.</p>
-          </div>
+      // Draw connecting mesh lines
+      ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 8; i++) {
+        const startX = width * 0.1 + i * width * 0.1;
+        const startY = height * 0.2 + Math.sin(time + i) * 30;
+        const endX = width * 0.2 + i * width * 0.08;
+        const endY = height * 0.8 + Math.cos(time + i) * 20;
+        
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.quadraticCurveTo(centerX, centerY, endX, endY);
+        ctx.stroke();
+      }
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { task: 'Document Review', time: '30-40%', desc: 'Hours spent on routine document analysis' },
-              { task: 'Legal Research', time: '20-30%', desc: 'Time searching case law and precedents' },
-              { task: 'Contract Drafting', time: '15-20%', desc: 'Creating standard agreements' },
-              { task: 'Due Diligence', time: '10-15%', desc: 'M&A and compliance reviews' }
-            ].map((item, i) => (
-              <Card key={i} className="bg-gradient-to-br from-white/5 to-transparent border-white/10 hover:border-amber-500/50 transition-all">
-                <CardContent className="p-8 text-center">
-                  <div className="text-5xl font-bold text-amber-400 mb-4">{item.time}</div>
-                  <h3 className="text-xl font-bold text-white mb-3">{item.task}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      animationFrame = requestAnimationFrame(drawLegalForms);
+    };
 
-      {/* AI Use Cases - Detailed Cards */}
-      <section className="py-32 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-16">AI applications for legal services</h2>
+    resize();
+    drawLegalForms();
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {[
-              {
-                icon: <Search className="w-10 h-10" />,
-                title: 'Legal Research & Precedent Analysis',
-                desc: 'AI-powered semantic search across millions of cases, statutes, and legal documents. Find relevant precedents in seconds instead of hours. Natural language queries return ranked results with citations and context.',
-                features: [
-                  'Semantic case law search',
-                  'Automatic citation generation',
-                  'Precedent strength analysis',
-                  'Jurisdiction-specific filtering'
-                ],
-                impact: '90% time reduction',
-                color: 'border-amber-500/30'
-              },
-              {
-                icon: <FileText className="w-10 h-10" />,
-                title: 'Contract Analysis & Review',
-                desc: 'Upload contracts and instantly identify risks, unusual clauses, and compliance issues. AI models trained on millions of contracts recognize patterns and flag potential problems that human reviewers might miss.',
-                features: [
-                  'Clause extraction & classification',
-                  'Risk identification',
-                  'Compliance checking',
-                  'Redline comparison'
-                ],
-                impact: '95% accuracy',
-                color: 'border-blue-500/30'
-              },
-              {
-                icon: <Brain className="w-10 h-10" />,
-                title: 'E-Discovery & Document Management',
-                desc: 'Process and analyze millions of documents for litigation. AI categorizes, tags, and prioritizes documents based on relevance. Predictive coding reduces review time by 70% while maintaining accuracy.',
-                features: [
-                  'Automated document classification',
-                  'Predictive coding',
-                  'Privilege detection',
-                  'Key term extraction'
-                ],
-                impact: '70% cost savings',
-                color: 'border-purple-500/30'
-              },
-              {
-                icon: <Shield className="w-10 h-10" />,
-                title: 'Due Diligence & Compliance',
-                desc: 'Automate M&A due diligence and regulatory compliance reviews. Scan corporate documents, financial records, and contracts to identify issues and ensure compliance with regulations.',
-                features: [
-                  'Regulatory compliance scanning',
-                  'Entity relationship mapping',
-                  'Financial document analysis',
-                  'Risk scoring'
-                ],
-                impact: '80% faster',
-                color: 'border-green-500/30'
-              }
-            ].map((item, i) => (
-              <Card key={i} className={`bg-white/5 border-2 ${item.color} hover:bg-white/10 transition-all group`}>
-                <CardContent className="p-10">
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="w-20 h-20 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
-                      {item.icon}
-                    </div>
-                    <span className="bg-amber-500/10 text-amber-400 px-4 py-2 rounded-full text-sm font-bold">{item.impact}</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-white/60 leading-relaxed mb-6">{item.desc}</p>
-                  <div className="space-y-2">
-                    {item.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                        <span className="text-white/80 text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    window.addEventListener('resize', resize);
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
 
-      {/* ROI & Benefits */}
-      <section className="py-32 bg-[#0B1F35]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">Measurable impact on your practice</h2>
-              <p className="text-lg text-white/60 mb-10 leading-relaxed">
-                Law firms and legal departments using AI infrastructure report dramatic improvements in efficiency, accuracy, and client satisfaction. The ROI is clear and immediate.
-              </p>
-              <div className="space-y-6">
-                {[
-                  { benefit: 'Reduced billable hours on routine tasks', value: '1000+ hrs/year' },
-                  { benefit: 'Faster case preparation and filing', value: '60% improvement' },
-                  { benefit: 'Improved contract review accuracy', value: '95%+' },
-                  { benefit: 'E-discovery cost reduction', value: '70% savings' }
-                ].map((item, i) => (
-                  <div key={i} className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-xl p-6 hover:border-amber-500/50 transition-all">
-                    <div className="flex items-center justify-between">
-                      <span className="text-white font-semibold">{item.benefit}</span>
-                      <span className="text-amber-400 font-bold text-lg">{item.value}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
-            <div className="bg-gradient-to-br from-amber-500/10 to-transparent border-2 border-amber-500/30 rounded-3xl p-12">
-              <h3 className="text-2xl font-bold text-white mb-8 text-center">Client testimonial</h3>
-              <div className="space-y-8">
-                <div className="text-white/90 text-lg leading-relaxed italic">
-                  "BluBrg's AI infrastructure has transformed our practice. What used to take our team 3 weeks in document review now takes 2 days. We're delivering better results for clients at lower cost, and our lawyers can focus on high-value strategic work instead of routine analysis."
-                </div>
-                <div className="pt-8 border-t border-white/10">
-                  <div className="font-bold text-white text-lg mb-1">Sarah Mitchell</div>
-                  <div className="text-white/60">Managing Partner, Mitchell & Associates</div>
-                </div>
-                <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/10">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-amber-400 mb-1">85%</div>
-                    <div className="text-white/60 text-sm">Time saved</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-amber-400 mb-1">2x</div>
-                    <div className="text-white/60 text-sm">Cases handled</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-amber-400 mb-1">98%</div>
-                    <div className="text-white/60 text-sm">Client satisfaction</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  return (
+    <div className="min-h-screen bg-[#000000]">
+      {/* ANIMATED HERO SECTION */}
+      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#08050d] via-[#0a0812] to-[#000000]" />
+        
+        {/* Animated legal forms canvas */}
+        <canvas 
+          ref={canvasRef}
+          className="absolute right-0 top-0 w-[55%] h-full opacity-80"
+          style={{ 
+            pointerEvents: 'none',
+            transform: `translate(${offset.x}px, ${offset.y}px)`,
+            transition: 'transform 0.5s ease-out'
+          }}
+        />
 
-      {/* Security & Confidentiality */}
-      <section className="py-32 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Built for attorney-client privilege</h2>
-            <p className="text-lg text-white/60">Legal work demands the highest levels of security and confidentiality. BluBrg's infrastructure is designed to protect sensitive client information.</p>
-          </div>
+        {/* Ambient glow */}
+        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-violet-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { feature: 'End-to-end encryption', desc: 'Data encrypted in transit and at rest' },
-              { feature: 'Private deployments', desc: 'Isolated environments for each firm' },
-              { feature: 'Audit logging', desc: 'Complete access and activity tracking' },
-              { feature: 'Compliance ready', desc: 'SOC 2, ISO 27001, GDPR compliant' }
-            ].map((item, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-amber-500/50 transition-all text-center">
-                <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Shield className="w-8 h-8 text-amber-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-3">{item.feature}</h3>
-                <p className="text-white/60 text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-32 bg-[#0B1F35]">
-        <div className="container-custom">
-          <div className="bg-gradient-to-r from-amber-500/10 to-transparent border-2 border-amber-500/30 rounded-3xl p-16 text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Transform your legal practice with AI</h2>
-            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-              Join leading law firms and legal departments using BluBrg to deliver faster, more accurate, and cost-effective legal services.
+        <div className="container-custom relative z-10 flex-1 flex items-center py-24">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+              LEGAL
+            </h1>
+            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
+              BluBrg empowers legal professionals with GPU-accelerated AI solutions for document analysis, case research, contract management, and predictive analytics. Our platform enables law firms to process vast amounts of legal data efficiently and make data-driven decisions faster.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white px-10 py-7 text-lg">
-                  Schedule a Demo
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#08050d] px-10 py-6 text-base font-medium rounded-md">
+                  Get Started
                 </Button>
               </Link>
-              <Link to="/products/serverless">
-                <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 px-10 py-7 text-lg">
-                  View Products
+              <Link to="/contact">
+                <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
+                  Contact Sales <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3-Column Value Highlights */}
+      <section className="py-16 bg-[#050505] border-t border-white/5">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-10 text-center">
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-3">Enhanced Document Analysis</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Process and analyse thousands of legal documents in minutes using GPU-accelerated AI models for comprehensive contract review and due diligence.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-3">Improved Predictive Analytics</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Leverage AI to predict case outcomes, assess litigation risks, and provide data-driven legal strategies backed by historical precedent analysis.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-3">Cost Efficiency and Scalability</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Scale your legal AI workloads on demand with pay-as-you-go pricing. Reduce operational costs while maintaining the highest standards of accuracy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Example Uses Section */}
+      <section className="py-24 bg-[#000000]">
+        <div className="container-custom">
+          <div className="mb-12">
+            <p className="text-violet-400 text-sm font-medium mb-3 uppercase tracking-wider">TRANSFORMING LEGAL WORKFLOWS</p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
+            <p className="text-base text-white/60 max-w-3xl">
+              Discover how law firms and legal departments leverage BluBrg's GPU infrastructure to streamline operations, enhance compliance, and deliver superior client outcomes.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Automated Analysis */}
+            <div className="border-l-2 border-violet-500 pl-6">
+              <h3 className="text-lg font-semibold text-violet-400 mb-2">Automated Analysis</h3>
+              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">AI-Powered Document Processing</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Deploy advanced NLP models to automatically extract key information from contracts, briefs, and legal filings. Reduce review time by up to 90% while maintaining accuracy.
+              </p>
+            </div>
+
+            {/* Regulatory Adherence */}
+            <div className="border-l-2 border-violet-500 pl-6">
+              <h3 className="text-lg font-semibold text-violet-400 mb-2">Regulatory Adherence</h3>
+              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Compliance Monitoring</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Use AI to continuously monitor regulatory changes and assess compliance across your document portfolio. Stay ahead of evolving legal requirements automatically.
+              </p>
+            </div>
+
+            {/* Case Strategy */}
+            <div className="border-l-2 border-violet-500 pl-6">
+              <h3 className="text-lg font-semibold text-violet-400 mb-2">Case Strategy</h3>
+              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Predictive Legal Intelligence</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Analyse historical case data and judicial patterns to predict outcomes and inform litigation strategy. Make data-driven decisions with confidence.
+              </p>
+            </div>
+
+            {/* Contract Management */}
+            <div className="border-l-2 border-violet-500 pl-6">
+              <h3 className="text-lg font-semibold text-violet-400 mb-2">Contract Management</h3>
+              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Intelligent Contract Lifecycle</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Automate contract creation, review, and management with AI that identifies risks, suggests clauses, and ensures consistency across your organisation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Services */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container-custom">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* AI Compute Training Card */}
+            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-violet-500/30 transition-colors">
+              <div className="mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-violet-500/30 to-purple-600/20 rounded-xl flex items-center justify-center">
+                  <Zap className="w-7 h-7 text-violet-400" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <p className="text-violet-400 text-sm mb-4">Training</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                A highly scalable, performance-optimised architecture that significantly reduces training times for legal AI models.
+              </p>
+            </div>
+
+            {/* AI Compute Inference Card */}
+            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-violet-500/30 transition-colors">
+              <div className="mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-violet-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
+                  <Cpu className="w-7 h-7 text-violet-400" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <p className="text-violet-400 text-sm mb-4">Inference</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                A highly optimised, scalable platform for inference workloads with best performance at low cost for real-time legal analysis.
+              </p>
+            </div>
+
+            {/* AI Marketplace Card */}
+            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-violet-500/30 transition-colors">
+              <div className="mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-violet-500/30 to-blue-600/20 rounded-xl flex items-center justify-center">
+                  <LayoutGrid className="w-7 h-7 text-violet-400" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
+              <p className="text-violet-400 text-sm mb-4">Marketplace</p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                An ecosystem of services for developing and deploying legal AI applications built using BluBrg's tools and popular frameworks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* More Solutions */}
+      <section className="py-24 bg-[#000000]">
+        <div className="container-custom">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
+          <p className="text-base text-white/60 mb-12 max-w-2xl">
+            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Training Card */}
+            <Link to="/solutions/training" className="group">
+              <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-900/60 via-indigo-900/50 to-violet-900/60">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 opacity-30" style={{
+                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)',
+                  backgroundSize: '30px 30px'
+                }}></div>
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">Training</h3>
+                  <div className="flex gap-4">
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">80%</span>
+                      <span className="text-white/60 text-xs ml-2">Lower Cost</span>
+                    </div>
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">+40%</span>
+                      <span className="text-white/60 text-xs ml-2">Efficiency</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-purple-500/50 transition-colors" />
+              </div>
+            </Link>
+
+            {/* Inference Card */}
+            <Link to="/solutions/inference" className="group">
+              <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800/60 via-gray-900/50 to-slate-900/60">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 opacity-30" style={{
+                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)',
+                  backgroundSize: '30px 30px'
+                }}></div>
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">Inference</h3>
+                  <div className="flex gap-4">
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">7.2X</span>
+                      <span className="text-white/60 text-xs ml-2">Performance</span>
+                    </div>
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">+40%</span>
+                      <span className="text-white/60 text-xs ml-2">Efficiency</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-gray-500/50 transition-colors" />
+              </div>
+            </Link>
+
+            {/* Fine Tuning Card */}
+            <Link to="/solutions/fine-tuning" className="group">
+              <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-900/50 via-teal-900/40 to-green-900/50">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 opacity-30" style={{
+                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)',
+                  backgroundSize: '30px 30px'
+                }}></div>
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">Fine Tuning</h3>
+                  <div className="flex gap-4">
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">+40%</span>
+                      <span className="text-white/60 text-xs ml-2">Efficiency</span>
+                    </div>
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">30%</span>
+                      <span className="text-white/60 text-xs ml-2">Faster</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-emerald-500/50 transition-colors" />
+              </div>
+            </Link>
+
+            {/* AI Development Card */}
+            <Link to="/solutions/ai-development" className="group">
+              <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-amber-900/50 via-orange-900/40 to-yellow-900/50">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 opacity-30" style={{
+                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)',
+                  backgroundSize: '30px 30px'
+                }}></div>
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <h3 className="text-2xl font-light text-white mb-4 tracking-wider uppercase">AI Development</h3>
+                  <div className="flex gap-4">
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">80%</span>
+                      <span className="text-white/60 text-xs ml-2">Lower Cost</span>
+                    </div>
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2">
+                      <span className="text-white text-sm">30%</span>
+                      <span className="text-white/60 text-xs ml-2">Faster</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute inset-0 border border-white/10 rounded-2xl group-hover:border-amber-500/50 transition-colors" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container-custom">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <div className="max-w-4xl space-y-3">
+            {[
+              {
+                question: "How can AI improve legal document review?",
+                answer: "AI-powered document review uses natural language processing to analyse contracts, briefs, and legal filings at scale. Our GPU-accelerated platform can process thousands of documents in minutes, identifying key clauses, risks, and inconsistencies with up to 95% accuracy."
+              },
+              {
+                question: "Is BluBrg's platform secure for confidential legal data?",
+                answer: "Yes, BluBrg maintains enterprise-grade security with SOC 2 Type II certification, end-to-end encryption, and private VPC deployments. We understand attorney-client privilege requirements and have designed our infrastructure to meet the highest standards of legal confidentiality."
+              },
+              {
+                question: "Can BluBrg help with legal research and case prediction?",
+                answer: "Absolutely. Our platform enables AI models that can analyse millions of case precedents, predict litigation outcomes, and identify relevant legal arguments. Law firms using our infrastructure report 90% time savings in legal research tasks."
+              },
+              {
+                question: "What types of legal AI applications can run on BluBrg?",
+                answer: "BluBrg supports a wide range of legal AI applications including contract analysis, e-discovery, due diligence automation, compliance monitoring, legal chatbots, and predictive analytics for case outcomes. Our marketplace includes pre-built legal AI tools and frameworks."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="border-b border-white/10">
+                <button
+                  onClick={() => toggleFaq(i)}
+                  className="w-full flex items-center justify-between py-6 text-left hover:text-violet-400 transition-colors"
+                >
+                  <span className="text-base font-medium text-white pr-8">{faq.question}</span>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-violet-500/20 flex items-center justify-center">
+                    {openFaq === i ? (
+                      <ChevronUp className="w-4 h-4 text-violet-400" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-violet-400" />
+                    )}
+                  </div>
+                </button>
+                {openFaq === i && (
+                  <div className="pb-6">
+                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-20 bg-gradient-to-r from-[#0066FF] to-[#0055DD]">
+        <div className="container-custom">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl lg:text-4xl font-light text-white mb-8 leading-tight">
+              Access thousands of GPUs tailored to your requirements.
+            </h2>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/contact">
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">
+                  Reserve GPUs
                 </Button>
+              </Link>
+              <Link to="/contact">
+                <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
+                  Contact Sales <ArrowRight className="w-4 h-4" />
+                </button>
               </Link>
             </div>
           </div>
