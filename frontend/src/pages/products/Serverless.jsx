@@ -196,7 +196,9 @@ const Serverless = () => {
                 Most cost-effective AI<br />inference
               </h1>
               
-              <p className="text-gray-400 text-lg max-w-xl leading-relaxed">              </p>
+              <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+→ Four out of five developers ranked us as the most cost-effective GenAI inferencing provider, offering access to popular models with zero rate limits. 
+              </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
@@ -233,7 +235,7 @@ const Serverless = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Lower cost, more power</h3>
-              <p className="text-gray-400 text-sm">Our fully optimized stack eliminates inefficiencies, passing savings directly to you.</p>
+              <p className="text-gray-400 text-sm">→ Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you.</p>
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Engineered for AI workloads</h3>
