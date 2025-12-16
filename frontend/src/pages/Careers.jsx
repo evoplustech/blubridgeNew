@@ -86,19 +86,19 @@ const Careers = () => {
   const values = [
     {
       title: "Relentless Innovation",
-      description: "At BluBrg, we constantly push the boundaries of innovation, empowering creative ideas to shape the future. Our aim is to deliver cutting-edge technology that transforms industries and empowers our customers.",
+      description: "We constantly challenge the status quo and embrace creative problem-solving. Our goal is to build technology that pushes boundaries and sets new standards.",
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
       imagePosition: "right"
     },
     {
       title: "Openness and Transparency",
-      description: "Trust, collaboration, and transparency are key to our success. We communicate openly both internally and externally, ensuring all stakeholders are informed and included in our journey towards continuous growth and reliable AI infrastructure.",
+      description: "We value honest communication and mutual trust. People here share insights openly, learn from each other, and create systems that are secure, reliable, and effective.",
       image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
       imagePosition: "left"
     },
     {
       title: "Sustainability",
-      description: "We are deeply committed to considering the long-term environmental and societal impacts of our technologies. By integrating sustainability into our operations, we contribute positively to the world while delivering exceptional performance.",
+      description: "We think about the long-term impacts of the technology we build. Our approach prioritises environmental and societal considerations, ensuring our solutions are both powerful and responsible.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
       imagePosition: "right"
     },
