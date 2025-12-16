@@ -301,7 +301,7 @@ const FinanceInsurance = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Inference</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly optimised, scalable platform for inference workloads with best performance at low cost.
+                A performance-optimised platform designed to run inference workloads efficiently at scale for production AI applications.
               </p>
             </div>
 
@@ -315,7 +315,7 @@ const FinanceInsurance = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services for developing and deploying AI applications built using BluBrg's tools and other popular AI/ML software.
+                A collection of tools and services that support building, deploying, and scaling AI solutions using both Blubrg offerings and widely used AI frameworks.
               </p>
             </div>
           </div>
@@ -327,7 +327,7 @@ const FinanceInsurance = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg supports organisations across the entire AI lifecycle, helping teams move efficiently from development and training through to deployment and production.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
