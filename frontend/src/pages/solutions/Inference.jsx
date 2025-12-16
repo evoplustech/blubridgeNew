@@ -233,7 +233,7 @@ const Inference = () => {
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-16">Performance</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
             {[
               { 
                 metric: '40%', 
@@ -242,14 +242,6 @@ const Inference = () => {
                 desc: 'Achieve higher utilisation of compute resources, reducing waste while maximising inference performance.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
-              },
-              { 
-                metric: '7.2X', 
-                label: 'FASTER INFERENCE', 
-                sublabel: 'Accelerate Time to Insights',
-                desc: 'Optimised GPU architecture and software tuning significantly increase throughput and reduce latency.',
-                link: 'Blog Post',
-                linkTo: '/blog'
               },
               { 
                 metric: '7.2X', 
