@@ -207,7 +207,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "AI Development Solutions Page"
+    - "Model Fine-Tuning Solutions Page"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
