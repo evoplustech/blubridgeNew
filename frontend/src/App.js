@@ -21,6 +21,7 @@ import Serverless from './pages/products/Serverless';
 import SovereignCloud from './pages/products/SovereignCloud';
 import Glomfjord from './pages/products/Glomfjord';
 import Narvik from './pages/products/Narvik';
+import GPUNodes from './pages/products/GPUNodes';
 
 // Solution Pages - Cases
 import SolutionTraining from './pages/solutions/Training';
