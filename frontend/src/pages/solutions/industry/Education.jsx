@@ -180,13 +180,13 @@ const Education = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Enhanced Learning with AI</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Empower students with personalised lessons, adaptive assessments, and intelligent tutoring systems powered by GPU-accelerated AI.
+              Use AI tools and technologies to create personalised educational experiences, adaptive assessments, and intelligent tutoring systems that help students learn more effectively.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Cost-Effective Access to HPC</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Provide on-demand access to powerful GPU resources, making high-performance computing affordable and accessible for educational institutions.
+              Institutions can tap into powerful GPU resources on demand, making high-performance computing affordable and accessible even for smaller schools and departments.
               </p>
             </div>
             <div>
