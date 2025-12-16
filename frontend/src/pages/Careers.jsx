@@ -110,7 +110,7 @@ const Careers = () => {
     },
     {
       title: "Customer-Centric Focus",
-      description: "Our customers are central to our mission, and we are committed to understanding and exceeding their expectations at all times. We build lasting relationships by consistently delivering exceptional quality and service.",
+      description: "Our customers are at the heart of what we deliver. By deeply understanding their needs and challenges, we aim to exceed expectations through quality products and thoughtful service.",
       image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80",
       imagePosition: "right"
     },
