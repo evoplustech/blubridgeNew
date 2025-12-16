@@ -196,7 +196,7 @@ const Careers = () => {
         <div className="container mx-auto px-6 lg:px-16 text-center">
           <p className="text-gray-500 text-sm uppercase tracking-wider mb-4">Our Mission</p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">
-            Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
+          
           </h2>
         </div>
       </section>
