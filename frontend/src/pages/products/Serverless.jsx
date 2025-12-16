@@ -166,15 +166,15 @@ const Serverless = () => {
     },
     {
       question: "How does the pricing work?",
-      answer: "We offer transparent pay-per-use pricing based on tokens processed (for text models) or per image/step (for image models). There are no upfront costs, minimum commitments, or hidden fees. You only pay for what you use, and our prices are typically 50-80% lower than major cloud providers."
+      answer: "→ Blubrg uses a usage-based, per-call pricing approach:	⇒Text models: Costs are calculated according to tokens processed for prompts and responses.	⇒Image models: Fees are determined by the generated image resolution.	⇒Vision models: Charges vary based on computational workload demands.	⇒New users are granted complimentary credits to try and evaluate the platform."
     },
     {
       question: "What are the key benefits of using BluBrg Serverless?",
-      answer: "Key benefits include: up to 80% cost savings compared to hyperscalers, zero rate limits, automatic scaling from zero to millions of requests, 99.9% uptime SLA, built-in failover and redundancy, and a unified API that works with all models. Plus, our infrastructure is powered by 100% renewable energy."
+      answer: "→ Infrastructure simplicity: Capacity growth, observability, and resource distribution are fully managed by us.→ Budget friendly: A vertically unified architecture significantly reduces processing expenses.→ Elastic and dependable: Built-in elasticity maintains consistent, high-quality operation.→ Protected and confidential: Requests and outputs are neither stored nor reused for learning.→ OpenAI API and SDK alignment: Straightforward connection with existing development ecosystems."
     },
     {
       question: "How does scaling work?",
-      answer: "Our platform automatically scales based on your usage. Start with a single request and scale to millions without any configuration changes. We handle cold starts, load balancing, and failover automatically. There are no rate limits or throttling - your applications can scale as fast as your business needs."
+      answer: "→ Blubrg dynamically expands or contracts resources in response to live usage patterns. This removes any requirement for hands-on setup, enabling smooth growth of AI services without friction."
     }
   ];
 
