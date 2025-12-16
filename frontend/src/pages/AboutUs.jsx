@@ -149,7 +149,7 @@ const AboutUs = () => {
             </h1>
             
             <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-              At BluBrg we are building a new category of cloud computing and energy infrastructure, delivering the AI hyperscaler and sustainable computing solutions of tomorrow.
+              AI is changing the world, impacting industries, economies, and human experiences. Blubrg is creating the advanced infrastructure, systems, and solutions that allow organisations, enterprises, and governments to build, launch, and expand their most ambitious AI systems across the globe.
             </p>
             
             <Link to="/contact">
@@ -169,32 +169,39 @@ const AboutUs = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <p className="text-gray-300 text-lg leading-relaxed">
-                We are builders shaping the future of AI — and how we build defines who we are.
+              We are creators and innovators shaping the future of AI. The way we build technology reflects who we are. We challenge limits, embrace progress, and create systems that help others achieve extraordinary outcomes.
               </p>
-              <p className="text-gray-400 leading-relaxed">
+              {/* <p className="text-gray-400 leading-relaxed">
                 BluBrg works with the world's best, creating platforms that move the world forward. From the big players to the next big start-ups, we provide the essential infrastructure that powers the AI revolution.
-              </p>
+              </p> */}
               
               <div className="space-y-4 mt-8">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-blue-400 font-semibold">Innovate Without Limits</span>
-                    <span className="text-gray-400"> — creating solutions that move the world forward</span>
+                    <span className="text-blue-400 font-semibold">Invent Boldly</span>
+                    <span className="text-gray-400"> We pursue bold ideas without fear, pushing technological boundaries to build products that make significant impact.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
                     <span className="text-blue-400 font-semibold">Move Fast, Stay Humble</span>
-                    <span className="text-gray-400"> — we sprint, only progress</span>
+                    <span className="text-gray-400"> We prioritise speed and learning. We believe in rapid progress grounded in humility and continuous improvement.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-blue-400 font-semibold">Earn Trust Through Clarity</span>
-                    <span className="text-gray-400"> — clear communication and consistent delivery</span>
+                    <span className="text-blue-400 font-semibold">Own the Outcome</span>
+                    <span className="text-gray-400"> We hold ourselves accountable for what we build. We deliver with urgency and take responsibility for achieving results that matter.</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                  <div>
+                    <span className="text-blue-400 font-semibold">Build with Trust</span>
+                    <span className="text-gray-400"> We operate transparently, earning confidence through clear communication and consistent performance.</span>
                   </div>
                 </div>
               </div>
