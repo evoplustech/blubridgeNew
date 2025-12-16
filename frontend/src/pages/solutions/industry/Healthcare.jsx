@@ -137,7 +137,7 @@ const Healthcare = () => {
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">HEALTHCARE</h1>
-            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">BluBrg Cloud provides a range of solutions tailored to biotech companies and healthcare research institutions. Offering cost-effective access to advanced GPU computing facilities to advance medical research and personalised treatment.</p>
+            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">Blubrg Cloud offers tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, Blubrg enables healthcare teams to speed up research efforts and deliver more personalised treatments.</p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact"><Button size="lg" className="bg-white hover:bg-white/90 text-[#050510] px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
               <Link to="/contact"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link>
@@ -150,9 +150,9 @@ const Healthcare = () => {
       <section className="py-16 bg-[#050505] border-t border-white/5">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
-            <div><h3 className="text-xl font-semibold text-white mb-3">Accelerated Analytics</h3><p className="text-white/60 text-sm leading-relaxed">Analyse medical images in real time, improve diagnostic accuracy and reduce patient wait times.</p></div>
-            <div><h3 className="text-xl font-semibold text-white mb-3">Enhanced AI Applications</h3><p className="text-white/60 text-sm leading-relaxed">Accelerate training and inference for advanced AI models leading to quicker and more effective healthcare solutions.</p></div>
-            <div><h3 className="text-xl font-semibold text-white mb-3">Scalability and Cost Efficiency</h3><p className="text-white/60 text-sm leading-relaxed">On-demand access to scalable, powerful computing resources, eliminating the need to acquire an entirely new hardware.</p></div>
+            <div><h3 className="text-xl font-semibold text-white mb-3">Accelerated Analytics</h3><p className="text-white/60 text-sm leading-relaxed">Improve the speed and accuracy of analysing medical imaging and other clinical data, helping reduce wait times and support faster clinical insights.</p></div>
+            <div><h3 className="text-xl font-semibold text-white mb-3">Enhanced AI Applications</h3><p className="text-white/60 text-sm leading-relaxed">Boost the performance of training and running AI models for advanced healthcare use cases, making solutions more effective and responsive.</p></div>
+            <div><h3 className="text-xl font-semibold text-white mb-3">Scalability and Cost Efficiency</h3><p className="text-white/60 text-sm leading-relaxed">On-demand access to flexible and powerful compute resources removes the need for costly local hardware and lets teams scale effortlessly with demand.</p></div>
           </div>
         </div>
       </section>
