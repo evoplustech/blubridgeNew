@@ -154,15 +154,15 @@ const Serverless = () => {
   const faqs = [
     {
       question: "What is BluBrg Serverless Inference?",
-      answer: "BluBrg Serverless Inference is a fully managed AI inference platform that lets you run AI models without managing infrastructure. Simply call our API with your prompt and get instant responses - we handle all the scaling, optimization, and infrastructure automatically."
+      answer: "→ Blubrg Serverless Inference is a completely managed environment that allows running AI model inference without the burden of handling underlying systems. It delivers immediate availability of leading Generative AI models through a straightforward, usage-based pricing approach."
     },
     {
       question: "Who is this service for?",
-      answer: "Our serverless inference is ideal for developers, startups, and enterprises who want to integrate AI capabilities into their applications without the complexity of managing GPU infrastructure. Whether you're building chatbots, content generation tools, or complex AI pipelines, our platform scales with your needs."
+      answer: "→ This offering is built for builders, emerging companies, large organisations, and academic groups seeking to launch AI-driven applications rapidly and economically, without needing to manage the underlying infrastructure."
     },
     {
       question: "What AI models are available?",
-      answer: "We offer access to 200+ models including the latest LLMs (LLaMA 4, GPT-4, Claude, Mistral), image generation models (Flux, SDXL, Ideogram), embeddings, audio transcription, and more. New models are added weekly based on community demand."
+      answer: "→ At launch, Blubrg provides support for widely used open-source models covering text creation, image synthesis, and computer vision use cases. The catalogue is continually broadened in response to customer input."
     },
     {
       question: "How does the pricing work?",
