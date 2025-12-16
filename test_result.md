@@ -192,7 +192,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "AI & ML Inference Solutions Page"
+    - "AI Development Solutions Page"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
