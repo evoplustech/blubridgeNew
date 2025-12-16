@@ -313,7 +313,7 @@ const Serverless = () => {
                 Savings by design, not<br />compromise
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                We provide the same leading open-source AI models you're already using—at a lower cost, without sacrificing performance. Our pricing model is simple and designed to help you scale efficiently.
+                → Every layer of the vertically integrated platform is finely tuned, spanning physical systems through orchestration, lowering processing expenses while maintaining stable output. The outcome is measurable cost reduction delivered straight to clients, achieved without compromising performance, scalability, or protection.
               </p>
               <Link to="/pricing" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
                 See pricing <ArrowRight className="w-4 h-4" />
@@ -333,7 +333,7 @@ const Serverless = () => {
                 Serverless without trade-<br />offs
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                Access BluBrg's powerful AI inference API, run on enterprise-grade infrastructure scaled for AI workloads. Enjoy seamless, low-latency performance and no rate limits—designed to keep your applications running smoothly at any scale.
+                → Truly uncompromised serverless computing. Your models stay under your ownership, and your data is never repurposed or used for retraining. Benefit from complete tenant separation, integrated compliance, and powerful computing resources which are available instantly, without the burden of infrastructure 
               </p>
               <Link to="/docs" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
                 Learn more <ArrowRight className="w-4 h-4" />
