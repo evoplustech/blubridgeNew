@@ -91,7 +91,7 @@ const Inference = () => {
                 <div className="border-l-2 border-cyan-500 pl-5">
                   <h3 className="text-lg font-semibold text-cyan-400 mb-2">AI & ML Tools</h3>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    Access the latest frameworks like PyTorch, TensorFlow, ONNX, vLLM, and comprehensive orchestration tools for seamless integration.
+                    Work seamlessly with widely used AI frameworks such as TensorFlow Serving, PyTorch, and ONNX Runtime to ensure smooth and efficient inference execution.
                   </p>
                 </div>
 
