@@ -398,7 +398,7 @@ const Serverless = () => {
                 Zero rate limits, maximum<br /><span className="text-blue-400">reliability</span>
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                    
+                → Unlimited throughput with instant start-up and zero delays, delivering rapid, dependable inference alongside automatic scaling capable of supporting any AI workload. We manage expansion, observability, and day-to-day operations in the background, allowing your team to concentrate fully on creation.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
                 Learn More <ArrowRight className="w-4 h-4" />
