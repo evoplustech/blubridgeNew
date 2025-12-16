@@ -1,216 +1,685 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { Card, CardContent } from '../../components/ui/card';
-import { Check, Brain, Target, Sparkles } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Play } from 'lucide-react';
 
 const FineTuning = () => {
-  return (
-    <div className="min-h-screen bg-[#0A1F3D]">
-      {/* Hero Section - Unique for Fine-tuning */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-bl from-[#0A1F3D] via-[#0C2540] to-[#0A1F3D]" />
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
-        </div>
+  const [openFaq, setOpenFaq] = useState(null);
+  const canvasRef = useRef(null);
+  const heroRef = useRef(null);
+
+  // Animated flowing orange 3D background for hero
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrame;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    const drawFlowingBackground = () => {
+      time += 0.006;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+
+      // Create flowing fabric/wave effect with orange tones
+      for (let layer = 0; layer < 6; layer++) {
+        const layerOffset = layer * 0.15;
+        const amplitude = 80 + layer * 20;
+        const frequency = 0.003 + layer * 0.001;
         
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">MODEL CUSTOMIZATION</div>
-            <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-              Fine-tune open-source models directly in your browser
-            </h1>
-            <p className="text-xl text-white/80 mb-8">
-              Serverless, usage-based fine-tuning that keeps you fully in control. Zero configuration, friction-free execution, and uncompromised performance throughout.
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        
+        for (let x = 0; x <= width; x += 3) {
+          const wave1 = Math.sin(x * frequency + time + layerOffset) * amplitude;
+          const wave2 = Math.sin(x * frequency * 1.5 + time * 0.8 + layerOffset) * (amplitude * 0.5);
+          const wave3 = Math.cos(x * frequency * 0.5 + time * 1.2 + layerOffset) * (amplitude * 0.3);
+          const y = height * 0.4 + wave1 + wave2 + wave3 - layer * 30;
+          
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+
+        // Orange gradient for each layer
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        const alpha = 0.15 - layer * 0.02;
+        gradient.addColorStop(0, `rgba(180, 80, 20, ${alpha})`);
+        gradient.addColorStop(0.3, `rgba(200, 100, 40, ${alpha + 0.05})`);
+        gradient.addColorStop(0.6, `rgba(160, 60, 15, ${alpha})`);
+        gradient.addColorStop(1, `rgba(120, 40, 10, ${alpha - 0.03})`);
+        
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      }
+
+      // Add folded/twisted ribbon shapes
+      for (let i = 0; i < 3; i++) {
+        const ribbonX = width * (0.6 + i * 0.15);
+        const ribbonY = height * 0.3;
+        const ribbonSize = 100 + i * 40;
+        
+        ctx.save();
+        ctx.translate(ribbonX, ribbonY);
+        ctx.rotate(time * 0.2 + i * 0.5);
+        
+        const ribbonGradient = ctx.createLinearGradient(-ribbonSize, -ribbonSize, ribbonSize, ribbonSize);
+        ribbonGradient.addColorStop(0, `rgba(200, 100, 30, ${0.3 - i * 0.08})`);
+        ribbonGradient.addColorStop(0.5, `rgba(220, 120, 50, ${0.4 - i * 0.1})`);
+        ribbonGradient.addColorStop(1, `rgba(150, 60, 20, ${0.2 - i * 0.05})`);
+        
+        ctx.beginPath();
+        ctx.moveTo(-ribbonSize, 0);
+        ctx.bezierCurveTo(
+          -ribbonSize * 0.5, -ribbonSize * (0.8 + Math.sin(time + i) * 0.3),
+          ribbonSize * 0.5, ribbonSize * (0.6 + Math.cos(time + i) * 0.3),
+          ribbonSize, 0
+        );
+        ctx.bezierCurveTo(
+          ribbonSize * 0.5, ribbonSize * (0.4 + Math.sin(time + i) * 0.2),
+          -ribbonSize * 0.5, -ribbonSize * (0.3 + Math.cos(time + i) * 0.2),
+          -ribbonSize, 0
+        );
+        ctx.closePath();
+        ctx.fillStyle = ribbonGradient;
+        ctx.fill();
+        
+        ctx.restore();
+      }
+
+      // Floating particles
+      for (let i = 0; i < 20; i++) {
+        const px = (Math.sin(time * 0.4 + i * 0.6) + 1) * width * 0.3 + width * 0.5;
+        const py = (Math.cos(time * 0.3 + i * 0.7) + 1) * height * 0.4;
+        const size = 2 + Math.sin(time + i) * 1.5;
+        
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 150, 80, ${0.3 + Math.sin(time + i) * 0.15})`;
+        ctx.fill();
+      }
+
+      animationFrame = requestAnimationFrame(drawFlowingBackground);
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+    drawFlowingBackground();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
+  // Animated line graph for hero right side
+  const GraphVisualization = () => {
+    const graphCanvasRef = useRef(null);
+    
+    useEffect(() => {
+      const canvas = graphCanvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let animationFrame;
+      let time = 0;
+
+      const resize = () => {
+        canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+        canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      };
+
+      const drawGraph = () => {
+        time += 0.02;
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+        const width = canvas.offsetWidth;
+        const height = canvas.offsetHeight;
+        const padding = 40;
+
+        // Background grid
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 5; i++) {
+          const y = padding + (height - padding * 2) * (i / 5);
+          ctx.beginPath();
+          ctx.moveTo(padding, y);
+          ctx.lineTo(width - padding, y);
+          ctx.stroke();
+        }
+
+        // Animated line chart
+        const points = [];
+        for (let i = 0; i <= 20; i++) {
+          const x = padding + (width - padding * 2) * (i / 20);
+          const baseY = height - padding - (height - padding * 2) * (0.3 + i * 0.025);
+          const wave = Math.sin(time + i * 0.3) * 10;
+          const y = baseY + wave;
+          points.push({ x, y });
+        }
+
+        // Fill area under curve
+        const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+        
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, height - padding);
+        points.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.lineTo(points[points.length - 1].x, height - padding);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Draw line
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        points.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.strokeStyle = '#3b82f6';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw points
+        points.forEach((p, i) => {
+          if (i % 4 === 0) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#3b82f6';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#fff';
+            ctx.fill();
+          }
+        });
+
+        animationFrame = requestAnimationFrame(drawGraph);
+      };
+
+      resize();
+      window.addEventListener('resize', resize);
+      drawGraph();
+
+      return () => {
+        window.removeEventListener('resize', resize);
+        cancelAnimationFrame(animationFrame);
+      };
+    }, []);
+
+    return (
+      <div className="relative bg-slate-900/80 rounded-xl border border-slate-700/50 p-4 backdrop-blur-sm">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs text-gray-400">Training Progress</span>
+          <span className="text-xs text-blue-400">Live</span>
+        </div>
+        <canvas ref={graphCanvasRef} className="w-full h-[200px]" />
+        <div className="flex justify-between mt-2 text-xs text-gray-500">
+          <span>Epoch 1</span>
+          <span>Epoch 10</span>
+        </div>
+      </div>
+    );
+  };
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  // Supported Models Data
+  const supportedModels = [
+    { name: 'Mixtral 8x Instruct v0.1', author: 'mistral', type: 'Text to Text', context: '32k', size: 'base' },
+    { name: 'Qwen 2.5 32B Instruct', author: 'Qwen', type: 'Text to Text', context: '128k', size: '$180' },
+    { name: 'Qwen 2.5 72B Instruct', author: 'Qwen', type: 'Text to Text', context: '128k', size: '$380' },
+    { name: 'Deepseek R1 0528 Qwen 32B', author: 'Deepseek', type: 'Text/Think', context: '16k', size: '$195' },
+    { name: 'Deepseek R1 Distill Qwen 14B', author: 'Deepseek', type: 'Text/Think', context: '16k', size: '$145' },
+    { name: 'Mixtral 8x Instruct v0.1', author: 'mistral', type: 'Text to Text', context: '32k', size: 'base' },
+    { name: 'Qwen 2.5 14B Instruct', author: 'Qwen', type: 'Text to Text', context: '128k', size: '$145' },
+    { name: 'Meta Llama Guard 3 8B', author: 'meta', type: 'Text Safety', context: '8k', size: '$110' },
+  ];
+
+  // FAQ Data
+  const faqs = [
+    {
+      question: "Do I need ML experience to fine-tune a model with BluBrg?",
+      answer: "No, our platform is designed for developers of all experience levels. Our intuitive interface guides you through the process, and smart defaults handle the complexity. If you want more control, advanced options are always available."
+    },
+    {
+      question: "What happens if my job fails or I cancel it partway through?",
+      answer: "If a job fails, you're only charged for the compute time used up to the point of failure. You can restart from the last checkpoint, saving time and resources. Cancelled jobs follow the same billing approach—you only pay for what you use."
+    },
+    {
+      question: "Is my data secure during fine-tuning?",
+      answer: "Absolutely. Your data is encrypted in transit and at rest. We never use your data to train other models, and you maintain full ownership. Our infrastructure is SOC 2 Type II compliant with enterprise-grade security controls."
+    },
+    {
+      question: "Can I run multiple fine-tuning jobs at once?",
+      answer: "Yes, you can run multiple concurrent fine-tuning jobs. Our serverless architecture automatically allocates resources for each job, so there's no queue waiting. Enterprise plans offer priority access and dedicated compute capacity."
+    }
+  ];
+
+  // How it Works Steps
+  const howItWorksSteps = [
+    {
+      number: '01',
+      title: 'UPLOAD YOUR DATA',
+      subtitle: 'Drop in a CSV file',
+      description: 'Build and control both learning and evaluation data collections straight from the interface.'
+    },
+    {
+      number: '02',
+      title: 'CONFIGURE YOUR JOB',
+      subtitle: 'Tweak settings—or rely on smart defaults',
+      description: 'Apply LoRA to enable resource-efficient model adaptation, set epoch counts, and fine-adjust parameters.'
+    },
+    {
+      number: '03',
+      title: 'MONITOR & EVALUATE',
+      subtitle: 'Real-time metrics at a glance',
+      description: 'Observe optimization and evaluation metrics, including loss values, perplexity, and precision.'
+    },
+    {
+      number: '04',
+      title: 'EXPORT YOUR MODEL',
+      subtitle: 'Download or push to Hugging Face',
+      description: 'Download the tuned model in PyTorch or ONNX format, or publish it directly to Hugging Face.'
+    }
+  ];
+
+  // Model Ecosystem
+  const modelEcosystem = [
+    { name: 'LLAMA 3', size: '70B INSTRUCT', author: 'META' },
+    { name: 'LLAMA 3', size: '70B INSTRUCT', author: 'AMD' },
+    { name: 'MISTRAL', size: '8x7B INSTRUCT', author: 'MISTRAL' },
+    { name: 'GEMMA 2', size: '27B', author: 'META' },
+    { name: 'DEEPSEEK', size: 'R1 DISTILL', author: 'DEEPSEEK' },
+    { name: 'STABLE', size: 'DIFFUSION XL', author: 'STABILITY' },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      {/* SECTION 1: Hero Section with Animated Orange Background */}
+      <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
+        {/* Animated Canvas Background */}
+        <canvas 
+          ref={canvasRef} 
+          className="absolute inset-0 w-full h-full"
+          style={{ background: 'linear-gradient(135deg, #1a0a05 0%, #0a0a0f 50%, #0a0a0f 100%)' }}
+        />
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0f]/90 via-[#0a0a0f]/70 to-transparent" />
+        
+        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content with Animation */}
+            <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-600/20 rounded-full border border-orange-600/30">
+                <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+                <span className="text-orange-400 text-sm font-medium">FINE-TUNING</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+                Fine-tune open-<br />source models<br />directly in your<br />browser
+              </h1>
+              
+              <p className="text-gray-400 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+                Serverless, pay-as-you-train fine-tuning with total control. No setup, no bottlenecks, and no compromise on performance.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
+                <Link to="/contact">
+                  <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+                    Start Building
+                  </Button>
+                </Link>
+                <Link to="/docs" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors font-medium">
+                  Docs <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right - Animated Graph Visual */}
+            <div className="relative" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
+              <GraphVisualization />
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+        `}</style>
+      </section>
+
+      {/* SECTION 2: Value Proposition Strip */}
+      <section className="py-12 bg-[#0d1117] border-t border-b border-slate-800/50">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { title: 'Built for builders', desc: 'Fine-tuning models without dealing with backend operations.', cta: 'Start fine-tuning' },
+              { title: 'Performance first', desc: 'Track optimization progress live and refine cycles rapidly with assurance.', cta: 'Customise a model' },
+              { title: 'Clear economics', desc: 'Spend only on actual training usage through a straightforward pricing.', cta: 'Create your account' },
+              { title: 'Fully serverless', desc: 'Begin instantly, expand effortlessly, and dedicate all attention to building.', cta: 'Claim $5 free credits' }
+            ].map((item, i) => (
+              <div key={i} className="text-center md:text-left">
+                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm mb-3">{item.desc}</p>
+                <Link to="/contact" className="text-orange-400 text-sm hover:text-orange-300 flex items-center gap-1 justify-center md:justify-start">
+                  {item.cta} <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: Supported Models Table */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Models</h2>
+            <p className="text-gray-400 max-w-2xl">
+              Fine-tune the most popular open-source models with intuitive tools and affordable infrastructure. New models are added on demand.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="/contact">
-                <Button className="bg-white text-[#0A1F3D] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-                  Start Fine-Tuning
-                </Button>
-              </Link>
-              <Link to="/docs">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  View Examples →
-                </Button>
+            <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 text-sm mt-4 hover:text-blue-300">
+              Request Access <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Models Table */}
+          <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden">
+            <div className="overflow-x-auto max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900">
+              <table className="w-full">
+                <thead className="sticky top-0 bg-slate-900 z-10">
+                  <tr className="border-b border-slate-700/50">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Supported Model Name</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Author</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Type</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Context</th>
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">Model Size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {supportedModels.map((model, index) => (
+                    <tr key={index} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
+                      <td className="px-6 py-4 text-sm text-white">{model.name}</td>
+                      <td className="px-6 py-4 text-sm text-gray-400">{model.author}</td>
+                      <td className="px-6 py-4 text-sm text-gray-400">{model.type}</td>
+                      <td className="px-6 py-4 text-sm text-gray-400">{model.context}</td>
+                      <td className="px-6 py-4 text-sm text-gray-300 text-right">{model.size}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Fine-tune Pricing Note */}
+          <div className="mt-8 p-6 bg-slate-900/30 rounded-xl border border-slate-700/30">
+            <h3 className="text-xl font-semibold text-orange-400 mb-2">Fine-tune Pricing</h3>
+            <p className="text-gray-400 text-sm">
+              Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
+            </p>
+          </div>
+
+          {/* Need dedicated infrastructure link */}
+          <div className="mt-6 text-center">
+            <Link to="/products/gpu-nodes" className="text-gray-400 hover:text-white text-sm inline-flex items-center gap-2">
+              Need dedicated infrastructure? <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: All Designed for Speed & Simplicity */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              All designed for speed<br />and simplicity
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Run full reliability on your fine-tuning service in minutes using simple task monitoring, organised data handling, and intuitive outcome visualisation.
+            </p>
+          </div>
+
+          {/* Video Embed Placeholder */}
+          <div className="max-w-4xl mx-auto">
+            <div className="relative bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden aspect-video">
+              {/* Browser Header */}
+              <div className="bg-slate-800 px-4 py-2 flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                </div>
+                <div className="flex-1 mx-4">
+                  <div className="bg-slate-700 rounded px-3 py-1 text-xs text-gray-400 max-w-md">
+                    Introducing BluBrg's fine-tuning service | AI models without the complexity
+                  </div>
+                </div>
+              </div>
+              
+              {/* Video Content Placeholder */}
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center aspect-video">
+                <div className="absolute inset-0 flex">
+                  {/* Left panel - Code/UI mockup */}
+                  <div className="w-1/2 p-4 border-r border-slate-700/50">
+                    <div className="bg-slate-800/50 rounded p-3 space-y-2">
+                      <div className="h-2 bg-blue-500/30 rounded w-3/4" />
+                      <div className="h-2 bg-slate-600/50 rounded w-full" />
+                      <div className="h-2 bg-slate-600/50 rounded w-5/6" />
+                      <div className="h-2 bg-orange-500/30 rounded w-2/3" />
+                    </div>
+                  </div>
+                  {/* Right panel */}
+                  <div className="w-1/2 p-4 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-20 h-20 rounded-full bg-slate-700 mx-auto mb-3 flex items-center justify-center">
+                        <Play className="w-8 h-8 text-white/70" />
+                      </div>
+                      <p className="text-gray-500 text-sm">Product Demo</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer hover:bg-black/20 transition-colors">
+                  <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
+                    <Play className="w-6 h-6 text-white ml-1" />
+                  </div>
+                </div>
+              </div>
+
+              {/* YouTube Attribution */}
+              <div className="bg-slate-800 px-4 py-2 flex items-center gap-2">
+                <span className="text-xs text-gray-400">Watch on</span>
+                <span className="text-xs text-red-500 font-semibold">▶ YouTube</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: How it Works */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">How it works</h2>
+          
+          <div className="grid md:grid-cols-4 gap-6 relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-orange-500/50 via-orange-500/30 to-orange-500/50" />
+            
+            {howItWorksSteps.map((step, i) => (
+              <div key={i} className="relative">
+                <div className="text-orange-500 text-sm font-bold mb-2">{step.number}</div>
+                <h3 className="text-orange-400 text-sm font-bold tracking-wider mb-1">{step.title}</h3>
+                <p className="text-white text-base font-medium mb-2">{step.subtitle}</p>
+                <p className="text-gray-400 text-sm">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: Model Ecosystem Strip */}
+      <section className="py-16 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {modelEcosystem.map((model, i) => (
+              <div key={i} className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-slate-600/50 transition-colors">
+                <div className="text-xs text-gray-500 mb-1">TEXT GENERATION</div>
+                <div className="text-white font-bold text-sm">{model.name}</div>
+                <div className="text-gray-400 text-xs">{model.size}</div>
+                <div className="text-orange-400 text-xs mt-2">{model.author}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: Savings by Design */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="grid grid-cols-3 gap-4">
+                {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral'].map((name, i) => (
+                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700/50">
+                    <div className="w-10 h-10 bg-slate-700 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                      <span className="text-xs text-gray-400">{name.slice(0, 2)}</span>
+                    </div>
+                    <p className="text-white text-xs font-medium">{name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Savings by design,<br />not compromise
+              </h2>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                Each tier of our vertically unified platform is carefully refined, spanning physical components through coordination layers, reducing processing expenses while maintaining stable output. The outcome is tangible cost reduction delivered straight to users.
+              </p>
+              <Link to="/pricing" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
+                Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-24 bg-[#0D2847]">
-        <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-4 text-center">Streamlined Fine-Tuning Process</h2>
-          <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
-            Our platform handles the complexity of distributed training, hyperparameter tuning, and model versioning automatically.
-          </p>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { step: '01', title: 'Built for Builders', desc: 'Fine-tuning models without dealing with backend operations.' },
-              { step: '02', title: 'Performance First', desc: 'Track optimization progress live and refine cycles rapidly with assurance' },
-              { step: '03', title: 'Clear Economics', desc: 'Spend only on actual training usage through a straightforward pricing' },
-              { step: '04', title: 'Fully Serverless', desc: 'Begin instantly, expand effortlessly, and dedicate all attention' }
-            ].map((item, i) => (
-              <div key={i} className="relative">
-                {/* {i < 3 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-[#0066FF]/30" />
-                )} */}
-                <Card className="bg-white/5 border-white/10 relative z-10">
-                  <CardContent className="p-6">
-                    <div className="text-5xl font-bold text-[#0066FF]/30 mb-3">{item.step}</div>
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-white/60 text-sm">{item.desc}</p>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="bg-white/5 border-white/10">
-              <CardContent className="p-8">
-                <Brain className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Supported Models</h3>
-                <p className="text-white/70 mb-6">
-                  Adapt top open-source models such as Qwen2.5 and Deepseek R1 to your needs. We continuously review and introduce additional options to ensure you always have a strong and up-to-date starting point.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/5 border-white/10">
-              <CardContent className="p-8">
-                <Target className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Fine-tune Pricing</h3>
-                <p className="text-white/70 mb-6">
-                  Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/5 border-white/10">
-              <CardContent className="p-8">
-                <Sparkles className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Built for Speed & Simplicity</h3>
-                <p className="text-white/70 mb-6">
-                  Maintain complete transparency across fine-tuning pipelines through simple task monitoring, organised data handling, and intuitive outcome visualisation.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="py-24 bg-[#0D2847]">
-        <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12">How it works</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: 'Upload your data - drop in a CSV file',
-                description: 'Build and control both learning and evaluation data collections straight from the interface'
-                
-              },
-              {
-                title: 'Configure your job - Tweak setting or rely on smart defaults',
-                description: 'Apply LoRa to enable resource-efficient model adaptation, set epoch counts, and fine-adjust parameters such as learning rate, weight decay, and additional training controls'
-  
-              },
-              {
-                title: 'Monitor & Evaluate real time metrics at a glance',
-                description: 'Observe optimization and evaluation metrics, including loss values, perplexity, and precision, while the process executes.'
-               
-              },
-              {
-                title: 'Export your model - Download or push to Hugging face',
-                description: 'Download the tuned model in PyTorch or ONNX format, or publish it directly to Hugging Face with minimal effort.',
-                
-              }
-            ].map((useCase, i) => (
-              <Card key={i} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-3">{useCase.title}</h3>
-                  <p className="text-white/70 mb-6">{useCase.description}</p>
-                  {/* <div className="space-y-2">
-                    {useCase.benefits.map((benefit, j) => (
-                      <div key={j} className="flex items-center space-x-2 text-white/80">
-                        <div className="w-1.5 h-1.5 bg-[#0066FF] rounded-full" />
-                        <span className="text-sm">{benefit}</span>
-                      </div>
-                    ))}
-                  </div> */}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto bg-white/5 rounded-2xl p-12 border border-white/10">
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">Savings by design, not compromise</h2>
-            <p className="text-white/70 text-center mb-8">
-             Each tier of our vertically unified platform is carefully refined, spanning physical components through coordination layers, reducing processing expenses while maintaining stable output. The outcome is tangible cost reduction delivered straight to users, achieved without compromising velocity, capacity, or protection.
-
-            </p>
-
-             <h2 className="text-3xl font-bold text-white mb-6 text-center">Serverless without trade-offs</h2>
-            <p className="text-white/70 text-center mb-8">
-             Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are available immediately, without the burden of infrastructure operations.
-
-
-            </p>
-            {/* <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-4xl font-bold text-[#0066FF] mb-2">$1.99</div>
-                <div className="text-white/60 text-sm">per GPU hour</div>
-                <div className="text-white/40 text-xs mt-1">H100 GPUs</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-[#0066FF] mb-2">$0.50</div>
-                <div className="text-white/60 text-sm">per GB storage</div>
-                <div className="text-white/40 text-xs mt-1">Model checkpoints</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-[#0066FF] mb-2">Free</div>
-                <div className="text-white/60 text-sm">API requests</div>
-                <div className="text-white/40 text-xs mt-1">Deployment included</div>
-              </div>
-            </div> */}
-            {/* <div className="mt-8 text-center">
-              <Link to="/pricing">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                  View Full Pricing →
-                </Button>
+      {/* SECTION 8: Serverless without Trade-offs */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Serverless without<br />trade-offs
+              </h2>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are available immediately.
+              </p>
+              <Link to="/contact" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
+                Learn More <ArrowRight className="w-4 h-4" />
               </Link>
-            </div> */}
+            </div>
+            
+            <div className="relative">
+              {/* GPU/Hardware Image Placeholder */}
+              <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 p-6 aspect-video flex items-center justify-center">
+                <div className="text-center">
+                  <div className="grid grid-cols-3 gap-2 mb-4">
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className="w-16 h-8 bg-slate-700/50 rounded border border-slate-600/30" />
+                    ))}
+                  </div>
+                  <p className="text-gray-500 text-sm">Enterprise GPU Infrastructure</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC]">
-        <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Build specialized AI models faster
+      {/* SECTION 9: FAQs */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
+          
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className="border-b border-slate-700/50 pb-4"
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex items-center justify-between text-left py-3 group"
+                >
+                  <span className="text-white text-lg pr-4">
+                    {faq.question.includes('BluBrg') ? (
+                      <>
+                        {faq.question.split('BluBrg')[0]}
+                        <span className="text-blue-400">BluBrg</span>
+                        {faq.question.split('BluBrg')[1]}
+                      </>
+                    ) : faq.question}
+                  </span>
+                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-blue-600 rotate-180' : 'bg-blue-600/80'}`}>
+                    {openFaq === index ? (
+                      <Minus className="w-4 h-4 text-white" />
+                    ) : (
+                      <Plus className="w-4 h-4 text-white" />
+                    )}
+                  </span>
+                </button>
+                
+                <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <p className="text-gray-400 pb-4 pr-12">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 10: Final CTA Strip */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+        <div className="container mx-auto px-6 lg:px-16 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Access thousands of GPUs tailored to your<br />requirements.
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Start fine-tuning today with $500 in free credits for new customers.
-          </p>
-          <Link to="/contact">
-            <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-              Claim Free Credits
-            </Button>
-          </Link>
+          
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <Link to="/products/gpu-nodes">
+              <Button className="bg-slate-900 text-white hover:bg-slate-800 px-6 py-3 rounded font-medium">
+                Reserve GPUs
+              </Button>
+            </Link>
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+              Contact Sales <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>
