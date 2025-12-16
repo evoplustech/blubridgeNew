@@ -1,242 +1,498 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { Card, CardContent } from '../../components/ui/card';
-import { Check, Zap, DollarSign, Lock } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Zap, Server, Cloud, Shield } from 'lucide-react';
 
 const Serverless = () => {
-  return (
-    <div className="min-h-screen bg-[#0A1F3D]">
-      {/* Hero Section - Unique for Serverless */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[#0A1F3D]" />
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[150px]" />
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#0052CC] rounded-full filter blur-[150px]" />
-          </div>
-        </div>
+  const [openFaq, setOpenFaq] = useState(null);
+  const canvasRef = useRef(null);
+
+  // Animated model graph visualization for hero
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrame;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    const models = [
+      { name: 'LLaMA', x: 0.2, y: 0.2, color: '#3b82f6' },
+      { name: 'GPT', x: 0.5, y: 0.15, color: '#8b5cf6' },
+      { name: 'Claude', x: 0.8, y: 0.25, color: '#ec4899' },
+      { name: 'Mistral', x: 0.15, y: 0.5, color: '#06b6d4' },
+      { name: 'Flux', x: 0.4, y: 0.45, color: '#f97316' },
+      { name: 'SDXL', x: 0.65, y: 0.4, color: '#22c55e' },
+      { name: 'Whisper', x: 0.85, y: 0.55, color: '#eab308' },
+      { name: 'CLIP', x: 0.25, y: 0.75, color: '#ef4444' },
+      { name: 'Qwen', x: 0.55, y: 0.7, color: '#a855f7' },
+      { name: 'Gemma', x: 0.75, y: 0.8, color: '#14b8a6' }
+    ];
+
+    const drawModelGraph = () => {
+      time += 0.008;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+
+      // Draw connections between models
+      ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)';
+      ctx.lineWidth = 1;
+      models.forEach((model1, i) => {
+        models.forEach((model2, j) => {
+          if (i < j && Math.random() > 0.7) {
+            const x1 = model1.x * width + Math.sin(time + i) * 5;
+            const y1 = model1.y * height + Math.cos(time + i) * 5;
+            const x2 = model2.x * width + Math.sin(time + j) * 5;
+            const y2 = model2.y * height + Math.cos(time + j) * 5;
+            
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+          }
+        });
+      });
+
+      // Draw model nodes
+      models.forEach((model, i) => {
+        const x = model.x * width + Math.sin(time + i * 0.5) * 8;
+        const y = model.y * height + Math.cos(time + i * 0.3) * 8;
+        const pulseSize = 30 + Math.sin(time * 2 + i) * 5;
+
+        // Glow effect
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, pulseSize * 2);
+        gradient.addColorStop(0, model.color + '40');
+        gradient.addColorStop(1, model.color + '00');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, pulseSize * 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Main node
+        ctx.fillStyle = model.color;
+        ctx.beginPath();
+        ctx.arc(x, y, pulseSize * 0.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Node label
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.font = '11px DM Sans, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(model.name, x, y + pulseSize * 0.7);
+      });
+
+      // Draw floating data particles
+      for (let i = 0; i < 30; i++) {
+        const px = (Math.sin(time * 0.5 + i * 0.4) + 1) * width * 0.5;
+        const py = (Math.cos(time * 0.3 + i * 0.5) + 1) * height * 0.5;
+        const size = 2 + Math.sin(time + i) * 1;
         
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">SERVERLESS AI</div>
-            <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-              Most cost-effective AI Inference
-            </h1>
-            <p className="text-xl text-white/80 mb-8 max-w-3xl">
-             Four out of five developers ranked us as the most cost-effective GenAI inferencing provider, offering access to popular models with zero rate limits.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
-                <Button className="bg-white text-[#0A1F3D] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-                  Start Free Trial
-                </Button>
-              </Link>
-              <Link to="/docs">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  API Documentation →
-                </Button>
-              </Link>
-            </div>
-            <div className="mt-8 flex items-center space-x-6 text-white/60">
-              <div className="flex items-center space-x-2">
-                <Check className="w-5 h-5 text-[#0066FF]" />
-                <span>No setup required</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-5 h-5 text-[#0066FF]" />
-                <span>Auto-scaling</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-5 h-5 text-[#0066FF]" />
-                <span>Pay per request</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.2 + Math.sin(time + i) * 0.1})`;
+        ctx.fill();
+      }
 
-      {/* Key Benefits */}
-      <section className="py-24 bg-[#0D2847]">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-br from-[#0066FF]/10 to-transparent border-[#0066FF]/30">
-              <CardContent className="p-8">
-                <Zap className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Lower cost, More power
-</h3>
-                <p className="text-white/70">
-                  Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-gradient-to-br from-[#0066FF]/10 to-transparent border-[#0066FF]/30">
-              <CardContent className="p-8">
-                <DollarSign className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Engineered for AI workloads</h3>
-                <p className="text-white/70">
-                  Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-gradient-to-br from-[#0066FF]/10 to-transparent border-[#0066FF]/30">
-              <CardContent className="p-8">
-                <Lock className="w-12 h-12 text-[#0066FF] mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-3">Scale without the overhead</h3>
-                <p className="text-white/70">
-                  From testing through to production, scale your AI workloads without bottlenecks or setup but just results.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      animationFrame = requestAnimationFrame(drawModelGraph);
+    };
 
-      {/* Model Library */}
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-4 text-center">Comprehensive Model Library</h2>
-          <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
-            Access the latest open-source and proprietary models through unified APIs. New models added weekly.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { category: 'Text Generation', count: '50+', examples: 'LLaMA 3, Mixtral, Qwen' },
-              { category: 'Code Generation', count: '15+', examples: 'CodeLLaMA, StarCoder, WizardCoder' },
-              { category: 'Image Generation', count: '20+', examples: 'SDXL, Flux, Midjourney' },
-              { category: 'Embeddings', count: '30+', examples: 'BGE, E5, Instructor' },
-              { category: 'Vision', count: '25+', examples: 'CLIP, SAM, YOLO' },
-              { category: 'Audio', count: '10+', examples: 'Whisper, Bark, MusicGen' },
-              { category: 'Multimodal', count: '12+', examples: 'GPT-4V, LLaVA, Qwen-VL' },
-              { category: 'Specialized', count: '40+', examples: 'BioBERT, FinBERT, Legal' }
-            ].map((cat, i) => (
-              <Card key={i} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all">
-                <CardContent className="p-6">
-                  <div className="text-[#0066FF] font-bold text-3xl mb-2">{cat.count}</div>
-                  <h3 className="text-white font-semibold mb-2">{cat.category}</h3>
-                  <p className="text-white/60 text-sm">{cat.examples}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    resize();
+    window.addEventListener('resize', resize);
+    drawModelGraph();
 
-      {/* API Example */}
-      <section className="py-24 bg-[#0D2847]">
-        <div className="container-custom">
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const pricingModels = [
+    { model: 'meta-llama/llama-4-maverick', type: 'Text Generation', price: '$0.20 / $0.20 per 1M tokens' },
+    { model: 'gpt-4.1-mini', type: 'Text Generation', price: '$0.4 Input / $1.6 Output per 1M tokens' },
+    { model: 'Qwen3.5-72B-Instruct', type: 'Text Generation', price: '$0.29 Input / $0.39 Output per 1M tokens' },
+    { model: 'Qwen3-32B', type: 'Text Generation', price: '$0.20 / $0.20 per 1M tokens' },
+    { model: 'Qwen3-14B-128k-FP8', type: 'Text Generation', price: '$0.07 / $0.07 per 1M tokens' },
+    { model: 'Gemma-3-27B-IT', type: 'Text Generation', price: '$0.20 / $0.20 per 1M tokens' },
+    { model: 'Llama-4.1-8B-Instruct', type: 'Text Generation', price: '$0.025 / $0.025 per 1M tokens' },
+    { model: 'deepseek-ai/DeepSeek-R2', type: 'Text Generation', price: '$0.55 / $2.19 per 1M tokens' },
+    { model: 'deepseek-ai/DeepSeek-R2-Lite', type: 'Text Generation', price: '$0.14 / $0.14 per 1M tokens' },
+    { model: 'mistralai/Mistral-Small-3.1', type: 'Text Generation', price: '$0.10 / $0.30 per 1M tokens' },
+    { model: 'Pixtral-Large-2501-123B', type: 'Image-Text-to-text', price: '$0.30 / $0.90 per 1M tokens' },
+    { model: 'Qwen2.5-VL-72B-Instruct', type: 'Image-Text-to-text', price: '$0.40 / $0.40 per 1M tokens' },
+    { model: 'flux-1.1-pro', type: 'Text-to-Image', price: '$0.040 per step' },
+    { model: 'flux-dev', type: 'Text-to-Image', price: '$0.025 per step' },
+    { model: 'ideogram-ai/ideogram-v3', type: 'Text-to-Image', price: '$0.080 per image' },
+    { model: 'Recraft-V3', type: 'Text-to-Image', price: '$0.040 per mega-pixel' },
+    { model: 'black-forest-labs/FLUX.1-kontext', type: 'Text-to-Image', price: '$0.040 per step' },
+    { model: 'nvidia/Llama-3.1-Nemotron-Nano-8B', type: 'Text Generation', price: '$0.15 / $0.15 per 1M tokens' },
+    { model: 'Llama-Guard-3-8B', type: 'Text Classification', price: '$0.20 / $0.20 per 1M tokens' },
+    { model: 'WhisperV3-large', type: 'Text Generation', price: '$0.33 per 1M tokens' },
+    { model: 'bge-m3', type: 'Text Embeddings', price: '$0.015 per 1M tokens' },
+    { model: 'bge-large-en-v1.5', type: 'Text Embeddings', price: '$0.015 per 1M tokens' },
+    { model: 'gte-reranker-large', type: 'Text Reranking', price: '$0.01 per 1M tokens' }
+  ];
+
+  const services = [
+    { name: 'Serverless', icon: Cloud },
+    { name: 'Marketplace', icon: Zap },
+    { name: 'Inference', icon: Server },
+    { name: 'Training', icon: Zap },
+    { name: 'GPU nodes', icon: Server },
+    { name: 'LLM Library', icon: Shield }
+  ];
+
+  const faqs = [
+    {
+      question: "What is BluBrg Serverless Inference?",
+      answer: "BluBrg Serverless Inference is a fully managed AI inference platform that lets you run AI models without managing infrastructure. Simply call our API with your prompt and get instant responses - we handle all the scaling, optimization, and infrastructure automatically."
+    },
+    {
+      question: "Who is this service for?",
+      answer: "Our serverless inference is ideal for developers, startups, and enterprises who want to integrate AI capabilities into their applications without the complexity of managing GPU infrastructure. Whether you're building chatbots, content generation tools, or complex AI pipelines, our platform scales with your needs."
+    },
+    {
+      question: "What AI models are available?",
+      answer: "We offer access to 200+ models including the latest LLMs (LLaMA 4, GPT-4, Claude, Mistral), image generation models (Flux, SDXL, Ideogram), embeddings, audio transcription, and more. New models are added weekly based on community demand."
+    },
+    {
+      question: "How does the pricing work?",
+      answer: "We offer transparent pay-per-use pricing based on tokens processed (for text models) or per image/step (for image models). There are no upfront costs, minimum commitments, or hidden fees. You only pay for what you use, and our prices are typically 50-80% lower than major cloud providers."
+    },
+    {
+      question: "What are the key benefits of using BluBrg Serverless?",
+      answer: "Key benefits include: up to 80% cost savings compared to hyperscalers, zero rate limits, automatic scaling from zero to millions of requests, 99.9% uptime SLA, built-in failover and redundancy, and a unified API that works with all models. Plus, our infrastructure is powered by 100% renewable energy."
+    },
+    {
+      question: "How does scaling work?",
+      answer: "Our platform automatically scales based on your usage. Start with a single request and scale to millions without any configuration changes. We handle cold starts, load balancing, and failover automatically. There are no rate limits or throttling - your applications can scale as fast as your business needs."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      {/* Hero Section with Animated Model Graph */}
+      <section className="relative min-h-[550px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
+        
+        <div className="container mx-auto px-6 lg:px-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-6">Simple, Powerful API</h2>
-              <p className="text-white/70 mb-8">
-                Call any model with just a few lines of code. Standard REST and WebSocket APIs work with any programming language or framework.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  'OpenAI-compatible API endpoints',
-                  'Streaming and batch processing',
-                  'Automatic retry and failover',
-                  'Real-time usage monitoring',
-                  'Webhook notifications',
-                  'Multi-region deployment'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center space-x-3 text-white/80">
-                    <Check className="w-5 h-5 text-[#0066FF]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-[#0F1419] rounded-xl p-6 border border-white/10">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-3 h-3 bg-red-500 rounded-full" />
-                <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                <div className="w-3 h-3 bg-green-500 rounded-full" />
+            {/* Left Content */}
+            <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/20 rounded-full">
+                <span className="text-blue-400 text-sm font-medium">SERVERLESS</span>
               </div>
-              <pre className="text-sm text-white/80 font-mono overflow-x-auto">
-{`import blubrg
+              
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                Most cost-effective AI<br />inference
+              </h1>
+              
+              <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+                Four out of five developers ranked us as the most cost-effective GenAI inferencing provider, offering access to popular models with zero rate limits—no throttling, no interruptions.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+                  Try for Free
+                </Button>
+                <Link to="/contact" className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                  Talk to Us <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right - Animated Model Graph */}
+            <div className="relative h-[400px] lg:h-[450px]">
+              <canvas 
+                ref={canvasRef} 
+                className="w-full h-full"
+                style={{ background: 'transparent' }}
+              />
+            </div>
+          </div>
+        </div>
 
-client = blubrg.Serverless(
-  api_key="your_api_key"
-)
+        <style>{`
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
+      </section>
 
-response = client.inference(
-  model="llama-3-70b",
-  prompt="Explain quantum computing",
-  max_tokens=500
-)
-
-print(response.text)`}
-              </pre>
+      {/* Value Proposition Strip */}
+      <section className="py-12 bg-[#0d1117] border-t border-b border-slate-800/50">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-semibold text-white mb-2">Lower cost, more power</h3>
+              <p className="text-gray-400 text-sm">Our fully optimized stack eliminates inefficiencies, passing savings directly to you.</p>
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-semibold text-white mb-2">Engineered for AI workloads</h3>
+              <p className="text-gray-400 text-sm">Purpose-built infrastructure designed to support AI workloads at any scale.</p>
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-semibold text-white mb-2">Scale without the overhead</h3>
+              <p className="text-gray-400 text-sm">From testing to production, scale without bottlenecks or setup—just results.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-24 bg-[#0A1F3D]">
-        <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Performance</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                type: '80% Lower cost - More performance for less',
-               
-                features: ['Blubrg delivers an average cost saving of up to 80% compared to hyperscalers']
-              },
-              {
-                type: '30% Faster on Time to Insights',
-                features: ['Blubrg Cloud shortens the path to actionable insights by as much as 30%']
-              },
-              {
-                type: '+40% Efficiency - Resource Utilisation',
-                features: ['Efficiency gains reaching 40%']
-              }
-            ].map((plan, i) => (
-              <Card key={i} className="bg-white/5 border-white/10">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-white mb-2">{plan.type}</h3>
-                  <div className="space-y-3">
-                    {plan.features.map((feature, j) => (
-                      <p key={j} className="flex items-center space-x-2 text-white/70 text-sm">
-                        <span>{feature}</span>
-                      </p>
+      {/* Models & Pricing Section */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
+            <p className="text-gray-400 max-w-2xl">
+              Pricing may vary depending on usage. Prices listed below are base prices. For detailed pricing, please visit our pricing page.
+            </p>
+            <div className="flex gap-4 mt-4">
+              <button className="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg">Endpoints</button>
+              <button className="px-4 py-2 text-gray-400 text-sm hover:text-white transition-colors">Batches</button>
+            </div>
+          </div>
+
+          {/* Pricing Table */}
+          <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden">
+            <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
+              <table className="w-full">
+                <thead className="sticky top-0 bg-slate-900 z-10">
+                  <tr className="border-b border-slate-700/50">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Serverless Endpoint</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Type</th>
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pricingModels.map((item, index) => (
+                    <tr key={index} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
+                      <td className="px-6 py-4 text-sm text-white">{item.model}</td>
+                      <td className="px-6 py-4 text-sm text-gray-400">{item.type}</td>
+                      <td className="px-6 py-4 text-sm text-gray-300 text-right">{item.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Savings by Design Section */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Model Icons Grid */}
+            <div className="relative">
+              <div className="grid grid-cols-3 gap-4">
+                {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral', 'Gemma', 'Flux', 'Actions'].map((name, i) => (
+                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700/50">
+                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                      <span className="text-xs text-blue-400">{name.charAt(0)}</span>
+                    </div>
+                    <p className="text-xs text-gray-400">{name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right - Text */}
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Savings by design, not<br />compromise
+              </h2>
+              <p className="text-gray-400 leading-relaxed">
+                We provide the same leading open-source AI models you're already using—at a lower cost, without sacrificing performance. Our pricing model is simple and designed to help you scale efficiently.
+              </p>
+              <Link to="/pricing" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+                See pricing <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Serverless Without Trade-offs Section */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Text */}
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Serverless without trade-<br />offs
+              </h2>
+              <p className="text-gray-400 leading-relaxed">
+                Access BluBrg's powerful AI inference API, run on enterprise-grade infrastructure scaled for AI workloads. Enjoy seamless, low-latency performance and no rate limits—designed to keep your applications running smoothly at any scale.
+              </p>
+              <Link to="/docs" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+                Learn more <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            
+            {/* Right - Server Visual */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-slate-700/50">
+                <div className="aspect-video bg-slate-800/50 rounded-xl flex items-center justify-center">
+                  <div className="grid grid-cols-3 gap-4">
+                    {[...Array(6)].map((_, i) => (
+                      <div key={i} className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center">
+                        <Server className="w-8 h-8 text-slate-500" />
+                      </div>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <p className="text-white/60 mb-4">All plans include: 99.9% uptime SLA, 24/7 support, unlimited API calls</p>
-            <Link to="/pricing">
-              <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                View Detailed Pricing →
-              </Button>
-            </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC]">
-        <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Start building with serverless AI
+      {/* Performance Metrics */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Performance</h2>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="space-y-2">
+              <p className="text-3xl md:text-4xl font-bold text-white">80%</p>
+              <p className="text-sm font-semibold text-gray-300">LOWER COST</p>
+              <p className="text-sm text-gray-500">Up to 80% cost savings compared to hyperscalers and other providers.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-3xl md:text-4xl font-bold text-white">30%</p>
+              <p className="text-sm font-semibold text-gray-300">FASTER</p>
+              <p className="text-sm text-gray-500">Shorter path to actionable insights with optimized inference pipelines.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-3xl md:text-4xl font-bold text-white">+40%</p>
+              <p className="text-sm font-semibold text-gray-300">EFFICIENCY</p>
+              <p className="text-sm text-gray-500">Resource utilization efficiency gains reaching 40% or more.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-3xl md:text-4xl font-bold text-white">2 GWH</p>
+              <p className="text-sm font-semibold text-gray-300">RENEWABLE ENERGY</p>
+              <p className="text-sm text-gray-500">100% renewable energy infrastructure powering all our operations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Zero Rate Limits Platform Section */}
+      <section className="py-20 bg-[#0a0a0f]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left - Features */}
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Zero rate limits, maximum<br /><span className="text-blue-400">reliability</span>
+              </h2>
+              <p className="text-gray-400 leading-relaxed">
+                No rate limits, no cold starts, and no waiting. Simply pay for what you use—just fast, reliable access to the AI tools you need. Scale your workloads seamlessly from development to production without limitations.
+              </p>
+              <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            
+            {/* Right - Platform Diagram */}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                {services.map((service, index) => (
+                  <div 
+                    key={index}
+                    className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-blue-500/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center">
+                        <service.icon className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <span className="font-medium text-sm">{service.name}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Data Center Card */}
+              <div className="mt-6 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-4 border border-blue-800/30">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm">BluBrg's Data centers</p>
+                    <p className="text-xs text-gray-400">Powered by renewable energy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container mx-auto px-6 lg:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
+          
+          <div className="space-y-4 max-w-4xl">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="border-b border-slate-700/50"
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                >
+                  <span className="text-lg font-medium pr-8">{faq.question}</span>
+                  <div className="flex-shrink-0">
+                    {openFaq === index ? (
+                      <Minus className="w-5 h-5 text-blue-400" />
+                    ) : (
+                      <Plus className="w-5 h-5 text-blue-400" />
+                    )}
+                  </div>
+                </button>
+                
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Strip */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+        <div className="container mx-auto px-6 lg:px-16 text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
+            Access thousands of GPUs tailored to your requirements.
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get $100 in free credits. No credit card required to start.
-          </p>
+          
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
-              <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-                Start Free Trial
+            <Link to="/products/training">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+                Reserve GPUs
               </Button>
             </Link>
-            <Link to="/docs">
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                Explore API Docs
-              </Button>
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
+              Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
