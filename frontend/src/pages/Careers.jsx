@@ -174,7 +174,7 @@ const Careers = () => {
             </h1>
             
             <p className="text-gray-400 text-lg leading-relaxed mb-8">
-              We're creating the first AI-native hyperscaler—engineered for performance, efficiency, and scale.
+              We are building the first AI-native hyperscaler, a platform engineered for performance, efficiency, and massive scale. Join us in creating infrastructure that enables organisations around the world to advance their AI ambitions.
             </p>
             
             <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
