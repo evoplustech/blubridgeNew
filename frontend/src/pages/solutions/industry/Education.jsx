@@ -232,7 +232,7 @@ const Education = () => {
             {/* AI-Driven Multidisciplinary Studies */}
             <div className="border-l-2 border-indigo-500 pl-6">
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">AI-Driven Multidisciplinary Studies</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Cross-domain Innovation</p>
+              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Enabling Collaboration</p>
               <p className="text-white/60 text-sm leading-relaxed">
                 Our infrastructure supports complex computational studies that span multiple academic fields. It gives research teams a flexible platform where they can collaborate, test ideas, and run analysis more efficiently.
               </p>
@@ -241,9 +241,9 @@ const Education = () => {
             {/* Enhancing STEM Education */}
             <div className="border-l-2 border-indigo-500 pl-6">
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">Enhancing STEM Education</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Hands-on Learning</p>
+              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Interactive Learning Environments</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Give students practical experience with real AI tools and GPU computing. Build next-generation curricula that prepare students for careers in machine learning, data science, and AI engineering.
+              STEM educators can use the GPU cloud to build immersive, interactive learning environments that help students explore complex concepts in areas like robotics, physics, and machine learning.
               </p>
             </div>
           </div>
