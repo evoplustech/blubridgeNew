@@ -173,26 +173,26 @@ const GPUNodes = () => {
   const performanceMetrics = [
     {
       metric: "4×",
-      title: "FASTER",
-      description: "Accelerate AI model training by 4x faster than standard CPU alternatives.",
+      title: " LLM Training",
+      description: "The NVIDIA GB200 NVL72 enables large language model training at scale to run up to four times faster, significantly reducing training time for complex models.",
       link: "Learn More"
     },
     {
       metric: "25×",
-      title: "EFFICIENCY",
-      description: "Maximize your GPU utilization with intelligent workload distribution.",
+      title: "Energy Efficiency",
+      description: "GB200 NVL72 offers up to 25× higher energy efficiency compared to previous-generation architectures, helping lower power consumption and operating costs.",
       link: "Learn More"
     },
     {
       metric: "30×",
-      title: "FASTER",
-      description: "Achieve 30x faster model inference with Tensor Core GPUs.",
+      title: "LLM Inferencing",
+      description: "With GB200 NVL72, real-time inferencing for trillion-parameter large language models can be achieved up to 30× faster, supporting high-throughput AI applications.",
       link: "Get a quote"
     },
     {
-      metric: "10×",
-      title: "FASTER",
-      description: "Process massive datasets 10x faster with NVLink interconnects.",
+      metric: "18X",
+      title: "Data Processing",
+      description: "Data-intensive workloads can be processed up to 18× faster with GB200 NVL72 when compared to Intel Xeon 8480+ CPU-based systems.",
       link: "Learn More"
     }
   ];
@@ -200,19 +200,19 @@ const GPUNodes = () => {
   const gpuCards = [
     {
       name: "NVIDIA H100",
-      description: "Enterprise-grade AI training with 80GB HBM3 memory and 3TB/s bandwidth.",
+      description: "Experience industry-leading AI performance with NVIDIA H100 GPUs, built to handle the most demanding AI and HPC workloads.",
       highlighted: true,
       color: "from-purple-600/30 to-purple-900/50"
     },
     {
       name: "NVIDIA H200",
-      description: "Next-generation inference with 141GB HBM3e memory for large model deployment.",
+      description: "Accelerate advanced AI and high-performance computing tasks using NVIDIA H200 Tensor Core GPUs, optimised for memory-intensive applications.",
       highlighted: false,
       color: "from-slate-700/50 to-slate-800/50"
     },
     {
       name: "NVIDIA GB200 NVL72",
-      description: "Designed for the next wave of data-center AI computing.",
+      description: "Designed for next-generation data centres and AI-focused environments, GB200 NVL72 delivers exceptional performance and efficiency for large-scale AI workloads.",
       highlighted: false,
       color: "from-slate-700/50 to-slate-800/50"
     }
@@ -230,27 +230,27 @@ const GPUNodes = () => {
   const faqs = [
     {
       question: "What is GPU Nodes from BluBrg and how does it work?",
-      answer: "GPU Nodes from BluBrg provides dedicated NVIDIA accelerated compute resources for AI workloads. You get bare-metal access to enterprise-grade GPUs with full control over your infrastructure, enabling you to run training, inference, and data processing workloads at scale."
+      answer: "GPU Nodes provide remote access to high-performance GPUs over the internet. Users can provision and scale GPU resources on demand to support workloads such as AI training, rendering, and scientific computing."
     },
     {
       question: "What types of GPUs does BluBrg offer?",
-      answer: "BluBrg offers the latest NVIDIA accelerators including H100, H200, and GB200 NVL72. Each GPU type is optimized for different workloads - from large-scale training to high-throughput inference."
+      answer: "A wide range of NVIDIA GPUs is available to support different use cases, including A100, H100, H200, GB200, and V100, each suited to specific AI, compute, and graphics-intensive workloads."
     },
     {
       question: "What are the benefits of using GPU Nodes from BluBrg?",
-      answer: "Key benefits include bare-metal performance with no virtualization overhead, flexible scaling from single GPUs to large clusters, enterprise-grade security, 24/7 support, and cost-efficient pricing with no hidden fees."
+      answer: "Key benefits include:Access to powerful GPU hardware without upfront investment,Flexible scaling to match changing workload requirements,Usage-based pricing for better cost control,Multiple GPU options to suit different performance needs,Simplified management through a user-friendly platform,Reliable performance supported by robust infrastructure and expert support"
     },
     {
       question: "What industries can benefit from GPU Nodes?",
-      answer: "GPU Nodes serve diverse industries including AI/ML research, healthcare for medical imaging and drug discovery, finance for risk modeling, automotive for autonomous driving development, and entertainment for rendering and content generation."
+      answer: "GPU Nodes are well suited for:,Artificial intelligence and machine learning research,Gaming, media, and entertainment workloads,Healthcare imaging and data analysis,Financial modelling and risk analysis,Automotive development, including autonomous systems,Aerospace and engineering simulations"
     },
     {
       question: "How secure is GPU Nodes with BluBrg?",
-      answer: "BluBrg implements enterprise-grade security including isolated network environments, encrypted data at rest and in transit, SOC 2 Type II compliance, and dedicated security teams monitoring infrastructure 24/7."
+      answer: "Strong security measures are in place, including industry-standard encryption, strict access controls, and advanced network protections to safeguard workloads and data."
     },
     {
       question: "Can I try GPU Nodes from BluBrg before committing?",
-      answer: "Yes, BluBrg offers flexible trial options. Contact our sales team to discuss proof-of-concept deployments and evaluation periods tailored to your specific requirements."
+      answer: "Yes, trial options are available, allowing users to explore the platform, deploy GPU resources, and evaluate performance before making a long-term commitment."
     }
   ];
 
@@ -277,7 +277,7 @@ const GPUNodes = () => {
               </h1>
               
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
-                Unlock high-performance AI, ML, and HPC workloads on bare-metal infrastructure. Get enterprise-grade NVIDIA GPUs with predictable pricing, energy efficiency, and fully integrated enterprise solutions.
+                Unlock high-end computing for AI, machine learning, and high-performance computing (HPC) workloads using bare-metal infrastructure powered by NVIDIA H100, H200, and GB200 GPUs. This setup delivers outstanding scalability, improved energy efficiency, and enterprise-ready customisation.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
@@ -333,7 +333,7 @@ const GPUNodes = () => {
                 No frills, just GPU compute
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-                We built our GPU Nodes service for those who want the raw performance and cost advantages of bare metal, with none of the complexity. Focus your team's time and energy on AI innovation.
+                GPU Nodes are designed for users who need straightforward, high-performance GPU compute without unnecessary complexity. Select the GPU type and quantity you require, and the infrastructure is provisioned to meet your needs.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
                 Get In Touch <ArrowRight className="w-4 h-4" />
@@ -399,7 +399,7 @@ const GPUNodes = () => {
                 <span className="text-blue-400">with you</span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-                Our infrastructure is designed with and built on the same infrastructure you use every day. As your needs change, scale with BluBrg clusters from small to thousands of GPUs - instantly.
+                  All services operate on a shared, unified platform, making it easy to scale resources as demand evolves. You can begin with bare-metal GPU nodes and later extend your setup with orchestration, scheduling, or application-level services when required.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
@@ -457,7 +457,7 @@ const GPUNodes = () => {
                 <span className="text-blue-400">services and compute</span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Our full product suite is designed to simplify the journey from development to production.
+                Reduce costs, boost performance, and streamline AI operations using an integrated compute platform. You can use built-in AI and machine learning tools or seamlessly integrate your existing software stack, enabling a smooth transition from development to production.
               </p>
             </div>
             
