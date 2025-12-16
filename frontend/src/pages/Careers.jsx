@@ -196,7 +196,8 @@ const Careers = () => {
         <div className="container mx-auto px-6 lg:px-16 text-center">
           <p className="text-gray-500 text-sm uppercase tracking-wider mb-4">Our Mission</p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">
-          
+          Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
+          Our goal is to create a cloud platform purpose-built for AI, one that combines massive computational power with reliability and flexibility. We want to help innovators accelerate their ideas by providing infrastructure that keeps up with the demands of modern AI systems.
           </h2>
         </div>
       </section>
@@ -224,7 +225,7 @@ const Careers = () => {
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
             <p className="text-gray-400 text-lg max-w-2xl">
-              We move fast, think big, and build with purpose—driven by curiosity, collaboration, and a commitment to excellence.
+              We are a team that moves fast, aims high, and works with purpose, all driven by curiosity, collaboration, and a commitment to excellence.
             </p>
           </div>
 
