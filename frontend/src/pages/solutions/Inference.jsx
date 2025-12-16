@@ -255,7 +255,7 @@ const Inference = () => {
                 metric: '80%', 
                 label: 'LOWER COST', 
                 sublabel: 'More performance for less.',
-                desc: 'BluBrg delivers on average 80% cost-saving in comparison to hyperscalers.',
+                desc: ' Lower inference costs through efficient hardware usage and integrated optimisation compared to traditional cloud platforms.',
                 link: 'Learn More',
                 linkTo: '/about'
               }
@@ -288,7 +288,7 @@ const Inference = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-cyan-400 text-sm mb-4">Inference</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                GPU-accelerated nodes designed for AI and ML Inference, giving you top performance at the lowest price.
+              Dedicated GPU compute optimised for inference workloads, delivering consistent performance and cost efficiency at scale.
               </p>
             </div>
 
@@ -302,7 +302,7 @@ const Inference = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services for developing and deploying AI applications built using BluBrg's tools and other popular AI/ML software.
+               A collection of tools and services that support the development, deployment, and scaling of inference pipelines using both Blubrg and popular AI frameworks.
               </p>
             </div>
           </div>
@@ -314,7 +314,7 @@ const Inference = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg supports the full AI lifecycle, helping organisations move smoothly from development and training to large-scale inference deployment.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
