@@ -192,7 +192,7 @@ const Education = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Facilitating Research</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Support cutting-edge academic research with the computational power needed for advanced fields like engineering, biology, and data science.
+              Our GPU Cloud provides the computational power needed for research in areas such as engineering, biology, data science, and artificial intelligence, helping accelerate discovery and innovation.
               </p>
             </div>
           </div>
@@ -206,7 +206,7 @@ const Education = () => {
             <p className="text-indigo-400 text-sm font-medium mb-3 uppercase tracking-wider">EMPOWERING ACADEMIC RESEARCH</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
             <p className="text-base text-white/60 max-w-3xl">
-              From training foundation models to accelerating multidisciplinary research, BluBrg provides the GPU infrastructure that enables academic institutions to push the boundaries of knowledge and innovation.
+              Blubrg’s GPU Cloud Infrastructure transforms how educators and researchers work across multiple disciplines. It enables advanced research projects by supplying scalable and robust computing resources tailored to the needs of academic users.
             </p>
           </div>
 
