@@ -239,11 +239,11 @@ const Serverless = () => {
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Engineered for AI workloads</h3>
-              <p className="text-gray-400 text-sm">Purpose-built infrastructure designed to support AI workloads at any scale.</p>
+              <p className="text-gray-400 text-sm">→ Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.</p>
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Scale without the overhead</h3>
-              <p className="text-gray-400 text-sm">From testing to production, scale without bottlenecks or setup—just results.</p>
+              <p className="text-gray-400 text-sm">→ From testing through to production, scale your AI workloads without bottlenecks or setup but just results.</p>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ const Serverless = () => {
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
             <p className="text-gray-400 max-w-2xl">
-              Pricing may vary depending on usage. Prices listed below are base prices. For detailed pricing, please visit our pricing page.
+              → Pricing applies to every 1 million tokens, covering both prompts and responses for Chat, Multimodal, Language, and Code models. Image models follow a different structure, calculated according to resolution dimensions and processing steps.
             </p>
             <div className="flex gap-4 mt-4">
               <button className="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg">Endpoints</button>
