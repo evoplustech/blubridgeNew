@@ -367,22 +367,22 @@ const Serverless = () => {
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">80%</p>
               <p className="text-sm font-semibold text-gray-300">LOWER COST</p>
-              <p className="text-sm text-gray-500">Up to 80% cost savings compared to hyperscalers and other providers.</p>
+              <p className="text-sm text-gray-500"> → Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">30%</p>
               <p className="text-sm font-semibold text-gray-300">FASTER</p>
-              <p className="text-sm text-gray-500">Shorter path to actionable insights with optimized inference pipelines.</p>
+              <p className="text-sm text-gray-500"> → Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">+40%</p>
               <p className="text-sm font-semibold text-gray-300">EFFICIENCY</p>
-              <p className="text-sm text-gray-500">Resource utilization efficiency gains reaching 40% or more.</p>
+              <p className="text-sm text-gray-500"> → Efficiency gains reaching 40%.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold text-white">2 GWH</p>
+              <p className="text-3xl md:text-4xl font-bold text-white">100%</p>
               <p className="text-sm font-semibold text-gray-300">RENEWABLE ENERGY</p>
-              <p className="text-sm text-gray-500">100% renewable energy infrastructure powering all our operations.</p>
+              <p className="text-sm text-gray-500">→ The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
             </div>
           </div>
         </div>
