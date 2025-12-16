@@ -207,7 +207,7 @@ const Government = () => {
               GOVERNMENT
             </h1>
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
-              At BluBrg, we offer GPU cluster computing solutions designed to elevate your computational capabilities. Our infrastructure supports critical public sector services, accelerates innovation, and helps you deliver more efficient and effective government operations.
+              Blubrg provides secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -232,19 +232,19 @@ const Government = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Enhanced Data Processing</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Process and analyse massive datasets at high speeds required for government decision-making with AI-driven decision making.
+              Enable government teams to handle and interpret large volumes of data quickly, supporting advanced analytics, real-time monitoring, and AI-based insights that improve operational effectiveness.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Accelerated AI Development</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Deploy advanced technologies for tasks like fraud detection, cybersecurity, and automated public services with enhanced agility and efficiency.
+                Deploy and adopt advanced AI technologies more rapidly, enabling capabilities such as enhanced security monitoring, automated services for citizens, and tools for reducing fraud, all while improving service delivery.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Cost Efficiency and Scalability</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                BluBrg Cloud's scalability allows agencies to adjust resources based on demand without costly over-provisioning, ensuring cost-effective operations.
+                Benefit from infrastructure that scales based on demand, allowing agencies to optimise compute resources and control costs without investing in and maintaining large physical hardware fleets.
               </p>
             </div>
           </div>
@@ -258,7 +258,7 @@ const Government = () => {
             <p className="text-blue-400 text-sm font-medium mb-3 uppercase tracking-wider">BUILD A MODERN, DIGITAL PUBLIC SECTOR</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
             <p className="text-base text-white/60 max-w-3xl">
-              BluBrg's GPU Cloud infrastructure is transforming how governments operate and serve citizens. Our platform enables the public sector to develop and implement advanced AI models, improve data-driven decision making, and drive innovation across various government departments, ultimately leading to more efficient and effective governance.
+              Blubrg’s GPU cloud helps public sector organisations enhance efficiency, improve service quality, and introduce innovative AI-driven solutions across various government functions.
             </p>
           </div>
 
@@ -268,7 +268,7 @@ const Government = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Predictive Analytics in Healthcare</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Improved health outcomes</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Utilise AI to analyse large datasets in the healthcare industry to predict disease outbreaks, improve patient outcomes, and help public health agencies allocate resources effectively.
+              Improve public health planning and forecasting by using AI to analyse health data, helping anticipate disease outbreaks and manage medical resources more effectively.
               </p>
             </div>
 
@@ -277,7 +277,7 @@ const Government = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Environmental Monitoring</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Protect Natural Resources</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                BluBrg can support and accelerate advanced simulations to predict climate changes, manage natural resources, and respond to environmental emergencies more effectively.
+              Accelerate complex simulations and analytics to assess climate conditions, track natural resources, and support planning for sustainable infrastructure and environmental policies.
               </p>
             </div>
 
@@ -286,7 +286,7 @@ const Government = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Public Service Automation</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Increase productivity</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Automate services using AI-powered chatbots to handle citizen inquiries, provide 24/7 assistance and reducing the workload on human staff.
+              Use AI-powered tools to handle common citizen requests and administrative tasks, increasing productivity and freeing up staff to focus on more complex work.
               </p>
             </div>
 
@@ -295,7 +295,7 @@ const Government = () => {
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Public Safety and Security</h3>
               <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Maximise productivity</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Leverage BluBrg's GPU cloud platform for real-time surveillance, crime pattern analysis, and emergency response coordination to enhance public safety.
+              Provide real-time data analysis and pattern detection that support emergency response coordination, crime prediction, and safety initiatives across communities.
               </p>
             </div>
           </div>
@@ -317,7 +317,7 @@ const Government = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Training</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity.
+              A scalable compute platform optimised to reduce training times and help teams rapidly build and refine machine learning models.
               </p>
             </div>
 
@@ -331,7 +331,7 @@ const Government = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Inference</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                A highly optimised, scalable platform for inference workloads with best performance at low cost.
+              A performance-tuned environment designed to run inference workloads efficiently, enabling real-time AI applications in production.
               </p>
             </div>
 
@@ -345,7 +345,7 @@ const Government = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services for developing and deploying AI applications built using BluBrg's tools and other popular AI/ML software.
+              A suite of tools and frameworks that assist government organisations in developing, deploying, and scaling AI models in a structured and consistent way.
               </p>
             </div>
           </div>
@@ -357,7 +357,7 @@ const Government = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+            Blubrg supports organisations across the full AI lifecycle, helping government teams progress from development and experimentation through to production deployment with confidence and control.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
