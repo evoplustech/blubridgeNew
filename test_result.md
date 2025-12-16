@@ -207,7 +207,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Model Fine-Tuning Solutions Page"
+    - "TELCO Industry Solutions Page"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
