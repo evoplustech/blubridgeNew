@@ -133,28 +133,28 @@ const Training = () => {
       metric: '+40%',
       label: 'EFFICIENCY',
       title: 'Improved resource utilisation',
-      description: 'Up to 40% improvement on efficiency.',
+      description: '→ Efficiency gains reaching 40%',
       link: '/products/training'
     },
     {
       metric: '7.2X',
       label: 'FASTER',
       title: 'On throughput and latency',
-      description: 'AMD MI300X GPUs with GEMM tuning improves throughput and latency by up to 7.2x.',
+      description: '→ Using AMD MI300X GPUs combined with GEMM tuning delivers throughput and latency enhancements of up to 7.2×.',
       link: '/products/gpu-nodes'
     },
     {
       metric: '80%',
       label: 'LOWER COST',
       title: 'More performance for less',
-      description: 'BluBrg delivers on average 80% cost-saving in comparison to hyperscalers.',
+      description: '→ Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.',
       link: '/pricing'
     },
     {
       metric: '30%',
       label: 'FASTER',
       title: 'On time to insights',
-      description: 'BluBrg Cloud accelerates time to insights by up to 30% thanks to its AI-optimised stack.',
+      description: '→ Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
       link: '/products/inference'
     }
   ];
@@ -164,17 +164,17 @@ const Training = () => {
     {
       icon: Layers,
       title: 'Managed Kubernetes',
-      description: 'Simplify AI training with our managed Kubernetes service. We handle infrastructure and scaling, so you can focus on developing your models.'
+      description: '→ Streamline AI training through our managed Kubernetes offering. Platform operations and capacity growth are handled for you, allowing full attention on creating and improving models.'
     },
     {
       icon: Server,
       title: 'Advanced Scheduling',
-      description: 'Use Slurm on Kubernetes (SLONK) for advanced job scheduling and resource allocation. Enhance efficiency and performance of complex AI workloads.'
+      description: '→ Leverage Slurm on Kubernetes (SLONK) to enable sophisticated task queuing and compute governance. Achieve greater effectiveness and stronger output across demanding AI workloads.'
     },
     {
       icon: Cpu,
       title: 'Purpose Built GPU Compute',
-      description: 'Scalable GPU clusters built for training LLMs. Ideal for all project sizes and model fine-tuning, utilising our high performing, flexible hardware.'
+      description: '→ Expandable GPU clusters purpose-built for LLM training. Suitable for projects of any scale and model refinement, powered by adaptable, high-efficiency hardware designed for demanding workloads.'
     }
   ];
 
@@ -182,19 +182,19 @@ const Training = () => {
   const faqs = [
     {
       question: "What is our Managed Kubernetes service for AI training?",
-      answer: "Our Managed Kubernetes service is purpose-built for AI training workloads. It provides automated scaling, orchestration, and seamless integration with your workflows. We handle all infrastructure management, so you can focus entirely on model development and innovation."
+      answer: "→ The managed Kubernetes offering takes care of platform operations and elastic capacity for AI training workloads, enabling full attention on building, refining, and improving models rather than maintaining systems."
     },
     {
       question: "How does SLONK enhance AI workload management?",
-      answer: "SLONK (Slurm on Kubernetes) combines the best of both worlds - Slurm's advanced job scheduling with Kubernetes' container orchestration. It provides sophisticated queue management, resource allocation, and workload prioritization specifically designed for LLM training."
+      answer: "→ SLONK (Slurm on Kubernetes) delivers sophisticated task queuing and compute control, enhancing effectiveness and output across demanding, large-scale artificial intelligence workloads."
     },
     {
       question: "Can I scale my AI training projects with your GPU clusters?",
-      answer: "Absolutely. Our GPU clusters are designed to scale seamlessly from small experiments to large-scale production training. Whether you need a few GPUs for fine-tuning or thousands for training foundation models, our infrastructure adapts to your needs."
+      answer: "→ Yes, the GPU cluster architecture is built to adapt and expand, supporting both modest and large LLM training initiatives as well as specialised model refinement needs."
     },
     {
       question: "What types of AI workloads are supported by your services?",
-      answer: "We support a wide range of AI workloads including LLM pre-training and fine-tuning, computer vision model training, reinforcement learning, multi-modal model development, and more. Our infrastructure is optimized for both research and production workloads."
+      answer: "→ The offerings accommodate diverse artificial intelligence use cases, spanning training processes, refinement stages, and runtime prediction tasks. The underlying platform is engineered to deliver strong throughput and operational efficiency across every capability."
     }
   ];
 
@@ -235,7 +235,7 @@ const Training = () => {
               </h1>
               
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-                Train LLMs and other AI models on high-performance GPU clusters. Our Managed Kubernetes and Slurm orchestration options allow for easy management and complete utilisation of your compute.
+                → Develop LLMs along with additional AI systems using powerful GPU-based clusters. Managed Kubernetes and Slurm orchestration choices simplify administration while ensuring maximum usage of available computing resources.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
@@ -304,7 +304,7 @@ const Training = () => {
                 Dynamically manage AI<br />workloads and resources
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Our Managed Kubernetes service was built for training LLMs. BluBrg handles the infrastructure, so you can focus on innovation. Benefit from automated scaling, orchestration, and seamless integration with your workflows.
+                → Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
@@ -406,7 +406,7 @@ const Training = () => {
                 Industry leading GPU<br />clusters at all scales
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Our GPU clusters are flexible and scalable to meet training needs of all types and sizes. Whether you're scaling up for large projects or fine-tuning models, our clusters provide the power and efficiency required.
+                → Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
               <Link to="/products/gpu-nodes">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
@@ -462,7 +462,7 @@ const Training = () => {
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-blue-400 hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+                → Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging Blubrg AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
             

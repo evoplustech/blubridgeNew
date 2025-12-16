@@ -33,33 +33,33 @@ const SovereignCloud = () => {
   const valuePillars = [
     {
       id: 0,
-      title: 'DATA SECURITY',
-      description: 'Be in control of your data. BluBrg\'s infrastructure is primarily governed by UK and European laws, operated by local personnel, and architected to minimise or eliminate foreign data access.',
+      title: 'DATA SECURITY - Be in control of your data',
+      description: 'The platform operates under UK and European regulatory frameworks and is managed by local teams. Its architecture is designed to minimise external exposure and safeguard sensitive information through strong governance and access controls.',
       bgColor: 'bg-blue-900/80'
     },
     {
       id: 1,
       title: 'ECONOMIC',
-      description: 'AI that powers local prosperity. Sovereign infrastructure allows nations to retain the value created by AI. Keeping revenue, jobs, and intellectual property within national borders.',
+      description: 'AI that powers local prosperity A sovereign cloud model ensures that the economic benefits of AI such as revenue generation, talent development, and innovation remain within national borders, reinforcing long-term economic resilience.',
       bgColor: 'bg-slate-900'
     },
     {
       id: 2,
       title: 'SCALABILITY',
-      description: 'BluBrg Cloud is designed for organisations that want the performance of a hyperscaler, but the governance of a sovereign cloud. It scales in line with your business needs.',
+      description: 'Blubrg is built to scale Blubrg Cloud delivers hyperscaler-level performance while maintaining the control and governance required by sovereign organisations. The infrastructure can expand seamlessly to meet growing workload demands.',
       bgColor: 'bg-blue-600',
       hasLink: true
     },
     {
       id: 3,
       title: 'MODULARITY',
-      description: 'Infrastructure where you need it. By developing modular private cloud clusters, BluBrg ensures future proof infrastructure that\'s easier to refresh, enhance, adapt and scale on European soil.',
+      description: 'Infrastructure where you need it Through modular private cloud deployments, Blubrg offers flexible infrastructure that can be upgraded and adapted over time, making it well suited for distributed deployment across European data centres.',
       bgColor: 'bg-slate-900'
     },
     {
       id: 4,
       title: 'SUSTAINABILITY',
-      description: 'BluBrg is built to scale. By leveraging local renewable energy sources and optimising data centre efficiency, we deliver eco-conscious cloud services without compromising performance or control.',
+      description: 'Eco-aware cloud performance By using renewable energy sources and optimised data-centre designs, Blubrg provides environmentally responsible cloud services without compromising performance, control, or reliability.',
       bgColor: 'bg-slate-900'
     }
   ];
@@ -100,23 +100,23 @@ const SovereignCloud = () => {
   const faqs = [
     {
       question: "Why is sovereignty important for AI workloads?",
-      answer: "Sovereignty ensures that your AI systems, data, and intellectual property remain under your control and jurisdiction. This is critical for regulated industries, national security applications, and organizations that need to comply with data protection regulations like GDPR."
+      answer: "AI systems often process sensitive and mission-critical data. Hosting them on sovereign infrastructure ensures compliance with data residency regulations, reduces dependence on foreign cloud providers, and enhances organisational and national security."
     },
     {
       question: "Can BluBrg support both public and private sector workloads?",
-      answer: "Yes, BluBrg's sovereign infrastructure is designed to support both public sector entities with strict compliance requirements and private enterprises seeking data sovereignty. We offer flexible deployment models to meet diverse organizational needs."
+      answer: "Yes. Blubrg can be deployed as dedicated or air-gapped environments suitable for government bodies, defence organisations, research institutions, and enterprises, offering scalable compute tailored to diverse requirements."
     },
     {
       question: "How is BluBrg different from other cloud providers?",
-      answer: "BluBrg is built specifically for AI workloads with a sovereign-first approach. Unlike global hyperscalers, we ensure data residency within European jurisdictions, operate with local personnel, and provide infrastructure governed by UK and European laws."
+      answer: "Unlike traditional hyperscalers, Blubrg focuses on AI-optimised infrastructure delivered through sovereign hosting, combining high-performance GPU compute with strong governance and control."
     },
     {
       question: "What GPUs and compute resources are available?",
-      answer: "We offer the latest NVIDIA GPUs including H100, H200, and GB200 NVL72, along with AMD MI300X accelerators. Our infrastructure supports both training and inference workloads at any scale."
+      answer: "Blubrg offers clusters built on NVIDIA H100, H200, and GB200 GPUs, with flexible deployment options including bare-metal and virtualised environments, supported by orchestration tools such as SLURM and Kubernetes."
     },
     {
       question: "How can I speak with someone about my organisation's sovereign AI needs?",
-      answer: "You can reach our enterprise team directly through our Contact Sales page, or schedule a consultation to discuss your specific compliance requirements and infrastructure needs. We offer personalized assessments for organizations of all sizes."
+      answer: "You can connect with the Blubrg team to discuss solutions tailored to your specific technical and regulatory requirements."
     }
   ];
 
@@ -162,7 +162,7 @@ const SovereignCloud = () => {
             </h1>
             
             <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-              BluBrg's Sovereign AI Cloud is made for Europe, by Europe, ensuring data security, scalability while fuelling local economic growth and sustainability.
+              Blubrg’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
             </p>
             
             <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
@@ -196,7 +196,7 @@ const SovereignCloud = () => {
             
             <div>
               <p className="text-gray-400 leading-relaxed">
-                BluBrg ensures European customers can: Develop and deploy artificial intelligence systems using their own private infrastructure, data, workforce, and business networks; Have control over their own AI capabilities and are less reliant on foreign entities for critical AI technology; Own and manage their own AI data and intelligence that is protected within their borders; Realise the economic benefits to their nation's economy by creating jobs, obtaining intellectual property, and fuelling economic growth; Reduce their exposure to legislation of other nations.
+                Blubrg empowers European organisations to design, deploy, and manage AI systems using their own infrastructure, data, teams, and networks. This approach ensures independence from external providers while keeping data ownership and innovation within local jurisdictions. By retaining intellectual property and skills domestically, organisations can create jobs, strengthen economies, and reduce reliance on foreign legal systems.
               </p>
             </div>
           </div>
@@ -234,7 +234,7 @@ const SovereignCloud = () => {
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              BluBrg provides a complete platform for running AI workloads in the most efficient and cost-effective way possible.
+              Blubrg provides a complete AI-ready platform engineered to deliver cost-effective, high-performance compute for demanding workloads.
             </p>
           </div>
 
@@ -303,7 +303,7 @@ const SovereignCloud = () => {
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-blue-400 hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+                Run AI workloads more efficiently on a unified platform designed to reduce complexity and operational overhead. Whether using Blubrg’s built-in AI and machine learning tools or integrating your own stack, the platform supports a smooth transition from experimentation to production.
               </p>
             </div>
             
@@ -312,7 +312,7 @@ const SovereignCloud = () => {
               {/* Service Flow */}
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
-                  <span className="text-sm text-gray-300">Serverless</span>
+                  <span className="text-sm text-gray-300">Serverless Marketplace Training Inference GPU nodes</span>
                 </div>
                 <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
                   <span className="text-sm text-gray-300">Marketplace</span>
