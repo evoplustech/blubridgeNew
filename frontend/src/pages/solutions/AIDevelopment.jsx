@@ -13,7 +13,7 @@ const AIDevelopment = () => {
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
-      setAnimationOffset(elapsed * 0.00008);
+      setAnimationOffset(elapsed * 0.00006);
       animationRef.current = requestAnimationFrame(animate);
     };
     animationRef.current = requestAnimationFrame(animate);
