@@ -203,10 +203,10 @@ const AIDevelopment = () => {
               {/* Sharp crease */}
               <path
                 d="M1300,-100 C1380,50 1400,200 1350,400 L1420,500 L1340,700"
-                stroke="#bde0c8"
-                strokeWidth="3"
+                stroke="#9ae0a8"
+                strokeWidth="4"
                 fill="none"
-                opacity="0.9"
+                opacity="0.95"
                 filter="url(#softGlow)"
               />
             </g>
