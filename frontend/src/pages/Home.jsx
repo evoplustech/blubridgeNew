@@ -8,7 +8,7 @@ const Home = () => {
   const [activeInfraTab, setActiveInfraTab] = useState(0);
   const canvasRef = useRef(null);
 
-  // Animated 3D curved form for hero
+  // Animated flowing glass ribbon 3D form for hero - premium enterprise style
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -22,83 +22,100 @@ const Home = () => {
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     };
 
-    const draw3DForm = () => {
-      time += 0.008;
+    const drawGlassRibbon = () => {
+      time += 0.004; // Slow, calm movement
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
       const centerX = width * 0.5;
       const centerY = height * 0.5;
 
-      // Draw multiple rotating curved forms
-      for (let i = 0; i < 4; i++) {
+      // Draw multiple layered flowing ribbon shapes (glass-like 3D form)
+      for (let layer = 0; layer < 5; layer++) {
         ctx.save();
         ctx.translate(centerX, centerY);
         
-        const offset = i * Math.PI * 0.5;
-        const rotationX = time * 0.3 + offset;
-        const rotationY = time * 0.5 + offset;
-        const scale = 1 - i * 0.15;
+        const layerOffset = layer * 0.4;
+        const rotation = time * 0.15 + layerOffset;
+        const scale = 1.2 - layer * 0.08;
+        const breathe = Math.sin(time * 0.5 + layer) * 8;
         
-        ctx.rotate(rotationX);
-        ctx.scale(scale, scale);
+        ctx.rotate(rotation);
+        ctx.scale(scale, scale * 0.9);
 
-        // Create curved ribbon shape
-        const ribbonWidth = Math.min(width, height) * 0.35;
-        const ribbonHeight = Math.min(width, height) * 0.15;
+        // Create flowing ribbon/glass shape
+        const ribbonSize = Math.min(width, height) * 0.45;
         
-        // Gradient for 3D effect
-        const gradient = ctx.createLinearGradient(-ribbonWidth, -ribbonHeight, ribbonWidth, ribbonHeight);
-        gradient.addColorStop(0, `rgba(10, 80, 180, ${0.7 - i * 0.15})`);
-        gradient.addColorStop(0.3, `rgba(30, 120, 220, ${0.8 - i * 0.15})`);
-        gradient.addColorStop(0.6, `rgba(20, 100, 200, ${0.6 - i * 0.15})`);
-        gradient.addColorStop(1, `rgba(5, 40, 100, ${0.4 - i * 0.1})`);
-
-        ctx.beginPath();
-        // Top curve
-        ctx.moveTo(-ribbonWidth, 0);
-        ctx.bezierCurveTo(
-          -ribbonWidth, -ribbonHeight * (1 + Math.sin(time + i) * 0.3),
-          ribbonWidth, -ribbonHeight * (1 + Math.cos(time + i) * 0.3),
-          ribbonWidth, 0
+        // Multi-stop gradient for glass-like depth effect
+        const gradient = ctx.createLinearGradient(
+          -ribbonSize, -ribbonSize * 0.6, 
+          ribbonSize, ribbonSize * 0.6
         );
-        // Bottom curve
+        gradient.addColorStop(0, `rgba(10, 46, 109, ${0.9 - layer * 0.15})`);
+        gradient.addColorStop(0.2, `rgba(30, 90, 180, ${0.85 - layer * 0.15})`);
+        gradient.addColorStop(0.4, `rgba(60, 120, 200, ${0.7 - layer * 0.12})`);
+        gradient.addColorStop(0.6, `rgba(100, 150, 220, ${0.6 - layer * 0.1})`);
+        gradient.addColorStop(0.8, `rgba(40, 80, 160, ${0.75 - layer * 0.12})`);
+        gradient.addColorStop(1, `rgba(10, 30, 80, ${0.5 - layer * 0.08})`);
+
+        // Draw flowing curved ribbon shape
+        ctx.beginPath();
+        const wave1 = Math.sin(time + layer) * 15;
+        const wave2 = Math.cos(time * 0.8 + layer) * 20;
+        
+        // Complex bezier curve for glass ribbon
+        ctx.moveTo(-ribbonSize, wave1);
         ctx.bezierCurveTo(
-          ribbonWidth, ribbonHeight * (1 + Math.sin(time + i) * 0.2),
-          -ribbonWidth, ribbonHeight * (1 + Math.cos(time + i) * 0.2),
-          -ribbonWidth, 0
+          -ribbonSize * 0.5, -ribbonSize * 0.5 + wave2 + breathe,
+          ribbonSize * 0.3, -ribbonSize * 0.4 - wave1,
+          ribbonSize, wave2
+        );
+        ctx.bezierCurveTo(
+          ribbonSize * 0.8, ribbonSize * 0.3 + wave1,
+          ribbonSize * 0.2, ribbonSize * 0.5 - wave2 + breathe,
+          -ribbonSize * 0.3, ribbonSize * 0.3 + wave1
+        );
+        ctx.bezierCurveTo(
+          -ribbonSize * 0.7, ribbonSize * 0.2 - wave2,
+          -ribbonSize * 0.9, wave1 + breathe,
+          -ribbonSize, wave1
         );
         ctx.closePath();
 
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        // Edge highlight
-        ctx.strokeStyle = `rgba(100, 180, 255, ${0.3 - i * 0.05})`;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
+        // Subtle highlight edge for glass effect
+        if (layer < 2) {
+          const highlightGradient = ctx.createLinearGradient(-ribbonSize, 0, ribbonSize, 0);
+          highlightGradient.addColorStop(0, `rgba(150, 200, 255, ${0.15 - layer * 0.05})`);
+          highlightGradient.addColorStop(0.5, `rgba(180, 220, 255, ${0.25 - layer * 0.08})`);
+          highlightGradient.addColorStop(1, `rgba(100, 160, 230, ${0.1 - layer * 0.03})`);
+          ctx.strokeStyle = highlightGradient;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
 
         ctx.restore();
       }
 
-      // Add subtle glow particles
-      for (let i = 0; i < 15; i++) {
-        const px = centerX + Math.sin(time + i * 0.8) * (width * 0.25);
-        const py = centerY + Math.cos(time * 0.6 + i * 0.5) * (height * 0.2);
-        const size = 2 + Math.sin(time * 2 + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(80, 160, 255, ${0.3 + Math.sin(time + i) * 0.15})`;
-        ctx.fill();
-      }
+      // Inner glow effect
+      const glowGradient = ctx.createRadialGradient(
+        centerX, centerY, 0,
+        centerX, centerY, Math.min(width, height) * 0.4
+      );
+      glowGradient.addColorStop(0, 'rgba(80, 140, 220, 0.15)');
+      glowGradient.addColorStop(0.5, 'rgba(40, 100, 180, 0.08)');
+      glowGradient.addColorStop(1, 'rgba(10, 40, 100, 0)');
+      ctx.fillStyle = glowGradient;
+      ctx.fillRect(0, 0, width, height);
 
-      animationFrame = requestAnimationFrame(draw3DForm);
+      animationFrame = requestAnimationFrame(drawGlassRibbon);
     };
 
     resize();
     window.addEventListener('resize', resize);
-    draw3DForm();
+    drawGlassRibbon();
 
     return () => {
       window.removeEventListener('resize', resize);
