@@ -450,7 +450,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 4: All Designed for Speed & Simplicity */}
-      <section className="py-20 bg-[#0d1117]">
+      {/* <section className="py-20 bg-[#0d1117]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -490,7 +490,7 @@ const FineTuning = () => {
                       <div className="h-2 bg-orange-500/30 rounded w-2/3" />
                     </div>
                   </div>
-                  {/* Right panel */}
+                  
                   <div className="w-1/2 p-4 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-20 h-20 rounded-full bg-slate-700 mx-auto mb-3 flex items-center justify-center">
@@ -501,7 +501,7 @@ const FineTuning = () => {
                   </div>
                 </div>
                 
-                {/* Play Button Overlay */}
+                
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer hover:bg-black/20 transition-colors">
                   <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
                     <Play className="w-6 h-6 text-white ml-1" />
@@ -509,7 +509,7 @@ const FineTuning = () => {
                 </div>
               </div>
 
-              {/* YouTube Attribution */}
+              
               <div className="bg-slate-800 px-4 py-2 flex items-center gap-2">
                 <span className="text-xs text-gray-400">Watch on</span>
                 <span className="text-xs text-red-500 font-semibold">▶ YouTube</span>
@@ -517,7 +517,7 @@ const FineTuning = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 5: How it Works */}
       <section className="py-20 bg-[#0a0a0f]">
