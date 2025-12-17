@@ -33,13 +33,12 @@ const AIDevelopment = () => {
         {/* Deep dark green base background */}
         <div className="absolute inset-0 bg-[#0a1f14]" />
         
-        {/* Animated 3D Glass Ribbon SVG Background */}
+        {/* Animated 3D Glass Ribbon SVG Background - Matching Reference */}
         <div className="absolute inset-0 overflow-hidden">
           <svg
             viewBox="0 0 1920 1080"
-            className="absolute w-[200%] h-[150%] -top-[25%] -right-[50%]"
+            className="absolute w-full h-full"
             preserveAspectRatio="xMidYMid slice"
-            style={{ transform: `translate(${Math.sin(animationOffset) * 15}px, ${Math.cos(animationOffset * 0.7) * 10}px)` }}
           >
             <defs>
               {/* Main gradient for ribbon surfaces */}
