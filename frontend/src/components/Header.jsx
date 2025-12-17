@@ -95,7 +95,7 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-white tracking-wider">
-            BLUBRG
+            BluBrg
           </Link>
 
           {/* Desktop Navigation */}

@@ -331,21 +331,21 @@ const Home = () => {
       {/* Integrated AI Platform Section */}
       <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
-          <div className="max-w-3xl mb-16">
+          {/* <div className="max-w-3xl mb-16">
             <h2 className="text-4xl md:text-5xl font-light leading-tight mb-6">
               A fully integrated suite of AI services and compute
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed">
               Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.
             </p>
-          </div>
+          </div> */}
 
           {/* Stacked Feature Blocks */}
           <div className="space-y-24">
             {[
               {
-                title: "Turnkey AI development and deployment",
-                desc: "The BluBrg Marketplace provides users with a wide range of AI/ML tools and resources, supporting efficient, scalable model development and seamless deployment.",
+                title: "A fully integrated suite of AI services and compute",
+                desc: " Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.",
                 align: "right"
               },
               {
@@ -367,6 +367,11 @@ const Home = () => {
                 title: "Scalable, flexible AI Compute",
                 desc: "BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.",
                 align: "right"
+              },           
+              {
+                title: "Turnkey AI development and deployment",
+                desc: "The BluBrg Marketplace provides users with a wide range of AI/ML tools and resources, supporting efficient, scalable model development and seamless deployment.",
+                align: "left"
               }
             ].map((block, index) => (
               <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${block.align === 'right' ? '' : 'lg:flex-row-reverse'}`}>
