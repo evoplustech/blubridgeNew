@@ -30,15 +30,251 @@ const AIDevelopment = () => {
     <div className="min-h-screen bg-[#000000]">
       {/* Hero Section - Deep Green 3D Glass/Ribbon Abstract Forms */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background with orange/amber gradient and abstract shapes */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a0f05] via-[#0d0805] to-[#000000]">
-          {/* Abstract 3D shard visuals */}
-          <div className="absolute top-0 right-0 w-[70%] h-full opacity-60">
-            <div className="absolute top-10 right-10 w-[500px] h-[400px] bg-gradient-to-br from-amber-600/40 via-orange-700/30 to-transparent rounded-full filter blur-[100px] transform rotate-12" />
-            <div className="absolute top-40 right-40 w-[300px] h-[350px] bg-gradient-to-br from-orange-500/35 via-amber-800/25 to-transparent rounded-full filter blur-[80px] transform -rotate-6" />
-            <div className="absolute top-20 right-60 w-[400px] h-[300px] bg-gradient-to-br from-red-800/25 via-orange-900/20 to-transparent rounded-full filter blur-[90px]" />
-          </div>
+        {/* Deep green base background */}
+        <div className="absolute inset-0 bg-[#041a10]" />
+        
+        {/* Animated 3D Glass Ribbon SVG Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <svg
+            viewBox="0 0 1920 1080"
+            className="absolute w-[200%] h-[150%] -top-[25%] -right-[50%]"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ transform: `translate(${Math.sin(animationOffset) * 15}px, ${Math.cos(animationOffset * 0.7) * 10}px)` }}
+          >
+            <defs>
+              {/* Main gradient for ribbon surfaces */}
+              <linearGradient id="greenRibbon1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#0d5a35" stopOpacity="1" />
+                <stop offset="30%" stopColor="#1a8a50" stopOpacity="1" />
+                <stop offset="60%" stopColor="#24a760" stopOpacity="1" />
+                <stop offset="100%" stopColor="#0f6b3d" stopOpacity="1" />
+              </linearGradient>
+              
+              <linearGradient id="greenRibbon2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#0a4528" stopOpacity="1" />
+                <stop offset="40%" stopColor="#158045" stopOpacity="1" />
+                <stop offset="70%" stopColor="#1f9555" stopOpacity="1" />
+                <stop offset="100%" stopColor="#0b5030" stopOpacity="1" />
+              </linearGradient>
+              
+              <linearGradient id="greenRibbon3" x1="50%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stopColor="#2db873" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#1a8a50" stopOpacity="1" />
+                <stop offset="100%" stopColor="#0a4025" stopOpacity="1" />
+              </linearGradient>
+              
+              <linearGradient id="greenHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#4de89a" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#3cd488" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#2ab872" stopOpacity="0.3" />
+              </linearGradient>
+              
+              <linearGradient id="greenDeep" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#052e18" stopOpacity="1" />
+                <stop offset="50%" stopColor="#0a4528" stopOpacity="1" />
+                <stop offset="100%" stopColor="#0d5a35" stopOpacity="1" />
+              </linearGradient>
+
+              <linearGradient id="greenGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1a7843" stopOpacity="0.95" />
+                <stop offset="25%" stopColor="#22905a" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#28a866" stopOpacity="0.85" />
+                <stop offset="75%" stopColor="#1e9058" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#146040" stopOpacity="0.95" />
+              </linearGradient>
+
+              {/* Edge highlight gradient */}
+              <linearGradient id="edgeHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#7aefb8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#4de89a" stopOpacity="0.4" />
+              </linearGradient>
+
+              {/* Filters for glass effect */}
+              <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+              </filter>
+
+              <filter id="softGlow">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            {/* Background deep layer */}
+            <rect x="0" y="0" width="100%" height="100%" fill="#041a10" />
+
+            {/* Layer 1 - Deep background ribbons */}
+            <g style={{ transform: `translateY(${Math.sin(animationOffset * 0.5) * 8}px)` }}>
+              <path
+                d="M1200,0 Q1350,150 1500,100 Q1700,50 1920,200 L1920,400 Q1700,350 1500,450 Q1300,550 1100,400 Q900,250 1000,100 Z"
+                fill="url(#greenDeep)"
+                opacity="0.7"
+              />
+              <path
+                d="M1400,-100 Q1550,50 1700,0 Q1850,-50 1920,100 L1920,350 Q1800,280 1650,350 Q1450,450 1300,300 Q1150,150 1250,0 Z"
+                fill="url(#greenRibbon2)"
+                opacity="0.6"
+              />
+            </g>
+
+            {/* Layer 2 - Mid-ground flowing ribbons */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.8) * 12}px, ${Math.cos(animationOffset * 0.6) * 8}px)` }}>
+              {/* Large sweeping ribbon from top-right */}
+              <path
+                d="M1100,-50 
+                   C1200,50 1350,80 1450,40 
+                   C1600,-20 1750,100 1920,80 
+                   L1920,320 
+                   C1800,350 1650,280 1500,350 
+                   C1300,450 1150,380 1000,450 
+                   C850,520 700,450 600,500 
+                   L600,300 
+                   C750,250 850,300 1000,220 
+                   C1150,140 1050,80 1100,-50 Z"
+                fill="url(#greenRibbon1)"
+                opacity="0.95"
+              />
+              {/* Highlight edge on ribbon */}
+              <path
+                d="M1100,-50 C1200,50 1350,80 1450,40 C1600,-20 1750,100 1920,80"
+                stroke="url(#edgeHighlight)"
+                strokeWidth="3"
+                fill="none"
+                opacity="0.8"
+              />
+            </g>
+
+            {/* Layer 3 - Primary foreground ribbons */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.9) * 10}px, ${Math.sin(animationOffset * 0.7) * 12}px)` }}>
+              {/* Main diagonal ribbon - thick and prominent */}
+              <path
+                d="M800,0 
+                   Q950,100 1050,80 
+                   Q1200,50 1350,150 
+                   Q1550,280 1700,200 
+                   Q1850,120 1920,220 
+                   L1920,500 
+                   Q1800,550 1650,480 
+                   Q1450,380 1300,500 
+                   Q1100,650 900,550 
+                   Q700,450 550,550 
+                   Q400,650 300,580 
+                   L300,350 
+                   Q450,280 600,350 
+                   Q750,420 850,320 
+                   Q950,220 850,120 
+                   Q750,20 800,0 Z"
+                fill="url(#greenGlass)"
+              />
+              {/* Sharp highlight edges */}
+              <path
+                d="M800,0 Q950,100 1050,80 Q1200,50 1350,150 Q1550,280 1700,200 Q1850,120 1920,220"
+                stroke="#7aefb8"
+                strokeWidth="2.5"
+                fill="none"
+                opacity="0.85"
+                filter="url(#softGlow)"
+              />
+              <path
+                d="M300,350 Q450,280 600,350 Q750,420 850,320"
+                stroke="#5aeaa0"
+                strokeWidth="2"
+                fill="none"
+                opacity="0.7"
+              />
+            </g>
+
+            {/* Layer 4 - Twisted overlapping ribbon */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 1.1) * 8}px, ${Math.cos(animationOffset * 0.8) * 10}px)` }}>
+              <path
+                d="M1000,100 
+                   Q1100,200 1250,150 
+                   Q1400,100 1500,200 
+                   Q1650,350 1800,280 
+                   Q1900,230 1920,350 
+                   L1920,550 
+                   Q1850,500 1750,560 
+                   Q1550,650 1400,550 
+                   Q1200,420 1050,520 
+                   Q850,640 700,560 
+                   Q500,460 400,550 
+                   L400,380 
+                   Q550,300 700,380 
+                   Q900,480 1000,380 
+                   Q1100,280 1000,200 
+                   Q900,120 1000,100 Z"
+                fill="url(#greenRibbon3)"
+                opacity="0.9"
+              />
+              {/* Top edge highlight */}
+              <path
+                d="M1000,100 Q1100,200 1250,150 Q1400,100 1500,200 Q1650,350 1800,280 Q1900,230 1920,350"
+                stroke="#8cf5c5"
+                strokeWidth="2"
+                fill="none"
+                opacity="0.75"
+              />
+            </g>
+
+            {/* Layer 5 - Sharp angular fold element */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.6) * 6}px, ${Math.sin(animationOffset * 1.2) * 8}px)` }}>
+              <path
+                d="M1300,50 L1450,150 L1550,100 L1700,220 L1800,180 L1920,280 
+                   L1920,380 L1750,320 L1600,400 L1450,320 L1350,380 L1200,280 L1150,180 Z"
+                fill="url(#greenRibbon1)"
+                opacity="0.85"
+              />
+              <path
+                d="M1300,50 L1450,150 L1550,100 L1700,220 L1800,180 L1920,280"
+                stroke="#9ff8d0"
+                strokeWidth="2.5"
+                fill="none"
+                opacity="0.9"
+                filter="url(#softGlow)"
+              />
+            </g>
+
+            {/* Layer 6 - Foreground accent ribbons */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 1.3) * 5}px, ${Math.cos(animationOffset * 0.9) * 7}px)` }}>
+              {/* Sharp pointed ribbon */}
+              <path
+                d="M950,200 Q1050,280 1150,250 Q1300,200 1400,300 Q1550,420 1650,350 L1750,400 
+                   Q1650,480 1500,520 Q1300,580 1150,480 Q950,360 850,420 L800,350 Q900,300 950,200 Z"
+                fill="url(#greenRibbon2)"
+                opacity="0.88"
+              />
+              <path
+                d="M950,200 Q1050,280 1150,250 Q1300,200 1400,300 Q1550,420 1650,350 L1750,400"
+                stroke="#6aedb0"
+                strokeWidth="2"
+                fill="none"
+                opacity="0.8"
+              />
+            </g>
+
+            {/* Layer 7 - Translucent overlay ribbons for depth */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.7) * 4}px, ${Math.sin(animationOffset * 1.0) * 5}px)` }} opacity="0.5">
+              <path
+                d="M1150,0 Q1300,80 1400,50 Q1600,0 1750,100 Q1900,200 1920,150 
+                   L1920,250 Q1850,280 1700,220 Q1500,140 1350,200 Q1150,280 1050,180 Q950,80 1050,20 Z"
+                fill="url(#greenHighlight)"
+                filter="url(#glassBlur)"
+              />
+            </g>
+
+            {/* Ambient light spots */}
+            <circle cx="1600" cy="200" r="150" fill="#2ab872" opacity="0.15" filter="url(#glassBlur)" />
+            <circle cx="1300" cy="400" r="200" fill="#1a8a50" opacity="0.1" filter="url(#glassBlur)" />
+            <circle cx="1800" cy="500" r="180" fill="#22905a" opacity="0.12" filter="url(#glassBlur)" />
+          </svg>
         </div>
+
+        {/* Subtle dark gradient on left for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#041a10] via-[#041a10]/70 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#041a10]/50 via-transparent to-transparent pointer-events-none" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
