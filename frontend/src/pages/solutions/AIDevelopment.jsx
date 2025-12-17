@@ -177,9 +177,9 @@ const AIDevelopment = () => {
               <path
                 d="M1100,-80 L1150,100 L1080,280 L1130,450 L1050,620 L1100,800"
                 stroke="url(#edgeGlow)"
-                strokeWidth="3"
+                strokeWidth="4"
                 fill="none"
-                opacity="0.85"
+                opacity="0.95"
                 filter="url(#softGlow)"
               />
             </g>
