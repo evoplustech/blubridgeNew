@@ -298,8 +298,21 @@ metadata:
   test_sequence: 1
   run_ui: false
 
+  - task: "Products - Inference Clusters Page"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/pages/products/Inference.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Products - Inference page implemented with MANDATORY ANIMATED HERO SECTION featuring inference data flow visualization (flowing data streams, connected processing nodes, floating particles). All 9 sections implemented: 1) Animated Hero with dark background, subtle blue gradient glow, 'INFERENCE' blue badge with pulse indicator, 'Fast, affordable, auto-scaling AI inference' headline, Get Started white button, Contact Sales link with arrow, animated inference data flow on right side, 2) Performance Metrics Strip (4-column horizontal: +40% EFFICIENCY, 7.2X FASTER, 80% LOWER COST, 30% FASTER with Learn More blue links), 3) Inference Frameworks Section (two-column: left text with Get Started button, right vLLM central blue icon with 6 orbiting framework icons connected by dashed lines), 4) Model Grid Section (two-column: left text with Contact Sales link, right 6 model cards in 2x3 grid), 5) GPU Compute Section (two-column: left text with Learn More link, right server rack visual with LED indicators and NVIDIA H100 • H200 • GB200 NVL72 label), 6) Feature Strip (3 columns: Performance & Scalability with Zap icon, Purpose-built Stack with Server icon, No Integration Hurdles with Settings icon), 7) Fully Integrated AI Infrastructure Section (two-column: left heading with BluBrg link blue and clickable, right infrastructure diagram with Serverless/Marketplace/Inference/Training/tools/GPU nodes/Data center badge), 8) FAQ Section (4 items with Plus/Minus toggle icons in blue circles, smooth expand/collapse animation), 9) Final CTA Strip (blue gradient background, Reserve GPUs dark button, Contact Sales link with arrow). Route at /products/inference. Please test animated hero section, all 9 sections, FAQ accordion functionality, and mobile responsiveness."
+
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Products - Inference Clusters Page"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
