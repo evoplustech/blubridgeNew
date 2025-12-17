@@ -366,7 +366,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
 
       {/* SECTION 9: FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container-custom">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
           <div className="space-y-4">

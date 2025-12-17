@@ -442,7 +442,7 @@ const Serverless = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container-custom">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           
           <div className="space-y-4 max-w-4xl">
@@ -456,11 +456,11 @@ const Serverless = () => {
                   className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
                 >
                   <span className="text-lg font-medium pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-blue-600/80">
                     {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-blue-400" />
+                      <Minus className="w-5 h-5 text-white" />
                     ) : (
-                      <Plus className="w-5 h-5 text-blue-400" />
+                      <Plus className="w-5 h-5 text-white" />
                     )}
                   </div>
                 </button>
