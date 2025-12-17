@@ -116,8 +116,8 @@ const AIDevelopment = () => {
               </filter>
             </defs>
 
-            {/* Background deep layer */}
-            <rect x="0" y="0" width="100%" height="100%" fill="#041a10" />
+            {/* Background base */}
+            <rect x="0" y="0" width="100%" height="100%" fill="#0a1f14" />
 
             {/* Layer 1 - Deep background ribbons */}
             <g style={{ transform: `translateY(${Math.sin(animationOffset * 0.5) * 8}px)` }}>
