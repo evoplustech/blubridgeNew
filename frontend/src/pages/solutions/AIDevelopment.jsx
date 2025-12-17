@@ -287,10 +287,11 @@ const AIDevelopment = () => {
               />
               <path
                 d="M1800,-50 L1880,100 L1820,300 L1920,450"
-                stroke="#9dc0a8"
-                strokeWidth="2"
+                stroke="#8ad098"
+                strokeWidth="3"
                 fill="none"
-                opacity="0.8"
+                opacity="0.9"
+                filter="url(#softGlow)"
               />
             </g>
 
