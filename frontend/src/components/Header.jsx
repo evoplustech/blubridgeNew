@@ -208,31 +208,30 @@ const Header = () => {
                                 {/* Abstract 3D ribbon SVG */}
                                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="none">
                                   <defs>
-                                    <linearGradient id={`ribbon-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                      <stop offset="0%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[0] || '#333' }} />
-                                      <stop offset="30%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[1] || '#555' }} />
-                                      <stop offset="70%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[2] || '#444' }} />
-                                      <stop offset="100%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[3] || '#222' }} />
+                                    <linearGradient id={`ribbon-${i}`} x1="0%" y1="0%" x2="100%" y2="80%">
+                                      <stop offset="0%" style={{ stopColor: style.colors[0] }} />
+                                      <stop offset="35%" style={{ stopColor: style.colors[1] }} />
+                                      <stop offset="65%" style={{ stopColor: style.colors[2] }} />
+                                      <stop offset="100%" style={{ stopColor: style.colors[3] }} />
                                     </linearGradient>
-                                    <filter id={`glow-${i}`} x="-20%" y="-20%" width="140%" height="140%">
-                                      <feGaussianBlur stdDeviation="3" result="blur" />
+                                    <filter id={`glow-${i}`} x="-30%" y="-30%" width="160%" height="160%">
+                                      <feGaussianBlur stdDeviation="4" result="blur" />
                                       <feComposite in="SourceGraphic" in2="blur" operator="over" />
                                     </filter>
                                   </defs>
-                                  {/* Main ribbon shape */}
+                                  {/* Main ribbon shape - larger and more prominent */}
                                   <path 
                                     d={style.ribbonPath}
                                     fill={`url(#ribbon-${i})`}
                                     filter={`url(#glow-${i})`}
-                                    opacity="0.9"
                                   />
-                                  {/* Secondary ribbon layer for depth */}
+                                  {/* Highlight edge for 3D glass effect */}
                                   <path 
                                     d={style.ribbonPath}
                                     fill="none"
-                                    stroke="rgba(255,255,255,0.15)"
-                                    strokeWidth="1"
-                                    transform="translate(3, 3)"
+                                    stroke="rgba(255,255,255,0.2)"
+                                    strokeWidth="1.5"
+                                    transform="translate(0, -2)"
                                   />
                                 </svg>
                                 {/* Glassy overlay */}
