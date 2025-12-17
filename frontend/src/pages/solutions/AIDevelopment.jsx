@@ -28,7 +28,7 @@ const AIDevelopment = () => {
 
   return (
     <div className="min-h-screen bg-[#000000]">
-      {/* Hero Section - Orange/Amber gradient with abstract 3D visuals */}
+      {/* Hero Section - Deep Green 3D Glass/Ribbon Abstract Forms */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Background with orange/amber gradient and abstract shapes */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a0f05] via-[#0d0805] to-[#000000]">
