@@ -31,95 +31,147 @@ const FineTuning = () => {
 
   return (
     <div className="min-h-screen bg-[#000000]">
-      {/* ANIMATED HERO SECTION - Green gradient with motion */}
+      {/* HERO SECTION - Deep green 3D ribbon/folded geometry - exact match to screenshot */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Animated green gradient background with 3D shard effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#051a0d] via-[#030f08] to-[#000000]">
-          {/* Animated abstract green shards/ribbons */}
-          <div 
-            className="absolute top-0 right-0 w-[80%] h-full transition-transform duration-1000 ease-out"
-            style={{ 
-              transform: `translate(${animationOffset.x}px, ${animationOffset.y}px)` 
-            }}
+        {/* Base dark background */}
+        <div className="absolute inset-0 bg-[#000000]" />
+        
+        {/* 3D Ribbon SVG Background with subtle ambient motion */}
+        <div 
+          className="absolute inset-0"
+          style={{ 
+            transform: `translate(${animationOffset.x * 0.3}px, ${animationOffset.y * 0.3}px)` 
+          }}
+        >
+          <svg 
+            className="absolute top-0 right-0 w-full h-full" 
+            viewBox="0 0 1200 800" 
+            preserveAspectRatio="xMaxYMid slice"
+            style={{ minWidth: '100%', minHeight: '100%' }}
           >
-            {/* Primary flowing ribbon */}
-            <div 
-              className="absolute top-[5%] right-[5%] w-[500px] h-[600px] opacity-70"
-              style={{
-                background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.4) 0%, rgba(5, 150, 105, 0.3) 30%, rgba(4, 120, 87, 0.2) 60%, transparent 100%)',
-                borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
-                filter: 'blur(40px)',
-                transform: `rotate(${15 + animationOffset.x * 0.3}deg)`,
-                animation: 'morphShape 8s ease-in-out infinite'
-              }}
+            <defs>
+              {/* Deep emerald base gradient */}
+              <linearGradient id="green-base-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#001a0d" />
+                <stop offset="25%" stopColor="#003820" />
+                <stop offset="50%" stopColor="#006040" />
+                <stop offset="75%" stopColor="#004030" />
+                <stop offset="100%" stopColor="#001510" />
+              </linearGradient>
+              {/* Mid-tone emerald */}
+              <linearGradient id="green-base-2" x1="20%" y1="100%" x2="80%" y2="0%">
+                <stop offset="0%" stopColor="#002515" />
+                <stop offset="30%" stopColor="#007545" />
+                <stop offset="60%" stopColor="#00a060" />
+                <stop offset="100%" stopColor="#003020" />
+              </linearGradient>
+              {/* Neon green highlight */}
+              <linearGradient id="green-highlight" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stopColor="#00ff80" />
+                <stop offset="50%" stopColor="#40ffa0" />
+                <stop offset="100%" stopColor="#00cc60" />
+              </linearGradient>
+              {/* Dark shadow */}
+              <linearGradient id="green-shadow" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#000a05" />
+                <stop offset="100%" stopColor="#001008" />
+              </linearGradient>
+              {/* Soft glow filter */}
+              <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            
+            {/* Back layer - darkest ribbons */}
+            <path 
+              d="M 500 800 Q 600 600, 750 650 Q 900 700, 1000 500 Q 1100 350, 1200 400 L 1200 800 Z" 
+              fill="url(#green-shadow)" 
+              opacity="0.9"
             />
-            {/* Secondary ribbon */}
-            <div 
-              className="absolute top-[15%] right-[15%] w-[400px] h-[500px] opacity-60"
-              style={{
-                background: 'linear-gradient(160deg, rgba(34, 197, 94, 0.35) 0%, rgba(22, 163, 74, 0.25) 40%, transparent 100%)',
-                borderRadius: '70% 30% 30% 70% / 60% 40% 60% 40%',
-                filter: 'blur(50px)',
-                transform: `rotate(${-10 + animationOffset.y * 0.4}deg) scale(${1 + animationOffset.x * 0.005})`,
-                animation: 'morphShape 10s ease-in-out infinite reverse'
-              }}
+            
+            {/* Middle layer - emerald base ribbons */}
+            <path 
+              d="M 550 800 Q 650 550, 800 600 Q 950 650, 1050 450 Q 1150 300, 1200 350 L 1200 800 Z" 
+              fill="url(#green-base-1)" 
+              filter="url(#soft-glow)"
             />
-            {/* Tertiary accent */}
-            <div 
-              className="absolute top-[30%] right-[25%] w-[350px] h-[400px] opacity-50"
-              style={{
-                background: 'linear-gradient(200deg, rgba(74, 222, 128, 0.3) 0%, rgba(34, 197, 94, 0.2) 50%, transparent 100%)',
-                borderRadius: '50% 50% 30% 70% / 40% 60% 40% 60%',
-                filter: 'blur(60px)',
-                transform: `rotate(${25 + animationOffset.x * 0.2}deg)`,
-                animation: 'morphShape 12s ease-in-out infinite'
-              }}
+            <path 
+              d="M 620 800 Q 720 500, 870 550 Q 1000 600, 1100 400 Q 1180 280, 1200 300 L 1200 800 Z" 
+              fill="url(#green-base-2)" 
+              opacity="0.85"
             />
-            {/* Bright highlight */}
-            <div 
-              className="absolute top-[10%] right-[10%] w-[250px] h-[300px] opacity-40"
-              style={{
-                background: 'linear-gradient(180deg, rgba(134, 239, 172, 0.4) 0%, rgba(74, 222, 128, 0.2) 100%)',
-                borderRadius: '60% 40% 50% 50% / 50% 50% 50% 50%',
-                filter: 'blur(30px)',
-                transform: `translate(${animationOffset.x * 0.5}px, ${animationOffset.y * 0.5}px)`,
-                animation: 'pulse 4s ease-in-out infinite'
-              }}
+            
+            {/* Front layer - brighter ribbons with highlights */}
+            <path 
+              d="M 700 800 Q 800 480, 920 520 Q 1040 560, 1120 380 Q 1180 260, 1200 280 L 1200 800 Z" 
+              fill="url(#green-base-2)"
             />
-          </div>
+            
+            {/* Highlight edges - neon green accents */}
+            <path 
+              d="M 700 800 Q 800 480, 920 520 Q 1040 560, 1120 380 Q 1180 260, 1200 280" 
+              fill="none" 
+              stroke="url(#green-highlight)" 
+              strokeWidth="3" 
+              opacity="0.7"
+            />
+            <path 
+              d="M 620 800 Q 720 500, 870 550 Q 1000 600, 1100 400" 
+              fill="none" 
+              stroke="url(#green-highlight)" 
+              strokeWidth="2" 
+              opacity="0.5"
+            />
+            
+            {/* Additional folded ribbon layers */}
+            <path 
+              d="M 780 800 Q 880 450, 980 490 Q 1080 530, 1150 360 Q 1190 260, 1200 270 L 1200 800 Z" 
+              fill="url(#green-base-1)" 
+              opacity="0.6"
+            />
+            <path 
+              d="M 780 800 Q 880 450, 980 490 Q 1080 530, 1150 360" 
+              fill="none" 
+              stroke="rgba(0,255,120,0.4)" 
+              strokeWidth="1.5"
+            />
+            
+            {/* Inner fold shadows for depth */}
+            <path 
+              d="M 850 800 Q 920 520, 1000 540 Q 1100 560, 1160 420" 
+              fill="none" 
+              stroke="rgba(0,20,10,0.8)" 
+              strokeWidth="20" 
+              opacity="0.4"
+            />
+          </svg>
         </div>
 
         <style>{`
-          @keyframes morphShape {
-            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
-          }
-          @keyframes pulse {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
+          @keyframes subtleFloat {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(5px, 3px); }
           }
         `}</style>
 
+        {/* Hero content - left aligned */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
-              MODEL FINE-TUNING
+              MODEL<br />FINE-TUNING
             </h1>
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
-              At Blubrg, we provide GPU cloud computing solutions that help you fine-tune your AI models for optimal performance. Our infrastructure and expert support teams ensure your models are enhanced for accuracy, efficiency, and scalability, helping you reach production readiness faster.
+              At BluBrg, we offer GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support ensure that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#051a0d] px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#003820] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact">
-                <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
-                  Contact Sales <ArrowRight className="w-4 h-4" />
-                </button>
+              <Link to="/contact" className="text-white hover:text-white/80 px-4 py-3 text-base font-medium transition-colors flex items-center gap-2">
+                Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
