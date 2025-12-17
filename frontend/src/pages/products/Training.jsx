@@ -382,7 +382,7 @@ const Training = () => {
             
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                with our advanced<br />scheduler
+                With our advanced<br />scheduler
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
                 Get the best of both worlds with our Slurm on Kubernetes (SLONK) service. Enjoy advanced job scheduling, resource allocation, and efficient workload management when training LLMs.

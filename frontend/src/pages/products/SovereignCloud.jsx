@@ -229,7 +229,7 @@ const SovereignCloud = () => {
       </section>
 
       {/* SECTION 4: What We Offer with Video Embed */}
-      <section className="py-20 bg-[#0d1117]">
+      {/* <section className="py-20 bg-[#0d1117]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
@@ -238,24 +238,24 @@ const SovereignCloud = () => {
             </p>
           </div>
 
-          {/* Video Embed */}
+         
           <div className="max-w-4xl mx-auto">
             <div className="relative bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden aspect-video">
-              {/* Video Thumbnail */}
+             
               <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl md:text-8xl font-bold text-white/10 mb-4">model</div>
                 </div>
               </div>
               
-              {/* Play Button Overlay */}
+             
               <div className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer hover:bg-black/20 transition-colors">
                 <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
                   <Play className="w-6 h-6 text-white ml-1" />
                 </div>
               </div>
 
-              {/* YouTube Attribution */}
+           
               <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/50 px-3 py-1.5 rounded">
                 <span className="text-xs text-white">Watch on</span>
                 <span className="text-xs text-red-500 font-semibold">▶ YouTube</span>
@@ -263,7 +263,7 @@ const SovereignCloud = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 5: Related Content */}
       <section className="py-20 bg-[#0a0a0f]">

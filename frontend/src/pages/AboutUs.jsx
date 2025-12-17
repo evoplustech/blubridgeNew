@@ -224,7 +224,7 @@ const AboutUs = () => {
       </section>
 
       {/* Leadership Team Section */}
-      <section className="py-20 bg-[#0d1117]">
+      {/* <section className="py-20 bg-[#0d1117]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-gray-500 text-sm uppercase tracking-wider mb-2">OUR TEAM</p>
@@ -256,7 +256,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
       <section className="py-20 bg-[#0a0a0f]">
@@ -307,7 +307,7 @@ const AboutUs = () => {
       </section>
 
       {/* Investor Relations Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -329,7 +329,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0d1117]">

@@ -165,14 +165,14 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 3: Embedded Video Section */}
-      <section className="py-16 bg-[#0d1117]">
+      {/* <section className="py-16 bg-[#0d1117]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Transforming Tomorrow</h2>
           
-          {/* Video Embed */}
+         
           <div className="max-w-4xl">
             <div className="relative bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden aspect-video mb-6">
-              {/* Video Content Placeholder */}
+            
               <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 rounded-full bg-red-600/80 mx-auto mb-4 flex items-center justify-center cursor-pointer hover:bg-red-600 transition-colors">
@@ -182,7 +182,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                 </div>
               </div>
               
-              {/* Video Controls Placeholder */}
+              
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                 <div className="flex items-center gap-4">
                   <div className="w-full bg-gray-700/50 h-1 rounded-full">
@@ -197,7 +197,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 4: About Section */}
       <section className="py-20 bg-[#0a0a0f]">
