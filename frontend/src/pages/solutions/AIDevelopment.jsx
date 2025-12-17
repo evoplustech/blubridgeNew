@@ -352,9 +352,9 @@ const AIDevelopment = () => {
           </svg>
         </div>
 
-        {/* Subtle dark gradient on left for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#041a10] via-[#041a10]/70 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#041a10]/50 via-transparent to-transparent pointer-events-none" />
+        {/* Subtle dark gradient on left for text readability - invisible and natural */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f14] via-[#0a1f14]/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f14]/40 via-transparent to-[#0a1f14]/20 pointer-events-none" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
