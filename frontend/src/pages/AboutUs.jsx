@@ -138,7 +138,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
             <div className="flex items-center gap-2 mb-4">
               <span className="text-white/60 text-sm font-medium tracking-wider uppercase">ABOUT US</span>
@@ -163,7 +163,7 @@ const AboutUs = () => {
 
       {/* Who We Are Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-amber-500 mb-8">Who we are</h2>
           
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -225,7 +225,7 @@ const AboutUs = () => {
 
       {/* Leadership Team Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="mb-12">
             <p className="text-gray-500 text-sm uppercase tracking-wider mb-2">OUR TEAM</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
@@ -260,7 +260,7 @@ const AboutUs = () => {
 
       {/* Testimonials Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Testimonials</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -282,7 +282,7 @@ const AboutUs = () => {
 
       {/* Our Investors Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Our Investors</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -308,7 +308,7 @@ const AboutUs = () => {
 
       {/* Investor Relations Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">Investor Relations</h2>
@@ -333,7 +333,7 @@ const AboutUs = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
           
           <div className="space-y-4 max-w-4xl">
@@ -371,7 +371,7 @@ const AboutUs = () => {
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>

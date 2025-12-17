@@ -261,7 +261,7 @@ const GPUNodes = () => {
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6">
@@ -304,7 +304,7 @@ const GPUNodes = () => {
 
       {/* Performance Metrics Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-12">Performance</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -326,7 +326,7 @@ const GPUNodes = () => {
 
       {/* No Frills GPU Compute Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
@@ -373,7 +373,7 @@ const GPUNodes = () => {
 
       {/* Infrastructure Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Server Visual */}
             <div className="relative order-2 lg:order-1">
@@ -416,7 +416,7 @@ const GPUNodes = () => {
           <div className="w-full h-full bg-gradient-to-l from-slate-800/50 to-transparent" />
         </div>
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="mb-12">
             <p className="text-gray-500 text-sm uppercase tracking-wider mb-2">OUR GPUS</p>
             <h2 className="text-3xl md:text-4xl font-bold">
@@ -448,7 +448,7 @@ const GPUNodes = () => {
 
       {/* Integrated AI Services Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
@@ -498,7 +498,7 @@ const GPUNodes = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           
           <div className="space-y-4 max-w-4xl">
@@ -536,7 +536,7 @@ const GPUNodes = () => {
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>

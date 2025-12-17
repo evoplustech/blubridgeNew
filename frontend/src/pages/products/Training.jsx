@@ -221,7 +221,7 @@ const Training = () => {
           <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full filter blur-[120px] animate-pulse" />
         </div>
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content with Animation */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -277,7 +277,7 @@ const Training = () => {
 
       {/* SECTION 2: Performance Metrics Strip */}
       <section className="py-16 bg-[#0a0a0f] border-t border-b border-slate-800/50">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {performanceMetrics.map((item, i) => (
               <div key={i} className="text-center md:text-left">
@@ -297,7 +297,7 @@ const Training = () => {
 
       {/* SECTION 3: Dynamic Workload Management */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -351,7 +351,7 @@ const Training = () => {
 
       {/* SECTION 4: Advanced Scheduling */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Node Diagram Visual */}
             <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6 relative overflow-hidden">
@@ -399,7 +399,7 @@ const Training = () => {
 
       {/* SECTION 5: Industry-leading GPU Clusters */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -440,7 +440,7 @@ const Training = () => {
 
       {/* SECTION 6: Feature Strip (Three Columns) */}
       <section className="py-16 bg-[#0a0a0f] border-t border-b border-slate-800/50">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, i) => (
               <div key={i} className="text-center md:text-left">
@@ -455,7 +455,7 @@ const Training = () => {
 
       {/* SECTION 7: Fully Integrated AI Infrastructure */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -518,7 +518,7 @@ const Training = () => {
 
       {/* SECTION 8: FAQs */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
           <div className="space-y-4">
@@ -552,7 +552,7 @@ const Training = () => {
 
       {/* SECTION 9: Final CTA Strip */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Access thousands of GPUs tailored to your<br />requirements.
           </h2>

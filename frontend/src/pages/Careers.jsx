@@ -167,7 +167,7 @@ const Careers = () => {
         />
         
         {/* Content */}
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="max-w-2xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
               Join the team building<br />next-gen AI infrastructure
@@ -193,7 +193,7 @@ const Careers = () => {
 
       {/* Our Mission Section */}
       <section className="py-16 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">Our Mission</h2>
           <p className="text-gray-500 text-sm uppercase tracking-wider mb-4 ">
           Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
@@ -204,7 +204,7 @@ const Careers = () => {
 
       {/* Culture Image Strip */}
       <section className="py-8 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {cultureImages.map((img, index) => (
               <div key={index} className="aspect-video rounded-xl overflow-hidden">
@@ -221,7 +221,7 @@ const Careers = () => {
 
       {/* What We Value Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
             <p className="text-gray-400 text-lg max-w-2xl">
@@ -284,7 +284,7 @@ const Careers = () => {
 
       {/* Life at BluBrg - Video Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
             <p className="text-gray-400 text-lg max-w-2xl">
@@ -312,7 +312,7 @@ const Careers = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
           
           <div className="space-y-4 max-w-4xl">
@@ -350,7 +350,7 @@ const Careers = () => {
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>

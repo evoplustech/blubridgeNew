@@ -321,7 +321,7 @@ const FineTuning = () => {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0f]/90 via-[#0a0a0f]/70 to-transparent" />
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content with Animation */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -371,7 +371,7 @@ const FineTuning = () => {
 
       {/* SECTION 2: Value Proposition Strip */}
       <section className="py-12 bg-[#0d1117] border-t border-b border-slate-800/50">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {[
               { title: 'Built for builders', desc: '→ Fine-tuning models without dealing with backend operations.', cta: 'Start fine-tuning' },
@@ -393,7 +393,7 @@ const FineTuning = () => {
 
       {/* SECTION 3: Supported Models Table */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Models</h2>
             <p className="text-gray-400 max-w-2xl">
@@ -451,7 +451,7 @@ const FineTuning = () => {
 
       {/* SECTION 4: All Designed for Speed & Simplicity */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               All designed for speed<br />and simplicity
@@ -521,7 +521,7 @@ const FineTuning = () => {
 
       {/* SECTION 5: How it Works */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">How it works</h2>
           
           <div className="grid md:grid-cols-4 gap-6 relative">
@@ -542,7 +542,7 @@ const FineTuning = () => {
 
       {/* SECTION 6: Model Ecosystem Strip */}
       <section className="py-16 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
               <div key={i} className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-slate-600/50 transition-colors">
@@ -558,7 +558,7 @@ const FineTuning = () => {
 
       {/* SECTION 7: Savings by Design */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
@@ -590,7 +590,7 @@ const FineTuning = () => {
 
       {/* SECTION 8: Serverless without Trade-offs */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -623,7 +623,7 @@ const FineTuning = () => {
 
       {/* SECTION 9: FAQs */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
           <div className="space-y-4">
@@ -665,7 +665,7 @@ const FineTuning = () => {
 
       {/* SECTION 10: Final CTA Strip */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Access thousands of GPUs tailored to your<br />requirements.
           </h2>

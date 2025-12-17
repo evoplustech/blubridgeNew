@@ -244,7 +244,7 @@ const Home = () => {
           backgroundSize: '40px 40px'
         }} />
 
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -297,7 +297,7 @@ const Home = () => {
 
       {/* News/Updates Strip */}
       <section className="py-12 bg-[#0a0a0f] border-t border-slate-800/50">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-lg font-medium">Latest News</h3>
             <div className="flex gap-2">
@@ -330,7 +330,7 @@ const Home = () => {
 
       {/* Integrated AI Platform Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="max-w-3xl mb-16">
             <h2 className="text-4xl md:text-5xl font-light leading-tight mb-6">
               A fully integrated suite of AI services and compute
@@ -393,7 +393,7 @@ const Home = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left - Text and Tabs */}
             <div>
@@ -445,7 +445,7 @@ const Home = () => {
 
       {/* Testimonials */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl font-light mb-12">Testimonials</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -463,7 +463,7 @@ const Home = () => {
 
       {/* Use Cases Grid */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4">Use cases</h2>
             <p className="text-gray-400 max-w-2xl">
@@ -499,7 +499,7 @@ const Home = () => {
 
       {/* NVIDIA Partner Strip */}
       <section className="py-16 bg-[#0d1117] border-t border-b border-slate-800/50">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-light mb-4">
@@ -531,7 +531,7 @@ const Home = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl font-light mb-12">Frequently Asked Questions</h2>
           
           <div className="space-y-4 max-w-4xl">
@@ -569,7 +569,7 @@ const Home = () => {
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>

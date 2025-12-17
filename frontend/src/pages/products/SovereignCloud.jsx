@@ -154,7 +154,7 @@ const SovereignCloud = () => {
         {/* Dark Overlay for Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
               YOUR AI.<br />
@@ -185,7 +185,7 @@ const SovereignCloud = () => {
 
       {/* SECTION 2: Sovereign AI Cloud Intro */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-gray-400 text-sm uppercase tracking-wider mb-2">THE ADVANTAGES OF A</p>
@@ -205,7 +205,7 @@ const SovereignCloud = () => {
 
       {/* SECTION 3: Value Pillars Card Grid (5 Cards) */}
       <section className="py-12 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {valuePillars.map((pillar, i) => (
               <div 
@@ -230,7 +230,7 @@ const SovereignCloud = () => {
 
       {/* SECTION 4: What We Offer with Video Embed */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
@@ -267,7 +267,7 @@ const SovereignCloud = () => {
 
       {/* SECTION 5: Related Content */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Related Content</h2>
           
           <div className="grid md:grid-cols-4 gap-6">
@@ -296,7 +296,7 @@ const SovereignCloud = () => {
 
       {/* SECTION 6: Fully Integrated AI Infrastructure */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -360,7 +360,7 @@ const SovereignCloud = () => {
 
       {/* SECTION 7: FAQs */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
           <div className="space-y-4">
@@ -394,7 +394,7 @@ const SovereignCloud = () => {
 
       {/* SECTION 8: Final CTA Strip */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Access thousands of GPUs tailored to your<br />requirements.
           </h2>

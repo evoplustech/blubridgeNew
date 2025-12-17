@@ -184,7 +184,7 @@ const Serverless = () => {
       <section className="relative min-h-[550px] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
         
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -231,7 +231,7 @@ const Serverless = () => {
 
       {/* Value Proposition Strip */}
       <section className="py-12 bg-[#0d1117] border-t border-b border-slate-800/50">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Lower cost, more power</h3>
@@ -251,7 +251,7 @@ const Serverless = () => {
 
       {/* Models & Pricing Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
             <p className="text-gray-400 max-w-2xl">
@@ -291,7 +291,7 @@ const Serverless = () => {
 
       {/* Savings by Design Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Model Icons Grid */}
             <div className="relative">
@@ -325,7 +325,7 @@ const Serverless = () => {
 
       {/* Serverless Without Trade-offs Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Text */}
             <div className="space-y-6">
@@ -360,7 +360,7 @@ const Serverless = () => {
 
       {/* Performance Metrics */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Performance</h2>
           
           <div className="grid md:grid-cols-4 gap-8">
@@ -390,7 +390,7 @@ const Serverless = () => {
 
       {/* Zero Rate Limits Platform Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left - Features */}
             <div className="space-y-6">
@@ -442,7 +442,7 @@ const Serverless = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-6 lg:px-16">
+        <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           
           <div className="space-y-4 max-w-4xl">
@@ -480,7 +480,7 @@ const Serverless = () => {
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-6 lg:px-16 text-center">
+        <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>
