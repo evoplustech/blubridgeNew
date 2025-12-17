@@ -235,7 +235,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
       {/* Hero Section with Animated 3D Form */}
-      <section className="relative min-h-[650px] flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a2e6d] via-[#0b3c8f] to-[#061a44]" />
         
         {/* Grid pattern overlay */}
