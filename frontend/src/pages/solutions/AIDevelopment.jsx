@@ -4,7 +4,23 @@ import { Button } from '../../components/ui/button';
 import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-react';
 
 const AIDevelopment = () => {
-  const [openFaq, setOpenFaq] = useState(0); // First FAQ open by default
+  const [openFaq, setOpenFaq] = useState(0);
+  const [animationOffset, setAnimationOffset] = useState(0);
+  const animationRef = useRef(null);
+
+  useEffect(() => {
+    let startTime = null;
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      setAnimationOffset(elapsed * 0.00008);
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    animationRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
