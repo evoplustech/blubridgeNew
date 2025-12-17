@@ -166,79 +166,125 @@ const Header = () => {
                         <h3 className="text-white font-medium mb-6 text-base">By Use Case</h3>
                         <div className="grid grid-cols-2 gap-4">
                           {solutions.useCase.map((item, i) => {
-                            // Abstract 3D ribbon backgrounds matching screenshot - more prominent ribbons
-                            const cardStyles = [
-                              // Model Training - Purple/magenta ribbon (more vibrant)
-                              {
-                                background: 'linear-gradient(145deg, #0a0812 0%, #150a1c 100%)',
-                                colors: ['#9030e0', '#d070ff', '#ff40c0', '#6020a0'],
-                                ribbonPath: 'M -20 75 Q 60 15, 140 55 Q 200 85, 220 35 L 220 110 L -20 110 Z'
-                              },
-                              // AI & ML Inference - Dark blue/graphite ribbon (deeper)
-                              {
-                                background: 'linear-gradient(145deg, #080a10 0%, #0a1525 100%)',
-                                colors: ['#2a4060', '#4a6890', '#6a90b0', '#102030'],
-                                ribbonPath: 'M -10 80 Q 70 25, 150 60 Q 210 95, 220 45 L 220 110 L -10 110 Z'
-                              },
-                              // AI Development - Brown/bronze ribbon (warmer)
-                              {
-                                background: 'linear-gradient(145deg, #0c0a08 0%, #1a1008 100%)',
-                                colors: ['#a06025', '#e08030', '#c07025', '#704015'],
-                                ribbonPath: 'M 0 70 Q 80 20, 160 60 Q 210 90, 220 40 L 220 110 L 0 110 Z'
-                              },
-                              // Model Fine-Tuning - Deep green ribbon (richer)
-                              {
-                                background: 'linear-gradient(145deg, #060c0a 0%, #0a1812 100%)',
-                                colors: ['#108040', '#30b070', '#208050', '#085030'],
-                                ribbonPath: 'M 10 65 Q 90 15, 170 55 Q 215 85, 220 40 L 220 110 L 10 110 Z'
-                              }
-                            ];
-                            const style = cardStyles[i];
                             return (
                               <Link
                                 key={i}
                                 to={item.link}
-                                className="relative block overflow-hidden rounded-xl group cursor-pointer transition-all duration-200 hover:translate-y-[-2px] hover:brightness-110"
+                                className="relative block overflow-hidden rounded-xl group cursor-pointer transition-transform duration-150 hover:translate-y-[-1px]"
                                 style={{ 
                                   width: '205px',
                                   height: '103px',
-                                  background: style.background
+                                  background: '#000'
                                 }}
                               >
-                                {/* Abstract 3D ribbon SVG */}
-                                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="none">
-                                  <defs>
-                                    <linearGradient id={`ribbon-${i}`} x1="0%" y1="0%" x2="100%" y2="80%">
-                                      <stop offset="0%" style={{ stopColor: style.colors[0] }} />
-                                      <stop offset="35%" style={{ stopColor: style.colors[1] }} />
-                                      <stop offset="65%" style={{ stopColor: style.colors[2] }} />
-                                      <stop offset="100%" style={{ stopColor: style.colors[3] }} />
-                                    </linearGradient>
-                                    <filter id={`glow-${i}`} x="-30%" y="-30%" width="160%" height="160%">
-                                      <feGaussianBlur stdDeviation="4" result="blur" />
-                                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                    </filter>
-                                  </defs>
-                                  {/* Main ribbon shape - larger and more prominent */}
-                                  <path 
-                                    d={style.ribbonPath}
-                                    fill={`url(#ribbon-${i})`}
-                                    filter={`url(#glow-${i})`}
-                                  />
-                                  {/* Highlight edge for 3D glass effect */}
-                                  <path 
-                                    d={style.ribbonPath}
-                                    fill="none"
-                                    stroke="rgba(255,255,255,0.2)"
-                                    strokeWidth="1.5"
-                                    transform="translate(0, -2)"
-                                  />
-                                </svg>
-                                {/* Glassy overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20" />
-                                {/* Text label - top left */}
-                                <div className="absolute top-4 left-4">
-                                  <span className="text-white font-medium text-sm leading-snug drop-shadow-lg">
+                                {/* Model Training - Purple twisted ribbons flowing from bottom-left */}
+                                {i === 0 && (
+                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
+                                    <defs>
+                                      <linearGradient id="purple-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#2a0040" />
+                                        <stop offset="30%" stopColor="#6020a0" />
+                                        <stop offset="50%" stopColor="#c060ff" />
+                                        <stop offset="70%" stopColor="#ff50c0" />
+                                        <stop offset="100%" stopColor="#400060" />
+                                      </linearGradient>
+                                      <linearGradient id="purple-ribbon-2" x1="0%" y1="80%" x2="100%" y2="20%">
+                                        <stop offset="0%" stopColor="#200030" />
+                                        <stop offset="40%" stopColor="#8040c0" />
+                                        <stop offset="60%" stopColor="#d080ff" />
+                                        <stop offset="100%" stopColor="#301050" />
+                                      </linearGradient>
+                                    </defs>
+                                    {/* Back ribbon layer */}
+                                    <path d="M -10 110 Q 30 70, 80 85 Q 130 100, 160 60 Q 180 35, 210 50 L 210 110 Z" fill="url(#purple-ribbon-1)" opacity="0.7"/>
+                                    {/* Middle ribbon */}
+                                    <path d="M 20 115 Q 60 50, 120 70 Q 170 85, 200 40 L 210 115 Z" fill="url(#purple-ribbon-2)" opacity="0.85"/>
+                                    {/* Front ribbon with highlight */}
+                                    <path d="M 50 115 Q 90 45, 150 65 Q 190 80, 215 30 L 215 115 Z" fill="url(#purple-ribbon-1)"/>
+                                    <path d="M 50 115 Q 90 45, 150 65 Q 190 80, 215 30" fill="none" stroke="rgba(255,200,255,0.4)" strokeWidth="1"/>
+                                  </svg>
+                                )}
+                                
+                                {/* AI & ML Inference - Dark steel angular shards */}
+                                {i === 1 && (
+                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
+                                    <defs>
+                                      <linearGradient id="steel-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#0a1020" />
+                                        <stop offset="30%" stopColor="#1a3050" />
+                                        <stop offset="60%" stopColor="#4a7090" />
+                                        <stop offset="100%" stopColor="#0a1525" />
+                                      </linearGradient>
+                                      <linearGradient id="steel-ribbon-2" x1="20%" y1="100%" x2="80%" y2="0%">
+                                        <stop offset="0%" stopColor="#051015" />
+                                        <stop offset="40%" stopColor="#2a5070" />
+                                        <stop offset="70%" stopColor="#5a90b0" />
+                                        <stop offset="100%" stopColor="#102035" />
+                                      </linearGradient>
+                                    </defs>
+                                    {/* Sharp angular shapes */}
+                                    <path d="M 30 115 L 70 40 L 110 80 L 140 30 L 180 60 L 210 25 L 210 115 Z" fill="url(#steel-ribbon-1)" opacity="0.6"/>
+                                    <path d="M 60 115 L 90 50 L 130 75 L 170 35 L 210 55 L 210 115 Z" fill="url(#steel-ribbon-2)" opacity="0.8"/>
+                                    <path d="M 80 115 L 120 45 L 160 70 L 200 30 L 210 40 L 210 115 Z" fill="url(#steel-ribbon-1)"/>
+                                    <path d="M 80 115 L 120 45 L 160 70 L 200 30" fill="none" stroke="rgba(150,180,220,0.35)" strokeWidth="1"/>
+                                  </svg>
+                                )}
+                                
+                                {/* AI Development - Bronze/copper flowing ribbons */}
+                                {i === 2 && (
+                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
+                                    <defs>
+                                      <linearGradient id="bronze-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#301505" />
+                                        <stop offset="30%" stopColor="#804020" />
+                                        <stop offset="55%" stopColor="#d08040" />
+                                        <stop offset="80%" stopColor="#ffa050" />
+                                        <stop offset="100%" stopColor="#503010" />
+                                      </linearGradient>
+                                      <linearGradient id="bronze-ribbon-2" x1="10%" y1="90%" x2="90%" y2="10%">
+                                        <stop offset="0%" stopColor="#201005" />
+                                        <stop offset="35%" stopColor="#905025" />
+                                        <stop offset="65%" stopColor="#c07030" />
+                                        <stop offset="100%" stopColor="#402010" />
+                                      </linearGradient>
+                                    </defs>
+                                    {/* Smooth flowing bronze ribbons */}
+                                    <path d="M -20 115 Q 40 60, 100 80 Q 150 95, 190 50 Q 210 30, 220 45 L 220 115 Z" fill="url(#bronze-ribbon-1)" opacity="0.65"/>
+                                    <path d="M 10 115 Q 60 50, 130 75 Q 180 90, 210 45 L 220 115 Z" fill="url(#bronze-ribbon-2)" opacity="0.8"/>
+                                    <path d="M 40 115 Q 90 40, 160 65 Q 200 80, 220 35 L 220 115 Z" fill="url(#bronze-ribbon-1)"/>
+                                    <path d="M 40 115 Q 90 40, 160 65 Q 200 80, 220 35" fill="none" stroke="rgba(255,200,150,0.4)" strokeWidth="1"/>
+                                  </svg>
+                                )}
+                                
+                                {/* Model Fine-Tuning - Deep green layered ribbons */}
+                                {i === 3 && (
+                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
+                                    <defs>
+                                      <linearGradient id="green-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#051510" />
+                                        <stop offset="30%" stopColor="#106030" />
+                                        <stop offset="55%" stopColor="#30a060" />
+                                        <stop offset="80%" stopColor="#50d080" />
+                                        <stop offset="100%" stopColor="#083020" />
+                                      </linearGradient>
+                                      <linearGradient id="green-ribbon-2" x1="10%" y1="90%" x2="90%" y2="10%">
+                                        <stop offset="0%" stopColor="#031008" />
+                                        <stop offset="40%" stopColor="#208050" />
+                                        <stop offset="70%" stopColor="#40b070" />
+                                        <stop offset="100%" stopColor="#0a2515" />
+                                      </linearGradient>
+                                    </defs>
+                                    {/* Vertical flowing green ribbons */}
+                                    <path d="M 60 115 Q 80 70, 100 85 Q 130 100, 150 55 Q 170 25, 210 40 L 210 115 Z" fill="url(#green-ribbon-1)" opacity="0.6"/>
+                                    <path d="M 90 115 Q 110 55, 140 75 Q 175 90, 200 45 L 210 115 Z" fill="url(#green-ribbon-2)" opacity="0.8"/>
+                                    <path d="M 110 115 Q 140 45, 170 65 Q 200 80, 220 35 L 220 115 Z" fill="url(#green-ribbon-1)"/>
+                                    <path d="M 110 115 Q 140 45, 170 65 Q 200 80, 220 35" fill="none" stroke="rgba(150,255,180,0.35)" strokeWidth="1"/>
+                                  </svg>
+                                )}
+                                
+                                {/* Text label - top left, white, semi-bold */}
+                                <div className="absolute top-4 left-4 z-10">
+                                  <span className="text-white font-semibold text-sm leading-snug">
                                     {item.name}
                                   </span>
                                 </div>
