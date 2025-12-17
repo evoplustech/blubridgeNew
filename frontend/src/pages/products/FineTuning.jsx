@@ -461,10 +461,10 @@ const FineTuning = () => {
             </p>
           </div>
 
-          {/* Video Embed Placeholder */}
+          
           <div className="max-w-4xl mx-auto">
             <div className="relative bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden aspect-video">
-              {/* Browser Header */}
+             
               <div className="bg-slate-800 px-4 py-2 flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/70" />
@@ -478,10 +478,10 @@ const FineTuning = () => {
                 </div>
               </div>
               
-              {/* Video Content Placeholder */}
+             
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center aspect-video">
                 <div className="absolute inset-0 flex">
-                  {/* Left panel - Code/UI mockup */}
+                 
                   <div className="w-1/2 p-4 border-r border-slate-700/50">
                     <div className="bg-slate-800/50 rounded p-3 space-y-2">
                       <div className="h-2 bg-blue-500/30 rounded w-3/4" />
