@@ -41,64 +41,78 @@ const AIDevelopment = () => {
             preserveAspectRatio="xMidYMid slice"
           >
             <defs>
-              {/* Main gradient for ribbon surfaces */}
-              <linearGradient id="greenRibbon1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0d5a35" stopOpacity="1" />
-                <stop offset="30%" stopColor="#1a8a50" stopOpacity="1" />
-                <stop offset="60%" stopColor="#24a760" stopOpacity="1" />
-                <stop offset="100%" stopColor="#0f6b3d" stopOpacity="1" />
-              </linearGradient>
-              
-              <linearGradient id="greenRibbon2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0a4528" stopOpacity="1" />
-                <stop offset="40%" stopColor="#158045" stopOpacity="1" />
-                <stop offset="70%" stopColor="#1f9555" stopOpacity="1" />
-                <stop offset="100%" stopColor="#0b5030" stopOpacity="1" />
-              </linearGradient>
-              
-              <linearGradient id="greenRibbon3" x1="50%" y1="0%" x2="50%" y2="100%">
-                <stop offset="0%" stopColor="#2db873" stopOpacity="0.9" />
-                <stop offset="50%" stopColor="#1a8a50" stopOpacity="1" />
-                <stop offset="100%" stopColor="#0a4025" stopOpacity="1" />
-              </linearGradient>
-              
-              <linearGradient id="greenHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#4de89a" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#3cd488" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#2ab872" stopOpacity="0.3" />
-              </linearGradient>
-              
-              <linearGradient id="greenDeep" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#052e18" stopOpacity="1" />
-                <stop offset="50%" stopColor="#0a4528" stopOpacity="1" />
-                <stop offset="100%" stopColor="#0d5a35" stopOpacity="1" />
+              {/* Deep shadow green - darkest areas */}
+              <linearGradient id="deepShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1A251E" />
+                <stop offset="50%" stopColor="#0d1a12" />
+                <stop offset="100%" stopColor="#2A3A30" />
               </linearGradient>
 
-              <linearGradient id="greenGlass" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#1a7843" stopOpacity="0.95" />
-                <stop offset="25%" stopColor="#22905a" stopOpacity="0.9" />
-                <stop offset="50%" stopColor="#28a866" stopOpacity="0.85" />
-                <stop offset="75%" stopColor="#1e9058" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#146040" stopOpacity="0.95" />
+              {/* Main ribbon surface - rich dark green */}
+              <linearGradient id="ribbonMain" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2a4035" />
+                <stop offset="25%" stopColor="#3A4D39" />
+                <stop offset="50%" stopColor="#4A5D48" />
+                <stop offset="75%" stopColor="#3A4D39" />
+                <stop offset="100%" stopColor="#2a3a30" />
               </linearGradient>
 
-              {/* Edge highlight gradient */}
-              <linearGradient id="edgeHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7aefb8" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#4de89a" stopOpacity="0.4" />
+              {/* Highlight gradient - brighter green for lit surfaces */}
+              <linearGradient id="ribbonHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#4A5D48" />
+                <stop offset="30%" stopColor="#6C825E" />
+                <stop offset="60%" stopColor="#8EA17C" />
+                <stop offset="100%" stopColor="#6C825E" />
               </linearGradient>
 
-              {/* Filters for glass effect */}
-              <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-              </filter>
+              {/* Sharp edge highlight */}
+              <linearGradient id="edgeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#9CB88A" />
+                <stop offset="50%" stopColor="#b5d4a0" />
+                <stop offset="100%" stopColor="#8EA17C" />
+              </linearGradient>
 
-              <filter id="softGlow">
-                <feGaussianBlur stdDeviation="3" result="blur" />
+              {/* Brown-tinted shadow */}
+              <linearGradient id="brownShadow" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#55422F" />
+                <stop offset="50%" stopColor="#3a3025" />
+                <stop offset="100%" stopColor="#2A3A30" />
+              </linearGradient>
+
+              {/* Mid-tone surface */}
+              <linearGradient id="midTone" x1="50%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stopColor="#4A5D48" />
+                <stop offset="50%" stopColor="#3A4D39" />
+                <stop offset="100%" stopColor="#2a3a30" />
+              </linearGradient>
+
+              {/* Bright accent for sharp edges */}
+              <linearGradient id="brightEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#a8c498" />
+                <stop offset="50%" stopColor="#c5e0b5" />
+                <stop offset="100%" stopColor="#8EA17C" />
+              </linearGradient>
+
+              {/* Glass reflection gradient */}
+              <linearGradient id="glassReflect" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#2a4035" stopOpacity="0.9" />
+                <stop offset="40%" stopColor="#5a7858" stopOpacity="0.8" />
+                <stop offset="60%" stopColor="#7a9a70" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#4A5D48" stopOpacity="0.9" />
+              </linearGradient>
+
+              {/* Soft glow filter */}
+              <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
+              </filter>
+
+              {/* Subtle blur for depth */}
+              <filter id="depthBlur" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
               </filter>
             </defs>
 
