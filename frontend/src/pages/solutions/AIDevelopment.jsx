@@ -362,7 +362,7 @@ const AIDevelopment = () => {
               AI DEVELOPMENT
             </h1>
             <p className="text-lg lg:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
-              Blubrg’s platform makes every step of building AI smoother, enabling you to move quickly from early experiments in interactive notebooks to deploying fully scaled AI applications across multiple GPU clusters. It removes barriers and complexity, helping teams innovate faster and achieve better outcomes.
+              BluBrg’s platform makes every step of building AI smoother, enabling you to move quickly from early experiments in interactive notebooks to deploying fully scaled AI applications across multiple GPU clusters. It removes barriers and complexity, helping teams innovate faster and achieve better outcomes.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -400,7 +400,7 @@ const AIDevelopment = () => {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Increased Productivity</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Blubrg’s cloud stack automates routine and repetitive tasks, liberating your team to focus on strategic work instead of day-to-day infrastructure management.
+                BluBrg’s cloud stack automates routine and repetitive tasks, liberating your team to focus on strategic work instead of day-to-day infrastructure management.
               </p>
             </div>
           </div>
@@ -417,7 +417,7 @@ const AIDevelopment = () => {
                 Fastest GPU nodes<br />available
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
-                The Blubrg GPU Cloud delivers high-performance, bare-metal GPU nodes purpose-built for demanding AI workloads. Whether you’re training new models or improving existing ones, the infrastructure offers dependable, top-tier performance to support faster development.
+                The BluBrg GPU Cloud delivers high-performance, bare-metal GPU nodes purpose-built for demanding AI workloads. Whether you’re training new models or improving existing ones, the infrastructure offers dependable, top-tier performance to support faster development.
               </p>
 
               <div className="space-y-8">
@@ -474,7 +474,7 @@ const AIDevelopment = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">AI-Development<br />Stack</h2>
             <p className="text-base text-white/60 max-w-2xl">
-             Blubrg offers a complete technology stack and integrated development environment purpose-built for creating AI models, large language models (LLMs), and other machine learning applications. This stack works seamlessly with a broad set of third-party tools to fit your existing workflows.
+             BluBrg offers a complete technology stack and integrated development environment purpose-built for creating AI models, large language models (LLMs), and other machine learning applications. This stack works seamlessly with a broad set of third-party tools to fit your existing workflows.
             </p>
           </div>
 
@@ -646,7 +646,7 @@ const AIDevelopment = () => {
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
               <p className="text-white/60 text-sm leading-relaxed">
-                An ecosystem of services and tools that support application development and deployment, compatible with both Blubrg offerings and popular AI/ML frameworks.
+                An ecosystem of services and tools that support application development and deployment, compatible with both BluBrg offerings and popular AI/ML frameworks.
               </p>
             </div>
           </div>
@@ -658,7 +658,7 @@ const AIDevelopment = () => {
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">More solutions</h2>
           <p className="text-base text-white/60 mb-12 max-w-2xl">
-            Blubrg accelerates the entire AI journey, helping organisations go from initial concept to deployed solution more quickly and efficiently.
+            BluBrg accelerates the entire AI journey, helping organisations go from initial concept to deployed solution more quickly and efficiently.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -741,7 +741,7 @@ const AIDevelopment = () => {
             {[
               {
                 question: "What makes BluBrg's GPU Cloud different from others?",
-                answer: "Blubrg controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
+                answer: "BluBrg controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
               },
               {
                 question: "What types of GPUs does BluBrg offer?",
