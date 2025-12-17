@@ -286,7 +286,7 @@ const AIDevelopment = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#1a0f05] px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#0a4528] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
