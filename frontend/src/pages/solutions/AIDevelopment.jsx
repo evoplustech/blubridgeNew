@@ -361,7 +361,7 @@ const AIDevelopment = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               AI DEVELOPMENT
             </h1>
-            <p className="text-lg lg:text-xl text-white/75 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
               Blubrg’s platform makes every step of building AI smoother, enabling you to move quickly from early experiments in interactive notebooks to deploying fully scaled AI applications across multiple GPU clusters. It removes barriers and complexity, helping teams innovate faster and achieve better outcomes.
             </p>
             <div className="flex flex-wrap gap-4">
