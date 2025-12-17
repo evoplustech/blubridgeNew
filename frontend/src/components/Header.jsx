@@ -91,7 +91,7 @@ const Header = () => {
         <Link to="/news" className="ml-2 underline hover:no-underline">See More →</Link>
       </div>
 
-      <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
+      <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-white tracking-wider">
