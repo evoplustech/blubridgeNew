@@ -180,22 +180,16 @@ const Home = () => {
 
   const testimonials = [
     {
-      quote: "AI is transforming the global economy and reshaping the role of renewable energy. With BluBrg, we are supporting infrastructure that is sovereign, scalable, and purpose-built to drive this shift forward.",
+      quote: "AI is transforming the global economy and reshaping the role of renewable energy. With Blubrg, we are supporting infrastructure that is sovereign, scalable, and purpose-built to drive this shift forward. Blubrg’s full-stack, GPU-first approach provides a clear execution advantage. The scale and quality of this Series B round reflect Blubrg’s strong vision, growing momentum, and the depth of our partnership. Through both our Series B investment and joint venture, we are making a meaningful, long-term commitment to building industrial relevance in the era of AI.",
       name: "Øyvind Eriksen",
       role: "President & CEO",
       company: "Aker ASA"
     },
     {
-      quote: "In just a few months, BluBrg has advanced with clear focus and speed, transforming bold plans into real production capacity and achieving meaningful relevance quickly.",
+      quote: "In just a few months, Blubrg has advanced with clear focus and speed, transforming bold plans into real production capacity and achieving meaningful relevance quickly. The team is developing large-scale, sovereign infrastructure that enterprises and governments can truly use, delivering reliability, efficiency, and proximity to their data. We’re excited to support [Josh and the] Blubrg [team] as they scale thoughtfully, empower builders with the right infrastructure, and lay a strong foundation for national AI leadership.",
       name: "Larry Aschebrook",
       role: "Founder & Managing Partner",
       company: "G Squared"
-    },
-    {
-      quote: "BluBrg's full-stack approach to AI infrastructure provides exactly what enterprises need - reliable, scalable, and sustainable compute power built specifically for AI workloads.",
-      name: "Sarah Mitchell",
-      role: "CTO",
-      company: "TechForward Inc"
     }
   ];
 
@@ -263,7 +257,7 @@ const Home = () => {
         }} />
 
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 items-center">
             {/* Left Content */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
@@ -314,7 +308,7 @@ const Home = () => {
       </section>
 
       {/* News/Updates Strip */}
-      <section className="py-12 bg-[#0a0a0f] border-t border-slate-800/50">
+      {/* <section className="py-12 bg-[#0a0a0f] border-t border-slate-800/50">
         <div className="container-custom">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-lg font-medium">Latest News</h3>
@@ -344,7 +338,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Integrated AI Platform Section */}
       <section className="py-20 bg-[#0a0a0f]">
@@ -417,12 +411,12 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
         
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols gap-12">
             {/* Left - Text and Tabs */}
             <div>
               <h2 className="text-4xl font-light mb-6">BluBrg's Infrastructure</h2>
               <p className="text-gray-400 mb-8 leading-relaxed">
-                BluBrg manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters.
+                Blubrg manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
               </p>
               
               {/* Tab Buttons */}
@@ -471,7 +465,7 @@ const Home = () => {
         <div className="container-custom">
           <h2 className="text-3xl font-light mb-12">Testimonials</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((item, index) => (
               <div key={index} className="border-l-2 border-slate-700 pl-6">
                 <p className="text-gray-300 italic mb-6 leading-relaxed text-sm">"{item.quote}"</p>
