@@ -166,30 +166,80 @@ const Header = () => {
                         <h3 className="text-white font-medium mb-6 text-base">By Use Case</h3>
                         <div className="grid grid-cols-2 gap-4">
                           {solutions.useCase.map((item, i) => {
-                            const gradients = [
-                              'linear-gradient(135deg, #6b46c1 0%, #4c1d95 100%)',
-                              'linear-gradient(135deg, #475569 0%, #1e293b 100%)',
-                              'linear-gradient(135deg, #d97706 0%, #92400e 100%)',
-                              'linear-gradient(135deg, #059669 0%, #064e3b 100%)'
+                            // Abstract 3D ribbon backgrounds matching screenshot
+                            const cardStyles = [
+                              // Model Training - Purple ribbon
+                              {
+                                background: 'linear-gradient(145deg, #0a0a12 0%, #12081a 100%)',
+                                ribbonGradient: 'linear-gradient(135deg, #7a1ed0 0%, #c97fff 30%, #ff00aa 60%, #5a0e90 100%)',
+                                ribbonPath: 'M 0 60 Q 50 20, 100 50 Q 150 80, 200 40 Q 180 100, 100 90 Q 20 80, 0 60'
+                              },
+                              // AI & ML Inference - Dark blue/graphite ribbon
+                              {
+                                background: 'linear-gradient(145deg, #0a0a10 0%, #0d1520 100%)',
+                                ribbonGradient: 'linear-gradient(135deg, #1a2940 0%, #3b5070 30%, #5a7090 60%, #051020 100%)',
+                                ribbonPath: 'M 20 70 Q 80 30, 130 60 Q 180 90, 200 50 Q 160 100, 80 95 Q 0 90, 20 70'
+                              },
+                              // AI Development - Brown/bronze ribbon
+                              {
+                                background: 'linear-gradient(145deg, #0a0a08 0%, #150f08 100%)',
+                                ribbonGradient: 'linear-gradient(135deg, #8a5020 0%, #d47020 30%, #b06010 60%, #603010 100%)',
+                                ribbonPath: 'M 10 55 Q 60 25, 120 55 Q 180 85, 190 45 Q 170 95, 90 90 Q 10 85, 10 55'
+                              },
+                              // Model Fine-Tuning - Deep green ribbon
+                              {
+                                background: 'linear-gradient(145deg, #050a08 0%, #081510 100%)',
+                                ribbonGradient: 'linear-gradient(135deg, #006633 0%, #339966 30%, #1a5030 60%, #004422 100%)',
+                                ribbonPath: 'M 30 50 Q 90 20, 150 55 Q 200 90, 180 55 Q 140 100, 70 90 Q 0 80, 30 50'
+                              }
                             ];
+                            const style = cardStyles[i];
                             return (
                               <Link
                                 key={i}
                                 to={item.link}
-                                className="relative block overflow-hidden rounded-xl group cursor-pointer"
+                                className="relative block overflow-hidden rounded-xl group cursor-pointer transition-all duration-200 hover:translate-y-[-2px] hover:brightness-110"
                                 style={{ 
                                   width: '205px',
                                   height: '103px',
-                                  background: gradients[i]
+                                  background: style.background
                                 }}
                               >
-                                <div className="absolute inset-0 opacity-20" style={{
-                                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
-                                  backgroundSize: '40px 40px'
-                                }}></div>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                                <div className="relative h-full flex items-end p-5">
-                                  <span className="text-white font-medium text-base leading-snug group-hover:translate-y-[-2px] transition-transform duration-150">
+                                {/* Abstract 3D ribbon SVG */}
+                                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="none">
+                                  <defs>
+                                    <linearGradient id={`ribbon-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                                      <stop offset="0%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[0] || '#333' }} />
+                                      <stop offset="30%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[1] || '#555' }} />
+                                      <stop offset="70%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[2] || '#444' }} />
+                                      <stop offset="100%" style={{ stopColor: style.ribbonGradient.match(/#[0-9a-f]{6}/gi)?.[3] || '#222' }} />
+                                    </linearGradient>
+                                    <filter id={`glow-${i}`} x="-20%" y="-20%" width="140%" height="140%">
+                                      <feGaussianBlur stdDeviation="3" result="blur" />
+                                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                  </defs>
+                                  {/* Main ribbon shape */}
+                                  <path 
+                                    d={style.ribbonPath}
+                                    fill={`url(#ribbon-${i})`}
+                                    filter={`url(#glow-${i})`}
+                                    opacity="0.9"
+                                  />
+                                  {/* Secondary ribbon layer for depth */}
+                                  <path 
+                                    d={style.ribbonPath}
+                                    fill="none"
+                                    stroke="rgba(255,255,255,0.15)"
+                                    strokeWidth="1"
+                                    transform="translate(3, 3)"
+                                  />
+                                </svg>
+                                {/* Glassy overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20" />
+                                {/* Text label - top left */}
+                                <div className="absolute top-4 left-4">
+                                  <span className="text-white font-medium text-sm leading-snug drop-shadow-lg">
                                     {item.name}
                                   </span>
                                 </div>
