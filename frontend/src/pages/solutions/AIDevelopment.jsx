@@ -41,64 +41,66 @@ const AIDevelopment = () => {
             preserveAspectRatio="xMidYMid slice"
           >
             <defs>
-              {/* Deep shadow green - darkest areas */}
-              <linearGradient id="deepShadow" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#1A251E" />
-                <stop offset="50%" stopColor="#0d1a12" />
-                <stop offset="100%" stopColor="#2A3A30" />
+              {/* Deep shadow - darkest green/black */}
+              <linearGradient id="deepShadow" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#0d1a12" />
+                <stop offset="50%" stopColor="#1A251E" />
+                <stop offset="100%" stopColor="#0a1510" />
               </linearGradient>
 
-              {/* Main ribbon surface - rich dark green */}
+              {/* Main ribbon - rich dark green with depth */}
               <linearGradient id="ribbonMain" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2a4035" />
-                <stop offset="25%" stopColor="#3A4D39" />
-                <stop offset="50%" stopColor="#4A5D48" />
-                <stop offset="75%" stopColor="#3A4D39" />
-                <stop offset="100%" stopColor="#2a3a30" />
+                <stop offset="0%" stopColor="#1e3528" />
+                <stop offset="30%" stopColor="#2d4a38" />
+                <stop offset="50%" stopColor="#3d5d48" />
+                <stop offset="70%" stopColor="#2d4a38" />
+                <stop offset="100%" stopColor="#1e3528" />
               </linearGradient>
 
-              {/* Highlight gradient - brighter green for lit surfaces */}
+              {/* Lit surface - brighter green */}
+              <linearGradient id="ribbonLit" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3d5d48" />
+                <stop offset="40%" stopColor="#4d7058" />
+                <stop offset="60%" stopColor="#5d8068" />
+                <stop offset="100%" stopColor="#4d7058" />
+              </linearGradient>
+
+              {/* Highlight surface - brightest */}
               <linearGradient id="ribbonHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#4A5D48" />
-                <stop offset="30%" stopColor="#6C825E" />
-                <stop offset="60%" stopColor="#8EA17C" />
-                <stop offset="100%" stopColor="#6C825E" />
+                <stop offset="0%" stopColor="#4d7058" />
+                <stop offset="30%" stopColor="#6d9078" />
+                <stop offset="60%" stopColor="#8db098" />
+                <stop offset="100%" stopColor="#6d9078" />
               </linearGradient>
 
-              {/* Sharp edge highlight */}
+              {/* Sharp edge glow */}
               <linearGradient id="edgeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#9CB88A" />
-                <stop offset="50%" stopColor="#b5d4a0" />
-                <stop offset="100%" stopColor="#8EA17C" />
+                <stop offset="0%" stopColor="#9dc0a8" />
+                <stop offset="50%" stopColor="#bde0c8" />
+                <stop offset="100%" stopColor="#8db098" />
               </linearGradient>
 
-              {/* Brown-tinted shadow */}
-              <linearGradient id="brownShadow" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#55422F" />
-                <stop offset="50%" stopColor="#3a3025" />
-                <stop offset="100%" stopColor="#2A3A30" />
+              {/* Vertical gradient for tall ribbons */}
+              <linearGradient id="verticalRibbon" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#4d7058" />
+                <stop offset="30%" stopColor="#3d5d48" />
+                <stop offset="70%" stopColor="#2d4a38" />
+                <stop offset="100%" stopColor="#1e3528" />
               </linearGradient>
 
-              {/* Mid-tone surface */}
-              <linearGradient id="midTone" x1="50%" y1="0%" x2="50%" y2="100%">
-                <stop offset="0%" stopColor="#4A5D48" />
-                <stop offset="50%" stopColor="#3A4D39" />
-                <stop offset="100%" stopColor="#2a3a30" />
+              {/* Angled lit surface */}
+              <linearGradient id="angledLit" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#5d8068" />
+                <stop offset="50%" stopColor="#4d7058" />
+                <stop offset="100%" stopColor="#3d5d48" />
               </linearGradient>
 
-              {/* Bright accent for sharp edges */}
-              <linearGradient id="brightEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#a8c498" />
-                <stop offset="50%" stopColor="#c5e0b5" />
-                <stop offset="100%" stopColor="#8EA17C" />
-              </linearGradient>
-
-              {/* Glass reflection gradient */}
+              {/* Glass reflection */}
               <linearGradient id="glassReflect" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#2a4035" stopOpacity="0.9" />
-                <stop offset="40%" stopColor="#5a7858" stopOpacity="0.8" />
-                <stop offset="60%" stopColor="#7a9a70" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#4A5D48" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#2d4a38" />
+                <stop offset="40%" stopColor="#4d7058" />
+                <stop offset="60%" stopColor="#6d9078" />
+                <stop offset="100%" stopColor="#3d5d48" />
               </linearGradient>
 
               {/* Soft glow filter */}
@@ -110,245 +112,236 @@ const AIDevelopment = () => {
                 </feMerge>
               </filter>
 
-              {/* Subtle blur for depth */}
+              {/* Depth blur */}
               <filter id="depthBlur" x="-10%" y="-10%" width="120%" height="120%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
               </filter>
             </defs>
 
             {/* Background base */}
-            <rect x="0" y="0" width="100%" height="100%" fill="#0a1f14" />
+            <rect x="0" y="0" width="100%" height="100%" fill="#0a1510" />
 
-            {/* Layer 1 - Deepest background ribbon forms */}
-            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.4) * 6}px, ${Math.cos(animationOffset * 0.3) * 4}px)` }}>
-              {/* Large back ribbon - sweeping from top right */}
+            {/* Layer 1 - Deep background vertical ribbons */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.3) * 8}px, ${Math.cos(animationOffset * 0.25) * 5}px)` }}>
+              {/* Large back ribbon flowing vertically */}
               <path
-                d="M1920,0 L1920,450 
-                   Q1750,500 1600,420 
-                   Q1400,320 1200,400 
-                   Q1000,480 800,380 
-                   Q600,280 500,350 
-                   L400,300 
-                   Q550,200 750,280 
-                   Q1000,380 1250,280 
-                   Q1500,180 1700,100 
-                   Q1850,40 1920,0 Z"
+                d="M600,-50 
+                   C650,100 700,200 680,350 
+                   C660,500 600,650 550,800 
+                   C500,950 450,1080 400,1200 
+                   L250,1200 
+                   C300,1000 350,800 400,600 
+                   C450,400 500,200 520,0 
+                   Z"
                 fill="url(#deepShadow)"
-                opacity="0.95"
+                opacity="0.9"
+              />
+              {/* Another back ribbon */}
+              <path
+                d="M900,-100 
+                   C950,50 980,200 960,400 
+                   C940,600 880,800 820,1000 
+                   L700,1200 
+                   L580,1100 
+                   C650,850 720,600 760,350 
+                   C800,100 850,-50 900,-100 Z"
+                fill="url(#ribbonMain)"
+                opacity="0.85"
               />
             </g>
 
-            {/* Layer 2 - Mid-background flowing forms */}
-            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.5) * 8}px, ${Math.sin(animationOffset * 0.4) * 6}px)` }}>
-              {/* Twisted ribbon element */}
+            {/* Layer 2 - Mid ribbons with strong angles */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.4) * 10}px, ${Math.sin(animationOffset * 0.35) * 7}px)` }}>
+              {/* Prominent folded ribbon */}
               <path
-                d="M1920,50 
-                   Q1800,100 1700,60 
-                   Q1550,0 1400,80 
-                   Q1200,180 1050,120 
-                   Q900,60 750,140 
-                   Q600,220 500,160 
-                   L450,220 
-                   Q600,320 800,240 
-                   Q1000,160 1200,260 
-                   Q1400,360 1600,280 
-                   Q1750,220 1920,300 
-                   L1920,50 Z"
-                fill="url(#ribbonMain)"
-                opacity="0.9"
+                d="M1100,-80 
+                   L1150,100 
+                   L1080,280 
+                   L1130,450 
+                   L1050,620 
+                   L1100,800 
+                   L1020,950 
+                   L950,1100 
+                   L850,1000 
+                   L920,820 
+                   L860,640 
+                   L940,450 
+                   L880,280 
+                   L960,100 
+                   L920,-50 
+                   Z"
+                fill="url(#ribbonLit)"
+                opacity="0.92"
               />
               {/* Edge highlight */}
               <path
-                d="M1920,50 Q1800,100 1700,60 Q1550,0 1400,80 Q1200,180 1050,120 Q900,60 750,140"
+                d="M1100,-80 L1150,100 L1080,280 L1130,450 L1050,620 L1100,800"
                 stroke="url(#edgeGlow)"
+                strokeWidth="3"
+                fill="none"
+                opacity="0.85"
+                filter="url(#softGlow)"
+              />
+            </g>
+
+            {/* Layer 3 - Primary vertical ribbon cascade */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.5) * 12}px, ${Math.cos(animationOffset * 0.4) * 8}px)` }}>
+              {/* Main dramatic ribbon */}
+              <path
+                d="M1300,-100 
+                   C1380,50 1400,200 1350,400 
+                   L1420,500 
+                   L1340,700 
+                   C1300,850 1250,950 1200,1100 
+                   L1080,1100 
+                   C1130,900 1180,700 1220,500 
+                   L1150,350 
+                   C1200,150 1240,0 1300,-100 Z"
+                fill="url(#ribbonHighlight)"
+                opacity="0.95"
+              />
+              {/* Sharp crease */}
+              <path
+                d="M1300,-100 C1380,50 1400,200 1350,400 L1420,500 L1340,700"
+                stroke="#bde0c8"
+                strokeWidth="3"
+                fill="none"
+                opacity="0.9"
+                filter="url(#softGlow)"
+              />
+            </g>
+
+            {/* Layer 4 - Angular fold ribbons */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.6) * 8}px, ${Math.sin(animationOffset * 0.5) * 10}px)` }}>
+              {/* Folded angular element */}
+              <path
+                d="M1500,-50 
+                   L1580,150 
+                   L1500,350 
+                   L1600,500 
+                   L1480,700 
+                   L1550,900 
+                   L1450,1100 
+                   L1350,1050 
+                   L1430,850 
+                   L1350,650 
+                   L1480,450 
+                   L1380,280 
+                   L1480,100 
+                   L1420,-30 
+                   Z"
+                fill="url(#angledLit)"
+                opacity="0.9"
+              />
+              <path
+                d="M1500,-50 L1580,150 L1500,350 L1600,500 L1480,700"
+                stroke="#9dc0a8"
+                strokeWidth="2.5"
+                fill="none"
+                opacity="0.85"
+              />
+            </g>
+
+            {/* Layer 5 - Foreground ribbons */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.7) * 6}px, ${Math.cos(animationOffset * 0.6) * 8}px)` }}>
+              {/* Prominent front ribbon */}
+              <path
+                d="M1650,-80 
+                   C1720,80 1750,250 1700,450 
+                   L1780,600 
+                   L1680,800 
+                   C1640,950 1580,1050 1520,1150 
+                   L1400,1100 
+                   C1460,950 1520,800 1580,620 
+                   L1500,480 
+                   C1550,280 1600,100 1650,-80 Z"
+                fill="url(#glassReflect)"
+                opacity="0.88"
+              />
+              <path
+                d="M1650,-80 C1720,80 1750,250 1700,450 L1780,600 L1680,800"
+                stroke="#bde0c8"
+                strokeWidth="2.5"
+                fill="none"
+                opacity="0.9"
+                filter="url(#softGlow)"
+              />
+            </g>
+
+            {/* Layer 6 - Right edge ribbons */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.8) * 5}px, ${Math.sin(animationOffset * 0.7) * 7}px)` }}>
+              <path
+                d="M1800,-50 
+                   L1880,100 
+                   L1820,300 
+                   L1920,450 
+                   L1920,700 
+                   L1800,550 
+                   L1860,350 
+                   L1780,180 
+                   L1850,0 
+                   Z"
+                fill="url(#ribbonLit)"
+                opacity="0.85"
+              />
+              <path
+                d="M1800,-50 L1880,100 L1820,300 L1920,450"
+                stroke="#9dc0a8"
+                strokeWidth="2"
+                fill="none"
+                opacity="0.8"
+              />
+            </g>
+
+            {/* Layer 7 - Additional depth ribbons */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.45) * 7}px, ${Math.cos(animationOffset * 0.55) * 6}px)` }}>
+              <path
+                d="M750,100 
+                   C800,250 820,400 780,600 
+                   L840,750 
+                   L760,950 
+                   L680,900 
+                   L740,700 
+                   L680,550 
+                   C720,350 700,200 750,100 Z"
+                fill="url(#verticalRibbon)"
+                opacity="0.8"
+              />
+              <path
+                d="M750,100 C800,250 820,400 780,600 L840,750"
+                stroke="#8db098"
                 strokeWidth="2"
                 fill="none"
                 opacity="0.7"
               />
             </g>
 
-            {/* Layer 3 - Primary angular ribbon - main visual element */}
-            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.6) * 10}px, ${Math.cos(animationOffset * 0.5) * 8}px)` }}>
-              {/* Large folded ribbon - sharp angles */}
+            {/* Layer 8 - Bottom flowing forms */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.5) * 6}px, ${Math.sin(animationOffset * 0.8) * 4}px)` }}>
               <path
-                d="M1920,100 
-                   L1750,180 
-                   L1600,120 
-                   L1400,220 
-                   L1200,150 
-                   L1000,280 
-                   L800,200 
-                   L650,320 
-                   L500,250 
-                   L400,350 
-                   L350,450 
-                   L500,520 
-                   L700,440 
-                   L900,550 
-                   L1100,460 
-                   L1300,580 
-                   L1500,480 
-                   L1700,600 
-                   L1920,500 
-                   L1920,100 Z"
-                fill="url(#ribbonHighlight)"
-                opacity="0.92"
-              />
-              {/* Sharp crease highlights */}
-              <path
-                d="M1920,100 L1750,180 L1600,120 L1400,220 L1200,150 L1000,280 L800,200 L650,320"
-                stroke="url(#brightEdge)"
-                strokeWidth="2.5"
-                fill="none"
-                opacity="0.85"
-                filter="url(#softGlow)"
-              />
-              <path
-                d="M350,450 L500,520 L700,440 L900,550 L1100,460"
-                stroke="#9CB88A"
-                strokeWidth="1.5"
-                fill="none"
-                opacity="0.6"
-              />
-            </g>
-
-            {/* Layer 4 - Overlapping twisted ribbon */}
-            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.7) * 8}px, ${Math.sin(animationOffset * 0.6) * 10}px)` }}>
-              <path
-                d="M1920,200 
-                   Q1800,280 1650,220 
-                   Q1500,160 1350,260 
-                   Q1200,360 1050,280 
-                   Q900,200 750,300 
-                   Q600,400 500,320 
-                   L450,400 
-                   L550,500 
-                   Q700,580 900,480 
-                   Q1100,380 1300,500 
-                   Q1500,620 1700,520 
-                   Q1850,440 1920,520 
-                   L1920,200 Z"
-                fill="url(#midTone)"
-                opacity="0.88"
-              />
-              {/* Top edge reflection */}
-              <path
-                d="M1920,200 Q1800,280 1650,220 Q1500,160 1350,260 Q1200,360 1050,280 Q900,200 750,300"
-                stroke="#8EA17C"
-                strokeWidth="2"
-                fill="none"
-                opacity="0.75"
-              />
-            </g>
-
-            {/* Layer 5 - Sharp pointed accent ribbons */}
-            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.8) * 6}px, ${Math.cos(animationOffset * 0.7) * 8}px)` }}>
-              {/* Pointed ribbon fragment */}
-              <path
-                d="M1920,350 
-                   L1800,320 
-                   L1650,400 
-                   L1500,340 
-                   L1350,450 
-                   L1200,380 
-                   L1100,480 
-                   L1000,420 
-                   L950,500 
-                   L1050,580 
-                   L1200,520 
-                   L1400,620 
-                   L1600,540 
-                   L1800,650 
-                   L1920,580 
-                   Z"
-                fill="url(#glassReflect)"
-                opacity="0.85"
-              />
-              {/* Intense edge highlight */}
-              <path
-                d="M1920,350 L1800,320 L1650,400 L1500,340 L1350,450 L1200,380 L1100,480"
-                stroke="url(#brightEdge)"
-                strokeWidth="2"
-                fill="none"
-                opacity="0.9"
-                filter="url(#softGlow)"
-              />
-            </g>
-
-            {/* Layer 6 - Foreground ribbons with strong highlights */}
-            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.9) * 5}px, ${Math.sin(animationOffset * 0.8) * 7}px)` }}>
-              {/* Wide sweeping foreground ribbon */}
-              <path
-                d="M1920,450 
-                   Q1750,400 1600,480 
-                   Q1400,580 1200,500 
-                   Q1000,420 850,520 
-                   Q700,620 550,540 
-                   Q400,460 300,550 
-                   L250,650 
-                   Q400,720 600,640 
-                   Q850,540 1100,660 
-                   Q1350,780 1600,680 
-                   Q1800,600 1920,700 
-                   L1920,450 Z"
-                fill="url(#ribbonMain)"
-                opacity="0.9"
-              />
-              <path
-                d="M1920,450 Q1750,400 1600,480 Q1400,580 1200,500 Q1000,420 850,520 Q700,620 550,540"
-                stroke="#a8c498"
-                strokeWidth="2.5"
-                fill="none"
-                opacity="0.8"
-                filter="url(#softGlow)"
-              />
-            </g>
-
-            {/* Layer 7 - Sharp angular accent elements */}
-            <g style={{ transform: `translate(${Math.sin(animationOffset * 1.0) * 4}px, ${Math.cos(animationOffset * 0.9) * 5}px)` }}>
-              {/* Angular fold accent */}
-              <path
-                d="M1600,300 L1700,380 L1800,320 L1920,420 L1920,480 L1780,400 L1650,480 L1500,380 L1450,450 L1550,520 L1700,550 L1850,500 L1920,560"
-                fill="url(#brownShadow)"
-                opacity="0.75"
-              />
-              {/* Sharp edge line */}
-              <path
-                d="M1600,300 L1700,380 L1800,320 L1920,420"
-                stroke="#c5e0b5"
-                strokeWidth="1.5"
-                fill="none"
-                opacity="0.85"
-              />
-            </g>
-
-            {/* Layer 8 - Bottom flowing elements */}
-            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.6) * 7}px, ${Math.sin(animationOffset * 1.1) * 5}px)` }}>
-              <path
-                d="M0,700 
-                   Q150,650 300,720 
-                   Q500,800 700,720 
-                   Q900,640 1100,740 
-                   Q1300,840 1500,760 
-                   Q1700,680 1920,780 
+                d="M0,750 
+                   C200,700 400,780 600,720 
+                   C800,660 1000,740 1200,680 
+                   C1400,620 1600,700 1800,650 
+                   L1920,680 
                    L1920,1080 
                    L0,1080 Z"
                 fill="url(#deepShadow)"
-                opacity="0.8"
+                opacity="0.85"
               />
               <path
-                d="M0,700 Q150,650 300,720 Q500,800 700,720 Q900,640 1100,740 Q1300,840 1500,760"
-                stroke="#6C825E"
+                d="M0,750 C200,700 400,780 600,720 C800,660 1000,740 1200,680"
+                stroke="#4d7058"
                 strokeWidth="2"
                 fill="none"
                 opacity="0.5"
               />
             </g>
 
-            {/* Ambient glow spots for cinematic depth */}
-            <circle cx="1500" cy="350" r="200" fill="#4A5D48" opacity="0.08" filter="url(#depthBlur)" />
-            <circle cx="1200" cy="500" r="250" fill="#3A4D39" opacity="0.06" filter="url(#depthBlur)" />
-            <circle cx="1700" cy="600" r="180" fill="#55422F" opacity="0.05" filter="url(#depthBlur)" />
+            {/* Ambient glow for cinematic depth */}
+            <ellipse cx="1400" cy="400" rx="300" ry="200" fill="#3d5d48" opacity="0.06" filter="url(#depthBlur)" />
+            <ellipse cx="1100" cy="600" rx="250" ry="180" fill="#2d4a38" opacity="0.05" filter="url(#depthBlur)" />
+            <ellipse cx="1600" cy="700" rx="200" ry="150" fill="#1e3528" opacity="0.04" filter="url(#depthBlur)" />
           </svg>
         </div>
 
