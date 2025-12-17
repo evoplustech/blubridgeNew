@@ -30,8 +30,8 @@ const AIDevelopment = () => {
     <div className="min-h-screen bg-[#000000]">
       {/* Hero Section - Deep Green 3D Glass/Ribbon Abstract Forms */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Deep green base background */}
-        <div className="absolute inset-0 bg-[#041a10]" />
+        {/* Deep dark green base background */}
+        <div className="absolute inset-0 bg-[#0a1f14]" />
         
         {/* Animated 3D Glass Ribbon SVG Background */}
         <div className="absolute inset-0 overflow-hidden">
