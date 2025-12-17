@@ -324,10 +324,10 @@ const Serverless = () => {
       </section>
 
       {/* Serverless Without Trade-offs Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text */}
+            
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Serverless without trade-<br />offs
@@ -340,7 +340,7 @@ const Serverless = () => {
               </Link>
             </div>
             
-            {/* Right - Server Visual */}
+           
             <div className="relative">
               <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-slate-700/50">
                 <div className="aspect-video bg-slate-800/50 rounded-xl flex items-center justify-center">
@@ -356,7 +356,7 @@ const Serverless = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Performance Metrics */}
       <section className="py-20 bg-[#0d1117]">
