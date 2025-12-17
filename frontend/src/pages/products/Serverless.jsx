@@ -389,10 +389,10 @@ const Serverless = () => {
       </section>
 
       {/* Zero Rate Limits Platform Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left - Features */}
+           
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Zero rate limits, maximum<br /><span className="text-blue-400">reliability</span>
@@ -405,7 +405,7 @@ const Serverless = () => {
               </Link>
             </div>
             
-            {/* Right - Platform Diagram */}
+           
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 {services.map((service, index) => (
@@ -423,7 +423,7 @@ const Serverless = () => {
                 ))}
               </div>
               
-              {/* Data Center Card */}
+            
               <div className="mt-6 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-4 border border-blue-800/30">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
@@ -438,7 +438,7 @@ const Serverless = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0d1117]">
