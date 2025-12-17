@@ -140,28 +140,28 @@ const Inference = () => {
       metric: '+40%',
       label: 'EFFICIENCY',
       title: 'Improved resource utilisation',
-      description: 'Up to 40% improvement on efficiency.',
+      description: 'Efficiency gains reaching 40%.',
       link: '/products/inference'
     },
     {
       metric: '7.2X',
       label: 'FASTER',
       title: 'On throughput and latency',
-      description: 'GPUs with GEMM tuning improves throughput and latency by up to 7.2x.',
+      description: 'Using AMD MI300X GPUs combined with GEMM tuning delivers throughput and latency enhancements of up to 7.2×',
       link: '/products/gpu-nodes'
     },
     {
       metric: '80%',
       label: 'LOWER COST',
       title: 'More performance for less',
-      description: 'BluBrg delivers on average 80% cost-saving in comparison to hyperscalers.',
+      description: 'Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.',
       link: '/pricing'
     },
     {
       metric: '30%',
       label: 'FASTER',
       title: 'On time to insights',
-      description: 'BluBrg Cloud accelerates time to insights by up to 30% thanks to its AI-optimised stack.',
+      description: 'Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
       link: '/products/training'
     }
   ];
@@ -181,17 +181,17 @@ const Inference = () => {
     {
       icon: Zap,
       title: 'Performance & Scalability',
-      description: 'Auto-scaling GPU compute is our bread and butter. Know your AI is being served at speed while effectively utilising all of its allocated resources.'
+      description: 'Dynamically expanding graphics-based compute sits at the core of what we deliver. Confidence comes from knowing artificial intelligence runs with low latency while every assigned resource is used to its fullest potential.'
     },
     {
       icon: Server,
       title: 'Purpose-built Stack',
-      description: 'Get all the cost and performance benefits of a fully integrated infrastructure designed for your AI workloads on all scales.'
+      description: 'Unlock the full financial and performance advantages of a tightly unified infrastructure platform, specifically engineered to support artificial intelligence workloads ranging from small experiments to massive production-scale deployments.'
     },
     {
       icon: Settings,
       title: 'No Integration Hurdles',
-      description: 'We take flexibility seriously. Take advantage of pre-configured software or easily integrate with your own tools and workflow.'
+      description: 'Flexibility is a core priority for us. Use ready-made software configurations or seamlessly connect your existing tools and workflows with ease.'
     }
   ];
 
@@ -199,19 +199,19 @@ const Inference = () => {
   const faqs = [
     {
       question: "What makes your AI inference service different from others?",
-      answer: "Our inference service is built on a purpose-designed stack optimized specifically for AI workloads. We offer auto-scaling GPU compute, proprietary model optimizations, and end-to-end integration that delivers 80% cost savings compared to hyperscalers while achieving 7.2x faster throughput."
+      answer: "The inference offering for artificial intelligence utilises next-generation graphics processors tailored to handle offline processing alongside real-time data flows. Through a tightly unified software environment and coordinated control via Kubernetes and SLURM, it delivers exceptional speed, elastic growth, and operational efficiency."
     },
     {
       question: "Can I integrate existing LLMs with your inference service?",
-      answer: "Yes, absolutely. Our platform supports 100+ open-source models including LLaMA, Mistral, Stable Diffusion, and more. You can also bring your own custom models. We provide ready-to-use integrations with TensorFlow Serving, PyTorch, and ONNX Runtime."
+      answer: "Yes, an extensive collection of widely adopted open-source models is available for immediate launch and usage. In addition, the platform enables smooth connectivity with well-known AI frameworks such as TensorFlow, PyTorch, and ONNX Runtime, making it straightforward to run and operate models you already have."
     },
     {
       question: "What kind of support and optimisations do you offer for AI inference workloads?",
-      answer: "We provide comprehensive optimizations including INT8/FP16 quantization, dynamic batching, KV cache optimization, and GEMM tuning. Our team offers dedicated support for scaling, performance tuning, and integration assistance for enterprise customers."
+      answer: "End-to-end assistance is available, covering throughput optimisation, model-level enhancements like quantisation and pruning, along with ongoing observability. Dedicated specialists ensure inference operations remain smooth and effective, driving maximum output while minimising response time."
     },
     {
       question: "How secure is your AI inference service?",
-      answer: "Security is paramount. Our infrastructure runs in sovereign data centers with full data residency compliance. We provide isolated compute environments, encrypted data in transit and at rest, and comply with GDPR and other regulatory requirements."
+      answer: "Protection sits at the core of Blubrg’s approach. Strong identity and access controls are in place, with compatibility for OAuth2, SSO, and 2FA. Information is safeguarded through encryption during storage and transmission, while compliance aligns with recognised frameworks such as GDPR and HIPAA. Shared environments are designed to maintain strict separation, preserving confidentiality and isolation for every tenant."
     }
   ];
 
@@ -259,7 +259,7 @@ const Inference = () => {
               </h1>
               
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-                Built for efficiency, our inference service is built on auto-scaling GPU compute, optimised at every layer for both batch and streaming workloads.
+                Designed for maximum efficiency, the inference offering runs on dynamically scaling GPU capacity, with end-to-end optimisation tailored to support both batch processing and real-time streaming demands.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
@@ -328,7 +328,7 @@ const Inference = () => {
                 Easily access optimised<br />inference frameworks
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Ready-to-use integrations with TensorFlow Serving, PyTorch, and ONNX Runtime for high-speed inference. Our model optimisation techniques ensure reduced latency and improved performance without sacrificing accuracy.
+                 Immediate compatibility is available with TensorFlow Serving, PyTorch, and ONNX Runtime to enable rapid inference execution. Proprietary optimization methods lower response times and enhance throughput while preserving model accuracy.
               </p>
               <Link to="/contact">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
@@ -401,7 +401,8 @@ const Inference = () => {
                 Dedicated endpoints for<br />100+ open-source models
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                With Inference Endpoints, easily deploy Transformers, Diffusers or any custom model on dedicated, fully managed infrastructure. Access 100+ models, optimised with BluBrg's proprietary software for maximum performance.
+                Using Inference Endpoints, you can quickly launch Transformers, Diffusers, or bespoke models on dedicated, fully managed compute environments. Choose from over 100 available models, enhanced through Blubrg’s proprietary optimisation layer to achieve maximum performance.
+
               </p>
               <Link to="/contact" className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-2">
                 Contact Sales <ArrowRight className="w-4 h-4" />
@@ -431,7 +432,7 @@ const Inference = () => {
                 Built on high-<br />performance GPU<br />compute
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Our inference service is built on the latest GPU accelerators. Combined with high-speed networking and fast storage, we deliver unmatched computational power for batch and streaming AI workloads.
+               The inference offering runs on next-generation GPU acceleration. Paired with ultra-fast networking and rapid storage systems, it provides exceptional compute capability for both batch processing and real-time artificial intelligence workloads.
               </p>
               <Link to="/products/gpu-nodes" className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-2">
                 Learn More <ArrowRight className="w-4 h-4" />
@@ -485,7 +486,7 @@ const Inference = () => {
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-blue-400 hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+                 Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging <Link to="/" className="text-blue-400 hover:underline">BluBrg</Link>'s AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
             

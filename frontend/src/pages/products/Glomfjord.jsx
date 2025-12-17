@@ -118,7 +118,7 @@ const Glomfjord = () => {
             </h1>
             
             <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-              Our Glomfjord AI data center, located in northern Norway, is powered by 100% renewable energy and uses the latest advancements in AI infrastructure to achieve best-in-class efficiency without sacrificing performance.
+Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on renewable energy and integrates cutting-edge AI infrastructure to deliver industry-leading efficiency without compromising performance. 
             </p>
             
             <div className="flex flex-wrap gap-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
@@ -145,12 +145,20 @@ const Glomfjord = () => {
       {/* SECTION 2: Intro Section */}
       <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
-          <div className="max-w-4xl">
+          <div className="max-w-6xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               The data center on the edge of<br />the Arctic Circle
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              At our Glomfjord data center, we're proving that the future of AI can grow hand-in-hand with local communities. Watch our episode from BBC Storyworks 'Transforming Tomorrow' series, to see how BluBrg is helping transform tomorrow's digital foundation.
+             Situated just above the Arctic Circle, the Glomfjord facility demonstrates how future AI growth can coexist with local development. The location offers unique environmental and logistical advantages that support sustainable, high-capacity compute operations. 
+            </p>
+            <br></br>
+            <p className="text-gray-400 text-lg leading-relaxed">
+             Situated just above the Arctic Circle, the Glomfjord facility demonstrates how future AI growth can coexist with local development. The location offers unique environmental and logistical advantages that support sustainable, high-capacity compute operations. 
+            </p>
+            <br></br>
+             <p className="text-gray-400 text-lg leading-relaxed">
+             Blubrg is also committed to the local community by investing in infrastructure, creating job opportunities, and exploring innovative ways to reuse waste heat, such as heating local facilities. 
             </p>
           </div>
         </div>
