@@ -166,31 +166,31 @@ const Header = () => {
                         <h3 className="text-white font-medium mb-6 text-base">By Use Case</h3>
                         <div className="grid grid-cols-2 gap-4">
                           {solutions.useCase.map((item, i) => {
-                            // Abstract 3D ribbon backgrounds matching screenshot
+                            // Abstract 3D ribbon backgrounds matching screenshot - more prominent ribbons
                             const cardStyles = [
-                              // Model Training - Purple ribbon
+                              // Model Training - Purple/magenta ribbon (more vibrant)
                               {
-                                background: 'linear-gradient(145deg, #0a0a12 0%, #12081a 100%)',
-                                ribbonGradient: 'linear-gradient(135deg, #7a1ed0 0%, #c97fff 30%, #ff00aa 60%, #5a0e90 100%)',
-                                ribbonPath: 'M 0 60 Q 50 20, 100 50 Q 150 80, 200 40 Q 180 100, 100 90 Q 20 80, 0 60'
+                                background: 'linear-gradient(145deg, #0a0812 0%, #150a1c 100%)',
+                                colors: ['#9030e0', '#d070ff', '#ff40c0', '#6020a0'],
+                                ribbonPath: 'M -20 75 Q 60 15, 140 55 Q 200 85, 220 35 L 220 110 L -20 110 Z'
                               },
-                              // AI & ML Inference - Dark blue/graphite ribbon
+                              // AI & ML Inference - Dark blue/graphite ribbon (deeper)
                               {
-                                background: 'linear-gradient(145deg, #0a0a10 0%, #0d1520 100%)',
-                                ribbonGradient: 'linear-gradient(135deg, #1a2940 0%, #3b5070 30%, #5a7090 60%, #051020 100%)',
-                                ribbonPath: 'M 20 70 Q 80 30, 130 60 Q 180 90, 200 50 Q 160 100, 80 95 Q 0 90, 20 70'
+                                background: 'linear-gradient(145deg, #080a10 0%, #0a1525 100%)',
+                                colors: ['#2a4060', '#4a6890', '#6a90b0', '#102030'],
+                                ribbonPath: 'M -10 80 Q 70 25, 150 60 Q 210 95, 220 45 L 220 110 L -10 110 Z'
                               },
-                              // AI Development - Brown/bronze ribbon
+                              // AI Development - Brown/bronze ribbon (warmer)
                               {
-                                background: 'linear-gradient(145deg, #0a0a08 0%, #150f08 100%)',
-                                ribbonGradient: 'linear-gradient(135deg, #8a5020 0%, #d47020 30%, #b06010 60%, #603010 100%)',
-                                ribbonPath: 'M 10 55 Q 60 25, 120 55 Q 180 85, 190 45 Q 170 95, 90 90 Q 10 85, 10 55'
+                                background: 'linear-gradient(145deg, #0c0a08 0%, #1a1008 100%)',
+                                colors: ['#a06025', '#e08030', '#c07025', '#704015'],
+                                ribbonPath: 'M 0 70 Q 80 20, 160 60 Q 210 90, 220 40 L 220 110 L 0 110 Z'
                               },
-                              // Model Fine-Tuning - Deep green ribbon
+                              // Model Fine-Tuning - Deep green ribbon (richer)
                               {
-                                background: 'linear-gradient(145deg, #050a08 0%, #081510 100%)',
-                                ribbonGradient: 'linear-gradient(135deg, #006633 0%, #339966 30%, #1a5030 60%, #004422 100%)',
-                                ribbonPath: 'M 30 50 Q 90 20, 150 55 Q 200 90, 180 55 Q 140 100, 70 90 Q 0 80, 30 50'
+                                background: 'linear-gradient(145deg, #060c0a 0%, #0a1812 100%)',
+                                colors: ['#108040', '#30b070', '#208050', '#085030'],
+                                ribbonPath: 'M 10 65 Q 90 15, 170 55 Q 215 85, 220 40 L 220 110 L 10 110 Z'
                               }
                             ];
                             const style = cardStyles[i];
