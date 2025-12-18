@@ -559,3 +559,16 @@ agent_communication:
       - working: true
         agent: "main"
         comment: "Updated ONLY the Home page hero section to match reference screenshot with 90%+ visual accuracy. Changes made: 1) Updated deep blue gradient background (from-[#000020] via-[#0a1d54] to-[#061440]) for premium enterprise look, 2) Updated glass ribbon 3D animation to match screenshot - flowing glass-like form with multiple layers, slow calm movement (time += 0.004), multi-stop gradient for depth, subtle highlight edges, inner glow effect - no particles, no flashy effects, 3) Headline 'The hyperscaler engineered for AI' in white light font with proper line break, 4) Subheading 'A full-stack, scalable, and sustainable AI cloud platform.' in white/70, 5) Primary CTA 'Reserve GPUs' white button with dark text, 6) Secondary CTA 'Start Building →' link with arrow, 7) Partner logos row: Hewlett Packard Enterprise, Computacenter, Antler, Open Innovation in subtle white/50, 8) Subtle grid pattern overlay (linear gradient), 9) Staggered fadeInUp animations for text elements. Container width maintained at 1261px (container-custom). No changes to any other sections below hero, navigation, or footer. Hero height reduced to min-h-[90vh] for better proportions."
+
+  - task: "Contact - General Enquiry Page"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/pages/contact/GeneralEnquiry.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Created new Contact - General Enquiry page at /contact/general-enquiry with pixel-perfect accuracy to match user reference screenshot. Two-column layout: LEFT column has General Enquiry title and 3 CTA helper sections with blue vertical accent bars (Technical issue or question? → Contact Support, Want a new service or product? → Contact Sales, Interested in investment? → Contact IR Team). RIGHT column has form with fields: First Name*, Last name*, Work Email*, Company name*, How can we help you today? (textarea), privacy notice text, two checkboxes (Terms and Marketing), consent notice, reCAPTCHA widget styled with blue protected by reCAPTCHA button, and Submit button with outline/border style. Bottom promotional section with Get access to a fully integrated suite of AI services and compute heading and description paragraph. Route added to App.js. Page does NOT modify navigation, header, footer, or any other pages. Please test all form fields, buttons, checkboxes, layout accuracy, and mobile responsiveness."
+
