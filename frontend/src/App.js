@@ -93,8 +93,9 @@ function App() {
             <Route path="/media-kit" element={<MediaKit />} />
             <Route path="/careers" element={<Careers />} />
             
-            {/* Other Routes */}
+            {/* Contact Routes */}
             <Route path="/contact" element={<Contact />} />
+            <Route path="/contact/sales" element={<ContactSales />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/docs" element={<Documentation />} />
