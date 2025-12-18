@@ -29,33 +29,107 @@ const Training = () => {
 
   return (
     <div className="min-h-screen bg-[#000000]">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-[#1a0a2e] via-[#0f051d] to-[#000000]">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full filter blur-[150px]" />
-          <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[500px] bg-indigo-600/20 rounded-full filter blur-[150px]" />
+      {/* Hero Section - Abstract 3D Purple Ribbon Waves */}
+      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+        {/* Dark purple gradient base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a0a2e] via-[#0f051d] to-[#050208]" />
+        
+        {/* Animated 3D Ribbon Wave Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <svg viewBox="0 0 1920 1080" className="absolute w-[140%] h-[140%] -top-[20%] -right-[20%]" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="trainDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2a0e47" />
+                <stop offset="100%" stopColor="#1a0a2e" />
+              </linearGradient>
+              <linearGradient id="trainMid" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#5a2a87" />
+                <stop offset="50%" stopColor="#7a3aa7" />
+                <stop offset="100%" stopColor="#4a2077" />
+              </linearGradient>
+              <linearGradient id="trainBright" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#8a4fb2" />
+                <stop offset="40%" stopColor="#a175d6" />
+                <stop offset="100%" stopColor="#7a40a0" />
+              </linearGradient>
+              <linearGradient id="trainHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#c4a0e8" />
+                <stop offset="50%" stopColor="#ddc7f5" />
+                <stop offset="100%" stopColor="#b090d8" />
+              </linearGradient>
+              <linearGradient id="trainSpecular" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f0e9fa" />
+                <stop offset="100%" stopColor="#c8b0e8" />
+              </linearGradient>
+              <filter id="trainGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+
+            {/* Layer 1 - Deep background */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.3) * 6}px, ${Math.cos(animationOffset * 0.25) * 4}px)` }}>
+              <path d="M800,-100 C900,100 1000,200 950,400 C900,600 1000,800 950,1000 L1200,1100 L1920,900 L1920,-100 Z" fill="url(#trainDeep)" opacity="0.8" />
+            </g>
+
+            {/* Layer 2 - Mid ribbons flowing */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.4) * 10}px, ${Math.sin(animationOffset * 0.35) * 8}px)` }}>
+              <path d="M700,0 C800,150 900,250 850,450 L950,550 L850,750 C800,900 900,1000 850,1150 L1100,1100 L1300,900 L1200,700 C1250,550 1150,400 1200,250 L1100,150 C1150,0 1050,-100 1100,-200 L750,-150 Z" fill="url(#trainMid)" opacity="0.9" />
+              <path d="M700,0 C800,150 900,250 850,450 L950,550" stroke="url(#trainHighlight)" strokeWidth="4" fill="none" opacity="0.8" filter="url(#trainGlow)" />
+            </g>
+
+            {/* Layer 3 - Primary bright ribbon */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.5) * 14}px, ${Math.cos(animationOffset * 0.45) * 10}px)` }}>
+              <path d="M600,50 C700,200 800,280 750,450 L880,570 L780,750 C730,900 830,1000 780,1150 L1000,1100 L1200,900 L1080,700 C1130,550 1030,400 1080,250 L960,150 C1010,0 910,-80 960,-180 L650,-100 Z" fill="url(#trainBright)" opacity="0.95" />
+              <path d="M600,50 C700,200 800,280 750,450 L880,570" stroke="url(#trainSpecular)" strokeWidth="5" fill="none" opacity="0.95" filter="url(#trainGlow)" />
+              <path d="M780,750 C730,900 830,1000 780,1150" stroke="url(#trainHighlight)" strokeWidth="3" fill="none" opacity="0.7" />
+            </g>
+
+            {/* Layer 4 - Angular twisted ribbon */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.6) * 12}px, ${Math.sin(animationOffset * 0.55) * 12}px)` }}>
+              <path d="M900,150 L1000,300 L920,480 L1020,650 L940,820 L1050,980 L1280,850 L1160,670 L1260,500 L1140,350 L1230,200 L1100,100 Z" fill="url(#trainMid)" opacity="0.85" />
+              <path d="M900,150 L1000,300 L920,480 L1020,650" stroke="url(#trainSpecular)" strokeWidth="4" fill="none" opacity="0.9" filter="url(#trainGlow)" />
+            </g>
+
+            {/* Layer 5 - Front accent */}
+            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.7) * 10}px, ${Math.cos(animationOffset * 0.65) * 8}px)` }}>
+              <path d="M750,250 C830,400 900,480 850,650 L960,780 L880,950 L1050,1050 L1200,900 L1100,720 C1150,580 1070,450 1120,320 L1000,220 C1050,100 970,50 1020,-50 L800,0 Z" fill="url(#trainBright)" opacity="0.88" />
+              <path d="M750,250 C830,400 900,480 850,650 L960,780" stroke="url(#trainSpecular)" strokeWidth="4" fill="none" opacity="0.9" filter="url(#trainGlow)" />
+            </g>
+
+            {/* Layer 6 - Small accent element */}
+            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.8) * 8}px, ${Math.sin(animationOffset * 0.75) * 10}px)` }}>
+              <path d="M1050,350 L1130,480 L1070,620 L1150,750 L1320,650 L1230,500 L1300,380 L1180,280 Z" fill="url(#trainMid)" opacity="0.75" />
+              <path d="M1050,350 L1130,480 L1070,620" stroke="url(#trainHighlight)" strokeWidth="3" fill="none" opacity="0.8" />
+            </g>
+
+            {/* Ambient glow */}
+            <ellipse cx="1000" cy="500" rx="300" ry="250" fill="#7a3aa7" opacity="0.1" />
+            <ellipse cx="1200" cy="700" rx="250" ry="180" fill="#5a2a87" opacity="0.08" />
+          </svg>
         </div>
 
-        <div className="container-custom relative z-10 flex-1 flex items-center py-32">
-          <div className="max-w-4xl">
-            <h1 className="text-6xl sm:text-7xl font-bold text-white mb-8 leading-tight">
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f051d] via-[#0f051d]/50 to-transparent pointer-events-none" />
+
+        {/* Hero Content */}
+        <div className="container-custom relative z-10 flex-1 flex items-center py-24">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               MODEL TRAINING
             </h1>
-            <p className="text-xl text-white/80 mb-12 leading-relaxed max-w-3xl">
-              Blubrg’s GPU Cloud provides a highly scalable, performance-driven platform that
-              significantly reduces training times and boosts productivity. This enables teams
-              to achieve AI objectives faster and more cost-effectively than traditional cloud
-              solutions.
+            <p className="text-lg lg:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
+              BluBrg's GPU Cloud offers a highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity, enabling you to achieve your AI goals easier, faster, and more cost-effectively than alternative Cloud platforms.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-purple-900 px-12 py-7 text-lg font-medium">
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#2a0e47] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
               <Link to="/contact">
-                <button className="text-white hover:text-white/80 px-12 py-7 text-lg font-medium transition-colors flex items-center gap-2">
-                  Contact Sales <ArrowRight className="w-5 h-5" />
+                <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
+                  Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
             </div>
@@ -274,7 +348,6 @@ const Training = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-5">
-            
             
 
             {/* INFERENCE Card - Sharp Angular Glass Shards, Cool Blue */}
