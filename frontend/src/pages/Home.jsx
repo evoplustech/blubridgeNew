@@ -352,50 +352,205 @@ const Home = () => {
             </p>
           </div> */}
 
-          {/* Stacked Feature Blocks */}
+          {/* Stacked Feature Blocks with Abstract Visuals */}
           <div className="space-y-24">
-            {[
-              {
-                title: "A fully integrated suite of AI services and compute",
-                desc: " Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.",
-                align: "right"
-              },
-              {
-                title: "Serverless model endpoints for inference",
-                desc: "Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference.",
-                align: "left"
-              },
-              {
-                title: "Dedicated training clusters ready to go",
-                desc: "BluBrg's optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes for robust infrastructure management.",
-                align: "right"
-              },
-              {
-                title: "Setting a new standard for inference",
-                desc: "Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.",
-                align: "left"
-              },
-              {
-                title: "Scalable, flexible AI Compute",
-                desc: "BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.",
-                align: "right"
-              },           
-              {
-                title: "Turnkey AI development and deployment",
-                desc: "The BluBrg Marketplace provides users with a wide range of AI/ML tools and resources, supporting efficient, scalable model development and seamless deployment.",
-                align: "left"
-              }
-            ].map((block, index) => (
-              <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${block.align === 'right' ? '' : 'lg:flex-row-reverse'}`}>
-                {block.align === 'left' && <div />}
-                <div className={block.align === 'left' ? 'lg:text-right' : ''}>
-                  <h3 className="text-3xl font-light text-white mb-4">{block.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{block.desc}</p>
-                </div>
-                {block.align === 'right' && <div />}
+            {/* Section 1: Integrated Suite - Interconnected flowing layers */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-3xl font-light text-white mb-4">A fully integrated suite of AI services and compute</h3>
+                <p className="text-gray-400 leading-relaxed">Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.</p>
               </div>
-            ))}
+              <div className="relative h-64 overflow-hidden">
+                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="integrated1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1a3a5c" stopOpacity="0.6" />
+                      <stop offset="50%" stopColor="#2a5580" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#1a3a5c" stopOpacity="0.2" />
+                    </linearGradient>
+                    <linearGradient id="integrated2" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#2a5580" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#1a3a5c" stopOpacity="0.3" />
+                    </linearGradient>
+                    <filter id="glow1" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                    </filter>
+                  </defs>
+                  <g className="animate-pulse" style={{ animationDuration: '8s' }}>
+                    <path d="M50,180 Q100,120 180,140 Q260,160 320,100 Q380,40 400,80" fill="none" stroke="url(#integrated1)" strokeWidth="40" opacity="0.6" />
+                    <path d="M0,140 Q80,80 160,110 Q240,140 300,80 Q360,20 400,60" fill="none" stroke="url(#integrated2)" strokeWidth="30" opacity="0.5" />
+                    <path d="M30,200 Q120,140 200,170 Q280,200 350,140 Q400,100 420,120" fill="none" stroke="url(#integrated1)" strokeWidth="25" opacity="0.4" />
+                  </g>
+                  <ellipse cx="200" cy="125" rx="100" ry="60" fill="url(#integrated2)" opacity="0.15" filter="url(#glow1)" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Section 2: Serverless - Lightweight wave-like elastic motion */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative h-64 overflow-hidden">
+                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="serverless1" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1e4a6a" stopOpacity="0.1" />
+                      <stop offset="50%" stopColor="#2a6090" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#1e4a6a" stopOpacity="0.1" />
+                    </linearGradient>
+                    <linearGradient id="serverless2" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#3a80b0" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#1a4060" stopOpacity="0.2" />
+                    </linearGradient>
+                  </defs>
+                  <g style={{ animation: 'wave 6s ease-in-out infinite' }}>
+                    <path d="M0,125 Q100,80 200,125 Q300,170 400,125" fill="none" stroke="url(#serverless1)" strokeWidth="60" opacity="0.4" />
+                    <path d="M0,125 Q100,160 200,125 Q300,90 400,125" fill="none" stroke="url(#serverless2)" strokeWidth="35" opacity="0.35" />
+                    <path d="M0,125 Q100,100 200,125 Q300,150 400,125" fill="none" stroke="url(#serverless1)" strokeWidth="20" opacity="0.5" />
+                  </g>
+                  <ellipse cx="200" cy="125" rx="80" ry="40" fill="#2a6090" opacity="0.1" />
+                </svg>
+              </div>
+              <div className="lg:text-right">
+                <h3 className="text-3xl font-light text-white mb-4">Serverless model endpoints for inference</h3>
+                <p className="text-gray-400 leading-relaxed">Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference.</p>
+              </div>
+            </div>
+
+            {/* Section 3: Training Clusters - Heavier structured abstract depth */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-3xl font-light text-white mb-4">Dedicated training clusters ready to go</h3>
+                <p className="text-gray-400 leading-relaxed">BluBrg's optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes for robust infrastructure management.</p>
+              </div>
+              <div className="relative h-64 overflow-hidden">
+                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="training1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#2a4a70" stopOpacity="0.7" />
+                      <stop offset="100%" stopColor="#1a3050" stopOpacity="0.3" />
+                    </linearGradient>
+                    <linearGradient id="training2" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#3a6090" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#2a4a70" stopOpacity="0.4" />
+                    </linearGradient>
+                    <filter id="glow2" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="4" result="blur" />
+                      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                    </filter>
+                  </defs>
+                  <g className="animate-pulse" style={{ animationDuration: '10s' }}>
+                    <rect x="80" y="60" width="120" height="80" rx="8" fill="url(#training1)" opacity="0.5" transform="rotate(-5 140 100)" />
+                    <rect x="160" y="90" width="100" height="70" rx="8" fill="url(#training2)" opacity="0.45" transform="rotate(3 210 125)" />
+                    <rect x="220" y="50" width="110" height="90" rx="8" fill="url(#training1)" opacity="0.4" transform="rotate(-2 275 95)" />
+                    <rect x="120" y="130" width="90" height="60" rx="8" fill="url(#training2)" opacity="0.35" transform="rotate(5 165 160)" />
+                  </g>
+                  <ellipse cx="200" cy="125" rx="120" ry="70" fill="#2a4a70" opacity="0.08" filter="url(#glow2)" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Section 4: New Standard - Clean precision-focused abstract form */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative h-64 overflow-hidden">
+                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="precision1" x1="50%" y1="0%" x2="50%" y2="100%">
+                      <stop offset="0%" stopColor="#2a5a8a" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#1a3a5a" stopOpacity="0.2" />
+                    </linearGradient>
+                    <linearGradient id="precision2" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1a4060" stopOpacity="0.3" />
+                      <stop offset="50%" stopColor="#3a80b0" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#1a4060" stopOpacity="0.3" />
+                    </linearGradient>
+                  </defs>
+                  <g style={{ animation: 'pulse 7s ease-in-out infinite' }}>
+                    <circle cx="200" cy="125" r="80" fill="none" stroke="url(#precision1)" strokeWidth="2" opacity="0.5" />
+                    <circle cx="200" cy="125" r="60" fill="none" stroke="url(#precision2)" strokeWidth="1.5" opacity="0.45" />
+                    <circle cx="200" cy="125" r="40" fill="none" stroke="url(#precision1)" strokeWidth="1" opacity="0.4" />
+                    <line x1="120" y1="125" x2="280" y2="125" stroke="url(#precision2)" strokeWidth="1" opacity="0.3" />
+                    <line x1="200" y1="45" x2="200" y2="205" stroke="url(#precision2)" strokeWidth="1" opacity="0.3" />
+                  </g>
+                  <circle cx="200" cy="125" r="50" fill="url(#precision1)" opacity="0.12" />
+                </svg>
+              </div>
+              <div className="lg:text-right">
+                <h3 className="text-3xl font-light text-white mb-4">Setting a new standard for inference</h3>
+                <p className="text-gray-400 leading-relaxed">Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.</p>
+              </div>
+            </div>
+
+            {/* Section 5: Scalable Compute - Expanding layered visual scale */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-3xl font-light text-white mb-4">Scalable, flexible AI Compute</h3>
+                <p className="text-gray-400 leading-relaxed">BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.</p>
+              </div>
+              <div className="relative h-64 overflow-hidden">
+                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="scale1" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1a3a5a" stopOpacity="0.2" />
+                      <stop offset="50%" stopColor="#2a5a8a" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#3a7ab0" stopOpacity="0.3" />
+                    </linearGradient>
+                    <linearGradient id="scale2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#2a5580" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#1a3a5a" stopOpacity="0.2" />
+                    </linearGradient>
+                    <filter id="glow3" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                    </filter>
+                  </defs>
+                  <g className="animate-pulse" style={{ animationDuration: '9s' }}>
+                    <path d="M100,200 L100,100 L200,50 L300,100 L300,200 L200,250 Z" fill="url(#scale1)" opacity="0.3" />
+                    <path d="M130,180 L130,110 L200,75 L270,110 L270,180 L200,215 Z" fill="url(#scale2)" opacity="0.35" />
+                    <path d="M160,160 L160,120 L200,100 L240,120 L240,160 L200,180 Z" fill="url(#scale1)" opacity="0.45" />
+                  </g>
+                  <ellipse cx="200" cy="140" rx="90" ry="50" fill="#2a5a8a" opacity="0.1" filter="url(#glow3)" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Section 6: Turnkey Development - Converging flow end-to-end abstraction */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative h-64 overflow-hidden">
+                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="turnkey1" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1a4060" stopOpacity="0.5" />
+                      <stop offset="50%" stopColor="#2a6090" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#1a4060" stopOpacity="0.5" />
+                    </linearGradient>
+                    <linearGradient id="turnkey2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#2a5580" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#3a80b0" stopOpacity="0.4" />
+                    </linearGradient>
+                  </defs>
+                  <g style={{ animation: 'pulse 8s ease-in-out infinite' }}>
+                    <path d="M50,50 Q150,125 50,200" fill="none" stroke="url(#turnkey1)" strokeWidth="20" opacity="0.4" />
+                    <path d="M100,30 Q200,125 100,220" fill="none" stroke="url(#turnkey2)" strokeWidth="15" opacity="0.35" />
+                    <path d="M350,50 Q250,125 350,200" fill="none" stroke="url(#turnkey1)" strokeWidth="20" opacity="0.4" />
+                    <path d="M300,30 Q200,125 300,220" fill="none" stroke="url(#turnkey2)" strokeWidth="15" opacity="0.35" />
+                    <ellipse cx="200" cy="125" rx="30" ry="30" fill="url(#turnkey1)" opacity="0.3" />
+                  </g>
+                  <ellipse cx="200" cy="125" rx="60" ry="40" fill="#2a6090" opacity="0.1" />
+                </svg>
+              </div>
+              <div className="lg:text-right">
+                <h3 className="text-3xl font-light text-white mb-4">Turnkey AI development and deployment</h3>
+                <p className="text-gray-400 leading-relaxed">The BluBrg Marketplace provides users with a wide range of AI/ML tools and resources, supporting efficient, scalable model development and seamless deployment.</p>
+              </div>
+            </div>
           </div>
+
+          <style>{`
+            @keyframes wave {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-5px); }
+            }
+          `}</style>
         </div>
       </section>
 
