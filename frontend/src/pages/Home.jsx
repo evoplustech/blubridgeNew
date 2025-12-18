@@ -393,7 +393,7 @@ const Home = () => {
                 <h3 className="text-3xl font-light text-white mb-4">Serverless model endpoints for inference</h3>
                 <p className="text-gray-400 leading-relaxed">Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference.</p>
               </div>
-              <div className="relative h-64 overflow-hidden order-2 lg:order-1">
+              <div className="relative h-64 order-2 lg:order-1">
                 <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="serverless1" x1="0%" y1="50%" x2="100%" y2="50%">
@@ -455,7 +455,7 @@ const Home = () => {
                 <h3 className="text-3xl font-light text-white mb-4">Setting a new standard for inference</h3>
                 <p className="text-gray-400 leading-relaxed">Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.</p>
               </div>
-              <div className="relative h-64 overflow-hidden order-2 lg:order-1">
+              <div className="relative h-64 order-2 lg:order-1">
                 <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="precision1" x1="50%" y1="0%" x2="50%" y2="100%">
@@ -520,7 +520,7 @@ const Home = () => {
                 <h3 className="text-3xl font-light text-white mb-4">Turnkey AI development and deployment</h3>
                 <p className="text-gray-400 leading-relaxed">The BluBrg Marketplace provides users with a wide range of AI/ML tools and resources, supporting efficient, scalable model development and seamless deployment.</p>
               </div>
-              <div className="relative h-64 overflow-hidden order-2 lg:order-1">
+              <div className="relative h-64 order-2 lg:order-1">
                 <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="turnkey1" x1="0%" y1="50%" x2="100%" y2="50%">
