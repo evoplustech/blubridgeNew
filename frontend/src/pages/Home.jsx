@@ -650,7 +650,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-5">
             {/* Model Training Card - Purple Wave */}
             <Link to="/solutions/training">
-              <div className="relative h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 208" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="uc-purple-1" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -673,14 +673,14 @@ const Home = () => {
                   <path d="M 120 230 Q 220 90, 365 130 Q 465 160, 530 60" fill="none" stroke="rgba(255,200,255,0.4)" strokeWidth="2"/>
                 </svg>
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-lg">Model Training</span>
+                  <span className="text-white font-semibold text-2xl">TRAINING</span>
                 </div>
               </div>
             </Link>
 
             {/* AI & ML Inference Card - Blue Angular */}
             <Link to="/solutions/inference">
-              <div className="relative h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 208" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="uc-steel-1" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -702,14 +702,14 @@ const Home = () => {
                   <path d="M 195 230 L 290 90 L 390 140 L 490 60" fill="none" stroke="rgba(150,180,220,0.35)" strokeWidth="2"/>
                 </svg>
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-lg">AI & ML Inference</span>
+                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
                 </div>
               </div>
             </Link>
 
             {/* AI Development Card - Orange/Bronze Wave */}
             <Link to="/solutions/ai-development">
-              <div className="relative h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 208" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="uc-bronze-1" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -732,14 +732,14 @@ const Home = () => {
                   <path d="M 100 230 Q 220 80, 390 130 Q 490 160, 540 70" fill="none" stroke="rgba(255,200,150,0.4)" strokeWidth="2"/>
                 </svg>
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-lg">AI Development</span>
+                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
 
             {/* Model Fine-Tuning Card - Green Wave */}
             <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 208" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="uc-green-1" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -762,7 +762,7 @@ const Home = () => {
                   <path d="M 270 230 Q 340 90, 410 130 Q 490 160, 540 70" fill="none" stroke="rgba(150,255,180,0.35)" strokeWidth="2"/>
                 </svg>
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-lg">Model Fine-Tuning</span>
+                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
                 </div>
               </div>
             </Link>

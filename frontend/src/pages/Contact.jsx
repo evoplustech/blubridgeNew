@@ -87,10 +87,10 @@ const Contact = () => {
       </section>
 
       {/* Investor Relations Section */}
-      <section className="py-20 bg-[#0d0d12]">
+      {/* <section className="py-20 bg-[#0d0d12]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text Content */}
+           
             <div className="order-2 lg:order-1">
               <h2 className="text-4xl font-light text-white mb-6">Investor Relations</h2>
               <p className="text-gray-400 leading-relaxed mb-8">
@@ -104,7 +104,7 @@ const Contact = () => {
               </Link>
             </div>
             
-            {/* Right - Image */}
+         
             <div className="order-1 lg:order-2">
               <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
                 <img 
@@ -117,7 +117,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">

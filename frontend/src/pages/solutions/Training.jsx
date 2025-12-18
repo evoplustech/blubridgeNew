@@ -340,188 +340,151 @@ const Training = () => {
 
       <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
-          <div className="mb-12">
-            <h2 className="text-3xl font-light mb-4 text-white">Use cases</h2>
+         <div className="mb-12">
+            <h2 className="text-3xl font-light mb-4 text-white">More Solutions</h2>
             <p className="text-gray-400 max-w-2xl">
-              End-to-end AI solutions covering model training, fine-tuning, inference, and development—all built to accelerate your AI initiatives.
+              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-5">
-            
-
-            {/* INFERENCE Card - Sharp Angular Glass Shards, Cool Blue */}
+            {/* AI & ML Inference Card - Blue Angular */}
             <Link to="/solutions/inference">
-              <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.01] transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#080c14] via-[#0a1020] to-[#060a12]">
-                  <svg viewBox="0 0 500 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                      <linearGradient id="infShard1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#2a5080" />
-                        <stop offset="100%" stopColor="#1a3060" />
-                      </linearGradient>
-                      <linearGradient id="infShard2" x1="100%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#3a70a0" />
-                        <stop offset="100%" stopColor="#2a5080" />
-                      </linearGradient>
-                      <linearGradient id="infEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#8ac0f0" />
-                        <stop offset="50%" stopColor="#aadaff" />
-                        <stop offset="100%" stopColor="#6aa0d0" />
-                      </linearGradient>
-                      <filter id="infGlow"><feGaussianBlur stdDeviation="2" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
-                    </defs>
-                    <g className="inference-animate">
-                      {/* Sharp angular crystal shards radiating from center-right */}
-                      <polygon points="320,200 450,120 480,180 380,220" fill="url(#infShard1)" opacity="0.7" />
-                      <polygon points="300,180 420,80 460,130 350,190" fill="url(#infShard2)" opacity="0.6" />
-                      <polygon points="340,240 500,200 520,280 400,290" fill="url(#infShard1)" opacity="0.65" />
-                      <polygon points="280,220 380,280 420,360 300,300" fill="url(#infShard2)" opacity="0.55" />
-                      <polygon points="350,160 480,60 510,120 400,180" fill="url(#infShard1)" opacity="0.5" />
-                      <polygon points="310,260 400,320 440,400 340,350" fill="url(#infShard2)" opacity="0.5" />
-                      <polygon points="260,200 340,140 380,200 300,240" fill="url(#infShard1)" opacity="0.75" />
-                      {/* Sharp reflective edges */}
-                      <line x1="320" y1="200" x2="450" y2="120" stroke="url(#infEdge)" strokeWidth="2" opacity="0.9" filter="url(#infGlow)" />
-                      <line x1="300" y1="180" x2="420" y2="80" stroke="url(#infEdge)" strokeWidth="1.5" opacity="0.7" />
-                      <line x1="340" y1="240" x2="500" y2="200" stroke="url(#infEdge)" strokeWidth="2" opacity="0.8" filter="url(#infGlow)" />
-                      <line x1="350" y1="160" x2="480" y2="60" stroke="url(#infEdge)" strokeWidth="1.5" opacity="0.6" />
-                    </g>
-                    <ellipse cx="380" cy="220" rx="100" ry="80" fill="#2a5080" opacity="0.08" />
-                  </svg>
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 208" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="uc-steel-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0a1020" />
+                      <stop offset="30%" stopColor="#1a3050" />
+                      <stop offset="60%" stopColor="#4a7090" />
+                      <stop offset="100%" stopColor="#0a1525" />
+                    </linearGradient>
+                    <linearGradient id="uc-steel-2" x1="20%" y1="100%" x2="80%" y2="0%">
+                      <stop offset="0%" stopColor="#051015" />
+                      <stop offset="40%" stopColor="#2a5070" />
+                      <stop offset="70%" stopColor="#5a90b0" />
+                      <stop offset="100%" stopColor="#102035" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 75 230 L 170 80 L 270 160 L 340 60 L 440 120 L 520 50 L 520 230 Z" fill="url(#uc-steel-1)" opacity="0.6"/>
+                  <path d="M 150 230 L 220 100 L 320 150 L 410 70 L 520 110 L 520 230 Z" fill="url(#uc-steel-2)" opacity="0.8"/>
+                  <path d="M 195 230 L 290 90 L 390 140 L 490 60 L 520 80 L 520 230 Z" fill="url(#uc-steel-1)"/>
+                  <path d="M 195 230 L 290 90 L 390 140 L 490 60" fill="none" stroke="rgba(150,180,220,0.35)" strokeWidth="2"/>
+                </svg>
+                <div className="absolute top-5 left-5 z-10">
+                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
                 </div>
-                <div className="absolute top-6 left-6 z-10"><h3 className="text-2xl font-semibold tracking-wide text-white">INFERENCE</h3></div>
-                <div className="absolute bottom-6 right-6 flex gap-3 z-10">
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">7.2X</span><span className="text-gray-300 text-xs ml-1.5">Performance</span></div>
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">+40%</span><span className="text-gray-300 text-xs ml-1.5">Efficiency</span></div>
-                </div>
-                <div className="absolute inset-0 border border-white/5 rounded-xl group-hover:border-blue-500/30 transition-colors" />
               </div>
             </Link>
 
-            {/* FINE-TUNING Card - Smooth Organic Blob Forms, Soft Green */}
-            <Link to="/solutions/fine-tuning">
-              <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.01] transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#081410] via-[#0a1a14] to-[#06100c]">
-                  <svg viewBox="0 0 500 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                      <radialGradient id="ftBlob1" cx="30%" cy="30%" r="70%">
-                        <stop offset="0%" stopColor="#4a9060" />
-                        <stop offset="50%" stopColor="#2a7040" />
-                        <stop offset="100%" stopColor="#1a5030" />
-                      </radialGradient>
-                      <radialGradient id="ftBlob2" cx="70%" cy="40%" r="60%">
-                        <stop offset="0%" stopColor="#5aa070" />
-                        <stop offset="50%" stopColor="#3a8050" />
-                        <stop offset="100%" stopColor="#2a6040" />
-                      </radialGradient>
-                      <linearGradient id="ftShine" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#8ad0a0" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#6ab080" stopOpacity="0.3" />
-                      </linearGradient>
-                      <filter id="ftBlur"><feGaussianBlur stdDeviation="8" /></filter>
-                      <filter id="ftGlow"><feGaussianBlur stdDeviation="4" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
-                    </defs>
-                    <g className="finetune-animate">
-                      {/* Organic blob/droplet shapes flowing and merging */}
-                      <ellipse cx="350" cy="280" rx="120" ry="100" fill="url(#ftBlob1)" opacity="0.6" />
-                      <ellipse cx="280" cy="200" rx="90" ry="70" fill="url(#ftBlob2)" opacity="0.7" />
-                      <ellipse cx="400" cy="180" rx="70" ry="55" fill="url(#ftBlob1)" opacity="0.5" />
-                      <ellipse cx="320" cy="320" rx="80" ry="60" fill="url(#ftBlob2)" opacity="0.55" />
-                      <ellipse cx="420" cy="260" rx="60" ry="50" fill="url(#ftBlob1)" opacity="0.5" />
-                      {/* Smooth liquid highlight arcs */}
-                      <path d="M260,160 Q320,140 340,180" fill="none" stroke="url(#ftShine)" strokeWidth="4" opacity="0.7" filter="url(#ftGlow)" strokeLinecap="round" />
-                      <path d="M320,240 Q380,220 400,260" fill="none" stroke="url(#ftShine)" strokeWidth="3" opacity="0.5" strokeLinecap="round" />
-                      <path d="M380,150 Q420,140 440,170" fill="none" stroke="url(#ftShine)" strokeWidth="2.5" opacity="0.6" strokeLinecap="round" />
-                    </g>
-                    <ellipse cx="340" cy="250" rx="150" ry="100" fill="#2a7040" opacity="0.08" filter="url(#ftBlur)" />
-                  </svg>
-                </div>
-                <div className="absolute top-6 left-6 z-10"><h3 className="text-2xl font-semibold tracking-wide text-white">FINE-TUNING</h3></div>
-                <div className="absolute bottom-6 right-6 flex gap-3 z-10">
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">+40%</span><span className="text-gray-300 text-xs ml-1.5">Efficiency</span></div>
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">30%</span><span className="text-gray-300 text-xs ml-1.5">Faster</span></div>
-                </div>
-                <div className="absolute inset-0 border border-white/5 rounded-xl group-hover:border-green-500/30 transition-colors" />
-              </div>
-            </Link>
-
-            {/* AI DEVELOPMENT Card - Heavy Sculpted Architectural Planes, Warm Brown/Copper */}
+            {/* AI Development Card - Orange/Bronze Wave */}
             <Link to="/solutions/ai-development">
-              <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.01] transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#120c08] via-[#1a1410] to-[#0e0a06]">
-                  <svg viewBox="0 0 500 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                      <linearGradient id="aiPlane1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#8a6048" />
-                        <stop offset="50%" stopColor="#6a4838" />
-                        <stop offset="100%" stopColor="#4a3028" />
-                      </linearGradient>
-                      <linearGradient id="aiPlane2" x1="100%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#9a7058" />
-                        <stop offset="50%" stopColor="#7a5848" />
-                        <stop offset="100%" stopColor="#5a4038" />
-                      </linearGradient>
-                      <linearGradient id="aiPlane3" x1="0%" y1="100%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#3a2818" />
-                        <stop offset="100%" stopColor="#5a4030" />
-                      </linearGradient>
-                      <linearGradient id="aiEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#caa080" />
-                        <stop offset="50%" stopColor="#e0c0a0" />
-                        <stop offset="100%" stopColor="#b09070" />
-                      </linearGradient>
-                      <filter id="aiGlow"><feGaussianBlur stdDeviation="2" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
-                      <filter id="aiShadow"><feDropShadow dx="5" dy="8" stdDeviation="6" floodColor="#000" floodOpacity="0.5" /></filter>
-                    </defs>
-                    <g className="aidev-animate">
-                      {/* Heavy architectural planes with bold mass */}
-                      <polygon points="200,350 280,280 420,300 380,380 260,400" fill="url(#aiPlane3)" opacity="0.6" />
-                      <polygon points="250,250 350,180 450,220 400,300 300,320" fill="url(#aiPlane1)" opacity="0.75" filter="url(#aiShadow)" />
-                      <polygon points="280,200 380,130 480,170 430,250 330,270" fill="url(#aiPlane2)" opacity="0.7" />
-                      <polygon points="320,150 400,90 490,120 450,190 370,210" fill="url(#aiPlane1)" opacity="0.6" />
-                      <polygon points="220,300 300,250 380,280 340,340 260,360" fill="url(#aiPlane2)" opacity="0.65" />
-                      {/* Sharp bold edges */}
-                      <line x1="250" y1="250" x2="350" y2="180" stroke="url(#aiEdge)" strokeWidth="2.5" opacity="0.85" filter="url(#aiGlow)" />
-                      <line x1="280" y1="200" x2="380" y2="130" stroke="url(#aiEdge)" strokeWidth="2" opacity="0.75" filter="url(#aiGlow)" />
-                      <line x1="350" y1="180" x2="450" y2="220" stroke="url(#aiEdge)" strokeWidth="2" opacity="0.7" />
-                      <line x1="320" y1="150" x2="400" y2="90" stroke="url(#aiEdge)" strokeWidth="1.5" opacity="0.6" />
-                    </g>
-                    <ellipse cx="360" cy="260" rx="130" ry="90" fill="#6a4838" opacity="0.1" />
-                  </svg>
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 208" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="uc-bronze-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#301505" />
+                      <stop offset="30%" stopColor="#804020" />
+                      <stop offset="55%" stopColor="#d08040" />
+                      <stop offset="80%" stopColor="#ffa050" />
+                      <stop offset="100%" stopColor="#503010" />
+                    </linearGradient>
+                    <linearGradient id="uc-bronze-2" x1="10%" y1="90%" x2="90%" y2="10%">
+                      <stop offset="0%" stopColor="#201005" />
+                      <stop offset="35%" stopColor="#905025" />
+                      <stop offset="65%" stopColor="#c07030" />
+                      <stop offset="100%" stopColor="#402010" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M -50 230 Q 100 120, 245 160 Q 365 190, 465 100 Q 510 60, 540 90 L 540 230 Z" fill="url(#uc-bronze-1)" opacity="0.65"/>
+                  <path d="M 25 230 Q 150 100, 320 150 Q 440 180, 520 90 L 540 230 Z" fill="url(#uc-bronze-2)" opacity="0.8"/>
+                  <path d="M 100 230 Q 220 80, 390 130 Q 490 160, 540 70 L 540 230 Z" fill="url(#uc-bronze-1)"/>
+                  <path d="M 100 230 Q 220 80, 390 130 Q 490 160, 540 70" fill="none" stroke="rgba(255,200,150,0.4)" strokeWidth="2"/>
+                </svg>
+                <div className="absolute top-5 left-5 z-10">
+                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
-                <div className="absolute top-6 left-6 z-10"><h3 className="text-2xl font-semibold tracking-wide text-white">AI DEVELOPMENT</h3></div>
-                <div className="absolute bottom-6 right-6 flex gap-3 z-10">
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">80%</span><span className="text-gray-300 text-xs ml-1.5">Lower Cost</span></div>
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">30%</span><span className="text-gray-300 text-xs ml-1.5">Faster</span></div>
+              </div>
+            </Link>
+
+            {/* Model Fine-Tuning Card - Green Wave */}
+            <Link to="/solutions/fine-tuning">
+              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 208" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="uc-green-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#051510" />
+                      <stop offset="30%" stopColor="#106030" />
+                      <stop offset="55%" stopColor="#30a060" />
+                      <stop offset="80%" stopColor="#50d080" />
+                      <stop offset="100%" stopColor="#083020" />
+                    </linearGradient>
+                    <linearGradient id="uc-green-2" x1="10%" y1="90%" x2="90%" y2="10%">
+                      <stop offset="0%" stopColor="#031008" />
+                      <stop offset="40%" stopColor="#208050" />
+                      <stop offset="70%" stopColor="#40b070" />
+                      <stop offset="100%" stopColor="#0a2515" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 150 230 Q 195 140, 245 170 Q 320 200, 365 110 Q 410 50, 520 80 L 520 230 Z" fill="url(#uc-green-1)" opacity="0.6"/>
+                  <path d="M 220 230 Q 270 110, 340 150 Q 425 180, 490 90 L 520 230 Z" fill="url(#uc-green-2)" opacity="0.8"/>
+                  <path d="M 270 230 Q 340 90, 410 130 Q 490 160, 540 70 L 540 230 Z" fill="url(#uc-green-1)"/>
+                  <path d="M 270 230 Q 340 90, 410 130 Q 490 160, 540 70" fill="none" stroke="rgba(150,255,180,0.35)" strokeWidth="2"/>
+                </svg>
+                <div className="absolute top-5 left-5 z-10">
+                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
                 </div>
-                <div className="absolute inset-0 border border-white/5 rounded-xl group-hover:border-amber-500/30 transition-colors" />
               </div>
             </Link>
           </div>
         </div>
-        
-        <style>{`
-          @keyframes trainingFlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-          }
-          @keyframes inferenceGlint {
-            0%, 100% { transform: translateX(0) scale(1); opacity: 1; }
-            50% { transform: translateX(2px) scale(1.01); opacity: 0.95; }
-          }
-          @keyframes finetuneFloat {
-            0%, 100% { transform: scale(1) translateY(0); }
-            50% { transform: scale(1.02) translateY(-2px); }
-          }
-          @keyframes aidevShift {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(2px) translateY(-2px); }
-          }
-          .training-animate { animation: trainingFlow 7s ease-in-out infinite; }
-          .inference-animate { animation: inferenceGlint 6s ease-in-out infinite; }
-          .finetune-animate { animation: finetuneFloat 8s ease-in-out infinite; }
-          .aidev-animate { animation: aidevShift 7s ease-in-out infinite; }
-        `}</style>
+      </section>
+      {/* Faq */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container-custom max-w-4xl">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <div className="max-w-4xl space-y-3">
+            {[
+              {
+                question: "What makes Nscale’s GPU Cloud different from others?",
+                answer: "BluBrg controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
+              },
+              {
+                question: "What types of GPUs does BluBrg offer?",
+                answer: "A range of NVIDIA GPU models are available to support different AI development tasks, including GPUs designed for training, inferencing, and other compute-intensive workloads."
+              },
+              {
+                question: "How does BluBrg support sustainability?",
+                answer: "Environmental responsibility is a priority, with the company operating on renewable energy sources and adopting sustainable computing practices to help reduce carbon impact."
+              },
+              {
+                question: "How does BluBrg accelerate AI development?",
+                answer: "By simplifying orchestration and workload management through technologies like Kubernetes and SLURM, the platform makes managing GPU resources easier and more responsive to changing demands."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="border-b border-white/10">
+                <button
+                  onClick={() => toggleFaq(i)}
+                  className="w-full flex items-center justify-between py-6 text-left hover:text-amber-400 transition-colors"
+                >
+                  <span className="text-base font-medium text-white pr-8">{faq.question}</span>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center">
+                    {openFaq === i ? (
+                      <ChevronUp className="w-4 h-4 text-amber-400" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-amber-400" />
+                    )}
+                  </div>
+                </button>
+                {openFaq === i && (
+                  <div className="pb-6">
+                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
 

@@ -599,7 +599,7 @@ const FineTuning = () => {
               <p className="text-gray-400 mb-6 leading-relaxed">
                 → Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are ss
               </p>
-              <Link to="/contact" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
+              <Link to="/gpu-nodes" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -640,7 +640,7 @@ const FineTuning = () => {
                     {faq.question.includes('BluBrg') ? (
                       <>
                         {faq.question.split('BluBrg')[0]}
-                        <span className="text-blue-400">BluBrg</span>
+                        <span>BluBrg</span>
                         {faq.question.split('BluBrg')[1]}
                       </>
                     ) : faq.question}
@@ -672,7 +672,7 @@ const FineTuning = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/products/gpu-nodes">
-              <Button className="bg-slate-900 text-white hover:bg-slate-800 px-6 py-3 rounded font-medium">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

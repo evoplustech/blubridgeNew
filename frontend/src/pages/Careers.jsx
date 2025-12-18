@@ -195,7 +195,7 @@ const Careers = () => {
       <section className="py-16 bg-[#0a0a0f]">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">Our Mission</h2>
-          <p className="text-gray-500 text-sm uppercase tracking-wider mb-4 ">
+          <p className="text-gray-500 text-lg mb-4 ">
           Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
           Our goal is to create a cloud platform purpose-built for AI, one that combines massive computational power with reliability and flexibility. We want to help innovators accelerate their ideas by providing infrastructure that keeps up with the demands of modern AI systems.
           </p>
@@ -283,7 +283,7 @@ const Careers = () => {
       </section>
 
       {/* Life at BluBrg - Video Section */}
-      <section className="py-20 bg-[#0d1117]">
+      {/* <section className="py-20 bg-[#0d1117]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
@@ -292,7 +292,7 @@ const Careers = () => {
             </p>
           </div>
 
-          {/* Video Embed */}
+          
           <div className="relative rounded-2xl overflow-hidden bg-slate-900 aspect-video max-w-4xl">
             <iframe
               className="w-full h-full"
@@ -308,7 +308,7 @@ const Careers = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
