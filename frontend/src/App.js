@@ -97,6 +97,7 @@ function App() {
             {/* Contact Routes */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/contact/sales" element={<ContactSales />} />
+            <Route path="/contact/general-enquiry" element={<GeneralEnquiry />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/docs" element={<Documentation />} />
