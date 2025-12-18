@@ -33,8 +33,8 @@ const SovereignCloud = () => {
   const valuePillars = [
     {
       id: 0,
-      title: 'DATA SECURITY - Be in control of your data',
-      description: 'The platform operates under UK and European regulatory frameworks and is managed by local teams. Its architecture is designed to minimise external exposure and safeguard sensitive information through strong governance and access controls.',
+      title: 'DATA SECURITY',
+      description: 'The platform operates under UK and European regulations and is managed by local teams. Its architecture is designed to minimise external exposure and safeguard sensitive information through strong governance and access controls.',
       bgColor: 'bg-blue-900/80'
     },
     {
@@ -208,20 +208,14 @@ const SovereignCloud = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {valuePillars.map((pillar, i) => (
-              <div 
-                key={i}
-                className={`p-6 rounded-xl transition-all duration-300 cursor-pointer ${
-                  activeCard === i ? 'bg-blue-600' : pillar.bgColor
-                } ${activeCard === i ? 'ring-2 ring-blue-400' : ''}`}
-                onClick={() => setActiveCard(i)}
-              >
+              <div className={`p-6 rounded-xl transition-all duration-300 cursor-pointer bg-slate-900`}>
                 <h3 className="text-sm font-bold text-white mb-3 tracking-wider">{pillar.title}</h3>
                 <p className="text-white/80 text-xs leading-relaxed">{pillar.description}</p>
-                {pillar.hasLink && activeCard === i && (
+                {/* {pillar.hasLink && activeCard === i && ( */}
                   <Link to="/contact" className="text-white text-xs mt-4 inline-flex items-center gap-1 hover:underline">
                     Contact Sales <ArrowRight className="w-3 h-3" />
                   </Link>
-                )}
+                {/* )} */}
               </div>
             ))}
           </div>
@@ -266,7 +260,7 @@ const SovereignCloud = () => {
       </section> */}
 
       {/* SECTION 5: Related Content */}
-      <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Related Content</h2>
           
@@ -292,7 +286,7 @@ const SovereignCloud = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 6: Fully Integrated AI Infrastructure */}
       <section className="py-20 bg-[#0d1117]">

@@ -121,7 +121,7 @@ const Contact = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container-custom">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-4xl font-light text-white mb-12">FAQs</h2>
           
           <div className="max-w-4xl">

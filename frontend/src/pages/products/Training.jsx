@@ -387,11 +387,11 @@ const Training = () => {
               <p className="text-gray-400 mb-6 leading-relaxed">
                 Get the best of both worlds with our Slurm on Kubernetes (SLONK) service. Enjoy advanced job scheduling, resource allocation, and efficient workload management when training LLMs.
               </p>
-              <Link to="/docs">
+              {/* <Link to="/docs">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
                   Learn More <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

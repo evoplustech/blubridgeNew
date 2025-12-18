@@ -274,7 +274,7 @@ const Home = () => {
                     Reserve GPUs
                   </Button>
                 </Link>
-                <Link to="/docs" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
+                <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
                   Start Building <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -901,7 +901,7 @@ const Home = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container-custom">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-3xl font-light mb-12">Frequently Asked Questions</h2>
           
           <div className="space-y-4 max-w-4xl">
