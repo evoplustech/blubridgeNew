@@ -37,7 +37,7 @@ const AIDevelopment = () => {
         <div className="absolute inset-0 overflow-hidden">
           <svg
             viewBox="0 0 1920 1080"
-            className="absolute w-full h-full"
+            className="absolute w-[120%] h-[120%] -top-[10%] -right-[10%]"
             preserveAspectRatio="xMidYMid slice"
           >
             <defs>
