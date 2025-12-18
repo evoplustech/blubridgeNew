@@ -205,27 +205,17 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* reCAPTCHA */}
-                <div className="inline-flex items-center gap-4 bg-[#f9f9f9] border border-gray-300 rounded px-4 py-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-7 h-7 border-2 border-gray-400 rounded flex items-center justify-center bg-white">
-                      <div className="w-3 h-3" />
-                    </div>
-                    <span className="text-gray-700 text-sm">I'm not a robot</span>
+                <div className="inline-flex items-center bg-[#222222] rounded overflow-hidden">
+                  <div className="flex items-center gap-2 px-3 py-2.5 bg-[#1a5fb4]">
+                    <span className="text-white text-xs font-medium">protected by reCAPTCHA</span>
                   </div>
-                  <div className="flex flex-col items-center ml-4">
-                    <div className="flex items-center gap-1">
-                      <svg viewBox="0 0 64 64" className="w-8 h-8">
-                        <path fill="#1c3aa9" d="M32 0C14.4 0 0 14.4 0 32s14.4 32 32 32 32-14.4 32-32S49.6 0 32 0z"/>
-                        <path fill="#4285f4" d="M32 6.4c14.1 0 25.6 11.5 25.6 25.6S46.1 57.6 32 57.6 6.4 46.1 6.4 32 17.9 6.4 32 6.4z"/>
-                        <path fill="#fff" d="M32 19.2c-7.1 0-12.8 5.7-12.8 12.8s5.7 12.8 12.8 12.8 12.8-5.7 12.8-12.8-5.7-12.8-12.8-12.8zm0 19.2c-3.5 0-6.4-2.9-6.4-6.4s2.9-6.4 6.4-6.4 6.4 2.9 6.4 6.4-2.9 6.4-6.4 6.4z"/>
-                      </svg>
-                    </div>
-                    <div className="text-[10px] text-gray-500 leading-tight">reCAPTCHA</div>
-                    <div className="text-[8px] text-gray-400">
-                      <span className="hover:underline cursor-pointer">Privacy</span>
-                      {' - '}
-                      <span className="hover:underline cursor-pointer">Terms</span>
-                    </div>
+                  <div className="flex items-center gap-2 px-3 py-2.5 bg-[#222222]">
+                    <span className="text-gray-400 text-[10px]">Privacy - Terms</span>
+                    <svg viewBox="0 0 64 64" className="w-6 h-6">
+                      <path fill="#1c3aa9" d="M32 0C14.4 0 0 14.4 0 32s14.4 32 32 32 32-14.4 32-32S49.6 0 32 0z"/>
+                      <path fill="#4285f4" d="M32 6.4c14.1 0 25.6 11.5 25.6 25.6S46.1 57.6 32 57.6 6.4 46.1 6.4 32 17.9 6.4 32 6.4z"/>
+                      <path fill="#fff" d="M32 19.2c-7.1 0-12.8 5.7-12.8 12.8s5.7 12.8 12.8 12.8 12.8-5.7 12.8-12.8-5.7-12.8-12.8-12.8zm0 19.2c-3.5 0-6.4-2.9-6.4-6.4s2.9-6.4 6.4-6.4 6.4 2.9 6.4 6.4-2.9 6.4-6.4 6.4z"/>
+                    </svg>
                   </div>
                 </div>
 
@@ -233,7 +223,7 @@ const GeneralEnquiry = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-white hover:bg-gray-100 text-black px-10 py-3.5 text-sm font-medium rounded-full transition-colors"
+                    className="bg-transparent hover:bg-white/10 text-white px-10 py-3 text-sm font-medium rounded-full border border-white/40 hover:border-white/60 transition-colors"
                   >
                     Submit
                   </button>
