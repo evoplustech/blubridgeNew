@@ -489,21 +489,20 @@ const Training = () => {
 
 
       {/* Bottom CTA */}
-      <section className="py-32 bg-gradient-to-r from-[#0066FF] to-[#0052CC]">
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
         <div className="container-custom text-center">
-          <h2 className="text-5xl font-light text-white mb-12 max-w-4xl mx-auto leading-tight">
-            Access thousands of GPUs tailored to your requirements
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Access thousands of GPUs tailored to your<br />requirements.
           </h2>
-          <div className="flex gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-12 py-7 text-lg font-medium">
+          
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <Link to="/products/gpu-nodes">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-12 py-7 text-lg">
-                Contact Sales
-              </Button>
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+              Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

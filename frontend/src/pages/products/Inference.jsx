@@ -574,7 +574,7 @@ const Inference = () => {
       </section>
 
       {/* SECTION 9: Final CTA Strip */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+     <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Access thousands of GPUs tailored to your<br />requirements.
@@ -582,7 +582,7 @@ const Inference = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/products/gpu-nodes">
-              <Button className="bg-slate-900 text-white hover:bg-slate-800 px-6 py-3 rounded font-medium">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

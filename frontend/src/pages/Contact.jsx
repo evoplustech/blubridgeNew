@@ -22,12 +22,6 @@ const Contact = () => {
       description: "For other queries, please get in touch with us via our general form.",
       buttonText: "Get in Touch",
       link: "/contact/general"
-    },
-    {
-      title: "SUPPORT",
-      description: "If you have a problem or question, please reach out and our support team will be here to help.",
-      buttonText: "Contact Support",
-      link: "/contact/support"
     }
   ];
 
@@ -66,7 +60,7 @@ const Contact = () => {
       {/* Three Contact Cards */}
       <section className="pb-20">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {contactCards.map((card, index) => (
               <div 
                 key={index}

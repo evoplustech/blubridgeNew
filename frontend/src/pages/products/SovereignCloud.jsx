@@ -395,7 +395,7 @@ const SovereignCloud = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/products/gpu-nodes">
-              <Button className="bg-slate-900 text-white hover:bg-slate-800 px-6 py-3 rounded font-medium">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
