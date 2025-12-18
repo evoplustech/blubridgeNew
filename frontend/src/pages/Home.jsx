@@ -353,14 +353,14 @@ const Home = () => {
           </div> */}
 
           {/* Stacked Feature Blocks with Abstract Visuals */}
-          <div className="space-y-24">
+          <div className="space-y-24 bg-[#0a0a0f]/50 rounded-3xl p-8 lg:p-12">
             {/* Section 1: Integrated Suite - Interconnected flowing layers */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-1">
                 <h3 className="text-3xl font-light text-white mb-4">A fully integrated suite of AI services and compute</h3>
                 <p className="text-gray-400 leading-relaxed">Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.</p>
               </div>
-              <div className="relative h-64 overflow-hidden order-2">
+              <div className="relative h-64 order-2">
                 <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="integrated1" x1="0%" y1="0%" x2="100%" y2="100%">
