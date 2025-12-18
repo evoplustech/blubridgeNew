@@ -48,6 +48,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 // Contact Sub-pages
 import ContactSales from './pages/contact/Sales';
+import GeneralEnquiry from './pages/contact/GeneralEnquiry';
 function App() {
   return (
     <div className="App">
