@@ -45,6 +45,9 @@ import Government from './pages/solutions/industry/Government';
 import Legal from './pages/solutions/industry/Legal';
 import Healthcare from './pages/solutions/industry/Healthcare';
 import ScrollToTop from './components/ScrollToTop';
+
+// Contact Sub-pages
+import ContactSales from './pages/contact/Sales';
 function App() {
   return (
     <div className="App">
