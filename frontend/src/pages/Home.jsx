@@ -648,250 +648,195 @@ const Home = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-5">
-            {/* TRAINING Card - Deep Purple */}
+            {/* TRAINING Card - Flowing Draped Ribbons, Deep Purple */}
             <Link to="/solutions/training">
               <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.01] transition-all duration-300">
-                {/* 3D Abstract Ribbon Background */}
-                <div className="absolute inset-0 bg-[#0d0815]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0d0815] via-[#15102a] to-[#0a0612]">
                   <svg viewBox="0 0 500 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
                     <defs>
-                      <linearGradient id="trainingGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#5a1a80" />
-                        <stop offset="50%" stopColor="#7a2aa0" />
-                        <stop offset="100%" stopColor="#4a1870" />
-                      </linearGradient>
-                      <linearGradient id="trainingGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <linearGradient id="trainRibbon1" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#8a3ab0" />
                         <stop offset="50%" stopColor="#6a2a90" />
-                        <stop offset="100%" stopColor="#3a1060" />
+                        <stop offset="100%" stopColor="#4a1870" />
                       </linearGradient>
-                      <linearGradient id="trainingEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#aa5ad0" />
-                        <stop offset="50%" stopColor="#c080e0" />
-                        <stop offset="100%" stopColor="#9a4ac0" />
+                      <linearGradient id="trainRibbon2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#9a4ac0" />
+                        <stop offset="50%" stopColor="#7a3aa0" />
+                        <stop offset="100%" stopColor="#5a2080" />
                       </linearGradient>
-                      <filter id="trainingGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="4" result="blur" />
-                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                      </filter>
+                      <linearGradient id="trainHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#c080e0" />
+                        <stop offset="100%" stopColor="#a060c0" />
+                      </linearGradient>
+                      <filter id="trainGlow"><feGaussianBlur stdDeviation="3" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
                     </defs>
-                    <g className="use-case-animate">
-                      {/* Back ribbon layer */}
-                      <path d="M-50,300 Q50,200 150,250 Q250,300 350,220 Q450,140 550,180" fill="none" stroke="url(#trainingGrad1)" strokeWidth="80" opacity="0.5" strokeLinecap="round" />
-                      {/* Middle ribbon */}
-                      <path d="M-30,350 Q100,250 200,300 Q320,360 420,260 Q500,180 580,220" fill="none" stroke="url(#trainingGrad2)" strokeWidth="65" opacity="0.7" strokeLinecap="round" />
-                      {/* Front ribbon */}
-                      <path d="M0,380 Q120,280 240,340 Q360,400 460,300 Q520,220 600,260" fill="none" stroke="url(#trainingGrad1)" strokeWidth="55" opacity="0.85" strokeLinecap="round" />
-                      {/* Highlight edge */}
-                      <path d="M0,380 Q120,280 240,340 Q360,400 460,300" stroke="url(#trainingEdge)" strokeWidth="3" fill="none" opacity="0.9" filter="url(#trainingGlow)" />
+                    <g className="training-animate">
+                      {/* Cascading fabric ribbons - vertical flow direction */}
+                      <path d="M150,-20 C130,60 180,120 160,200 C140,280 190,340 170,420" fill="none" stroke="url(#trainRibbon1)" strokeWidth="45" opacity="0.4" strokeLinecap="round" />
+                      <path d="M220,-30 C200,50 250,130 230,220 C210,310 260,380 240,450" fill="none" stroke="url(#trainRibbon2)" strokeWidth="55" opacity="0.5" strokeLinecap="round" />
+                      <path d="M300,-10 C280,80 330,160 310,260 C290,360 340,420 320,500" fill="none" stroke="url(#trainRibbon1)" strokeWidth="65" opacity="0.65" strokeLinecap="round" />
+                      <path d="M380,0 C360,90 410,180 390,290 C370,400 420,460 400,540" fill="none" stroke="url(#trainRibbon2)" strokeWidth="50" opacity="0.55" strokeLinecap="round" />
+                      <path d="M450,-20 C430,70 480,150 460,250 C440,350 490,430 470,520" fill="none" stroke="url(#trainRibbon1)" strokeWidth="40" opacity="0.45" strokeLinecap="round" />
+                      {/* Soft highlight streaks */}
+                      <path d="M300,-10 C280,80 330,160 310,260" stroke="url(#trainHighlight)" strokeWidth="3" fill="none" opacity="0.8" filter="url(#trainGlow)" />
+                      <path d="M220,-30 C200,50 250,130 230,220" stroke="url(#trainHighlight)" strokeWidth="2" fill="none" opacity="0.6" />
                     </g>
-                    <ellipse cx="300" cy="300" rx="150" ry="80" fill="#6a2a90" opacity="0.15" />
+                    <ellipse cx="300" cy="280" rx="180" ry="100" fill="#6a2a90" opacity="0.1" />
                   </svg>
                 </div>
-                
-                {/* Title - Top Left */}
-                <div className="absolute top-6 left-6 z-10">
-                  <h3 className="text-2xl font-semibold tracking-wide text-white">TRAINING</h3>
-                </div>
-                
-                {/* Stat Badges - Bottom Right */}
+                <div className="absolute top-6 left-6 z-10"><h3 className="text-2xl font-semibold tracking-wide text-white">TRAINING</h3></div>
                 <div className="absolute bottom-6 right-6 flex gap-3 z-10">
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">80%</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Lower Cost</span>
-                  </div>
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">30%</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Faster</span>
-                  </div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">80%</span><span className="text-gray-300 text-xs ml-1.5">Lower Cost</span></div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">30%</span><span className="text-gray-300 text-xs ml-1.5">Faster</span></div>
                 </div>
-                
                 <div className="absolute inset-0 border border-white/5 rounded-xl group-hover:border-purple-500/30 transition-colors" />
               </div>
             </Link>
 
-            {/* INFERENCE Card - Dark Blue/Steel */}
+            {/* INFERENCE Card - Sharp Angular Glass Shards, Cool Blue */}
             <Link to="/solutions/inference">
               <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.01] transition-all duration-300">
-                {/* 3D Abstract Ribbon Background */}
-                <div className="absolute inset-0 bg-[#080c14]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#080c14] via-[#0a1020] to-[#060a12]">
                   <svg viewBox="0 0 500 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
                     <defs>
-                      <linearGradient id="inferenceGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1a3a60" />
-                        <stop offset="50%" stopColor="#2a5080" />
-                        <stop offset="100%" stopColor="#1a3050" />
+                      <linearGradient id="infShard1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#2a5080" />
+                        <stop offset="100%" stopColor="#1a3060" />
                       </linearGradient>
-                      <linearGradient id="inferenceGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#3a6090" />
-                        <stop offset="50%" stopColor="#2a4a70" />
-                        <stop offset="100%" stopColor="#1a2a50" />
+                      <linearGradient id="infShard2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#3a70a0" />
+                        <stop offset="100%" stopColor="#2a5080" />
                       </linearGradient>
-                      <linearGradient id="inferenceEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#5a8ab0" />
-                        <stop offset="50%" stopColor="#7aaad0" />
-                        <stop offset="100%" stopColor="#4a7aa0" />
+                      <linearGradient id="infEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#8ac0f0" />
+                        <stop offset="50%" stopColor="#aadaff" />
+                        <stop offset="100%" stopColor="#6aa0d0" />
                       </linearGradient>
-                      <filter id="inferenceGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="4" result="blur" />
-                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                      </filter>
+                      <filter id="infGlow"><feGaussianBlur stdDeviation="2" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
                     </defs>
-                    <g className="use-case-animate">
-                      {/* Back ribbon */}
-                      <path d="M-50,280 Q80,180 180,240 Q300,310 400,220 Q480,150 560,200" fill="none" stroke="url(#inferenceGrad1)" strokeWidth="75" opacity="0.5" strokeLinecap="round" />
-                      {/* Middle ribbon */}
-                      <path d="M-20,340 Q100,240 220,310 Q340,380 450,280 Q530,200 600,250" fill="none" stroke="url(#inferenceGrad2)" strokeWidth="60" opacity="0.7" strokeLinecap="round" />
-                      {/* Front ribbon */}
-                      <path d="M20,390 Q150,290 280,360 Q400,420 500,320 Q560,250 620,290" fill="none" stroke="url(#inferenceGrad1)" strokeWidth="50" opacity="0.85" strokeLinecap="round" />
-                      {/* Highlight */}
-                      <path d="M20,390 Q150,290 280,360 Q400,420 500,320" stroke="url(#inferenceEdge)" strokeWidth="3" fill="none" opacity="0.85" filter="url(#inferenceGlow)" />
+                    <g className="inference-animate">
+                      {/* Sharp angular crystal shards radiating from center-right */}
+                      <polygon points="320,200 450,120 480,180 380,220" fill="url(#infShard1)" opacity="0.7" />
+                      <polygon points="300,180 420,80 460,130 350,190" fill="url(#infShard2)" opacity="0.6" />
+                      <polygon points="340,240 500,200 520,280 400,290" fill="url(#infShard1)" opacity="0.65" />
+                      <polygon points="280,220 380,280 420,360 300,300" fill="url(#infShard2)" opacity="0.55" />
+                      <polygon points="350,160 480,60 510,120 400,180" fill="url(#infShard1)" opacity="0.5" />
+                      <polygon points="310,260 400,320 440,400 340,350" fill="url(#infShard2)" opacity="0.5" />
+                      <polygon points="260,200 340,140 380,200 300,240" fill="url(#infShard1)" opacity="0.75" />
+                      {/* Sharp reflective edges */}
+                      <line x1="320" y1="200" x2="450" y2="120" stroke="url(#infEdge)" strokeWidth="2" opacity="0.9" filter="url(#infGlow)" />
+                      <line x1="300" y1="180" x2="420" y2="80" stroke="url(#infEdge)" strokeWidth="1.5" opacity="0.7" />
+                      <line x1="340" y1="240" x2="500" y2="200" stroke="url(#infEdge)" strokeWidth="2" opacity="0.8" filter="url(#infGlow)" />
+                      <line x1="350" y1="160" x2="480" y2="60" stroke="url(#infEdge)" strokeWidth="1.5" opacity="0.6" />
                     </g>
-                    <ellipse cx="320" cy="320" rx="140" ry="75" fill="#2a5080" opacity="0.12" />
+                    <ellipse cx="380" cy="220" rx="100" ry="80" fill="#2a5080" opacity="0.08" />
                   </svg>
                 </div>
-                
-                {/* Title */}
-                <div className="absolute top-6 left-6 z-10">
-                  <h3 className="text-2xl font-semibold tracking-wide text-white">INFERENCE</h3>
-                </div>
-                
-                {/* Stat Badges */}
+                <div className="absolute top-6 left-6 z-10"><h3 className="text-2xl font-semibold tracking-wide text-white">INFERENCE</h3></div>
                 <div className="absolute bottom-6 right-6 flex gap-3 z-10">
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">7.2X</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Performance</span>
-                  </div>
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">+40%</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Efficiency</span>
-                  </div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">7.2X</span><span className="text-gray-300 text-xs ml-1.5">Performance</span></div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">+40%</span><span className="text-gray-300 text-xs ml-1.5">Efficiency</span></div>
                 </div>
-                
                 <div className="absolute inset-0 border border-white/5 rounded-xl group-hover:border-blue-500/30 transition-colors" />
               </div>
             </Link>
 
-            {/* FINE-TUNING Card - Deep Green */}
+            {/* FINE-TUNING Card - Smooth Organic Blob Forms, Soft Green */}
             <Link to="/solutions/fine-tuning">
               <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.01] transition-all duration-300">
-                {/* 3D Abstract Ribbon Background */}
-                <div className="absolute inset-0 bg-[#081410]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#081410] via-[#0a1a14] to-[#06100c]">
                   <svg viewBox="0 0 500 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
                     <defs>
-                      <linearGradient id="finetuneGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1a5030" />
+                      <radialGradient id="ftBlob1" cx="30%" cy="30%" r="70%">
+                        <stop offset="0%" stopColor="#4a9060" />
                         <stop offset="50%" stopColor="#2a7040" />
-                        <stop offset="100%" stopColor="#1a4028" />
-                      </linearGradient>
-                      <linearGradient id="finetuneGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#3a8050" />
-                        <stop offset="50%" stopColor="#2a6040" />
-                        <stop offset="100%" stopColor="#1a4030" />
-                      </linearGradient>
-                      <linearGradient id="finetuneEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="100%" stopColor="#1a5030" />
+                      </radialGradient>
+                      <radialGradient id="ftBlob2" cx="70%" cy="40%" r="60%">
                         <stop offset="0%" stopColor="#5aa070" />
-                        <stop offset="50%" stopColor="#7ac090" />
-                        <stop offset="100%" stopColor="#4a9060" />
+                        <stop offset="50%" stopColor="#3a8050" />
+                        <stop offset="100%" stopColor="#2a6040" />
+                      </radialGradient>
+                      <linearGradient id="ftShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#8ad0a0" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#6ab080" stopOpacity="0.3" />
                       </linearGradient>
-                      <filter id="finetuneGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="4" result="blur" />
-                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                      </filter>
+                      <filter id="ftBlur"><feGaussianBlur stdDeviation="8" /></filter>
+                      <filter id="ftGlow"><feGaussianBlur stdDeviation="4" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
                     </defs>
-                    <g className="use-case-animate">
-                      {/* Back ribbon */}
-                      <path d="M-40,290 Q70,190 170,250 Q290,320 390,230 Q470,160 550,200" fill="none" stroke="url(#finetuneGrad1)" strokeWidth="78" opacity="0.5" strokeLinecap="round" />
-                      {/* Middle ribbon */}
-                      <path d="M-10,350 Q110,250 230,320 Q350,390 460,290 Q540,210 610,260" fill="none" stroke="url(#finetuneGrad2)" strokeWidth="62" opacity="0.7" strokeLinecap="round" />
-                      {/* Front ribbon */}
-                      <path d="M10,400 Q140,300 270,370 Q390,430 490,330 Q550,260 620,300" fill="none" stroke="url(#finetuneGrad1)" strokeWidth="52" opacity="0.85" strokeLinecap="round" />
-                      {/* Highlight */}
-                      <path d="M10,400 Q140,300 270,370 Q390,430 490,330" stroke="url(#finetuneEdge)" strokeWidth="3" fill="none" opacity="0.88" filter="url(#finetuneGlow)" />
+                    <g className="finetune-animate">
+                      {/* Organic blob/droplet shapes flowing and merging */}
+                      <ellipse cx="350" cy="280" rx="120" ry="100" fill="url(#ftBlob1)" opacity="0.6" />
+                      <ellipse cx="280" cy="200" rx="90" ry="70" fill="url(#ftBlob2)" opacity="0.7" />
+                      <ellipse cx="400" cy="180" rx="70" ry="55" fill="url(#ftBlob1)" opacity="0.5" />
+                      <ellipse cx="320" cy="320" rx="80" ry="60" fill="url(#ftBlob2)" opacity="0.55" />
+                      <ellipse cx="420" cy="260" rx="60" ry="50" fill="url(#ftBlob1)" opacity="0.5" />
+                      {/* Smooth liquid highlight arcs */}
+                      <path d="M260,160 Q320,140 340,180" fill="none" stroke="url(#ftShine)" strokeWidth="4" opacity="0.7" filter="url(#ftGlow)" strokeLinecap="round" />
+                      <path d="M320,240 Q380,220 400,260" fill="none" stroke="url(#ftShine)" strokeWidth="3" opacity="0.5" strokeLinecap="round" />
+                      <path d="M380,150 Q420,140 440,170" fill="none" stroke="url(#ftShine)" strokeWidth="2.5" opacity="0.6" strokeLinecap="round" />
                     </g>
-                    <ellipse cx="310" cy="310" rx="145" ry="78" fill="#2a7040" opacity="0.12" />
+                    <ellipse cx="340" cy="250" rx="150" ry="100" fill="#2a7040" opacity="0.08" filter="url(#ftBlur)" />
                   </svg>
                 </div>
-                
-                {/* Title */}
-                <div className="absolute top-6 left-6 z-10">
-                  <h3 className="text-2xl font-semibold tracking-wide text-white">FINE-TUNING</h3>
-                </div>
-                
-                {/* Stat Badges */}
+                <div className="absolute top-6 left-6 z-10"><h3 className="text-2xl font-semibold tracking-wide text-white">FINE-TUNING</h3></div>
                 <div className="absolute bottom-6 right-6 flex gap-3 z-10">
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">+40%</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Efficiency</span>
-                  </div>
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">30%</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Faster</span>
-                  </div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">+40%</span><span className="text-gray-300 text-xs ml-1.5">Efficiency</span></div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">30%</span><span className="text-gray-300 text-xs ml-1.5">Faster</span></div>
                 </div>
-                
                 <div className="absolute inset-0 border border-white/5 rounded-xl group-hover:border-green-500/30 transition-colors" />
               </div>
             </Link>
 
-            {/* AI DEVELOPMENT Card - Warm Brown/Copper */}
+            {/* AI DEVELOPMENT Card - Heavy Sculpted Architectural Planes, Warm Brown/Copper */}
             <Link to="/solutions/ai-development">
               <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.01] transition-all duration-300">
-                {/* 3D Abstract Ribbon Background */}
-                <div className="absolute inset-0 bg-[#120c08]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#120c08] via-[#1a1410] to-[#0e0a06]">
                   <svg viewBox="0 0 500 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
                     <defs>
-                      <linearGradient id="aidevGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#5a3a28" />
-                        <stop offset="50%" stopColor="#7a5038" />
-                        <stop offset="100%" stopColor="#4a3020" />
-                      </linearGradient>
-                      <linearGradient id="aidevGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <linearGradient id="aiPlane1" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#8a6048" />
                         <stop offset="50%" stopColor="#6a4838" />
-                        <stop offset="100%" stopColor="#3a2818" />
+                        <stop offset="100%" stopColor="#4a3028" />
                       </linearGradient>
-                      <linearGradient id="aidevEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#aa8060" />
-                        <stop offset="50%" stopColor="#caa080" />
-                        <stop offset="100%" stopColor="#9a7050" />
+                      <linearGradient id="aiPlane2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#9a7058" />
+                        <stop offset="50%" stopColor="#7a5848" />
+                        <stop offset="100%" stopColor="#5a4038" />
                       </linearGradient>
-                      <filter id="aidevGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="4" result="blur" />
-                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                      </filter>
+                      <linearGradient id="aiPlane3" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#3a2818" />
+                        <stop offset="100%" stopColor="#5a4030" />
+                      </linearGradient>
+                      <linearGradient id="aiEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#caa080" />
+                        <stop offset="50%" stopColor="#e0c0a0" />
+                        <stop offset="100%" stopColor="#b09070" />
+                      </linearGradient>
+                      <filter id="aiGlow"><feGaussianBlur stdDeviation="2" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+                      <filter id="aiShadow"><feDropShadow dx="5" dy="8" stdDeviation="6" floodColor="#000" floodOpacity="0.5" /></filter>
                     </defs>
-                    <g className="use-case-animate">
-                      {/* Back ribbon */}
-                      <path d="M-45,285 Q65,185 165,245 Q285,315 385,225 Q465,155 545,195" fill="none" stroke="url(#aidevGrad1)" strokeWidth="76" opacity="0.5" strokeLinecap="round" />
-                      {/* Middle ribbon */}
-                      <path d="M-15,345 Q105,245 225,315 Q345,385 455,285 Q535,205 605,255" fill="none" stroke="url(#aidevGrad2)" strokeWidth="62" opacity="0.7" strokeLinecap="round" />
-                      {/* Front ribbon */}
-                      <path d="M15,395 Q145,295 275,365 Q395,425 495,325 Q555,255 625,295" fill="none" stroke="url(#aidevGrad1)" strokeWidth="52" opacity="0.85" strokeLinecap="round" />
-                      {/* Highlight */}
-                      <path d="M15,395 Q145,295 275,365 Q395,425 495,325" stroke="url(#aidevEdge)" strokeWidth="3" fill="none" opacity="0.9" filter="url(#aidevGlow)" />
+                    <g className="aidev-animate">
+                      {/* Heavy architectural planes with bold mass */}
+                      <polygon points="200,350 280,280 420,300 380,380 260,400" fill="url(#aiPlane3)" opacity="0.6" />
+                      <polygon points="250,250 350,180 450,220 400,300 300,320" fill="url(#aiPlane1)" opacity="0.75" filter="url(#aiShadow)" />
+                      <polygon points="280,200 380,130 480,170 430,250 330,270" fill="url(#aiPlane2)" opacity="0.7" />
+                      <polygon points="320,150 400,90 490,120 450,190 370,210" fill="url(#aiPlane1)" opacity="0.6" />
+                      <polygon points="220,300 300,250 380,280 340,340 260,360" fill="url(#aiPlane2)" opacity="0.65" />
+                      {/* Sharp bold edges */}
+                      <line x1="250" y1="250" x2="350" y2="180" stroke="url(#aiEdge)" strokeWidth="2.5" opacity="0.85" filter="url(#aiGlow)" />
+                      <line x1="280" y1="200" x2="380" y2="130" stroke="url(#aiEdge)" strokeWidth="2" opacity="0.75" filter="url(#aiGlow)" />
+                      <line x1="350" y1="180" x2="450" y2="220" stroke="url(#aiEdge)" strokeWidth="2" opacity="0.7" />
+                      <line x1="320" y1="150" x2="400" y2="90" stroke="url(#aiEdge)" strokeWidth="1.5" opacity="0.6" />
                     </g>
-                    <ellipse cx="315" cy="315" rx="142" ry="76" fill="#7a5038" opacity="0.12" />
+                    <ellipse cx="360" cy="260" rx="130" ry="90" fill="#6a4838" opacity="0.1" />
                   </svg>
                 </div>
-                
-                {/* Title */}
-                <div className="absolute top-6 left-6 z-10">
-                  <h3 className="text-2xl font-semibold tracking-wide text-white">AI DEVELOPMENT</h3>
-                </div>
-                
-                {/* Stat Badges */}
+                <div className="absolute top-6 left-6 z-10"><h3 className="text-2xl font-semibold tracking-wide text-white">AI DEVELOPMENT</h3></div>
                 <div className="absolute bottom-6 right-6 flex gap-3 z-10">
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">80%</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Lower Cost</span>
-                  </div>
-                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg">
-                    <span className="text-white font-bold text-sm">30%</span>
-                    <span className="text-gray-300 text-xs ml-1.5">Faster</span>
-                  </div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">80%</span><span className="text-gray-300 text-xs ml-1.5">Lower Cost</span></div>
+                  <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2.5 border border-white/10 shadow-lg"><span className="text-white font-bold text-sm">30%</span><span className="text-gray-300 text-xs ml-1.5">Faster</span></div>
                 </div>
-                
                 <div className="absolute inset-0 border border-white/5 rounded-xl group-hover:border-amber-500/30 transition-colors" />
               </div>
             </Link>
@@ -899,13 +844,26 @@ const Home = () => {
         </div>
         
         <style>{`
-          @keyframes useCaseFloat {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-2px) translateX(1px); }
+          @keyframes trainingFlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
           }
-          .use-case-animate {
-            animation: useCaseFloat 8s ease-in-out infinite;
+          @keyframes inferenceGlint {
+            0%, 100% { transform: translateX(0) scale(1); opacity: 1; }
+            50% { transform: translateX(2px) scale(1.01); opacity: 0.95; }
           }
+          @keyframes finetuneFloat {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.02) translateY(-2px); }
+          }
+          @keyframes aidevShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(2px) translateY(-2px); }
+          }
+          .training-animate { animation: trainingFlow 7s ease-in-out infinite; }
+          .inference-animate { animation: inferenceGlint 6s ease-in-out infinite; }
+          .finetune-animate { animation: finetuneFloat 8s ease-in-out infinite; }
+          .aidev-animate { animation: aidevShift 7s ease-in-out infinite; }
         `}</style>
       </section>
 
