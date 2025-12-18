@@ -6,6 +6,22 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, ShoppingCart } from 'lucide-re
 
 const Training = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const [animationOffset, setAnimationOffset] = useState(0);
+  const animationRef = useRef(null);
+
+  useEffect(() => {
+    let startTime = null;
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      setAnimationOffset(elapsed * 0.00005);
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    animationRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
