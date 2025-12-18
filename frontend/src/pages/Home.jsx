@@ -422,7 +422,7 @@ const Home = () => {
                 <h3 className="text-3xl font-light text-white mb-4">Dedicated training clusters ready to go</h3>
                 <p className="text-gray-400 leading-relaxed">BluBrg's optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes for robust infrastructure management.</p>
               </div>
-              <div className="relative h-64 overflow-hidden order-2">
+              <div className="relative h-64 order-2">
                 <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="training1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -487,7 +487,7 @@ const Home = () => {
                 <h3 className="text-3xl font-light text-white mb-4">Scalable, flexible AI Compute</h3>
                 <p className="text-gray-400 leading-relaxed">BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.</p>
               </div>
-              <div className="relative h-64 overflow-hidden order-2">
+              <div className="relative h-64 order-2">
                 <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                   <defs>
                     <linearGradient id="scale1" x1="0%" y1="100%" x2="100%" y2="0%">
