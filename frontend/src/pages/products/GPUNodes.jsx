@@ -395,8 +395,7 @@ const GPUNodes = () => {
             
             <div className="space-y-6 order-1 lg:order-2">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                Infrastructure that grows<br />
-                with you
+                Infrastructure that grows<br />with you
               </h2>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
