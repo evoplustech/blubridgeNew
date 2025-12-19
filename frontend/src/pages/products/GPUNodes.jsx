@@ -396,7 +396,7 @@ const GPUNodes = () => {
             <div className="space-y-6 order-1 lg:order-2">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Infrastructure that grows<br />
-                <span className="text-blue-400">with you</span>
+                with you
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
                   All services operate on a shared, unified platform, making it easy to scale resources as demand evolves. You can begin with bare-metal GPU nodes and later extend your setup with orchestration, scheduling, or application-level services when required.
