@@ -424,7 +424,7 @@ const Marketplace = () => {
                 Get access to a fully integrated suite of AI services and compute
               </h2>
               <p className="text-gray-400 text-base leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-blue-400">BluBrg's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+               Lower costs, increase revenue, and operate your AI workloads more efficiently on a fully integrated platform. Whether you use Blubrg’s built-in AI/ML tools or your own, the platform is designed to simplify the path from development to production.
               </p>
             </div>
 
