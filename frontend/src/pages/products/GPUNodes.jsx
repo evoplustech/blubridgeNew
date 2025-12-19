@@ -398,6 +398,7 @@ const GPUNodes = () => {
                 Infrastructure that grows<br />
                 with you
               </h2>
+              </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
                   All services operate on a shared, unified platform, making it easy to scale resources as demand evolves. You can begin with bare-metal GPU nodes and later extend your setup with orchestration, scheduling, or application-level services when required.
               </p>
@@ -454,7 +455,7 @@ const GPUNodes = () => {
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Get access to a fully<br />
                 integrated suite of AI<br />
-                <span className="text-blue-400">services and compute</span>
+                services and compute
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
                 Reduce costs, boost performance, and streamline AI operations using an integrated compute platform. You can use built-in AI and machine learning tools or seamlessly integrate your existing software stack, enabling a smooth transition from development to production.
