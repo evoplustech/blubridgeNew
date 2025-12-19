@@ -206,8 +206,8 @@ const Marketplace = () => {
               <p className="text-gray-400 text-sm leading-relaxed">
                 Choose from preconfigured templates and customizable tools tailored to suit your specific AI use case.
               </p>
-              <Link to="/docs" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
-                Learn More <ArrowRight className="w-4 h-4" />
+             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
+                Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
