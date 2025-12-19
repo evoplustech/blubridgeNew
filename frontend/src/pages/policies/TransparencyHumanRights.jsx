@@ -11,7 +11,7 @@ const TransparencyHumanRights = () => {
             <h1 className="text-4xl md:text-5xl font-light text-white mb-12">Transparency and Human Rights</h1>
 
             {/* Last Updated */}
-            <p className="text-gray-400 text-sm mb-12">Last updated: December 2024</p>
+            <p className="text-gray-400 text-sm mb-12">Last updated: December 2025</p>
 
             {/* Introduction */}
             <div className="space-y-6 mb-12">
