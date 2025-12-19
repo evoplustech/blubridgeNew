@@ -312,7 +312,7 @@ const Careers = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
-        <div className="container-custom">
+        <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
           
           <div className="space-y-4 max-w-4xl">
@@ -361,7 +361,7 @@ const Careers = () => {
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

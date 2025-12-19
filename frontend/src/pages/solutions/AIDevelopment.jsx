@@ -600,9 +600,9 @@ const AIDevelopment = () => {
                 <div className="text-4xl lg:text-5xl font-bold text-white mb-1">{item.metric}</div>
                 <div className="text-white text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
                 <p className="text-white/50 text-sm leading-relaxed mb-4">{item.desc}</p>
-                <Link to={item.linkTo} className="text-amber-400 hover:text-amber-300 text-sm font-medium flex items-center gap-1">
+                {/* <Link to={item.linkTo} className="text-amber-400 hover:text-amber-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
-                </Link>
+                </Link> */}
               </div>
             ))}
           </div>

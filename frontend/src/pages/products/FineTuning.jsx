@@ -339,12 +339,12 @@ const FineTuning = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-                <Link to="/contact">
+                <Link to="/contact/sales">
                   <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
                     Start Building
                   </Button>
                 </Link>
-                 <Link to="/docs" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors font-medium">
+                 <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-orange-300 transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -664,19 +664,19 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 10: Final CTA Strip */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Access thousands of GPUs tailored to your<br />requirements.
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
+            Access thousands of GPUs tailored to your requirements.
           </h2>
           
-          <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/products/gpu-nodes">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

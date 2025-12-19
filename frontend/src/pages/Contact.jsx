@@ -13,13 +13,13 @@ const Contact = () => {
   const contactCards = [
     {
       title: "SALES",
-      description: "Speak to our sales team about pricing, products and solutions.",
+      description: "Get in touch with our sales team to discuss pricing, product options, and tailored solutions that fit your organisation’s needs.",
       buttonText: "Talk to Sales",
       link: "/contact/sales"
     },
     {
       title: "GENERAL",
-      description: "For other queries, please get in touch with us via our general form.",
+      description: "For questions that aren’t related to sales such as general enquiries or requests for information, please use our contact form to reach out to us.",
       buttonText: "Get in Touch",
       link: "/contact/general-enquiry"
     }
@@ -28,23 +28,15 @@ const Contact = () => {
   const faqs = [
     {
       question: "What is AI Compute offered by BluBrg?",
-      answer: "BluBrg provides enterprise-grade AI compute infrastructure including GPU clusters, serverless inference, and dedicated training environments. Our platform is optimized for demanding AI workloads with access to the latest NVIDIA GPUs including H100, H200, and GB200 NVL72."
+      answer: "AI Compute provides on-demand access to powerful GPU resources that allow businesses and developers to run intensive computational tasks such as training AI models, performing data analytics, and executing complex simulations, all without needing to buy expensive hardware upfront."
     },
     {
       question: "What industries can benefit from BluBrg?",
-      answer: "BluBrg serves a wide range of industries including healthcare, finance, autonomous vehicles, research institutions, and technology companies. Any organization working with AI/ML models, large language models, or compute-intensive workloads can benefit from our infrastructure."
+      answer: "A wide range of industries can use Blubrg’s infrastructure, including artificial intelligence and machine learning research, gaming and entertainment for graphics and simulation, healthcare for imaging and data analysis, finance for modelling and risk analysis, automotive for autonomous systems, and aerospace for engineering simulations."
     },
     {
       question: "Can I try services from BluBrg before committing?",
-      answer: "Yes, we offer trial periods and proof-of-concept engagements for qualified customers. Contact our sales team to discuss your requirements and learn about our trial programs designed to help you evaluate our platform before making a commitment."
-    },
-    {
-      question: "What GPU options are available?",
-      answer: "We offer the latest NVIDIA GPUs including H100, H200, and the new GB200 NVL72 Blackwell architecture. All GPUs are available on-demand with bare-metal performance and can scale from single GPUs to thousands of nodes."
-    },
-    {
-      question: "How does BluBrg ensure data security?",
-      answer: "BluBrg implements enterprise-grade security measures including end-to-end encryption, isolated environments, SOC 2 Type II compliance, and GDPR compliance. Our sovereign cloud options provide additional data residency controls for organizations with specific regulatory requirements."
+      answer: "Yes, there is an option to try the platform before making a longer-term commitment. During the trial period, you can access GPU resources, run workloads, and test performance to ensure the platform meets your needs."
     }
   ];
 

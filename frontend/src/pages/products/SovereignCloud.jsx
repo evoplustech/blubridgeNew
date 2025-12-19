@@ -215,7 +215,7 @@ const SovereignCloud = () => {
                 <h3 className="text-sm font-bold text-white mb-3 tracking-wider">{pillar.title}</h3>
                 <p className="text-white/80 text-xs leading-relaxed">{pillar.description}</p>
                 {/* {pillar.hasLink && activeCard === i && ( */}
-                  <Link to="/contact" className="text-white text-xs mt-4 inline-flex items-center gap-1 hover:underline">
+                  <Link to="/contact/sales" className="text-white text-xs mt-4 inline-flex items-center gap-1 hover:underline">
                     Contact Sales <ArrowRight className="w-3 h-3" />
                   </Link>
                 {/* )} */}

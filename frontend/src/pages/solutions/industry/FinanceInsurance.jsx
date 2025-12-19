@@ -501,24 +501,20 @@ const FinanceInsurance = () => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#0066FF] to-[#0055DD]">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl lg:text-4xl font-light text-white mb-8 leading-tight">
-              Access thousands of GPUs tailored to your requirements.
-            </h2>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact/sales">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">
-                  Reserve GPUs
-                </Button>
-              </Link>
-              <Link to="/contact/sales">
-                <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
-                  Contact Sales <ArrowRight className="w-4 h-4" />
-                </button>
-              </Link>
-            </div>
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
+            Access thousands of GPUs tailored to your requirements.
+          </h2> 
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact/sales">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+                Reserve GPUs
+              </Button>
+            </Link>
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-1">
+              Contact Sales <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

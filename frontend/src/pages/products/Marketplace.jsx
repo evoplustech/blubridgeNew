@@ -108,19 +108,19 @@ const Marketplace = () => {
   const faqs = [
     {
       question: "What AI/ML tools are available in the BluBrg AI Marketplace?",
-      answer: "The BluBrg AI Marketplace offers a comprehensive suite of AI/ML tools including popular frameworks like PyTorch, TensorFlow, and Kubeflow, pre-trained models across various domains (NLP, computer vision, generative AI), and development environments optimized for AI workloads."
+      answer: "The Blubrg AI Marketplace provides a broad selection of leading AI/ML tools, including widely used frameworks such as PyTorch and TensorFlow, all optimized for seamless integration with our platform."
     },
     {
       question: "How can I access pre-trained models in the AI Marketplace?",
-      answer: "Pre-trained models can be accessed through our intuitive marketplace interface. Simply browse our model library, select the model that fits your use case, and deploy it directly to your infrastructure with just a few clicks. All models are optimized for our NVIDIA GPU infrastructure."
+      answer: "As a customer, you can explore and access a large library of pre-trained models directly through our AI Marketplace. These models support a wide range of applications and industries, helping you accelerate your AI projects with ease."
     },
     {
       question: "Are the hardware resources in the AI Marketplace optimised for specific use cases?",
-      answer: "Yes, our hardware resources are specifically configured for different AI workloads. We offer AI-in-a-Box for development, Training Compute for large-scale model training, and Inference Compute for production deployments, each optimized for their respective use cases."
+      answer: "Yes, our hardware resources are tailored and optimized for specific AI use cases, ensuring peak performance and efficiency without the complexity of managing infrastructure setup."
     },
     {
       question: "Can I integrate my existing workflows with the tools and models in the AI Marketplace?",
-      answer: "Absolutely. The BluBrg AI Marketplace is designed with integration in mind. Our APIs, SDKs, and container-based deployment options make it easy to incorporate marketplace resources into your existing CI/CD pipelines and development workflows."
+      answer: "The AI Marketplace is built to integrate smoothly with your existing workflows, enabling you to use our tools and models without interrupting your current processes."
     }
   ];
 
@@ -533,17 +533,17 @@ const Marketplace = () => {
 
       {/* FAQs Section */}
       <section className="py-20">
-        <div className="container-custom">
-          <h2 className="text-2xl font-light text-white mb-10">FAQs</h2>
+        <div className="container-custom max-w-4xl">
+          <h2 className="text-3xl font-bold text-white mb-10">FAQs</h2>
           <div className="space-y-0">
             {faqs.map((faq, index) => (
               <div key={index} className="border-b border-white/10">
                 <button
-                  className="w-full py-5 flex items-center justify-between text-left"
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                 >
-                  <span className="text-white text-base pr-8">{faq.question}</span>
-                  <span className="flex-shrink-0">
+                  <span className="text-white text-lg pr-8">{faq.question}</span>
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-blue-600/80">
                     {openFaq === index ? (
                       <Minus className="w-5 h-5 text-blue-400" />
                     ) : (
@@ -563,22 +563,21 @@ const Marketplace = () => {
       </section>
 
       {/* Bottom CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container-custom">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <h2 className="text-2xl md:text-3xl font-light text-white max-w-xl">
-              Access thousands of GPUs tailored to your requirements.
-            </h2>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link to="/contact/sales">
-                <Button className="bg-[#0a0a0f] hover:bg-[#141418] text-white px-8 py-6 text-base font-medium rounded-lg">
-                  Reserve GPUs
-                </Button>
-              </Link>
-              <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
+            Access thousands of GPUs tailored to your requirements.
+          </h2>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact/sales">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+                Reserve GPUs
+              </Button>
+            </Link>
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
+              Contact Sales <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

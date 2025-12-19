@@ -290,7 +290,7 @@ const Training = () => {
       <section className="py-32 bg-[#000000]">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-white mb-20 text-center">Performance</h2>
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-3 max-w-6xl mx-auto">
             {[
               { metric: '30%', label: 'FASTER INSIGHTS', desc: 'Shorten development cycles and accelerate feedback loops with an AI-optimised training platform.' },
               { metric: '80%', label: 'LOWER COST', desc: 'Reduce training costs significantly while maintaining high performance.' },

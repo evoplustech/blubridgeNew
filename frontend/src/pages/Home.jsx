@@ -150,31 +150,36 @@ const Home = () => {
       name: "Datacenters",
       title: "Purpose-built for AI",
       description: "BluBrg's Arctic data centers are engineered specifically for the intensive energy demands of GPU-based AI computing, utilizing 100% renewable hydroelectric power.",
-      features: ["100% Renewable Energy", "Arctic cooling advantage", "Scalable infrastructure", "Sovereign data hosting"]
+      features: ["100% Renewable Energy", "Arctic cooling advantage", "Scalable infrastructure", "Sovereign data hosting"],
+      link : '/products/glomfjord'
     },
     {
       name: "GPU Nodes",
       title: "High-performance compute",
       description: "Access the latest NVIDIA GPUs including H100, H200, and GB200 NVL72, optimized for AI training and inference workloads.",
-      features: ["NVIDIA Grace Blackwell", "On-demand access", "Optimized for AI/HPC", "Bare-metal performance"]
+      features: ["NVIDIA Grace Blackwell", "On-demand access", "Optimized for AI/HPC", "Bare-metal performance"],
+      link : '/products/gpu-nodes'
     },
     {
       name: "Networking",
       title: "GPU fabric optimized for AI",
       description: "High-bandwidth, low-latency networking built for distributed AI training and inference at scale.",
-      features: ["RoCE enabled", "Non-blocking design", "400Gbps InfiniBand", "Built for AI scale"]
+      features: ["RoCE enabled", "Non-blocking design", "400Gbps InfiniBand", "Built for AI scale"],
+      link : '/products/gpu-nodes'
     },
     {
       name: "Storage",
       title: "Fast storage for AI workloads",
       description: "High-performance parallel filesystems ensure GPUs are kept busy and fully utilized during training and inference.",
-      features: ["RDMA enabled", "Parallel filesystems", "AI storage platform", "Fast checkpointing"]
+      features: ["RDMA enabled", "Parallel filesystems", "AI storage platform", "Fast checkpointing"],
+      link : '/products/gpu-nodes'
     },
     {
       name: "Kubernetes",
       title: "Container orchestration at scale",
       description: "Robust Kubernetes infrastructure for deploying, managing, and scaling containerized AI workloads efficiently.",
-      features: ["Bare metal performance", "Auto-scale to 1000s GPUs", "Fully managed", "Native GPU support"]
+      features: ["Bare metal performance", "Auto-scale to 1000s GPUs", "Fully managed", "Native GPU support"],
+      link : '/products/training'
     }
   ];
 
@@ -607,7 +612,7 @@ const Home = () => {
                     </div>
                   ))}
                 </div>
-                <Link to="/products/glomfjord" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mt-4 text-sm">
+                <Link to={`${infraTabs[activeInfraTab].link}`} className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mt-4 text-sm">
                   See More <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -803,7 +808,7 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl font-light mb-12">Frequently Asked Questions</h2>
           
@@ -838,7 +843,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
@@ -853,7 +858,7 @@ const Home = () => {
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

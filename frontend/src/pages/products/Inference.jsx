@@ -263,7 +263,7 @@ const Inference = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-                <Link to="/contact">
+                <Link to="/contact/sales">
                   <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
                     Get Started
                   </Button>
@@ -404,7 +404,7 @@ const Inference = () => {
                 Using Inference Endpoints, you can quickly launch Transformers, Diffusers, or bespoke models on dedicated, fully managed compute environments. Choose from over 100 available models, enhanced through Blubrg’s proprietary optimisation layer to achieve maximum performance.
 
               </p>
-              <Link to="/contact" className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-2">
+              <Link to="/contact/sales" className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-2">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
