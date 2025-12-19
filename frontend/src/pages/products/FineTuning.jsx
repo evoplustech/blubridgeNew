@@ -344,9 +344,9 @@ const FineTuning = () => {
                     Start Building
                   </Button>
                 </Link>
-                {/* <Link to="/docs" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors font-medium">
-                  Docs <ArrowRight className="w-4 h-4" />
-                </Link> */}
+                 <Link to="/docs" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors font-medium">
+                  Contact Sales <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
             

@@ -61,10 +61,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link to="/products/gpu-nodes" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">GPU Nodes</Link></li>
               <li><Link to="/products/fine-tuning" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Fine-tuning</Link></li>
+              <li><Link to="/products/marketplace" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Marketplace</Link></li>
               <li><Link to="/products/inference" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Inference Service</Link></li>
               <li><Link to="/products/training" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Training Clusters</Link></li>
               <li><Link to="/products/serverless" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Serverless</Link></li>
-               <li><Link to="/products/glomfjord" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Glomfjord</Link></li>
+              <li><Link to="/products/glomfjord" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Glomfjord</Link></li>
             </ul>
           </div>
 

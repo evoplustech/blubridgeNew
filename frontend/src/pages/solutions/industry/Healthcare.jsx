@@ -140,7 +140,9 @@ const Healthcare = () => {
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">Blubrg Cloud offers tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, Blubrg enables healthcare teams to speed up research efforts and deliver more personalised treatments.</p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales"><Button size="lg" className="bg-white hover:bg-white/90 text-[#050510] px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
-              {/* <Link to="/contact"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link> */}
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+                Contact Sales <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

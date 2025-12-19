@@ -127,6 +127,9 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                   Get Started
                 </Button>
               </Link>
+               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                Contact Sales <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -341,26 +344,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
         </div>
       </section>
 
-      {/* SECTION 8: Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Access thousands of GPUs tailored to your<br />requirements.
-          </h2>
-          
-          <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/contact/sales">
-              <Button className="bg-slate-900 text-white hover:bg-slate-800 px-6 py-3 rounded font-medium">
-                Reserve GPUs
-              </Button>
-            </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
-              Contact Sales <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      
       {/* SECTION 9: FAQ Section */}
       <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom max-w-4xl">
@@ -394,6 +378,28 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
           </div>
         </div>
       </section>
+
+{/* SECTION 8: Final CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Access thousands of GPUs tailored to your<br />requirements.
+          </h2>
+          
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <Link to="/contact/sales">
+              <Button className="bg-slate-900 text-white hover:bg-slate-800 px-6 py-3 rounded font-medium">
+                Reserve GPUs
+              </Button>
+            </Link>
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+              Contact Sales <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
     </div>
   );
 };

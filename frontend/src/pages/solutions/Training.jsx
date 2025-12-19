@@ -487,7 +487,7 @@ const Training = () => {
       {/* Bottom CTA */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Access thousands of GPUs tailored to your<br />requirements.
           </h2>
           

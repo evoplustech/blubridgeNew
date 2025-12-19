@@ -546,10 +546,8 @@ const Government = () => {
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact/sales">
-                <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
-                  Contact Sales <ArrowRight className="w-4 h-4" />
-                </button>
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+                Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

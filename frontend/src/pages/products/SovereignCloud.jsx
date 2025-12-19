@@ -171,9 +171,9 @@ const SovereignCloud = () => {
                   Get In Touch
                 </Button>
               </Link>
-                <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
-              Contact Sales <ArrowRight className="w-4 h-4" />
-            </Link>
+              <Link to="/contact/sales" className="inline-flex items-center px-5 gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                Contact Sales <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
