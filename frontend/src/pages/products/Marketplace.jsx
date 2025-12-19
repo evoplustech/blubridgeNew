@@ -193,7 +193,7 @@ const Marketplace = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Extensive Model Library</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Explore our library of open-source models, powered by our proprietary infrastructure on NVIDIA GPUs.
+                Explore our collection of open-source models, enhanced with proprietary optimizations running on NVIDIA GPUs.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
@@ -204,7 +204,7 @@ const Marketplace = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Tailored Resources</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Select from preconfigured templates and customizable tools designed to fit your specific AI use case.
+                Choose from preconfigured templates and customizable tools tailored to suit your specific AI use case.
               </p>
               <Link to="/docs" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
                 Learn More <ArrowRight className="w-4 h-4" />
