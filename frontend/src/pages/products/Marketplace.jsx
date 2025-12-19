@@ -182,7 +182,7 @@ const Marketplace = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Access Leading Tools</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Build using top AI/ML frameworks like PyTorch and TensorFlow to streamline your development process.
+                Develop with leading AI/ML frameworks such as PyTorch and TensorFlow to simplify and accelerate your development workflow.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
