@@ -340,8 +340,21 @@ metadata:
         agent: "testing"
         comment: "✅ COMPREHENSIVE TESTING COMPLETED SUCCESSFULLY! All major requirements verified and working perfectly. PAGE STRUCTURE: Two-column layout confirmed with lg:grid-cols-12 grid system working. LEFT COLUMN: 'What is this for?' radio selector with all 3 options found (Hear about our pricing, Learn about our products, Find a solution), radio button functionality working with blue selection indicator, Technical Support CTA and Investment CTA buttons both present and functional as links to /contact/support and /contact/investors. RIGHT COLUMN: 'Contact Sales' title found, comprehensive sales form with all 12 fields in exact order and correct labels: First Name*, Last Name*, Business Email*, Company Name*, Country*, Job Title*, Use Case*, GPU Type*, Expected number of GPUs*, When does your project start?*, How did you hear about us?*, Tell us more about your needs (textarea, no asterisk). FORM FUNCTIONALITY: All form inputs working - text fields fillable, dropdowns selectable with proper options (countries, use cases, GPU types, etc.), textarea functional. Form filled successfully with realistic data. CHECKBOXES: Terms & Conditions checkbox* and Marketing checkbox both present and functional. reCAPTCHA WIDGET: 'I'm not a robot' text, reCAPTCHA branding, and 'Privacy - Terms' text all found and properly styled. SUBMIT BUTTON: Submit button found and functional, shows alert on form submission as expected. BOTTOM SECTION: 'Get access to a fully integrated suite of AI services and compute' title found, all 6 service icons present (Serverless, Marketplace, Inference, Training, GPU nodes, LLM Library), Data Center card with 'BluBrg's Data centers' and 'Powered by renewable energy' text found, blue bullet points for feature list confirmed. DESIGN: Dark theme background verified, form field styling confirmed. RESPONSIVENESS: Mobile layout (375x667) tested and working properly. Overall Score: 13/13 tests passed - PERFECT IMPLEMENTATION! Page meets all requirements and is production-ready."
 
+  - task: "Products - Marketplace Page"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/pages/products/Marketplace.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Products - Marketplace page implemented with MANDATORY ANIMATED HERO SECTION featuring stylized 'M' logo with glow, pulsing ring, and orbiting framework icons using canvas and requestAnimationFrame. All 9 sections implemented: 1) Animated Hero (dark background, 'MARKETPLACE' blue badge with pulse indicator, 'Turnkey AI development and deployment' headline, Get Started white button, Contact Sales link with arrow, animated 'M' logo visual with orbiting icons on right), 2) Three-Column Highlights Strip (Access Leading Tools → Contact Sales, Extensive Model Library → Get Started, Tailored Resources → Learn More), 3) AI Tools & Frameworks Section ('Quickly deploy the best AI tools and frameworks' heading, Get in Touch button, 'M' logo with framework icons grid: PyTorch, TensorFlow, Kubeflow, ONNX, HuggingFace, vLLM), 4) Models Section ('Accelerate development with access to leading models' heading, Find Out More link, 6 model cards grid: LLAMA 3 8B, LLAMA 3 70B INSTRUCT, FLORENCE 2 LARGE, STABLE DIFFUSION 3 MEDIUM, MIXTRAL 8X7B INSTRUCT, PHI 3), 5) Hardware Options Section ('Preconfigured hardware options for ease and efficiency' heading, 3 hardware cards: AI-in-a-Box, Training Compute, Inference Compute with tags), 6) Key Features Section (4-column layout: QUICK DEPLOYMENT, 80% LOWER COST, TAILORED FOR AI, UP TO 30%), 7) AI Services Integration Section ('Get access to a fully integrated suite of AI services and compute' heading, 6 service icons grid: Serverless, Marketplace, Inference, Training, GPU nodes, LLM Library, Data Center card with gradient, feature list with blue bullet points), 8) FAQs Section (4 FAQ items with Plus/Minus toggle icons, accordion expand/collapse functionality), 9) Bottom CTA Section (blue gradient background, 'Access thousands of GPUs tailored to your requirements' headline, Reserve GPUs dark button, Contact Sales link). Route at /products/marketplace. Please test animated hero section, all sections, FAQ accordion functionality, and mobile responsiveness."
+
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Products - Marketplace Page"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
