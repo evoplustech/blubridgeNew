@@ -226,7 +226,7 @@ const Marketplace = () => {
               <p className="text-gray-400 text-base leading-relaxed">
                 Our AI Marketplace offers a curated selection of top AI/ML tools like PyTorch and TensorFlow, optimised for our infrastructure stack. Enhance developer productivity with the best tools available in the industry.
               </p>
-              <Link to="/contact/sales">
+              <Link to="/contact">
                 <Button className="bg-[#141418] hover:bg-[#1a1a20] text-white border border-white/10 px-6 py-3 text-sm font-medium rounded-lg inline-flex items-center gap-2 mt-4">
                   Get in Touch <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -270,7 +270,7 @@ const Marketplace = () => {
                 Accelerate development with access to leading models
               </h2>
               <p className="text-gray-400 text-base leading-relaxed">
-                Explore a library of open-source and custom LLM models optimised for our infrastructure. Our model catalog features offerings designed to fit a wide range of applications and industries.
+                Select from a library of open-source and custom LLM models optimized with Blubrg’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
                 Find Out More <ArrowRight className="w-4 h-4" />
@@ -301,7 +301,7 @@ const Marketplace = () => {
                 Preconfigured hardware options for ease and efficiency
               </h2>
               <p className="text-gray-400 text-base leading-relaxed">
-                Our ready-to-deploy hardware resources are optimised for specific AI use cases, ensuring you get peak performance and efficiency without the hassle of complex setup.
+                Our ready-to-deploy hardware resources are tailored for specific AI use cases, delivering peak performance and efficiency without the complexity of setup.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
@@ -383,7 +383,7 @@ const Marketplace = () => {
             <div className="space-y-3">
               <h3 className="text-white font-semibold text-sm uppercase tracking-wider">QUICK DEPLOYMENT</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Of applications and resources. Deploy a wide range of software and hardware resources in just a few clicks.
+               Deploy a broad range of software and hardware resources in just a few clicks.
               </p>
             </div>
 
@@ -391,7 +391,7 @@ const Marketplace = () => {
             <div className="space-y-3">
               <h3 className="text-white font-semibold text-sm uppercase tracking-wider">80% LOWER COST</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                More performance for less. BluBrg delivers on average 80% cost-saving in comparison to hyperscalers.
+                Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.
               </p>
             </div>
 
@@ -399,7 +399,7 @@ const Marketplace = () => {
             <div className="space-y-3">
               <h3 className="text-white font-semibold text-sm uppercase tracking-wider">TAILORED FOR AI</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Integrated software and hardware. All applications, software and hardware are integrated and tailored for AI.
+                All applications, software, and hardware are fully integrated and purpose-built for AI.
               </p>
             </div>
 
@@ -407,7 +407,7 @@ const Marketplace = () => {
             <div className="space-y-3">
               <h3 className="text-white font-semibold text-sm uppercase tracking-wider">UP TO 30%</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Faster Time to Value for Your AI Project. We own the infrastructure so you can focus on the innovation.
+                We own the infrastructure, so you can focus on innovation.
               </p>
             </div>
           </div>
