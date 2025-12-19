@@ -23,6 +23,7 @@ import SovereignCloud from './pages/products/SovereignCloud';
 import Glomfjord from './pages/products/Glomfjord';
 import Narvik from './pages/products/Narvik';
 import GPUNodes from './pages/products/GPUNodes';
+import Marketplace from './pages/products/Marketplace';
 
 // Solution Pages - Cases
 import SolutionTraining from './pages/solutions/Training';
@@ -68,6 +69,7 @@ function App() {
             <Route path="/products/glomfjord" element={<Glomfjord />} />
             <Route path="/products/narvik" element={<Narvik />} />
             <Route path="/products/gpu-nodes" element={<GPUNodes />} />
+            <Route path="/products/marketplace" element={<Marketplace />} />
             <Route path="/products/*" element={<Products />} />
             
             {/* Solution Routes - Cases */}
