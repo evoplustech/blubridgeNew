@@ -50,6 +50,11 @@ import ScrollToTop from './components/ScrollToTop';
 // Contact Sub-pages
 import ContactSales from './pages/contact/Sales';
 import GeneralEnquiry from './pages/contact/GeneralEnquiry';
+
+// Policy Pages
+import TransparencyHumanRights from './pages/policies/TransparencyHumanRights';
+import PrivacyPolicy from './pages/policies/PrivacyPolicy';
+import TermsConditions from './pages/policies/TermsConditions';
 function App() {
   return (
     <div className="App">
@@ -103,6 +108,11 @@ function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/docs" element={<Documentation />} />
+            
+            {/* Policy Routes */}
+            <Route path="/policies/transparency-and-human-rights" element={<TransparencyHumanRights />} />
+            <Route path="/policies/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/policies/terms-conditions" element={<TermsConditions />} />
             
             {/* Catch all */}
             <Route path="*" element={<Home />} />
