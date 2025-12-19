@@ -158,16 +158,12 @@ const Education = () => {
               At Blubrg, we provide GPU cloud computing resources that help educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure gives students, faculty, and researchers access to high-performance computing environments that support advanced computing projects and AI applications.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#05050a] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact">
-                <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
-                  Contact Sales <ArrowRight className="w-4 h-4" />
-                </button>
-              </Link>
+             
             </div>
           </div>
         </div>
@@ -477,12 +473,12 @@ const Education = () => {
               Access thousands of GPUs tailored to your requirements.
             </h2>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>

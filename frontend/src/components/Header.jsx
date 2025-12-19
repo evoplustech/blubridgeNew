@@ -43,7 +43,7 @@ const Header = () => {
       items: [
         { name: 'Training Clusters', link: '/products/training', desc: 'Easy to deploy GPU clusters with SLURM scheduler.' },
         { name: 'Inference Clusters', link: '/products/inference', desc: 'Autoscaling dedicated inference clusters.' },
-        { name: 'GPU Nodes', link: '/products/gpu-nodes', desc: 'Scalable, high performance bare metal GPU clusters.' }
+        { name: 'Bare metal Clusters', link: '/products/gpu-nodes', desc: 'Scalable, high performance bare metal GPU clusters.' }
       ]
     },
     {
@@ -357,18 +357,18 @@ const Header = () => {
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link 
-              to="/contact" 
+              to="/contact/sales" 
               className="px-6 py-2.5 bg-white text-[#0A1F3D] rounded-md font-medium hover:bg-white/90 transition-colors"
             >
               Contact Sales
             </Link>
-            <Link 
+            {/* <Link 
               to="/login" 
               className="px-6 py-2.5 text-white hover:text-[#0066FF] transition-colors flex items-center space-x-2"
             >
               <span>Login</span>
               <span>→</span>
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Button */}

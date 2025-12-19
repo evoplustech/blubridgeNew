@@ -173,12 +173,12 @@ const Inference = () => {
               We offer GPU-accelerated nodes designed for efficient AI and Machine Learning Inference at competitive prices. Our experienced team at BluBrg manages system optimisations and scaling, allowing you to focus on the science instead of infrastructure administration.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#0a1a2e] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact" className="text-white hover:text-white/80 px-4 py-3 text-base font-medium transition-colors flex items-center gap-2">
+              <Link to="/contact/sales" className="text-white hover:text-white/80 px-4 py-3 text-base font-medium transition-colors flex items-center gap-2">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

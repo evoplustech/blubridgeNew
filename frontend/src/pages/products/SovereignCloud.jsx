@@ -166,7 +166,7 @@ const SovereignCloud = () => {
             </p>
             
             <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded font-medium">
                   Get In Touch
                 </Button>
@@ -394,12 +394,12 @@ const SovereignCloud = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/products/gpu-nodes">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

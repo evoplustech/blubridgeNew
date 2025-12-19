@@ -133,28 +133,28 @@ const Training = () => {
       metric: '+40%',
       label: 'EFFICIENCY',
       title: 'Improved resource utilisation',
-      description: '→ Efficiency gains reaching 40%',
+      description: 'Efficiency gains reaching 40%',
       link: '/products/training'
     },
     {
       metric: '7.2X',
       label: 'FASTER',
       title: 'On throughput and latency',
-      description: '→ Using AMD MI300X GPUs combined with GEMM tuning delivers throughput and latency enhancements of up to 7.2×.',
+      description: 'Using AMD MI300X GPUs combined with GEMM tuning delivers throughput and latency enhancements of up to 7.2×.',
       link: '/products/gpu-nodes'
     },
     {
       metric: '80%',
       label: 'LOWER COST',
       title: 'More performance for less',
-      description: '→ Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.',
+      description: 'Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.',
       link: '/pricing'
     },
     {
       metric: '30%',
       label: 'FASTER',
       title: 'On time to insights',
-      description: '→ Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
+      description: 'Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
       link: '/products/inference'
     }
   ];
@@ -164,17 +164,17 @@ const Training = () => {
     {
       icon: Layers,
       title: 'Managed Kubernetes',
-      description: '→ Streamline AI training through our managed Kubernetes offering. Platform operations and capacity growth are handled for you, allowing full attention on creating and improving models.'
+      description: 'Streamline AI training through our managed Kubernetes offering. Platform operations and capacity growth are handled for you, allowing full attention on creating and improving models.'
     },
     {
       icon: Server,
       title: 'Advanced Scheduling',
-      description: '→ Leverage Slurm on Kubernetes (SLONK) to enable sophisticated task queuing and compute governance. Achieve greater effectiveness and stronger output across demanding AI workloads.'
+      description: 'Leverage Slurm on Kubernetes (SLONK) to enable sophisticated task queuing and compute governance. Achieve greater effectiveness and stronger output across demanding AI workloads.'
     },
     {
       icon: Cpu,
       title: 'Purpose Built GPU Compute',
-      description: '→ Expandable GPU clusters purpose-built for LLM training. Suitable for projects of any scale and model refinement, powered by adaptable, high-efficiency hardware designed for demanding workloads.'
+      description: 'Expandable GPU clusters purpose-built for LLM training. Suitable for projects of any scale and model refinement, powered by adaptable, high-efficiency hardware designed for demanding workloads.'
     }
   ];
 
@@ -182,19 +182,19 @@ const Training = () => {
   const faqs = [
     {
       question: "What is our Managed Kubernetes service for AI training?",
-      answer: "→ The managed Kubernetes offering takes care of platform operations and elastic capacity for AI training workloads, enabling full attention on building, refining, and improving models rather than maintaining systems."
+      answer: "The managed Kubernetes offering takes care of platform operations and elastic capacity for AI training workloads, enabling full attention on building, refining, and improving models rather than maintaining systems."
     },
     {
       question: "How does SLONK enhance AI workload management?",
-      answer: "→ SLONK (Slurm on Kubernetes) delivers sophisticated task queuing and compute control, enhancing effectiveness and output across demanding, large-scale artificial intelligence workloads."
+      answer: "SLONK (Slurm on Kubernetes) delivers sophisticated task queuing and compute control, enhancing effectiveness and output across demanding, large-scale artificial intelligence workloads."
     },
     {
       question: "Can I scale my AI training projects with your GPU clusters?",
-      answer: "→ Yes, the GPU cluster architecture is built to adapt and expand, supporting both modest and large LLM training initiatives as well as specialised model refinement needs."
+      answer: "Yes, the GPU cluster architecture is built to adapt and expand, supporting both modest and large LLM training initiatives as well as specialised model refinement needs."
     },
     {
       question: "What types of AI workloads are supported by your services?",
-      answer: "→ The offerings accommodate diverse artificial intelligence use cases, spanning training processes, refinement stages, and runtime prediction tasks. The underlying platform is engineered to deliver strong throughput and operational efficiency across every capability."
+      answer: "The offerings accommodate diverse artificial intelligence use cases, spanning training processes, refinement stages, and runtime prediction tasks. The underlying platform is engineered to deliver strong throughput and operational efficiency across every capability."
     }
   ];
 
@@ -235,7 +235,7 @@ const Training = () => {
               </h1>
               
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-                → Develop LLMs along with additional AI systems using powerful GPU-based clusters. Managed Kubernetes and Slurm orchestration choices simplify administration while ensuring maximum usage of available computing resources.
+                Develop LLMs along with additional AI systems using powerful GPU-based clusters. Managed Kubernetes and Slurm orchestration choices simplify administration while ensuring maximum usage of available computing resources.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
@@ -244,7 +244,7 @@ const Training = () => {
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+                <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -286,9 +286,9 @@ const Training = () => {
                 </div>
                 <p className="text-white font-medium mb-1">{item.title}</p>
                 <p className="text-gray-400 text-sm mb-3">{item.description}</p>
-                <Link to={item.link} className="text-blue-400 text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
+                {/* <Link to={item.link} className="text-blue-400 text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
-                </Link>
+                </Link> */}
               </div>
             ))}
           </div>
@@ -304,7 +304,7 @@ const Training = () => {
                 Dynamically manage AI<br />workloads and resources
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                → Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
+                Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
@@ -317,7 +317,7 @@ const Training = () => {
             <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 p-6">
               <div className="flex items-center gap-4 mb-4">
                 <button className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg">Queues (3)</button>
-                <button className="px-4 py-2 text-gray-400 text-sm hover:text-white transition-colors">Nodes</button>
+                {/* <button className="px-4 py-2 text-gray-400 text-sm hover:text-white transition-colors">Nodes</button> */}
               </div>
               
               {/* Queue Items */}
@@ -357,7 +357,7 @@ const Training = () => {
             <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6 relative overflow-hidden">
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-blue-600 text-white text-xs rounded">COMPUTE</span>
-                <span className="text-gray-400 text-sm">Node allocation</span>
+                {/* <span className="text-gray-400 text-sm">Node allocation</span> */}
               </div>
               
               {/* Node Grid */}
@@ -406,9 +406,9 @@ const Training = () => {
                 Industry leading GPU<br />clusters at all scales
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                → Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
+                Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
-              <Link to="/products/gpu-nodes">
+              <Link to="/contact/sales">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
                   Reserve GPUs <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
@@ -462,7 +462,7 @@ const Training = () => {
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                → Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging Blubrg AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
+                Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging Blubrg AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
             
@@ -558,12 +558,12 @@ const Training = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/products/gpu-nodes">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

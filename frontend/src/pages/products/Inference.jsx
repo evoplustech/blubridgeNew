@@ -268,7 +268,7 @@ const Inference = () => {
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+                <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -310,9 +310,9 @@ const Inference = () => {
                 </div>
                 <p className="text-white font-medium mb-1">{item.title}</p>
                 <p className="text-gray-400 text-sm mb-3">{item.description}</p>
-                <Link to={item.link} className="text-blue-400 text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
+                {/* <Link to={item.link} className="text-blue-400 text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
-                </Link>
+                </Link> */}
               </div>
             ))}
           </div>
@@ -581,12 +581,12 @@ const Inference = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/products/gpu-nodes">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

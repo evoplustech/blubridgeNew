@@ -351,17 +351,17 @@ const Careers = () => {
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/products/training">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

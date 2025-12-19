@@ -139,8 +139,8 @@ const Healthcare = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">HEALTHCARE</h1>
             <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">Blubrg Cloud offers tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, Blubrg enables healthcare teams to speed up research efforts and deliver more personalised treatments.</p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact"><Button size="lg" className="bg-white hover:bg-white/90 text-[#050510] px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
-              <Link to="/contact"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link>
+              <Link to="/contact/sales"><Button size="lg" className="bg-white hover:bg-white/90 text-[#050510] px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
+              {/* <Link to="/contact"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link> */}
             </div>
           </div>
         </div>
@@ -326,8 +326,8 @@ const Healthcare = () => {
           <div className="max-w-3xl">
             <h2 className="text-3xl lg:text-4xl font-light text-white mb-8 leading-tight">Access thousands of GPUs tailored to your requirements.</h2>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact"><Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">Reserve GPUs</Button></Link>
-              <Link to="/contact"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link>
+              <Link to="/contact/sales"><Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">Reserve GPUs</Button></Link>
+              <Link to="/contact/sales"><button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">Contact Sales <ArrowRight className="w-4 h-4" /></button></Link>
             </div>
           </div>
         </div>

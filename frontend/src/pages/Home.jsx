@@ -269,7 +269,7 @@ const Home = () => {
               </p>
               
               <div className="flex flex-wrap items-center gap-4 pt-2" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-                <Link to="/contact">
+                <Link to="/contact/sales">
                   <Button className="bg-white text-[#0a1d54] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
                     Reserve GPUs
                   </Button>
@@ -607,7 +607,7 @@ const Home = () => {
                     </div>
                   ))}
                 </div>
-                <Link to="/products/gpu-nodes" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mt-4 text-sm">
+                <Link to="/products/glomfjord" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mt-4 text-sm">
                   See More <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -641,9 +641,9 @@ const Home = () => {
       <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-3xl font-light mb-4">Use cases</h2>
+            <h2 className="text-4xl mb-4 font-bold">Use cases</h2>
             <p className="text-gray-400 max-w-2xl">
-              End-to-end AI solutions covering model training, fine-tuning, inference, and development—all built to accelerate your AI initiatives.
+              End-to-end AI solutions covering model training, fine-tuning, inference, and development, all built to accelerate your AI initiatives.
             </p>
           </div>
           
@@ -782,12 +782,12 @@ const Home = () => {
                 Access thousands of GPUs tailored to your requirements.
               </p>
               <div className="flex gap-4">
-                <Link to="/contact">
+                <Link to="/contact/sales">
                   <Button className="bg-white text-[#0a0a0f] hover:bg-white/90 px-6 py-3">
                     Reserve GPUs
                   </Button>
                 </Link>
-                <Link to="/contact">
+                <Link to="/contact/sales">
                   <Button variant="outline" className="border-slate-600 text-white hover:bg-slate-800 px-6 py-3">
                     Contact Sales
                   </Button>
@@ -843,17 +843,17 @@ const Home = () => {
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

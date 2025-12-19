@@ -154,27 +154,27 @@ const Serverless = () => {
   const faqs = [
     {
       question: "What is BluBrg Serverless Inference?",
-      answer: "→ Blubrg Serverless Inference is a completely managed environment that allows running AI model inference without the burden of handling underlying systems. It delivers immediate availability of leading Generative AI models through a straightforward, usage-based pricing approach."
+      answer: "Blubrg Serverless Inference is a completely managed environment that allows running AI model inference without the burden of handling underlying systems. It delivers immediate availability of leading Generative AI models through a straightforward, usage-based pricing approach."
     },
     {
       question: "Who is this service for?",
-      answer: "→ This offering is built for builders, emerging companies, large organisations, and academic groups seeking to launch AI-driven applications rapidly and economically, without needing to manage the underlying infrastructure."
+      answer: "This offering is built for builders, emerging companies, large organisations, and academic groups seeking to launch AI-driven applications rapidly and economically, without needing to manage the underlying infrastructure."
     },
     {
       question: "What AI models are available?",
-      answer: "→ At launch, Blubrg provides support for widely used open-source models covering text creation, image synthesis, and computer vision use cases. The catalogue is continually broadened in response to customer input."
+      answer: "At launch, Blubrg provides support for widely used open-source models covering text creation, image synthesis, and computer vision use cases. The catalogue is continually broadened in response to customer input."
     },
     {
       question: "How does the pricing work?",
-      answer: "→ Blubrg uses a usage-based, per-call pricing approach:	⇒Text models: Costs are calculated according to tokens processed for prompts and responses.	⇒Image models: Fees are determined by the generated image resolution.	⇒Vision models: Charges vary based on computational workload demands.	⇒New users are granted complimentary credits to try and evaluate the platform."
+      answer: "Blubrg uses a usage-based, per-call pricing approach:	⇒Text models: Costs are calculated according to tokens processed for prompts and responses.	⇒Image models: Fees are determined by the generated image resolution.	⇒Vision models: Charges vary based on computational workload demands.	⇒New users are granted complimentary credits to try and evaluate the platform."
     },
     {
       question: "What are the key benefits of using BluBrg Serverless?",
-      answer: "→ Infrastructure simplicity: Capacity growth, observability, and resource distribution are fully managed by us.→ Budget friendly: A vertically unified architecture significantly reduces processing expenses.→ Elastic and dependable: Built-in elasticity maintains consistent, high-quality operation.→ Protected and confidential: Requests and outputs are neither stored nor reused for learning.→ OpenAI API and SDK alignment: Straightforward connection with existing development ecosystems."
+      answer: "Infrastructure simplicity: Capacity growth, observability, and resource distribution are fully managed by us.  Budget friendly: A vertically unified architecture significantly reduces processing expenses.→ Elastic and dependable: Built-in elasticity maintains consistent, high-quality operation.→ Protected and confidential: Requests and outputs are neither stored nor reused for learning.→ OpenAI API and SDK alignment: Straightforward connection with existing development ecosystems."
     },
     {
       question: "How does scaling work?",
-      answer: "→ Blubrg dynamically expands or contracts resources in response to live usage patterns. This removes any requirement for hands-on setup, enabling smooth growth of AI services without friction."
+      answer: "Blubrg dynamically expands or contracts resources in response to live usage patterns. This removes any requirement for hands-on setup, enabling smooth growth of AI services without friction."
     }
   ];
 
@@ -197,16 +197,16 @@ const Serverless = () => {
               </h1>
               
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
-→ Four out of five developers ranked us as the most cost-effective GenAI inferencing provider, offering access to popular models with zero rate limits. 
+                Four out of five developers ranked us as the most cost-effective GenAI inferencing provider, offering access to popular models with zero rate limits. 
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
+                <Link to="/contact">
                 <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
-                  Try for Free
+                  Talk to Us
                 </Button>
-                <Link to="/contact" className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
-                  Talk to Us <ArrowRight className="w-4 h-4" />
                 </Link>
+
               </div>
             </div>
             
@@ -235,15 +235,15 @@ const Serverless = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Lower cost, more power</h3>
-              <p className="text-gray-400 text-sm">→ Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you.</p>
+              <p className="text-gray-400 text-sm">Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you.</p>
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Engineered for AI workloads</h3>
-              <p className="text-gray-400 text-sm">→ Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.</p>
+              <p className="text-gray-400 text-sm">Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.</p>
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Scale without the overhead</h3>
-              <p className="text-gray-400 text-sm">→ From testing through to production, scale your AI workloads without bottlenecks or setup but just results.</p>
+              <p className="text-gray-400 text-sm">From testing through to production, scale your AI workloads without bottlenecks or setup but just results.</p>
             </div>
           </div>
         </div>
@@ -255,11 +255,11 @@ const Serverless = () => {
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
             <p className="text-gray-400 max-w-2xl">
-              → Pricing applies to every 1 million tokens, covering both prompts and responses for Chat, Multimodal, Language, and Code models. Image models follow a different structure, calculated according to resolution dimensions and processing steps.
+              Pricing applies to every 1 million tokens, covering both prompts and responses for Chat, Multimodal, Language, and Code models. Image models follow a different structure, calculated according to resolution dimensions and processing steps.
             </p>
             <div className="flex gap-4 mt-4">
               <button className="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg">Endpoints</button>
-              <button className="px-4 py-2 text-gray-400 text-sm hover:text-white transition-colors">Batches</button>
+         
             </div>
           </div>
 
@@ -313,11 +313,11 @@ const Serverless = () => {
                 Savings by design, not<br />compromise
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                → Every layer of the vertically integrated platform is finely tuned, spanning physical systems through orchestration, lowering processing expenses while maintaining stable output. The outcome is measurable cost reduction delivered straight to clients, achieved without compromising performance, scalability, or protection.
+                Every layer of the vertically integrated platform is finely tuned, spanning physical systems through orchestration, lowering processing expenses while maintaining stable output. The outcome is measurable cost reduction delivered straight to clients, achieved without compromising performance, scalability, or protection.
               </p>
-              <Link to="/pricing" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              {/* <Link to="/pricing" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
                 See pricing <ArrowRight className="w-4 h-4" />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -367,22 +367,22 @@ const Serverless = () => {
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">80%</p>
               <p className="text-sm font-semibold text-gray-300">LOWER COST</p>
-              <p className="text-sm text-gray-500"> → Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
+              <p className="text-sm text-gray-500">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">30%</p>
               <p className="text-sm font-semibold text-gray-300">FASTER</p>
-              <p className="text-sm text-gray-500"> → Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
+              <p className="text-sm text-gray-500">Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">+40%</p>
               <p className="text-sm font-semibold text-gray-300">EFFICIENCY</p>
-              <p className="text-sm text-gray-500"> → Efficiency gains reaching 40%.</p>
+              <p className="text-sm text-gray-500">Efficiency gains reaching 40%.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">100%</p>
               <p className="text-sm font-semibold text-gray-300">RENEWABLE ENERGY</p>
-              <p className="text-sm text-gray-500"> → The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
+              <p className="text-sm text-gray-500">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
             </div>
           </div>
         </div>
@@ -481,17 +481,17 @@ const Serverless = () => {
       {/* Final CTA Strip */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/products/training">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-3">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

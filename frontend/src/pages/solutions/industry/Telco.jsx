@@ -153,16 +153,16 @@ const Telco = () => {
               Blubrg provides telecommunications providers with the infrastructure and expertise to support a wide range of AI-based services and solutions. With high-performance GPU clusters and scalable architecture, telco companies can enhance network performance, improve customer experience, and deploy advanced automation tools powered by artificial intelligence. The infrastructure also supports modern telecom needs such as 5G and edge computing.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#050a15] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact">
+              {/* <Link to="/contact">
                 <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -237,12 +237,12 @@ const Telco = () => {
                   Deploy AI models closer to users with ultra-low latency while using energy-efficient infrastructure that helps lower power consumption and supports greener network operations.
                 </p>
               </div>
-              <div className="border-l-2 border-blue-500 pl-6">
+              {/* <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-blue-400 mb-2">Streamline Operations with AI</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
                   Automate repetitive network tasks, such as user provisioning or traffic management, to reduce manual effort, minimise errors, and improve operational efficiency.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -473,12 +473,12 @@ const Telco = () => {
               Access thousands of GPUs tailored to your requirements.
             </h2>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>

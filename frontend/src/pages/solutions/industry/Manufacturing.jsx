@@ -262,16 +262,16 @@ const Manufacturing = () => {
               Blubrg’s cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#0a0805] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact">
+              {/* <Link to="/contact">
                 <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -594,12 +594,12 @@ const Manufacturing = () => {
               Access thousands of GPUs tailored to your requirements.
             </h2>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>

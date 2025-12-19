@@ -253,19 +253,19 @@ const FineTuning = () => {
   const faqs = [
     {
       question: "Do I need ML experience to fine-tune a model with BluBrg?",
-      answer: "→ No, Blubrg Fine-tuning was created to be straightforward and approachable, revealing advanced options and controls only when required. The offering removes the need for machine learning expertise or platform operations and can be launched by any developer with just $2 in credit."
+      answer: "No, Blubrg Fine-tuning was created to be straightforward and approachable, revealing advanced options and controls only when required. The offering removes the need for machine learning expertise or platform operations and can be launched by any developer with just $2 in credit."
     },
     {
       question: "What happens if my job fails or I cancel it partway through?",
-      answer: "→ When an execution stops early or is terminated, charges apply only to the tokens consumed until that moment where there are no complete-run fees or unexpected extras. A transparent summary appears in the activity log, showing progress reached and token usage. You can duplicate the run or restart it later to continue from the same stage."
+      answer: "When an execution stops early or is terminated, charges apply only to the tokens consumed until that moment where there are no complete-run fees or unexpected extras. A transparent summary appears in the activity log, showing progress reached and token usage. You can duplicate the run or restart it later to continue from the same stage."
     },
     {
       question: "Is my data secure during fine-tuning?",
-      answer: "→ Yes, every organisation is provided with dedicated, segregated cloud storage. Information is never distributed to other organisations or external model vendors."
+      answer: "Yes, every organisation is provided with dedicated, segregated cloud storage. Information is never distributed to other organisations or external model vendors."
     },
     {
       question: "Can I run multiple fine-tuning jobs at once?",
-      answer: "→ Yes, as long as sufficient credit is available, several tasks can be initiated. These tasks are placed into a queue and begin execution when the resources are available."
+      answer: "Yes, as long as sufficient credit is available, several tasks can be initiated. These tasks are placed into a queue and begin execution when the resources are available."
     }
   ];
 
@@ -275,25 +275,25 @@ const FineTuning = () => {
       number: '01',
       title: 'UPLOAD YOUR DATA',
       subtitle: 'Drop in a CSV file',
-      description: '→ Build and control both learning and evaluation data collections straight from the interface.'
+      description: 'Build and control both learning and evaluation data collections straight from the interface.'
     },
     {
       number: '02',
       title: 'CONFIGURE YOUR JOB',
       subtitle: 'Tweak settings—or rely on smart defaults',
-      description: '→ Apply LoRa to enable resource-efficient model adaptation, set epoch counts, and fine-adjust parameters such as learning rate, weight decay, and additional training controls.'
+      description: 'Apply LoRa to enable resource-efficient model adaptation, set epoch counts, and fine-adjust parameters such as learning rate, weight decay, and additional training controls.'
     },
     {
       number: '03',
       title: 'MONITOR & EVALUATE',
       subtitle: 'Real-time metrics at a glance',
-      description: '→ Observe optimization and evaluation metrics, including loss values, perplexity, and precision, while the process executes. Refine and repeat cycles until results meet your expectations.'
+      description: 'Observe optimization and evaluation metrics, including loss values, perplexity, and precision, while the process executes. Refine and repeat cycles until results meet your expectations.'
     },
     {
       number: '04',
       title: 'EXPORT YOUR MODEL',
       subtitle: 'Download or push to Hugging Face',
-      description: '→ Download the tuned model in PyTorch or ONNX format, or publish it directly to Hugging Face with minimal effort.'
+      description: 'Download the tuned model in PyTorch or ONNX format, or publish it directly to Hugging Face with minimal effort.'
     }
   ];
 
@@ -335,7 +335,7 @@ const FineTuning = () => {
               </h1>
               
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-                → Serverless, usage-based fine-tuning that keeps you fully in control. Zero configuration, friction-free execution, and uncompromised performance throughout.
+                Serverless, usage-based fine-tuning that keeps you fully in control. Zero configuration, friction-free execution, and uncompromised performance throughout.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
@@ -344,9 +344,9 @@ const FineTuning = () => {
                     Start Building
                   </Button>
                 </Link>
-                <Link to="/docs" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors font-medium">
+                {/* <Link to="/docs" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors font-medium">
                   Docs <ArrowRight className="w-4 h-4" />
-                </Link>
+                </Link> */}
               </div>
             </div>
             
@@ -374,10 +374,10 @@ const FineTuning = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { title: 'Built for builders', desc: '→ Fine-tuning models without dealing with backend operations.', cta: 'Start fine-tuning' },
-              { title: 'Performance first', desc: '→ Track optimization progress live and refine cycles rapidly with assurance.', cta: 'Customise a model' },
-              { title: 'Clear economics', desc: '→ Spend only on actual training usage through a straightforward pricing approach based on tokens, eliminating charges for unused GPU capacity.', cta: 'Create your account' },
-              { title: 'Fully serverless', desc: '→ Begin instantly, expand effortlessly, and dedicate all attention to creation.', cta: 'Claim $5 free credits' }
+              { title: 'Built for builders', desc: 'Fine-tuning models without dealing with backend operations.', cta: 'Start fine-tuning' },
+              { title: 'Performance first', desc: 'Track optimization progress live and refine cycles rapidly with assurance.', cta: 'Customise a model' },
+              { title: 'Clear economics', desc: 'Spend only on actual training usage through a straightforward pricing approach based on tokens, eliminating charges for unused GPU capacity.', cta: 'Create your account' },
+              { title: 'Fully serverless', desc: 'Begin instantly, expand effortlessly, and dedicate all attention to creation.', cta: 'Claim $5 free credits' }
             ].map((item, i) => (
               <div key={i} className="text-center md:text-left">
                 <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
@@ -397,7 +397,7 @@ const FineTuning = () => {
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Models</h2>
             <p className="text-gray-400 max-w-2xl">
-             → Adapt top open-source models such as Qwen2.5 and Deepseek R1 to your needs. We continuously review and introduce additional options to ensure you always have a strong and up-to-date starting point.
+             Adapt top open-source models such as Qwen2.5 and Deepseek R1 to your needs. We continuously review and introduce additional options to ensure you always have a strong and up-to-date starting point.
             </p>
             <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 text-sm mt-4 hover:text-blue-300">
               Request Access <ArrowRight className="w-4 h-4" />
@@ -436,7 +436,7 @@ const FineTuning = () => {
           <div className="mt-8 p-6 bg-slate-900/30 rounded-xl border border-slate-700/30">
             <h3 className="text-xl font-semibold text-orange-400 mb-2">Fine-tune Pricing</h3>
             <p className="text-gray-400 text-sm">
-              → Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
+              Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
             </p>
           </div>
 
@@ -578,9 +578,9 @@ const FineTuning = () => {
                 Savings by design,<br />not compromise
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                → Each tier of our vertically unified platform is carefully refined, spanning physical components through coordination layers, reducing processing expenses while maintaining stable output. The outcome is tangible cost reduction delivered straight to users, achieved without compromising velocity, capacity, or protection.
+                Each tier of our vertically unified platform is carefully refined, spanning physical components through coordination layers, reducing processing expenses while maintaining stable output. The outcome is tangible cost reduction delivered straight to users, achieved without compromising velocity, capacity, or protection.
               </p>
-              <Link to="/pricing" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
+              <Link to="/contact" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -597,7 +597,7 @@ const FineTuning = () => {
                 Serverless without<br />trade-offs
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                → Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are ss
+                Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are ss
               </p>
               <Link to="/gpu-nodes" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
                 Learn More <ArrowRight className="w-4 h-4" />

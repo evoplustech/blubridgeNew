@@ -218,16 +218,16 @@ const Legal = () => {
               At Blubrg, we offer GPU cluster computing solutions designed to elevate your organisation’s computing capabilities. Our infrastructure supports advanced legal analytics, accelerates case research, and helps legal teams deliver more efficient and impactful services.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#08050d] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact">
+              {/* <Link to="/contact">
                 <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -549,12 +549,12 @@ const Legal = () => {
               Access thousands of GPUs tailored to your requirements.
             </h2>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#0066FF] px-10 py-6 text-base font-medium rounded-md">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <button className="text-white hover:text-white/80 px-6 py-6 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>

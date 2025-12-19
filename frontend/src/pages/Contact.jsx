@@ -21,7 +21,7 @@ const Contact = () => {
       title: "GENERAL",
       description: "For other queries, please get in touch with us via our general form.",
       buttonText: "Get in Touch",
-      link: "/contact/general"
+      link: "/contact/general-enquiry"
     }
   ];
 

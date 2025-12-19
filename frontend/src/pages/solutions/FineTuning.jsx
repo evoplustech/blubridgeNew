@@ -165,13 +165,10 @@ const FineTuning = () => {
               At BluBrg, we offer GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support ensure that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#003820] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
-              </Link>
-              <Link to="/contact" className="text-white hover:text-white/80 px-4 py-3 text-base font-medium transition-colors flex items-center gap-2">
-                Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -618,12 +615,12 @@ const FineTuning = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/products/gpu-nodes">
+            <Link to="/contact/sales">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
