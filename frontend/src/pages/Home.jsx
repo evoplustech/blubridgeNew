@@ -262,66 +262,93 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      {/* Hero Section with Animated Glass Ribbon 3D Form */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Deep blue gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#000020] via-[#0a1d54] to-[#061440]" />
-        
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
-        }} />
+      {/* Hero Section */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+        <div 
+          className="absolute inset-0 transition-opacity duration-[600ms] ease-out"
+          style={{ 
+            opacity: heroLoaded ? 1 : 0,
+            background: 'linear-gradient(135deg, #000012 0%, #0a1a40 25%, #0d2050 50%, #081838 75%, #000018 100%)'
+          }}
+        />
+        <div 
+          className="absolute inset-0 transition-opacity duration-[600ms] ease-out"
+          style={{ 
+            opacity: heroLoaded ? 1 : 0,
+            background: 'radial-gradient(ellipse 120% 80% at 50% 50%, transparent 40%, rgba(0,0,10,0.7) 100%)'
+          }}
+        />
 
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 items-center">
-            {/* Left Content */}
-            <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
-                The hyperscaler<br />engineered for AI
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="space-y-7">
+              <h1 
+                className="text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] font-light leading-[1.05] tracking-[-0.02em] text-white transition-all duration-700 ease-out"
+                style={{ 
+                  opacity: heroLoaded ? 1 : 0,
+                  transform: heroLoaded ? 'translateY(0)' : 'translateY(12px)'
+                }}
+              >
+                The hyperscaler<br />
+                <span className="text-white">engineered for AI</span>
               </h1>
               
-              <p className="text-xl text-white/70 font-light leading-relaxed max-w-md" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+              <p 
+                className="text-[1.25rem] text-white/65 font-light leading-[1.6] max-w-[420px] transition-all duration-700 ease-out delay-[120ms]"
+                style={{ 
+                  opacity: heroLoaded ? 1 : 0,
+                  transform: heroLoaded ? 'translateY(0)' : 'translateY(12px)'
+                }}
+              >
                 A full-stack, scalable, and sustainable AI cloud platform.
               </p>
               
-              <div className="flex flex-wrap items-center gap-4 pt-2" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+              <div 
+                className="flex flex-wrap items-center gap-5 pt-1 transition-all duration-700 ease-out delay-[240ms]"
+                style={{ 
+                  opacity: heroLoaded ? 1 : 0,
+                  transform: heroLoaded ? 'scale(1) translateY(0)' : 'scale(0.97) translateY(8px)'
+                }}
+              >
                 <Link to="/contact/sales">
-                  <Button className="bg-white text-[#0a1d54] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
+                  <button className="bg-white text-[#0a1a40] hover:bg-white/95 hover:brightness-105 px-7 py-3.5 rounded-[4px] font-medium text-[15px] transition-all duration-200">
                     Reserve GPUs
-                  </Button>
+                  </button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
-                  Start Building <ArrowRight className="w-4 h-4" />
+                <Link to="/contact" className="flex items-center gap-2.5 text-white hover:text-white/85 transition-all duration-200 font-medium text-[15px] group">
+                  Start Building 
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
                 </Link>
               </div>
 
-              {/* Partner Logos */}
-              <div className="flex flex-wrap items-center gap-6 pt-10" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Computacenter</span>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Antler</span>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Open Innovation</span>
+              <div 
+                className="flex flex-wrap items-center gap-8 pt-12 transition-all duration-700 ease-out delay-[360ms]"
+                style={{ 
+                  opacity: heroLoaded ? 1 : 0,
+                  transform: heroLoaded ? 'translateY(0)' : 'translateY(12px)'
+                }}
+              >
+                <span className="text-white/45 text-[11px] font-medium tracking-[0.08em] uppercase">Hewlett Packard Enterprise</span>
+                <span className="text-white/45 text-[11px] font-medium tracking-[0.08em] uppercase">Computacenter</span>
+                <span className="text-white/45 text-[11px] font-medium tracking-[0.08em] uppercase">Antler</span>
+                <span className="text-white/45 text-[11px] font-medium tracking-[0.08em] uppercase">Open Innovation</span>
               </div>
             </div>
             
-            {/* Right - Animated Glass Ribbon 3D Visual */}
-            <div className="relative h-[450px] lg:h-[550px]">
+            <div 
+              className="relative h-[480px] lg:h-[580px] transition-all duration-[800ms] ease-out delay-100"
+              style={{ 
+                opacity: heroLoaded ? 1 : 0,
+                transform: heroLoaded ? 'scale(1)' : 'scale(0.98)'
+              }}
+            >
               <canvas 
-                ref={canvasRef} 
+                ref={heroCanvasRef} 
                 className="w-full h-full"
-                style={{ background: 'transparent' }}
               />
             </div>
           </div>
         </div>
-
-        <style>{`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
       </section>
 
       {/* News/Updates Strip */}
