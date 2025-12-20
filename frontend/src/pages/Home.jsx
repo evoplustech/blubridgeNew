@@ -142,7 +142,7 @@ const Home = () => {
             backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/pm500cgm_Banner%20Background.avif)',
             backgroundSize: '110% 110%',
             backgroundPosition: 'center',
-            animation: 'heroWave 20s ease-in-out infinite'
+            animation: 'heroWave 14s ease-in-out infinite'
           }}
         />
         <style>{`
