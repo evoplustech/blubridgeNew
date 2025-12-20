@@ -135,14 +135,32 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[90vh] flex items-center"
-        style={{
-          backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/pm500cgm_Banner%20Background.avif)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/pm500cgm_Banner%20Background.avif)',
+            backgroundSize: '110% 110%',
+            backgroundPosition: 'center',
+            animation: 'heroWave 20s ease-in-out infinite'
+          }}
+        />
+        <style>{`
+          @keyframes heroWave {
+            0%, 100% { 
+              transform: scale(1.02) translate(0%, 0%);
+            }
+            25% { 
+              transform: scale(1.03) translate(-0.5%, 0.3%);
+            }
+            50% { 
+              transform: scale(1.02) translate(0%, 0.5%);
+            }
+            75% { 
+              transform: scale(1.03) translate(0.5%, 0.2%);
+            }
+          }
+        `}</style>
         <div className="container-custom relative z-10">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
