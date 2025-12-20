@@ -134,66 +134,45 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      {/* Hero Section with Animated Glass Ribbon 3D Form */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Deep blue gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#000020] via-[#0a1d54] to-[#061440]" />
-        
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
-        }} />
-
+      {/* Hero Section */}
+      <section 
+        className="relative min-h-[90vh] flex items-center"
+        style={{
+          backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/pm500cgm_Banner%20Background.avif)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 items-center">
-            {/* Left Content */}
-            <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
-                The hyperscaler<br />engineered for AI
-              </h1>
-              
-              <p className="text-xl text-white/70 font-light leading-relaxed max-w-md" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
-                A full-stack, scalable, and sustainable AI cloud platform.
-              </p>
-              
-              <div className="flex flex-wrap items-center gap-4 pt-2" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-                <Link to="/contact/sales">
-                  <Button className="bg-white text-[#0a1d54] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
-                    Reserve GPUs
-                  </Button>
-                </Link>
-                <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
-                  Start Building <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-
-              {/* Partner Logos */}
-              <div className="flex flex-wrap items-center gap-6 pt-10" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Computacenter</span>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Antler</span>
-                <span className="text-white/50 text-xs font-medium tracking-wider">Open Innovation</span>
-              </div>
-            </div>
+          <div className="max-w-2xl space-y-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
+              The hyperscaler<br />engineered for AI
+            </h1>
             
-            {/* Right - Animated Glass Ribbon 3D Visual */}
-            <div className="relative h-[450px] lg:h-[550px]">
-              <canvas 
-                ref={canvasRef} 
-                className="w-full h-full"
-                style={{ background: 'transparent' }}
-              />
+            <p className="text-xl text-white/70 font-light leading-relaxed max-w-md">
+              A full-stack, scalable, and sustainable AI cloud platform.
+            </p>
+            
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Link to="/contact/sales">
+                <Button className="bg-white text-[#0a1d54] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
+                  Reserve GPUs
+                </Button>
+              </Link>
+              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
+                Start Building <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Partner Logos */}
+            <div className="flex flex-wrap items-center gap-6 pt-10">
+              <span className="text-white/50 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
+              <span className="text-white/50 text-xs font-medium tracking-wider">Computacenter</span>
+              <span className="text-white/50 text-xs font-medium tracking-wider">Antler</span>
+              <span className="text-white/50 text-xs font-medium tracking-wider">Open Innovation</span>
             </div>
           </div>
         </div>
-
-        <style>{`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
       </section>
 
       {/* News/Updates Strip */}
