@@ -428,14 +428,15 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-5">
             {/* Model Training Card */}
             <Link to="/solutions/training">
-              <div 
-                className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl"
-                style={{ 
-                  backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/e3q02b44_Training.avif)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+                <div 
+                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
+                  style={{ 
+                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/e3q02b44_Training.avif)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">TRAINING</span>
                 </div>
@@ -444,14 +445,15 @@ const Home = () => {
 
             {/* AI & ML Inference Card */}
             <Link to="/solutions/inference">
-              <div 
-                className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl"
-                style={{ 
-                  backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/cod8cw4n_INFERENCE.avif)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+                <div 
+                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
+                  style={{ 
+                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/cod8cw4n_INFERENCE.avif)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">INFERENCE</span>
                 </div>
@@ -460,14 +462,15 @@ const Home = () => {
 
             {/* AI Development Card */}
             <Link to="/solutions/ai-development">
-              <div 
-                className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl"
-                style={{ 
-                  backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/az864l7b_AI%20Development.avif)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+                <div 
+                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
+                  style={{ 
+                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/az864l7b_AI%20Development.avif)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
@@ -476,14 +479,15 @@ const Home = () => {
 
             {/* Model Fine-Tuning Card */}
             <Link to="/solutions/fine-tuning">
-              <div 
-                className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl"
-                style={{ 
-                  backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/g9zwqz1g_Finetuning.avif)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
+              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+                <div 
+                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
+                  style={{ 
+                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/g9zwqz1g_Finetuning.avif)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
                 </div>
