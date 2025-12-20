@@ -229,205 +229,102 @@ const Home = () => {
       {/* Integrated AI Platform Section */}
       <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
-          {/* <div className="max-w-3xl mb-16">
-            <h2 className="text-4xl md:text-5xl font-light leading-tight mb-6">
-              A fully integrated suite of AI services and compute
-            </h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-              Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.
-            </p>
-          </div> */}
-
-          {/* Stacked Feature Blocks with Abstract Visuals */}
-          <div className="space-y-24 bg-[#0a0a0f]/50 rounded-3xl p-8 lg:p-12">
-            {/* Section 1: Integrated Suite - Interconnected flowing layers */}
+          <div className="space-y-16">
+            {/* Row 1: Text Left, Marketplace Card Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1">
+              <div>
                 <h3 className="text-3xl font-light text-white mb-4">A fully integrated suite of AI services and compute</h3>
                 <p className="text-gray-400 leading-relaxed">Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.</p>
               </div>
-              <div className="relative h-64 order-2">
-                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="integrated1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#3a6a9c" stopOpacity="0.8" />
-                      <stop offset="50%" stopColor="#4a85b0" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#3a6a9c" stopOpacity="0.4" />
-                    </linearGradient>
-                    <linearGradient id="integrated2" x1="100%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#4a85b0" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#3a6a9c" stopOpacity="0.5" />
-                    </linearGradient>
-                    <filter id="glow1" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="4" result="blur" />
-                      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                    </filter>
-                  </defs>
-                  <g className="feature-wave">
-                    <path d="M50,180 Q100,120 180,140 Q260,160 320,100 Q380,40 400,80" fill="none" stroke="url(#integrated1)" strokeWidth="45" opacity="0.7" strokeLinecap="round" />
-                    <path d="M0,140 Q80,80 160,110 Q240,140 300,80 Q360,20 400,60" fill="none" stroke="url(#integrated2)" strokeWidth="35" opacity="0.6" strokeLinecap="round" />
-                    <path d="M30,200 Q120,140 200,170 Q280,200 350,140 Q400,100 420,120" fill="none" stroke="url(#integrated1)" strokeWidth="28" opacity="0.5" strokeLinecap="round" />
-                  </g>
-                  <ellipse cx="200" cy="125" rx="100" ry="60" fill="url(#integrated2)" opacity="0.2" filter="url(#glow1)" />
-                </svg>
+              <div className="flex justify-end">
+                <Link to="/products/marketplace" className="block">
+                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-4">
+                      <span className="text-white text-2xl font-bold">M</span>
+                    </div>
+                    <span className="text-white text-sm font-medium">Marketplace</span>
+                  </div>
+                </Link>
               </div>
             </div>
 
-            {/* Section 2: Serverless - Lightweight wave-like elastic motion */}
+            {/* Row 2: Serverless Card Left, Text Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1 lg:order-2 lg:text-right">
+              <div className="flex justify-start">
+                <Link to="/products/serverless" className="block">
+                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-sm font-medium">Serverless</span>
+                  </div>
+                </Link>
+              </div>
+              <div className="lg:text-right">
                 <h3 className="text-3xl font-light text-white mb-4">Serverless model endpoints for inference</h3>
                 <p className="text-gray-400 leading-relaxed">Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference.</p>
               </div>
-              <div className="relative h-64 order-2 lg:order-1">
-                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="serverless1" x1="0%" y1="50%" x2="100%" y2="50%">
-                      <stop offset="0%" stopColor="#2a6a9a" stopOpacity="0.2" />
-                      <stop offset="50%" stopColor="#4a90c0" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#2a6a9a" stopOpacity="0.2" />
-                    </linearGradient>
-                    <linearGradient id="serverless2" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#5aa0d0" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#2a6090" stopOpacity="0.3" />
-                    </linearGradient>
-                  </defs>
-                  <g className="feature-wave">
-                    <path d="M0,125 Q100,70 200,125 Q300,180 400,125" fill="none" stroke="url(#serverless1)" strokeWidth="50" opacity="0.55" strokeLinecap="round" />
-                    <path d="M0,125 Q100,170 200,125 Q300,80 400,125" fill="none" stroke="url(#serverless2)" strokeWidth="35" opacity="0.5" strokeLinecap="round" />
-                    <path d="M0,125 Q100,100 200,125 Q300,150 400,125" fill="none" stroke="url(#serverless1)" strokeWidth="22" opacity="0.6" strokeLinecap="round" />
-                  </g>
-                  <ellipse cx="200" cy="125" rx="90" ry="45" fill="#4a90c0" opacity="0.15" />
-                </svg>
-              </div>
             </div>
 
-            {/* Section 3: Training Clusters - Heavier structured abstract depth */}
+            {/* Row 3: Text Left, Training Card Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1">
+              <div>
                 <h3 className="text-3xl font-light text-white mb-4">Dedicated training clusters ready to go</h3>
                 <p className="text-gray-400 leading-relaxed">BluBrg's optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes for robust infrastructure management.</p>
               </div>
-              <div className="relative h-64 order-2">
-                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="training1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#3a6a90" stopOpacity="0.8" />
-                      <stop offset="100%" stopColor="#2a4a70" stopOpacity="0.5" />
-                    </linearGradient>
-                    <linearGradient id="training2" x1="100%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#4a80b0" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#3a6a90" stopOpacity="0.55" />
-                    </linearGradient>
-                    <filter id="glow2" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="5" result="blur" />
-                      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                    </filter>
-                  </defs>
-                  <g className="feature-wave">
-                    <rect x="70" y="55" width="130" height="85" rx="10" fill="url(#training1)" opacity="0.6" transform="rotate(-5 135 97)" />
-                    <rect x="150" y="85" width="110" height="75" rx="10" fill="url(#training2)" opacity="0.55" transform="rotate(3 205 122)" />
-                    <rect x="210" y="45" width="120" height="95" rx="10" fill="url(#training1)" opacity="0.5" transform="rotate(-2 270 92)" />
-                    <rect x="110" y="125" width="100" height="65" rx="10" fill="url(#training2)" opacity="0.45" transform="rotate(5 160 157)" />
-                  </g>
-                  <ellipse cx="200" cy="125" rx="130" ry="75" fill="#3a6a90" opacity="0.12" filter="url(#glow2)" />
-                </svg>
+              <div className="flex justify-end">
+                <Link to="/products/training" className="block">
+                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-sm font-medium">Training</span>
+                  </div>
+                </Link>
               </div>
             </div>
 
-            {/* Section 4: New Standard - Clean precision-focused abstract form */}
+            {/* Row 4: Inference Card Left, Text Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1 lg:order-2 lg:text-right">
+              <div className="flex justify-start">
+                <Link to="/products/inference" className="block">
+                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-sm font-medium">Inference</span>
+                  </div>
+                </Link>
+              </div>
+              <div className="lg:text-right">
                 <h3 className="text-3xl font-light text-white mb-4">Setting a new standard for inference</h3>
                 <p className="text-gray-400 leading-relaxed">Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.</p>
               </div>
-              <div className="relative h-64 order-2 lg:order-1">
-                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="precision1" x1="50%" y1="0%" x2="50%" y2="100%">
-                      <stop offset="0%" stopColor="#4a7ab0" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#2a5a8a" stopOpacity="0.4" />
-                    </linearGradient>
-                    <linearGradient id="precision2" x1="0%" y1="50%" x2="100%" y2="50%">
-                      <stop offset="0%" stopColor="#2a5a8a" stopOpacity="0.4" />
-                      <stop offset="50%" stopColor="#5a9ad0" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#2a5a8a" stopOpacity="0.4" />
-                    </linearGradient>
-                  </defs>
-                  <g className="feature-wave">
-                    <circle cx="200" cy="125" r="85" fill="none" stroke="url(#precision1)" strokeWidth="3" opacity="0.65" />
-                    <circle cx="200" cy="125" r="65" fill="none" stroke="url(#precision2)" strokeWidth="2.5" opacity="0.6" />
-                    <circle cx="200" cy="125" r="45" fill="none" stroke="url(#precision1)" strokeWidth="2" opacity="0.55" />
-                    <circle cx="200" cy="125" r="25" fill="none" stroke="url(#precision2)" strokeWidth="1.5" opacity="0.5" />
-                    <line x1="115" y1="125" x2="285" y2="125" stroke="url(#precision2)" strokeWidth="1.5" opacity="0.4" />
-                    <line x1="200" y1="40" x2="200" y2="210" stroke="url(#precision2)" strokeWidth="1.5" opacity="0.4" />
-                  </g>
-                  <circle cx="200" cy="125" r="55" fill="url(#precision1)" opacity="0.18" />
-                </svg>
-              </div>
             </div>
 
-            {/* Section 5: Scalable Compute - Expanding layered visual scale */}
+            {/* Row 5: Text Left, GPU Nodes Card Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1">
+              <div>
                 <h3 className="text-3xl font-light text-white mb-4">Scalable, flexible AI Compute</h3>
                 <p className="text-gray-400 leading-relaxed">BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.</p>
               </div>
-              <div className="relative h-64 order-2">
-                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="scale1" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#2a5a8a" stopOpacity="0.4" />
-                      <stop offset="50%" stopColor="#4a7ab0" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#5a9ad0" stopOpacity="0.5" />
-                    </linearGradient>
-                    <linearGradient id="scale2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#4a85b0" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#2a5a8a" stopOpacity="0.4" />
-                    </linearGradient>
-                    <filter id="glow3" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="4" result="blur" />
-                      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                    </filter>
-                  </defs>
-                  <g className="feature-wave">
-                    <path d="M95,205 L95,95 L200,45 L305,95 L305,205 L200,255 Z" fill="url(#scale1)" opacity="0.4" />
-                    <path d="M125,185 L125,105 L200,65 L275,105 L275,185 L200,225 Z" fill="url(#scale2)" opacity="0.5" />
-                    <path d="M155,165 L155,115 L200,90 L245,115 L245,165 L200,190 Z" fill="url(#scale1)" opacity="0.6" />
-                  </g>
-                  <ellipse cx="200" cy="145" rx="100" ry="55" fill="#4a7ab0" opacity="0.15" filter="url(#glow3)" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Section 6: Turnkey Development - Converging flow end-to-end abstraction */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1 lg:order-2 lg:text-right">
-                <h3 className="text-3xl font-light text-white mb-4">Turnkey AI development and deployment</h3>
-                <p className="text-gray-400 leading-relaxed">The BluBrg Marketplace provides users with a wide range of AI/ML tools and resources, supporting efficient, scalable model development and seamless deployment.</p>
-              </div>
-              <div className="relative h-64 order-2 lg:order-1">
-                <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="turnkey1" x1="0%" y1="50%" x2="100%" y2="50%">
-                      <stop offset="0%" stopColor="#2a6090" stopOpacity="0.7" />
-                      <stop offset="50%" stopColor="#4a90c0" stopOpacity="0.8" />
-                      <stop offset="100%" stopColor="#2a6090" stopOpacity="0.7" />
-                    </linearGradient>
-                    <linearGradient id="turnkey2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#3a7aa0" stopOpacity="0.5" />
-                      <stop offset="100%" stopColor="#5aa0d0" stopOpacity="0.6" />
-                    </linearGradient>
-                  </defs>
-                  <g className="feature-wave">
-                    <path d="M40,45 Q160,125 40,205" fill="none" stroke="url(#turnkey1)" strokeWidth="25" opacity="0.55" strokeLinecap="round" />
-                    <path d="M90,25 Q200,125 90,225" fill="none" stroke="url(#turnkey2)" strokeWidth="18" opacity="0.5" strokeLinecap="round" />
-                    <path d="M360,45 Q240,125 360,205" fill="none" stroke="url(#turnkey1)" strokeWidth="25" opacity="0.55" strokeLinecap="round" />
-                    <path d="M310,25 Q200,125 310,225" fill="none" stroke="url(#turnkey2)" strokeWidth="18" opacity="0.5" strokeLinecap="round" />
-                    <ellipse cx="200" cy="125" rx="35" ry="35" fill="url(#turnkey1)" opacity="0.45" />
-                  </g>
-                  <ellipse cx="200" cy="125" rx="70" ry="45" fill="#4a90c0" opacity="0.15" />
-                </svg>
+              <div className="flex justify-end">
+                <Link to="/products/gpu-nodes" className="block">
+                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-sm font-medium">GPU Nodes</span>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
