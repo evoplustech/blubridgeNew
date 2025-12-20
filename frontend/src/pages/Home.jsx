@@ -329,15 +329,6 @@ const Home = () => {
             </div>
           </div>
 
-          <style>{`
-            @keyframes featureWave {
-              0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
-              50% { transform: translateY(-3px) scale(1.01); opacity: 0.95; }
-            }
-            .feature-wave {
-              animation: featureWave 6s ease-in-out infinite;
-            }
-          `}</style>
         </div>
       </section>
 
