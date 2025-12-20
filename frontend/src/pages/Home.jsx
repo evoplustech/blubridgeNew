@@ -140,24 +140,24 @@ const Home = () => {
           className="absolute inset-0"
           style={{
             backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/pm500cgm_Banner%20Background.avif)',
-            backgroundSize: '110% 110%',
+            backgroundSize: '115% 115%',
             backgroundPosition: 'center',
-            animation: 'heroWave 14s ease-in-out infinite'
+            animation: 'heroWave 10s ease-in-out infinite'
           }}
         />
         <style>{`
           @keyframes heroWave {
             0%, 100% { 
-              transform: scale(1.02) translate(0%, 0%);
+              transform: scale(1.03) translate(0%, 0%);
             }
             25% { 
-              transform: scale(1.03) translate(-0.5%, 0.3%);
+              transform: scale(1.05) translate(-1.2%, 0.8%);
             }
             50% { 
-              transform: scale(1.02) translate(0%, 0.5%);
+              transform: scale(1.03) translate(0%, 1.2%);
             }
             75% { 
-              transform: scale(1.03) translate(0.5%, 0.2%);
+              transform: scale(1.05) translate(1.2%, 0.6%);
             }
           }
         `}</style>
@@ -239,9 +239,13 @@ const Home = () => {
               <div className="flex justify-end">
                 <Link to="/products/marketplace" className="block">
                   <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-4">
-                      <span className="text-white text-2xl font-bold">M</span>
-                    </div>
+                   <div class="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
+  <svg class="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+      d="M3 7h18M5 7l1 10a2 2 0 002 2h8a2 2 0 002-2l1-10M9 21v-6h6v6M9 7V5a3 3 0 016 0v2" />
+  </svg>
+</div>
+
                     <span className="text-white text-sm font-medium">Marketplace</span>
                   </div>
                 </Link>
