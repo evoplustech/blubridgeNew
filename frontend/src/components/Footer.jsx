@@ -97,10 +97,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter Signup */}
+          {/* Contact Us Form */}
           <div className="lg:col-span-2">
             <h3 className="font-semibold text-lg mb-4">CONTACT US</h3>
-            <form onSubmit={handleSubscribe} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="text"
                 placeholder="First name"
@@ -121,13 +121,21 @@ const Footer = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                required
+              />
+              <Input
+                type="text"
+                placeholder="Message (optional)"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Button 
                 type="submit" 
                 disabled={loading}
                 className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white"
               >
-                {loading ? 'Subscribing...' : 'Contact Now'}
+                {loading ? 'Submitting...' : 'Contact Now'}
               </Button>
               <p className="text-xs text-white/50">
                 BluBrg is committed to protecting your privacy. We'll only use your information to provide requested content.
