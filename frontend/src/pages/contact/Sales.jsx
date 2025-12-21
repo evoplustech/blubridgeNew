@@ -21,6 +21,7 @@ const Sales = () => {
     agreeTerms: false,
     agreeMarketing: false
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -30,10 +31,35 @@ const Sales = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry. Our sales team will contact you shortly.');
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.country,
+          message: `Purpose: ${selectedPurpose}\nJob Title: ${formData.jobTitle}\nUse Case: ${formData.useCase}\nGPU Type: ${formData.gpuType}\nGPU Count: ${formData.gpuCount}\nProject Start: ${formData.projectStart}\nHeard About: ${formData.heardAbout}\n\n${formData.message}`,
+          interest: 'sales'
+        })
+      });
+      if (response.ok) {
+        alert('Thank you for your inquiry. Our sales team will contact you shortly.');
+        setFormData({ firstName: '', lastName: '', email: '', company: '', country: '', jobTitle: '', useCase: '', gpuType: '', gpuCount: '', projectStart: '', heardAbout: '', message: '', agreeTerms: false, agreeMarketing: false });
+      } else {
+        alert('Failed to submit form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const purposes = [
