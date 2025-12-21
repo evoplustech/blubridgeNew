@@ -128,6 +128,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ All contact form tests passed: Complete form submission with all fields, minimal form with required fields only, invalid email rejection (422 error). Data persistence verified in MongoDB. API endpoint: POST /api/contact"
+      - working: true
+        agent: "testing"
+        comment: "✅ SPECIFIC CONTACT FORM TESTING COMPLETED: Successfully tested POST /api/contact with 'general' interest (TestGeneral User, testgeneral@test.com), POST /api/contact with 'sales' interest (TestSales Lead, testsales@test.com), and GET /api/contact/submissions verification. All endpoints working correctly with proper response format containing 'message': 'Contact form submitted successfully' and 'id' field. Data persistence confirmed in MongoDB."
 
   - task: "Blog Posts List API"
     implemented: true
