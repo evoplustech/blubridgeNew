@@ -131,6 +131,21 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ SPECIFIC CONTACT FORM TESTING COMPLETED: Successfully tested POST /api/contact with 'general' interest (TestGeneral User, testgeneral@test.com), POST /api/contact with 'sales' interest (TestSales Lead, testsales@test.com), and GET /api/contact/submissions verification. All endpoints working correctly with proper response format containing 'message': 'Contact form submitted successfully' and 'id' field. Data persistence confirmed in MongoDB."
+      - working: true
+        agent: "testing"
+        comment: "✅ RESTRUCTURED CONTACT FORM API TESTING COMPLETED: Successfully tested all 8 new contact form API endpoints: 1) POST /api/contacts/submit with type 'contact_sales' (SalesTest User with all sales fields including GPU requirements), 2) POST /api/contacts/submit with type 'general_enquiry' (EnquiryTest User), 3) POST /api/contacts/submit with type 'contact_us' (Footer Test), 4) GET /api/contacts (retrieved array with type fields), 5) GET /api/contacts?type=contact_sales (filtered results), 6) Validation rejection for missing type field (422 error), 7) Validation rejection for invalid type field (422 error), 8) Legacy endpoint POST /api/contact backward compatibility confirmed. All structured fields stored individually (not concatenated). Perfect 8/8 test success rate. Data persistence verified in unified 'contacts' collection."
+
+  - task: "Restructured Contact Form APIs"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ COMPREHENSIVE RESTRUCTURED CONTACT FORM API TESTING COMPLETED: Perfect 8/8 test success rate for all new unified contact submission endpoints. Successfully tested: 1) POST /api/contacts/submit with type 'contact_sales' - all sales-specific fields (firstName, lastName, email, company, country, jobTitle, purpose, useCase, gpuType, expectedGpuCount, projectStartTimeline, heardAbout, message) stored individually in unified collection, 2) POST /api/contacts/submit with type 'general_enquiry' - basic enquiry fields stored correctly, 3) POST /api/contacts/submit with type 'contact_us' - footer form fields stored correctly, 4) GET /api/contacts - successfully retrieved array of all contact submissions with 'type' field present, 5) GET /api/contacts?type=contact_sales - correctly filtered and returned only contact_sales submissions, 6) Validation tests - properly rejected submissions with missing type field (422 error) and invalid type values (422 error), 7) Legacy endpoint backward compatibility - POST /api/contact still works and maps old 'interest' field to new 'type' field, 8) Data integrity verified - all structured fields stored individually (not concatenated into message field) in MongoDB 'contacts' collection. All endpoints using correct backend URL: https://blubrg-webdev.preview.emergentagent.com/api. Email notifications working. Perfect implementation of unified contact submission system."
 
   - task: "Blog Posts List API"
     implemented: true
