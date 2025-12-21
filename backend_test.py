@@ -572,8 +572,9 @@ class BackendTester:
         
         # Run all test suites
         self.test_api_root()
+        self.test_restructured_contact_form_apis()  # New restructured contact form tests
         self.test_newsletter_subscription()
-        self.test_contact_form()
+        self.test_contact_form()  # Legacy contact form tests
         self.test_blog_posts_list()
         self.test_blog_post_by_slug()
         
