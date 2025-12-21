@@ -12,6 +12,7 @@ const GeneralEnquiry = () => {
     agreeTerms: false,
     agreeMarketing: false
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -21,10 +22,34 @@ const GeneralEnquiry = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your enquiry. We will get back to you shortly.');
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.workEmail,
+          company: formData.companyName,
+          message: formData.message,
+          interest: 'general'
+        })
+      });
+      if (response.ok) {
+        alert('Thank you for your enquiry. We will get back to you shortly.');
+        setFormData({ firstName: '', lastName: '', workEmail: '', companyName: '', message: '', agreeTerms: false, agreeMarketing: false });
+      } else {
+        alert('Failed to submit form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
