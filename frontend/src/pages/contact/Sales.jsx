@@ -402,7 +402,7 @@ const Sales = () => {
                 </div>
 
                 {/* reCAPTCHA placeholder */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 w-fit">
+                {/* <div className="bg-[#141418] border border-white/10 rounded-lg p-4 w-fit">
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 border-2 border-gray-500 rounded flex items-center justify-center">
                       <Check className="w-4 h-4 text-green-500 opacity-0" />
@@ -413,7 +413,7 @@ const Sales = () => {
                       <div className="text-[8px] text-gray-600">Privacy - Terms</div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Submit Button */}
                 <Button
