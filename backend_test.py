@@ -340,6 +340,230 @@ class BackendTester:
         except Exception as e:
             self.log_test("API Root", False, f"Request failed: {str(e)}")
     
+    def test_restructured_contact_form_apis(self):
+        """Test the new restructured contact form APIs"""
+        print("\n=== Testing Restructured Contact Form APIs ===")
+        
+        # Test 1: POST /api/contacts/submit with type "contact_sales"
+        sales_payload = {
+            "type": "contact_sales",
+            "firstName": "SalesTest",
+            "lastName": "User",
+            "email": "salestest@company.com",
+            "company": "TestCorp",
+            "country": "UK",
+            "jobTitle": "VP Engineering",
+            "purpose": "pricing",
+            "useCase": "Training",
+            "gpuType": "A100",
+            "expectedGpuCount": "50",
+            "projectStartTimeline": "Q2 2025",
+            "heardAbout": "Google",
+            "message": "Looking for GPU clusters"
+        }
+        
+        try:
+            response = requests.post(f"{BACKEND_URL}/contacts/submit", json=sales_payload, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if "type" in data and data["type"] == "contact_sales" and "message" in data and "id" in data:
+                    self.log_test("Contact Sales Submission", True, 
+                                "Successfully submitted contact_sales form with all fields")
+                else:
+                    self.log_test("Contact Sales Submission", False, 
+                                "Missing required fields or incorrect type in response", data)
+            else:
+                self.log_test("Contact Sales Submission", False, 
+                            f"HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Contact Sales Submission", False, f"Request failed: {str(e)}")
+        
+        # Test 2: POST /api/contacts/submit with type "general_enquiry"
+        enquiry_payload = {
+            "type": "general_enquiry",
+            "firstName": "EnquiryTest",
+            "lastName": "User",
+            "email": "enquiry@test.com",
+            "company": "TestStartup",
+            "message": "General question about services"
+        }
+        
+        try:
+            response = requests.post(f"{BACKEND_URL}/contacts/submit", json=enquiry_payload, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if "type" in data and data["type"] == "general_enquiry" and "message" in data and "id" in data:
+                    self.log_test("General Enquiry Submission", True, 
+                                "Successfully submitted general_enquiry form")
+                else:
+                    self.log_test("General Enquiry Submission", False, 
+                                "Missing required fields or incorrect type in response", data)
+            else:
+                self.log_test("General Enquiry Submission", False, 
+                            f"HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("General Enquiry Submission", False, f"Request failed: {str(e)}")
+        
+        # Test 3: POST /api/contacts/submit with type "contact_us"
+        contact_us_payload = {
+            "type": "contact_us",
+            "firstName": "Footer",
+            "lastName": "Test",
+            "email": "footer@test.com",
+            "message": "Testing footer form"
+        }
+        
+        try:
+            response = requests.post(f"{BACKEND_URL}/contacts/submit", json=contact_us_payload, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if "type" in data and data["type"] == "contact_us" and "message" in data and "id" in data:
+                    self.log_test("Contact Us Submission", True, 
+                                "Successfully submitted contact_us form")
+                else:
+                    self.log_test("Contact Us Submission", False, 
+                                "Missing required fields or incorrect type in response", data)
+            else:
+                self.log_test("Contact Us Submission", False, 
+                            f"HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Contact Us Submission", False, f"Request failed: {str(e)}")
+        
+        # Test 4: GET /api/contacts - should return array of contact submissions with "type" field
+        try:
+            response = requests.get(f"{BACKEND_URL}/contacts", timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if isinstance(data, list):
+                    # Check if our test submissions are present and have type field
+                    has_type_field = True
+                    test_submissions_found = 0
+                    
+                    for contact in data:
+                        if "type" not in contact:
+                            has_type_field = False
+                        
+                        # Check for our test submissions
+                        if (contact.get("email") == "salestest@company.com" and 
+                            contact.get("type") == "contact_sales"):
+                            test_submissions_found += 1
+                        elif (contact.get("email") == "enquiry@test.com" and 
+                              contact.get("type") == "general_enquiry"):
+                            test_submissions_found += 1
+                        elif (contact.get("email") == "footer@test.com" and 
+                              contact.get("type") == "contact_us"):
+                            test_submissions_found += 1
+                    
+                    if has_type_field and test_submissions_found >= 2:
+                        self.log_test("Get All Contacts", True, 
+                                    f"Successfully retrieved contacts array with type fields, found {test_submissions_found} test submissions")
+                    elif not has_type_field:
+                        self.log_test("Get All Contacts", False, 
+                                    "Some contacts missing 'type' field")
+                    else:
+                        self.log_test("Get All Contacts", False, 
+                                    f"Only found {test_submissions_found} of expected test submissions")
+                else:
+                    self.log_test("Get All Contacts", False, 
+                                "Response is not an array", type(data))
+            else:
+                self.log_test("Get All Contacts", False, 
+                            f"HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Get All Contacts", False, f"Request failed: {str(e)}")
+        
+        # Test 5: GET /api/contacts?type=contact_sales - should return only contact_sales submissions
+        try:
+            response = requests.get(f"{BACKEND_URL}/contacts?type=contact_sales", timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if isinstance(data, list):
+                    all_sales_type = True
+                    sales_found = False
+                    
+                    for contact in data:
+                        if contact.get("type") != "contact_sales":
+                            all_sales_type = False
+                        if contact.get("email") == "salestest@company.com":
+                            sales_found = True
+                    
+                    if all_sales_type and sales_found:
+                        self.log_test("Get Contacts by Type", True, 
+                                    f"Successfully filtered contacts by type=contact_sales, found {len(data)} submissions")
+                    elif not all_sales_type:
+                        self.log_test("Get Contacts by Type", False, 
+                                    "Response contains non-contact_sales submissions")
+                    else:
+                        self.log_test("Get Contacts by Type", False, 
+                                    "Test contact_sales submission not found in filtered results")
+                else:
+                    self.log_test("Get Contacts by Type", False, 
+                                "Response is not an array", type(data))
+            else:
+                self.log_test("Get Contacts by Type", False, 
+                            f"HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Get Contacts by Type", False, f"Request failed: {str(e)}")
+        
+        # Test 6: Validation - Missing type field (should fail)
+        missing_type_payload = {
+            "firstName": "Test",
+            "email": "test@test.com"
+        }
+        
+        try:
+            response = requests.post(f"{BACKEND_URL}/contacts/submit", json=missing_type_payload, timeout=30)
+            if response.status_code == 422:  # Validation error
+                self.log_test("Validation Missing Type", True, 
+                            "Correctly rejected submission with missing type field")
+            else:
+                self.log_test("Validation Missing Type", False, 
+                            f"Expected 422 validation error, got {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Validation Missing Type", False, f"Request failed: {str(e)}")
+        
+        # Test 7: Validation - Invalid type (should fail)
+        invalid_type_payload = {
+            "type": "invalid",
+            "email": "test@test.com"
+        }
+        
+        try:
+            response = requests.post(f"{BACKEND_URL}/contacts/submit", json=invalid_type_payload, timeout=30)
+            if response.status_code == 422:  # Validation error
+                self.log_test("Validation Invalid Type", True, 
+                            "Correctly rejected submission with invalid type field")
+            else:
+                self.log_test("Validation Invalid Type", False, 
+                            f"Expected 422 validation error, got {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Validation Invalid Type", False, f"Request failed: {str(e)}")
+        
+        # Test 8: Legacy endpoint still works (backward compatibility)
+        legacy_payload = {
+            "firstName": "Legacy",
+            "lastName": "Test",
+            "email": "legacy@test.com",
+            "message": "Legacy endpoint test",
+            "interest": "sales"
+        }
+        
+        try:
+            response = requests.post(f"{BACKEND_URL}/contact", json=legacy_payload, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if "message" in data and "id" in data:
+                    self.log_test("Legacy Endpoint Compatibility", True, 
+                                "Legacy /api/contact endpoint still working for backward compatibility")
+                else:
+                    self.log_test("Legacy Endpoint Compatibility", False, 
+                                "Legacy endpoint response missing required fields", data)
+            else:
+                self.log_test("Legacy Endpoint Compatibility", False, 
+                            f"HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Legacy Endpoint Compatibility", False, f"Request failed: {str(e)}")
+    
     def run_all_tests(self):
         """Run all backend tests"""
         print(f"🚀 Starting Backend API Tests for BluBrg Website")
