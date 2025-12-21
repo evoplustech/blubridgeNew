@@ -104,58 +104,104 @@ class BackendTester:
         """Test Contact Form API"""
         print("\n=== Testing Contact Form API ===")
         
-        # Test 1: Complete form submission
-        complete_payload = {
-            "firstName": "Jane",
-            "lastName": "Smith",
-            "email": f"jane.smith.{uuid.uuid4().hex[:8]}@company.com",
-            "company": "Tech Corp",
-            "phone": "+1-555-0123",
-            "message": "I'm interested in your AI data centre solutions for our enterprise needs.",
-            "interest": "enterprise"
+        # Test 1: Contact form with "general" interest
+        general_payload = {
+            "firstName": "TestGeneral",
+            "lastName": "User",
+            "email": "testgeneral@test.com",
+            "company": "Test Company",
+            "message": "This is a test general enquiry",
+            "interest": "general"
         }
         
+        general_submission_id = None
         try:
-            response = requests.post(f"{BACKEND_URL}/contact", json=complete_payload, timeout=30)
+            response = requests.post(f"{BACKEND_URL}/contact", json=general_payload, timeout=30)
             if response.status_code == 200:
                 data = response.json()
-                if "message" in data and "id" in data:
-                    self.log_test("Contact Form Complete", True, 
-                                "Successfully submitted complete contact form")
+                if "message" in data and "id" in data and data["message"] == "Contact form submitted successfully":
+                    general_submission_id = data["id"]
+                    self.log_test("Contact Form General Interest", True, 
+                                "Successfully submitted contact form with general interest")
                 else:
-                    self.log_test("Contact Form Complete", False, 
-                                "Missing required fields in response", data)
+                    self.log_test("Contact Form General Interest", False, 
+                                "Missing required fields or incorrect message in response", data)
             else:
-                self.log_test("Contact Form Complete", False, 
+                self.log_test("Contact Form General Interest", False, 
                             f"HTTP {response.status_code}: {response.text}")
         except Exception as e:
-            self.log_test("Contact Form Complete", False, f"Request failed: {str(e)}")
+            self.log_test("Contact Form General Interest", False, f"Request failed: {str(e)}")
         
-        # Test 2: Minimal required fields only
-        minimal_payload = {
-            "firstName": "Bob",
-            "lastName": "Johnson",
-            "email": f"bob.johnson.{uuid.uuid4().hex[:8]}@email.com",
-            "message": "Quick question about your services."
+        # Test 2: Contact form with "sales" interest
+        sales_payload = {
+            "firstName": "TestSales",
+            "lastName": "Lead",
+            "email": "testsales@test.com",
+            "company": "Sales Company",
+            "message": "This is a test sales enquiry",
+            "interest": "sales"
         }
         
+        sales_submission_id = None
         try:
-            response = requests.post(f"{BACKEND_URL}/contact", json=minimal_payload, timeout=30)
+            response = requests.post(f"{BACKEND_URL}/contact", json=sales_payload, timeout=30)
             if response.status_code == 200:
                 data = response.json()
-                if "message" in data and "id" in data:
-                    self.log_test("Contact Form Minimal", True, 
-                                "Successfully submitted minimal contact form")
+                if "message" in data and "id" in data and data["message"] == "Contact form submitted successfully":
+                    sales_submission_id = data["id"]
+                    self.log_test("Contact Form Sales Interest", True, 
+                                "Successfully submitted contact form with sales interest")
                 else:
-                    self.log_test("Contact Form Minimal", False, 
-                                "Missing required fields in response", data)
+                    self.log_test("Contact Form Sales Interest", False, 
+                                "Missing required fields or incorrect message in response", data)
             else:
-                self.log_test("Contact Form Minimal", False, 
+                self.log_test("Contact Form Sales Interest", False, 
                             f"HTTP {response.status_code}: {response.text}")
         except Exception as e:
-            self.log_test("Contact Form Minimal", False, f"Request failed: {str(e)}")
+            self.log_test("Contact Form Sales Interest", False, f"Request failed: {str(e)}")
         
-        # Test 3: Invalid email in contact form
+        # Test 3: Verify submissions were stored
+        try:
+            response = requests.get(f"{BACKEND_URL}/contact/submissions", timeout=30)
+            if response.status_code == 200:
+                submissions = response.json()
+                if isinstance(submissions, list):
+                    # Look for our test submissions
+                    general_found = False
+                    sales_found = False
+                    
+                    for submission in submissions:
+                        if (submission.get("firstName") == "TestGeneral" and 
+                            submission.get("email") == "testgeneral@test.com" and
+                            submission.get("interest") == "general"):
+                            general_found = True
+                        elif (submission.get("firstName") == "TestSales" and 
+                              submission.get("email") == "testsales@test.com" and
+                              submission.get("interest") == "sales"):
+                            sales_found = True
+                    
+                    if general_found and sales_found:
+                        self.log_test("Contact Submissions Verification", True, 
+                                    "Both general and sales submissions found in database")
+                    elif general_found:
+                        self.log_test("Contact Submissions Verification", False, 
+                                    "Only general submission found, sales submission missing")
+                    elif sales_found:
+                        self.log_test("Contact Submissions Verification", False, 
+                                    "Only sales submission found, general submission missing")
+                    else:
+                        self.log_test("Contact Submissions Verification", False, 
+                                    "Neither test submission found in database")
+                else:
+                    self.log_test("Contact Submissions Verification", False, 
+                                "Response is not a list", type(submissions))
+            else:
+                self.log_test("Contact Submissions Verification", False, 
+                            f"HTTP {response.status_code}: {response.text}")
+        except Exception as e:
+            self.log_test("Contact Submissions Verification", False, f"Request failed: {str(e)}")
+        
+        # Test 4: Invalid email in contact form
         invalid_contact_payload = {
             "firstName": "Test",
             "lastName": "User",
