@@ -215,25 +215,151 @@ async def get_status_checks():
     
     return status_checks
 
-# Contact Form Endpoint
+# Contact Form Endpoint - LEGACY (backward compatible)
 @api_router.post("/contact")
 async def submit_contact_form(form: ContactForm):
+    """Legacy endpoint - converts old format to new unified contacts collection"""
     try:
-        doc = form.model_dump()
-        doc['created_at'] = doc['created_at'].isoformat()
-        await db.contact_forms.insert_one(doc)
+        # Map old 'interest' field to new 'type' field
+        type_mapping = {
+            "sales": "contact_sales",
+            "general": "general_enquiry",
+            "enterprise": "contact_sales"
+        }
+        form_type = type_mapping.get(form.interest, "general_enquiry")
+        
+        # Build document for new unified collection
+        doc = {
+            "type": form_type,
+            "firstName": form.firstName,
+            "lastName": form.lastName,
+            "email": form.email,
+            "company": form.company,
+            "phone": form.phone,
+            "message": form.message,
+            "interest": form.interest,  # Keep original for reference
+            "createdAt": datetime.now(timezone.utc).isoformat(),
+            "id": form.id
+        }
+        
+        # Save to unified 'contacts' collection
+        await db.contacts.insert_one(doc)
+        
+        # Also save to legacy collection for backward compatibility
+        legacy_doc = form.model_dump()
+        legacy_doc['created_at'] = legacy_doc['created_at'].isoformat()
+        await db.contact_forms.insert_one(legacy_doc)
+        
+        # Send email notification (non-blocking)
+        await send_email_notification(form_type, doc)
+        
         return {"message": "Contact form submitted successfully", "id": form.id}
     except Exception as e:
         logging.error(f"Error submitting contact form: {e}")
         raise HTTPException(status_code=500, detail="Failed to submit form")
 
+
+# NEW: Unified Contact Submission Endpoint
+@api_router.post("/contacts/submit")
+async def submit_unified_contact(submission: ContactSubmission):
+    """
+    Unified contact submission endpoint.
+    Requires 'type' field: contact_sales, general_enquiry, or contact_us
+    """
+    try:
+        # Build document with only non-null fields
+        doc = {"type": submission.type}
+        
+        # Add all provided fields (exclude None values)
+        submission_dict = submission.model_dump()
+        for key, value in submission_dict.items():
+            if value is not None:
+                if isinstance(value, datetime):
+                    doc[key] = value.isoformat()
+                else:
+                    doc[key] = value
+        
+        # Ensure createdAt is set
+        if 'createdAt' not in doc:
+            doc['createdAt'] = datetime.now(timezone.utc).isoformat()
+        
+        # Save to unified 'contacts' collection
+        await db.contacts.insert_one(doc)
+        
+        # Send email notification (non-blocking)
+        await send_email_notification(submission.type, doc)
+        
+        return {"message": "Form submitted successfully", "id": submission.id, "type": submission.type}
+    except Exception as e:
+        logging.error(f"Error submitting contact form: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit form")
+
+
+# Contact Us (Footer Form) - Simple endpoint
+@api_router.post("/contact-us")
+async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[str] = None, email: str = None, message: Optional[str] = None):
+    """Simple Contact Us form (footer) endpoint"""
+    from pydantic import ValidationError
+    
+    # Validate email
+    if not email:
+        raise HTTPException(status_code=400, detail="Email is required")
+    
+    try:
+        # Validate email format
+        EmailStr._validate(email)
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid email format")
+    
+    try:
+        doc = {
+            "type": "contact_us",
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "message": message,
+            "createdAt": datetime.now(timezone.utc).isoformat(),
+            "id": str(uuid.uuid4())
+        }
+        
+        # Remove None values
+        doc = {k: v for k, v in doc.items() if v is not None}
+        doc["type"] = "contact_us"  # Ensure type is always set
+        
+        # Save to unified 'contacts' collection
+        await db.contacts.insert_one(doc)
+        
+        # Send email notification (non-blocking)
+        await send_email_notification("contact_us", doc)
+        
+        return {"message": "Contact form submitted successfully", "id": doc["id"]}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error submitting contact us form: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit form")
+
+
 @api_router.get("/contact/submissions")
 async def get_contact_submissions():
+    """Get all submissions from legacy contact_forms collection"""
     submissions = await db.contact_forms.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
     for submission in submissions:
-        if isinstance(submission['created_at'], str):
+        if isinstance(submission.get('created_at'), str):
             submission['created_at'] = datetime.fromisoformat(submission['created_at'])
     return submissions
+
+
+# NEW: Get all contacts from unified collection
+@api_router.get("/contacts")
+async def get_all_contacts(type: Optional[str] = None, limit: int = 100):
+    """Get contacts from unified collection, optionally filtered by type"""
+    query = {}
+    if type:
+        query["type"] = type
+    
+    contacts = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).to_list(limit)
+    return contacts
 
 # Newsletter Subscription
 @api_router.post("/newsletter/subscribe")
