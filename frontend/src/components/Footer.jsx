@@ -12,15 +12,16 @@ const Footer = () => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubscribe = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !firstName || !lastName) {
+    if (!email) {
       toast({
         title: 'Error',
-        description: 'Please fill in all fields',
+        description: 'Please enter your email address',
         variant: 'destructive'
       });
       return;
@@ -28,22 +29,25 @@ const Footer = () => {
 
     setLoading(true);
     try {
-      await axios.post(`${API}/newsletter/subscribe`, {
+      await axios.post(`${API}/contacts/submit`, {
+        type: 'contact_us',
         email,
-        firstName,
-        lastName
+        firstName: firstName || undefined,
+        lastName: lastName || undefined,
+        message: message || undefined
       });
       toast({
         title: 'Success!',
-        description: 'You have been subscribed to our newsletter'
+        description: 'Thank you for contacting us. We will get back to you soon.'
       });
       setEmail('');
       setFirstName('');
       setLastName('');
+      setMessage('');
     } catch (error) {
       toast({
         title: 'Error',
-        description: error.response?.data?.detail || 'Failed to subscribe',
+        description: error.response?.data?.detail || 'Failed to submit',
         variant: 'destructive'
       });
     } finally {
