@@ -35,17 +35,24 @@ const Sales = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contacts/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          type: 'contact_sales',
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
           company: formData.company,
-          phone: formData.country,
-          message: `Purpose: ${selectedPurpose}\nJob Title: ${formData.jobTitle}\nUse Case: ${formData.useCase}\nGPU Type: ${formData.gpuType}\nGPU Count: ${formData.gpuCount}\nProject Start: ${formData.projectStart}\nHeard About: ${formData.heardAbout}\n\n${formData.message}`,
-          interest: 'sales'
+          country: formData.country,
+          jobTitle: formData.jobTitle,
+          purpose: selectedPurpose,
+          useCase: formData.useCase,
+          gpuType: formData.gpuType,
+          expectedGpuCount: formData.gpuCount,
+          projectStartTimeline: formData.projectStart,
+          heardAbout: formData.heardAbout,
+          message: formData.message
         })
       });
       if (response.ok) {
