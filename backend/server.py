@@ -5,10 +5,14 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict, EmailStr
-from typing import List, Optional
+from pydantic import BaseModel, Field, ConfigDict, EmailStr, field_validator
+from typing import List, Optional, Literal
 import uuid
 from datetime import datetime, timezone
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import asyncio
 
 
 ROOT_DIR = Path(__file__).parent
@@ -18,6 +22,14 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+
+# Email configuration
+NOTIFICATION_EMAIL = "itsupport@blubridge.com"
+SMTP_HOST = os.environ.get('SMTP_HOST', 'smtp.gmail.com')
+SMTP_PORT = int(os.environ.get('SMTP_PORT', 587))
+SMTP_USER = os.environ.get('SMTP_USER', '')
+SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
+SMTP_FROM = os.environ.get('SMTP_FROM', 'noreply@blubrg.com')
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -37,6 +49,7 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+# LEGACY: Keep old ContactForm model for backward compatibility
 class ContactForm(BaseModel):
     firstName: str
     lastName: str
@@ -47,6 +60,46 @@ class ContactForm(BaseModel):
     interest: str = "general"
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+
+# NEW: Unified Contact Submission Model with type field
+class ContactSubmission(BaseModel):
+    model_config = ConfigDict(extra="allow")  # Allow extra fields for flexibility
+    
+    type: Literal["contact_sales", "general_enquiry", "contact_us"]
+    firstName: Optional[str] = None
+    lastName: Optional[str] = None
+    email: EmailStr
+    company: Optional[str] = None
+    phone: Optional[str] = None
+    message: Optional[str] = None
+    # Sales-specific fields (optional)
+    country: Optional[str] = None
+    jobTitle: Optional[str] = None
+    purpose: Optional[str] = None
+    useCase: Optional[str] = None
+    gpuType: Optional[str] = None
+    expectedGpuCount: Optional[str] = None
+    projectStartTimeline: Optional[str] = None
+    heardAbout: Optional[str] = None
+    # General enquiry specific
+    enquiryCategory: Optional[str] = None
+    # System fields
+    createdAt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    
+    @field_validator('email')
+    @classmethod
+    def validate_email_format(cls, v):
+        if len(v) > 254:
+            raise ValueError('Email too long')
+        return v
+    
+    @field_validator('firstName', 'lastName', 'company', 'message', mode='before')
+    @classmethod
+    def validate_string_length(cls, v):
+        if v and isinstance(v, str) and len(v) > 5000:
+            return v[:5000]  # Truncate instead of reject
+        return v
 
 class NewsletterSubscribe(BaseModel):
     email: EmailStr
@@ -73,6 +126,65 @@ class BlogPostCreate(BaseModel):
     content: str
     image: str
     author: str
+
+
+# Email notification helper (non-blocking)
+async def send_email_notification(form_type: str, form_data: dict):
+    """Send email notification asynchronously. Does not block API response."""
+    try:
+        if not SMTP_USER or not SMTP_PASSWORD:
+            logging.warning("SMTP credentials not configured, skipping email notification")
+            return
+        
+        # Format email subject based on form type
+        type_labels = {
+            "contact_sales": "Contact Sales",
+            "general_enquiry": "General Enquiry", 
+            "contact_us": "Contact Us"
+        }
+        subject = f"[{type_labels.get(form_type, form_type)}] New Submission"
+        
+        # Format email body
+        body_lines = [
+            f"Form Type: {type_labels.get(form_type, form_type)}",
+            f"Submission Time: {form_data.get('createdAt', datetime.now(timezone.utc).isoformat())}",
+            "",
+            "Submitted Fields:",
+            "-" * 40
+        ]
+        
+        # Add all non-empty fields
+        skip_fields = {'id', 'createdAt', 'type'}
+        for key, value in form_data.items():
+            if key not in skip_fields and value:
+                body_lines.append(f"{key}: {value}")
+        
+        body = "\n".join(body_lines)
+        
+        # Create email
+        msg = MIMEMultipart()
+        msg['From'] = SMTP_FROM
+        msg['To'] = NOTIFICATION_EMAIL
+        msg['Subject'] = subject
+        msg.attach(MIMEText(body, 'plain'))
+        
+        # Send email in background (non-blocking)
+        def send_sync():
+            try:
+                with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+                    server.starttls()
+                    server.login(SMTP_USER, SMTP_PASSWORD)
+                    server.send_message(msg)
+                logging.info(f"Email notification sent for {form_type}")
+            except Exception as e:
+                logging.error(f"Failed to send email notification: {e}")
+        
+        # Run in thread pool to not block
+        loop = asyncio.get_event_loop()
+        loop.run_in_executor(None, send_sync)
+        
+    except Exception as e:
+        logging.error(f"Error preparing email notification: {e}")
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
