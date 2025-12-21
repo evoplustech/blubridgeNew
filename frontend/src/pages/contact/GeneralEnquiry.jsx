@@ -26,16 +26,16 @@ const GeneralEnquiry = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contacts/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          type: 'general_enquiry',
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.workEmail,
           company: formData.companyName,
-          message: formData.message,
-          interest: 'general'
+          message: formData.message
         })
       });
       if (response.ok) {
