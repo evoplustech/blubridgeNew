@@ -214,6 +214,9 @@ const Training = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      <Helmet>
+        <title>GPU Clusters for Training AI Models | BluBrg</title>
+      </Helmet>
       {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient with subtle animation */}
