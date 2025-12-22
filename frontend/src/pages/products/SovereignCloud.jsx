@@ -141,6 +141,9 @@ const SovereignCloud = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      <Helmet>
+        <title>Sovereign Cloud | BluBrg</title>
+      </Helmet>
       {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background Landscape Image with Parallax */}
