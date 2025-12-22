@@ -133,11 +133,10 @@ const Home = () => {
     }
   ];
 
+  useDocumentTitle('The Hyperscaler Engineered for AI | BluBrg');
+
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      <Helmet>
-        <title>The Hyperscaler Engineered for AI | BluBrg</title>
-      </Helmet>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div 
