@@ -41,11 +41,10 @@ const Contact = () => {
     }
   ];
 
+  useDocumentTitle('Contact | BluBrg');
+
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
-      <Helmet>
-        <title>Contact | BluBrg</title>
-      </Helmet>
       {/* Page Heading Section */}
       <section className="pt-32 pb-16">
         <div className="container-custom">

@@ -103,11 +103,10 @@ const AboutUs = () => {
     }
   ];
 
+  useDocumentTitle('About | BluBrg');
+
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      <Helmet>
-        <title>About | BluBrg</title>
-      </Helmet>
       {/* Hero Section with Motion */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background Image with Parallax */}
