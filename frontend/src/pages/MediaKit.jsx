@@ -1,15 +1,13 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Button } from '../components/ui/button';
 import { Download, Mail } from 'lucide-react';
 
 const MediaKit = () => {
+  useDocumentTitle('Media Kit | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0A1F3D]">
-      <Helmet>
-        <title>Media Kit | BluBrg</title>
-      </Helmet>
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-[#0A1F3D]">      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1F3D] to-[#0D2847]" />
         <div className="container-custom relative z-10 text-center py-20">
           <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">Media Kit</h1>

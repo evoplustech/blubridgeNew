@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-react';
@@ -30,12 +30,10 @@ const Inference = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  useDocumentTitle('GPU Nodes for AI & ML Inference | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#000000]">
-      <Helmet>
-        <title>GPU Nodes for AI & ML Inference | BluBrg</title>
-      </Helmet>
-      {/* Hero Section - Dark blue/teal 3D glass-like abstract geometry */}
+    <div className="min-h-screen bg-[#000000]">      {/* Hero Section - Dark blue/teal 3D glass-like abstract geometry */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Base dark blue background */}
         <div className="absolute inset-0 bg-[#000508]" />

@@ -1,13 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const PrivacyPolicy = () => {
+  useDocumentTitle('Privacy Policy | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
-      <Helmet>
-        <title>Privacy Policy | BluBrg</title>
-      </Helmet>
-      {/* Content Section */}
+    <div className="min-h-screen bg-[#0a0a0f]">      {/* Content Section */}
       <section className="py-16">
         <div className="container-custom">
           <div className="max-w-4xl">

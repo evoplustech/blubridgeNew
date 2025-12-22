@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Plus, Minus } from 'lucide-react';
@@ -134,12 +134,10 @@ const Marketplace = () => {
     { type: 'TEXT GENERATION', name: 'PHI 3', provider: 'MICROSOFT' }
   ];
 
+  useDocumentTitle('AI Marketplace | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
-      <Helmet>
-        <title>AI Marketplace | BluBrg</title>
-      </Helmet>
-      {/* Hero Section */}
+    <div className="min-h-screen bg-[#0a0a0f]">      {/* Hero Section */}
       <section className="pt-16 pb-20">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent } from '../../components/ui/card';
@@ -28,12 +28,10 @@ const Training = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  useDocumentTitle('AI Compute for Training LLMs | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#000000]">
-      <Helmet>
-        <title>AI Compute for Training LLMs | BluBrg</title>
-      </Helmet>
-      {/* Hero Section - Abstract 3D Purple Ribbon Waves */}
+    <div className="min-h-screen bg-[#000000]">      {/* Hero Section - Abstract 3D Purple Ribbon Waves */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Dark purple gradient base */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a0a2e] via-[#0f051d] to-[#050208]" />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Plus, Minus, Zap, Server, Cloud, Shield } from 'lucide-react';
@@ -179,12 +179,10 @@ const Serverless = () => {
     }
   ];
 
+  useDocumentTitle('Serverless Inference | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      <Helmet>
-        <title>Serverless Inference | BluBrg</title>
-      </Helmet>
-      {/* Hero Section with Animated Model Graph */}
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* Hero Section with Animated Model Graph */}
       <section className="relative min-h-[550px] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
         

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Check } from 'lucide-react';
@@ -76,12 +76,10 @@ const Sales = () => {
     { id: 'solution', label: 'Find a solution' }
   ];
 
+  useDocumentTitle('Contact Sales | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
-      <Helmet>
-        <title>Contact Sales | BluBrg</title>
-      </Helmet>
-      {/* Main Contact Section */}
+    <div className="min-h-screen bg-[#0a0a0f]">      {/* Main Contact Section */}
       <section className="pt-32 pb-20">
         <div className="container-custom">
           <div className="grid lg:grid-cols-12 gap-16">

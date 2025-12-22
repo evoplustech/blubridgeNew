@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-react';
@@ -27,12 +27,10 @@ const AIDevelopment = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  useDocumentTitle('Integrated tools for AI development | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#000000]">
-      <Helmet>
-        <title>Integrated tools for AI development | BluBrg</title>
-      </Helmet>
-      {/* Hero Section - Deep Green 3D Glass/Ribbon Abstract Forms */}
+    <div className="min-h-screen bg-[#000000]">      {/* Hero Section - Deep Green 3D Glass/Ribbon Abstract Forms */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Deep dark green base background */}
         <div className="absolute inset-0 bg-[#0a1f14]" />

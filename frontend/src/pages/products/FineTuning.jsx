@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Plus, Minus, Play } from 'lucide-react';
@@ -308,12 +308,10 @@ const FineTuning = () => {
     { name: 'STABLE', size: 'DIFFUSION XL', author: 'STABILITY' },
   ];
 
+  useDocumentTitle('AI Model Fine-tuning | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      <Helmet>
-        <title>AI Model Fine-tuning | BluBrg</title>
-      </Helmet>
-      {/* SECTION 1: Hero Section with Animated Orange Background */}
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Animated Canvas Background */}
         <canvas 

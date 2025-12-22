@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -53,12 +53,10 @@ const GeneralEnquiry = () => {
     }
   };
 
+  useDocumentTitle('General Enquiry | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
-      <Helmet>
-        <title>General Enquiry | BluBrg</title>
-      </Helmet>
-      {/* Main Content Section */}
+    <div className="min-h-screen bg-[#0a0a0f]">      {/* Main Content Section */}
       <section className="pt-16 pb-24">
         <div className="container-custom">
           {/* Page Title */}

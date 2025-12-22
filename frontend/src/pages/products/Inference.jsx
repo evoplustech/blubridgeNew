@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Plus, Minus, Server, Zap, Settings } from 'lucide-react';
@@ -236,12 +236,10 @@ const Inference = () => {
     { name: 'Triton', color: '#76B900' }
   ];
 
+  useDocumentTitle('AI Inference | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      <Helmet>
-        <title>AI Inference | BluBrg</title>
-      </Helmet>
-      {/* SECTION 1: Hero Section with Animated Inference Visual */}
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1420] to-[#0a0a0f]" />

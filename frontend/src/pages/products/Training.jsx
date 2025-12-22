@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Plus, Minus, Server, Layers, Cpu } from 'lucide-react';
@@ -212,12 +212,10 @@ const Training = () => {
     { name: 'GPU nodes', type: 'hardware' }
   ];
 
+  useDocumentTitle('GPU Clusters for Training AI Models | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
-      <Helmet>
-        <title>GPU Clusters for Training AI Models | BluBrg</title>
-      </Helmet>
-      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
+    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient with subtle animation */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1420] to-[#0a0a0f]" />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-react';
@@ -30,12 +30,10 @@ const FineTuning = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  useDocumentTitle('AI Cloud Platform for Model Fine-Tuning | BluBrg');
+
   return (
-    <div className="min-h-screen bg-[#000000]">
-      <Helmet>
-        <title>AI Cloud Platform for Model Fine-Tuning | BluBrg</title>
-      </Helmet>
-      {/* HERO SECTION - Deep green 3D ribbon/folded geometry - exact match to screenshot */}
+    <div className="min-h-screen bg-[#000000]">      {/* HERO SECTION - Deep green 3D ribbon/folded geometry - exact match to screenshot */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Base dark background */}
         <div className="absolute inset-0 bg-[#000000]" />
