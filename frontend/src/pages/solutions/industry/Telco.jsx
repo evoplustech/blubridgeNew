@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
 import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-react';
@@ -126,6 +127,8 @@ const Telco = () => {
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
+
+  useDocumentTitle('AI for Telecommunications | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">
