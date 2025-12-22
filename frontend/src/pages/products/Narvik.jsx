@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent } from '../../components/ui/card';
@@ -7,6 +8,9 @@ import { Check, Thermometer, Zap, Building2, Leaf } from 'lucide-react';
 const Narvik = () => {
   return (
     <div className="min-h-screen bg-[#0A1F3D]">
+      <Helmet>
+        <title>Narvik AI Data Centre | BluBrg</title>
+      </Helmet>
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
