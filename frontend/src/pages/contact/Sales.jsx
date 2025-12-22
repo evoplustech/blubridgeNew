@@ -94,14 +94,15 @@ const Sales = () => {
                         className="flex items-center gap-3 cursor-pointer group"
                         onClick={() => setSelectedPurpose(purpose.id)}
                       >
-                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all bg-blue-500 border-blue-500`}>
+                        {/* <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                           selectedPurpose === purpose.id 
                             ? 'bg-blue-500 border-blue-500' 
                             : 'border-gray-500 group-hover:border-blue-400'
-                        }`}>
-                          {selectedPurpose === purpose.id && (
+                        }`}> */}
+                          {/* {selectedPurpose === purpose.id && ( */}
                             <Check className="w-3 h-3 text-white" />
-                          )}
+                          {/* )} */}
                         </div>
                         <span className="text-white text-sm">{purpose.label}</span>
                       </label>
@@ -111,17 +112,17 @@ const Sales = () => {
 
                 {/* Technical Support Link */}
                 <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-white mb-3">Technical issue or question?</h4>
-                  <Link to="/contact/support">
+                  <h4 className="text-lg font-semibold text-white mb-3">General question?</h4>
+                  <Link to="/contact/general-enquiry">
                     <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-white/20 hover:border-blue-500/50 hover:bg-white/5 transition-all group">
-                      Contact Support
+                      Contact General
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </Link>
                 </div>
 
                 {/* Investment Link */}
-                <div>
+                {/* <div>
                   <h4 className="text-lg font-semibold text-white mb-3">Interested in Investment?</h4>
                   <Link to="/contact/investors">
                     <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-white/20 hover:border-blue-500/50 hover:bg-white/5 transition-all group">
@@ -129,7 +130,7 @@ const Sales = () => {
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -371,7 +372,10 @@ const Sales = () => {
                     placeholder="Describe your AI compute requirements, project timeline, and any specific needs..."
                   />
                 </div>
-
+                {/* Privacy Notice */}
+                <div className="text-gray-400 text-xs leading-relaxed">
+                  BluBrg is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below to say how you would like us to contact you:
+                </div>
                 {/* Legal Checkboxes */}
                 <div className="space-y-4">
                   <label className="flex items-start gap-3 cursor-pointer group">

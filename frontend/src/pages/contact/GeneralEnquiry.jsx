@@ -64,20 +64,6 @@ const GeneralEnquiry = () => {
             {/* Left Column - Helper CTAs */}
             <div className="lg:col-span-4">
               <div className="space-y-10">
-                {/* Technical Support CTA */}
-                <div className="flex gap-4">
-                  <div className="w-1 bg-blue-500 rounded-full flex-shrink-0" />
-                  <div>
-                    <h3 className="text-white text-lg font-medium mb-3">Technical issue or question?</h3>
-                    <Link to="/contact/support">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/5 transition-all group">
-                        Contact Support
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
                 {/* Sales CTA */}
                 <div className="flex gap-4">
                   <div className="w-1 bg-blue-500 rounded-full flex-shrink-0" />
@@ -91,9 +77,21 @@ const GeneralEnquiry = () => {
                     </Link>
                   </div>
                 </div>
-
+                {/* Technical Support CTA */}
+                {/* <div className="flex gap-4">
+                  <div className="w-1 bg-blue-500 rounded-full flex-shrink-0" />
+                  <div>
+                    <h3 className="text-white text-lg font-medium mb-3">Technical issue or question?</h3>
+                    <Link to="/contact/support">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/5 transition-all group">
+                        Contact Support
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </Link>
+                  </div>
+                </div> */}
                 {/* Investment CTA */}
-                <div className="flex gap-4">
+                {/* <div className="flex gap-4">
                   <div className="w-1 bg-blue-500 rounded-full flex-shrink-0" />
                   <div>
                     <h3 className="text-white text-lg font-medium mb-3">Interested in investment?</h3>
@@ -104,7 +102,7 @@ const GeneralEnquiry = () => {
                       </button>
                     </Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -260,7 +258,122 @@ const GeneralEnquiry = () => {
       </section>
 
       {/* Bottom Promotional Section */}
-      <section className="py-24 border-t border-white/5">
+            <section className="py-20 bg-[#0d0d12]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left Column - Text */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">
+                Get access to a fully integrated suite of AI services and compute
+              </h2>
+              <p className="text-gray-400 text-base leading-relaxed">
+                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-blue-400">BluBrg's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+              </p>
+            </div>
+
+            {/* Right Column - Services Grid with Infrastructure Diagram */}
+            <div className="relative">
+              {/* Services Icons Grid */}
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                {/* Serverless */}
+                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-medium">Serverless</span>
+                </div>
+
+                {/* Marketplace */}
+                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-medium">Marketplace</span>
+                </div>
+
+                {/* Inference */}
+                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-medium">Inference</span>
+                </div>
+
+                {/* Training */}
+                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-medium">Training</span>
+                </div>
+
+                {/* GPU Nodes */}
+                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-medium">GPU nodes</span>
+                </div>
+
+                {/* LLM Library */}
+                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-medium">LLM Library</span>
+                </div>
+              </div>
+
+              {/* Data Center Card */}
+              <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-xl p-5">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium text-sm">BluBrg's Data centers</h4>
+                    <p className="text-gray-400 text-xs">Powered by renewable energy</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature List */}
+              <div className="mt-6 space-y-2">
+                {[
+                  'Pre-configured Software',
+                  'Pre-configured Infrastructure',
+                  'Job Management',
+                  'Job Scheduling',
+                  'Container Orchestration',
+                  'Optimised Libraries',
+                  'Optimised Compilers and Tools',
+                  'Optimised Runtime'
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                    <span className="text-gray-400 text-sm">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <section className="py-24 border-t border-white/5">
         <div className="container-custom">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">
@@ -271,7 +384,7 @@ const GeneralEnquiry = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
