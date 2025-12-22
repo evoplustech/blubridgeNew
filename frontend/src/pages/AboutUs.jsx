@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight, Plus, Minus, Linkedin } from 'lucide-react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const AboutUs = () => {
   const [openFaq, setOpenFaq] = useState(null);
