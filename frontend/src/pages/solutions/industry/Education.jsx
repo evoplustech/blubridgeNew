@@ -129,7 +129,7 @@ const Education = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI for Education | BluBrg');
+  useDocumentTitle('Elevate Advanced Research Projects | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">

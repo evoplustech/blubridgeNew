@@ -189,7 +189,7 @@ const Legal = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI for Legal | BluBrg');
+  useDocumentTitle('Transform the Practise of Law | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">

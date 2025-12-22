@@ -184,7 +184,7 @@ const SoftwareTechnology = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI for Software & Technology | BluBrg');
+  useDocumentTitle('Enhancing Tech with GPU Cluster Solutions | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">

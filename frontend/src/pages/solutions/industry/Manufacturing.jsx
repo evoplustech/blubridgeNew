@@ -233,7 +233,7 @@ const Manufacturing = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI for Manufacturing | BluBrg');
+  useDocumentTitle('Enabling AI for Manufacturing with High Performance GPUs | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">

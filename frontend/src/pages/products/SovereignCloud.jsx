@@ -139,7 +139,7 @@ const SovereignCloud = () => {
     'Optimised Runtime'
   ];
 
-  useDocumentTitle('Sovereign Cloud | BluBrg');
+  useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}

@@ -128,7 +128,7 @@ const Healthcare = () => {
 
   const toggleFaq = (index) => setOpenFaq(openFaq === index ? null : index);
 
-  useDocumentTitle('AI for Healthcare | BluBrg');
+  useDocumentTitle('GPU Cloud for Healthcare and Biotech | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">

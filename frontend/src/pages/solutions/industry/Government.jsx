@@ -181,7 +181,7 @@ const Government = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI for Government | BluBrg');
+  useDocumentTitle('Drive Innovation in Public Services | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">

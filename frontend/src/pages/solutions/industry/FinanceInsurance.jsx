@@ -129,7 +129,7 @@ const FinanceInsurance = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI for Finance & Insurance | BluBrg');
+  useDocumentTitle('Enhancing Finance and Insurance Services with Cloud GPUs | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#000000]">

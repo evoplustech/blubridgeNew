@@ -128,7 +128,7 @@ const Telco = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI for Telecommunications | BluBrg');
+  useDocumentTitle('Scalable AIaaS & AI Data Centers for Telco Providers | BluBrg - Next-Gen GPU Infrastructure');
 
   return (
     <div className="min-h-screen bg-[#000000]">
