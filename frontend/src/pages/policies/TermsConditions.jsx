@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const TermsConditions = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      <Helmet>
+        <title>Terms & Conditions | BluBrg</title>
+      </Helmet>
       {/* Content Section */}
       <section className="py-16">
         <div className="container-custom">
