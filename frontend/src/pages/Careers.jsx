@@ -155,6 +155,9 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      <Helmet>
+        <title>Careers | BluBrg</title>
+      </Helmet>
       {/* Hero Section with Animated Flowing Lines */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">
         {/* Dark background */}

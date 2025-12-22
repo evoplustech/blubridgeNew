@@ -67,6 +67,9 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen bg-[#0A1F3D]">
+      <Helmet>
+        <title>Pricing | BluBrg</title>
+      </Helmet>
       {/* Hero */}
       <section className="py-24 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
