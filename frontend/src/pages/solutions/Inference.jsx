@@ -32,6 +32,9 @@ const Inference = () => {
 
   return (
     <div className="min-h-screen bg-[#000000]">
+      <Helmet>
+        <title>GPU Nodes for AI & ML Inference | BluBrg</title>
+      </Helmet>
       {/* Hero Section - Dark blue/teal 3D glass-like abstract geometry */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Base dark blue background */}

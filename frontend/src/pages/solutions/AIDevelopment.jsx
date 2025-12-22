@@ -29,6 +29,9 @@ const AIDevelopment = () => {
 
   return (
     <div className="min-h-screen bg-[#000000]">
+      <Helmet>
+        <title>Integrated tools for AI development | BluBrg</title>
+      </Helmet>
       {/* Hero Section - Deep Green 3D Glass/Ribbon Abstract Forms */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Deep dark green base background */}

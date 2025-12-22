@@ -30,6 +30,9 @@ const Training = () => {
 
   return (
     <div className="min-h-screen bg-[#000000]">
+      <Helmet>
+        <title>AI Compute for Training LLMs | BluBrg</title>
+      </Helmet>
       {/* Hero Section - Abstract 3D Purple Ribbon Waves */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Dark purple gradient base */}

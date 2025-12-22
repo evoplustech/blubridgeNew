@@ -32,6 +32,9 @@ const FineTuning = () => {
 
   return (
     <div className="min-h-screen bg-[#000000]">
+      <Helmet>
+        <title>AI Cloud Platform for Model Fine-Tuning | BluBrg</title>
+      </Helmet>
       {/* HERO SECTION - Deep green 3D ribbon/folded geometry - exact match to screenshot */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Base dark background */}
