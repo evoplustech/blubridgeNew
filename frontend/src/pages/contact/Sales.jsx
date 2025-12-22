@@ -78,6 +78,9 @@ const Sales = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      <Helmet>
+        <title>Contact Sales | BluBrg</title>
+      </Helmet>
       {/* Main Contact Section */}
       <section className="pt-32 pb-20">
         <div className="container-custom">

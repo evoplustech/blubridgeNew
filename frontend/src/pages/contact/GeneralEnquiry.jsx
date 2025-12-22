@@ -55,6 +55,9 @@ const GeneralEnquiry = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      <Helmet>
+        <title>General Enquiry | BluBrg</title>
+      </Helmet>
       {/* Main Content Section */}
       <section className="pt-16 pb-24">
         <div className="container-custom">
