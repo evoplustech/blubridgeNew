@@ -181,6 +181,9 @@ const Serverless = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      <Helmet>
+        <title>Serverless Inference | BluBrg</title>
+      </Helmet>
       {/* Hero Section with Animated Model Graph */}
       <section className="relative min-h-[550px] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />

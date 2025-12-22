@@ -257,6 +257,9 @@ const GPUNodes = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      <Helmet>
+        <title>GPU Nodes for AI, ML and HPC | BluBrg</title>
+      </Helmet>
       {/* Hero Section with Animation */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient */}

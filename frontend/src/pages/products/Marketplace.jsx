@@ -136,6 +136,9 @@ const Marketplace = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      <Helmet>
+        <title>AI Marketplace | BluBrg</title>
+      </Helmet>
       {/* Hero Section */}
       <section className="pt-16 pb-20">
         <div className="container-custom">

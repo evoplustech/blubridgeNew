@@ -238,6 +238,9 @@ const Inference = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+      <Helmet>
+        <title>AI Inference | BluBrg</title>
+      </Helmet>
       {/* SECTION 1: Hero Section with Animated Inference Visual */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient */}
