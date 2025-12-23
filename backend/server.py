@@ -9,9 +9,7 @@ from pydantic import BaseModel, Field, ConfigDict, EmailStr, field_validator
 from typing import List, Optional, Literal
 import uuid
 from datetime import datetime, timezone
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import httpx
 import asyncio
 
 
@@ -23,13 +21,10 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Email configuration
-NOTIFICATION_EMAIL = "itsupport@blubridge.com"
-SMTP_HOST = os.environ.get('SMTP_HOST', 'smtp.gmail.com')
-SMTP_PORT = int(os.environ.get('SMTP_PORT', 587))
-SMTP_USER = os.environ.get('SMTP_USER', '')
-SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
-SMTP_FROM = os.environ.get('SMTP_FROM', 'noreply@blubrg.com')
+# Brevo (Sendinblue) Email configuration
+BREVO_API_KEY = os.environ.get('Backend-Email-Key', '')
+BREVO_SENDER_EMAIL = "blazecoder3@gmail.com"
+BREVO_RECIPIENT_EMAIL = "itsupport@blubridge.com"
 
 # Create the main app without a prefix
 app = FastAPI()
