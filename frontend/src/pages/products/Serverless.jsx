@@ -327,6 +327,35 @@ const Serverless = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-[#0d1117]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Serverless without<br />trade-offs
+              </h2>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are ss
+              </p>
+              <Link to="/gpu-nodes" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            
+            <div className="relative">
+              {/* GPU/Hardware Image */}
+              <div className="rounded-xl overflow-hidden">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/dzdppu4v_Nvidia-GB200.avif" 
+                  alt="Enterprise GPU Infrastructure"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Serverless Without Trade-offs Section */}
       {/* <section className="py-20 bg-[#0a0a0f]">
         <div className="container-custom">
