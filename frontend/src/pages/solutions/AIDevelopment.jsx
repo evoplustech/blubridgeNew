@@ -6,22 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-reac
 
 const AIDevelopment = () => {
   const [openFaq, setOpenFaq] = useState(0);
-  const [animationOffset, setAnimationOffset] = useState(0);
-  const animationRef = useRef(null);
-
-  useEffect(() => {
-    let startTime = null;
-    const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
-      setAnimationOffset(elapsed * 0.00006);
-      animationRef.current = requestAnimationFrame(animate);
-    };
-    animationRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -30,154 +14,24 @@ const AIDevelopment = () => {
   useDocumentTitle('Integrated tools for AI development | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#000000]">      {/* Hero Section - Deep Green 3D Glass/Ribbon Abstract Forms */}
+    <div className="min-h-screen bg-[#000000]">
+      {/* Hero Section - AI Development Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Deep dark green base background */}
-        <div className="absolute inset-0 bg-[#0a1f14]" />
-        
-        {/* Animated 3D Glass Ribbon SVG Background - Matching Reference */}
+        {/* Animated Background Image */}
         <div className="absolute inset-0 overflow-hidden">
-          <svg
-            viewBox="0 0 1920 1080"
-            className="absolute w-[120%] h-[120%] -top-[10%] -right-[10%]"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <defs>
-              {/* Deep shadow - darkest green/black */}
-              <linearGradient id="deepShadow" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0a1810" />
-                <stop offset="50%" stopColor="#162820" />
-                <stop offset="100%" stopColor="#0a1510" />
-              </linearGradient>
+          <div 
+            className="absolute w-[120%] h-[120%] -top-[10%] -left-[10%]"
+            style={{
+              backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/t1azfeg2_AI%20Development.jpg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              animation: 'heroWaveAIDev 14s ease-in-out infinite'
+            }}
+          />
+        </div>
 
-              {/* Main ribbon - rich emerald green with depth */}
-              <linearGradient id="ribbonMain" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#1a3825" />
-                <stop offset="30%" stopColor="#2a5538" />
-                <stop offset="50%" stopColor="#3a7048" />
-                <stop offset="70%" stopColor="#2a5538" />
-                <stop offset="100%" stopColor="#1a3825" />
-              </linearGradient>
-
-              {/* Lit surface - vibrant green */}
-              <linearGradient id="ribbonLit" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2a5538" />
-                <stop offset="40%" stopColor="#3a7048" />
-                <stop offset="60%" stopColor="#4a8858" />
-                <stop offset="100%" stopColor="#3a7048" />
-              </linearGradient>
-
-              {/* Highlight surface - brightest emerald */}
-              <linearGradient id="ribbonHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#3a7048" />
-                <stop offset="30%" stopColor="#4a9058" />
-                <stop offset="60%" stopColor="#5aa868" />
-                <stop offset="100%" stopColor="#4a9058" />
-              </linearGradient>
-
-              {/* Sharp edge glow - intense bright green */}
-              <linearGradient id="edgeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7ac088" />
-                <stop offset="50%" stopColor="#9ae0a8" />
-                <stop offset="100%" stopColor="#6ab078" />
-              </linearGradient>
-
-              {/* Vertical gradient for tall ribbons */}
-              <linearGradient id="verticalRibbon" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#4a9058" />
-                <stop offset="30%" stopColor="#3a7048" />
-                <stop offset="70%" stopColor="#2a5538" />
-                <stop offset="100%" stopColor="#1a3825" />
-              </linearGradient>
-
-              {/* Angled lit surface */}
-              <linearGradient id="angledLit" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#4a8858" />
-                <stop offset="50%" stopColor="#3a7048" />
-                <stop offset="100%" stopColor="#2a5538" />
-              </linearGradient>
-
-              {/* Glass reflection - strong highlight */}
-              <linearGradient id="glassReflect" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#2a5538" />
-                <stop offset="40%" stopColor="#4a9058" />
-                <stop offset="60%" stopColor="#6ab078" />
-                <stop offset="100%" stopColor="#3a7048" />
-              </linearGradient>
-
-              {/* Soft glow filter - enhanced */}
-              <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-
-              {/* Depth blur */}
-              <filter id="depthBlur" x="-10%" y="-10%" width="120%" height="120%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
-              </filter>
-            </defs>
-
-            {/* Background base */}
-            <rect x="0" y="0" width="100%" height="100%" fill="#0a1510" />
-
-            {/* Layer 1 - Deep background vertical ribbons */}
-            <g style={{ transform: `translate(${Math.sin(animationOffset * 0.3) * 8}px, ${Math.cos(animationOffset * 0.25) * 5}px)` }}>
-              {/* Large back ribbon flowing vertically */}
-              <path
-                d="M600,-50 
-                   C650,100 700,200 680,350 
-                   C660,500 600,650 550,800 
-                   C500,950 450,1080 400,1200 
-                   L250,1200 
-                   C300,1000 350,800 400,600 
-                   C450,400 500,200 520,0 
-                   Z"
-                fill="url(#deepShadow)"
-                opacity="0.9"
-              />
-              {/* Another back ribbon */}
-              <path
-                d="M900,-100 
-                   C950,50 980,200 960,400 
-                   C940,600 880,800 820,1000 
-                   L700,1200 
-                   L580,1100 
-                   C650,850 720,600 760,350 
-                   C800,100 850,-50 900,-100 Z"
-                fill="url(#ribbonMain)"
-                opacity="0.85"
-              />
-            </g>
-
-            {/* Layer 2 - Mid ribbons with strong angles */}
-            <g style={{ transform: `translate(${Math.cos(animationOffset * 0.4) * 10}px, ${Math.sin(animationOffset * 0.35) * 7}px)` }}>
-              {/* Prominent folded ribbon */}
-              <path
-                d="M1100,-80 
-                   L1150,100 
-                   L1080,280 
-                   L1130,450 
-                   L1050,620 
-                   L1100,800 
-                   L1020,950 
-                   L950,1100 
-                   L850,1000 
-                   L920,820 
-                   L860,640 
-                   L940,450 
-                   L880,280 
-                   L960,100 
-                   L920,-50 
-                   Z"
-                fill="url(#ribbonLit)"
-                opacity="0.92"
-              />
-              {/* Edge highlight */}
-              <path
-                d="M1100,-80 L1150,100 L1080,280 L1130,450 L1050,620 L1100,800"
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1510]/90 via-[#0a1510]/50 to-transparent pointer-events-none" />
                 stroke="url(#edgeGlow)"
                 strokeWidth="4"
                 fill="none"
