@@ -98,7 +98,7 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-white tracking-wider">
-            BLUBRG
+            <img src="https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/1ysx1xgx_logo-blubrg.png" alt="BLUBRG" className="h-8" />
           </Link>
 
           {/* Desktop Navigation */}

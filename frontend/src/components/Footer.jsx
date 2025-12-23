@@ -148,7 +148,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2">
-              <span className="text-2xl font-bold">BLUBRG</span>
+              <img src="https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/1ysx1xgx_logo-blubrg.png" alt="BLUBRG" className="h-8" />
             </div>
             <p className="text-white/50 text-sm">©2025 BluBrg Technologies Private Limited. All rights reserved</p>
             <div className="flex space-x-6 text-sm">
