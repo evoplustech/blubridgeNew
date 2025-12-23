@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
@@ -6,25 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-reac
 
 const Inference = () => {
   const [openFaq, setOpenFaq] = useState(3);
-  const [animationOffset, setAnimationOffset] = useState({ x: 0, y: 0 });
-
-  // Subtle ambient motion for hero background
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-    
-    const animate = () => {
-      time += 0.003;
-      setAnimationOffset({
-        x: Math.sin(time) * 8,
-        y: Math.cos(time * 0.7) * 6
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-    
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -33,137 +14,24 @@ const Inference = () => {
   useDocumentTitle('GPU Nodes for AI & ML Inference | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#000000]">      {/* Hero Section - Dark blue/teal 3D glass-like abstract geometry */}
+    <div className="min-h-screen bg-[#000000]">
+      {/* Hero Section - AI & ML Inference Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Base dark blue background */}
-        <div className="absolute inset-0 bg-[#000508]" />
-        
-        {/* 3D Glass-like Abstract Geometry SVG with subtle motion */}
-        <div 
-          className="absolute inset-0"
-          style={{ 
-            transform: `translate(${animationOffset.x}px, ${animationOffset.y}px)` 
-          }}
-        >
-          <svg 
-            className="absolute top-0 right-0 w-full h-full" 
-            viewBox="0 0 1200 800" 
-            preserveAspectRatio="xMaxYMid slice"
-            style={{ minWidth: '100%', minHeight: '100%' }}
-          >
-            <defs>
-              {/* Dark blue base gradients */}
-              <linearGradient id="blue-base-1" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#000a12" />
-                <stop offset="30%" stopColor="#0a2540" />
-                <stop offset="60%" stopColor="#1a4060" />
-                <stop offset="100%" stopColor="#051525" />
-              </linearGradient>
-              <linearGradient id="blue-base-2" x1="20%" y1="100%" x2="80%" y2="0%">
-                <stop offset="0%" stopColor="#001020" />
-                <stop offset="35%" stopColor="#103050" />
-                <stop offset="70%" stopColor="#205070" />
-                <stop offset="100%" stopColor="#0a2035" />
-              </linearGradient>
-              {/* Teal/cyan highlight gradients */}
-              <linearGradient id="teal-highlight" x1="0%" y1="50%" x2="100%" y2="50%">
-                <stop offset="0%" stopColor="#00e0e0" />
-                <stop offset="50%" stopColor="#40f0f0" />
-                <stop offset="100%" stopColor="#00c0c0" />
-              </linearGradient>
-              <linearGradient id="cyan-glow" x1="30%" y1="100%" x2="70%" y2="0%">
-                <stop offset="0%" stopColor="#003040" />
-                <stop offset="40%" stopColor="#106080" />
-                <stop offset="70%" stopColor="#20a0c0" />
-                <stop offset="100%" stopColor="#004050" />
-              </linearGradient>
-              {/* Shadow gradient */}
-              <linearGradient id="blue-shadow" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#000408" />
-                <stop offset="100%" stopColor="#000810" />
-              </linearGradient>
-              {/* Soft glow filter */}
-              <filter id="glass-glow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="6" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-            </defs>
-            
-            {/* Back layer - darkest angular shapes */}
-            <path 
-              d="M 450 800 L 550 500 L 650 600 L 750 400 L 850 550 L 950 350 L 1050 450 L 1150 300 L 1200 350 L 1200 800 Z" 
-              fill="url(#blue-shadow)" 
-              opacity="0.95"
-            />
-            
-            {/* Middle layers - blue angular shards with depth */}
-            <path 
-              d="M 500 800 L 600 480 L 700 580 L 800 380 L 900 500 L 1000 320 L 1100 420 L 1200 280 L 1200 800 Z" 
-              fill="url(#blue-base-1)" 
-              filter="url(#glass-glow)"
-            />
-            <path 
-              d="M 550 800 L 650 450 L 750 550 L 850 360 L 950 480 L 1050 300 L 1150 380 L 1200 250 L 1200 800 Z" 
-              fill="url(#blue-base-2)" 
-              opacity="0.85"
-            />
-            
-            {/* Front layer - brighter shards with cyan tones */}
-            <path 
-              d="M 600 800 L 700 420 L 800 520 L 900 340 L 1000 460 L 1100 280 L 1180 350 L 1200 300 L 1200 800 Z" 
-              fill="url(#cyan-glow)"
-              opacity="0.75"
-            />
-            <path 
-              d="M 680 800 L 780 400 L 880 500 L 980 320 L 1080 440 L 1160 280 L 1200 320 L 1200 800 Z" 
-              fill="url(#blue-base-2)"
-            />
-            
-            {/* Teal/cyan highlight edges - glass-like reflections */}
-            <path 
-              d="M 680 800 L 780 400 L 880 500 L 980 320 L 1080 440 L 1160 280" 
-              fill="none" 
-              stroke="url(#teal-highlight)" 
-              strokeWidth="2.5" 
-              opacity="0.8"
-            />
-            <path 
-              d="M 600 800 L 700 420 L 800 520 L 900 340 L 1000 460" 
-              fill="none" 
-              stroke="url(#teal-highlight)" 
-              strokeWidth="1.5" 
-              opacity="0.5"
-            />
-            <path 
-              d="M 550 800 L 650 450 L 750 550 L 850 360" 
-              fill="none" 
-              stroke="rgba(0,220,220,0.3)" 
-              strokeWidth="1"
-            />
-            
-            {/* Additional angular facets for depth */}
-            <path 
-              d="M 750 800 L 850 380 L 950 480 L 1050 310 L 1140 400 L 1200 350 L 1200 800 Z" 
-              fill="url(#blue-base-1)" 
-              opacity="0.5"
-            />
-            <path 
-              d="M 750 800 L 850 380 L 950 480 L 1050 310" 
-              fill="none" 
-              stroke="rgba(0,240,240,0.4)" 
-              strokeWidth="1.5"
-            />
-            
-            {/* Inner fold shadows for glass depth */}
-            <path 
-              d="M 800 800 L 900 400 L 1000 500 L 1100 350" 
-              fill="none" 
-              stroke="rgba(0,15,25,0.9)" 
-              strokeWidth="15" 
-              opacity="0.3"
-            />
-          </svg>
+        {/* Animated Background Image */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute w-[120%] h-[120%] -top-[10%] -left-[10%]"
+            style={{
+              backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/y06qdmk6_AI%20%26%20ML%20INFERENCE.jpg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              animation: 'heroWaveInference 14s ease-in-out infinite'
+            }}
+          />
         </div>
+
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#000508]/90 via-[#000508]/50 to-transparent pointer-events-none" />
 
         {/* Hero content - left aligned with high contrast */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
@@ -186,6 +54,24 @@ const Inference = () => {
             </div>
           </div>
         </div>
+
+        {/* CSS Animation Keyframes */}
+        <style>{`
+          @keyframes heroWaveInference {
+            0%, 100% {
+              transform: translate(0, 0) scale(1.05);
+            }
+            25% {
+              transform: translate(-1.2%, 0.8%) scale(1.05);
+            }
+            50% {
+              transform: translate(-0.4%, -0.8%) scale(1.05);
+            }
+            75% {
+              transform: translate(0.8%, 0.4%) scale(1.05);
+            }
+          }
+        `}</style>
       </section>
 
       {/* Value Proposition Strip - 3 columns */}
