@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
@@ -6,25 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-reac
 
 const FineTuning = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [animationOffset, setAnimationOffset] = useState({ x: 0, y: 0 });
-
-  // Smooth animation for hero background
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-    
-    const animate = () => {
-      time += 0.005;
-      setAnimationOffset({
-        x: Math.sin(time) * 20,
-        y: Math.cos(time * 0.8) * 15
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-    
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -33,129 +14,24 @@ const FineTuning = () => {
   useDocumentTitle('AI Cloud Platform for Model Fine-Tuning | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#000000]">      {/* HERO SECTION - Deep green 3D ribbon/folded geometry - exact match to screenshot */}
+    <div className="min-h-screen bg-[#000000]">
+      {/* Hero Section - Model Fine-Tuning Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Base dark background */}
-        <div className="absolute inset-0 bg-[#000000]" />
-        
-        {/* 3D Ribbon SVG Background with subtle ambient motion */}
-        <div 
-          className="absolute inset-0"
-          style={{ 
-            transform: `translate(${animationOffset.x * 0.3}px, ${animationOffset.y * 0.3}px)` 
-          }}
-        >
-          <svg 
-            className="absolute top-0 right-0 w-full h-full" 
-            viewBox="0 0 1200 800" 
-            preserveAspectRatio="xMaxYMid slice"
-            style={{ minWidth: '100%', minHeight: '100%' }}
-          >
-            <defs>
-              {/* Deep emerald base gradient */}
-              <linearGradient id="green-base-1" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#001a0d" />
-                <stop offset="25%" stopColor="#003820" />
-                <stop offset="50%" stopColor="#006040" />
-                <stop offset="75%" stopColor="#004030" />
-                <stop offset="100%" stopColor="#001510" />
-              </linearGradient>
-              {/* Mid-tone emerald */}
-              <linearGradient id="green-base-2" x1="20%" y1="100%" x2="80%" y2="0%">
-                <stop offset="0%" stopColor="#002515" />
-                <stop offset="30%" stopColor="#007545" />
-                <stop offset="60%" stopColor="#00a060" />
-                <stop offset="100%" stopColor="#003020" />
-              </linearGradient>
-              {/* Neon green highlight */}
-              <linearGradient id="green-highlight" x1="0%" y1="50%" x2="100%" y2="50%">
-                <stop offset="0%" stopColor="#00ff80" />
-                <stop offset="50%" stopColor="#40ffa0" />
-                <stop offset="100%" stopColor="#00cc60" />
-              </linearGradient>
-              {/* Dark shadow */}
-              <linearGradient id="green-shadow" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#000a05" />
-                <stop offset="100%" stopColor="#001008" />
-              </linearGradient>
-              {/* Soft glow filter */}
-              <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="8" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-            </defs>
-            
-            {/* Back layer - darkest ribbons */}
-            <path 
-              d="M 500 800 Q 600 600, 750 650 Q 900 700, 1000 500 Q 1100 350, 1200 400 L 1200 800 Z" 
-              fill="url(#green-shadow)" 
-              opacity="0.9"
-            />
-            
-            {/* Middle layer - emerald base ribbons */}
-            <path 
-              d="M 550 800 Q 650 550, 800 600 Q 950 650, 1050 450 Q 1150 300, 1200 350 L 1200 800 Z" 
-              fill="url(#green-base-1)" 
-              filter="url(#soft-glow)"
-            />
-            <path 
-              d="M 620 800 Q 720 500, 870 550 Q 1000 600, 1100 400 Q 1180 280, 1200 300 L 1200 800 Z" 
-              fill="url(#green-base-2)" 
-              opacity="0.85"
-            />
-            
-            {/* Front layer - brighter ribbons with highlights */}
-            <path 
-              d="M 700 800 Q 800 480, 920 520 Q 1040 560, 1120 380 Q 1180 260, 1200 280 L 1200 800 Z" 
-              fill="url(#green-base-2)"
-            />
-            
-            {/* Highlight edges - neon green accents */}
-            <path 
-              d="M 700 800 Q 800 480, 920 520 Q 1040 560, 1120 380 Q 1180 260, 1200 280" 
-              fill="none" 
-              stroke="url(#green-highlight)" 
-              strokeWidth="3" 
-              opacity="0.7"
-            />
-            <path 
-              d="M 620 800 Q 720 500, 870 550 Q 1000 600, 1100 400" 
-              fill="none" 
-              stroke="url(#green-highlight)" 
-              strokeWidth="2" 
-              opacity="0.5"
-            />
-            
-            {/* Additional folded ribbon layers */}
-            <path 
-              d="M 780 800 Q 880 450, 980 490 Q 1080 530, 1150 360 Q 1190 260, 1200 270 L 1200 800 Z" 
-              fill="url(#green-base-1)" 
-              opacity="0.6"
-            />
-            <path 
-              d="M 780 800 Q 880 450, 980 490 Q 1080 530, 1150 360" 
-              fill="none" 
-              stroke="rgba(0,255,120,0.4)" 
-              strokeWidth="1.5"
-            />
-            
-            {/* Inner fold shadows for depth */}
-            <path 
-              d="M 850 800 Q 920 520, 1000 540 Q 1100 560, 1160 420" 
-              fill="none" 
-              stroke="rgba(0,20,10,0.8)" 
-              strokeWidth="20" 
-              opacity="0.4"
-            />
-          </svg>
+        {/* Animated Background Image */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute w-[120%] h-[120%] -top-[10%] -left-[10%]"
+            style={{
+              backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/n0x6s7r0_MODEL%20FINE-TUNING.jpg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              animation: 'heroWaveFineTuning 14s ease-in-out infinite'
+            }}
+          />
         </div>
 
-        <style>{`
-          @keyframes subtleFloat {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(5px, 3px); }
-          }
-        `}</style>
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/90 via-[#000000]/50 to-transparent pointer-events-none" />
 
         {/* Hero content - left aligned */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
@@ -178,6 +54,24 @@ const FineTuning = () => {
             </div>
           </div>
         </div>
+
+        {/* CSS Animation Keyframes */}
+        <style>{`
+          @keyframes heroWaveFineTuning {
+            0%, 100% {
+              transform: translate(0, 0) scale(1.05);
+            }
+            25% {
+              transform: translate(-1.2%, 0.8%) scale(1.05);
+            }
+            50% {
+              transform: translate(-0.4%, -0.8%) scale(1.05);
+            }
+            75% {
+              transform: translate(0.8%, 0.4%) scale(1.05);
+            }
+          }
+        `}</style>
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
