@@ -297,7 +297,7 @@ const Home = () => {
 
             {/* Row 4: Inference Card Left, Text Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="flex justify-start">
+              <div className="flex justify-start order-2 lg:order-1">
                 <Link to="/products/inference" className="block">
                   <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
                     <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
@@ -309,7 +309,7 @@ const Home = () => {
                   </div>
                 </Link>
               </div>
-              <div className="lg:text-right">
+              <div className="lg:text-right order-1 lg:order-2">
                 <h3 className="text-3xl font-light text-white mb-4">Setting a new standard for inference</h3>
                 <p className="text-gray-400 leading-relaxed">Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.</p>
               </div>
