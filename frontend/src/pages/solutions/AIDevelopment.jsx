@@ -660,8 +660,8 @@ const AIDevelopment = () => {
           <div className="grid md:grid-cols-3 gap-5">
             {/* Model Training Card - Purple Wave */}
             <Link to="/solutions/training">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={ background: '#000' }>
-                <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` } />
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+                <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">TRAINING</span>
                 </div>
@@ -670,8 +670,8 @@ const AIDevelopment = () => {
 
             {/* AI & ML Inference Card - Blue Angular */}
             <Link to="/solutions/inference">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={ background: '#000' }>
-                <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` } />
+              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+                <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">INFERENCE</span>
                 </div>
@@ -682,8 +682,8 @@ const AIDevelopment = () => {
 
             {/* Model Fine-Tuning Card - Green Wave */}
             <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={ background: '#000' }>
-                <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` } />
+              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+                <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
                 </div>
