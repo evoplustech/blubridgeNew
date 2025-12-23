@@ -34,7 +34,7 @@ const Header = () => {
       icon: Sparkles,
       items: [
         { name: 'Serverless Inference', link: '/products/serverless', desc: 'API endpoints for instant and scalable AI inference.', icon: Cloud },
-        { name: 'Fine-tuning', link: '/products/fine-tuning', desc: 'On-demand, serverless fine-tuning', icon: Scissors }
+        { name: 'Fine-tuning', link: '/products/fine-tuning', desc: 'On-demand, serverless fine-tuning', icon: SlidersHorizontal }
       ]
     },
     {
