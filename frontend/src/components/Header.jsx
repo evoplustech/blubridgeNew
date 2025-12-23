@@ -31,28 +31,31 @@ const Header = () => {
       title: 'AI Services',
       subtitle: 'Develop, train, tune, and deploy AI using our on demand services.',
       link: '/products/serverless',
+      icon: Sparkles,
       items: [
-        { name: 'Serverless Inference', link: '/products/serverless', desc: 'API endpoints for instant and scalable AI inference.' },
-        { name: 'Fine-tuning', link: '/products/fine-tuning', desc: 'On-demand, serverless fine-tuning' }
+        { name: 'Serverless Inference', link: '/products/serverless', desc: 'API endpoints for instant and scalable AI inference.', icon: Cloud },
+        { name: 'Fine-tuning', link: '/products/fine-tuning', desc: 'On-demand, serverless fine-tuning', icon: Scissors }
       ]
     },
     {
       title: 'AI Private Cloud',
       subtitle: 'Reserved large scale GPU clusters purpose-built for AI.',
       link: '/products/training',
+      icon: Building2,
       items: [
-        { name: 'Training Clusters', link: '/products/training', desc: 'Easy to deploy GPU clusters with SLURM scheduler.' },
-        { name: 'Inference Clusters', link: '/products/inference', desc: 'Autoscaling dedicated inference clusters.' },
-        { name: 'Bare metal Clusters', link: '/products/gpu-nodes', desc: 'Scalable, high performance bare metal GPU clusters.' }
+        { name: 'Training Clusters', link: '/products/training', desc: 'Easy to deploy GPU clusters with SLURM scheduler.', icon: Server },
+        { name: 'Inference Clusters', link: '/products/inference', desc: 'Autoscaling dedicated inference clusters.', icon: Zap },
+        { name: 'Bare metal Clusters', link: '/products/gpu-nodes', desc: 'Scalable, high performance bare metal GPU clusters.', icon: Wrench }
       ]
     },
     {
       title: 'Infrastructure',
       subtitle: 'Data centres and sovereign cloud solutions.',
       link: '/products/sovereign-cloud',
+      icon: Factory,
       items: [
-        { name: 'Sovereign Cloud', link: '/products/sovereign-cloud', desc: 'Complete jurisdictional control for regulated workloads.' },
-        { name: 'Glomfjord', link: '/products/glomfjord', desc: 'Powered by 100% renewable energy.' },
+        { name: 'Sovereign Cloud', link: '/products/sovereign-cloud', desc: 'Complete jurisdictional control for regulated workloads.', icon: Flag },
+        { name: 'Glomfjord', link: '/products/glomfjord', desc: 'Powered by 100% renewable energy.', icon: MapPin },
         // { name: 'Narvik Campus', link: '/products/narvik', desc: 'Arctic hyperscale infrastructure powered by renewables.' }
       ]
     }
