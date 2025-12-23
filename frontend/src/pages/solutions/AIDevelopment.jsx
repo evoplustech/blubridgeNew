@@ -54,6 +54,23 @@ const AIDevelopment = () => {
             </div>
           </div>
         </div>
+        {/* CSS Animation Keyframes */}
+        <style>{`
+          @keyframes heroWaveAIDev {
+            0%, 100% {
+              transform: translate(0, 0) scale(1.05);
+            }
+            25% {
+              transform: translate(-1.2%, 0.8%) scale(1.05);
+            }
+            50% {
+              transform: translate(-0.4%, -0.8%) scale(1.05);
+            }
+            75% {
+              transform: translate(0.8%, 0.4%) scale(1.05);
+            }
+          }
+        `}</style>
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
