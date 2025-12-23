@@ -123,25 +123,28 @@ class BlogPostCreate(BaseModel):
     author: str
 
 
-# Email notification helper (non-blocking)
+# Email notification helper using Brevo (non-blocking)
 async def send_email_notification(form_type: str, form_data: dict):
-    """Send email notification asynchronously. Does not block API response."""
+    """Send email notification via Brevo API. Does not block API response."""
     try:
-        if not SMTP_USER or not SMTP_PASSWORD:
-            logging.warning("SMTP credentials not configured, skipping email notification")
+        if not BREVO_API_KEY:
+            logging.warning("Brevo API key not configured, skipping email notification")
             return
         
-        # Format email subject based on form type
+        # Format form type label for email
         type_labels = {
             "contact_sales": "Contact Sales",
             "general_enquiry": "General Enquiry", 
             "contact_us": "Contact Us"
         }
-        subject = f"[{type_labels.get(form_type, form_type)}] New Submission"
+        form_type_label = type_labels.get(form_type, form_type)
         
-        # Format email body
+        # Build email subject
+        subject = f"New Form Submission - {form_type_label}"
+        
+        # Build email body with all form fields
         body_lines = [
-            f"Form Type: {type_labels.get(form_type, form_type)}",
+            f"Form Type: {form_type_label}",
             f"Submission Time: {form_data.get('createdAt', datetime.now(timezone.utc).isoformat())}",
             "",
             "Submitted Fields:",
@@ -156,30 +159,47 @@ async def send_email_notification(form_type: str, form_data: dict):
         
         body = "\n".join(body_lines)
         
-        # Create email
-        msg = MIMEMultipart()
-        msg['From'] = SMTP_FROM
-        msg['To'] = NOTIFICATION_EMAIL
-        msg['Subject'] = subject
-        msg.attach(MIMEText(body, 'plain'))
+        # Brevo API payload
+        email_payload = {
+            "sender": {
+                "name": "BluBrg Website",
+                "email": BREVO_SENDER_EMAIL
+            },
+            "to": [
+                {
+                    "email": BREVO_RECIPIENT_EMAIL,
+                    "name": "IT Support"
+                }
+            ],
+            "subject": subject,
+            "textContent": body
+        }
         
-        # Send email in background (non-blocking)
-        def send_sync():
+        # Send email via Brevo API (non-blocking)
+        async def send_brevo_email():
             try:
-                with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
-                    server.starttls()
-                    server.login(SMTP_USER, SMTP_PASSWORD)
-                    server.send_message(msg)
-                logging.info(f"Email notification sent for {form_type}")
+                async with httpx.AsyncClient() as client:
+                    response = await client.post(
+                        "https://api.brevo.com/v3/smtp/email",
+                        json=email_payload,
+                        headers={
+                            "api-key": BREVO_API_KEY,
+                            "Content-Type": "application/json"
+                        },
+                        timeout=10.0
+                    )
+                    if response.status_code == 201:
+                        logging.info(f"Brevo email notification sent for {form_type_label}")
+                    else:
+                        logging.error(f"Brevo email failed: {response.status_code} - {response.text}")
             except Exception as e:
-                logging.error(f"Failed to send email notification: {e}")
+                logging.error(f"Failed to send Brevo email notification: {e}")
         
-        # Run in thread pool to not block
-        loop = asyncio.get_event_loop()
-        loop.run_in_executor(None, send_sync)
+        # Run in background task to not block
+        asyncio.create_task(send_brevo_email())
         
     except Exception as e:
-        logging.error(f"Error preparing email notification: {e}")
+        logging.error(f"Error preparing Brevo email notification: {e}")
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
