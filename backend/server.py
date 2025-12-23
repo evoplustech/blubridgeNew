@@ -24,7 +24,7 @@ db = client[os.environ['DB_NAME']]
 # Brevo (Sendinblue) Email configuration
 BREVO_API_KEY = os.environ.get('Backend-Email-Key', '')
 BREVO_SENDER_EMAIL = "blazecoder3@gmail.com"
-BREVO_RECIPIENT_EMAIL = "itsupport@blubridge.com"
+BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 
 # Create the main app without a prefix
 app = FastAPI()
