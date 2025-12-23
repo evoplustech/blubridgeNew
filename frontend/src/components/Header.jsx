@@ -177,109 +177,24 @@ const Header = () => {
                                   background: '#000'
                                 }}
                               >
-                                {/* Model Training - Purple twisted ribbons flowing from bottom-left */}
+                                {/* Model Training */}
                                 {i === 0 && (
-                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
-                                    <defs>
-                                      <linearGradient id="purple-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#2a0040" />
-                                        <stop offset="30%" stopColor="#6020a0" />
-                                        <stop offset="50%" stopColor="#c060ff" />
-                                        <stop offset="70%" stopColor="#ff50c0" />
-                                        <stop offset="100%" stopColor="#400060" />
-                                      </linearGradient>
-                                      <linearGradient id="purple-ribbon-2" x1="0%" y1="80%" x2="100%" y2="20%">
-                                        <stop offset="0%" stopColor="#200030" />
-                                        <stop offset="40%" stopColor="#8040c0" />
-                                        <stop offset="60%" stopColor="#d080ff" />
-                                        <stop offset="100%" stopColor="#301050" />
-                                      </linearGradient>
-                                    </defs>
-                                    {/* Back ribbon layer */}
-                                    <path d="M -10 110 Q 30 70, 80 85 Q 130 100, 160 60 Q 180 35, 210 50 L 210 110 Z" fill="url(#purple-ribbon-1)" opacity="0.7"/>
-                                    {/* Middle ribbon */}
-                                    <path d="M 20 115 Q 60 50, 120 70 Q 170 85, 200 40 L 210 115 Z" fill="url(#purple-ribbon-2)" opacity="0.85"/>
-                                    {/* Front ribbon with highlight */}
-                                    <path d="M 50 115 Q 90 45, 150 65 Q 190 80, 215 30 L 215 115 Z" fill="url(#purple-ribbon-1)"/>
-                                    <path d="M 50 115 Q 90 45, 150 65 Q 190 80, 215 30" fill="none" stroke="rgba(255,200,255,0.4)" strokeWidth="1"/>
-                                  </svg>
+                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/eylbs7nd_Training.avif')` }} />
                                 )}
                                 
-                                {/* AI & ML Inference - Dark steel angular shards */}
+                                {/* AI & ML Inference */}
                                 {i === 1 && (
-                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
-                                    <defs>
-                                      <linearGradient id="steel-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#0a1020" />
-                                        <stop offset="30%" stopColor="#1a3050" />
-                                        <stop offset="60%" stopColor="#4a7090" />
-                                        <stop offset="100%" stopColor="#0a1525" />
-                                      </linearGradient>
-                                      <linearGradient id="steel-ribbon-2" x1="20%" y1="100%" x2="80%" y2="0%">
-                                        <stop offset="0%" stopColor="#051015" />
-                                        <stop offset="40%" stopColor="#2a5070" />
-                                        <stop offset="70%" stopColor="#5a90b0" />
-                                        <stop offset="100%" stopColor="#102035" />
-                                      </linearGradient>
-                                    </defs>
-                                    {/* Sharp angular shapes */}
-                                    <path d="M 30 115 L 70 40 L 110 80 L 140 30 L 180 60 L 210 25 L 210 115 Z" fill="url(#steel-ribbon-1)" opacity="0.6"/>
-                                    <path d="M 60 115 L 90 50 L 130 75 L 170 35 L 210 55 L 210 115 Z" fill="url(#steel-ribbon-2)" opacity="0.8"/>
-                                    <path d="M 80 115 L 120 45 L 160 70 L 200 30 L 210 40 L 210 115 Z" fill="url(#steel-ribbon-1)"/>
-                                    <path d="M 80 115 L 120 45 L 160 70 L 200 30" fill="none" stroke="rgba(150,180,220,0.35)" strokeWidth="1"/>
-                                  </svg>
+                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/wbzmtk9k_INFERENCE.avif')` }} />
                                 )}
                                 
-                                {/* AI Development - Bronze/copper flowing ribbons */}
+                                {/* AI Development */}
                                 {i === 2 && (
-                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
-                                    <defs>
-                                      <linearGradient id="bronze-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#301505" />
-                                        <stop offset="30%" stopColor="#804020" />
-                                        <stop offset="55%" stopColor="#d08040" />
-                                        <stop offset="80%" stopColor="#ffa050" />
-                                        <stop offset="100%" stopColor="#503010" />
-                                      </linearGradient>
-                                      <linearGradient id="bronze-ribbon-2" x1="10%" y1="90%" x2="90%" y2="10%">
-                                        <stop offset="0%" stopColor="#201005" />
-                                        <stop offset="35%" stopColor="#905025" />
-                                        <stop offset="65%" stopColor="#c07030" />
-                                        <stop offset="100%" stopColor="#402010" />
-                                      </linearGradient>
-                                    </defs>
-                                    {/* Smooth flowing bronze ribbons */}
-                                    <path d="M -20 115 Q 40 60, 100 80 Q 150 95, 190 50 Q 210 30, 220 45 L 220 115 Z" fill="url(#bronze-ribbon-1)" opacity="0.65"/>
-                                    <path d="M 10 115 Q 60 50, 130 75 Q 180 90, 210 45 L 220 115 Z" fill="url(#bronze-ribbon-2)" opacity="0.8"/>
-                                    <path d="M 40 115 Q 90 40, 160 65 Q 200 80, 220 35 L 220 115 Z" fill="url(#bronze-ribbon-1)"/>
-                                    <path d="M 40 115 Q 90 40, 160 65 Q 200 80, 220 35" fill="none" stroke="rgba(255,200,150,0.4)" strokeWidth="1"/>
-                                  </svg>
+                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/eaznhozl_AI%20Development.avif')` }} />
                                 )}
                                 
-                                {/* Model Fine-Tuning - Deep green layered ribbons */}
+                                {/* Model Fine-Tuning */}
                                 {i === 3 && (
-                                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 205 103" preserveAspectRatio="xMidYMid slice">
-                                    <defs>
-                                      <linearGradient id="green-ribbon-1" x1="0%" y1="100%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#051510" />
-                                        <stop offset="30%" stopColor="#106030" />
-                                        <stop offset="55%" stopColor="#30a060" />
-                                        <stop offset="80%" stopColor="#50d080" />
-                                        <stop offset="100%" stopColor="#083020" />
-                                      </linearGradient>
-                                      <linearGradient id="green-ribbon-2" x1="10%" y1="90%" x2="90%" y2="10%">
-                                        <stop offset="0%" stopColor="#031008" />
-                                        <stop offset="40%" stopColor="#208050" />
-                                        <stop offset="70%" stopColor="#40b070" />
-                                        <stop offset="100%" stopColor="#0a2515" />
-                                      </linearGradient>
-                                    </defs>
-                                    {/* Vertical flowing green ribbons */}
-                                    <path d="M 60 115 Q 80 70, 100 85 Q 130 100, 150 55 Q 170 25, 210 40 L 210 115 Z" fill="url(#green-ribbon-1)" opacity="0.6"/>
-                                    <path d="M 90 115 Q 110 55, 140 75 Q 175 90, 200 45 L 210 115 Z" fill="url(#green-ribbon-2)" opacity="0.8"/>
-                                    <path d="M 110 115 Q 140 45, 170 65 Q 200 80, 220 35 L 220 115 Z" fill="url(#green-ribbon-1)"/>
-                                    <path d="M 110 115 Q 140 45, 170 65 Q 200 80, 220 35" fill="none" stroke="rgba(150,255,180,0.35)" strokeWidth="1"/>
-                                  </svg>
+                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/wde7a5kz_Finetuning.avif')` }} />
                                 )}
                                 
                                 {/* Text label - top left, white, semi-bold */}
