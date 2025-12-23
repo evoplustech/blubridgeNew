@@ -607,16 +607,13 @@ const FineTuning = () => {
             </div>
             
             <div className="relative">
-              {/* GPU/Hardware Image Placeholder */}
-              <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 p-6 aspect-video flex items-center justify-center">
-                <div className="text-center">
-                  <div className="grid grid-cols-3 gap-2 mb-4">
-                    {[...Array(9)].map((_, i) => (
-                      <div key={i} className="w-16 h-8 bg-slate-700/50 rounded border border-slate-600/30" />
-                    ))}
-                  </div>
-                  <p className="text-gray-500 text-sm">Enterprise GPU Infrastructure</p>
-                </div>
+              {/* GPU/Hardware Image */}
+              <div className="rounded-xl overflow-hidden">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/dzdppu4v_Nvidia-GB200.avif" 
+                  alt="Enterprise GPU Infrastructure"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
           </div>
