@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Toaster } from './components/ui/toaster';
 import Home from './pages/Home';
+import Home1 from './pages/Home1';
 import Products from './pages/Products';
 import Solutions from './pages/Solutions';
 import Contact from './pages/Contact';
