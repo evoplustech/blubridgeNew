@@ -349,7 +349,7 @@ const AboutUs = () => {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                 >
-                  <span className="text-lg font-medium pr-8">{faq.question}</span>
+                  <span className="text-lg font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
                   <div className="flex-shrink-0">
                     {openFaq === index ? (
                       <Minus className="w-5 h-5 text-[#328CC1]" />
