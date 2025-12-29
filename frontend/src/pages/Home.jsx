@@ -138,57 +138,46 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#F3F6E8] text-[#0B1F3B] font-['DM_Sans']">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#EEF2DC]">
-        {/* Light gradient background with subtle animation */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Hero Banner Background Image */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, #EEF2DC 0%, #E7ECD2 50%, #D6DEC3 100%)',
-            animation: 'heroWave 15s ease-in-out infinite'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_scaledup/artifacts/a6rm9tdr_Banner-New.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}
         />
-        {/* Subtle decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1]/10 rounded-full filter blur-[100px]" />
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-[#0B1F3B]/5 rounded-full filter blur-[80px]" />
-        </div>
-        <style>{`
-          @keyframes heroWave {
-            0%, 100% { 
-              transform: scale(1) translate(0%, 0%);
-            }
-            50% { 
-              transform: scale(1.02) translate(-0.5%, 0.5%);
-            }
-          }
-        `}</style>
-        <div className="container-custom relative z-10">
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30" />
+        
+        <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#0B1F3B]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
               The hyperscaler<br />engineered for AI
             </h1>
             
-            <p className="text-xl text-[#243447] font-light leading-relaxed max-w-md">
+            <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
               A full-stack, scalable, and sustainable AI cloud platform.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact/sales">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded font-medium text-base">
+                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact" className="flex items-center gap-2 text-[#0B3C5D] hover:text-[#328CC1] transition-colors font-medium">
+              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
                 Start Building <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Partner Logos */}
             <div className="flex flex-wrap items-center gap-6 pt-10">
-              <span className="text-[#5B6B7A] text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
-              <span className="text-[#5B6B7A] text-xs font-medium tracking-wider">Computacenter</span>
-              <span className="text-[#5B6B7A] text-xs font-medium tracking-wider">Antler</span>
-              <span className="text-[#5B6B7A] text-xs font-medium tracking-wider">Open Innovation</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Computacenter</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Antler</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Open Innovation</span>
             </div>
           </div>
         </div>
