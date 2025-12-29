@@ -19,7 +19,7 @@ const Research = () => {
     >
       <div className="container-custom">
         {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-[#0B1F3B] mb-12" style={{ fontFamily: 'serif' }}>
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-[#0B1F3B] mb-12">
           Papers & Publications
         </h1>
 
