@@ -62,7 +62,7 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-[#F3F6E8]">
       {/* Hero */}
-      <section className="py-24 bg-[#EEF2DC] relative overflow-hidden border-b border-[#D6DEC3]">
+      <section className="py-24 bg-[#F3F6E8] relative overflow-hidden border-b border-[#D6DEC3]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">

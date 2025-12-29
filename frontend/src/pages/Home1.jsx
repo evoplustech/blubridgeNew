@@ -355,7 +355,7 @@ const Home1 = () => {
       </section>
       
       {/* Research Section */}
-      <section className="py-24 bg-[#EEF2DC]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">Infrastructure Excellence</h2>
@@ -493,7 +493,7 @@ const Home1 = () => {
       </section>
       
       {/* Certifications */}
-      <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#F3F6E8] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <p className="text-center text-[#5B6B7A] text-sm mb-8 uppercase tracking-wider">
             Our infrastructure is certified compliant with industry standards

@@ -76,7 +76,7 @@ const Training = () => {
       </section>
 
       {/* Value Proposition Strip */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-12">
             {[
@@ -139,7 +139,7 @@ const Training = () => {
       </section>
 
       {/* Training Stack */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
@@ -248,7 +248,7 @@ const Training = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-12">

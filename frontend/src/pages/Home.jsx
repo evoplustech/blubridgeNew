@@ -458,7 +458,7 @@ const Home = () => {
       </section>
 
       {/* How We Can Help You Section */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">How We Can Help You</h2>
@@ -589,7 +589,7 @@ const Home = () => {
       <TestimonialsCarousel />
 
       {/* Use Cases Grid */}
-      {/* <section className="py-20 bg-[#EEF2DC]">
+      {/* <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl mb-4 font-bold text-[#0B1F3B]">Use cases</h2>
