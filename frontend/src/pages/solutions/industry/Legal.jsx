@@ -202,7 +202,7 @@ const Legal = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               LEGAL
             </h1>
-            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               At Blubrg, we offer GPU cluster computing solutions designed to elevate your organisation’s computing capabilities. Our infrastructure supports advanced legal analytics, accelerates case research, and helps legal teams deliver more efficient and impactful services.
             </p>
             <div className="flex flex-wrap gap-4">
