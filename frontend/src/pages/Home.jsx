@@ -589,7 +589,7 @@ const Home = () => {
       <TestimonialsCarousel />
 
       {/* Use Cases Grid */}
-      <section className="py-20 bg-[#EEF2DC]">
+      {/* <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl mb-4 font-bold text-[#0B1F3B]">Use cases</h2>
@@ -599,7 +599,7 @@ const Home = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-5">
-            {/* Model Training Card */}
+            
             <Link to="/solutions/training">
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
@@ -616,7 +616,7 @@ const Home = () => {
               </div>
             </Link>
 
-            {/* AI & ML Inference Card */}
+            
             <Link to="/solutions/inference">
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
@@ -633,7 +633,7 @@ const Home = () => {
               </div>
             </Link>
 
-            {/* AI Development Card */}
+            
             <Link to="/solutions/ai-development">
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
@@ -650,7 +650,7 @@ const Home = () => {
               </div>
             </Link>
 
-            {/* Model Fine-Tuning Card */}
+            
             <Link to="/solutions/fine-tuning">
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
@@ -668,7 +668,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* NVIDIA Partner Strip */}
       <section className="py-16 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
