@@ -2,7 +2,7 @@ import React from 'react';
 
 const BluWerp = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen">
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
