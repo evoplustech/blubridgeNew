@@ -7,7 +7,7 @@ const MediaKit = () => {
   useDocumentTitle('Media Kit | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0A1F3D]">      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-[#E7ECD2]">      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1F3D] to-[#0D2847]" />
         <div className="container-custom relative z-10 text-center py-20">
           <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">Media Kit</h1>
@@ -38,7 +38,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-[#0A1F3D] border border-white/10 rounded-2xl p-10 hover:border-[#0066FF]/50 transition-all">
+              <div className="bg-[#E7ECD2] border border-white/10 rounded-2xl p-10 hover:border-[#0066FF]/50 transition-all">
                 <div className="bg-[#0D2847] rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-4xl font-bold text-white">BLUBRG</div>
                 </div>
@@ -78,7 +78,7 @@ const MediaKit = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-[#0A1F3D]">
+      <section className="py-24 bg-[#E7ECD2]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-6">Company Overview</h2>

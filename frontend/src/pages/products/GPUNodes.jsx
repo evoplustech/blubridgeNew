@@ -258,7 +258,7 @@ const GPUNodes = () => {
   useDocumentTitle('GPU Nodes for AI, ML and HPC | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* Hero Section with Animation */}
+    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* Hero Section with Animation */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
@@ -308,7 +308,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Performance Metrics Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-12">Performance</h2>
           
@@ -330,7 +330,7 @@ const GPUNodes = () => {
       </section>
 
       {/* No Frills GPU Compute Section */}
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -377,7 +377,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Server Visual */}
@@ -414,7 +414,7 @@ const GPUNodes = () => {
       </section>
 
       {/* GPU Accelerators Section */}
-      <section className="py-20 bg-[#0d1117] relative overflow-hidden">
+      <section className="py-20 bg-[#EEF2DC] relative overflow-hidden">
         {/* Background server rack image effect */}
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
           <div className="w-full h-full bg-gradient-to-l from-slate-800/50 to-transparent" />
@@ -451,7 +451,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Integrated AI Services Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
@@ -499,7 +499,7 @@ const GPUNodes = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           

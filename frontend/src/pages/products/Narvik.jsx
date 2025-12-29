@@ -9,7 +9,7 @@ const Narvik = () => {
   useDocumentTitle('Narvik AI Data Centre | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0A1F3D]">      {/* Hero Section */}
+    <div className="min-h-screen bg-[#E7ECD2]">      {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -93,7 +93,7 @@ const Narvik = () => {
       </section>
 
       {/* Infrastructure Overview */}
-      <section className="py-24 bg-[#0A1F3D]">
+      <section className="py-24 bg-[#E7ECD2]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -191,7 +191,7 @@ const Narvik = () => {
       </section>
 
       {/* Deployment Options */}
-      <section className="py-24 bg-[#0A1F3D]">
+      <section className="py-24 bg-[#E7ECD2]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Flexible Deployment Models</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

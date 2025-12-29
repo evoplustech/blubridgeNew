@@ -79,7 +79,7 @@ const Sales = () => {
   useDocumentTitle('Contact Sales | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">      {/* Main Contact Section */}
+    <div className="min-h-screen bg-[#F3F6E8]">      {/* Main Contact Section */}
       <section className="pt-32 pb-20">
         <div className="container-custom">
           <div className="grid lg:grid-cols-12 gap-16">
@@ -153,7 +153,7 @@ const Sales = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                       placeholder="Enter your first name"
                     />
                   </div>
@@ -167,7 +167,7 @@ const Sales = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                       placeholder="Enter your last name"
                     />
                   </div>
@@ -185,7 +185,7 @@ const Sales = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                       placeholder="Enter your business email"
                     />
                   </div>
@@ -199,7 +199,7 @@ const Sales = () => {
                       value={formData.company}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                       placeholder="Enter your company name"
                     />
                   </div>
@@ -216,7 +216,7 @@ const Sales = () => {
                       value={formData.country}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
                       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
                     >
                       <option value="">Please Select</option>
@@ -241,7 +241,7 @@ const Sales = () => {
                       value={formData.jobTitle}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                       placeholder="Enter your job title"
                     />
                   </div>
@@ -258,7 +258,7 @@ const Sales = () => {
                       value={formData.useCase}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
                       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
                     >
                       <option value="">Please Select</option>
@@ -279,7 +279,7 @@ const Sales = () => {
                       value={formData.gpuType}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
                       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
                     >
                       <option value="">Please Select</option>
@@ -304,7 +304,7 @@ const Sales = () => {
                       value={formData.gpuCount}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
                       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
                     >
                       <option value="">Please Select</option>
@@ -324,7 +324,7 @@ const Sales = () => {
                       value={formData.projectStart}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
                       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
                     >
                       <option value="">Please Select</option>
@@ -347,7 +347,7 @@ const Sales = () => {
                     value={formData.heardAbout}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                    className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
                     style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
                   >
                     <option value="">Please Select</option>
@@ -370,7 +370,7 @@ const Sales = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full bg-[#141418] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    className="w-full bg-white border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
                     placeholder="Describe your AI compute requirements, project timeline, and any specific needs..."
                   />
                 </div>
@@ -387,7 +387,7 @@ const Sales = () => {
                       checked={formData.agreeTerms}
                       onChange={handleInputChange}
                       required
-                      className="w-5 h-5 rounded border-white/20 bg-[#141418] text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5"
+                      className="w-5 h-5 rounded border-white/20 bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5"
                     />
                     <span className="text-gray-400 text-sm">
                       I agree to the <Link to="/terms" className="text-blue-400 hover:underline">Terms & Conditions</Link> and <Link to="/privacy" className="text-blue-400 hover:underline">Privacy Policy</Link>
@@ -399,7 +399,7 @@ const Sales = () => {
                       name="agreeMarketing"
                       checked={formData.agreeMarketing}
                       onChange={handleInputChange}
-                      className="w-5 h-5 rounded border-white/20 bg-[#141418] text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5"
+                      className="w-5 h-5 rounded border-white/20 bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5"
                     />
                     <span className="text-gray-400 text-sm">
                       I agree to receive marketing communications from BluBrg
@@ -408,7 +408,7 @@ const Sales = () => {
                 </div>
 
                 {/* reCAPTCHA placeholder */}
-                {/* <div className="bg-[#141418] border border-white/10 rounded-lg p-4 w-fit">
+                {/* <div className="bg-white border border-white/10 rounded-lg p-4 w-fit">
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 border-2 border-gray-500 rounded flex items-center justify-center">
                       <Check className="w-4 h-4 text-green-500 opacity-0" />
@@ -435,7 +435,7 @@ const Sales = () => {
       </section>
 
       {/* Get Access Section */}
-      <section className="py-20 bg-[#0d0d12]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text */}
@@ -453,7 +453,7 @@ const Sales = () => {
               {/* Services Icons Grid */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {/* Serverless */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
@@ -463,7 +463,7 @@ const Sales = () => {
                 </div>
 
                 {/* Marketplace */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -473,7 +473,7 @@ const Sales = () => {
                 </div>
 
                 {/* Inference */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -483,7 +483,7 @@ const Sales = () => {
                 </div>
 
                 {/* Training */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -493,7 +493,7 @@ const Sales = () => {
                 </div>
 
                 {/* GPU Nodes */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -503,7 +503,7 @@ const Sales = () => {
                 </div>
 
                 {/* LLM Library */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />

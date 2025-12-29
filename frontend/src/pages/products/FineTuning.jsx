@@ -311,7 +311,7 @@ const FineTuning = () => {
   useDocumentTitle('AI Model Fine-tuning | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
+    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Animated Canvas Background */}
         <canvas 
@@ -372,7 +372,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 2: Value Proposition Strip */}
-      <section className="py-12 bg-[#0d1117] border-t border-b border-slate-800/50">
+      <section className="py-12 bg-[#EEF2DC] border-t border-b border-slate-800/50">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -394,7 +394,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 3: Supported Models Table */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Models</h2>
@@ -452,7 +452,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 4: All Designed for Speed & Simplicity */}
-      {/* <section className="py-20 bg-[#0d1117]">
+      {/* <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -522,7 +522,7 @@ const FineTuning = () => {
       </section> */}
 
       {/* SECTION 5: How it Works */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">How it works</h2>
           
@@ -543,7 +543,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 6: Model Ecosystem Strip */}
-      <section className="py-16 bg-[#0d1117]">
+      <section className="py-16 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
@@ -559,7 +559,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 7: Savings by Design */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
@@ -591,7 +591,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 8: Serverless without Trade-offs */}
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -621,7 +621,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 9: FAQs */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           

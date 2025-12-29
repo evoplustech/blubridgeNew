@@ -137,7 +137,7 @@ const Marketplace = () => {
   useDocumentTitle('AI Marketplace | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">      {/* Hero Section */}
+    <div className="min-h-screen bg-[#F3F6E8]">      {/* Hero Section */}
       <section className="pt-16 pb-20">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -229,7 +229,7 @@ const Marketplace = () => {
                 Our AI Marketplace offers a curated selection of top AI/ML tools like PyTorch and TensorFlow, optimised for our infrastructure stack. Enhance developer productivity with the best tools available in the industry.
               </p>
               <Link to="/contact">
-                <Button className="bg-[#141418] hover:bg-[#1a1a20] text-white border border-white/10 px-6 py-3 text-sm font-medium rounded-lg inline-flex items-center gap-2 mt-4">
+                <Button className="bg-white hover:bg-[#1a1a20] text-white border border-white/10 px-6 py-3 text-sm font-medium rounded-lg inline-flex items-center gap-2 mt-4">
                   Get in Touch <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
@@ -247,7 +247,7 @@ const Marketplace = () => {
                 
                 {/* Framework icons */}
                 {['PyTorch', 'TensorFlow', 'Kubeflow', 'ONNX', 'HuggingFace', 'vLLM'].map((framework, idx) => (
-                  <div key={idx} className="bg-[#141418] border border-white/10 rounded-xl p-4 text-center hover:border-blue-500/30 transition-colors">
+                  <div key={idx} className="bg-white border border-white/10 rounded-xl p-4 text-center hover:border-blue-500/30 transition-colors">
                     <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
                       <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -263,7 +263,7 @@ const Marketplace = () => {
       </section>
 
       {/* Models Section */}
-      <section className="py-20 bg-[#0d0d12]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
@@ -282,7 +282,7 @@ const Marketplace = () => {
             {/* Right - Model Cards Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {modelCards.map((model, idx) => (
-                <div key={idx} className="bg-[#141418] border border-white/10 rounded-lg p-4 hover:border-blue-500/30 transition-colors">
+                <div key={idx} className="bg-white border border-white/10 rounded-lg p-4 hover:border-blue-500/30 transition-colors">
                   <span className="text-gray-500 text-[10px] uppercase tracking-wider">{model.type}</span>
                   <h4 className="text-white text-sm font-semibold mt-1 leading-tight">{model.name}</h4>
                   <span className="text-gray-500 text-xs mt-1 block">{model.provider}</span>
@@ -313,7 +313,7 @@ const Marketplace = () => {
             {/* Right - Hardware Cards */}
             <div className="space-y-4">
               {/* AI-in-a-Box */}
-              <div className="bg-[#141418] border border-white/10 rounded-xl p-5">
+              <div className="bg-white border border-white/10 rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -333,7 +333,7 @@ const Marketplace = () => {
               </div>
 
               {/* Training Compute */}
-              <div className="bg-[#141418] border border-white/10 rounded-xl p-5">
+              <div className="bg-white border border-white/10 rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -353,7 +353,7 @@ const Marketplace = () => {
               </div>
 
               {/* Inference Compute */}
-              <div className="bg-[#141418] border border-white/10 rounded-xl p-5">
+              <div className="bg-white border border-white/10 rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -417,7 +417,7 @@ const Marketplace = () => {
       </section>
 
       {/* AI Services Integration Section */}
-      <section className="py-20 bg-[#0d0d12]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
@@ -435,7 +435,7 @@ const Marketplace = () => {
               {/* Services Icons Grid */}
               <div className="grid grid-cols-3 gap-3">
                 {/* Serverless */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
@@ -445,7 +445,7 @@ const Marketplace = () => {
                 </div>
 
                 {/* Marketplace */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -455,7 +455,7 @@ const Marketplace = () => {
                 </div>
 
                 {/* Inference */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -465,7 +465,7 @@ const Marketplace = () => {
                 </div>
 
                 {/* Training */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -475,7 +475,7 @@ const Marketplace = () => {
                 </div>
 
                 {/* GPU nodes */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -485,7 +485,7 @@ const Marketplace = () => {
                 </div>
 
                 {/* LLM Library */}
-                <div className="bg-[#141418] border border-white/10 rounded-lg p-4 text-center">
+                <div className="bg-white border border-white/10 rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />

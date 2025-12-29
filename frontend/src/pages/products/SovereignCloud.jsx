@@ -142,7 +142,7 @@ const SovereignCloud = () => {
   useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
+    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background Landscape Image with Parallax */}
         <div 
@@ -189,7 +189,7 @@ const SovereignCloud = () => {
       </section>
 
       {/* SECTION 2: Sovereign AI Cloud Intro */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -209,7 +209,7 @@ const SovereignCloud = () => {
       </section>
 
       {/* SECTION 3: Value Pillars Card Grid (5 Cards) */}
-      <section className="py-12 bg-[#0a0a0f]">
+      <section className="py-12 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {valuePillars.map((pillar, i) => (
@@ -228,7 +228,7 @@ const SovereignCloud = () => {
       </section>
 
       {/* SECTION 4: What We Offer with Video Embed */}
-      {/* <section className="py-20 bg-[#0d1117]">
+      {/* <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
@@ -265,7 +265,7 @@ const SovereignCloud = () => {
       </section> */}
 
       {/* SECTION 5: Related Content */}
-      {/* <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Related Content</h2>
           
@@ -294,7 +294,7 @@ const SovereignCloud = () => {
       </section> */}
 
       {/* SECTION 6: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -358,7 +358,7 @@ const SovereignCloud = () => {
       </section>
 
       {/* SECTION 7: FAQs */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           

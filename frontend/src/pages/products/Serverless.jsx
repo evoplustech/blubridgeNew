@@ -182,7 +182,7 @@ const Serverless = () => {
   useDocumentTitle('Serverless Inference | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* Hero Section with Animated Model Graph */}
+    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* Hero Section with Animated Model Graph */}
       <section className="relative min-h-[550px] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
         
@@ -234,7 +234,7 @@ const Serverless = () => {
       </section>
 
       {/* Value Proposition Strip */}
-      <section className="py-12 bg-[#0d1117] border-t border-b border-slate-800/50">
+      <section className="py-12 bg-[#EEF2DC] border-t border-b border-slate-800/50">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
@@ -254,7 +254,7 @@ const Serverless = () => {
       </section>
 
       {/* Models & Pricing Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
@@ -294,7 +294,7 @@ const Serverless = () => {
       </section>
 
       {/* Savings by Design Section */}
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Model Icons Grid */}
@@ -327,7 +327,7 @@ const Serverless = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -357,7 +357,7 @@ const Serverless = () => {
       </section>
 
       {/* Serverless Without Trade-offs Section */}
-      {/* <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
@@ -392,7 +392,7 @@ const Serverless = () => {
       </section> */}
 
       {/* Performance Metrics */}
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Performance</h2>
           
@@ -422,7 +422,7 @@ const Serverless = () => {
       </section>
 
       {/* Zero Rate Limits Platform Section */}
-      {/* <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
            
@@ -474,7 +474,7 @@ const Serverless = () => {
       </section> */}
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#0d1117]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           

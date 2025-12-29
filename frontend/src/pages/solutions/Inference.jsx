@@ -336,7 +336,7 @@ const Inference = () => {
       </section>
 
       {/* More Solutions */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-white">More Solutions</h2>

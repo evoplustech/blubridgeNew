@@ -77,7 +77,7 @@ const Documentation = () => {
   useDocumentTitle('Documentation | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0A1F3D]">      {/* Hero */}
+    <div className="min-h-screen bg-[#E7ECD2]">      {/* Hero */}
       <section className="py-24 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
@@ -128,7 +128,7 @@ const Documentation = () => {
       </section>
 
       {/* Tutorials */}
-      <section className="py-24 bg-[#0A1F3D]">
+      <section className="py-24 bg-[#E7ECD2]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Popular Tutorials</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

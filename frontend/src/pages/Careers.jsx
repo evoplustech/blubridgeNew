@@ -156,7 +156,7 @@ const Careers = () => {
   useDocumentTitle('Careers | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">      {/* Hero Section with Animated Flowing Lines */}
+    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* Hero Section with Animated Flowing Lines */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">
         {/* Dark background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
@@ -194,7 +194,7 @@ const Careers = () => {
       </section>
 
       {/* Our Mission Section */}
-      <section className="py-16 bg-[#0a0a0f]">
+      <section className="py-16 bg-[#F3F6E8]">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">Our Mission</h2>
           <p className="text-gray-500 text-lg mb-4 ">
@@ -205,7 +205,7 @@ const Careers = () => {
       </section>
 
       {/* Culture Image Strip */}
-      <section className="py-8 bg-[#0a0a0f]">
+      <section className="py-8 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {cultureImages.map((img, index) => (
@@ -222,7 +222,7 @@ const Careers = () => {
       </section>
 
       {/* What We Value Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
@@ -285,7 +285,7 @@ const Careers = () => {
       </section>
 
       {/* Life at BluBrg - Video Section */}
-      {/* <section className="py-20 bg-[#0d1117]">
+      {/* <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
@@ -313,7 +313,7 @@ const Careers = () => {
       </section> */}
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
           
