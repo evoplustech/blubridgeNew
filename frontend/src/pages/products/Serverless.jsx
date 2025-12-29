@@ -331,7 +331,7 @@ const Serverless = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Serverless without<br />trade-offs
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">

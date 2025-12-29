@@ -326,7 +326,7 @@ const Inference = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Easily access optimised<br />inference frameworks
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
@@ -399,7 +399,7 @@ const Inference = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Dedicated endpoints for<br />100+ open-source models
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
@@ -430,7 +430,7 @@ const Inference = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Built on high-<br />performance GPU<br />compute
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
@@ -484,7 +484,7 @@ const Inference = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
@@ -578,7 +578,7 @@ const Inference = () => {
       {/* SECTION 9: Final CTA Strip */}
      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">
             Access thousands of GPUs tailored to your<br />requirements.
           </h2>
           

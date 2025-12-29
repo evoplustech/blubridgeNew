@@ -298,7 +298,7 @@ const SovereignCloud = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
@@ -394,7 +394,7 @@ const SovereignCloud = () => {
       {/* SECTION 8: Final CTA Strip */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">
             Access thousands of GPUs tailored to your<br />requirements.
           </h2>
           

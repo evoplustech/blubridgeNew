@@ -148,7 +148,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="max-w-6xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">
               The data center on the edge of<br />the Arctic Circle
             </h2>
             <br></br>
@@ -203,7 +203,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">About</h2>
               <div className="space-y-4 text-[#243447] leading-relaxed">
                 <p>
                   Glomfjord is a small industrial town of 1000 people in the North of Norway, just above the Arctic Circle. The industry in the town is based around the 120MW hydro power plant that was built at the end of the fjord over 100 years ago.
@@ -264,7 +264,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             </div>
             
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Power Supply</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">Power Supply</h2>
               <div className="space-y-4 text-[#243447] leading-relaxed">
                 <p>
                   To meet the demand for AI infrastructure, BluBrg operates data centers in regions with a stable oversupply of renewable power. This strategy avoids straining the local grid and prevents driving up energy prices for residents.
@@ -286,7 +286,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
