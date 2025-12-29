@@ -460,7 +460,7 @@ const Training = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
@@ -469,47 +469,47 @@ const Training = () => {
             </div>
             
             {/* Infrastructure Diagram */}
-            <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
+            <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6">
               {/* Service Flow Diagram */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#243447]">Serverless</span>
+                <div className="bg-[#1a1a2e] rounded-lg p-3 text-center border border-[#333]/50">
+                  <span className="text-sm text-white/80">Serverless</span>
                 </div>
-                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#243447]">Marketplace</span>
+                <div className="bg-[#1a1a2e] rounded-lg p-3 text-center border border-[#333]/50">
+                  <span className="text-sm text-white/80">Marketplace</span>
                 </div>
               </div>
               
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/50 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Inference</span>
                 </div>
-                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/50 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Training</span>
                 </div>
               </div>
               
               <div className="grid grid-cols-2 gap-3 mb-4">
                 {['LLM Library', 'Job Management', 'Container Orchestration', 'Optimised Libraries'].map((item, i) => (
-                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-[#D6DEC3]/20">
-                    <span className="text-xs text-[#243447]">{item}</span>
+                  <div key={i} className="bg-[#1a1a2e] rounded-lg p-2 text-center border border-[#333]/30">
+                    <span className="text-xs text-white/70">{item}</span>
                   </div>
                 ))}
               </div>
               
-              <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
-                <span className="text-sm text-[#243447]">GPU nodes</span>
+              <div className="bg-[#1a1a2e] rounded-lg p-3 text-center border border-[#333]/50 mb-4">
+                <span className="text-sm text-white/80">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
-              <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
+              <div className="bg-[#0B1F3B] rounded-lg p-4 border border-blue-500/30">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-[#0B1F3B]/20 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
-                    <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
+                    <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-xs text-white/60">Powered by renewable energy</div>
                   </div>
                 </div>
               </div>
