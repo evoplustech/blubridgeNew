@@ -157,9 +157,7 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* Hero Section with Animated Flowing Lines */}
-      <section className="relative min-h-[500px] flex items-center overflow-hidden">
-        {/* Dark background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
+      <section className="relative min-h-[500px] flex items-center overflow-hidden bg-[#F3F6E8]">
         
         {/* Animated canvas for flowing lines */}
         <canvas 
@@ -171,7 +169,7 @@ const Careers = () => {
         {/* Content */}
         <div className="container-custom relative z-10">
           <div className="max-w-2xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-[#0B1F3B]">
               Join the team building<br />next-gen AI infrastructure
             </h1>
             
@@ -179,7 +177,7 @@ const Careers = () => {
               We are building the first AI-native hyperscaler, a platform engineered for performance, efficiency, and massive scale. Join us in creating infrastructure that enables organisations around the world to advance their AI ambitions.
             </p>
             
-            <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+            <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
               Open Positions
             </Button>
           </div>
