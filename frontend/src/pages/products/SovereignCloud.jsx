@@ -47,20 +47,20 @@ const SovereignCloud = () => {
     {
       id: 2,
       title: 'SCALABILITY',
-      description: 'Blubrg is built to scale Blubrg Cloud delivers hyperscaler-level performance while maintaining the control and governance required by sovereign organisations. The infrastructure can expand seamlessly to meet growing workload demands.',
+      description: 'BluBridge is built to scale BluBridge Cloud delivers hyperscaler-level performance while maintaining the control and governance required by sovereign organisations. The infrastructure can expand seamlessly to meet growing workload demands.',
       bgColor: 'bg-[#0B1F3B]',
       hasLink: true
     },
     {
       id: 3,
       title: 'MODULARITY',
-      description: 'Infrastructure where you need it Through modular private cloud deployments, Blubrg offers flexible infrastructure that can be upgraded and adapted over time, making it well suited for distributed deployment across European data centres.',
+      description: 'Infrastructure where you need it Through modular private cloud deployments, BluBridge offers flexible infrastructure that can be upgraded and adapted over time, making it well suited for distributed deployment across European data centres.',
       bgColor: 'bg-slate-900'
     },
     {
       id: 4,
       title: 'SUSTAINABILITY',
-      description: 'Eco-aware cloud performance By using renewable energy sources and optimised data-centre designs, Blubrg provides environmentally responsible cloud services without compromising performance, control, or reliability.',
+      description: 'Eco-aware cloud performance By using renewable energy sources and optimised data-centre designs, BluBridge provides environmentally responsible cloud services without compromising performance, control, or reliability.',
       bgColor: 'bg-slate-900'
     }
   ];
@@ -105,19 +105,19 @@ const SovereignCloud = () => {
     },
     {
       question: "Can BluBridge support both public and private sector workloads?",
-      answer: "Yes. Blubrg can be deployed as dedicated or air-gapped environments suitable for government bodies, defence organisations, research institutions, and enterprises, offering scalable compute tailored to diverse requirements."
+      answer: "Yes. BluBridge can be deployed as dedicated or air-gapped environments suitable for government bodies, defence organisations, research institutions, and enterprises, offering scalable compute tailored to diverse requirements."
     },
     {
       question: "How is BluBridge different from other cloud providers?",
-      answer: "Unlike traditional hyperscalers, Blubrg focuses on AI-optimised infrastructure delivered through sovereign hosting, combining high-performance GPU compute with strong governance and control."
+      answer: "Unlike traditional hyperscalers, BluBridge focuses on AI-optimised infrastructure delivered through sovereign hosting, combining high-performance GPU compute with strong governance and control."
     },
     {
       question: "What GPUs and compute resources are available?",
-      answer: "Blubrg offers clusters built on NVIDIA H100, H200, and GB200 GPUs, with flexible deployment options including bare-metal and virtualised environments, supported by orchestration tools such as SLURM and Kubernetes."
+      answer: "BluBridge offers clusters built on NVIDIA H100, H200, and GB200 GPUs, with flexible deployment options including bare-metal and virtualised environments, supported by orchestration tools such as SLURM and Kubernetes."
     },
     {
       question: "How can I speak with someone about my organisation's sovereign AI needs?",
-      answer: "You can connect with the Blubrg team to discuss solutions tailored to your specific technical and regulatory requirements."
+      answer: "You can connect with the BluBridge team to discuss solutions tailored to your specific technical and regulatory requirements."
     }
   ];
 
@@ -164,7 +164,7 @@ const SovereignCloud = () => {
             </h1>
             
             <p className="text-[#2F3A4A] text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-              Blubrg’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
+              BluBridge’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
             </p>
             
             <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
@@ -201,7 +201,7 @@ const SovereignCloud = () => {
             
             <div>
               <p className="text-[#2F3A4A] leading-relaxed">
-                Blubrg empowers European organisations to design, deploy, and manage AI systems using their own infrastructure, data, teams, and networks. This approach ensures independence from external providers while keeping data ownership and innovation within local jurisdictions. By retaining intellectual property and skills domestically, organisations can create jobs, strengthen economies, and reduce reliance on foreign legal systems.
+                BluBridge empowers European organisations to design, deploy, and manage AI systems using their own infrastructure, data, teams, and networks. This approach ensures independence from external providers while keeping data ownership and innovation within local jurisdictions. By retaining intellectual property and skills domestically, organisations can create jobs, strengthen economies, and reduce reliance on foreign legal systems.
               </p>
             </div>
           </div>
@@ -233,7 +233,7 @@ const SovereignCloud = () => {
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
             <p className="text-[#2F3A4A] max-w-2xl mx-auto">
-              Blubrg provides a complete AI-ready platform engineered to deliver cost-effective, high-performance compute for demanding workloads.
+              BluBridge provides a complete AI-ready platform engineered to deliver cost-effective, high-performance compute for demanding workloads.
             </p>
           </div>
 
@@ -302,7 +302,7 @@ const SovereignCloud = () => {
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
-                Run AI workloads more efficiently on a unified platform designed to reduce complexity and operational overhead. Whether using Blubrg’s built-in AI and machine learning tools or integrating your own stack, the platform supports a smooth transition from experimentation to production.
+                Run AI workloads more efficiently on a unified platform designed to reduce complexity and operational overhead. Whether using BluBridge’s built-in AI and machine learning tools or integrating your own stack, the platform supports a smooth transition from experimentation to production.
               </p>
             </div>
             

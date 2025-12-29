@@ -87,7 +87,7 @@ const Inference = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Workflows</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Blubrg Cloud removes the complexity of managing and scaling inference operations, enabling teams to concentrate on insights and outcomes rather than resource management
+                BluBridge Cloud removes the complexity of managing and scaling inference operations, enabling teams to concentrate on insights and outcomes rather than resource management
               </p>
             </div>
             <div>
@@ -166,7 +166,7 @@ const Inference = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Inference Stack</h2>
             <p className="text-base text-[#6B7280] max-w-2xl">
-              Blubrg provides a complete inference stack designed to deliver high performance, efficiency, and reliability for production-grade inference workloads.            </p>
+              BluBridge provides a complete inference stack designed to deliver high performance, efficiency, and reliability for production-grade inference workloads.            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -328,7 +328,7 @@ const Inference = () => {
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-               A collection of tools and services that support the development, deployment, and scaling of inference pipelines using both Blubrg and popular AI frameworks.
+               A collection of tools and services that support the development, deployment, and scaling of inference pipelines using both BluBridge and popular AI frameworks.
               </p>
             </div>
           </div>
@@ -390,7 +390,7 @@ const Inference = () => {
             {[
               {
                 question: "What makes BluBridge's GPU Cloud different from others?",
-                answer: "Blubrg controls the full infrastructure stack, enabling deep optimisation across hardware, software, and orchestration layers for better performance and efficiency."
+                answer: "BluBridge controls the full infrastructure stack, enabling deep optimisation across hardware, software, and orchestration layers for better performance and efficiency."
               },
               {
                 question: "What types of GPUs does BluBridge offer?",

@@ -155,14 +155,14 @@ const Inference = () => {
       metric: '80%',
       label: 'LOWER COST',
       title: 'More performance for less',
-      description: 'Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.',
+      description: 'BluBridge delivers an average cost saving of up to 80% compared to hyperscalers.',
       link: '/pricing'
     },
     {
       metric: '30%',
       label: 'FASTER',
       title: 'On time to insights',
-      description: 'Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
+      description: 'BluBridge Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
       link: '/products/training'
     }
   ];
@@ -212,7 +212,7 @@ const Inference = () => {
     },
     {
       question: "How secure is your AI inference service?",
-      answer: "Protection sits at the core of Blubrg’s approach. Strong identity and access controls are in place, with compatibility for OAuth2, SSO, and 2FA. Information is safeguarded through encryption during storage and transmission, while compliance aligns with recognised frameworks such as GDPR and HIPAA. Shared environments are designed to maintain strict separation, preserving confidentiality and isolation for every tenant."
+      answer: "Protection sits at the core of BluBridge’s approach. Strong identity and access controls are in place, with compatibility for OAuth2, SSO, and 2FA. Information is safeguarded through encryption during storage and transmission, while compliance aligns with recognised frameworks such as GDPR and HIPAA. Shared environments are designed to maintain strict separation, preserving confidentiality and isolation for every tenant."
     }
   ];
 
@@ -398,7 +398,7 @@ const Inference = () => {
                 Dedicated endpoints for<br />100+ open-source models
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
-                Using Inference Endpoints, you can quickly launch Transformers, Diffusers, or bespoke models on dedicated, fully managed compute environments. Choose from over 100 available models, enhanced through Blubrg’s proprietary optimisation layer to achieve maximum performance.
+                Using Inference Endpoints, you can quickly launch Transformers, Diffusers, or bespoke models on dedicated, fully managed compute environments. Choose from over 100 available models, enhanced through BluBridge’s proprietary optimisation layer to achieve maximum performance.
 
               </p>
               <Link to="/contact" className="text-[#328CC1] hover:text-blue-300 inline-flex items-center gap-2">

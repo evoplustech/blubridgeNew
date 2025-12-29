@@ -262,7 +262,7 @@ const Manufacturing = () => {
               MANUFACTURING
             </h1>
             <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              Blubrg’s cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
+              BluBridge’s cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -311,7 +311,7 @@ const Manufacturing = () => {
             <p className="text-amber-500 text-sm font-medium mb-3 uppercase tracking-wider">STREAMLINE OPERATIONS</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
             <p className="text-base text-[#6B7280] max-w-3xl">
-              Blubrg’s AI platform combines industry-leading GPU technology with a fully optimised software stack, enabling manufacturers to improve core activities like supply chain coordination, quality assurance, and product design.
+              BluBridge’s AI platform combines industry-leading GPU technology with a fully optimised software stack, enabling manufacturers to improve core activities like supply chain coordination, quality assurance, and product design.
             </p>
           </div>
 
@@ -399,7 +399,7 @@ const Manufacturing = () => {
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-amber-400 text-sm mb-4">Marketplace</p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                 A set of tools and services that help teams develop, deploy, and scale AI applications using both Blubrg infrastructure and commonly used AI/ML frameworks.
+                 A set of tools and services that help teams develop, deploy, and scale AI applications using both BluBridge infrastructure and commonly used AI/ML frameworks.
               </p>
             </div>
           </div>

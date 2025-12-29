@@ -153,7 +153,7 @@ const Telco = () => {
               TELCO
             </h1>
             <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              Blubrg provides telecommunications providers with the infrastructure and expertise to support a wide range of AI-based services and solutions. With high-performance GPU clusters and scalable architecture, telco companies can enhance network performance, improve customer experience, and deploy advanced automation tools powered by artificial intelligence. The infrastructure also supports modern telecom needs such as 5G and edge computing.
+              BluBridge provides telecommunications providers with the infrastructure and expertise to support a wide range of AI-based services and solutions. With high-performance GPU clusters and scalable architecture, telco companies can enhance network performance, improve customer experience, and deploy advanced automation tools powered by artificial intelligence. The infrastructure also supports modern telecom needs such as 5G and edge computing.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -201,7 +201,7 @@ const Telco = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Telco AI Use Cases</h2>
             <p className="text-base text-[#6B7280] max-w-3xl">
-              Explore the different ways telecommunications companies can use Blubrg’s GPU infrastructure to deliver smarter AI services, optimise next-generation networks, and drive innovation across the industry.
+              Explore the different ways telecommunications companies can use BluBridge’s GPU infrastructure to deliver smarter AI services, optimise next-generation networks, and drive innovation across the industry.
             </p>
           </div>
 
@@ -211,7 +211,7 @@ const Telco = () => {
               <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-[#328CC1] mb-2">White-label BluBridge's end-to-end Cloud Platform</h3>
                 <p className="text-[#6B7280] text-sm leading-relaxed">
-                  Telcos can build their own branded cloud services using Blubrg’s complete cloud platform, giving them the ability to offer AI-powered solutions and services without heavy upfront investment.
+                  Telcos can build their own branded cloud services using BluBridge’s complete cloud platform, giving them the ability to offer AI-powered solutions and services without heavy upfront investment.
                 </p>
               </div>
 

@@ -110,7 +110,7 @@ const Training = () => {
               <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Accelerated Model Training</h2>
               <p className="text-lg text-[#2F3A4A] leading-relaxed mb-6">
                 Training advanced AI models requires flexible, reliable, and cost-efficient
-                infrastructure. Blubrg simplifies this by delivering purpose-built systems
+                infrastructure. BluBridge simplifies this by delivering purpose-built systems
                 designed specifically for AI workloads.
               </p>
               <p className="text-lg text-[#2F3A4A] leading-relaxed mb-6">

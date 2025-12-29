@@ -148,14 +148,14 @@ const Training = () => {
       metric: '80%',
       label: 'LOWER COST',
       title: 'More performance for less',
-      description: 'Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.',
+      description: 'BluBridge delivers an average cost saving of up to 80% compared to hyperscalers.',
       link: '/pricing'
     },
     {
       metric: '30%',
       label: 'FASTER',
       title: 'On time to insights',
-      description: 'Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
+      description: 'BluBridge Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.',
       link: '/products/inference'
     }
   ];
@@ -301,7 +301,7 @@ const Training = () => {
                 Dynamically manage AI<br />workloads and resources
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
-                Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
+                Our Managed Kubernetes offering is purpose-built to support LLM training. BluBridge takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
                 <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
@@ -459,7 +459,7 @@ const Training = () => {
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
-                Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging Blubrg AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
+                Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging BluBridge AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
             

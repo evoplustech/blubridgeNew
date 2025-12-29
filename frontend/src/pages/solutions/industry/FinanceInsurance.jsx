@@ -181,7 +181,7 @@ const FinanceInsurance = () => {
               FINANCE & INSURANCE
             </h1>
             <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              At Blubrg, we provide GPU cloud computing solutions designed to strengthen the computational capabilities of finance and insurance organisations. Our platform helps teams deliver innovative services faster while improving efficiency, security, and performance across data-intensive operations.
+              At BluBridge, we provide GPU cloud computing solutions designed to strengthen the computational capabilities of finance and insurance organisations. Our platform helps teams deliver innovative services faster while improving efficiency, security, and performance across data-intensive operations.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -316,7 +316,7 @@ const FinanceInsurance = () => {
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                A collection of tools and services that support building, deploying, and scaling AI solutions using both Blubrg offerings and widely used AI frameworks.
+                A collection of tools and services that support building, deploying, and scaling AI solutions using both BluBridge offerings and widely used AI frameworks.
               </p>
             </div>
           </div>

@@ -541,7 +541,7 @@ const Home = () => {
             <div>
               <h2 className="text-4xl font-light mb-6 text-[#0B1F3B]">BluBridge's Infrastructure</h2>
               <p className="text-[#243447] mb-8 leading-relaxed">
-                Blubrg manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
+                BluBridge manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
               </p>
               
               {/* Tab Buttons */}

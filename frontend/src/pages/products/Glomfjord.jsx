@@ -157,7 +157,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             </p>
             <br></br>
              <p className="text-[#2F3A4A] text-lg leading-relaxed">
-             Blubrg is also committed to the local community by investing in infrastructure, creating job opportunities, and exploring innovative ways to reuse waste heat, such as heating local facilities. 
+             BluBridge is also committed to the local community by investing in infrastructure, creating job opportunities, and exploring innovative ways to reuse waste heat, such as heating local facilities. 
             </p>
           </div>
         </div>

@@ -210,7 +210,7 @@ const Government = () => {
               GOVERNMENT
             </h1>
             <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              Blubrg provides secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
+              BluBridge provides secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -259,7 +259,7 @@ const Government = () => {
             <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">BUILD A MODERN, DIGITAL PUBLIC SECTOR</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
             <p className="text-base text-[#6B7280] max-w-3xl">
-              Blubrg’s GPU cloud helps public sector organisations enhance efficiency, improve service quality, and introduce innovative AI-driven solutions across various government functions.
+              BluBridge’s GPU cloud helps public sector organisations enhance efficiency, improve service quality, and introduce innovative AI-driven solutions across various government functions.
             </p>
           </div>
 

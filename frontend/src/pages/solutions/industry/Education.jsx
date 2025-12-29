@@ -158,7 +158,7 @@ const Education = () => {
               EDUCATION
             </h1>
             <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              At Blubrg, we provide GPU cloud computing resources that help educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure gives students, faculty, and researchers access to high-performance computing environments that support advanced computing projects and AI applications.
+              At BluBridge, we provide GPU cloud computing resources that help educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure gives students, faculty, and researchers access to high-performance computing environments that support advanced computing projects and AI applications.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -207,7 +207,7 @@ const Education = () => {
             <p className="text-indigo-400 text-sm font-medium mb-3 uppercase tracking-wider">EMPOWERING ACADEMIC RESEARCH</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
             <p className="text-base text-[#6B7280] max-w-3xl">
-              Blubrg’s GPU Cloud Infrastructure transforms how educators and researchers work across multiple disciplines. It enables advanced research projects by supplying scalable and robust computing resources tailored to the needs of academic users.
+              BluBridge’s GPU Cloud Infrastructure transforms how educators and researchers work across multiple disciplines. It enables advanced research projects by supplying scalable and robust computing resources tailored to the needs of academic users.
             </p>
           </div>
 
@@ -280,7 +280,7 @@ const Education = () => {
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-indigo-400 text-sm mb-4">Marketplace</p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                 A suite of tools and services that help educators and researchers build, deploy, and scale AI applications using both Blubrg offerings and widely used AI/ML frameworks.
+                 A suite of tools and services that help educators and researchers build, deploy, and scale AI applications using both BluBridge offerings and widely used AI/ML frameworks.
               </p>
             </div>
           </div>

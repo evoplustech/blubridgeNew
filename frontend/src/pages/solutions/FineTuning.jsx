@@ -93,7 +93,7 @@ const FineTuning = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Easily grow your AI operations without excessive costs. Blubrg’s GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
+                Easily grow your AI operations without excessive costs. BluBridge’s GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
               </p>
             </div>
           </div>
@@ -349,7 +349,7 @@ const FineTuning = () => {
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                An ecosystem of services and tools that support the entire model lifecycle, enabling development and deployment using both Blubrg offerings and popular AI/ML technologies.
+                An ecosystem of services and tools that support the entire model lifecycle, enabling development and deployment using both BluBridge offerings and popular AI/ML technologies.
               </p>
             </div>
           </div>
@@ -411,7 +411,7 @@ const FineTuning = () => {
             {[
               {
                 question: "What makes BluBridge's GPU Cloud different from others?",
-                answer: "Blubrg owns and operates the entire infrastructure stack, from physical data centres to orchestration software, allowing the company to tune every layer for performance, efficiency, and scalability. This integrated approach delivers superior compute power and expert support for complex AI workloads."
+                answer: "BluBridge owns and operates the entire infrastructure stack, from physical data centres to orchestration software, allowing the company to tune every layer for performance, efficiency, and scalability. This integrated approach delivers superior compute power and expert support for complex AI workloads."
               },
               {
                 question: "What types of GPUs does BluBridge offer?",

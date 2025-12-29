@@ -155,7 +155,7 @@ const Serverless = () => {
   const faqs = [
     {
       question: "What is BluBridge Serverless Inference?",
-      answer: "Blubrg Serverless Inference is a completely managed environment that allows running AI model inference without the burden of handling underlying systems. It delivers immediate availability of leading Generative AI models through a straightforward, usage-based pricing approach."
+      answer: "BluBridge Serverless Inference is a completely managed environment that allows running AI model inference without the burden of handling underlying systems. It delivers immediate availability of leading Generative AI models through a straightforward, usage-based pricing approach."
     },
     {
       question: "Who is this service for?",
@@ -163,11 +163,11 @@ const Serverless = () => {
     },
     {
       question: "What AI models are available?",
-      answer: "At launch, Blubrg provides support for widely used open-source models covering text creation, image synthesis, and computer vision use cases. The catalogue is continually broadened in response to customer input."
+      answer: "At launch, BluBridge provides support for widely used open-source models covering text creation, image synthesis, and computer vision use cases. The catalogue is continually broadened in response to customer input."
     },
     {
       question: "How does the pricing work?",
-      answer: "Blubrg uses a usage-based, per-call pricing approach:	⇒Text models: Costs are calculated according to tokens processed for prompts and responses.	⇒Image models: Fees are determined by the generated image resolution.	⇒Vision models: Charges vary based on computational workload demands.	⇒New users are granted complimentary credits to try and evaluate the platform."
+      answer: "BluBridge uses a usage-based, per-call pricing approach:	⇒Text models: Costs are calculated according to tokens processed for prompts and responses.	⇒Image models: Fees are determined by the generated image resolution.	⇒Vision models: Charges vary based on computational workload demands.	⇒New users are granted complimentary credits to try and evaluate the platform."
     },
     {
       question: "What are the key benefits of using BluBridge Serverless?",
@@ -175,7 +175,7 @@ const Serverless = () => {
     },
     {
       question: "How does scaling work?",
-      answer: "Blubrg dynamically expands or contracts resources in response to live usage patterns. This removes any requirement for hands-on setup, enabling smooth growth of AI services without friction."
+      answer: "BluBridge dynamically expands or contracts resources in response to live usage patterns. This removes any requirement for hands-on setup, enabling smooth growth of AI services without friction."
     }
   ];
 
@@ -399,12 +399,12 @@ const Serverless = () => {
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold">80%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">LOWER COST</p>
-              <p className="text-sm text-[#6B7280]">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
+              <p className="text-sm text-[#6B7280]">BluBridge delivers an average cost saving of up to 80% compared to hyperscalers.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold">30%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">FASTER</p>
-              <p className="text-sm text-[#6B7280]">Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
+              <p className="text-sm text-[#6B7280]">BluBridge Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold">+40%</p>

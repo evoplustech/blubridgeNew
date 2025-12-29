@@ -254,7 +254,7 @@ const FineTuning = () => {
   const faqs = [
     {
       question: "Do I need ML experience to fine-tune a model with BluBridge?",
-      answer: "No, Blubrg Fine-tuning was created to be straightforward and approachable, revealing advanced options and controls only when required. The offering removes the need for machine learning expertise or platform operations and can be launched by any developer with just $2 in credit."
+      answer: "No, BluBridge Fine-tuning was created to be straightforward and approachable, revealing advanced options and controls only when required. The offering removes the need for machine learning expertise or platform operations and can be launched by any developer with just $2 in credit."
     },
     {
       question: "What happens if my job fails or I cancel it partway through?",

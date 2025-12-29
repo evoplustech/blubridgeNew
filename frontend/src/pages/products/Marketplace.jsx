@@ -109,7 +109,7 @@ const Marketplace = () => {
   const faqs = [
     {
       question: "What AI/ML tools are available in the BluBridge AI Marketplace?",
-      answer: "The Blubrg AI Marketplace provides a broad selection of leading AI/ML tools, including widely used frameworks such as PyTorch and TensorFlow, all optimized for seamless integration with our platform."
+      answer: "The BluBridge AI Marketplace provides a broad selection of leading AI/ML tools, including widely used frameworks such as PyTorch and TensorFlow, all optimized for seamless integration with our platform."
     },
     {
       question: "How can I access pre-trained models in the AI Marketplace?",
@@ -272,7 +272,7 @@ const Marketplace = () => {
                 Accelerate development with access to leading models
               </h2>
               <p className="text-[#2F3A4A] text-base leading-relaxed">
-                Select from a library of open-source and custom LLM models optimized with Blubrg’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
+                Select from a library of open-source and custom LLM models optimized with BluBridge’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
                 Find Out More <ArrowRight className="w-4 h-4" />
@@ -393,7 +393,7 @@ const Marketplace = () => {
             <div className="space-y-3">
               <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">80% LOWER COST</h3>
               <p className="text-[#2F3A4A] text-sm leading-relaxed">
-                Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.
+                BluBridge delivers an average cost saving of up to 80% compared to hyperscalers.
               </p>
             </div>
 
@@ -426,7 +426,7 @@ const Marketplace = () => {
                 Get access to a fully integrated suite of AI services and compute
               </h2>
               <p className="text-[#2F3A4A] text-base leading-relaxed">
-               Lower costs, increase revenue, and operate your AI workloads more efficiently on a fully integrated platform. Whether you use Blubrg’s built-in AI/ML tools or your own, the platform is designed to simplify the path from development to production.
+               Lower costs, increase revenue, and operate your AI workloads more efficiently on a fully integrated platform. Whether you use BluBridge’s built-in AI/ML tools or your own, the platform is designed to simplify the path from development to production.
               </p>
             </div>
 

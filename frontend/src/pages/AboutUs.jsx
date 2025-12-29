@@ -152,7 +152,7 @@ const AboutUs = () => {
             </h1>
             
             <p className="text-white/90 text-lg max-w-2xl leading-relaxed mb-8">
-              AI is changing the world, impacting industries, economies, and human experiences. Blubrg is creating the advanced infrastructure, systems, and solutions that allow organisations, enterprises, and governments to build, launch, and expand their most ambitious AI systems across the globe.
+              AI is changing the world, impacting industries, economies, and human experiences. BluBridge is creating the advanced infrastructure, systems, and solutions that allow organisations, enterprises, and governments to build, launch, and expand their most ambitious AI systems across the globe.
             </p>
             
             <Link to="/contact">
