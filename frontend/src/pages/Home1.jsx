@@ -229,7 +229,7 @@ const Home1 = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white font-['DM_Sans']">
+    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">
       
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
@@ -290,7 +290,7 @@ const Home1 = () => {
       </section>
       
       {/* Full-Stack AI Solutions */}
-      <section className="py-24 bg-[#000000]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Full-Stack AI Solutions</h2>
@@ -355,7 +355,7 @@ const Home1 = () => {
       </section>
       
       {/* Research Section */}
-      <section className="py-24 bg-[#050510]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Infrastructure Excellence</h2>
@@ -386,7 +386,7 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Code/Terminal Window */}
-            <div className="bg-[#0a0a15] rounded-xl border border-[#D6DEC3] overflow-hidden">
+            <div className="bg-white rounded-xl border border-[#D6DEC3] overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-3 border-b border-[#D6DEC3] bg-white/[0.02]">
                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
@@ -440,7 +440,7 @@ const Home1 = () => {
       </section>
       
       {/* Testimonial Section */}
-      <section className="py-24 bg-[#000000]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-[#0B1F3B]">
@@ -493,7 +493,7 @@ const Home1 = () => {
       </section>
       
       {/* Certifications */}
-      <section className="py-16 bg-[#050510] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <p className="text-center text-white/40 text-sm mb-8 uppercase tracking-wider">
             Our infrastructure is certified compliant with industry standards

@@ -14,7 +14,7 @@ const Inference = () => {
   useDocumentTitle('GPU Nodes for AI & ML Inference | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#000000]">
+    <div className="min-h-screen bg-[#F3F6E8]">
       {/* Hero Section - AI & ML Inference Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
@@ -75,7 +75,7 @@ const Inference = () => {
       </section>
 
       {/* Value Proposition Strip - 3 columns */}
-      <section className="py-16 bg-[#050505] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -101,7 +101,7 @@ const Inference = () => {
       </section>
 
       {/* Speed up time-to-insights */}
-      <section className="py-24 bg-[#000000]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -133,7 +133,7 @@ const Inference = () => {
 
             {/* Right side - Framework icons grid */}
             <div className="flex justify-center">
-              <div className="relative bg-[#0a0a0a] border border-[#D6DEC3] rounded-2xl p-8 w-full max-w-md">
+              <div className="relative bg-white border border-[#D6DEC3] rounded-2xl p-8 w-full max-w-md">
                 <div className="grid grid-cols-3 gap-4">
                   {[
                     { name: 'PyTorch', color: 'bg-orange-500/20 border-orange-500/30' },
@@ -161,7 +161,7 @@ const Inference = () => {
       </section>
 
       {/* Inference Stack - Two column layout */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Inference Stack</h2>
@@ -173,7 +173,7 @@ const Inference = () => {
             {/* Left Column - Stacked categories */}
             <div className="space-y-4">
               {/* Marketplace */}
-              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch'].map((item, i) => (
@@ -186,7 +186,7 @@ const Inference = () => {
               </div>
 
               {/* Platform */}
-              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">PLATFORM</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
@@ -199,7 +199,7 @@ const Inference = () => {
               </div>
 
               {/* Infrastructure */}
-              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
@@ -212,7 +212,7 @@ const Inference = () => {
               </div>
 
               {/* Hardware */}
-              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">HARDWARE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['AMD MI300X', 'AMD MI250X', 'NVDA GB200', 'H100', '...'].map((item, i) => (
@@ -227,7 +227,7 @@ const Inference = () => {
 
             {/* Right Column - User Experience & Data Centre */}
             <div className="space-y-4">
-              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
+              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">USER EXPERIENCE</h3>
                 <div className="space-y-3">
                   {['Web Console', 'API', 'CLI'].map((item, i) => (
@@ -239,7 +239,7 @@ const Inference = () => {
                 </div>
               </div>
 
-              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
+              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">DATA CENTRE</h3>
                 <div className="space-y-3">
                   {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
@@ -256,7 +256,7 @@ const Inference = () => {
       </section>
 
       {/* Performance - Horizontal 4 column */}
-      <section className="py-24 bg-[#000000]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-16">Performance</h2>
           <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -300,12 +300,12 @@ const Inference = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Inference Card */}
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-blue-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-cyan-400" />
@@ -319,7 +319,7 @@ const Inference = () => {
             </div>
 
             {/* AI Marketplace Card */}
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
@@ -383,7 +383,7 @@ const Inference = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

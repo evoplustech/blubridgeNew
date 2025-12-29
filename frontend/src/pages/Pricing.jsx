@@ -71,7 +71,7 @@ const Pricing = () => {
     <div className="min-h-screen bg-[#F3F6E8]">      {/* Hero */}
       <section className="py-24 bg-[#EEF2DC] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -98,7 +98,7 @@ const Pricing = () => {
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-[#0066FF] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-[#328CC1] text-white px-4 py-1 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
@@ -113,7 +113,7 @@ const Pricing = () => {
                   <Link to={plan.link}>
                     <Button className={`w-full mb-6 ${
                       plan.popular 
-                        ? 'bg-[#0066FF] hover:bg-[#0052CC] text-white' 
+                        ? 'bg-[#328CC1] hover:bg-[#0052CC] text-white' 
                         : 'bg-white/10 hover:bg-white/20 text-white'
                     }`}>
                       {plan.cta}

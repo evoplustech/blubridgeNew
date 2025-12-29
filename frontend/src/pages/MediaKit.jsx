@@ -32,7 +32,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Light Background Logo</h3>
                 <p className="text-[#5B6B7A] mb-4">Use on white or light-colored backgrounds</p>
-                <Button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download PNG
                 </Button>
@@ -56,7 +56,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Icon Mark</h3>
                 <p className="text-[#5B6B7A] mb-4">Standalone icon for compact use</p>
-                <Button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download SVG
                 </Button>
@@ -68,7 +68,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Wordmark</h3>
                 <p className="text-[#5B6B7A] mb-4">Text-only version of our brand</p>
-                <Button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download SVG
                 </Button>
@@ -102,7 +102,7 @@ const MediaKit = () => {
                 <p className="text-[#243447] mb-4">
                   For media requests, interviews, or partnership opportunities, please contact our communications team:
                 </p>
-                <Button className="bg-[#0066FF] hover:bg-[#0052CC] text-white">
+                <Button className="bg-[#328CC1] hover:bg-[#0052CC] text-white">
                   <Mail className="w-4 h-4 mr-2" />
                   press@blubrg.com
                 </Button>
@@ -122,34 +122,34 @@ const MediaKit = () => {
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
-                <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#328CC1]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Logo Package</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">All logo variations and formats</p>
-                <Button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white text-sm">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white text-sm">
                   Download ZIP
                 </Button>
               </div>
 
               <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
-                <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#328CC1]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Brand Guidelines</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">Complete brand usage guide</p>
-                <Button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white text-sm">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white text-sm">
                   Download PDF
                 </Button>
               </div>
 
               <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
-                <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#328CC1]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Press Images</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">High-resolution assets</p>
-                <Button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white text-sm">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white text-sm">
                   Download ZIP
                 </Button>
               </div>

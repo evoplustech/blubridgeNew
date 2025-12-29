@@ -15,7 +15,7 @@ const Training = () => {
   useDocumentTitle('AI Compute for Training LLMs | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#000000]">
+    <div className="min-h-screen bg-[#F3F6E8]">
       {/* Hero Section - Model Training Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
@@ -76,7 +76,7 @@ const Training = () => {
       </section>
 
       {/* Value Proposition Strip */}
-      <section className="py-20 bg-[#0a0a0a]">
+      <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-12">
             {[
@@ -103,7 +103,7 @@ const Training = () => {
       </section>
 
       {/* Accelerated Model Training */}
-      <section className="py-32 bg-[#000000]">
+      <section className="py-32 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
@@ -139,7 +139,7 @@ const Training = () => {
       </section>
 
       {/* Training Stack */}
-      <section className="py-32 bg-[#0a0a0a]">
+      <section className="py-32 bg-white">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
@@ -227,7 +227,7 @@ const Training = () => {
       </section>
 
       {/* Performance */}
-      <section className="py-32 bg-[#000000]">
+      <section className="py-32 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20 text-center">Performance</h2>
           <div className="grid md:grid-cols-4 gap-3 max-w-6xl mx-auto">
@@ -237,7 +237,7 @@ const Training = () => {
               { metric: '40%', label: 'MORE EFFICIENT', desc: 'Increase utilisation and efficiency across GPU training workloads.' },
               { metric: 'UP TO 7.2X', label: 'FASTER INFERENCE', desc: 'Optimised infrastructure enables faster deployment and inference throughput.' }
             ].map((item, i) => (
-              <div key={i} className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-2xl p-10">
+              <div key={i} className="bg-white border border-[#D6DEC3] rounded-2xl p-10">
                 <div className="text-6xl font-bold text-[#0B1F3B] mb-2">{item.metric}</div>
                 <div className="text-[#0B1F3B] text-lg font-semibold mb-4">{item.label}</div>
                 <p className="text-[#5B6B7A] leading-relaxed">{item.desc}</p>
@@ -248,7 +248,7 @@ const Training = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-32 bg-[#0a0a0a]">
+      <section className="py-32 bg-white">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-12">
@@ -319,7 +319,7 @@ const Training = () => {
         </div>
       </section>
       {/* Faq */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

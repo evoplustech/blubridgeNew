@@ -22,7 +22,7 @@ const Narvik = () => {
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#328CC1] text-sm font-semibold mb-6">FLAGSHIP LOCATION</div>
+            <div className="inline-block px-4 py-2 bg-[#328CC1]/20 rounded-full text-[#328CC1] text-sm font-semibold mb-6">FLAGSHIP LOCATION</div>
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6 leading-tight">
               Narvik: Arctic AI Infrastructure Hub
             </h1>

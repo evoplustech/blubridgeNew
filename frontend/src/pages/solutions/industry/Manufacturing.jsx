@@ -236,7 +236,7 @@ const Manufacturing = () => {
   useDocumentTitle('Enabling AI for Manufacturing with High Performance GPUs | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#000000]">
+    <div className="min-h-screen bg-[#F3F6E8]">
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Background gradient */}
@@ -281,7 +281,7 @@ const Manufacturing = () => {
       </section>
 
       {/* 3-Column Value Propositions */}
-      <section className="py-16 bg-[#050505] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -307,7 +307,7 @@ const Manufacturing = () => {
       </section>
 
       {/* Example Uses Section */}
-      <section className="py-24 bg-[#000000]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-amber-500 text-sm font-medium mb-3 uppercase tracking-wider">STREAMLINE OPERATIONS</p>
@@ -358,12 +358,12 @@ const Manufacturing = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* AI Compute Training Card */}
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-amber-500/30 to-orange-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-amber-400" />
@@ -377,7 +377,7 @@ const Manufacturing = () => {
             </div>
 
             {/* AI Compute Inference Card */}
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-amber-500/30 to-yellow-600/20 rounded-xl flex items-center justify-center">
                   <Cpu className="w-7 h-7 text-amber-400" />
@@ -392,7 +392,7 @@ const Manufacturing = () => {
             </div>
 
             {/* AI Marketplace Card */}
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-amber-500/30 to-red-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-amber-400" />
@@ -463,7 +463,7 @@ const Manufacturing = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

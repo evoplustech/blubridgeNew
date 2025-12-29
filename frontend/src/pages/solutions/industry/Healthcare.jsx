@@ -131,7 +131,7 @@ const Healthcare = () => {
   useDocumentTitle('GPU Cloud for Healthcare and Biotech | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#000000]">
+    <div className="min-h-screen bg-[#F3F6E8]">
       {/* HERO */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#050510] via-[#030308] to-[#000000]" />
@@ -152,7 +152,7 @@ const Healthcare = () => {
       </section>
 
       {/* VALUE PROPS */}
-      <section className="py-16 bg-[#050505] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div><h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Analytics</h3><p className="text-[#5B6B7A] text-sm leading-relaxed">Improve the speed and accuracy of analysing medical imaging and other clinical data, helping reduce wait times and support faster clinical insights.</p></div>
@@ -163,7 +163,7 @@ const Healthcare = () => {
       </section>
 
       {/* EXAMPLE USES */}
-      <section className="py-24 bg-[#000000]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">FOSTERING COLLABORATION AND INNOVATION</p>
@@ -180,13 +180,13 @@ const Healthcare = () => {
       </section>
 
       {/* KEY SERVICES */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center"><Zap className="w-7 h-7 text-[#328CC1]" /></div></div><h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3><p className="text-[#328CC1] text-sm mb-4">Training</p><p className="text-[#5B6B7A] text-sm leading-relaxed">A flexible and performance-optimised compute environment designed to shorten training times and increase productivity for data-intensive workloads.</p></div>
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center"><Cpu className="w-7 h-7 text-[#328CC1]" /></div></div><h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3><p className="text-[#328CC1] text-sm mb-4">Inference</p><p className="text-[#5B6B7A] text-sm leading-relaxed"> A high-efficiency inference platform built to run production-level AI workloads with strong performance and reliability.</p></div>
-            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-purple-600/20 rounded-xl flex items-center justify-center"><LayoutGrid className="w-7 h-7 text-[#328CC1]" /></div></div><h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3><p className="text-[#328CC1] text-sm mb-4">Marketplace</p><p className="text-[#5B6B7A] text-sm leading-relaxed">An ecosystem of tools and frameworks that support building, deploying, and scaling AI applications using Blubrg’s services and popular AI/ML technologies.</p></div>
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center"><Zap className="w-7 h-7 text-[#328CC1]" /></div></div><h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3><p className="text-[#328CC1] text-sm mb-4">Training</p><p className="text-[#5B6B7A] text-sm leading-relaxed">A flexible and performance-optimised compute environment designed to shorten training times and increase productivity for data-intensive workloads.</p></div>
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center"><Cpu className="w-7 h-7 text-[#328CC1]" /></div></div><h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3><p className="text-[#328CC1] text-sm mb-4">Inference</p><p className="text-[#5B6B7A] text-sm leading-relaxed"> A high-efficiency inference platform built to run production-level AI workloads with strong performance and reliability.</p></div>
+            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors"><div className="mb-6"><div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-purple-600/20 rounded-xl flex items-center justify-center"><LayoutGrid className="w-7 h-7 text-[#328CC1]" /></div></div><h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3><p className="text-[#328CC1] text-sm mb-4">Marketplace</p><p className="text-[#5B6B7A] text-sm leading-relaxed">An ecosystem of tools and frameworks that support building, deploying, and scaling AI applications using Blubrg’s services and popular AI/ML technologies.</p></div>
           </div>
         </div>
       </section>
