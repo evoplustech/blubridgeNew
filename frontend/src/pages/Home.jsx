@@ -441,7 +441,7 @@ const Home = () => {
                   { icon: "📊", title: "Software & Technology" },
                   { icon: "✨", title: "Manufacturing" },
                   { icon: "🔧", title: "Government" },
-                  { icon: "📈", title: "Business Intelligence" }
+                  { icon: "📈", title: "Healthcare" }
                 ].map((service, index) => (
                   <div 
                     key={index}
