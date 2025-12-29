@@ -238,7 +238,7 @@ const Manufacturing = () => {
   return (
     <div className="min-h-screen bg-[#F3F6E8]">
       {/* HERO SECTION - Light theme */}
-      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-[#F3F6E8]">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0805] via-[#080604] to-[#000000]" />
         
