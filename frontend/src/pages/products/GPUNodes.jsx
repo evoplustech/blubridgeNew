@@ -259,22 +259,20 @@ const GPUNodes = () => {
 
   return (
     <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* Hero Section with Animation */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#F3F6E8]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-[#0B1F3B] flex items-center justify-center">
+                <div className="w-5 h-5 rounded bg-[#328CC1] flex items-center justify-center">
                   <Server className="w-3 h-3 text-white" />
                 </div>
                 <span className="text-[#328CC1] text-sm font-medium tracking-wide">GPU NODES</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B1F3B]">
                 NVIDIA Accelerated GPU Nodes
               </h1>
               
@@ -284,11 +282,11 @@ const GPUNodes = () => {
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact/sales">
-                <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
                   Get Started
                 </Button>
                 </Link>
-                <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+                <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
                 
