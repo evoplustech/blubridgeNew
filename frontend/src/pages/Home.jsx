@@ -194,17 +194,17 @@ const Home = () => {
   const newsItems = [
     {
       date: "01 June, 2025",
-      title: "BluBridge Closes Oversubscribed $500M Series B to Scale AI Infrastructure",
+      title: "BluBrg Closes Oversubscribed $500M Series B to Scale AI Infrastructure",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80"
     },
     {
       date: "21 May, 2025",
-      title: "BluBridge Expands European Operations with New Data Center in Norway",
+      title: "BluBrg Expands European Operations with New Data Center in Norway",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80"
     },
     {
       date: "15 May, 2025",
-      title: "BluBridge Named NVIDIA Preferred Partner for AI Cloud Infrastructure",
+      title: "BluBrg Named NVIDIA Preferred Partner for AI Cloud Infrastructure",
       image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&q=80"
     }
   ];
@@ -213,7 +213,7 @@ const Home = () => {
     {
       name: "Datacenters",
       title: "Purpose-built for AI",
-      description: "BluBridge's Arctic data centers are engineered specifically for the intensive energy demands of GPU-based AI computing, utilizing 100% renewable hydroelectric power.",
+      description: "BluBrg's Arctic data centers are engineered specifically for the intensive energy demands of GPU-based AI computing, utilizing 100% renewable hydroelectric power.",
       features: ["100% Renewable Energy", "Arctic cooling advantage", "Scalable infrastructure", "Sovereign data hosting"],
       link : '/products/glomfjord'
     },
@@ -276,15 +276,15 @@ const Home = () => {
 
   const faqs = [
     {
-      question: "What makes BluBridge different from other cloud providers?",
-      answer: "BluBridge is purpose-built for AI from the ground up. Unlike general-purpose cloud providers, our infrastructure is optimized specifically for AI workloads with latest NVIDIA GPUs, high-bandwidth networking, and 100% renewable energy. We offer up to 80% cost savings and zero rate limits."
+      question: "What makes BluBrg different from other cloud providers?",
+      answer: "BluBrg is purpose-built for AI from the ground up. Unlike general-purpose cloud providers, our infrastructure is optimized specifically for AI workloads with latest NVIDIA GPUs, high-bandwidth networking, and 100% renewable energy. We offer up to 80% cost savings and zero rate limits."
     },
     {
       question: "What GPU options are available?",
       answer: "We offer the latest NVIDIA GPUs including H100, H200, and the new GB200 NVL72 Blackwell architecture. All GPUs are available on-demand with bare-metal performance and can scale from single GPUs to thousands of nodes."
     },
     {
-      question: "How does BluBridge ensure sustainability?",
+      question: "How does BluBrg ensure sustainability?",
       answer: "All our data centers are powered by 100% renewable hydroelectric energy in Norway. Our Arctic location provides natural cooling advantages, significantly reducing our environmental footprint compared to traditional data centers."
     },
     {
@@ -292,12 +292,12 @@ const Home = () => {
       answer: "Enterprise customers receive dedicated support including 24/7 technical assistance, dedicated account management, custom SLAs, and access to our AI solutions architects for architecture review and optimization."
     },
     {
-      question: "Can I try BluBridge before committing?",
+      question: "Can I try BluBrg before committing?",
       answer: "Yes! We offer free trials and proof-of-concept deployments. Contact our sales team to discuss your specific requirements and get started with a customized evaluation plan."
     }
   ];
 
-  useDocumentTitle('The Hyperscaler Engineered for AI | BluBridge');
+  useDocumentTitle('The Hyperscaler Engineered for AI | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#F3F6E8] text-[#0B1F3B] font-['DM_Sans']">
@@ -326,7 +326,7 @@ const Home = () => {
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link to="/contact">
+              <Link to="/contact/sales">
                 <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
                 </Button>
@@ -434,9 +434,9 @@ const Home = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: "💡", title: "AI Strategy Consulting" },
-                  { icon: "🤖", title: "Machine Learning" },
-                  { icon: "💬", title: "AI Chatbot Development" },
+                  { icon: "💡", title: "Telco" },
+                  { icon: "🤖", title: "Finance & Insurance" },
+                  { icon: "💬", title: "Education" },
                   { icon: "⚙️", title: "DevOps Services" },
                   { icon: "📊", title: "Data Science" },
                   { icon: "✨", title: "Generative AI" },
@@ -524,7 +524,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* BluBridge Infrastructure Section */}
+      {/* BluBrg Infrastructure Section */}
       <section className="py-20 relative overflow-hidden">
         {/* Background Image */}
         <div 
@@ -539,9 +539,9 @@ const Home = () => {
           <div className="grid lg:grid-cols gap-12">
             {/* Left - Text and Tabs */}
             <div>
-              <h2 className="text-4xl font-light mb-6 text-[#0B1F3B]">BluBridge's Infrastructure</h2>
+              <h2 className="text-4xl font-light mb-6 text-[#0B1F3B]">BluBrg's Infrastructure</h2>
               <p className="text-[#243447] mb-8 leading-relaxed">
-                BluBridge manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
+                Blubrg manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
               </p>
               
               {/* Tab Buttons */}
@@ -676,20 +676,20 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">
-                BluBridge is now an NVIDIA Preferred Partner
+                BluBrg is now an NVIDIA Preferred Partner
               </h2>
               <p className="text-[#243447] mb-6">
                 Access thousands of GPUs tailored to your requirements.
               </p>
               <div className="flex gap-4">
-                <Link to="/contact">
+                <Link to="/contact/sales">
                   <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3">
                     Reserve GPUs
                   </Button>
                 </Link>
-                <Link to="/contact">
+                <Link to="/contact/sales">
                   <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#EEF2DC] px-6 py-3">
-                    Contact
+                    Contact Sales
                   </Button>
                 </Link>
               </div>
@@ -748,13 +748,13 @@ const Home = () => {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
+            <Link to="/contact/sales">
               <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
-              Contact <ArrowRight className="w-4 h-4" />
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
+              Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
