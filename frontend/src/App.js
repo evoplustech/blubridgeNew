@@ -36,6 +36,7 @@ import AIDevelopment from './pages/solutions/AIDevelopment';
 import AboutUs from './pages/AboutUs';
 import MediaKit from './pages/MediaKit';
 import Careers from './pages/Careers';
+import Research from './pages/Research';
 
 // Solution Pages - Industry
 import Telco from './pages/solutions/industry/Telco';
@@ -101,6 +102,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/media-kit" element={<MediaKit />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/research" element={<Research />} />
             
             {/* Contact Routes */}
             <Route path="/contact" element={<Contact />} />
