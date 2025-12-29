@@ -316,7 +316,7 @@ const Training = () => {
             </div>
             
             {/* Workload Management UI Visual */}
-            <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3] p-6">
+            <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3] p-6">
               <div className="flex items-center gap-4 mb-4">
                 <button className="px-4 py-2 bg-[#0B1F3B] text-white text-sm rounded-lg">Queues (3)</button>
                 {/* <button className="px-4 py-2 text-[#243447] text-sm hover:text-white transition-colors">Nodes</button> */}
@@ -325,23 +325,23 @@ const Training = () => {
               {/* Queue Items */}
               <div className="space-y-3">
                 {['xl-70b-queue-1', 'xl-70b-queue-2'].map((queue, i) => (
-                  <div key={i} className="bg-[#EEF2DC] rounded-lg p-4 border border-[#D6DEC3]/30">
+                  <div key={i} className="bg-[#1a1a2e] rounded-lg p-4 border border-[#333]/50">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[#0B1F3B] font-medium">{queue}</span>
+                      <span className="text-white font-medium">{queue}</span>
                       <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded">Active</span>
                     </div>
-                    <div className="text-xs text-[#5B6B7A]">Nodeset: compute-nodes-{i + 1}</div>
+                    <div className="text-xs text-white/60">Nodeset: compute-nodes-{i + 1}</div>
                   </div>
                 ))}
               </div>
               
               {/* Nodes Info */}
-              <div className="mt-4 pt-4 border-t border-[#D6DEC3]">
-                <div className="text-xs text-[#5B6B7A] mb-2">Nodes (4)</div>
+              <div className="mt-4 pt-4 border-t border-[#333]">
+                <div className="text-xs text-white/60 mb-2">Nodes (4)</div>
                 <div className="grid grid-cols-2 gap-2">
                   {['328241', '328244', '328247', '328255'].map((nodeId, i) => (
-                    <div key={i} className="bg-slate-800/30 rounded px-3 py-2 text-xs">
-                      <span className="text-[#243447]">Node ID:</span> <span className="text-[#328CC1]">{nodeId}</span>
+                    <div key={i} className="bg-[#1a1a2e] rounded px-3 py-2 text-xs">
+                      <span className="text-white/70">Node ID:</span> <span className="text-[#328CC1]">{nodeId}</span>
                     </div>
                   ))}
                 </div>
