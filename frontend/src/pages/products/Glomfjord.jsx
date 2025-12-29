@@ -125,7 +125,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             
             <div className="flex flex-wrap gap-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
               <Link to="/contact/sales">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#F7F6EC] px-8 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-8 py-3 rounded font-medium">
                   Get Started
                 </Button>
               </Link>

@@ -152,7 +152,7 @@ const Healthcare = () => {
       </section>
 
       {/* VALUE PROPS */}
-      <section className="py-16 bg-[#F7F6EC] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#e9ecdc] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div><h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Analytics</h3><p className="text-[#6B7280] text-sm leading-relaxed">Improve the speed and accuracy of analysing medical imaging and other clinical data, helping reduce wait times and support faster clinical insights.</p></div>

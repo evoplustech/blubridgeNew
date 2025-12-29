@@ -46,7 +46,7 @@ const Narvik = () => {
       </section>
 
       {/* Strategic Advantages */}
-      <section className="py-24 bg-[#F7F6EC]">
+      <section className="py-24 bg-[#e9ecdc]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-4 text-center">Why Narvik</h2>
           <p className="text-[#2F3A4A] text-center mb-12 max-w-2xl mx-auto">

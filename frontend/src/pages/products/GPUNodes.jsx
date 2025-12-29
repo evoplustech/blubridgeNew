@@ -282,7 +282,7 @@ const GPUNodes = () => {
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact/sales">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#F7F6EC] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
                   Get Started
                 </Button>
                 </Link>

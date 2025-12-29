@@ -72,7 +72,7 @@ const Products = () => {
               From serverless endpoints to dedicated GPU clusters, BluBrg provides complete AI infrastructure solutions.
             </p>
             <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#F7F6EC] px-8 py-6 text-lg font-semibold">
+              <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-8 py-6 text-lg font-semibold">
                 Talk to Sales
               </Button>
             </Link>
