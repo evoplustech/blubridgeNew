@@ -439,8 +439,8 @@ const Home = () => {
                   { icon: "💬", title: "Education" },
                   { icon: "⚙️", title: "Legal" },
                   { icon: "📊", title: "Software & Technology" },
-                  { icon: "✨", title: "Generative AI" },
-                  { icon: "🔧", title: "Data Engineering" },
+                  { icon: "✨", title: "Manufacturing" },
+                  { icon: "🔧", title: "Government" },
                   { icon: "📈", title: "Business Intelligence" }
                 ].map((service, index) => (
                   <div 

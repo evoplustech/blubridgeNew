@@ -277,8 +277,6 @@ const Header = () => {
                 </div>
               )}
             </div>
-
-            <Link to="/contact" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">Contact</Link>
             {/* <Link to="/docs" className="text-white/90 hover:text-white transition-colors">Docs</Link> */}
           </div>
 
