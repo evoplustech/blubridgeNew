@@ -65,7 +65,7 @@ const Contact = () => {
           
           {/* Left Column - Our Offices */}
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
-            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" style={{ fontFamily: 'serif' }}>
+            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" >
               Our Offices
             </h2>
             
@@ -73,7 +73,7 @@ const Contact = () => {
             <div className="border border-[#D6DEC3] rounded-xl p-6 mb-4">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2" style={{ fontFamily: 'serif' }}>
+                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
                     BluBridge Technologies (P) Ltd.
                   </h3>
                   <p className="text-[#243447] text-sm leading-relaxed">
@@ -100,7 +100,7 @@ const Contact = () => {
             <div className="border border-[#D6DEC3] rounded-xl p-6 mb-8">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2" style={{ fontFamily: 'serif' }}>
+                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
                     BluBridge Technologies (P) Ltd.
                   </h3>
                   <p className="text-[#243447] text-sm leading-relaxed">
@@ -142,7 +142,7 @@ const Contact = () => {
 
           {/* Right Column - Contact Us Form */}
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
-            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" style={{ fontFamily: 'serif' }}>
+            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" >
               Contact Us
             </h2>
             
