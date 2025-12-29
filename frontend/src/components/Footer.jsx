@@ -56,71 +56,71 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0A1F3D] text-white">
+    <footer className="bg-[#E7ECD2] text-[#0B1F3B] border-t border-[#D6DEC3]">
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Product Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">PRODUCT</h3>
+            <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">PRODUCT</h3>
             <ul className="space-y-3">
-              <li><Link to="/products/gpu-nodes" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">GPU Nodes</Link></li>
-              <li><Link to="/products/fine-tuning" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Fine-tuning</Link></li>
-              <li><Link to="/products/marketplace" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Marketplace</Link></li>
-              <li><Link to="/products/inference" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Inference Service</Link></li>
-              <li><Link to="/products/training" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Training Clusters</Link></li>
-              <li><Link to="/products/serverless" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Serverless</Link></li>
-              <li><Link to="/products/glomfjord" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Glomfjord</Link></li>
+              <li><Link to="/products/gpu-nodes" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">GPU Nodes</Link></li>
+              <li><Link to="/products/fine-tuning" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Fine-tuning</Link></li>
+              <li><Link to="/products/marketplace" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Marketplace</Link></li>
+              <li><Link to="/products/inference" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Inference Service</Link></li>
+              <li><Link to="/products/training" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Training Clusters</Link></li>
+              <li><Link to="/products/serverless" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Serverless</Link></li>
+              <li><Link to="/products/glomfjord" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Glomfjord</Link></li>
             </ul>
           </div>
 
           {/* Solutions Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">SOLUTIONS</h3>
+            <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">SOLUTIONS</h3>
             <ul className="space-y-3">
-              <li><Link to="/solutions/training" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Model Training</Link></li>
-              <li><Link to="/solutions/fine-tuning" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Model Fine-Tuning</Link></li>
-              <li><Link to="/solutions/inference" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">AI & ML Inference</Link></li>
-              <li><Link to="/solutions/ai-development" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">AI Development</Link></li>
+              <li><Link to="/solutions/training" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Model Training</Link></li>
+              <li><Link to="/solutions/fine-tuning" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Model Fine-Tuning</Link></li>
+              <li><Link to="/solutions/inference" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">AI & ML Inference</Link></li>
+              <li><Link to="/solutions/ai-development" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">AI Development</Link></li>
             </ul>
           </div>
 
           {/* Company Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">COMPANY</h3>
+            <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">COMPANY</h3>
             <ul className="space-y-3">
-              <li><Link to="/company/about" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">About</Link></li>
+              <li><Link to="/company/about" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">About</Link></li>
              
-              <li><Link to="/company/careers" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Careers</Link></li>
-              <li><Link to="/contact" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">Contact</Link></li>
-              <li><a href="https://www.linkedin.com/company/blubrg" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">LinkedIn</a></li>
-              <li><a href="https://twitter.com/blubrg" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#0066FF] transition-colors text-sm">X (Twitter)</a></li>
+              <li><Link to="/company/careers" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Careers</Link></li>
+              <li><Link to="/contact" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Contact</Link></li>
+              <li><a href="https://www.linkedin.com/company/blubrg" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">LinkedIn</a></li>
+              <li><a href="https://twitter.com/blubrg" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">X (Twitter)</a></li>
             </ul>
           </div>
 
           {/* Contact Us Form */}
           <div className="lg:col-span-2">
-            <h3 className="font-semibold text-lg mb-4">CONTACT US</h3>
+            <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">CONTACT US</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="text"
                 placeholder="First name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
               />
               <Input
                 type="text"
                 placeholder="Last name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
               />
               <Input
                 type="email"
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
                 required
               />
               <Input
@@ -128,16 +128,16 @@ const Footer = () => {
                 placeholder="Message (optional)"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
               />
               <Button 
                 type="submit" 
                 disabled={loading}
-                className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white"
+                className="w-full bg-[#0B1F3B] hover:bg-[#162B4D] text-white"
               >
                 {loading ? 'Submitting...' : 'Contact Now'}
               </Button>
-              <p className="text-xs text-white/50">
+              <p className="text-xs text-[#5B6B7A]">
                 BluBrg is committed to protecting your privacy. We'll only use your information to provide requested content.
               </p>
             </form>
@@ -145,16 +145,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10">
+        <div className="mt-16 pt-8 border-t border-[#D6DEC3]">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2">
               <img src="https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/1ysx1xgx_logo-blubrg.png" alt="BLUBRG" className="h-8" />
             </div>
-            <p className="text-white/50 text-sm">©2025 BluBrg Technologies Private Limited. All rights reserved</p>
+            <p className="text-[#5B6B7A] text-sm">©2025 BluBrg Technologies Private Limited. All rights reserved</p>
             <div className="flex space-x-6 text-sm">
-              <Link to="policies/transparency-and-human-rights" className="text-white/70 hover:text-[#0066FF] transition-colors">Transparency & Human Rights</Link>
-              <Link to="/policies/privacy-policy" className="text-white/70 hover:text-[#0066FF] transition-colors">Privacy Policy</Link>
-              <Link to="/policies/terms-conditions" className="text-white/70 hover:text-[#0066FF] transition-colors">Terms & Conditions</Link>
+              <Link to="policies/transparency-and-human-rights" className="text-[#243447] hover:text-[#328CC1] transition-colors">Transparency & Human Rights</Link>
+              <Link to="/policies/privacy-policy" className="text-[#243447] hover:text-[#328CC1] transition-colors">Privacy Policy</Link>
+              <Link to="/policies/terms-conditions" className="text-[#243447] hover:text-[#328CC1] transition-colors">Terms & Conditions</Link>
             </div>
           </div>
         </div>
