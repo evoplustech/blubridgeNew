@@ -11,7 +11,7 @@ const AIDevelopment = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Integrated tools for AI development | BluBrg');
+  useDocumentTitle('Integrated tools for AI development | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -40,7 +40,7 @@ const AIDevelopment = () => {
               AI DEVELOPMENT
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              BluBrg’s platform makes every step of building AI smoother, enabling you to move quickly from early experiments in interactive notebooks to deploying fully scaled AI applications across multiple GPU clusters. It removes barriers and complexity, helping teams innovate faster and achieve better outcomes.
+              BluBridge’s platform makes every step of building AI smoother, enabling you to move quickly from early experiments in interactive notebooks to deploying fully scaled AI applications across multiple GPU clusters. It removes barriers and complexity, helping teams innovate faster and achieve better outcomes.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -93,7 +93,7 @@ const AIDevelopment = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Increased Productivity</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                BluBrg’s cloud stack automates routine and repetitive tasks, liberating your team to focus on strategic work instead of day-to-day infrastructure management.
+                BluBridge’s cloud stack automates routine and repetitive tasks, liberating your team to focus on strategic work instead of day-to-day infrastructure management.
               </p>
             </div>
           </div>
@@ -110,7 +110,7 @@ const AIDevelopment = () => {
                 Fastest GPU nodes<br />available
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
-                The BluBrg GPU Cloud delivers high-performance, bare-metal GPU nodes purpose-built for demanding AI workloads. Whether you’re training new models or improving existing ones, the infrastructure offers dependable, top-tier performance to support faster development.
+                The BluBridge GPU Cloud delivers high-performance, bare-metal GPU nodes purpose-built for demanding AI workloads. Whether you’re training new models or improving existing ones, the infrastructure offers dependable, top-tier performance to support faster development.
               </p>
 
               <div className="space-y-8">
@@ -167,7 +167,7 @@ const AIDevelopment = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">AI-Development<br />Stack</h2>
             <p className="text-base text-[#6B7280] max-w-2xl">
-             BluBrg offers a complete technology stack and integrated development environment purpose-built for creating AI models, large language models (LLMs), and other machine learning applications. This stack works seamlessly with a broad set of third-party tools to fit your existing workflows.
+             BluBridge offers a complete technology stack and integrated development environment purpose-built for creating AI models, large language models (LLMs), and other machine learning applications. This stack works seamlessly with a broad set of third-party tools to fit your existing workflows.
             </p>
           </div>
 
@@ -339,7 +339,7 @@ const AIDevelopment = () => {
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                An ecosystem of services and tools that support application development and deployment, compatible with both BluBrg offerings and popular AI/ML frameworks.
+                An ecosystem of services and tools that support application development and deployment, compatible with both BluBridge offerings and popular AI/ML frameworks.
               </p>
             </div>
           </div>
@@ -351,7 +351,7 @@ const AIDevelopment = () => {
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>
           
@@ -399,19 +399,19 @@ const AIDevelopment = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes BluBrg's GPU Cloud different from others?",
-                answer: "BluBrg controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
+                question: "What makes BluBridge's GPU Cloud different from others?",
+                answer: "BluBridge controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
               },
               {
-                question: "What types of GPUs does BluBrg offer?",
+                question: "What types of GPUs does BluBridge offer?",
                 answer: "A range of NVIDIA GPU models are available to support different AI development tasks, including GPUs designed for training, inferencing, and other compute-intensive workloads."
               },
               {
-                question: "How does BluBrg support sustainability?",
+                question: "How does BluBridge support sustainability?",
                 answer: "Environmental responsibility is a priority, with the company operating on renewable energy sources and adopting sustainable computing practices to help reduce carbon impact."
               },
               {
-                question: "How does BluBrg accelerate AI development?",
+                question: "How does BluBridge accelerate AI development?",
                 answer: "By simplifying orchestration and workload management through technologies like Kubernetes and SLURM, the platform makes managing GPU resources easier and more responsive to changing demands."
               }
             ].map((faq, i) => (

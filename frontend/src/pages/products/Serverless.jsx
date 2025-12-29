@@ -154,7 +154,7 @@ const Serverless = () => {
 
   const faqs = [
     {
-      question: "What is BluBrg Serverless Inference?",
+      question: "What is BluBridge Serverless Inference?",
       answer: "Blubrg Serverless Inference is a completely managed environment that allows running AI model inference without the burden of handling underlying systems. It delivers immediate availability of leading Generative AI models through a straightforward, usage-based pricing approach."
     },
     {
@@ -170,7 +170,7 @@ const Serverless = () => {
       answer: "Blubrg uses a usage-based, per-call pricing approach:	⇒Text models: Costs are calculated according to tokens processed for prompts and responses.	⇒Image models: Fees are determined by the generated image resolution.	⇒Vision models: Charges vary based on computational workload demands.	⇒New users are granted complimentary credits to try and evaluate the platform."
     },
     {
-      question: "What are the key benefits of using BluBrg Serverless?",
+      question: "What are the key benefits of using BluBridge Serverless?",
       answer: "Infrastructure simplicity: Capacity growth, observability, and resource distribution are fully managed by us.  Budget friendly: A vertically unified architecture significantly reduces processing expenses.→ Elastic and dependable: Built-in elasticity maintains consistent, high-quality operation.→ Protected and confidential: Requests and outputs are neither stored nor reused for learning.→ OpenAI API and SDK alignment: Straightforward connection with existing development ecosystems."
     },
     {
@@ -179,7 +179,7 @@ const Serverless = () => {
     }
   ];
 
-  useDocumentTitle('Serverless Inference | BluBrg');
+  useDocumentTitle('Serverless Inference | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* Hero Section with Animated Model Graph */}
@@ -462,7 +462,7 @@ const Serverless = () => {
                     <Shield className="w-5 h-5 text-[#328CC1]" />
                   </div>
                   <div>
-                    <p className="font-medium text-sm">BluBrg's Data centers</p>
+                    <p className="font-medium text-sm">BluBridge's Data centers</p>
                     <p className="text-xs text-[#2F3A4A]">Powered by renewable energy</p>
                   </div>
                 </div>

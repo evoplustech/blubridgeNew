@@ -39,7 +39,7 @@ const Partners = () => {
     'Dedicated partner success team'
   ];
 
-  useDocumentTitle('Partners | BluBrg');
+  useDocumentTitle('Partners | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Hero */}

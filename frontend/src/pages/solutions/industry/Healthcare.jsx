@@ -128,7 +128,7 @@ const Healthcare = () => {
 
   const toggleFaq = (index) => setOpenFaq(openFaq === index ? null : index);
 
-  useDocumentTitle('GPU Cloud for Healthcare and Biotech | BluBrg');
+  useDocumentTitle('GPU Cloud for Healthcare and Biotech | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -198,7 +198,7 @@ const Healthcare = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           

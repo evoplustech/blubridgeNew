@@ -57,7 +57,7 @@ const Products = () => {
     }
   ];
 
-  useDocumentTitle('Products | BluBrg');
+  useDocumentTitle('Products | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -69,7 +69,7 @@ const Products = () => {
               Full-stack AI infrastructure
             </h1>
             <p className="text-xl text-[#2F3A4A] mb-8">
-              From serverless endpoints to dedicated GPU clusters, BluBrg provides complete AI infrastructure solutions.
+              From serverless endpoints to dedicated GPU clusters, BluBridge provides complete AI infrastructure solutions.
             </p>
             <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-8 py-6 text-lg font-semibold">

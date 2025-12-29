@@ -236,7 +236,7 @@ const Inference = () => {
     { name: 'Triton', color: '#76B900' }
   ];
 
-  useDocumentTitle('AI Inference | BluBrg');
+  useDocumentTitle('AI Inference | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
@@ -483,7 +483,7 @@ const Inference = () => {
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
-                 Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging <Link to="/" className="text-[#328CC1] hover:underline">BluBrg</Link>'s AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
+                 Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging <Link to="/" className="text-[#328CC1] hover:underline">BluBridge</Link>'s AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
             
@@ -526,7 +526,7 @@ const Inference = () => {
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-[#0B1F3B] text-sm font-medium">BluBridge's Data centers</div>
                     <div className="text-xs text-[#6B7280]">Powered by renewable energy</div>
                   </div>
                 </div>

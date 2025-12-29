@@ -136,7 +136,7 @@ const Home1HeroBlob = () => {
 };
 
 const Home1 = () => {
-  useDocumentTitle('BluBrg - Enterprise AI Infrastructure');
+  useDocumentTitle('BluBridge - Enterprise AI Infrastructure');
   
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   
@@ -202,12 +202,12 @@ const Home1 = () => {
   const caseStudies = [
     {
       category: 'Partnership',
-      title: 'BluBrg Partners with NVIDIA for Next-Gen GPU Infrastructure',
+      title: 'BluBridge Partners with NVIDIA for Next-Gen GPU Infrastructure',
       description: 'Strategic collaboration to deliver cutting-edge AI compute capabilities.'
     },
     {
       category: 'Case Study',
-      title: 'How Leading Enterprises Scale AI with BluBrg',
+      title: 'How Leading Enterprises Scale AI with BluBridge',
       description: 'Real-world implementations driving business transformation.'
     },
     {
@@ -249,7 +249,7 @@ const Home1 = () => {
               </span>
             </h1>
             <p className="text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              BluBrg provides enterprise-grade GPU infrastructure, enabling organizations to train, fine-tune, and deploy AI models at any scale with unmatched performance and reliability.
+              BluBridge provides enterprise-grade GPU infrastructure, enabling organizations to train, fine-tune, and deploy AI models at any scale with unmatched performance and reliability.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -411,7 +411,7 @@ const Home1 = () => {
                 Powering Next-Generation AI
               </h2>
               <p className="text-xl text-white/70 mb-8 leading-relaxed">
-                World-class infrastructure designed for the most demanding AI workloads. From foundation model training to real-time inference, BluBrg delivers the performance you need.
+                World-class infrastructure designed for the most demanding AI workloads. From foundation model training to real-time inference, BluBridge delivers the performance you need.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
@@ -445,7 +445,7 @@ const Home1 = () => {
               Trusted by industry leaders transforming their AI capabilities
             </h2>
             <blockquote className="text-2xl lg:text-3xl font-light text-[#2F3A4A] leading-relaxed mb-8">
-              "BluBrg has been instrumental in accelerating our AI development. Their infrastructure reliability and performance have exceeded our expectations."
+              "BluBridge has been instrumental in accelerating our AI development. Their infrastructure reliability and performance have exceeded our expectations."
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500" />
@@ -518,7 +518,7 @@ const Home1 = () => {
             </span>
           </h2>
           <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-            Join the world's leading organizations building on BluBrg's enterprise AI platform.
+            Join the world's leading organizations building on BluBridge's enterprise AI platform.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link to="/contact">

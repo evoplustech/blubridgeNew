@@ -61,19 +61,19 @@ const AboutUs = () => {
 
   const testimonials = [
     {
-      quote: "BluBrg provides secure and reliable cloud computing services, essential for AI and machine learning operations. The infrastructure allows for efficient processing and storage of sensitive data while ensuring robust security and compliance measures.",
+      quote: "BluBridge provides secure and reliable cloud computing services, essential for AI and machine learning operations. The infrastructure allows for efficient processing and storage of sensitive data while ensuring robust security and compliance measures.",
       author: "Richard Beckman",
       title: "CEO & Founder",
       company: "Hyperon"
     },
     {
-      quote: "The team at BluBrg has been instrumental in helping us scale our AI research capabilities. Their GPU infrastructure is world-class and their support team truly understands the unique challenges of running large-scale machine learning workloads.",
+      quote: "The team at BluBridge has been instrumental in helping us scale our AI research capabilities. Their GPU infrastructure is world-class and their support team truly understands the unique challenges of running large-scale machine learning workloads.",
       author: "Maria Santos",
       title: "Chief Technology Officer",
       company: "AI Research Labs"
     },
     {
-      quote: "We've been able to accelerate our model training by 10x since partnering with BluBrg. The combination of cutting-edge hardware and intuitive platform tools has transformed how we approach AI development.",
+      quote: "We've been able to accelerate our model training by 10x since partnering with BluBridge. The combination of cutting-edge hardware and intuitive platform tools has transformed how we approach AI development.",
       author: "James Chen",
       title: "VP of Engineering",
       company: "TechForward Inc"
@@ -82,20 +82,20 @@ const AboutUs = () => {
 
   const faqs = [
     {
-      question: "What does BluBrg do?",
-      answer: "BluBrg is a leading AI infrastructure company that provides enterprise-grade GPU compute resources, cloud platforms, and integrated solutions for training, inference, and deploying AI models at scale. We enable organizations worldwide to accelerate their AI initiatives with reliable, high-performance infrastructure."
+      question: "What does BluBridge do?",
+      answer: "BluBridge is a leading AI infrastructure company that provides enterprise-grade GPU compute resources, cloud platforms, and integrated solutions for training, inference, and deploying AI models at scale. We enable organizations worldwide to accelerate their AI initiatives with reliable, high-performance infrastructure."
     },
     {
-      question: "What industries does BluBrg serve?",
-      answer: "BluBrg serves a diverse range of industries including technology, finance, healthcare, manufacturing, telecommunications, government, education, and research institutions. Our infrastructure solutions are designed to meet the unique computational demands of each sector."
+      question: "What industries does BluBridge serve?",
+      answer: "BluBridge serves a diverse range of industries including technology, finance, healthcare, manufacturing, telecommunications, government, education, and research institutions. Our infrastructure solutions are designed to meet the unique computational demands of each sector."
     },
     {
-      question: "Where is BluBrg headquartered?",
-      answer: "BluBrg is headquartered in Oslo, Norway, with data centers strategically located across Europe and expanding globally. Our facilities are powered by renewable energy sources, reflecting our commitment to sustainable AI infrastructure."
+      question: "Where is BluBridge headquartered?",
+      answer: "BluBridge is headquartered in Oslo, Norway, with data centers strategically located across Europe and expanding globally. Our facilities are powered by renewable energy sources, reflecting our commitment to sustainable AI infrastructure."
     },
     {
-      question: "Who are BluBrg's key investors?",
-      answer: "BluBrg is backed by leading global investors including NVIDIA, Aker, Nokia, Dell Technologies, Point72, G Squared, Fidelity, and Blue Owl Capital. This strong investor base reflects confidence in our technology and market position."
+      question: "Who are BluBridge's key investors?",
+      answer: "BluBridge is backed by leading global investors including NVIDIA, Aker, Nokia, Dell Technologies, Point72, G Squared, Fidelity, and Blue Owl Capital. This strong investor base reflects confidence in our technology and market position."
     },
     {
       question: "How can partners or customers get in touch?",
@@ -103,7 +103,7 @@ const AboutUs = () => {
     }
   ];
 
-  useDocumentTitle('About | BluBrg');
+  useDocumentTitle('About | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">
@@ -175,7 +175,7 @@ const AboutUs = () => {
               We are creators and innovators shaping the future of AI. The way we build technology reflects who we are. We challenge limits, embrace progress, and create systems that help others achieve extraordinary outcomes.
               </p>
               {/* <p className="text-[#2F3A4A] leading-relaxed">
-                BluBrg works with the world's best, creating platforms that move the world forward. From the big players to the next big start-ups, we provide the essential infrastructure that powers the AI revolution.
+                BluBridge works with the world's best, creating platforms that move the world forward. From the big players to the next big start-ups, we provide the essential infrastructure that powers the AI revolution.
               </p> */}
               
               <div className="space-y-4 mt-8">
@@ -233,7 +233,7 @@ const AboutUs = () => {
             <p className="text-[#6B7280] text-sm uppercase tracking-wider mb-2">OUR TEAM</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
             <p className="text-[#2F3A4A] max-w-3xl leading-relaxed">
-              BluBrg is led by proven founders, engineers, strategists and builders — diverse perspectives united by a shared mission to build the infrastructure that powers AI innovation.
+              BluBridge is led by proven founders, engineers, strategists and builders — diverse perspectives united by a shared mission to build the infrastructure that powers AI innovation.
             </p>
           </div>
           
@@ -316,7 +316,7 @@ const AboutUs = () => {
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">Investor Relations</h2>
               <p className="text-[#2F3A4A] leading-relaxed">
-                BluBrg is a growing market and delivering rapid growth to our investors on the 5 billion company. Stay updated with our latest financial news, quarterly reports, and investor presentations.
+                BluBridge is a growing market and delivering rapid growth to our investors on the 5 billion company. Stay updated with our latest financial news, quarterly reports, and investor presentations.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors">
                 Contact IR team <ArrowRight className="w-4 h-4" />

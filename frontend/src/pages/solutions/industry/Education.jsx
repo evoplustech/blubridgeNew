@@ -129,7 +129,7 @@ const Education = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Elevate Advanced Research Projects | BluBrg');
+  useDocumentTitle('Elevate Advanced Research Projects | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -294,7 +294,7 @@ const Education = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           
@@ -348,20 +348,20 @@ const Education = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes BluBrg's GPU Cloud suitable for educational institutions?",
-                answer: "BluBrg offers academic pricing, scalable on-demand resources, and pre-configured environments for AI/ML research and teaching. Our platform makes high-performance computing accessible to universities and schools without massive upfront infrastructure investments."
+                question: "What makes BluBridge's GPU Cloud suitable for educational institutions?",
+                answer: "BluBridge offers academic pricing, scalable on-demand resources, and pre-configured environments for AI/ML research and teaching. Our platform makes high-performance computing accessible to universities and schools without massive upfront infrastructure investments."
               },
               {
-                question: "How can students and researchers access BluBrg resources?",
+                question: "How can students and researchers access BluBridge resources?",
                 answer: "We provide multi-user environments with role-based access control, allowing institutions to easily provision accounts for students, faculty, and research teams. Collaborative tools enable seamless project sharing and resource allocation."
               },
               {
-                question: "Does BluBrg support academic research requirements?",
+                question: "Does BluBridge support academic research requirements?",
                 answer: "Yes, our platform supports reproducible research with saved configurations, version control for experiments, and publication-ready documentation. We also offer special pricing and extended compute allocations for research projects."
               },
               {
                 question: "What kind of AI/ML tools are available for education?",
-                answer: "BluBrg's AI Marketplace includes popular frameworks like TensorFlow, PyTorch, and Jupyter notebooks, along with pre-configured environments for machine learning courses, data science education, and advanced AI research."
+                answer: "BluBridge's AI Marketplace includes popular frameworks like TensorFlow, PyTorch, and Jupyter notebooks, along with pre-configured environments for machine learning courses, data science education, and advanced AI research."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">

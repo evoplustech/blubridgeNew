@@ -108,7 +108,7 @@ const Marketplace = () => {
 
   const faqs = [
     {
-      question: "What AI/ML tools are available in the BluBrg AI Marketplace?",
+      question: "What AI/ML tools are available in the BluBridge AI Marketplace?",
       answer: "The Blubrg AI Marketplace provides a broad selection of leading AI/ML tools, including widely used frameworks such as PyTorch and TensorFlow, all optimized for seamless integration with our platform."
     },
     {
@@ -134,7 +134,7 @@ const Marketplace = () => {
     { type: 'TEXT GENERATION', name: 'PHI 3', provider: 'MICROSOFT' }
   ];
 
-  useDocumentTitle('AI Marketplace | BluBrg');
+  useDocumentTitle('AI Marketplace | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Hero Section */}
@@ -504,7 +504,7 @@ const Marketplace = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBrg's Data centers</h4>
+                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBridge's Data centers</h4>
                     <p className="text-[#2F3A4A] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>

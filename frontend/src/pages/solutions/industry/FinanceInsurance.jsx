@@ -129,7 +129,7 @@ const FinanceInsurance = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Enhancing Finance and Insurance Services with Cloud GPUs | BluBrg');
+  useDocumentTitle('Enhancing Finance and Insurance Services with Cloud GPUs | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -329,7 +329,7 @@ const FinanceInsurance = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           
@@ -383,19 +383,19 @@ const FinanceInsurance = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes BluBrg's GPU Cloud suitable for financial services?",
-                answer: "BluBrg provides enterprise-grade security with SOC 2 and ISO 27001 compliance, sub-millisecond latency for real-time trading applications, and the computational power needed for complex financial modelling, risk analysis, and fraud detection at scale."
+                question: "What makes BluBridge's GPU Cloud suitable for financial services?",
+                answer: "BluBridge provides enterprise-grade security with SOC 2 and ISO 27001 compliance, sub-millisecond latency for real-time trading applications, and the computational power needed for complex financial modelling, risk analysis, and fraud detection at scale."
               },
               {
-                question: "How does BluBrg handle regulatory compliance?",
+                question: "How does BluBridge handle regulatory compliance?",
                 answer: "Our infrastructure is built with compliance in mind, supporting GDPR, CCPA, and PCI DSS requirements. We provide comprehensive audit logging, data residency controls, and real-time compliance monitoring to meet financial regulatory standards."
               },
               {
-                question: "Can BluBrg support high-frequency trading workloads?",
-                answer: "Yes, BluBrg's infrastructure delivers sub-millisecond latency and can process millions of transactions per second. Our GPU-accelerated platform is optimised for algorithmic trading, market analysis, and real-time risk calculations."
+                question: "Can BluBridge support high-frequency trading workloads?",
+                answer: "Yes, BluBridge's infrastructure delivers sub-millisecond latency and can process millions of transactions per second. Our GPU-accelerated platform is optimised for algorithmic trading, market analysis, and real-time risk calculations."
               },
               {
-                question: "What security measures protect financial data on BluBrg?",
+                question: "What security measures protect financial data on BluBridge?",
                 answer: "We implement end-to-end encryption, private VPC deployments, role-based access control, and comprehensive audit logging. Our data centres undergo regular penetration testing and maintain 99.99% uptime SLA for financial-grade reliability."
               }
             ].map((faq, i) => (

@@ -27,7 +27,7 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  useDocumentTitle('Blog | BluBrg');
+  useDocumentTitle('Blog | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Hero */}
@@ -38,7 +38,7 @@ const Blog = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
-              BluBrg Blog
+              BluBridge Blog
             </h1>
             <p className="text-xl text-[#2F3A4A]">
               Insights on AI infrastructure, cloud computing, and the future of technology.

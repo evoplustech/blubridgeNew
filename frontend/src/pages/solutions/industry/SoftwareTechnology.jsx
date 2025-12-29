@@ -184,7 +184,7 @@ const SoftwareTechnology = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Enhancing Tech with GPU Cluster Solutions | BluBrg');
+  useDocumentTitle('Enhancing Tech with GPU Cluster Solutions | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -349,7 +349,7 @@ const SoftwareTechnology = () => {
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-purple-400 text-sm mb-4">Marketplace</p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                An ecosystem of services for developing and deploying AI applications built using BluBrg's tools and popular AI/ML software.
+                An ecosystem of services for developing and deploying AI applications built using BluBridge's tools and popular AI/ML software.
               </p>
             </div>
           </div>
@@ -362,7 +362,7 @@ const SoftwareTechnology = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           
@@ -416,20 +416,20 @@ const SoftwareTechnology = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "How does BluBrg help software teams deploy AI faster?",
-                answer: "BluBrg provides pre-configured GPU environments with popular ML frameworks, simple APIs for deployment, and auto-scaling infrastructure. Teams can go from model training to production deployment in minutes instead of weeks, without managing complex infrastructure."
+                question: "How does BluBridge help software teams deploy AI faster?",
+                answer: "BluBridge provides pre-configured GPU environments with popular ML frameworks, simple APIs for deployment, and auto-scaling infrastructure. Teams can go from model training to production deployment in minutes instead of weeks, without managing complex infrastructure."
               },
               {
                 question: "What security measures protect our code and data?",
-                answer: "BluBrg implements enterprise-grade security including SOC 2 Type II certification, end-to-end encryption, private VPC deployments, and isolated compute environments. Your code and data never leave your control, and we maintain comprehensive audit logging."
+                answer: "BluBridge implements enterprise-grade security including SOC 2 Type II certification, end-to-end encryption, private VPC deployments, and isolated compute environments. Your code and data never leave your control, and we maintain comprehensive audit logging."
               },
               {
-                question: "Can BluBrg handle variable compute demands?",
+                question: "Can BluBridge handle variable compute demands?",
                 answer: "Yes, our platform auto-scales from zero to thousands of GPUs based on demand. You only pay for what you use, and our infrastructure handles traffic spikes seamlessly without manual intervention or performance degradation."
               },
               {
                 question: "Which ML frameworks and tools are supported?",
-                answer: "BluBrg supports all major frameworks including PyTorch, TensorFlow, JAX, and Hugging Face. Our marketplace includes pre-configured environments, popular libraries, and one-click deployment templates for common AI applications."
+                answer: "BluBridge supports all major frameworks including PyTorch, TensorFlow, JAX, and Hugging Face. Our marketplace includes pre-configured environments, popular libraries, and one-click deployment templates for common AI applications."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">

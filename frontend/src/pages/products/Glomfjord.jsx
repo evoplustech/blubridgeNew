@@ -64,8 +64,8 @@ const Glomfjord = () => {
       answer: "Glomfjord's Arctic location offers natural cooling advantages, reducing energy consumption. Combined with abundant renewable power, double-redundant low-latency fibre connectivity, and our optimized AI infrastructure, it provides exceptional performance and efficiency for AI workloads."
     },
     {
-      question: "How does BluBrg contribute to the local community?",
-      answer: "BluBrg actively invests in Glomfjord's community by funding local infrastructure, creating employment opportunities, and exploring innovative heat reuse projects such as heating the local community swimming pool with waste heat from the data center."
+      question: "How does BluBridge contribute to the local community?",
+      answer: "BluBridge actively invests in Glomfjord's community by funding local infrastructure, creating employment opportunities, and exploring innovative heat reuse projects such as heating the local community swimming pool with waste heat from the data center."
     },
     {
       question: "What compute capacity is available at Glomfjord?",
@@ -83,7 +83,7 @@ const Glomfjord = () => {
     'Pre-configured Infrastructure'
   ];
 
-  useDocumentTitle('Glomfjord AI Data Centre | BluBrg');
+  useDocumentTitle('Glomfjord AI Data Centre | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Glomfjord Data Center Background */}
@@ -192,7 +192,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             </div>
             
             <p className="text-[#2F3A4A] text-sm leading-relaxed">
-              BluBrg features in the brand-new online series 'Transforming Tomorrow' – a highlight episode takes you inside our data center in Glomfjord, Norway where we're building the future. You'll hear from our leadership team as they share our vision for how the way we build today can redefine how we live tomorrow. The series is produced by BBC Storyworks Commercial Productions.
+              BluBridge features in the brand-new online series 'Transforming Tomorrow' – a highlight episode takes you inside our data center in Glomfjord, Norway where we're building the future. You'll hear from our leadership team as they share our vision for how the way we build today can redefine how we live tomorrow. The series is produced by BBC Storyworks Commercial Productions.
             </p>
           </div>
         </div>
@@ -212,7 +212,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                   This unique location is perfectly suited to High Performance Computing (HPC) and the computational requirements of AI—it's cold, well connected, and there is a stable oversupply of renewable energy.
                 </p>
                 <p>
-                  BluBrg is actively investing in the community. We are putting money towards local infrastructure, creating jobs, and looking to reuse the data centers generated heat for things such as warming the local community swimming pool.
+                  BluBridge is actively investing in the community. We are putting money towards local infrastructure, creating jobs, and looking to reuse the data centers generated heat for things such as warming the local community swimming pool.
                 </p>
               </div>
             </div>
@@ -267,13 +267,13 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">Power Supply</h2>
               <div className="space-y-4 text-[#2F3A4A] leading-relaxed">
                 <p>
-                  To meet the demand for AI infrastructure, BluBrg operates data centers in regions with a stable oversupply of renewable power. This strategy avoids straining the local grid and prevents driving up energy prices for residents.
+                  To meet the demand for AI infrastructure, BluBridge operates data centers in regions with a stable oversupply of renewable power. This strategy avoids straining the local grid and prevents driving up energy prices for residents.
                 </p>
                 <p>
                   Glomfjord, with its hydropower dams, boasts an abundance of renewable energy. This results in a stable supply of excess renewable power, ideal for supporting AI infrastructure needs.
                 </p>
                 <p>
-                  BluBrg's AI data center is powered entirely by this renewable energy, ensuring that we provide sustainable and efficient AI compute.
+                  BluBridge's AI data center is powered entirely by this renewable energy, ensuring that we provide sustainable and efficient AI compute.
                 </p>
               </div>
             </div>
@@ -290,7 +290,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-[#328CC1] hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-[#328CC1] hover:underline">BluBridge</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
             </div>
             
@@ -333,7 +333,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-[#0B1F3B] text-sm font-medium">BluBridge's Data centers</div>
                     <div className="text-xs text-[#6B7280]">Powered by renewable energy</div>
                   </div>
                 </div>

@@ -153,7 +153,7 @@ const Careers = () => {
     }
   ];
 
-  useDocumentTitle('Careers | BluBrg');
+  useDocumentTitle('Careers | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* Hero Section with Animated Flowing Lines */}
@@ -282,11 +282,11 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Life at BluBrg - Video Section */}
+      {/* Life at BluBridge - Video Section */}
       {/* <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBridge</h2>
             <p className="text-[#2F3A4A] text-lg max-w-2xl">
               Our workplace culture is one where people come together to innovate, learn, and grow. We support each other, work hard, and celebrate what we achieve as a team.
             </p>
@@ -297,7 +297,7 @@ const Careers = () => {
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-              title="Life at BluBrg"
+              title="Life at BluBridge"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

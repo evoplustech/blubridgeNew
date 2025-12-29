@@ -128,7 +128,7 @@ const Telco = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Scalable AIaaS & AI Data Centers for Telco Providers | BluBrg - Next-Gen GPU Infrastructure');
+  useDocumentTitle('Scalable AIaaS & AI Data Centers for Telco Providers | BluBridge - Next-Gen GPU Infrastructure');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -209,7 +209,7 @@ const Telco = () => {
             {/* Left Column - Descriptive content */}
             <div className="space-y-8">
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-[#328CC1] mb-2">White-label BluBrg's end-to-end Cloud Platform</h3>
+                <h3 className="text-lg font-semibold text-[#328CC1] mb-2">White-label BluBridge's end-to-end Cloud Platform</h3>
                 <p className="text-[#6B7280] text-sm leading-relaxed">
                   Telcos can build their own branded cloud services using Blubrg’s complete cloud platform, giving them the ability to offer AI-powered solutions and services without heavy upfront investment.
                 </p>
@@ -291,7 +291,7 @@ const Telco = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           
@@ -346,20 +346,20 @@ const Telco = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes BluBrg's GPU Cloud different from others?",
-                answer: "BluBrg owns and operates the full AI stack – from its data centre to the sophisticated orchestration layer – and this allows BluBrg to optimise each layer of the stack to deliver high-performance computing for telco workloads, maximise utilisation, and ensure scalability."
+                question: "What makes BluBridge's GPU Cloud different from others?",
+                answer: "BluBridge owns and operates the full AI stack – from its data centre to the sophisticated orchestration layer – and this allows BluBridge to optimise each layer of the stack to deliver high-performance computing for telco workloads, maximise utilisation, and ensure scalability."
               },
               {
-                question: "How can Telcos benefit from BluBrg's infrastructure?",
-                answer: "Telcos can leverage BluBrg's GPU infrastructure for network optimisation, predictive maintenance, 5G enhancement, customer analytics, and AI-powered services. Our platform enables faster deployment of AI models while reducing operational costs."
+                question: "How can Telcos benefit from BluBridge's infrastructure?",
+                answer: "Telcos can leverage BluBridge's GPU infrastructure for network optimisation, predictive maintenance, 5G enhancement, customer analytics, and AI-powered services. Our platform enables faster deployment of AI models while reducing operational costs."
               },
               {
-                question: "Does BluBrg support edge computing for Telcos?",
-                answer: "Yes, BluBrg's infrastructure supports edge deployment scenarios, enabling telcos to run AI models closer to end users for ultra-low latency applications. This is critical for 5G services, autonomous vehicles, and IoT ecosystems."
+                question: "Does BluBridge support edge computing for Telcos?",
+                answer: "Yes, BluBridge's infrastructure supports edge deployment scenarios, enabling telcos to run AI models closer to end users for ultra-low latency applications. This is critical for 5G services, autonomous vehicles, and IoT ecosystems."
               },
               {
-                question: "What security and compliance certifications does BluBrg have?",
-                answer: "BluBrg maintains enterprise-grade security with SOC 2 and ISO compliance certifications. Our infrastructure is designed to meet the stringent security requirements of telecommunications providers handling sensitive customer data."
+                question: "What security and compliance certifications does BluBridge have?",
+                answer: "BluBridge maintains enterprise-grade security with SOC 2 and ISO compliance certifications. Our infrastructure is designed to meet the stringent security requirements of telecommunications providers handling sensitive customer data."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">

@@ -230,15 +230,15 @@ const GPUNodes = () => {
 
   const faqs = [
     {
-      question: "What is GPU Nodes from BluBrg and how does it work?",
+      question: "What is GPU Nodes from BluBridge and how does it work?",
       answer: "GPU Nodes provide remote access to high-performance GPUs over the internet. Users can provision and scale GPU resources on demand to support workloads such as AI training, rendering, and scientific computing."
     },
     {
-      question: "What types of GPUs does BluBrg offer?",
+      question: "What types of GPUs does BluBridge offer?",
       answer: "A wide range of NVIDIA GPUs is available to support different use cases, including A100, H100, H200, GB200, and V100, each suited to specific AI, compute, and graphics-intensive workloads."
     },
     {
-      question: "What are the benefits of using GPU Nodes from BluBrg?",
+      question: "What are the benefits of using GPU Nodes from BluBridge?",
       answer: "Key benefits include:Access to powerful GPU hardware without upfront investment,Flexible scaling to match changing workload requirements,Usage-based pricing for better cost control,Multiple GPU options to suit different performance needs,Simplified management through a user-friendly platform,Reliable performance supported by robust infrastructure and expert support"
     },
     {
@@ -246,16 +246,16 @@ const GPUNodes = () => {
       answer: "GPU Nodes are well suited for:,Artificial intelligence and machine learning research,Gaming, media, and entertainment workloads,Healthcare imaging and data analysis,Financial modelling and risk analysis,Automotive development, including autonomous systems,Aerospace and engineering simulations"
     },
     {
-      question: "How secure is GPU Nodes with BluBrg?",
+      question: "How secure is GPU Nodes with BluBridge?",
       answer: "Strong security measures are in place, including industry-standard encryption, strict access controls, and advanced network protections to safeguard workloads and data."
     },
     {
-      question: "Can I try GPU Nodes from BluBrg before committing?",
+      question: "Can I try GPU Nodes from BluBridge before committing?",
       answer: "Yes, trial options are available, allowing users to explore the platform, deploy GPU resources, and evaluate performance before making a long-term commitment."
     }
   ];
 
-  useDocumentTitle('GPU Nodes for AI, ML and HPC | BluBrg');
+  useDocumentTitle('GPU Nodes for AI, ML and HPC | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* Hero Section with Animation */}
@@ -486,7 +486,7 @@ const GPUNodes = () => {
                     <Shield className="w-5 h-5 text-[#328CC1]" />
                   </div>
                   <div>
-                    <p className="font-medium text-sm">BluBrg's Data centers</p>
+                    <p className="font-medium text-sm">BluBridge's Data centers</p>
                     <p className="text-xs text-[#2F3A4A]">Powered by renewable energy</p>
                   </div>
                 </div>

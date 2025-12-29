@@ -20,7 +20,7 @@ const Documentation = () => {
     {
       icon: <Code className="w-8 h-8" />,
       title: 'API Reference',
-      description: 'Complete API documentation for all BluBrg services.',
+      description: 'Complete API documentation for all BluBridge services.',
       links: [
         { name: 'Authentication', url: '#' },
         { name: 'REST API', url: '#' },
@@ -31,7 +31,7 @@ const Documentation = () => {
     {
       icon: <Zap className="w-8 h-8" />,
       title: 'Training & Fine-tuning',
-      description: 'Learn how to train and fine-tune AI models on BluBrg.',
+      description: 'Learn how to train and fine-tune AI models on BluBridge.',
       links: [
         { name: 'Model Training', url: '#' },
         { name: 'Fine-tuning Guide', url: '#' },
@@ -74,7 +74,7 @@ const Documentation = () => {
     }
   ];
 
-  useDocumentTitle('Documentation | BluBrg');
+  useDocumentTitle('Documentation | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -86,7 +86,7 @@ const Documentation = () => {
               Documentation
             </h1>
             <p className="text-xl text-[#2F3A4A] mb-8">
-              Everything you need to build and deploy AI applications on BluBrg.
+              Everything you need to build and deploy AI applications on BluBridge.
             </p>
             <div className="max-w-2xl mx-auto">
               <input
@@ -133,7 +133,7 @@ const Documentation = () => {
             {[
               {
                 title: 'Train Your First Model',
-                description: 'Step-by-step guide to training a language model on BluBrg.',
+                description: 'Step-by-step guide to training a language model on BluBridge.',
                 time: '15 min read'
               },
               {

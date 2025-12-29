@@ -2,7 +2,7 @@ import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const TransparencyHumanRights = () => {
-  useDocumentTitle('Transparency & Human Rights | BluBrg');
+  useDocumentTitle('Transparency & Human Rights | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#F3F6E8]">      {/* Content Section */}
@@ -18,7 +18,7 @@ const TransparencyHumanRights = () => {
             {/* Introduction */}
             <div className="space-y-6 mb-12">
               <p className="text-[#243447] text-base leading-relaxed">
-                At BluBrg, we are committed to upholding the highest standards of transparency and respect for human rights across all our operations. This statement outlines our approach to ensuring ethical practices throughout our business activities.
+                At BluBridge, we are committed to upholding the highest standards of transparency and respect for human rights across all our operations. This statement outlines our approach to ensuring ethical practices throughout our business activities.
               </p>
             </div>
 
@@ -27,7 +27,7 @@ const TransparencyHumanRights = () => {
               <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">1. Our Commitment</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
-                  BluBrg is dedicated to conducting business in a manner that respects and promotes human rights. We recognize our responsibility to respect internationally recognized human rights standards, including those set forth in the United Nations Guiding Principles on Business and Human Rights.
+                  BluBridge is dedicated to conducting business in a manner that respects and promotes human rights. We recognize our responsibility to respect internationally recognized human rights standards, including those set forth in the United Nations Guiding Principles on Business and Human Rights.
                 </p>
                 <p className="text-[#243447] text-base leading-relaxed">
                   We strive to ensure that our operations do not contribute to human rights abuses and that we take appropriate steps to address any adverse human rights impacts that may arise from our business activities.

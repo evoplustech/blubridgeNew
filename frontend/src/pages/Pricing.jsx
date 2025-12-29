@@ -65,7 +65,7 @@ const Pricing = () => {
     { name: 'Dedicated Account Manager', price: 'Included in Enterprise' }
   ];
 
-  useDocumentTitle('Pricing | BluBrg');
+  useDocumentTitle('Pricing | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Hero */}

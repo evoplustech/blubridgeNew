@@ -212,7 +212,7 @@ const Training = () => {
     { name: 'GPU nodes', type: 'hardware' }
   ];
 
-  useDocumentTitle('GPU Clusters for Training AI Models | BluBrg');
+  useDocumentTitle('GPU Clusters for Training AI Models | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
@@ -503,7 +503,7 @@ const Training = () => {
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-white text-sm font-medium">BluBridge's Data centers</div>
                     <div className="text-xs text-white/60">Powered by renewable energy</div>
                   </div>
                 </div>

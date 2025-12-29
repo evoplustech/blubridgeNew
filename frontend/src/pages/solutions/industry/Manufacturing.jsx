@@ -233,7 +233,7 @@ const Manufacturing = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Enabling AI for Manufacturing with High Performance GPUs | BluBrg');
+  useDocumentTitle('Enabling AI for Manufacturing with High Performance GPUs | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -412,7 +412,7 @@ const Manufacturing = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           
@@ -471,16 +471,16 @@ const Manufacturing = () => {
                 answer: "GPU computing enables real-time AI inference for quality control, predictive maintenance models that analyse thousands of sensor inputs simultaneously, and complex simulations like CFD and FEA that run 10-50x faster than CPU-based alternatives."
               },
               {
-                question: "What types of manufacturing simulations can BluBrg accelerate?",
-                answer: "BluBrg accelerates a wide range of simulations including finite element analysis (FEA), computational fluid dynamics (CFD), digital twin modelling, discrete event simulation, and multi-physics simulations for product design and process optimisation."
+                question: "What types of manufacturing simulations can BluBridge accelerate?",
+                answer: "BluBridge accelerates a wide range of simulations including finite element analysis (FEA), computational fluid dynamics (CFD), digital twin modelling, discrete event simulation, and multi-physics simulations for product design and process optimisation."
               },
               {
-                question: "How does predictive maintenance work with BluBrg?",
+                question: "How does predictive maintenance work with BluBridge?",
                 answer: "Our platform processes real-time sensor data from equipment using AI models that identify patterns indicating potential failures. Manufacturers can deploy models that predict failures days or weeks in advance, enabling scheduled maintenance that reduces downtime by up to 50%."
               },
               {
-                question: "Can BluBrg support edge deployment for factory floor applications?",
-                answer: "Yes, BluBrg supports both cloud and edge deployment scenarios. Our inference platform delivers sub-10ms latency for real-time applications like visual inspection and robotic control, critical for factory floor operations."
+                question: "Can BluBridge support edge deployment for factory floor applications?",
+                answer: "Yes, BluBridge supports both cloud and edge deployment scenarios. Our inference platform delivers sub-10ms latency for real-time applications like visual inspection and robotic control, critical for factory floor operations."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">

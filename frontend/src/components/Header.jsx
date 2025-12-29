@@ -91,7 +91,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 bg-[#F3F6E8]/95 backdrop-blur-lg shadow-sm border-b border-[#D6DEC3]" style={{ zIndex: 1000 }}>
       {/* Top banner */}
       <div className="bg-[#0B1F3B] text-white py-2 px-6 text-center text-sm">
-        <span>BluBrg contracts approximately 200,000 NVIDIA GB300 GPUs with Microsoft</span>
+        <span>BluBridge contracts approximately 200,000 NVIDIA GB300 GPUs with Microsoft</span>
         <Link to="/news" className="ml-2 underline hover:no-underline">See More →</Link>
       </div>
 

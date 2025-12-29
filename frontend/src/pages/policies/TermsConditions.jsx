@@ -2,7 +2,7 @@ import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const TermsConditions = () => {
-  useDocumentTitle('Terms & Conditions | BluBrg');
+  useDocumentTitle('Terms & Conditions | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#F3F6E8]">      {/* Content Section */}
@@ -18,7 +18,7 @@ const TermsConditions = () => {
             {/* Introduction */}
             <div className="space-y-6 mb-12">
               <p className="text-[#243447] text-base leading-relaxed">
-                Welcome to BluBrg. These Terms and Conditions ("Terms") govern your use of our website, products, and services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.
+                Welcome to BluBridge. These Terms and Conditions ("Terms") govern your use of our website, products, and services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.
               </p>
             </div>
 
@@ -40,7 +40,7 @@ const TermsConditions = () => {
               <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">2. Services Description</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
-                  BluBrg provides cloud computing infrastructure, GPU resources, and related services for artificial intelligence and machine learning workloads. Our Services include, but are not limited to:
+                  BluBridge provides cloud computing infrastructure, GPU resources, and related services for artificial intelligence and machine learning workloads. Our Services include, but are not limited to:
                 </p>
                 <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
                   <li>GPU compute resources (nodes, clusters)</li>
@@ -83,7 +83,7 @@ const TermsConditions = () => {
                   <li>Attempt to gain unauthorized access to our systems or networks</li>
                   <li>Interfere with or disrupt the integrity of our Services</li>
                   <li>Use our Services for cryptocurrency mining without authorization</li>
-                  <li>Engage in any activity that could harm BluBrg or its users</li>
+                  <li>Engage in any activity that could harm BluBridge or its users</li>
                 </ul>
               </div>
             </div>
@@ -110,7 +110,7 @@ const TermsConditions = () => {
               <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">6. Intellectual Property</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
-                  All content, features, and functionality of our Services, including but not limited to text, graphics, logos, and software, are owned by BluBrg or its licensors and are protected by intellectual property laws.
+                  All content, features, and functionality of our Services, including but not limited to text, graphics, logos, and software, are owned by BluBridge or its licensors and are protected by intellectual property laws.
                 </p>
                 <p className="text-[#243447] text-base leading-relaxed">
                   You retain ownership of any content you upload or create using our Services. By uploading content, you grant us a limited license to use, store, and process that content solely for the purpose of providing the Services.
@@ -149,7 +149,7 @@ const TermsConditions = () => {
               <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">9. Indemnification</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
-                  You agree to indemnify, defend, and hold harmless BluBrg and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with your use of the Services or violation of these Terms.
+                  You agree to indemnify, defend, and hold harmless BluBridge and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with your use of the Services or violation of these Terms.
                 </p>
               </div>
             </div>

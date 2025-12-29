@@ -15,7 +15,7 @@ const Contact = () => {
   const [emailVerified, setEmailVerified] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useDocumentTitle('Contact | BluBrg');
+  useDocumentTitle('Contact | BluBridge');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

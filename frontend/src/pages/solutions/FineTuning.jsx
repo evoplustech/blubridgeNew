@@ -11,7 +11,7 @@ const FineTuning = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI Cloud Platform for Model Fine-Tuning | BluBrg');
+  useDocumentTitle('AI Cloud Platform for Model Fine-Tuning | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -40,7 +40,7 @@ const FineTuning = () => {
               MODEL<br />FINE-TUNING
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              At BluBrg, we offer GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support ensure that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
+              At BluBridge, we offer GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support ensure that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact">
@@ -178,7 +178,7 @@ const FineTuning = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Fine-Tuning Stack</h2>
             <p className="text-base text-[#6B7280] max-w-2xl">
-              BluBrg provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
+              BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
             </p>
           </div>
 
@@ -362,7 +362,7 @@ const FineTuning = () => {
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>
           
@@ -410,11 +410,11 @@ const FineTuning = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes BluBrg's GPU Cloud different from others?",
+                question: "What makes BluBridge's GPU Cloud different from others?",
                 answer: "Blubrg owns and operates the entire infrastructure stack, from physical data centres to orchestration software, allowing the company to tune every layer for performance, efficiency, and scalability. This integrated approach delivers superior compute power and expert support for complex AI workloads."
               },
               {
-                question: "What types of GPUs does BluBrg offer?",
+                question: "What types of GPUs does BluBridge offer?",
                 answer: "A range of high-performance NVIDIA GPUs are available to support different fine-tuning workloads, giving you flexibility in choosing the right hardware for your model size and performance needs."
               },
               {

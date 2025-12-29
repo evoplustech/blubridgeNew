@@ -12,7 +12,7 @@ const Training = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('AI Compute for Training LLMs | BluBrg');
+  useDocumentTitle('AI Compute for Training LLMs | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -41,7 +41,7 @@ const Training = () => {
               MODEL TRAINING
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              BluBrg&apos;s GPU Cloud offers a highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity, enabling you to achieve your AI goals easier, faster, and more cost-effectively than alternative Cloud platforms.
+              BluBridge&apos;s GPU Cloud offers a highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity, enabling you to achieve your AI goals easier, faster, and more cost-effectively than alternative Cloud platforms.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -281,7 +281,7 @@ const Training = () => {
          <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>
           
@@ -326,18 +326,18 @@ const Training = () => {
             {[
               {
                 question: "What makes Nscale’s GPU Cloud different from others?",
-                answer: "BluBrg controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
+                answer: "BluBridge controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
               },
               {
-                question: "What types of GPUs does BluBrg offer?",
+                question: "What types of GPUs does BluBridge offer?",
                 answer: "A range of NVIDIA GPU models are available to support different AI development tasks, including GPUs designed for training, inferencing, and other compute-intensive workloads."
               },
               {
-                question: "How does BluBrg support sustainability?",
+                question: "How does BluBridge support sustainability?",
                 answer: "Environmental responsibility is a priority, with the company operating on renewable energy sources and adopting sustainable computing practices to help reduce carbon impact."
               },
               {
-                question: "How does BluBrg accelerate AI development?",
+                question: "How does BluBridge accelerate AI development?",
                 answer: "By simplifying orchestration and workload management through technologies like Kubernetes and SLURM, the platform makes managing GPU resources easier and more responsive to changing demands."
               }
             ].map((faq, i) => (

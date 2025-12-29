@@ -11,7 +11,7 @@ const Inference = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('GPU Nodes for AI & ML Inference | BluBrg');
+  useDocumentTitle('GPU Nodes for AI & ML Inference | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -40,7 +40,7 @@ const Inference = () => {
               AI & ML INFERENCE
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              We offer GPU-accelerated nodes designed for efficient AI and Machine Learning Inference at competitive prices. Our experienced team at BluBrg manages system optimisations and scaling, allowing you to focus on the science instead of infrastructure administration.
+              We offer GPU-accelerated nodes designed for efficient AI and Machine Learning Inference at competitive prices. Our experienced team at BluBridge manages system optimisations and scaling, allowing you to focus on the science instead of infrastructure administration.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact">
@@ -341,7 +341,7 @@ const Inference = () => {
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>
           
@@ -389,15 +389,15 @@ const Inference = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes BluBrg's GPU Cloud different from others?",
+                question: "What makes BluBridge's GPU Cloud different from others?",
                 answer: "Blubrg controls the full infrastructure stack, enabling deep optimisation across hardware, software, and orchestration layers for better performance and efficiency."
               },
               {
-                question: "What types of GPUs does BluBrg offer?",
+                question: "What types of GPUs does BluBridge offer?",
                 answer: "A range of NVIDIA GPUs is available to support different inference workloads, providing flexibility for varying performance and scale requirements."
               },
               {
-                question: "How does BluBrg support sustainability?",
+                question: "How does BluBridge support sustainability?",
                 answer: "Inference workloads run on energy-efficient infrastructure powered by renewable energy, reducing environmental impact without compromising performance."
               },
               {

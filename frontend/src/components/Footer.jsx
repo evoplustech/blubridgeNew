@@ -138,7 +138,7 @@ const Footer = () => {
                 {loading ? 'Submitting...' : 'Contact Now'}
               </Button>
               <p className="text-xs text-[#5B6B7A]">
-                BluBrg is committed to protecting your privacy. We'll only use your information to provide requested content.
+                BluBridge is committed to protecting your privacy. We'll only use your information to provide requested content.
               </p>
             </form>
           </div>
@@ -150,7 +150,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2">
               <img src="https://customer-assets.emergentagent.com/job_scaledup/artifacts/x9xf5rtc_logo3.png" alt="BLUBRG" className="h-8" />
             </div>
-            <p className="text-[#5B6B7A] text-sm">©2025 BluBrg Technologies Private Limited. All rights reserved</p>
+            <p className="text-[#5B6B7A] text-sm">©2025 BluBridge Technologies Private Limited. All rights reserved</p>
             <div className="flex space-x-6 text-sm">
               <Link to="policies/transparency-and-human-rights" className="text-[#243447] hover:text-[#328CC1] transition-colors">Transparency & Human Rights</Link>
               <Link to="/policies/privacy-policy" className="text-[#243447] hover:text-[#328CC1] transition-colors">Privacy Policy</Link>

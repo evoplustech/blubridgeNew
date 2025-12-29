@@ -4,7 +4,7 @@ import { Button } from '../components/ui/button';
 import { Download, Mail } from 'lucide-react';
 
 const MediaKit = () => {
-  useDocumentTitle('Media Kit | BluBrg');
+  useDocumentTitle('Media Kit | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
@@ -12,7 +12,7 @@ const MediaKit = () => {
         <div className="container-custom relative z-10 text-center py-20">
           <h1 className="text-5xl sm:text-6xl font-bold text-[#0B1F3B] mb-6">Media Kit</h1>
           <p className="text-xl text-[#2F3A4A] max-w-2xl mx-auto leading-relaxed">
-            Access our brand resources, logos, and press materials. Everything you need to accurately represent BluBrg in your publications and projects.
+            Access our brand resources, logos, and press materials. Everything you need to accurately represent BluBridge in your publications and projects.
           </p>
         </div>
       </section>
@@ -84,7 +84,7 @@ const MediaKit = () => {
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Company Overview</h2>
             <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10">
               <p className="text-lg text-[#2F3A4A] leading-relaxed mb-8">
-                BluBrg delivers cutting-edge AI infrastructure that empowers organizations to train, deploy, and scale machine learning models efficiently. Our platform combines enterprise-grade security with developer-friendly tools, making advanced AI accessible to companies of all sizes.
+                BluBridge delivers cutting-edge AI infrastructure that empowers organizations to train, deploy, and scale machine learning models efficiently. Our platform combines enterprise-grade security with developer-friendly tools, making advanced AI accessible to companies of all sizes.
               </p>
               <p className="text-lg text-[#2F3A4A] leading-relaxed mb-8">
                 Founded with a vision to democratize artificial intelligence, we provide scalable compute resources, pre-optimized frameworks, and seamless integration capabilities that reduce time-to-market for AI applications.
@@ -117,7 +117,7 @@ const MediaKit = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Brand Guidelines</h2>
             <p className="text-lg text-[#6B7280] mb-12">
-              Download our comprehensive resources to ensure accurate representation of the BluBrg brand.
+              Download our comprehensive resources to ensure accurate representation of the BluBridge brand.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6">

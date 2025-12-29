@@ -3,7 +3,7 @@ import { Users, FileText, ExternalLink } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const Research = () => {
-  useDocumentTitle('Papers & Publications | BluBrg');
+  useDocumentTitle('Papers & Publications | BluBridge');
 
   return (
     <div 

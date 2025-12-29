@@ -181,7 +181,7 @@ const Government = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Drive Innovation in Public Services | BluBrg');
+  useDocumentTitle('Drive Innovation in Public Services | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -360,7 +360,7 @@ const Government = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           
@@ -415,19 +415,19 @@ const Government = () => {
             {[
               {
                 question: "How does AI support public sector modernisation?",
-                answer: "AI enables government agencies to automate routine tasks, analyse vast amounts of data for better decision-making, improve citizen services through chatbots and personalisation, and enhance security through advanced threat detection. BluBrg's GPU infrastructure provides the computational power needed to train and deploy these AI solutions at scale."
+                answer: "AI enables government agencies to automate routine tasks, analyse vast amounts of data for better decision-making, improve citizen services through chatbots and personalisation, and enhance security through advanced threat detection. BluBridge's GPU infrastructure provides the computational power needed to train and deploy these AI solutions at scale."
               },
               {
-                question: "What security and compliance certifications does BluBrg support?",
-                answer: "BluBrg maintains enterprise-grade security with certifications including SOC 2 Type II, ISO 27001, and supports compliance with government-specific requirements. Our infrastructure includes end-to-end encryption, private VPC deployments, comprehensive audit logging, and data sovereignty options for sensitive government workloads."
+                question: "What security and compliance certifications does BluBridge support?",
+                answer: "BluBridge maintains enterprise-grade security with certifications including SOC 2 Type II, ISO 27001, and supports compliance with government-specific requirements. Our infrastructure includes end-to-end encryption, private VPC deployments, comprehensive audit logging, and data sovereignty options for sensitive government workloads."
               },
               {
-                question: "Can BluBrg scale to meet government workload demands?",
-                answer: "Yes, BluBrg's infrastructure is designed for elastic scalability. Government agencies can scale from development workloads to production deployments serving millions of citizens. Our platform automatically adjusts resources based on demand, ensuring optimal performance during peak periods without over-provisioning."
+                question: "Can BluBridge scale to meet government workload demands?",
+                answer: "Yes, BluBridge's infrastructure is designed for elastic scalability. Government agencies can scale from development workloads to production deployments serving millions of citizens. Our platform automatically adjusts resources based on demand, ensuring optimal performance during peak periods without over-provisioning."
               },
               {
-                question: "How does BluBrg help optimise costs for public agencies?",
-                answer: "BluBrg delivers up to 80% cost savings compared to traditional cloud providers through efficient GPU utilisation, pay-as-you-go pricing, and optimised infrastructure. Agencies only pay for the resources they use, eliminating waste from over-provisioning and reducing the total cost of AI initiatives."
+                question: "How does BluBridge help optimise costs for public agencies?",
+                answer: "BluBridge delivers up to 80% cost savings compared to traditional cloud providers through efficient GPU utilisation, pay-as-you-go pricing, and optimised infrastructure. Agencies only pay for the resources they use, eliminating waste from over-provisioning and reducing the total cost of AI initiatives."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">

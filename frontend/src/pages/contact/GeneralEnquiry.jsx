@@ -53,7 +53,7 @@ const GeneralEnquiry = () => {
     }
   };
 
-  useDocumentTitle('General Enquiry | BluBrg');
+  useDocumentTitle('General Enquiry | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Main Content Section */}
@@ -192,7 +192,7 @@ const GeneralEnquiry = () => {
 
                 {/* Privacy Notice */}
                 <div className="text-[#2F3A4A] text-xs leading-relaxed">
-                  BluBrg is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below to say how you would like us to contact you:
+                  BluBridge is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below to say how you would like us to contact you:
                 </div>
 
                 {/* Checkboxes */}
@@ -219,14 +219,14 @@ const GeneralEnquiry = () => {
                       className="w-4 h-4 rounded border-[#D6DEC3] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-[#2F3A4A] text-sm">
-                      I agree to receive marketing communications from BluBrg. You can unsubscribe at any time.
+                      I agree to receive marketing communications from BluBridge. You can unsubscribe at any time.
                     </span>
                   </label>
                 </div>
 
                 {/* Consent Notice */}
                 <div className="text-[#6B7280] text-xs">
-                  By clicking submit below, you consent to allow BluBrg to store and process the personal information submitted above to provide you the content requested.
+                  By clicking submit below, you consent to allow BluBridge to store and process the personal information submitted above to provide you the content requested.
                 </div>
 
                 {/* reCAPTCHA */}
@@ -269,7 +269,7 @@ const GeneralEnquiry = () => {
                 Get access to a fully integrated suite of AI services and compute
               </h2>
               <p className="text-[#2F3A4A] text-base leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-[#328CC1]">BluBrg's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-[#328CC1]">BluBridge's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
             </div>
 
@@ -347,7 +347,7 @@ const GeneralEnquiry = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBrg's Data centers</h4>
+                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBridge's Data centers</h4>
                     <p className="text-[#2F3A4A] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>
@@ -382,7 +382,7 @@ const GeneralEnquiry = () => {
               Get access to a fully integrated suite of AI services and compute
             </h2>
             <p className="text-[#2F3A4A] text-base leading-relaxed">
-              Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using BluBrg's built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+              Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using BluBridge's built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
             </p>
           </div>
         </div>

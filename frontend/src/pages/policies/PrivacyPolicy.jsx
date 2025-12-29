@@ -2,7 +2,7 @@ import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const PrivacyPolicy = () => {
-  useDocumentTitle('Privacy Policy | BluBrg');
+  useDocumentTitle('Privacy Policy | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#F3F6E8]">      {/* Content Section */}
@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
             {/* Introduction */}
             <div className="space-y-6 mb-12">
               <p className="text-[#243447] text-base leading-relaxed">
-                At BluBrg ("we", "us", or "our"), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
+                At BluBridge ("we", "us", or "our"), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
               </p>
             </div>
 

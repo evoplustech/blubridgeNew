@@ -47,7 +47,7 @@ const Solutions = () => {
     { name: 'Healthcare', icon: '🏥', desc: 'Medical imaging and diagnostics' }
   ];
 
-  useDocumentTitle('Solutions | BluBrg');
+  useDocumentTitle('Solutions | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Hero */}

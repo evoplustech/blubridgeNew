@@ -189,7 +189,7 @@ const Legal = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Transform the Practise of Law | BluBrg');
+  useDocumentTitle('Transform the Practise of Law | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">
@@ -367,7 +367,7 @@ const Legal = () => {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#2F3A4A] max-w-2xl">
-              BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
+              BluBridge accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
           
@@ -426,16 +426,16 @@ const Legal = () => {
                 answer: "AI-powered document review uses natural language processing to analyse contracts, briefs, and legal filings at scale. Our GPU-accelerated platform can process thousands of documents in minutes, identifying key clauses, risks, and inconsistencies with up to 95% accuracy."
               },
               {
-                question: "Is BluBrg's platform secure for confidential legal data?",
-                answer: "Yes, BluBrg maintains enterprise-grade security with SOC 2 Type II certification, end-to-end encryption, and private VPC deployments. We understand attorney-client privilege requirements and have designed our infrastructure to meet the highest standards of legal confidentiality."
+                question: "Is BluBridge's platform secure for confidential legal data?",
+                answer: "Yes, BluBridge maintains enterprise-grade security with SOC 2 Type II certification, end-to-end encryption, and private VPC deployments. We understand attorney-client privilege requirements and have designed our infrastructure to meet the highest standards of legal confidentiality."
               },
               {
-                question: "Can BluBrg help with legal research and case prediction?",
+                question: "Can BluBridge help with legal research and case prediction?",
                 answer: "Absolutely. Our platform enables AI models that can analyse millions of case precedents, predict litigation outcomes, and identify relevant legal arguments. Law firms using our infrastructure report 90% time savings in legal research tasks."
               },
               {
-                question: "What types of legal AI applications can run on BluBrg?",
-                answer: "BluBrg supports a wide range of legal AI applications including contract analysis, e-discovery, due diligence automation, compliance monitoring, legal chatbots, and predictive analytics for case outcomes. Our marketplace includes pre-built legal AI tools and frameworks."
+                question: "What types of legal AI applications can run on BluBridge?",
+                answer: "BluBridge supports a wide range of legal AI applications including contract analysis, e-discovery, due diligence automation, compliance monitoring, legal chatbots, and predictive analytics for case outcomes. Our marketplace includes pre-built legal AI tools and frameworks."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">

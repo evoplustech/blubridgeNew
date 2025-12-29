@@ -6,7 +6,7 @@ import { Card, CardContent } from '../../components/ui/card';
 import { Check, Thermometer, Zap, Building2, Leaf } from 'lucide-react';
 
 const Narvik = () => {
-  useDocumentTitle('Narvik AI Data Centre | BluBrg');
+  useDocumentTitle('Narvik AI Data Centre | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Hero Section */}
@@ -203,7 +203,7 @@ const Narvik = () => {
               },
               {
                 title: 'Managed Capacity',
-                description: 'Reserve GPU clusters managed by BluBrg. We handle operations, monitoring, and maintenance.',
+                description: 'Reserve GPU clusters managed by BluBridge. We handle operations, monitoring, and maintenance.',
                 features: ['Pre-configured clusters', 'Kubernetes or SLURM', 'Automatic scaling', 'Included support']
               }
             ].map((model, i) => (

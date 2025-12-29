@@ -253,7 +253,7 @@ const FineTuning = () => {
   // FAQ Data
   const faqs = [
     {
-      question: "Do I need ML experience to fine-tune a model with BluBrg?",
+      question: "Do I need ML experience to fine-tune a model with BluBridge?",
       answer: "No, Blubrg Fine-tuning was created to be straightforward and approachable, revealing advanced options and controls only when required. The offering removes the need for machine learning expertise or platform operations and can be launched by any developer with just $2 in credit."
     },
     {
@@ -308,7 +308,7 @@ const FineTuning = () => {
     { name: 'STABLE', size: 'DIFFUSION XL', author: 'STABILITY' },
   ];
 
-  useDocumentTitle('AI Model Fine-tuning | BluBrg');
+  useDocumentTitle('AI Model Fine-tuning | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
@@ -475,7 +475,7 @@ const FineTuning = () => {
                 </div>
                 <div className="flex-1 mx-4">
                   <div className="bg-slate-700 rounded px-3 py-1 text-xs text-[#2F3A4A] max-w-md">
-                    Introducing BluBrg's fine-tuning service | AI models without the complexity
+                    Introducing BluBridge's fine-tuning service | AI models without the complexity
                   </div>
                 </div>
               </div>
@@ -636,11 +636,11 @@ const FineTuning = () => {
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
                   <span className="text-[#0B1F3B] text-lg pr-4">
-                    {faq.question.includes('BluBrg') ? (
+                    {faq.question.includes('BluBridge') ? (
                       <>
-                        {faq.question.split('BluBrg')[0]}
-                        <span>BluBrg</span>
-                        {faq.question.split('BluBrg')[1]}
+                        {faq.question.split('BluBridge')[0]}
+                        <span>BluBridge</span>
+                        {faq.question.split('BluBridge')[1]}
                       </>
                     ) : faq.question}
                   </span>

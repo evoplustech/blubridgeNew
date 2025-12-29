@@ -92,7 +92,7 @@ const SovereignCloud = () => {
       image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
       date: 'May 21, 2025',
       category: 'ANNOUNCEMENT',
-      title: 'AI hyperscaler BluBrg launches Serverless Inference Platform',
+      title: 'AI hyperscaler BluBridge launches Serverless Inference Platform',
       excerpt: 'New platform for scalable AI inference'
     }
   ];
@@ -104,11 +104,11 @@ const SovereignCloud = () => {
       answer: "AI systems often process sensitive and mission-critical data. Hosting them on sovereign infrastructure ensures compliance with data residency regulations, reduces dependence on foreign cloud providers, and enhances organisational and national security."
     },
     {
-      question: "Can BluBrg support both public and private sector workloads?",
+      question: "Can BluBridge support both public and private sector workloads?",
       answer: "Yes. Blubrg can be deployed as dedicated or air-gapped environments suitable for government bodies, defence organisations, research institutions, and enterprises, offering scalable compute tailored to diverse requirements."
     },
     {
-      question: "How is BluBrg different from other cloud providers?",
+      question: "How is BluBridge different from other cloud providers?",
       answer: "Unlike traditional hyperscalers, Blubrg focuses on AI-optimised infrastructure delivered through sovereign hosting, combining high-performance GPU compute with strong governance and control."
     },
     {
@@ -139,7 +139,7 @@ const SovereignCloud = () => {
     'Optimised Runtime'
   ];
 
-  useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBrg');
+  useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
@@ -347,7 +347,7 @@ const SovereignCloud = () => {
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-[#0B1F3B] text-sm font-medium">BluBridge's Data centers</div>
                     <div className="text-xs text-[#6B7280]">Powered by renewable energy</div>
                   </div>
                 </div>
