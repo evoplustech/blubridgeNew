@@ -239,8 +239,8 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
           <div className="grid md:grid-cols-4 gap-8">
             {keyFacts.map((fact, i) => (
               <div key={i}>
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{fact.value}</div>
-                <div className="text-white font-semibold mb-2">{fact.title}</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-2">{fact.value}</div>
+                <div className="text-[#0B1F3B] font-semibold mb-2">{fact.title}</div>
                 <p className="text-[#243447] text-sm leading-relaxed">{fact.description}</p>
               </div>
             ))}
@@ -333,7 +333,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
                     <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
                   </div>
                 </div>
@@ -359,7 +359,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
-                  <span className="text-white text-lg pr-4">{faq.question}</span>
+                  <span className="text-[#0B1F3B] text-lg pr-4">{faq.question}</span>
                   <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-[#0B1F3B] rotate-180' : 'bg-[#0B1F3B]/80'}`}>
                     {openFaq === index ? (
                       <Minus className="w-4 h-4 text-white" />

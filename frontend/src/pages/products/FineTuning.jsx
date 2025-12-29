@@ -382,7 +382,7 @@ const FineTuning = () => {
               { title: 'Fully serverless', desc: 'Begin instantly, expand effortlessly, and dedicate all attention to creation.', cta: 'Claim $5 free credits' }
             ].map((item, i) => (
               <div key={i} className="text-center md:text-left">
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-[#0B1F3B] mb-2">{item.title}</h3>
                 <p className="text-[#243447] text-sm mb-3">{item.desc}</p>
                 <Link to="/contact" className="text-orange-400 text-sm hover:text-orange-300 flex items-center gap-1 justify-center md:justify-start">
                   {item.cta} <ArrowRight className="w-3 h-3" />
@@ -534,7 +534,7 @@ const FineTuning = () => {
               <div key={i} className="relative">
                 <div className="text-orange-500 text-sm font-bold mb-2">{step.number}</div>
                 <h3 className="text-orange-400 text-sm font-bold tracking-wider mb-1">{step.title}</h3>
-                <p className="text-white text-base font-medium mb-2">{step.subtitle}</p>
+                <p className="text-[#0B1F3B] text-base font-medium mb-2">{step.subtitle}</p>
                 <p className="text-[#243447] text-sm">{step.description}</p>
               </div>
             ))}
@@ -549,7 +549,7 @@ const FineTuning = () => {
             {modelEcosystem.map((model, i) => (
               <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
                 <div className="text-xs text-[#5B6B7A] mb-1">TEXT GENERATION</div>
-                <div className="text-white font-bold text-sm">{model.name}</div>
+                <div className="text-[#0B1F3B] font-bold text-sm">{model.name}</div>
                 <div className="text-[#243447] text-xs">{model.size}</div>
                 <div className="text-orange-400 text-xs mt-2">{model.author}</div>
               </div>
@@ -569,7 +569,7 @@ const FineTuning = () => {
                     <div className="w-10 h-10 bg-slate-700 rounded-lg mx-auto mb-2 flex items-center justify-center">
                       <span className="text-xs text-[#243447]">{name.slice(0, 2)}</span>
                     </div>
-                    <p className="text-white text-xs font-medium">{name}</p>
+                    <p className="text-[#0B1F3B] text-xs font-medium">{name}</p>
                   </div>
                 ))}
               </div>
@@ -635,7 +635,7 @@ const FineTuning = () => {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
-                  <span className="text-white text-lg pr-4">
+                  <span className="text-[#0B1F3B] text-lg pr-4">
                     {faq.question.includes('BluBrg') ? (
                       <>
                         {faq.question.split('BluBrg')[0]}

@@ -214,7 +214,7 @@ const Legal = () => {
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               LEGAL
             </h1>
             <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
@@ -239,19 +239,19 @@ const Legal = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Enhanced Document Analysis</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Document Analysis</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Use powerful AI tools to quickly process and interpret large volumes of legal documents, speeding up tasks such as reviewing case files, contracts, and evidence with greater accuracy.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Improved Predictive Analytics</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Improved Predictive Analytics</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Apply machine learning techniques to forecast case trends, assess litigation risk, and uncover patterns across historical data, enabling more informed decision-making.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Cost Efficiency and Scalability</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost Efficiency and Scalability</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Adopt robust GPU computing resources that adjust to workload demands, helping legal teams increase productivity while managing costs as requirements grow.
               </p>
@@ -265,7 +265,7 @@ const Legal = () => {
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-violet-400 text-sm font-medium mb-3 uppercase tracking-wider">TRANSFORMING LEGAL WORKFLOWS</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
             <p className="text-base text-[#5B6B7A] max-w-3xl">
             Explore how legal organisations use high-performance GPU infrastructure to improve workflows, support critical tasks, and drive innovation across core legal operations.
             </p>
@@ -314,7 +314,7 @@ const Legal = () => {
       {/* Key Services */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* AI Compute Training Card */}
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-violet-500/30 transition-colors">
@@ -323,7 +323,7 @@ const Legal = () => {
                   <Zap className="w-7 h-7 text-violet-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-violet-400 text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A scalable compute environment optimised to shorten model training cycles and increase productivity for legal AI workloads.
@@ -337,7 +337,7 @@ const Legal = () => {
                   <Cpu className="w-7 h-7 text-violet-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-violet-400 text-sm mb-4">Inference</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                A high-performance platform designed to efficiently run inference workloads for production-level AI applications used in legal processes.
@@ -351,7 +351,7 @@ const Legal = () => {
                   <LayoutGrid className="w-7 h-7 text-violet-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-violet-400 text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A collection of tools and frameworks that support the development, deployment, and scaling of AI applications tailored to legal use cases.
@@ -377,7 +377,7 @@ const Legal = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">TRAINING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -387,7 +387,7 @@ const Legal = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -397,7 +397,7 @@ const Legal = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -407,7 +407,7 @@ const Legal = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -418,7 +418,7 @@ const Legal = () => {
       {/* FAQs */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
             {[
               {

@@ -149,7 +149,7 @@ const Telco = () => {
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               TELCO
             </h1>
             <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
@@ -174,19 +174,19 @@ const Telco = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Increased Performance</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Increased Performance</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Handle demanding telco workloads, including real-time traffic processing and deep learning models used for network analytics and optimisation.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Scale Effortlessly</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Scale Effortlessly</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Support dynamic scaling of AI applications for modern telecom requirements like 5G, Internet of Things (IoT) workloads, and distributed edge networks without compromising performance.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Improve Operability</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Improve Operability</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Operate energy-efficient infrastructure that reduces overall carbon impact while supporting advanced telco processes and data operations.
               </p>
@@ -199,7 +199,7 @@ const Telco = () => {
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Telco AI Use Cases</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Telco AI Use Cases</h2>
             <p className="text-base text-[#5B6B7A] max-w-3xl">
               Explore the different ways telecommunications companies can use Blubrg’s GPU infrastructure to deliver smarter AI services, optimise next-generation networks, and drive innovation across the industry.
             </p>
@@ -252,7 +252,7 @@ const Telco = () => {
       {/* Key Services */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Training Card */}
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
@@ -261,7 +261,7 @@ const Telco = () => {
                   <Zap className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-[#328CC1] text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                  A scalable, performance-tuned compute architecture that reduces training times and boosts team productivity.
@@ -275,7 +275,7 @@ const Telco = () => {
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-[#328CC1] text-sm mb-4">GPU Nodes</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 High-performance GPU clusters with advanced networking, storage, and cooling to support AI, machine learning, and high-performance workloads.
@@ -301,7 +301,7 @@ const Telco = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">TRAINING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -311,7 +311,7 @@ const Telco = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -321,7 +321,7 @@ const Telco = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -331,7 +331,7 @@ const Telco = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -342,7 +342,7 @@ const Telco = () => {
       {/* FAQs */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
             {[
               {

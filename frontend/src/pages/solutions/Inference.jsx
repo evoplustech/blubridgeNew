@@ -36,7 +36,7 @@ const Inference = () => {
         {/* Hero content - left aligned with high contrast */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               AI & ML INFERENCE
             </h1>
             <p className="text-lg lg:text-xl text-white/75 mb-10 leading-relaxed max-w-2xl">
@@ -79,19 +79,19 @@ const Inference = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Optimised Performance</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Performance</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Boost throughput and reduce response times using advanced GPU technology specifically tuned for inference workloads.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Simplified Workflows</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Workflows</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Blubrg Cloud removes the complexity of managing and scaling inference operations, enabling teams to concentrate on insights and outcomes rather than resource management
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Versatile Platform</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               The platform supports both batch and continuous inference, including streaming use cases, making it suitable for a wide range of deployment scenarios.
               </p>
@@ -106,7 +106,7 @@ const Inference = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-cyan-400 text-sm font-medium mb-3 uppercase tracking-wider">BLUBRG PLATFORM</p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-6 leading-tight">
                 Speed up time-to-<br />insights
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10 max-w-lg">
@@ -164,7 +164,7 @@ const Inference = () => {
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Inference Stack</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Inference Stack</h2>
             <p className="text-base text-[#5B6B7A] max-w-2xl">
               Blubrg provides a complete inference stack designed to deliver high performance, efficiency, and reliability for production-grade inference workloads.            </p>
           </div>
@@ -258,7 +258,7 @@ const Inference = () => {
       {/* Performance - Horizontal 4 column */}
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-16">Performance</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-16">Performance</h2>
           <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
             {[
               { 
@@ -287,8 +287,8 @@ const Inference = () => {
               }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-1">{item.metric}</div>
-                <div className="text-white text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
+                <div className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-1">{item.metric}</div>
+                <div className="text-[#0B1F3B] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
@@ -302,7 +302,7 @@ const Inference = () => {
       {/* Key Services */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Inference Card */}
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
@@ -311,7 +311,7 @@ const Inference = () => {
                   <Zap className="w-7 h-7 text-cyan-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-cyan-400 text-sm mb-4">Inference</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Dedicated GPU compute optimised for inference workloads, delivering consistent performance and cost efficiency at scale.
@@ -325,7 +325,7 @@ const Inference = () => {
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                A collection of tools and services that support the development, deployment, and scaling of inference pipelines using both Blubrg and popular AI frameworks.
@@ -351,7 +351,7 @@ const Inference = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">TRAINING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -364,7 +364,7 @@ const Inference = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -374,7 +374,7 @@ const Inference = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -385,7 +385,7 @@ const Inference = () => {
       {/* FAQs */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
             {[
               {

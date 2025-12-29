@@ -88,7 +88,7 @@ const Sales = () => {
               <div className="sticky top-32">
                 {/* What is this for? */}
                 <div className="mb-12">
-                  <h3 className="text-xl font-semibold text-white mb-6">What is this for?</h3>
+                  <h3 className="text-xl font-semibold text-[#0B1F3B] mb-6">What is this for?</h3>
                   <div className="space-y-4">
                     {purposes.map((purpose) => (
                       <label
@@ -106,7 +106,7 @@ const Sales = () => {
                             <Check className="w-3 h-3 text-white" />
                           {/* )} */}
                         </div>
-                        <span className="text-white text-sm">{purpose.label}</span>
+                        <span className="text-[#0B1F3B] text-sm">{purpose.label}</span>
                       </label>
                     ))}
                   </div>
@@ -114,7 +114,7 @@ const Sales = () => {
 
                 {/* Technical Support Link */}
                 <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-white mb-3">General question?</h4>
+                  <h4 className="text-lg font-semibold text-[#0B1F3B] mb-3">General question?</h4>
                   <Link to="/contact/general-enquiry">
                     <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-[#D6DEC3] hover:border-blue-500/50 hover:bg-[#EEF2DC] transition-all group">
                       Contact General
@@ -125,7 +125,7 @@ const Sales = () => {
 
                 {/* Investment Link */}
                 {/* <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Interested in Investment?</h4>
+                  <h4 className="text-lg font-semibold text-[#0B1F3B] mb-3">Interested in Investment?</h4>
                   <Link to="/contact/investors">
                     <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-[#D6DEC3] hover:border-blue-500/50 hover:bg-[#EEF2DC] transition-all group">
                       Contact IR Team
@@ -138,13 +138,13 @@ const Sales = () => {
 
             {/* Right Column - Form */}
             <div className="lg:col-span-8">
-              <h1 className="text-4xl font-light text-white mb-10">Contact Sales</h1>
+              <h1 className="text-4xl font-light text-[#0B1F3B] mb-10">Contact Sales</h1>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       First Name<span className="text-red-500 ml-1">*</span>
                     </label>
                     <input
@@ -158,7 +158,7 @@ const Sales = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       Last Name<span className="text-red-500 ml-1">*</span>
                     </label>
                     <input
@@ -176,7 +176,7 @@ const Sales = () => {
                 {/* Email & Company Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       Business Email<span className="text-red-500 ml-1">*</span>
                     </label>
                     <input
@@ -190,7 +190,7 @@ const Sales = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       Company Name<span className="text-red-500 ml-1">*</span>
                     </label>
                     <input
@@ -208,7 +208,7 @@ const Sales = () => {
                 {/* Country & Job Title Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       Country<span className="text-red-500 ml-1">*</span>
                     </label>
                     <select
@@ -232,7 +232,7 @@ const Sales = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       Job Title<span className="text-red-500 ml-1">*</span>
                     </label>
                     <input
@@ -250,7 +250,7 @@ const Sales = () => {
                 {/* Use Case & GPU Type Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       Use Case<span className="text-red-500 ml-1">*</span>
                     </label>
                     <select
@@ -271,7 +271,7 @@ const Sales = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       GPU Type<span className="text-red-500 ml-1">*</span>
                     </label>
                     <select
@@ -296,7 +296,7 @@ const Sales = () => {
                 {/* GPU Count & Project Start Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       Expected number of GPUs<span className="text-red-500 ml-1">*</span>
                     </label>
                     <select
@@ -316,7 +316,7 @@ const Sales = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm text-white mb-2">
+                    <label className="block text-sm text-[#0B1F3B] mb-2">
                       When does your project start?<span className="text-red-500 ml-1">*</span>
                     </label>
                     <select
@@ -339,7 +339,7 @@ const Sales = () => {
 
                 {/* How did you hear about us */}
                 <div>
-                  <label className="block text-sm text-white mb-2">
+                  <label className="block text-sm text-[#0B1F3B] mb-2">
                     How did you hear about us?<span className="text-red-500 ml-1">*</span>
                   </label>
                   <select
@@ -362,7 +362,7 @@ const Sales = () => {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-sm text-white mb-2">
+                  <label className="block text-sm text-[#0B1F3B] mb-2">
                     Tell us more about your needs
                   </label>
                   <textarea
@@ -440,7 +440,7 @@ const Sales = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] mb-6 leading-tight">
                 Get access to a fully integrated suite of AI services and compute
               </h2>
               <p className="text-[#243447] text-base leading-relaxed">
@@ -459,7 +459,7 @@ const Sales = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Serverless</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Serverless</span>
                 </div>
 
                 {/* Marketplace */}
@@ -469,7 +469,7 @@ const Sales = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Marketplace</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Marketplace</span>
                 </div>
 
                 {/* Inference */}
@@ -479,7 +479,7 @@ const Sales = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Inference</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Inference</span>
                 </div>
 
                 {/* Training */}
@@ -489,7 +489,7 @@ const Sales = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Training</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Training</span>
                 </div>
 
                 {/* GPU Nodes */}
@@ -499,7 +499,7 @@ const Sales = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">GPU nodes</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">GPU nodes</span>
                 </div>
 
                 {/* LLM Library */}
@@ -509,7 +509,7 @@ const Sales = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">LLM Library</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">LLM Library</span>
                 </div>
               </div>
 
@@ -522,7 +522,7 @@ const Sales = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium text-sm">BluBrg's Data centers</h4>
+                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBrg's Data centers</h4>
                     <p className="text-[#243447] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>

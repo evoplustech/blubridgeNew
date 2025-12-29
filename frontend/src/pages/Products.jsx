@@ -119,7 +119,7 @@ const Products = () => {
       {/* CTA */}
       <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-6">
             Ready to scale your AI infrastructure?
           </h2>
           <Link to="/contact">

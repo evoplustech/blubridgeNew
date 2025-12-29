@@ -238,15 +238,15 @@ const Serverless = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold text-white mb-2">Lower cost, more power</h3>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-2">Lower cost, more power</h3>
               <p className="text-[#243447] text-sm">Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you.</p>
             </div>
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold text-white mb-2">Engineered for AI workloads</h3>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-2">Engineered for AI workloads</h3>
               <p className="text-[#243447] text-sm">Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.</p>
             </div>
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold text-white mb-2">Scale without the overhead</h3>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-2">Scale without the overhead</h3>
               <p className="text-[#243447] text-sm">From testing through to production, scale your AI workloads without bottlenecks or setup but just results.</p>
             </div>
           </div>

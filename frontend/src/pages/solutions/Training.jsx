@@ -37,7 +37,7 @@ const Training = () => {
         {/* Hero Content */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               MODEL TRAINING
             </h1>
             <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
@@ -94,7 +94,7 @@ const Training = () => {
               }
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4">{item.title}</h3>
                 <p className="text-[#243447] leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -107,7 +107,7 @@ const Training = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-5xl font-bold text-white mb-8">Accelerated Model Training</h2>
+              <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Accelerated Model Training</h2>
               <p className="text-lg text-[#243447] leading-relaxed mb-6">
                 Training advanced AI models requires flexible, reliable, and cost-efficient
                 infrastructure. Blubrg simplifies this by delivering purpose-built systems
@@ -125,12 +125,12 @@ const Training = () => {
             <div className="space-y-8">
               <div className="bg-gradient-to-br from-purple-900/20 to-indigo-900/20 border border-purple-500/30 rounded-2xl p-12 text-center">
                 <div className="text-purple-400 text-sm font-semibold mb-4">AI-IN-A-BOX</div>
-                <div className="text-4xl font-bold text-white mb-2">Pre-configured</div>
+                <div className="text-4xl font-bold text-[#0B1F3B] mb-2">Pre-configured</div>
                 <div className="text-[#5B6B7A]">Training Environments</div>
               </div>
               <div className="bg-gradient-to-br from-indigo-900/20 to-blue-900/20 border border-indigo-500/30 rounded-2xl p-12 text-center">
                 <div className="text-indigo-400 text-sm font-semibold mb-4">TRAINING COMPUTE</div>
-                <div className="text-4xl font-bold text-white mb-2">Scalable</div>
+                <div className="text-4xl font-bold text-[#0B1F3B] mb-2">Scalable</div>
                 <div className="text-[#5B6B7A]">GPU Clusters</div>
               </div>
             </div>
@@ -142,7 +142,7 @@ const Training = () => {
       <section className="py-32 bg-[#0a0a0a]">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-5xl font-bold text-white mb-8">Training Stack</h2>
+            <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
             <p className="text-lg text-[#243447] mb-16 max-w-3xl">
               Our comprehensive training stack provides everything you need from hardware to
               applications, with full flexibility to customise at every layer.
@@ -150,7 +150,7 @@ const Training = () => {
 
             <div className="space-y-8">
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">MARKETPLACE</h3>
+                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch', 'HuggingFace', 'MLflow', 'Ray', 'Weights & Biases'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-2 text-white text-sm">
@@ -162,7 +162,7 @@ const Training = () => {
               </div>
 
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">PLATFORM</h3>
+                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">PLATFORM</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 py-2 text-white text-sm">
@@ -174,7 +174,7 @@ const Training = () => {
               </div>
 
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">INFRASTRUCTURE</h3>
+                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-4 py-2 text-white text-sm">
@@ -186,7 +186,7 @@ const Training = () => {
               </div>
 
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">HARDWARE</h3>
+                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">HARDWARE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['AMD MI300X', 'AMD MI250X', 'NVIDIA GB200', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA A100', '...'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2 text-white text-sm">
@@ -199,23 +199,23 @@ const Training = () => {
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                  <h3 className="text-xl font-bold text-white mb-6">USER EXPERIENCE</h3>
+                  <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">USER EXPERIENCE</h3>
                   <div className="space-y-3">
                     {['Web Console', 'API', 'CLI'].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-cyan-400 rounded-full" />
-                        <span className="text-white">{item}</span>
+                        <span className="text-[#0B1F3B]">{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                  <h3 className="text-xl font-bold text-white mb-6">DATA CENTRE</h3>
+                  <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">DATA CENTRE</h3>
                   <div className="space-y-3">
                     {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-gray-400 rounded-full" />
-                        <span className="text-white">{item}</span>
+                        <span className="text-[#0B1F3B]">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -229,7 +229,7 @@ const Training = () => {
       {/* Performance */}
       <section className="py-32 bg-[#000000]">
         <div className="container-custom">
-          <h2 className="text-5xl font-bold text-white mb-20 text-center">Performance</h2>
+          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20 text-center">Performance</h2>
           <div className="grid md:grid-cols-4 gap-3 max-w-6xl mx-auto">
             {[
               { metric: '30%', label: 'FASTER INSIGHTS', desc: 'Shorten development cycles and accelerate feedback loops with an AI-optimised training platform.' },
@@ -238,8 +238,8 @@ const Training = () => {
               { metric: 'UP TO 7.2X', label: 'FASTER INFERENCE', desc: 'Optimised infrastructure enables faster deployment and inference throughput.' }
             ].map((item, i) => (
               <div key={i} className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-2xl p-10">
-                <div className="text-6xl font-bold text-white mb-2">{item.metric}</div>
-                <div className="text-white text-lg font-semibold mb-4">{item.label}</div>
+                <div className="text-6xl font-bold text-[#0B1F3B] mb-2">{item.metric}</div>
+                <div className="text-[#0B1F3B] text-lg font-semibold mb-4">{item.label}</div>
                 <p className="text-[#5B6B7A] leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -250,7 +250,7 @@ const Training = () => {
       {/* Key Services */}
       <section className="py-32 bg-[#0a0a0a]">
         <div className="container-custom">
-          <h2 className="text-5xl font-bold text-white mb-20">Key Services</h2>
+          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-12">
             {[
               {
@@ -267,7 +267,7 @@ const Training = () => {
               <Card key={i} className="bg-[#121212] border-[#D6DEC3] hover:border-purple-500/50 transition-all">
                 <CardContent className="p-12">
                   <div className="mb-8">{item.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                  <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4">{item.title}</h3>
                   <p className="text-[#243447] leading-relaxed text-lg">{item.desc}</p>
                 </CardContent>
               </Card>
@@ -291,7 +291,7 @@ const Training = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -301,7 +301,7 @@ const Training = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -311,7 +311,7 @@ const Training = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -321,7 +321,7 @@ const Training = () => {
       {/* Faq */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
             {[
               {

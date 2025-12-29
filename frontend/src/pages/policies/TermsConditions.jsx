@@ -10,7 +10,7 @@ const TermsConditions = () => {
         <div className="container-custom">
           <div className="max-w-4xl">
             {/* Page Title */}
-            <h1 className="text-4xl md:text-5xl font-light text-white mb-12">Terms and Conditions</h1>
+            <h1 className="text-4xl md:text-5xl font-light text-[#0B1F3B] mb-12">Terms and Conditions</h1>
 
             {/* Last Updated */}
             <p className="text-[#243447] text-sm mb-12">Last updated: December 2024</p>
@@ -24,7 +24,7 @@ const TermsConditions = () => {
 
             {/* Section 1 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">1. Acceptance of Terms</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">1. Acceptance of Terms</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you may not access or use our Services.
@@ -37,7 +37,7 @@ const TermsConditions = () => {
 
             {/* Section 2 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">2. Services Description</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">2. Services Description</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   BluBrg provides cloud computing infrastructure, GPU resources, and related services for artificial intelligence and machine learning workloads. Our Services include, but are not limited to:
@@ -54,7 +54,7 @@ const TermsConditions = () => {
 
             {/* Section 3 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">3. Account Registration</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">3. Account Registration</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   To access certain features of our Services, you may be required to create an account. You agree to:
@@ -71,7 +71,7 @@ const TermsConditions = () => {
 
             {/* Section 4 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">4. Acceptable Use</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">4. Acceptable Use</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   You agree to use our Services only for lawful purposes and in accordance with these Terms. You agree not to:
@@ -90,7 +90,7 @@ const TermsConditions = () => {
 
             {/* Section 5 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">5. Payment Terms</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">5. Payment Terms</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   Certain Services may require payment. You agree to pay all fees and charges associated with your account on a timely basis. Payment terms include:
@@ -107,7 +107,7 @@ const TermsConditions = () => {
 
             {/* Section 6 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">6. Intellectual Property</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">6. Intellectual Property</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   All content, features, and functionality of our Services, including but not limited to text, graphics, logos, and software, are owned by BluBrg or its licensors and are protected by intellectual property laws.
@@ -120,7 +120,7 @@ const TermsConditions = () => {
 
             {/* Section 7 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">7. Limitation of Liability</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">7. Limitation of Liability</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   TO THE MAXIMUM EXTENT PERMITTED BY LAW, BLUBRG SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE SERVICES.
@@ -133,7 +133,7 @@ const TermsConditions = () => {
 
             {/* Section 8 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">8. Disclaimer of Warranties</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">8. Disclaimer of Warranties</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
@@ -146,7 +146,7 @@ const TermsConditions = () => {
 
             {/* Section 9 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">9. Indemnification</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">9. Indemnification</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   You agree to indemnify, defend, and hold harmless BluBrg and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with your use of the Services or violation of these Terms.
@@ -156,7 +156,7 @@ const TermsConditions = () => {
 
             {/* Section 10 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">10. Termination</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">10. Termination</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   We may terminate or suspend your access to the Services immediately, without prior notice or liability, for any reason, including if you breach these Terms. Upon termination, your right to use the Services will immediately cease.
@@ -169,7 +169,7 @@ const TermsConditions = () => {
 
             {/* Section 11 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">11. Governing Law</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">11. Governing Law</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   These Terms shall be governed by and construed in accordance with the laws of Norway, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of the Services shall be subject to the exclusive jurisdiction of the courts of Norway.
@@ -179,7 +179,7 @@ const TermsConditions = () => {
 
             {/* Section 12 */}
             <div className="mb-12">
-              <h2 className="text-2xl font-medium text-white mb-6">12. Severability</h2>
+              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">12. Severability</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
                   If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions shall continue in full force and effect. The invalid or unenforceable provision shall be modified to the minimum extent necessary to make it valid and enforceable.
@@ -189,7 +189,7 @@ const TermsConditions = () => {
 
             {/* Contact */}
             <div className="mt-16 pt-8 border-t border-[#D6DEC3]">
-              <h2 className="text-xl font-medium text-white mb-4">Contact Us</h2>
+              <h2 className="text-xl font-medium text-[#0B1F3B] mb-4">Contact Us</h2>
               <p className="text-[#243447] text-base leading-relaxed">
                 If you have any questions about these Terms, please contact us at{' '}
                 <a href="mailto:legal@blubrg.com" className="text-[#328CC1] hover:text-blue-300 transition-colors">legal@blubrg.com</a>

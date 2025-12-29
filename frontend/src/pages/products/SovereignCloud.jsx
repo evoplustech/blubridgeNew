@@ -214,10 +214,10 @@ const SovereignCloud = () => {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {valuePillars.map((pillar, i) => (
               <div className={`p-6 rounded-xl transition-all duration-300 cursor-pointer bg-slate-900`}>
-                <h3 className="text-sm font-bold text-white mb-3 tracking-wider">{pillar.title}</h3>
+                <h3 className="text-sm font-bold text-[#0B1F3B] mb-3 tracking-wider">{pillar.title}</h3>
                 <p className="text-[#243447] text-xs leading-relaxed">{pillar.description}</p>
                 {/* {pillar.hasLink && activeCard === i && ( */}
-                  <Link to="/contact/sales" className="text-white text-xs mt-4 inline-flex items-center gap-1 hover:underline">
+                  <Link to="/contact/sales" className="text-[#0B1F3B] text-xs mt-4 inline-flex items-center gap-1 hover:underline">
                     Contact Sales <ArrowRight className="w-3 h-3" />
                   </Link>
                 {/* )} */}
@@ -284,7 +284,7 @@ const SovereignCloud = () => {
                     <span className="text-xs text-[#5B6B7A]">{article.date}</span>
                     <span className="text-xs text-[#328CC1] uppercase">{article.category}</span>
                   </div>
-                  <h3 className="text-sm font-semibold text-white mb-2 line-clamp-2">{article.title}</h3>
+                  <h3 className="text-sm font-semibold text-[#0B1F3B] mb-2 line-clamp-2">{article.title}</h3>
                   <p className="text-xs text-[#243447] line-clamp-2">{article.excerpt}</p>
                 </div>
               </div>
@@ -347,7 +347,7 @@ const SovereignCloud = () => {
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
                     <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
                   </div>
                 </div>
@@ -372,7 +372,7 @@ const SovereignCloud = () => {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
-                  <span className="text-white text-lg pr-4">{faq.question}</span>
+                  <span className="text-[#0B1F3B] text-lg pr-4">{faq.question}</span>
                   <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-[#0B1F3B] rotate-180' : 'bg-[#0B1F3B]/80'}`}>
                     {openFaq === index ? (
                       <Minus className="w-4 h-4 text-white" />

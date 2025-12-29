@@ -49,7 +49,7 @@ const Partners = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-6xl font-bold text-white mb-6">
+            <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               Our Partners
             </h1>
             <p className="text-xl text-[#243447]">
@@ -77,12 +77,12 @@ const Partners = () => {
       {/* Partner Types */}
       <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Partnership Ecosystem</h2>
+          <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Partnership Ecosystem</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {partnerTypes.map((type, idx) => (
               <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-3">{type.title}</h3>
+                  <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{type.title}</h3>
                   <p className="text-[#243447] mb-6">{type.description}</p>
                   <ul className="space-y-2">
                     {type.partners.map((partner, i) => (
@@ -103,13 +103,13 @@ const Partners = () => {
       <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-6 text-center">Become a Partner</h2>
+            <h2 className="text-4xl font-bold text-[#0B1F3B] mb-6 text-center">Become a Partner</h2>
             <p className="text-xl text-[#243447] text-center mb-12">
               Join our partner ecosystem and help shape the future of AI infrastructure.
             </p>
             <Card className="bg-white/5 border-[#D6DEC3]">
               <CardContent className="p-12">
-                <h3 className="text-2xl font-bold text-white mb-6">Partner Benefits</h3>
+                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-6">Partner Benefits</h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-8">
                   {benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-center space-x-3 text-[#243447]">
@@ -134,7 +134,7 @@ const Partners = () => {
       {/* CTA */}
       <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-6">
             Let's build together
           </h2>
           <Link to="/contact">

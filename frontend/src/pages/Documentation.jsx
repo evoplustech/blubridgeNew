@@ -167,7 +167,7 @@ const Documentation = () => {
       {/* Support */}
       <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-[#0B1F3B] mb-6">
             Need help?
           </h2>
           <p className="text-xl text-white/80 mb-8">

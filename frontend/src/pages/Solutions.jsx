@@ -57,7 +57,7 @@ const Solutions = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-6xl font-bold text-white mb-6">
+            <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               AI solutions for every use case
             </h1>
             <p className="text-xl text-[#243447] mb-8">
@@ -70,7 +70,7 @@ const Solutions = () => {
       {/* Use Cases */}
       <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">By Use Case</h2>
+          <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">By Use Case</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {useCases.map((useCase, idx) => (
               <Link key={idx} to={useCase.link}>
@@ -79,7 +79,7 @@ const Solutions = () => {
                     <img src={useCase.image} alt={useCase.title} className="w-full h-full object-cover" />
                   </div>
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold text-white mb-3">{useCase.title}</h3>
+                    <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{useCase.title}</h3>
                     <p className="text-[#243447] mb-6">{useCase.description}</p>
                     <div className="flex flex-wrap gap-4">
                       {useCase.stats.map((stat, i) => (
@@ -99,13 +99,13 @@ const Solutions = () => {
       {/* Industries */}
       <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">By Industry</h2>
+          <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">By Industry</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((industry, idx) => (
               <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#EEF2DC] transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-4">{industry.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{industry.name}</h3>
+                  <h3 className="text-xl font-semibold text-[#0B1F3B] mb-2">{industry.name}</h3>
                   <p className="text-[#5B6B7A] text-sm">{industry.desc}</p>
                 </CardContent>
               </Card>
@@ -117,7 +117,7 @@ const Solutions = () => {
       {/* CTA */}
       <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-6">
             Let's build your AI solution
           </h2>
           <Link to="/contact">

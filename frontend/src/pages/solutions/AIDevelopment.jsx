@@ -36,7 +36,7 @@ const AIDevelopment = () => {
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               AI DEVELOPMENT
             </h1>
             <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
@@ -78,20 +78,20 @@ const AIDevelopment = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Ease of Migration</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Ease of Migration</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                The platform works across cloud, on-premises, and hybrid environments, giving you flexibility and avoiding dependence on a single provider. You can choose the infrastructure setup that best fits your needs.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Expert Assistance</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Expert Assistance</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Tap into skilled support to help guide your transition and ensure you get the most out of your AI infrastructure, with knowledgeable teams helping you optimise performance and execution.
 
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Increased Productivity</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Increased Productivity</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 BluBrg’s cloud stack automates routine and repetitive tasks, liberating your team to focus on strategic work instead of day-to-day infrastructure management.
               </p>
@@ -106,7 +106,7 @@ const AIDevelopment = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <p className="text-amber-500 text-sm font-medium mb-3 uppercase tracking-wider">NVIDIA & AMD PARTNERSHIP</p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-6 leading-tight">
                 Fastest GPU nodes<br />available
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
@@ -165,7 +165,7 @@ const AIDevelopment = () => {
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">AI-Development<br />Stack</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">AI-Development<br />Stack</h2>
             <p className="text-base text-[#5B6B7A] max-w-2xl">
              BluBrg offers a complete technology stack and integrated development environment purpose-built for creating AI models, large language models (LLMs), and other machine learning applications. This stack works seamlessly with a broad set of third-party tools to fit your existing workflows.
             </p>
@@ -260,7 +260,7 @@ const AIDevelopment = () => {
       {/* Performance Metrics - 2x2 Grid */}
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-16">Performance</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
@@ -297,8 +297,8 @@ const AIDevelopment = () => {
               }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-1">{item.metric}</div>
-                <div className="text-white text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
+                <div className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-1">{item.metric}</div>
+                <div className="text-[#0B1F3B] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-amber-400 hover:text-amber-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
@@ -312,7 +312,7 @@ const AIDevelopment = () => {
       {/* Key Services */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Training Card */}
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
@@ -321,7 +321,7 @@ const AIDevelopment = () => {
                   <Zap className="w-7 h-7 text-amber-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-amber-400 text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A scalable, high-performance compute layer designed to shorten training times and boost development productivity.
@@ -336,7 +336,7 @@ const AIDevelopment = () => {
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 An ecosystem of services and tools that support application development and deployment, compatible with both BluBrg offerings and popular AI/ML frameworks.
@@ -361,7 +361,7 @@ const AIDevelopment = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">TRAINING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -371,7 +371,7 @@ const AIDevelopment = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -383,7 +383,7 @@ const AIDevelopment = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -395,7 +395,7 @@ const AIDevelopment = () => {
       {/* FAQs */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
             {[
               {

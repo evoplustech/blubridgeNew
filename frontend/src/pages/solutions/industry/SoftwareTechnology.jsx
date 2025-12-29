@@ -209,7 +209,7 @@ const SoftwareTechnology = () => {
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               SOFTWARE & TECHNOLOGY
             </h1>
             <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
@@ -234,19 +234,19 @@ const SoftwareTechnology = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Accelerated Processing</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Processing</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Our GPU clusters deliver substantial computational performance, enabling faster processing for tasks such as machine learning, AI model training, and large-scale data analytics, which significantly shortens development timelines.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Simplified AI Deployment</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified AI Deployment</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               By using scalable GPU clusters tailored to your needs, you can streamline the process of training and deploying AI models. This helps reduce time-to-market for intelligent features and improves overall deployment efficiency.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Enhanced Collaboration</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Collaboration</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               High-performance computing resources are accessible remotely, supporting teams working across different locations and helping streamline collaboration, resource allocation, and project workflows.
               </p>
@@ -260,7 +260,7 @@ const SoftwareTechnology = () => {
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-purple-400 text-sm font-medium mb-3 uppercase tracking-wider">ADVANCING TECH SERVICES</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
             <p className="text-base text-[#5B6B7A] max-w-3xl">
               Discover how software and technology companies use GPU cloud infrastructure to improve development, support crucial operational needs, and drive innovation in their product offerings.
             </p>
@@ -309,7 +309,7 @@ const SoftwareTechnology = () => {
       {/* Key Services */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* AI Compute Training Card */}
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colors">
@@ -318,7 +318,7 @@ const SoftwareTechnology = () => {
                   <Zap className="w-7 h-7 text-purple-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-purple-400 text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A flexible compute environment built to speed up model training and support demanding software workload demands.
@@ -332,7 +332,7 @@ const SoftwareTechnology = () => {
                   <Cpu className="w-7 h-7 text-purple-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-purple-400 text-sm mb-4">GPU Nodes</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Dedicated GPU clusters designed to handle compute-intensive applications, AI workloads, and data processing with reliability and performance.
@@ -346,7 +346,7 @@ const SoftwareTechnology = () => {
                   <LayoutGrid className="w-7 h-7 text-purple-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-purple-400 text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 An ecosystem of services for developing and deploying AI applications built using BluBrg's tools and popular AI/ML software.
@@ -372,7 +372,7 @@ const SoftwareTechnology = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">TRAINING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -382,7 +382,7 @@ const SoftwareTechnology = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -392,7 +392,7 @@ const SoftwareTechnology = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -402,7 +402,7 @@ const SoftwareTechnology = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -412,7 +412,7 @@ const SoftwareTechnology = () => {
       {/* FAQs */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
             {[
               {

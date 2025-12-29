@@ -36,7 +36,7 @@ const FineTuning = () => {
         {/* Hero content - left aligned */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               MODEL<br />FINE-TUNING
             </h1>
             <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
@@ -79,19 +79,19 @@ const FineTuning = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Optimise for Performance</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Unlock the full potential of your AI models and fine-tune to achieve peak performance on your specific datasets and tasks.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Accelerate Time to Market</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Reduce the time it takes to prepare and deploy your AI solutions. With streamlined fine-tuning processes, you can iterate and refine your models more quickly, allowing innovations to reach users sooner.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Cost-Effective Scalability</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Easily grow your AI operations without excessive costs. Blubrg’s GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
               </p>
@@ -106,7 +106,7 @@ const FineTuning = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <p className="text-emerald-500 text-sm font-medium mb-3 uppercase tracking-wider">LEVERAGE ADVANCED GPU CLOUD INFRASTRUCTURE</p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-6 leading-tight">
                 Fast, efficient model fine-tuning
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
@@ -140,7 +140,7 @@ const FineTuning = () => {
                     <Zap className="w-6 h-6 text-emerald-400" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">AI Marketplace</h4>
+                    <h4 className="text-[#0B1F3B] font-semibold">AI Marketplace</h4>
                     <p className="text-[#5B6B7A] text-sm">Pre-built fine-tuning templates</p>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const FineTuning = () => {
                     <LayoutGrid className="w-6 h-6 text-[#328CC1]" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">Training Compute</h4>
+                    <h4 className="text-[#0B1F3B] font-semibold">Training Compute</h4>
                     <p className="text-[#5B6B7A] text-sm">Scalable GPU clusters</p>
                   </div>
                 </div>
@@ -162,7 +162,7 @@ const FineTuning = () => {
                     <Zap className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">Inference & Deployment</h4>
+                    <h4 className="text-[#0B1F3B] font-semibold">Inference & Deployment</h4>
                     <p className="text-[#5B6B7A] text-sm">One-click model serving</p>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ const FineTuning = () => {
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Fine-Tuning Stack</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Fine-Tuning Stack</h2>
             <p className="text-base text-[#5B6B7A] max-w-2xl">
               BluBrg provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
             </p>
@@ -271,7 +271,7 @@ const FineTuning = () => {
       {/* Performance Metrics - 4 Column */}
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-16">Performance</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
@@ -308,8 +308,8 @@ const FineTuning = () => {
               }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-1">{item.metric}</div>
-                <div className="text-white text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
+                <div className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-1">{item.metric}</div>
+                <div className="text-[#0B1F3B] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
@@ -323,7 +323,7 @@ const FineTuning = () => {
       {/* Key Services */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Training Card */}
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
@@ -332,7 +332,7 @@ const FineTuning = () => {
                   <Zap className="w-7 h-7 text-emerald-400" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-emerald-400 text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A highly scalable and performance-optimised compute framework that shortens model training cycles and boosts productivity.
@@ -346,7 +346,7 @@ const FineTuning = () => {
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 An ecosystem of services and tools that support the entire model lifecycle, enabling development and deployment using both Blubrg offerings and popular AI/ML technologies.
@@ -372,7 +372,7 @@ const FineTuning = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">TRAINING</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -382,7 +382,7 @@ const FineTuning = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -392,7 +392,7 @@ const FineTuning = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -406,7 +406,7 @@ const FineTuning = () => {
       {/* FAQs */}
       <section className="py-24 bg-[#050505]">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
             {[
               {

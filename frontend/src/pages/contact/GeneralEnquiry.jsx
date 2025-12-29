@@ -60,7 +60,7 @@ const GeneralEnquiry = () => {
       <section className="pt-16 pb-24">
         <div className="container-custom">
           {/* Page Title */}
-          <h1 className="text-5xl font-light text-white mb-16">General Enquiry</h1>
+          <h1 className="text-5xl font-light text-[#0B1F3B] mb-16">General Enquiry</h1>
 
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
             {/* Left Column - Helper CTAs */}
@@ -70,7 +70,7 @@ const GeneralEnquiry = () => {
                 <div className="flex gap-4">
                   <div className="w-1 bg-blue-500 rounded-full flex-shrink-0" />
                   <div>
-                    <h3 className="text-white text-lg font-medium mb-3">Want a new service or product?</h3>
+                    <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Want a new service or product?</h3>
                     <Link to="/contact/sales">
                       <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
                         Contact Sales
@@ -83,7 +83,7 @@ const GeneralEnquiry = () => {
                 {/* <div className="flex gap-4">
                   <div className="w-1 bg-blue-500 rounded-full flex-shrink-0" />
                   <div>
-                    <h3 className="text-white text-lg font-medium mb-3">Technical issue or question?</h3>
+                    <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Technical issue or question?</h3>
                     <Link to="/contact/support">
                       <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
                         Contact Support
@@ -96,7 +96,7 @@ const GeneralEnquiry = () => {
                 {/* <div className="flex gap-4">
                   <div className="w-1 bg-blue-500 rounded-full flex-shrink-0" />
                   <div>
-                    <h3 className="text-white text-lg font-medium mb-3">Interested in investment?</h3>
+                    <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Interested in investment?</h3>
                     <Link to="/contact/investors">
                       <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
                         Contact IR Team
@@ -113,8 +113,8 @@ const GeneralEnquiry = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* First Name */}
                 <div>
-                  <label className="block text-sm text-white mb-2">
-                    First Name<span className="text-white">*</span>
+                  <label className="block text-sm text-[#0B1F3B] mb-2">
+                    First Name<span className="text-[#0B1F3B]">*</span>
                   </label>
                   <input
                     type="text"
@@ -129,8 +129,8 @@ const GeneralEnquiry = () => {
 
                 {/* Last Name */}
                 <div>
-                  <label className="block text-sm text-white mb-2">
-                    Last name<span className="text-white">*</span>
+                  <label className="block text-sm text-[#0B1F3B] mb-2">
+                    Last name<span className="text-[#0B1F3B]">*</span>
                   </label>
                   <input
                     type="text"
@@ -145,8 +145,8 @@ const GeneralEnquiry = () => {
 
                 {/* Work Email */}
                 <div>
-                  <label className="block text-sm text-white mb-2">
-                    Work Email<span className="text-white">*</span>
+                  <label className="block text-sm text-[#0B1F3B] mb-2">
+                    Work Email<span className="text-[#0B1F3B]">*</span>
                   </label>
                   <input
                     type="email"
@@ -161,8 +161,8 @@ const GeneralEnquiry = () => {
 
                 {/* Company Name */}
                 <div>
-                  <label className="block text-sm text-white mb-2">
-                    Company name<span className="text-white">*</span>
+                  <label className="block text-sm text-[#0B1F3B] mb-2">
+                    Company name<span className="text-[#0B1F3B]">*</span>
                   </label>
                   <input
                     type="text"
@@ -177,7 +177,7 @@ const GeneralEnquiry = () => {
 
                 {/* How can we help you today? */}
                 <div>
-                  <label className="block text-sm text-white mb-2">
+                  <label className="block text-sm text-[#0B1F3B] mb-2">
                     How can we help you today?
                   </label>
                   <textarea
@@ -232,7 +232,7 @@ const GeneralEnquiry = () => {
                 {/* reCAPTCHA */}
                 <div className="inline-flex items-center bg-[#222222] rounded overflow-hidden">
                   <div className="flex items-center gap-2 px-3 py-2.5 bg-[#1a5fb4]">
-                    <span className="text-white text-xs font-medium">protected by reCAPTCHA</span>
+                    <span className="text-[#0B1F3B] text-xs font-medium">protected by reCAPTCHA</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-2.5 bg-[#222222]">
                     <span className="text-[#243447] text-[10px]">Privacy - Terms</span>
@@ -265,7 +265,7 @@ const GeneralEnquiry = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] mb-6 leading-tight">
                 Get access to a fully integrated suite of AI services and compute
               </h2>
               <p className="text-[#243447] text-base leading-relaxed">
@@ -284,7 +284,7 @@ const GeneralEnquiry = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Serverless</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Serverless</span>
                 </div>
 
                 {/* Marketplace */}
@@ -294,7 +294,7 @@ const GeneralEnquiry = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Marketplace</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Marketplace</span>
                 </div>
 
                 {/* Inference */}
@@ -304,7 +304,7 @@ const GeneralEnquiry = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Inference</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Inference</span>
                 </div>
 
                 {/* Training */}
@@ -314,7 +314,7 @@ const GeneralEnquiry = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Training</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Training</span>
                 </div>
 
                 {/* GPU Nodes */}
@@ -324,7 +324,7 @@ const GeneralEnquiry = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">GPU nodes</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">GPU nodes</span>
                 </div>
 
                 {/* LLM Library */}
@@ -334,7 +334,7 @@ const GeneralEnquiry = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">LLM Library</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">LLM Library</span>
                 </div>
               </div>
 
@@ -347,7 +347,7 @@ const GeneralEnquiry = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium text-sm">BluBrg's Data centers</h4>
+                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBrg's Data centers</h4>
                     <p className="text-[#243447] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>
@@ -378,7 +378,7 @@ const GeneralEnquiry = () => {
       {/* <section className="py-24 border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] mb-6 leading-tight">
               Get access to a fully integrated suite of AI services and compute
             </h2>
             <p className="text-[#243447] text-base leading-relaxed">

@@ -241,7 +241,7 @@ const Marketplace = () => {
                 {/* Central M logo */}
                 <div className="col-span-3 flex justify-center mb-4">
                   <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                    <span className="text-white text-3xl font-bold">M</span>
+                    <span className="text-[#0B1F3B] text-3xl font-bold">M</span>
                   </div>
                 </div>
                 
@@ -253,7 +253,7 @@ const Marketplace = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="text-white text-xs font-medium">{framework}</span>
+                    <span className="text-[#0B1F3B] text-xs font-medium">{framework}</span>
                   </div>
                 ))}
               </div>
@@ -284,7 +284,7 @@ const Marketplace = () => {
               {modelCards.map((model, idx) => (
                 <div key={idx} className="bg-white border border-[#D6DEC3] rounded-lg p-4 hover:border-blue-500/30 transition-colors">
                   <span className="text-[#5B6B7A] text-[10px] uppercase tracking-wider">{model.type}</span>
-                  <h4 className="text-white text-sm font-semibold mt-1 leading-tight">{model.name}</h4>
+                  <h4 className="text-[#0B1F3B] text-sm font-semibold mt-1 leading-tight">{model.name}</h4>
                   <span className="text-[#5B6B7A] text-xs mt-1 block">{model.provider}</span>
                 </div>
               ))}
@@ -321,7 +321,7 @@ const Marketplace = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-semibold text-base">AI-in-a-Box</h4>
+                    <h4 className="text-[#0B1F3B] font-semibold text-base">AI-in-a-Box</h4>
                     <p className="text-[#243447] text-sm mt-1">Development environment using GPU Nodes.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Model Development</span>
@@ -341,7 +341,7 @@ const Marketplace = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-semibold text-base">Training Compute</h4>
+                    <h4 className="text-[#0B1F3B] font-semibold text-base">Training Compute</h4>
                     <p className="text-[#243447] text-sm mt-1">Optimised Kubernetes environment for setting up and training LLM models.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Model Training</span>
@@ -361,7 +361,7 @@ const Marketplace = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-semibold text-base">Inference Compute</h4>
+                    <h4 className="text-[#0B1F3B] font-semibold text-base">Inference Compute</h4>
                     <p className="text-[#243447] text-sm mt-1">Optimised CI/NK clusters with a specialized scheduler for inference jobs.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Autoscaling</span>
@@ -379,11 +379,11 @@ const Marketplace = () => {
       {/* Key Features Section */}
       <section className="py-16 border-t border-[#D6DEC3]">
         <div className="container-custom">
-          <h2 className="text-2xl font-light text-white mb-10">Key Features</h2>
+          <h2 className="text-2xl font-light text-[#0B1F3B] mb-10">Key Features</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Quick Deployment */}
             <div className="space-y-3">
-              <h3 className="text-white font-semibold text-sm uppercase tracking-wider">QUICK DEPLOYMENT</h3>
+              <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">QUICK DEPLOYMENT</h3>
               <p className="text-[#243447] text-sm leading-relaxed">
                Deploy a broad range of software and hardware resources in just a few clicks.
               </p>
@@ -391,7 +391,7 @@ const Marketplace = () => {
 
             {/* 80% Lower Cost */}
             <div className="space-y-3">
-              <h3 className="text-white font-semibold text-sm uppercase tracking-wider">80% LOWER COST</h3>
+              <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">80% LOWER COST</h3>
               <p className="text-[#243447] text-sm leading-relaxed">
                 Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.
               </p>
@@ -399,7 +399,7 @@ const Marketplace = () => {
 
             {/* Tailored for AI */}
             <div className="space-y-3">
-              <h3 className="text-white font-semibold text-sm uppercase tracking-wider">TAILORED FOR AI</h3>
+              <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">TAILORED FOR AI</h3>
               <p className="text-[#243447] text-sm leading-relaxed">
                 All applications, software, and hardware are fully integrated and purpose-built for AI.
               </p>
@@ -407,7 +407,7 @@ const Marketplace = () => {
 
             {/* Up to 30% */}
             <div className="space-y-3">
-              <h3 className="text-white font-semibold text-sm uppercase tracking-wider">UP TO 30%</h3>
+              <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">UP TO 30%</h3>
               <p className="text-[#243447] text-sm leading-relaxed">
                 We own the infrastructure, so you can focus on innovation.
               </p>
@@ -441,7 +441,7 @@ const Marketplace = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Serverless</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Serverless</span>
                 </div>
 
                 {/* Marketplace */}
@@ -451,7 +451,7 @@ const Marketplace = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Marketplace</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Marketplace</span>
                 </div>
 
                 {/* Inference */}
@@ -461,7 +461,7 @@ const Marketplace = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Inference</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Inference</span>
                 </div>
 
                 {/* Training */}
@@ -471,7 +471,7 @@ const Marketplace = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">Training</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">Training</span>
                 </div>
 
                 {/* GPU nodes */}
@@ -481,7 +481,7 @@ const Marketplace = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">GPU nodes</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">GPU nodes</span>
                 </div>
 
                 {/* LLM Library */}
@@ -491,7 +491,7 @@ const Marketplace = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </div>
-                  <span className="text-white text-xs font-medium">LLM Library</span>
+                  <span className="text-[#0B1F3B] text-xs font-medium">LLM Library</span>
                 </div>
               </div>
 
@@ -504,7 +504,7 @@ const Marketplace = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium text-sm">BluBrg's Data centers</h4>
+                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBrg's Data centers</h4>
                     <p className="text-[#243447] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>
@@ -536,7 +536,7 @@ const Marketplace = () => {
       {/* FAQs Section */}
       <section className="py-20">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-3xl font-bold text-white mb-10">FAQs</h2>
+          <h2 className="text-3xl font-bold text-[#0B1F3B] mb-10">FAQs</h2>
           <div className="space-y-0">
             {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#D6DEC3]">
@@ -544,7 +544,7 @@ const Marketplace = () => {
                   className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                 >
-                  <span className="text-white text-lg pr-8">{faq.question}</span>
+                  <span className="text-[#0B1F3B] text-lg pr-8">{faq.question}</span>
                   <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-[#0B1F3B]/80">
                     {openFaq === index ? (
                       <Minus className="w-5 h-5 text-[#328CC1]" />

@@ -37,7 +37,7 @@ const Blog = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-6xl font-bold text-white mb-6">
+            <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               BluBrg Blog
             </h1>
             <p className="text-xl text-[#243447]">
@@ -68,7 +68,7 @@ const Blog = () => {
                     </div>
                     <CardContent className="p-6">
                       <div className="text-[#328CC1] text-sm mb-2">{new Date(post.created_at).toLocaleDateString()}</div>
-                      <h3 className="text-xl font-bold text-white mb-3">{post.title}</h3>
+                      <h3 className="text-xl font-bold text-[#0B1F3B] mb-3">{post.title}</h3>
                       <p className="text-[#243447] mb-4 line-clamp-3">{post.excerpt}</p>
                       <div className="flex items-center space-x-2 text-[#328CC1]">
                         <span>Read more</span>

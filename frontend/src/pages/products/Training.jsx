@@ -283,10 +283,10 @@ const Training = () => {
           <div className="grid md:grid-cols-4 gap-8">
             {performanceMetrics.map((item, i) => (
               <div key={i} className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
+                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-1">
                   {item.metric} <span className="text-lg font-medium">{item.label}</span>
                 </div>
-                <p className="text-white font-medium mb-1">{item.title}</p>
+                <p className="text-[#0B1F3B] font-medium mb-1">{item.title}</p>
                 <p className="text-[#243447] text-sm mb-3">{item.description}</p>
                 {/* <Link to={item.link} className="text-[#328CC1] text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
@@ -327,7 +327,7 @@ const Training = () => {
                 {['xl-70b-queue-1', 'xl-70b-queue-2'].map((queue, i) => (
                   <div key={i} className="bg-[#EEF2DC] rounded-lg p-4 border border-[#D6DEC3]/30">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-white font-medium">{queue}</span>
+                      <span className="text-[#0B1F3B] font-medium">{queue}</span>
                       <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded">Active</span>
                     </div>
                     <div className="text-xs text-[#5B6B7A]">Nodeset: compute-nodes-{i + 1}</div>
@@ -447,7 +447,7 @@ const Training = () => {
             {features.map((feature, i) => (
               <div key={i} className="text-center md:text-left">
                 <feature.icon className="w-10 h-10 text-blue-500 mb-4 mx-auto md:mx-0" />
-                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-[#0B1F3B] mb-3">{feature.title}</h3>
                 <p className="text-[#243447] text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
@@ -508,7 +508,7 @@ const Training = () => {
                     <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
+                    <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
                     <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
                   </div>
                 </div>
@@ -533,7 +533,7 @@ const Training = () => {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
-                  <span className="text-white text-lg pr-4">{faq.question}</span>
+                  <span className="text-[#0B1F3B] text-lg pr-4">{faq.question}</span>
                   <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-[#0B1F3B] rotate-180' : 'bg-[#0B1F3B]/80'}`}>
                     {openFaq === index ? (
                       <Minus className="w-4 h-4 text-white" />

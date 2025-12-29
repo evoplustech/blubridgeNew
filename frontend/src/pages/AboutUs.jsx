@@ -273,7 +273,7 @@ const AboutUs = () => {
                   "{testimonial.quote}"
                 </p>
                 <div>
-                  <p className="text-white font-semibold text-sm">{testimonial.author}</p>
+                  <p className="text-[#0B1F3B] font-semibold text-sm">{testimonial.author}</p>
                   <p className="text-[#5B6B7A] text-xs">{testimonial.title}</p>
                   <p className="text-[#5B6B7A] text-xs">{testimonial.company}</p>
                 </div>

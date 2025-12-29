@@ -306,7 +306,7 @@ const Careers = () => {
             />
             <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-[#243447]">
               <span>Watch on</span>
-              <span className="text-white font-semibold">▶ YouTube</span>
+              <span className="text-[#0B1F3B] font-semibold">▶ YouTube</span>
             </div>
           </div>
         </div>

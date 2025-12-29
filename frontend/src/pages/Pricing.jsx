@@ -75,7 +75,7 @@ const Pricing = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-6xl font-bold text-white mb-6">
+            <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               Simple, transparent pricing
             </h1>
             <p className="text-xl text-[#243447]">
@@ -104,7 +104,7 @@ const Pricing = () => {
                   </div>
                 )}
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold text-[#0B1F3B] mb-2">{plan.name}</h3>
                   <p className="text-[#5B6B7A] mb-6">{plan.description}</p>
                   <div className="mb-6">
                     <span className="text-4xl font-bold text-white">{plan.price}</span>
@@ -138,12 +138,12 @@ const Pricing = () => {
       <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-12 text-center">Add-ons & Services</h2>
+            <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Add-ons & Services</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {addOns.map((addon, idx) => (
                 <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                   <CardContent className="p-6 flex justify-between items-center">
-                    <span className="text-white font-semibold">{addon.name}</span>
+                    <span className="text-[#0B1F3B] font-semibold">{addon.name}</span>
                     <span className="text-[#328CC1]">{addon.price}</span>
                   </CardContent>
                 </Card>
@@ -157,7 +157,7 @@ const Pricing = () => {
       <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-12 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Frequently Asked Questions</h2>
             <div className="space-y-6">
               {[
                 {
@@ -179,7 +179,7 @@ const Pricing = () => {
               ].map((faq, idx) => (
                 <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                   <CardContent className="p-6">
-                    <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+                    <h3 className="text-[#0B1F3B] font-semibold mb-2">{faq.q}</h3>
                     <p className="text-[#243447]">{faq.a}</p>
                   </CardContent>
                 </Card>
@@ -192,7 +192,7 @@ const Pricing = () => {
       {/* CTA */}
       <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-6">
             Ready to get started?
           </h2>
           <Link to="/contact">
