@@ -240,23 +240,18 @@ const Inference = () => {
 
   return (
     <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1420] to-[#0a0a0f]" />
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-[#0B1F3B]/20 rounded-full filter blur-[120px] animate-pulse" />
-        </div>
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#F3F6E8]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B1F3B]/20 rounded-full border border-blue-600/30">
-                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#328CC1]/10 rounded-full border border-[#328CC1]/30">
+                <span className="w-2 h-2 bg-[#328CC1] rounded-full animate-pulse" />
                 <span className="text-[#328CC1] text-sm font-medium">INFERENCE</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B1F3B]" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
                 Fast, affordable,<br />auto-scaling AI<br />inference
               </h1>
               
@@ -266,11 +261,11 @@ const Inference = () => {
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
                 <Link to="/contact/sales">
-                  <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+                <Link to="/contact/sales" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -278,7 +273,7 @@ const Inference = () => {
             
             {/* Right - Animated Inference Visual */}
             <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
-              <div className="absolute inset-0 bg-slate-900/50 rounded-2xl border border-[#D6DEC3]/30 overflow-hidden">
+              <div className="absolute inset-0 bg-[#0B1F3B]/10 rounded-2xl border border-[#D6DEC3] overflow-hidden">
                 <canvas 
                   ref={canvasRef} 
                   className="w-full h-full"
