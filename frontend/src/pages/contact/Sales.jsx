@@ -435,7 +435,7 @@ const Sales = () => {
       </section>
 
       {/* Get Access Section */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text */}
