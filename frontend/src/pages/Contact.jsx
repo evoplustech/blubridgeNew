@@ -1,173 +1,292 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../components/ui/button';
-import { ArrowRight, Plus, Minus } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const Contact = () => {
-  const [openFaq, setOpenFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const contactCards = [
-    {
-      title: "SALES",
-      description: "Get in touch with our sales team to discuss pricing, product options, and tailored solutions that fit your organisation’s needs.",
-      buttonText: "Talk to Sales",
-      link: "/contact/sales"
-    },
-    {
-      title: "GENERAL",
-      description: "For questions that aren’t related to sales such as general enquiries or requests for information, please use our contact form to reach out to us.",
-      buttonText: "Get in Touch",
-      link: "/contact/general-enquiry"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "What is AI Compute offered by BluBrg?",
-      answer: "AI Compute provides on-demand access to powerful GPU resources that allow businesses and developers to run intensive computational tasks such as training AI models, performing data analytics, and executing complex simulations, all without needing to buy expensive hardware upfront."
-    },
-    {
-      question: "What industries can benefit from BluBrg?",
-      answer: "A wide range of industries can use Blubrg’s infrastructure, including artificial intelligence and machine learning research, gaming and entertainment for graphics and simulation, healthcare for imaging and data analysis, finance for modelling and risk analysis, automotive for autonomous systems, and aerospace for engineering simulations."
-    },
-    {
-      question: "Can I try services from BluBrg before committing?",
-      answer: "Yes, there is an option to try the platform before making a longer-term commitment. During the trial period, you can access GPU resources, run workloads, and test performance to ensure the platform meets your needs."
-    }
-  ];
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneCode: '+91',
+    phoneNumber: '',
+    inquiryType: '',
+    message: ''
+  });
+  const [emailVerified, setEmailVerified] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useDocumentTitle('Contact | BluBrg');
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleVerifyEmail = () => {
+    if (formData.email && formData.email.includes('@')) {
+      setEmailVerified(true);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate form submission
+    setTimeout(() => {
+      alert('Thank you for your inquiry. We will get back to you soon!');
+      setIsSubmitting(false);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneCode: '+91',
+        phoneNumber: '',
+        inquiryType: '',
+        message: ''
+      });
+      setEmailVerified(false);
+    }, 1000);
+  };
+
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">
-      {/* Page Heading Section */}
-      <section className="pt-32 pb-16">
-        <div className="container-custom">
-          <h1 className="text-5xl sm:text-6xl font-light text-[#0B1F3B]">Contact</h1>
-        </div>
-      </section>
-
-      {/* Three Contact Cards */}
-      <section className="pb-20">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-6">
-            {contactCards.map((card, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-xl p-8 border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300"
-              >
-                <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4 tracking-wide">{card.title}</h3>
-                <p className="text-[#243447] text-sm leading-relaxed mb-8">{card.description}</p>
-                <Link to={card.link}>
-                  <button className="flex items-center gap-2 text-[#0B1F3B] text-sm font-medium px-5 py-3 rounded-lg border border-[#D6DEC3] hover:border-[#0B1F3B] hover:bg-[#EEF2DC] transition-all duration-300 group">
-                    {card.buttonText}
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Investor Relations Section */}
-      {/* <section className="py-20 bg-[#EEF2DC]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-           
-            <div className="order-2 lg:order-1">
-              <h2 className="text-4xl font-light text-[#0B1F3B] mb-6">Investor Relations</h2>
-              <p className="text-[#243447] leading-relaxed mb-8">
-                Interested in exploring investment opportunities with BluBrg? We're committed to building strong partnerships and offering unique investment opportunities that align with your goals. Our experienced Investor Relations team are happy to help.
-              </p>
-              <Link to="/contact/investors">
-                <button className="flex items-center gap-2 text-[#0B1F3B] text-sm font-medium px-6 py-3 rounded-lg border border-[#D6DEC3] hover:border-[#0B1F3B] hover:bg-[#EEF2DC] transition-all duration-300 group">
-                  Contact IR Team
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-            </div>
-            
-         
-            <div className="order-1 lg:order-2">
-              <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
-                <img 
-                  src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80"
-                  alt="BluBrg Data Center"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-[#EEF2DC]">
-        <div className="container-custom max-w-4xl">
-          <h2 className="text-4xl font-light text-[#0B1F3B] mb-12">FAQs</h2>
+    <div 
+      className="min-h-screen pt-24 pb-16"
+      style={{
+        backgroundColor: '#F3F6E8',
+        backgroundImage: `
+          linear-gradient(rgba(214, 222, 195, 0.3) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(214, 222, 195, 0.3) 1px, transparent 1px)
+        `,
+        backgroundSize: '40px 40px'
+      }}
+    >
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
-          <div className="max-w-4xl">
-            {faqs.map((faq, index) => (
-              <div 
-                key={index}
-                className="border-b border-[#D6DEC3]"
-              >
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full py-6 flex items-center justify-between text-left group"
-                >
-                  <span className="text-[#0B1F3B] text-lg font-light pr-8">{faq.question}</span>
-                  <div className={`w-8 h-8 rounded-full border border-[#D6DEC3] flex items-center justify-center flex-shrink-0 transition-all duration-300 ${openFaq === index ? 'bg-[#EEF2DC] rotate-180' : 'group-hover:border-[#0B1F3B]'}`}>
-                    {openFaq === index ? (
-                      <Minus className="w-4 h-4 text-[#0B1F3B]" />
-                    ) : (
-                      <Plus className="w-4 h-4 text-[#0B1F3B]" />
-                    )}
-                  </div>
-                </button>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openFaq === index ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <p className="text-[#243447] leading-relaxed pr-16">{faq.answer}</p>
+          {/* Left Column - Our Offices */}
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
+            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" style={{ fontFamily: 'serif' }}>
+              Our Offices
+            </h2>
+            
+            {/* Office Card 1 */}
+            <div className="border border-[#D6DEC3] rounded-xl p-6 mb-4">
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2" style={{ fontFamily: 'serif' }}>
+                    BluBridge Technologies (P) Ltd.
+                  </h3>
+                  <p className="text-[#243447] text-sm leading-relaxed">
+                    Plot #E160 Tiger Varadhachari Road,<br />
+                    Kalakshetra Colony, Besant Nagar,<br />
+                    Chennai – 600090
+                  </p>
+                </div>
+                <div className="flex flex-col items-center ml-4">
+                  <MapPin className="w-6 h-6 text-[#0B1F3B] mb-2" />
+                  <a 
+                    href="https://maps.google.com/?q=Plot+E160+Tiger+Varadhachari+Road+Kalakshetra+Colony+Besant+Nagar+Chennai+600090"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#328CC1] text-sm hover:underline whitespace-nowrap"
+                  >
+                    View on Map »
+                  </a>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* CTA Banner */}
-      <section className="relative py-20 overflow-hidden bg-[#0B1F3B]">
-        <div className="container-custom relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <h2 className="text-3xl lg:text-4xl font-light text-white max-w-xl">
-              Access thousands of GPUs tailored to your requirements.
-            </h2>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link to="/contact/sales">
-                <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-6 text-base font-medium rounded-lg">
-                  Reserve GPUs
-                </Button>
-              </Link>
-              <Link to="/contact/sales">
-                <button className="flex items-center gap-2 text-white text-base font-medium px-6 py-3 hover:underline transition-all group">
-                  Contact Sales
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
+            {/* Office Card 2 */}
+            <div className="border border-[#D6DEC3] rounded-xl p-6 mb-8">
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2" style={{ fontFamily: 'serif' }}>
+                    BluBridge Technologies (P) Ltd.
+                  </h3>
+                  <p className="text-[#243447] text-sm leading-relaxed">
+                    30, Norton Rd, Mandavelipakkam,<br />
+                    Raja Annamalai Puram,<br />
+                    Chennai, Tamil Nadu 600028
+                  </p>
+                </div>
+                <div className="flex flex-col items-center ml-4">
+                  <MapPin className="w-6 h-6 text-[#0B1F3B] mb-2" />
+                  <a 
+                    href="https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#328CC1] text-sm hover:underline whitespace-nowrap"
+                  >
+                    View on Map »
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-bold text-[#0B1F3B] text-base">Phone:</h4>
+                <a href="tel:+918925987250" className="text-[#243447] text-sm hover:text-[#328CC1]">
+                  +91 8925987250
+                </a>
+              </div>
+              <div>
+                <h4 className="font-bold text-[#0B1F3B] text-base">Email:</h4>
+                <a href="mailto:info.1@blubridge.com" className="text-[#243447] text-sm hover:text-[#328CC1]">
+                  Info.1@blubridge.com
+                </a>
+              </div>
             </div>
           </div>
+
+          {/* Right Column - Contact Us Form */}
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
+            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" style={{ fontFamily: 'serif' }}>
+              Contact Us
+            </h2>
+            
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* First Name & Last Name */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
+                    First Name<span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
+                    Last Name<span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                  />
+                </div>
+              </div>
+
+              {/* Email with Verify Button */}
+              <div>
+                <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
+                  Email<span className="text-red-500">*</span>
+                </label>
+                <div className="flex gap-3">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="flex-1 px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleVerifyEmail}
+                    className={`px-6 py-3 rounded-full font-medium text-sm transition-colors ${
+                      emailVerified 
+                        ? 'bg-green-600 text-white' 
+                        : 'bg-[#0B1F3B] text-white hover:bg-[#162B4D]'
+                    }`}
+                  >
+                    {emailVerified ? 'Verified ✓' : 'Verify Email'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Phone Number & Inquiry Type */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
+                    Phone No<span className="text-red-500">*</span>
+                  </label>
+                  <div className="flex">
+                    <div className="flex items-center px-3 border border-r-0 border-[#D6DEC3] rounded-l-lg bg-[#F9FAF5]">
+                      <span className="text-lg mr-1">🇮🇳</span>
+                      <select
+                        name="phoneCode"
+                        value={formData.phoneCode}
+                        onChange={handleInputChange}
+                        className="bg-transparent text-sm text-[#0B1F3B] focus:outline-none py-3"
+                      >
+                        <option value="+91">+91</option>
+                        <option value="+1">+1</option>
+                        <option value="+44">+44</option>
+                        <option value="+61">+61</option>
+                        <option value="+49">+49</option>
+                      </select>
+                    </div>
+                    <input
+                      type="tel"
+                      name="phoneNumber"
+                      value={formData.phoneNumber}
+                      onChange={handleInputChange}
+                      required
+                      className="flex-1 px-4 py-3 border border-[#D6DEC3] rounded-r-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
+                    Inquiry Type<span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="inquiryType"
+                    value={formData.inquiryType}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors text-[#243447]"
+                  >
+                    <option value="">Select</option>
+                    <option value="sales">Sales Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="careers">Careers</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
+                  How can we help you?<span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex justify-center pt-4">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="px-12 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors disabled:opacity-70"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
