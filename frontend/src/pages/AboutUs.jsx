@@ -144,14 +144,14 @@ const AboutUs = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-[#5B6B7A] text-sm font-medium tracking-wider uppercase">ABOUT US</span>
+              <span className="text-white/60 text-sm font-medium tracking-wider uppercase">ABOUT US</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
               Building the Next Frontier<br />for AI
             </h1>
             
-            <p className="text-[#243447] text-lg max-w-2xl leading-relaxed mb-8">
+            <p className="text-white/90 text-lg max-w-2xl leading-relaxed mb-8">
               AI is changing the world, impacting industries, economies, and human experiences. Blubrg is creating the advanced infrastructure, systems, and solutions that allow organisations, enterprises, and governments to build, launch, and expand their most ambitious AI systems across the globe.
             </p>
             
