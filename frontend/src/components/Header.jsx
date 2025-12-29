@@ -104,6 +104,11 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
+            {/* Research Link */}
+            <Link to="/research" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+              Research
+            </Link>
+
             {/* Products Dropdown */}
             <div 
               className="relative"
