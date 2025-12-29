@@ -113,7 +113,7 @@ const Pricing = () => {
                   <Link to={plan.link}>
                     <Button className={`w-full mb-6 ${
                       plan.popular 
-                        ? 'bg-[#328CC1] hover:bg-[#0052CC] text-white' 
+                        ? 'bg-[#328CC1] hover:bg-[#162B4D] text-white' 
                         : 'bg-white/10 hover:bg-white/20 text-white'
                     }`}>
                       {plan.cta}

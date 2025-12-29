@@ -17,7 +17,7 @@ const MediaKit = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-[#0B1F35]">
+      <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Brand Assets</h2>
@@ -32,7 +32,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Light Background Logo</h3>
                 <p className="text-[#5B6B7A] mb-4">Use on white or light-colored backgrounds</p>
-                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download PNG
                 </Button>
@@ -56,7 +56,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Icon Mark</h3>
                 <p className="text-[#5B6B7A] mb-4">Standalone icon for compact use</p>
-                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download SVG
                 </Button>
@@ -68,7 +68,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Wordmark</h3>
                 <p className="text-[#5B6B7A] mb-4">Text-only version of our brand</p>
-                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download SVG
                 </Button>
@@ -102,7 +102,7 @@ const MediaKit = () => {
                 <p className="text-[#243447] mb-4">
                   For media requests, interviews, or partnership opportunities, please contact our communications team:
                 </p>
-                <Button className="bg-[#328CC1] hover:bg-[#0052CC] text-white">
+                <Button className="bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Mail className="w-4 h-4 mr-2" />
                   press@blubrg.com
                 </Button>
@@ -112,7 +112,7 @@ const MediaKit = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-[#0B1F35]">
+      <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Brand Guidelines</h2>
@@ -127,7 +127,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Logo Package</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">All logo variations and formats</p>
-                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white text-sm">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white text-sm">
                   Download ZIP
                 </Button>
               </div>
@@ -138,7 +138,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Brand Guidelines</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">Complete brand usage guide</p>
-                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white text-sm">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white text-sm">
                   Download PDF
                 </Button>
               </div>
@@ -149,7 +149,7 @@ const MediaKit = () => {
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Press Images</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">High-resolution assets</p>
-                <Button className="w-full bg-[#328CC1] hover:bg-[#0052CC] text-white text-sm">
+                <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white text-sm">
                   Download ZIP
                 </Button>
               </div>

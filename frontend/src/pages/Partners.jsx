@@ -120,7 +120,7 @@ const Partners = () => {
                 </div>
                 <div className="text-center">
                   <Link to="/contact">
-                    <Button className="bg-[#328CC1] hover:bg-[#0052CC] text-white px-8 py-6 text-lg font-semibold">
+                    <Button className="bg-[#328CC1] hover:bg-[#162B4D] text-white px-8 py-6 text-lg font-semibold">
                       Apply to Partner Program
                     </Button>
                   </Link>
