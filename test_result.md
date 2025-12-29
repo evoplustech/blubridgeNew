@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test all backend API endpoints for BluBrg website: Newsletter Subscription, Contact Form, Blog Posts, and Blog Post by Slug"
+user_problem_statement: "Verify the PREMIUM LIGHT THEME has been applied globally across the BluBrg website"
 
 backend:
   - task: "Newsletter Subscription API"
