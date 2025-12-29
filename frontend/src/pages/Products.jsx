@@ -60,21 +60,19 @@ const Products = () => {
   useDocumentTitle('Products | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#E7ECD2]">      {/* Hero */}
-      <section className="py-24 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
-        </div>
+    <div className="min-h-screen bg-[#F3F6E8]">
+      {/* Hero */}
+      <section className="py-24 bg-[#EEF2DC] relative overflow-hidden border-b border-[#D6DEC3]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-6xl font-bold text-white mb-6">
+            <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               Full-stack AI infrastructure
             </h1>
             <p className="text-xl text-[#243447] mb-8">
               From serverless endpoints to dedicated GPU clusters, BluBrg provides complete AI infrastructure solutions.
             </p>
             <Link to="/contact">
-              <Button className="bg-white text-[#0A1F3D] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+              <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-6 text-lg font-semibold">
                 Talk to Sales
               </Button>
             </Link>
@@ -83,11 +81,11 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-24 bg-[#0D2847]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300 overflow-hidden group">
+              <Card key={idx} className="bg-white border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300 overflow-hidden group">
                 <div className="h-56 overflow-hidden">
                   <img 
                     src={product.image} 
@@ -97,7 +95,7 @@ const Products = () => {
                 </div>
                 <CardContent className="p-8">
                   <div className="text-[#328CC1] text-sm font-semibold mb-2 uppercase">{product.category}</div>
-                  <h3 className="text-2xl font-bold text-white mb-3">{product.title}</h3>
+                  <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{product.title}</h3>
                   <p className="text-[#243447] mb-6">{product.description}</p>
                   <div className="space-y-2 mb-6">
                     {product.features.map((feature, i) => (
@@ -107,7 +105,7 @@ const Products = () => {
                       </div>
                     ))}
                   </div>
-                  {/* <Link to={product.link} className="text-[#328CC1] hover:text-[#0052CC] flex items-center space-x-2">
+                  {/* <Link to={product.link} className="text-[#328CC1] hover:text-[#0B3C5D] flex items-center space-x-2">
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link> */}
@@ -119,13 +117,13 @@ const Products = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-[#0066FF] to-[#0052CC]">
+      <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-5xl font-bold text-white mb-6">
             Ready to scale your AI infrastructure?
           </h2>
           <Link to="/contact">
-            <Button className="bg-white text-[#328CC1] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+            <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-6 text-lg font-semibold">
               Contact Sales
             </Button>
           </Link>
