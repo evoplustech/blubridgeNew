@@ -199,23 +199,23 @@ const Training = () => {
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                  <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">USER EXPERIENCE</h3>
+                  <h3 className="text-xl font-bold text-white mb-6">USER EXPERIENCE</h3>
                   <div className="space-y-3">
                     {['Web Console', 'API', 'CLI'].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-cyan-400 rounded-full" />
-                        <span className="text-[#0B1F3B]">{item}</span>
+                        <span className="text-white/90">{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                  <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">DATA CENTRE</h3>
+                  <h3 className="text-xl font-bold text-white mb-6">DATA CENTRE</h3>
                   <div className="space-y-3">
                     {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-gray-400 rounded-full" />
-                        <span className="text-[#0B1F3B]">{item}</span>
+                        <span className="text-white/90">{item}</span>
                       </div>
                     ))}
                   </div>
