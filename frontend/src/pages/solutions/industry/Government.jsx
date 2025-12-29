@@ -187,8 +187,8 @@ const Government = () => {
     <div className="min-h-screen bg-[#F3F6E8]">
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050812] via-[#030610] to-[#000000]" />
+        {/* Background gradient - Light theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F3F6E8] via-[#E8EDD8] to-[#F3F6E8]" />
         
         {/* Animated government forms canvas */}
         <canvas 
@@ -201,27 +201,25 @@ const Government = () => {
           }}
         />
 
-        {/* Ambient glow */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-blue-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        {/* Ambient glow - adjusted for light theme */}
+        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               GOVERNMENT
             </h1>
-            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               Blubrg provides secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#050812] px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-            <Link to="/contact">
-                <button className="text-white hover:text-white/80 px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
+            <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
-                </button>
               </Link>
             </div>
           </div>
