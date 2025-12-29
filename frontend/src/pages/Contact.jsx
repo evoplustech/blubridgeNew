@@ -44,11 +44,11 @@ const Contact = () => {
   useDocumentTitle('Contact | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-screen bg-[#F3F6E8]">
       {/* Page Heading Section */}
       <section className="pt-32 pb-16">
         <div className="container-custom">
-          <h1 className="text-5xl sm:text-6xl font-light text-white">Contact</h1>
+          <h1 className="text-5xl sm:text-6xl font-light text-[#0B1F3B]">Contact</h1>
         </div>
       </section>
 
@@ -59,12 +59,12 @@ const Contact = () => {
             {contactCards.map((card, index) => (
               <div 
                 key={index}
-                className="bg-gradient-to-br from-[#141418] to-[#0d0d10] rounded-xl p-8 border border-white/5 hover:border-white/10 transition-all duration-300"
+                className="bg-white rounded-xl p-8 border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-xl font-semibold text-white mb-4 tracking-wide">{card.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-8">{card.description}</p>
+                <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4 tracking-wide">{card.title}</h3>
+                <p className="text-[#243447] text-sm leading-relaxed mb-8">{card.description}</p>
                 <Link to={card.link}>
-                  <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-3 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300 group">
+                  <button className="flex items-center gap-2 text-[#0B1F3B] text-sm font-medium px-5 py-3 rounded-lg border border-[#D6DEC3] hover:border-[#0B1F3B] hover:bg-[#EEF2DC] transition-all duration-300 group">
                     {card.buttonText}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -76,17 +76,17 @@ const Contact = () => {
       </section>
 
       {/* Investor Relations Section */}
-      {/* <section className="py-20 bg-[#0d0d12]">
+      {/* <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
            
             <div className="order-2 lg:order-1">
-              <h2 className="text-4xl font-light text-white mb-6">Investor Relations</h2>
-              <p className="text-gray-400 leading-relaxed mb-8">
+              <h2 className="text-4xl font-light text-[#0B1F3B] mb-6">Investor Relations</h2>
+              <p className="text-[#243447] leading-relaxed mb-8">
                 Interested in exploring investment opportunities with BluBrg? We're committed to building strong partnerships and offering unique investment opportunities that align with your goals. Our experienced Investor Relations team are happy to help.
               </p>
               <Link to="/contact/investors">
-                <button className="flex items-center gap-2 text-white text-sm font-medium px-6 py-3 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300 group">
+                <button className="flex items-center gap-2 text-[#0B1F3B] text-sm font-medium px-6 py-3 rounded-lg border border-[#D6DEC3] hover:border-[#0B1F3B] hover:bg-[#EEF2DC] transition-all duration-300 group">
                   Contact IR Team
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -109,26 +109,26 @@ const Contact = () => {
       </section> */}
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-4xl font-light text-white mb-12">FAQs</h2>
+          <h2 className="text-4xl font-light text-[#0B1F3B] mb-12">FAQs</h2>
           
           <div className="max-w-4xl">
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-white/10"
+                className="border-b border-[#D6DEC3]"
               >
                 <button
                   onClick={() => toggleFaq(index)}
                   className="w-full py-6 flex items-center justify-between text-left group"
                 >
-                  <span className="text-white text-lg font-light pr-8">{faq.question}</span>
-                  <div className={`w-8 h-8 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${openFaq === index ? 'bg-white/10 rotate-180' : 'group-hover:border-white/40'}`}>
+                  <span className="text-[#0B1F3B] text-lg font-light pr-8">{faq.question}</span>
+                  <div className={`w-8 h-8 rounded-full border border-[#D6DEC3] flex items-center justify-center flex-shrink-0 transition-all duration-300 ${openFaq === index ? 'bg-[#EEF2DC] rotate-180' : 'group-hover:border-[#0B1F3B]'}`}>
                     {openFaq === index ? (
-                      <Minus className="w-4 h-4 text-white" />
+                      <Minus className="w-4 h-4 text-[#0B1F3B]" />
                     ) : (
-                      <Plus className="w-4 h-4 text-white" />
+                      <Plus className="w-4 h-4 text-[#0B1F3B]" />
                     )}
                   </div>
                 </button>
@@ -137,7 +137,7 @@ const Contact = () => {
                     openFaq === index ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-gray-400 leading-relaxed pr-16">{faq.answer}</p>
+                  <p className="text-[#243447] leading-relaxed pr-16">{faq.answer}</p>
                 </div>
               </div>
             ))}
@@ -145,26 +145,8 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Blue CTA Banner */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Abstract Blue Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a3a7a] via-[#0055cc] to-[#0066ff]">
-          <svg viewBox="0 0 1920 400" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="ctaWave1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0077ff" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#0055cc" stopOpacity="0.2" />
-              </linearGradient>
-              <linearGradient id="ctaWave2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0088ff" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#0044aa" stopOpacity="0.2" />
-              </linearGradient>
-            </defs>
-            <path d="M0,200 Q300,100 600,200 Q900,300 1200,200 Q1500,100 1920,200 L1920,400 L0,400 Z" fill="url(#ctaWave1)" />
-            <path d="M0,250 Q400,150 800,250 Q1200,350 1600,250 Q1800,200 1920,250 L1920,400 L0,400 Z" fill="url(#ctaWave2)" />
-          </svg>
-        </div>
-        
+      {/* CTA Banner */}
+      <section className="relative py-20 overflow-hidden bg-[#0B1F3B]">
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <h2 className="text-3xl lg:text-4xl font-light text-white max-w-xl">
@@ -172,7 +154,7 @@ const Contact = () => {
             </h2>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact/sales">
-                <Button className="bg-white text-[#0055cc] hover:bg-white/90 px-8 py-6 text-base font-medium rounded-lg">
+                <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-6 text-base font-medium rounded-lg">
                   Reserve GPUs
                 </Button>
               </Link>
