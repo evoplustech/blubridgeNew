@@ -15,7 +15,7 @@ const Training = () => {
   useDocumentTitle('AI Compute for Training LLMs | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">
+    <div className="min-h-screen bg-[#F3F1E9]">
       {/* Hero Section - Model Training Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
@@ -76,7 +76,7 @@ const Training = () => {
       </section>
 
       {/* Value Proposition Strip */}
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-12">
             {[
@@ -103,7 +103,7 @@ const Training = () => {
       </section>
 
       {/* Accelerated Model Training */}
-      <section className="py-32 bg-[#F3F6E8]">
+      <section className="py-32 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
@@ -139,7 +139,7 @@ const Training = () => {
       </section>
 
       {/* Training Stack */}
-      <section className="py-32 bg-[#F3F6E8]">
+      <section className="py-32 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
@@ -227,7 +227,7 @@ const Training = () => {
       </section>
 
       {/* Performance */}
-      <section className="py-32 bg-[#F3F6E8]">
+      <section className="py-32 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20 text-center">Performance</h2>
           <div className="grid md:grid-cols-4 gap-3 max-w-6xl mx-auto">
@@ -248,7 +248,7 @@ const Training = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-32 bg-[#F3F6E8]">
+      <section className="py-32 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-12">
@@ -276,7 +276,7 @@ const Training = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
          <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -319,7 +319,7 @@ const Training = () => {
         </div>
       </section>
       {/* Faq */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

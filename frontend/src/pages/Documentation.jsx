@@ -77,9 +77,9 @@ const Documentation = () => {
   useDocumentTitle('Documentation | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">
+    <div className="min-h-screen bg-[#F3F1E9]">
       {/* Hero */}
-      <section className="py-24 bg-[#F3F6E8] relative overflow-hidden border-b border-[#D6DEC3]">
+      <section className="py-24 bg-[#F3F1E9] relative overflow-hidden border-b border-[#D6DEC3]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
@@ -100,7 +100,7 @@ const Documentation = () => {
       </section>
 
       {/* Documentation Sections */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sections.map((section, idx) => (
@@ -126,7 +126,7 @@ const Documentation = () => {
       </section>
 
       {/* Tutorials */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Popular Tutorials</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

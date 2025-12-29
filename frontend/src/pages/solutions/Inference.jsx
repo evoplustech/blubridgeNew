@@ -14,7 +14,7 @@ const Inference = () => {
   useDocumentTitle('GPU Nodes for AI & ML Inference | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">
+    <div className="min-h-screen bg-[#F3F1E9]">
       {/* Hero Section - AI & ML Inference Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
@@ -75,7 +75,7 @@ const Inference = () => {
       </section>
 
       {/* Value Proposition Strip - 3 columns */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#F3F1E9] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -101,7 +101,7 @@ const Inference = () => {
       </section>
 
       {/* Speed up time-to-insights */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -161,7 +161,7 @@ const Inference = () => {
       </section>
 
       {/* Inference Stack - Two column layout */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Inference Stack</h2>
@@ -256,7 +256,7 @@ const Inference = () => {
       </section>
 
       {/* Performance - Horizontal 4 column */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-16">Performance</h2>
           <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -300,7 +300,7 @@ const Inference = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -336,7 +336,7 @@ const Inference = () => {
       </section>
 
       {/* More Solutions */}
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -383,7 +383,7 @@ const Inference = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

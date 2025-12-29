@@ -184,7 +184,7 @@ const Government = () => {
   useDocumentTitle('Drive Innovation in Public Services | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">
+    <div className="min-h-screen bg-[#F3F1E9]">
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Background gradient - Light theme */}
@@ -227,7 +227,7 @@ const Government = () => {
       </section>
 
       {/* 3-Column Value Propositions */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#F3F1E9] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -253,7 +253,7 @@ const Government = () => {
       </section>
 
       {/* Example Uses Section */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">BUILD A MODERN, DIGITAL PUBLIC SECTOR</p>
@@ -304,7 +304,7 @@ const Government = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -355,7 +355,7 @@ const Government = () => {
 
       {/* More Solutions */}
      
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
@@ -408,7 +408,7 @@ const Government = () => {
         </div>
       </section>
       {/* FAQs */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

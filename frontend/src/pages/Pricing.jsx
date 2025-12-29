@@ -68,8 +68,8 @@ const Pricing = () => {
   useDocumentTitle('Pricing | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">      {/* Hero */}
-      <section className="py-24 bg-[#F3F6E8] relative overflow-hidden">
+    <div className="min-h-screen bg-[#F3F1E9]">      {/* Hero */}
+      <section className="py-24 bg-[#F3F1E9] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
@@ -86,7 +86,7 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {plans.map((plan, idx) => (
@@ -135,7 +135,7 @@ const Pricing = () => {
       </section>
 
       {/* Add-ons */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Add-ons & Services</h2>
@@ -154,7 +154,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Frequently Asked Questions</h2>

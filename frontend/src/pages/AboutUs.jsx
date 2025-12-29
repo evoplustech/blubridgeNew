@@ -106,7 +106,7 @@ const AboutUs = () => {
   useDocumentTitle('About | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">
+    <div className="min-h-screen bg-[#F3F1E9] font-['DM_Sans']">
       {/* Hero Section with Motion */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background Image with Parallax */}
@@ -165,7 +165,7 @@ const AboutUs = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-amber-500 mb-8">Who we are</h2>
           
@@ -227,7 +227,7 @@ const AboutUs = () => {
       </section>
 
       {/* Leadership Team Section */}
-      {/* <section className="py-20 bg-[#F3F6E8]">
+      {/* <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-[#5B6B7A] text-sm uppercase tracking-wider mb-2">OUR TEAM</p>
@@ -262,7 +262,7 @@ const AboutUs = () => {
       </section> */}
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Testimonials</h2>
           
@@ -284,7 +284,7 @@ const AboutUs = () => {
       </section>
 
       {/* Our Investors Section */}
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Our Investors</h2>
           
@@ -310,7 +310,7 @@ const AboutUs = () => {
       </section>
 
       {/* Investor Relations Section */}
-      {/* <section className="py-20 bg-[#F3F6E8]">
+      {/* <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -335,7 +335,7 @@ const AboutUs = () => {
       </section> */}
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
           

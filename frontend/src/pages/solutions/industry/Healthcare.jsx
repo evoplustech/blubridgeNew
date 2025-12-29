@@ -131,7 +131,7 @@ const Healthcare = () => {
   useDocumentTitle('GPU Cloud for Healthcare and Biotech | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">
+    <div className="min-h-screen bg-[#F3F1E9]">
       {/* HERO */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#F3F6E8] via-[#E8EDD8] to-[#F3F6E8]" />
@@ -152,7 +152,7 @@ const Healthcare = () => {
       </section>
 
       {/* VALUE PROPS */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#F3F1E9] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div><h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Analytics</h3><p className="text-[#5B6B7A] text-sm leading-relaxed">Improve the speed and accuracy of analysing medical imaging and other clinical data, helping reduce wait times and support faster clinical insights.</p></div>
@@ -163,7 +163,7 @@ const Healthcare = () => {
       </section>
 
       {/* EXAMPLE USES */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">FOSTERING COLLABORATION AND INNOVATION</p>
@@ -180,7 +180,7 @@ const Healthcare = () => {
       </section>
 
       {/* KEY SERVICES */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -193,7 +193,7 @@ const Healthcare = () => {
 
       {/* MORE SOLUTIONS */}
      
-      <section className="py-20 bg-[#F3F6E8]">
+      <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>

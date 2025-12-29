@@ -9,7 +9,7 @@ const Narvik = () => {
   useDocumentTitle('Narvik AI Data Centre | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">      {/* Hero Section */}
+    <div className="min-h-screen bg-[#F3F1E9]">      {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -46,7 +46,7 @@ const Narvik = () => {
       </section>
 
       {/* Strategic Advantages */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-4 text-center">Why Narvik</h2>
           <p className="text-[#243447] text-center mb-12 max-w-2xl mx-auto">
@@ -93,7 +93,7 @@ const Narvik = () => {
       </section>
 
       {/* Infrastructure Overview */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -152,7 +152,7 @@ const Narvik = () => {
       </section>
 
       {/* Sustainability */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-6 text-center">Sustainable by Design</h2>
@@ -191,7 +191,7 @@ const Narvik = () => {
       </section>
 
       {/* Deployment Options */}
-      <section className="py-24 bg-[#F3F6E8]">
+      <section className="py-24 bg-[#F3F1E9]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Flexible Deployment Models</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
