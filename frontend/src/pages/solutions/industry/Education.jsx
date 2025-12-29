@@ -135,8 +135,8 @@ const Education = () => {
     <div className="min-h-screen bg-[#F3F6E8]">
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#05050a] via-[#080812] to-[#000000]" />
+        {/* Background gradient - Light theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F3F6E8] via-[#E8EDD8] to-[#F3F6E8]" />
         
         {/* Animated academic forms canvas */}
         <canvas 
@@ -149,24 +149,24 @@ const Education = () => {
           }}
         />
 
-        {/* Ambient glow */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-indigo-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        {/* Ambient glow - adjusted for light theme */}
+        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               EDUCATION
             </h1>
-            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               At Blubrg, we provide GPU cloud computing resources that help educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure gives students, faculty, and researchers access to high-performance computing environments that support advanced computing projects and AI applications.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#05050a] px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
