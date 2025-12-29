@@ -340,7 +340,7 @@ const Telco = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#F7F6EC]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
