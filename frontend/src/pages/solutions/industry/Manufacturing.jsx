@@ -253,8 +253,8 @@ const Manufacturing = () => {
           }}
         />
 
-        {/* Ambient glow */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-amber-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        {/* Ambient glow - adjusted for light theme */}
+        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
