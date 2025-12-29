@@ -521,7 +521,7 @@ const Training = () => {
       {/* SECTION 8: FAQs */}
       <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0B1F3B]">FAQs</h2>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
@@ -553,19 +553,19 @@ const Training = () => {
       </section>
 
       {/* SECTION 9: Final CTA Strip */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+      <section className="py-20 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Access thousands of GPUs tailored to your<br />requirements.
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/contact/sales">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
