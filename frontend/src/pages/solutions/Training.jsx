@@ -150,7 +150,7 @@ const Training = () => {
 
             <div className="space-y-8">
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">MARKETPLACE</h3>
+                <h3 className="text-xl font-bold text-white mb-6">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch', 'HuggingFace', 'MLflow', 'Ray', 'Weights & Biases'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-2 text-white text-sm">
@@ -162,7 +162,7 @@ const Training = () => {
               </div>
 
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">PLATFORM</h3>
+                <h3 className="text-xl font-bold text-white mb-6">PLATFORM</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 py-2 text-white text-sm">
@@ -174,7 +174,7 @@ const Training = () => {
               </div>
 
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">INFRASTRUCTURE</h3>
+                <h3 className="text-xl font-bold text-white mb-6">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-4 py-2 text-white text-sm">
@@ -186,7 +186,7 @@ const Training = () => {
               </div>
 
               <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
-                <h3 className="text-xl font-bold text-[#0B1F3B] mb-6">HARDWARE</h3>
+                <h3 className="text-xl font-bold text-white mb-6">HARDWARE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['AMD MI300X', 'AMD MI250X', 'NVIDIA GB200', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA A100', '...'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2 text-white text-sm">
