@@ -195,22 +195,7 @@ const Legal = () => {
     <div className="min-h-screen bg-[#F3F6E8]">
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-[#F3F6E8]">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#08050d] via-[#0a0812] to-[#000000]" />
-        
-        {/* Animated legal forms canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-80"
-          style={{ 
-            pointerEvents: 'none',
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.5s ease-out'
-          }}
-        />
-
-        {/* Ambient glow */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-violet-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+ 
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
