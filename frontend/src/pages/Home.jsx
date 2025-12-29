@@ -216,113 +216,147 @@ const Home = () => {
         </div>
       </section> */}
 
-      {/* Integrated AI Platform Section */}
-      <section className="py-20 bg-[#EEF2DC]">
+      {/* Our AI Expertise Section */}
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
-          <div className="space-y-16">
-            {/* Row 1: Text Left, Marketplace Card Right */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">A fully integrated suite of AI services and compute</h3>
-                <p className="text-[#243447] leading-relaxed">Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.</p>
-              </div>
-              <div className="flex justify-end">
-                <Link to="/products/marketplace" className="block">
-                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
-                   <div class="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
-  <svg class="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-      d="M3 7h18M5 7l1 10a2 2 0 002 2h8a2 2 0 002-2l1-10M9 21v-6h6v6M9 7V5a3 3 0 016 0v2" />
-  </svg>
-</div>
-
-                    <span className="text-[#0B1F3B] text-sm font-medium">Marketplace</span>
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* Row 2: Serverless Card Left, Text Right */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="flex justify-start order-2 lg:order-1">
-                <Link to="/products/serverless" className="block">
-                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                      </svg>
-                    </div>
-                    <span className="text-[#0B1F3B] text-sm font-medium">Serverless</span>
-                  </div>
-                </Link>
-              </div>
-              <div className="lg:text-right order-1 lg:order-2">
-                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Serverless model endpoints for inference</h3>
-                <p className="text-[#243447] leading-relaxed">Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference.</p>
-              </div>
-            </div>
-
-            {/* Row 3: Text Left, Training Card Right */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Dedicated training clusters ready to go</h3>
-                <p className="text-[#243447] leading-relaxed">BluBrg's optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes for robust infrastructure management.</p>
-              </div>
-              <div className="flex justify-end">
-                <Link to="/products/training" className="block">
-                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
-                    </div>
-                    <span className="text-[#0B1F3B] text-sm font-medium">Training</span>
-                  </div>
-                </Link>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left - Circular Diagram */}
+            <div className="relative flex items-center justify-center">
+              <div className="relative w-80 h-80">
+                {/* Center circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center z-10">
+                  <span className="text-white text-xs font-medium text-center leading-tight">Our AI<br/>Expertise</span>
+                </div>
+                
+                {/* Outer ring with services */}
+                <svg className="w-full h-full" viewBox="0 0 320 320">
+                  {/* Outer circle */}
+                  <circle cx="160" cy="160" r="140" fill="none" stroke="#D6DEC3" strokeWidth="1" />
+                  
+                  {/* Service nodes positioned around the circle */}
+                  {[
+                    { label: "Data Science", angle: 0 },
+                    { label: "Data Engineering", angle: 45 },
+                    { label: "DevOps Services", angle: 90 },
+                    { label: "AI Strategy Consulting", angle: 135 },
+                    { label: "Business Intelligence", angle: 180 },
+                    { label: "Generative AI", angle: 225 },
+                    { label: "AI Chatbot Development", angle: 270 },
+                    { label: "Machine Learning", angle: 315 }
+                  ].map((item, index) => {
+                    const rad = (item.angle * Math.PI) / 180;
+                    const x = 160 + 120 * Math.cos(rad);
+                    const y = 160 + 120 * Math.sin(rad);
+                    return (
+                      <g key={index}>
+                        <circle cx={x} cy={y} r="8" fill="#328CC1" />
+                        <text 
+                          x={x} 
+                          y={y - 15} 
+                          textAnchor="middle" 
+                          className="text-[10px] fill-[#0B1F3B] font-medium"
+                        >
+                          {item.label}
+                        </text>
+                      </g>
+                    );
+                  })}
+                </svg>
               </div>
             </div>
-
-            {/* Row 4: Inference Card Left, Text Right */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="flex justify-start order-2 lg:order-1">
-                <Link to="/products/inference" className="block">
-                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <span className="text-[#0B1F3B] text-sm font-medium">Inference</span>
+            
+            {/* Right - Services Grid */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: "💡", title: "AI Strategy Consulting" },
+                  { icon: "🤖", title: "Machine Learning" },
+                  { icon: "💬", title: "AI Chatbot Development" },
+                  { icon: "⚙️", title: "DevOps Services" },
+                  { icon: "📊", title: "Data Science" },
+                  { icon: "✨", title: "Generative AI" },
+                  { icon: "🔧", title: "Data Engineering" },
+                  { icon: "📈", title: "Business Intelligence" }
+                ].map((service, index) => (
+                  <div 
+                    key={index}
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-md transition-all"
+                  >
+                    <span className="text-2xl">{service.icon}</span>
+                    <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
                   </div>
-                </Link>
-              </div>
-              <div className="lg:text-right order-1 lg:order-2">
-                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Setting a new standard for inference</h3>
-                <p className="text-[#243447] leading-relaxed">Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.</p>
-              </div>
-            </div>
-
-            {/* Row 5: Text Left, GPU Nodes Card Right */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Scalable, flexible AI Compute</h3>
-                <p className="text-[#243447] leading-relaxed">BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.</p>
-              </div>
-              <div className="flex justify-end">
-                <Link to="/products/gpu-nodes" className="block">
-                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                      </svg>
-                    </div>
-                    <span className="text-[#0B1F3B] text-sm font-medium">GPU Nodes</span>
-                  </div>
-                </Link>
+                ))}
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* How We Can Help You Section */}
+      <section className="py-20 bg-[#EEF2DC]">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">How We Can Help You</h2>
+            <p className="text-[#243447] max-w-3xl mx-auto leading-relaxed">
+              We welcome opportunities to work alongside different teams over projects of any complexity. By working together, we will develop new systems, solutions, and products to separate you from your competition.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                icon: "💡",
+                title: "AI/ML Strategy & Consulting",
+                description: "Have a project idea and need help implementing it? We're here to consult you and share our knowledge to help you avoid all unnecessary pitfalls."
+              },
+              {
+                icon: "🔬",
+                title: "PoC of AI-Based Solution",
+                description: "POC is an essential step before adopting any AI solution. If you have a project idea, our data science consultants will verify that your concept has potential."
+              },
+              {
+                icon: "🚀",
+                title: "MVP of AI-Based Product",
+                description: "Need a breakthrough AI product? We're ready to start with a version of just enough features to satisfy early customers and provide feedback for product development."
+              },
+              {
+                icon: "⚡",
+                title: "Custom Model Development",
+                description: "We can build and train custom models for your business needs, or retrain your existing ones (open-source and proprietary) for better efficiency and scalability."
+              },
+              {
+                icon: "💻",
+                title: "AI Software Development",
+                description: "If you need to develop an innovative web application from scratch, or empower the existing one with AI capabilities, let our experts help you."
+              },
+              {
+                icon: "📱",
+                title: "AI-Driven Mobile App Development",
+                description: "Our experts are here to help you build your innovative mobile app from scratch and power it with AI capabilities that your users will love."
+              }
+            ].map((card, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl p-6 border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#EEF2DC] flex items-center justify-center mb-4">
+                  <span className="text-2xl">{card.icon}</span>
+                </div>
+                <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3">{card.title}</h3>
+                <p className="text-[#243447] text-sm leading-relaxed">{card.description}</p>
+              </div>
+            ))}
+          </div>
+          
+          {/* CTA Button */}
+          <div className="text-center">
+            <Link to="/contact">
+              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-4 text-base font-medium rounded-lg">
+                I Need Free Consultation
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
