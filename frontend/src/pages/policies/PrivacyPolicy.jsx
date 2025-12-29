@@ -29,14 +29,14 @@ const PrivacyPolicy = () => {
                 <p className="text-[#243447] text-base leading-relaxed">
                   We may collect the following types of information:
                 </p>
-                <h3 className="text-lg font-medium text-white mt-6 mb-3">Personal Information</h3>
+                <h3 className="text-lg font-medium text-[#0B1F3B] mt-6 mb-3">Personal Information</h3>
                 <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
                   <li>Name and contact information (email address, phone number, postal address)</li>
                   <li>Account credentials and authentication data</li>
                   <li>Payment and billing information</li>
                   <li>Professional information (company name, job title)</li>
                 </ul>
-                <h3 className="text-lg font-medium text-white mt-6 mb-3">Technical Information</h3>
+                <h3 className="text-lg font-medium text-[#0B1F3B] mt-6 mb-3">Technical Information</h3>
                 <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
                   <li>IP address and device identifiers</li>
                   <li>Browser type and operating system</li>
