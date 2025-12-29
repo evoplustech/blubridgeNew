@@ -152,7 +152,7 @@ const SovereignCloud = () => {
               YOUR HOME ADVANTAGE.
             </h1>
             
-            <p className="text-white/90 text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+            <p className="text-[#243447] text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
               Blubrg’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
             </p>
             
