@@ -19,57 +19,55 @@ code {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    /* Premium Light Theme - Enterprise AI */
+    --background: 72 33% 94%; /* #F3F6E8 */
+    --foreground: 212 67% 14%; /* #0B1F3B */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 212 67% 14%; /* #0B1F3B */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 212 67% 14%; /* #0B1F3B */
+    --primary: 212 67% 14%; /* #0B1F3B */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --secondary: 72 33% 94%; /* #F3F6E8 */
+    --secondary-foreground: 212 67% 14%; /* #0B1F3B */
+    --muted: 72 26% 90%; /* #EEF2DC */
+    --muted-foreground: 207 15% 42%; /* #5B6B7A */
+    --accent: 72 26% 90%; /* #EEF2DC */
+    --accent-foreground: 212 67% 14%; /* #0B1F3B */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --border: 73 25% 82%; /* #D6DEC3 */
+    --input: 0 0% 100%; /* #FFFFFF */
+    --ring: 200 73% 40%; /* #328CC1 */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    
+    /* Custom Theme Colors */
+    --page-bg: #F3F6E8;
+    --section-bg: #EEF2DC;
+    --footer-bg: #E7ECD2;
+    --heading-text: #0B1F3B;
+    --body-text: #243447;
+    --muted-text: #5B6B7A;
+    --placeholder-text: #7C8A96;
+    --border-color: #D6DEC3;
+    --divider-color: #E2E8C0;
+    --link-default: #0B3C5D;
+    --link-hover: #328CC1;
+    --link-active: #0A2540;
+    --btn-primary-bg: #0B1F3B;
+    --btn-primary-hover: #162B4D;
+    --btn-secondary-bg: #FFFFFF;
+    --btn-secondary-border: #0B1F3B;
+    --dropdown-hover: #EEF2DC;
+    --dropdown-active: #E2E8C0;
+    --icon-default: #0B1F3B;
+    --icon-secondary: #5B6B7A;
+    --icon-accent: #328CC1;
   }
 }
 
