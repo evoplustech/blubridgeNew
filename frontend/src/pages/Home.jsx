@@ -247,7 +247,6 @@ const Home = () => {
     }
   ];
 
-
   const useCases = [
     {
       title: "TRAINING",
