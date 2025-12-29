@@ -398,35 +398,35 @@ const Home1 = () => {
                 <div className="text-white/80 ml-4">blubrg <span className="text-purple-400">import</span> GPUCluster</div>
                 <div className="mt-4 text-white/50"># Initialize training cluster</div>
                 <div className="text-white/80">cluster = GPUCluster(</div>
-                <div className="text-[#243447] ml-4">gpus=<span className="text-cyan-400">128</span>,</div>
-                <div className="text-[#243447] ml-4">type=<span className="text-green-400">"H100"</span>,</div>
-                <div className="text-[#243447] ml-4">region=<span className="text-green-400">"eu-north-1"</span></div>
-                <div className="text-[#243447]">)</div>
-                <div className="mt-4 text-[#5B6B7A]"># Start distributed training</div>
-                <div className="text-[#243447]">cluster.train(model, dataset)</div>
+                <div className="text-white/70 ml-4">gpus=<span className="text-cyan-400">128</span>,</div>
+                <div className="text-white/70 ml-4">type=<span className="text-green-400">"H100"</span>,</div>
+                <div className="text-white/70 ml-4">region=<span className="text-green-400">"eu-north-1"</span></div>
+                <div className="text-white/80">)</div>
+                <div className="mt-4 text-white/50"># Start distributed training</div>
+                <div className="text-white/80">cluster.train(model, dataset)</div>
               </div>
             </div>
             
             {/* Content */}
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
                 Powering Next-Generation AI
               </h2>
-              <p className="text-xl text-[#5B6B7A] mb-8 leading-relaxed">
+              <p className="text-xl text-white/70 mb-8 leading-relaxed">
                 World-class infrastructure designed for the most demanding AI workloads. From foundation model training to real-time inference, BluBrg delivers the performance you need.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-[#243447]">Latest NVIDIA H100 & H200 GPUs</span>
+                  <span className="text-white/80">Latest NVIDIA H100 & H200 GPUs</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-[#243447]">InfiniBand networking for distributed training</span>
+                  <span className="text-white/80">InfiniBand networking for distributed training</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-[#243447]">100% renewable energy powered</span>
+                  <span className="text-white/80">100% renewable energy powered</span>
                 </div>
               </div>
               <Link to="/products/training">
@@ -452,7 +452,7 @@ const Home1 = () => {
             <div className="flex items-center justify-center gap-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500" />
               <div className="text-left">
-                <p className="font-semibold">Enterprise Customer</p>
+                <p className="font-semibold text-[#0B1F3B]">Enterprise Customer</p>
                 <p className="text-[#5B6B7A] text-sm">Leading Technology Company</p>
               </div>
             </div>
@@ -464,8 +464,8 @@ const Home1 = () => {
       <section className="py-24 bg-gradient-to-b from-[#000000] to-[#050510]">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Resources & Insights</h2>
-            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">Resources & Insights</h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
               Explore our latest partnerships, case studies, and thought leadership.
             </p>
           </div>
@@ -474,7 +474,7 @@ const Home1 = () => {
             {caseStudies.map((study, idx) => (
               <div 
                 key={idx}
-                className="bg-white/[0.03] rounded-xl p-6 border border-[#D6DEC3] hover:border-white/15 transition-all duration-300 group cursor-pointer"
+                className="bg-white/[0.03] rounded-xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer"
               >
                 <span className="text-xs uppercase tracking-wider text-purple-400 font-semibold">
                   {study.category}
