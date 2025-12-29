@@ -215,8 +215,8 @@ const Training = () => {
   useDocumentTitle('GPU Clusters for Training AI Models | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F1E9] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#F3F1E9]">
+    <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f3f6e8]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -273,7 +273,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 2: Performance Metrics Strip */}
-      <section className="py-16 bg-[#F3F1E9] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#f3f6e8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {performanceMetrics.map((item, i) => (
@@ -293,7 +293,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 3: Dynamic Workload Management */}
-      <section className="py-20 bg-[#F3F1E9]">
+      <section className="py-20 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -347,7 +347,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 4: Advanced Scheduling */}
-      <section className="py-20 bg-[#F3F1E9]">
+      <section className="py-20 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Node Diagram Visual */}
@@ -395,7 +395,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 5: Industry-leading GPU Clusters */}
-      <section className="py-20 bg-[#F3F1E9]">
+      <section className="py-20 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -436,7 +436,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 6: Feature Strip (Three Columns) */}
-      <section className="py-16 bg-[#F3F1E9] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#f3f6e8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, i) => (
@@ -451,7 +451,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 7: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#F3F1E9]">
+      <section className="py-20 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -514,7 +514,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#F3F1E9]">
+      <section className="py-20 bg-[#f3f6e8]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0B1F3B]">FAQs</h2>
           

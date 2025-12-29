@@ -229,10 +229,10 @@ const Home1 = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F3F1E9] font-['DM_Sans']">
+    <div className="min-h-screen bg-[#f3f6e8] font-['DM_Sans']">
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#F3F1E9]">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#f3f6e8]">
         
         {/* Animated blob - right side */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-[80%] opacity-60">
@@ -288,7 +288,7 @@ const Home1 = () => {
       </section>
       
       {/* Full-Stack AI Solutions */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">Full-Stack AI Solutions</h2>
@@ -353,7 +353,7 @@ const Home1 = () => {
       </section>
       
       {/* Research Section */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">Infrastructure Excellence</h2>
@@ -438,7 +438,7 @@ const Home1 = () => {
       </section>
       
       {/* Testimonial Section */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-[#0B1F3B]">
@@ -491,7 +491,7 @@ const Home1 = () => {
       </section>
       
       {/* Certifications */}
-      <section className="py-16 bg-[#F3F1E9] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#f3f6e8] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <p className="text-center text-[#6B7280] text-sm mb-8 uppercase tracking-wider">
             Our infrastructure is certified compliant with industry standards

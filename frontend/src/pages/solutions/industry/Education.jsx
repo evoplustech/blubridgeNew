@@ -132,7 +132,7 @@ const Education = () => {
   useDocumentTitle('Elevate Advanced Research Projects | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F1E9]">
+    <div className="min-h-screen bg-[#f3f6e8]">
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Background gradient - Light theme */}
@@ -201,7 +201,7 @@ const Education = () => {
       </section>
 
       {/* Empowering Academic Research + Example Uses Section */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-indigo-400 text-sm font-medium mb-3 uppercase tracking-wider">EMPOWERING ACADEMIC RESEARCH</p>
@@ -252,7 +252,7 @@ const Education = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#f3f6e8]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -289,7 +289,7 @@ const Education = () => {
 
       {/* More Solutions */}
       
-<section className="py-20 bg-[#F3F1E9]">
+<section className="py-20 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
@@ -342,7 +342,7 @@ const Education = () => {
         </div>
       </section>
       {/* FAQs */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#f3f6e8]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

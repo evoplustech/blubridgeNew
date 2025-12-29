@@ -131,7 +131,7 @@ const Telco = () => {
   useDocumentTitle('Scalable AIaaS & AI Data Centers for Telco Providers | BluBrg - Next-Gen GPU Infrastructure');
 
   return (
-    <div className="min-h-screen bg-[#F3F1E9]">
+    <div className="min-h-screen bg-[#f3f6e8]">
       {/* ANIMATED HERO SECTION - Network mesh visualization */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Background gradient - Light theme */}
@@ -196,7 +196,7 @@ const Telco = () => {
       </section>
 
       {/* Telco AI Use Cases Section */}
-      <section className="py-24 bg-[#F3F1E9]">
+      <section className="py-24 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Telco AI Use Cases</h2>
@@ -286,7 +286,7 @@ const Telco = () => {
       </section>
 
       {/* More Solutions */}
-      <section className="py-20 bg-[#F3F1E9]">
+      <section className="py-20 bg-[#f3f6e8]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
