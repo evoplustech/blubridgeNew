@@ -75,7 +75,7 @@ const FineTuning = () => {
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#F3F6E8] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -173,7 +173,7 @@ const FineTuning = () => {
       </section>
 
       {/* Fine-Tuning Stack - Two column layout */}
-      <section className="py-24 bg-[#EEF2DC]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Fine-Tuning Stack</h2>
@@ -321,7 +321,7 @@ const FineTuning = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#EEF2DC]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -404,7 +404,7 @@ const FineTuning = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[#EEF2DC]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

@@ -319,7 +319,7 @@ const Training = () => {
         </div>
       </section>
       {/* Faq */}
-      <section className="py-24 bg-[#EEF2DC]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

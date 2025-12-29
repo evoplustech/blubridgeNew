@@ -152,7 +152,7 @@ const Healthcare = () => {
       </section>
 
       {/* VALUE PROPS */}
-      <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#F3F6E8] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div><h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Analytics</h3><p className="text-[#5B6B7A] text-sm leading-relaxed">Improve the speed and accuracy of analysing medical imaging and other clinical data, helping reduce wait times and support faster clinical insights.</p></div>
@@ -180,7 +180,7 @@ const Healthcare = () => {
       </section>
 
       {/* KEY SERVICES */}
-      <section className="py-24 bg-[#EEF2DC]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
