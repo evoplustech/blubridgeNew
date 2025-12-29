@@ -104,6 +104,7 @@ function App() {
             <Route path="/media-kit" element={<MediaKit />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/research" element={<Research />} />
+            <Route path="/Research/Blu-Werp" element={<BluWerp />} />
             
             {/* Contact Routes */}
             <Route path="/contact" element={<Contact />} />
