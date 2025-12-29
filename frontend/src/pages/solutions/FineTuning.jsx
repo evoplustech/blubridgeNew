@@ -372,7 +372,7 @@ const FineTuning = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -382,7 +382,7 @@ const FineTuning = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -392,7 +392,7 @@ const FineTuning = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
