@@ -348,14 +348,14 @@ const Home = () => {
             backgroundImage: `url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F3F6E8]/95 via-[#F3F6E8]/80 to-[#F3F6E8]/60" />
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols gap-12">
             {/* Left - Text and Tabs */}
             <div>
-              <h2 className="text-4xl font-light mb-6">BluBrg's Infrastructure</h2>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <h2 className="text-4xl font-light mb-6 text-[#0B1F3B]">BluBrg's Infrastructure</h2>
+              <p className="text-[#243447] mb-8 leading-relaxed">
                 Blubrg manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
               </p>
               
@@ -367,8 +367,8 @@ const Home = () => {
                     onClick={() => setActiveInfraTab(index)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                       activeInfraTab === index 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-slate-800/50 text-gray-400 hover:bg-slate-700/50'
+                        ? 'bg-[#0B1F3B] text-white' 
+                        : 'bg-white/80 text-[#243447] border border-[#D6DEC3] hover:bg-[#EEF2DC]'
                     }`}
                   >
                     {tab.name}
@@ -377,18 +377,18 @@ const Home = () => {
               </div>
               
               {/* Active Tab Content */}
-              <div className="bg-slate-900/80 rounded-xl p-6 border border-slate-700/50">
-                <h3 className="text-xl font-medium mb-3">{infraTabs[activeInfraTab].title}</h3>
-                <p className="text-gray-400 mb-4 text-sm leading-relaxed">{infraTabs[activeInfraTab].description}</p>
+              <div className="bg-white rounded-xl p-6 border border-[#D6DEC3] shadow-sm">
+                <h3 className="text-xl font-medium mb-3 text-[#0B1F3B]">{infraTabs[activeInfraTab].title}</h3>
+                <p className="text-[#243447] mb-4 text-sm leading-relaxed">{infraTabs[activeInfraTab].description}</p>
                 <div className="grid grid-cols-2 gap-2">
                   {infraTabs[activeInfraTab].features.map((feature, i) => (
                     <div key={i} className="flex items-center gap-2 text-sm">
-                      <Check className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                      <span className="text-gray-300">{feature}</span>
+                      <Check className="w-4 h-4 text-[#328CC1] flex-shrink-0" />
+                      <span className="text-[#243447]">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <Link to={`${infraTabs[activeInfraTab].link}`} className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mt-4 text-sm">
+                <Link to={`${infraTabs[activeInfraTab].link}`} className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] mt-4 text-sm">
                   See More <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -401,17 +401,17 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
-          <h2 className="text-3xl font-light mb-12">Testimonials</h2>
+          <h2 className="text-3xl font-light mb-12 text-[#0B1F3B]">Testimonials</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((item, index) => (
-              <div key={index} className="border-l-2 border-slate-700 pl-6">
-                <p className="text-gray-300 italic mb-6 leading-relaxed text-sm">"{item.quote}"</p>
-                <div className="text-white font-medium">{item.name}</div>
-                <div className="text-gray-500 text-sm">{item.role}</div>
-                <div className="text-gray-600 text-sm">{item.company}</div>
+              <div key={index} className="border-l-2 border-[#328CC1] pl-6">
+                <p className="text-[#243447] italic mb-6 leading-relaxed text-sm">"{item.quote}"</p>
+                <div className="text-[#0B1F3B] font-medium">{item.name}</div>
+                <div className="text-[#5B6B7A] text-sm">{item.role}</div>
+                <div className="text-[#7C8A96] text-sm">{item.company}</div>
               </div>
             ))}
           </div>
@@ -419,11 +419,11 @@ const Home = () => {
       </section>
 
       {/* Use Cases Grid */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-4xl mb-4 font-bold">Use cases</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <h2 className="text-4xl mb-4 font-bold text-[#0B1F3B]">Use cases</h2>
+            <p className="text-[#243447] max-w-2xl">
               End-to-end AI solutions covering model training, fine-tuning, inference, and development, all built to accelerate your AI initiatives.
             </p>
           </div>
@@ -431,7 +431,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-5">
             {/* Model Training Card */}
             <Link to="/solutions/training">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
                   className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
                   style={{ 
@@ -441,14 +441,14 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">TRAINING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">TRAINING</span>
                 </div>
               </div>
             </Link>
 
             {/* AI & ML Inference Card */}
             <Link to="/solutions/inference">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
                   className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
                   style={{ 
@@ -458,14 +458,14 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">INFERENCE</span>
                 </div>
               </div>
             </Link>
 
             {/* AI Development Card */}
             <Link to="/solutions/ai-development">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
                   className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
                   style={{ 
@@ -475,14 +475,14 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
 
             {/* Model Fine-Tuning Card */}
             <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
+              <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
                 <div 
                   className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
                   style={{ 
@@ -492,7 +492,7 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -501,58 +501,58 @@ const Home = () => {
       </section>
 
       {/* NVIDIA Partner Strip */}
-      <section className="py-16 bg-[#0d1117] border-t border-b border-slate-800/50">
+      <section className="py-16 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-light mb-4">
+              <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">
                 BluBrg is now an NVIDIA Preferred Partner
               </h2>
-              <p className="text-gray-400 mb-6">
+              <p className="text-[#243447] mb-6">
                 Access thousands of GPUs tailored to your requirements.
               </p>
               <div className="flex gap-4">
                 <Link to="/contact/sales">
-                  <Button className="bg-white text-[#0a0a0f] hover:bg-white/90 px-6 py-3">
+                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3">
                     Reserve GPUs
                   </Button>
                 </Link>
                 <Link to="/contact/sales">
-                  <Button variant="outline" className="border-slate-600 text-white hover:bg-slate-800 px-6 py-3">
+                  <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#EEF2DC] px-6 py-3">
                     Contact Sales
                   </Button>
                 </Link>
               </div>
             </div>
             <div className="flex items-center justify-center lg:justify-end gap-8">
-              <span className="text-5xl font-bold text-white/20 tracking-tight">NVIDIA</span>
-              <div className="text-sm text-gray-500">Preferred Partner</div>
+              <span className="text-5xl font-bold text-[#0B1F3B]/20 tracking-tight">NVIDIA</span>
+              <div className="text-sm text-[#5B6B7A]">Preferred Partner</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      {/* <section className="py-20 bg-[#0a0a0f]">
+      {/* <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-3xl font-light mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-light mb-12 text-[#0B1F3B]">Frequently Asked Questions</h2>
           
           <div className="space-y-4 max-w-4xl">
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-slate-700/50"
+                className="border-b border-[#D6DEC3]"
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-5 text-left text-[#0B1F3B] hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-lg font-medium pr-8">{faq.question}</span>
                   <div className="flex-shrink-0">
                     {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-blue-400" />
+                      <Minus className="w-5 h-5 text-[#328CC1]" />
                     ) : (
-                      <Plus className="w-5 h-5 text-blue-400" />
+                      <Plus className="w-5 h-5 text-[#328CC1]" />
                     )}
                   </div>
                 </button>
@@ -562,7 +562,7 @@ const Home = () => {
                     openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#243447] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}
@@ -571,19 +571,19 @@ const Home = () => {
       </section> */}
 
       {/* Final CTA Strip */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
             Access thousands of GPUs tailored to your requirements.
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
