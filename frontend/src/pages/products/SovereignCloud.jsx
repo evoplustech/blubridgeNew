@@ -153,8 +153,8 @@ const SovereignCloud = () => {
           }}
         />
         
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        {/* Light Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F3F6E8]/90 via-[#F3F6E8]/70 to-[#F3F6E8]/50" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
