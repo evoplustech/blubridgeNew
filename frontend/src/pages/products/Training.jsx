@@ -419,12 +419,12 @@ const Training = () => {
             
             {/* GPU Server Rack Visual */}
             <div className="relative">
-              <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
+              <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
                 <div className="text-center">
                   {/* Stylized server rack representation */}
                   <div className="grid grid-cols-4 gap-2 mb-4">
                     {[...Array(16)].map((_, i) => (
-                      <div key={i} className="h-8 bg-slate-700/50 rounded border border-[#D6DEC3]/30 flex items-center justify-center">
+                      <div key={i} className="h-8 bg-[#1a1a2e] rounded border border-[#333]/50 flex items-center justify-center">
                         <div className="flex gap-0.5">
                           <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
                           <div className="w-1 h-1 rounded-full bg-blue-500" />
@@ -432,7 +432,7 @@ const Training = () => {
                       </div>
                     ))}
                   </div>
-                  <p className="text-[#5B6B7A] text-sm">NVIDIA H100 • H200 • GB200 NVL72</p>
+                  <p className="text-white/70 text-sm">NVIDIA H100 • H200 • GB200 NVL72</p>
                 </div>
               </div>
             </div>
