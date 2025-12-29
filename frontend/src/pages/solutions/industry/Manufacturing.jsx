@@ -266,7 +266,7 @@ const Manufacturing = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#0a0805] px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
