@@ -404,14 +404,14 @@ const Training = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Industry leading GPU<br />clusters at all scales
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
               <Link to="/contact/sales">
-                <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
                   Reserve GPUs <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
               </Link>
