@@ -270,10 +270,8 @@ const Manufacturing = () => {
                   Get Started
                 </Button>
               </Link>
-               <Link to="/contact">
-                <button className="text-white hover:text-white/80 px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
+               <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
-                </button>
               </Link>
             </div>
           </div>
