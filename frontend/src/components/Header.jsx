@@ -260,7 +260,7 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'company' && (
-                <div className="absolute top-full left-0 pt-4 w-[250px]">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[250px]">
                   <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-6">
                     <div className="space-y-2">
                       {company.map((item, i) => (
