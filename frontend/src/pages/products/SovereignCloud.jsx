@@ -147,7 +147,7 @@ const SovereignCloud = () => {
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[#0B1F3B]" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
               YOUR AI.<br />
               YOUR HOME ADVANTAGE.
             </h1>
