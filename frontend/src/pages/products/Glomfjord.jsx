@@ -86,7 +86,7 @@ const Glomfjord = () => {
   useDocumentTitle('Glomfjord AI Data Centre | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Glomfjord Data Center Background */}
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Glomfjord Data Center Background */}
       <section ref={heroRef} className="relative min-h-[650px] flex items-center overflow-hidden">
         {/* Background Image with Parallax */}
         <div 

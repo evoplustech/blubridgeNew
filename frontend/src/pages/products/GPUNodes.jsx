@@ -258,7 +258,7 @@ const GPUNodes = () => {
   useDocumentTitle('GPU Nodes for AI, ML and HPC | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* Hero Section with Animation */}
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* Hero Section with Animation */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />

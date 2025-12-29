@@ -239,7 +239,7 @@ const Inference = () => {
   useDocumentTitle('AI Inference | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1420] to-[#0a0a0f]" />

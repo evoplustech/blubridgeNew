@@ -311,7 +311,7 @@ const FineTuning = () => {
   useDocumentTitle('AI Model Fine-tuning | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Animated Canvas Background */}
         <canvas 
