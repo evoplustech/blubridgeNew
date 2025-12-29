@@ -40,7 +40,7 @@ const Blog = () => {
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               BluBrg Blog
             </h1>
-            <p className="text-xl text-[#243447]">
+            <p className="text-xl text-[#2F3A4A]">
               Insights on AI infrastructure, cloud computing, and the future of technology.
             </p>
           </div>
@@ -53,7 +53,7 @@ const Blog = () => {
           {loading ? (
             <div className="text-center text-white">Loading posts...</div>
           ) : posts.length === 0 ? (
-            <div className="text-center text-[#243447]">No blog posts yet. Check back soon!</div>
+            <div className="text-center text-[#2F3A4A]">No blog posts yet. Check back soon!</div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
@@ -69,7 +69,7 @@ const Blog = () => {
                     <CardContent className="p-6">
                       <div className="text-[#328CC1] text-sm mb-2">{new Date(post.created_at).toLocaleDateString()}</div>
                       <h3 className="text-xl font-bold text-[#0B1F3B] mb-3">{post.title}</h3>
-                      <p className="text-[#243447] mb-4 line-clamp-3">{post.excerpt}</p>
+                      <p className="text-[#2F3A4A] mb-4 line-clamp-3">{post.excerpt}</p>
                       <div className="flex items-center space-x-2 text-[#328CC1]">
                         <span>Read more</span>
                         <ArrowRight className="w-4 h-4" />

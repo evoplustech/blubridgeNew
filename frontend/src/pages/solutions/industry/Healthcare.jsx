@@ -140,7 +140,7 @@ const Healthcare = () => {
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">HEALTHCARE</h1>
-            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">Blubrg Cloud offers tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, Blubrg enables healthcare teams to speed up research efforts and deliver more personalised treatments.</p>
+            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">Blubrg Cloud offers tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, Blubrg enables healthcare teams to speed up research efforts and deliver more personalised treatments.</p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales"><Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
@@ -197,7 +197,7 @@ const Healthcare = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
-            <p className="text-[#243447] max-w-2xl">
+            <p className="text-[#2F3A4A] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>

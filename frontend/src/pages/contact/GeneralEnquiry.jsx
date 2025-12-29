@@ -191,7 +191,7 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* Privacy Notice */}
-                <div className="text-[#243447] text-xs leading-relaxed">
+                <div className="text-[#2F3A4A] text-xs leading-relaxed">
                   BluBrg is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below to say how you would like us to contact you:
                 </div>
 
@@ -206,7 +206,7 @@ const GeneralEnquiry = () => {
                       required
                       className="w-4 h-4 rounded border-[#D6DEC3] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-[#243447] text-sm">
+                    <span className="text-[#2F3A4A] text-sm">
                       I have read and agree to the <Link to="/terms" className="text-white underline hover:text-[#328CC1]">Terms and Conditions</Link> and <Link to="/privacy" className="text-white underline hover:text-[#328CC1]">Privacy Policy</Link>.*
                     </span>
                   </label>
@@ -218,7 +218,7 @@ const GeneralEnquiry = () => {
                       onChange={handleInputChange}
                       className="w-4 h-4 rounded border-[#D6DEC3] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-[#243447] text-sm">
+                    <span className="text-[#2F3A4A] text-sm">
                       I agree to receive marketing communications from BluBrg. You can unsubscribe at any time.
                     </span>
                   </label>
@@ -235,7 +235,7 @@ const GeneralEnquiry = () => {
                     <span className="text-[#0B1F3B] text-xs font-medium">protected by reCAPTCHA</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-2.5 bg-[#222222]">
-                    <span className="text-[#243447] text-[10px]">Privacy - Terms</span>
+                    <span className="text-[#2F3A4A] text-[10px]">Privacy - Terms</span>
                     <svg viewBox="0 0 64 64" className="w-6 h-6">
                       <path fill="#1c3aa9" d="M32 0C14.4 0 0 14.4 0 32s14.4 32 32 32 32-14.4 32-32S49.6 0 32 0z"/>
                       <path fill="#4285f4" d="M32 6.4c14.1 0 25.6 11.5 25.6 25.6S46.1 57.6 32 57.6 6.4 46.1 6.4 32 17.9 6.4 32 6.4z"/>
@@ -268,7 +268,7 @@ const GeneralEnquiry = () => {
               <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] mb-6 leading-tight">
                 Get access to a fully integrated suite of AI services and compute
               </h2>
-              <p className="text-[#243447] text-base leading-relaxed">
+              <p className="text-[#2F3A4A] text-base leading-relaxed">
                 Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-[#328CC1]">BluBrg's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
             </div>
@@ -348,7 +348,7 @@ const GeneralEnquiry = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-medium text-sm">BluBrg's Data centers</h4>
-                    <p className="text-[#243447] text-xs">Powered by renewable energy</p>
+                    <p className="text-[#2F3A4A] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>
               </div>
@@ -367,7 +367,7 @@ const GeneralEnquiry = () => {
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[#243447] text-sm">{feature}</span>
+                    <span className="text-[#2F3A4A] text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -381,7 +381,7 @@ const GeneralEnquiry = () => {
             <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] mb-6 leading-tight">
               Get access to a fully integrated suite of AI services and compute
             </h2>
-            <p className="text-[#243447] text-base leading-relaxed">
+            <p className="text-[#2F3A4A] text-base leading-relaxed">
               Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using BluBrg's built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
             </p>
           </div>

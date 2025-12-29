@@ -95,7 +95,7 @@ const Training = () => {
             ].map((item, i) => (
               <div key={i} className="text-center">
                 <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4">{item.title}</h3>
-                <p className="text-[#243447] leading-relaxed">{item.desc}</p>
+                <p className="text-[#2F3A4A] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -108,16 +108,16 @@ const Training = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Accelerated Model Training</h2>
-              <p className="text-lg text-[#243447] leading-relaxed mb-6">
+              <p className="text-lg text-[#2F3A4A] leading-relaxed mb-6">
                 Training advanced AI models requires flexible, reliable, and cost-efficient
                 infrastructure. Blubrg simplifies this by delivering purpose-built systems
                 designed specifically for AI workloads.
               </p>
-              <p className="text-lg text-[#243447] leading-relaxed mb-6">
+              <p className="text-lg text-[#2F3A4A] leading-relaxed mb-6">
                 Integrated Slurm and Kubernetes orchestration enables efficient job scheduling
                 and workload management across distributed GPU clusters with minimal setup.
               </p>
-              <p className="text-lg text-[#243447] leading-relaxed">
+              <p className="text-lg text-[#2F3A4A] leading-relaxed">
                 High-performance bare-metal GPU nodes ensure consistent, predictable performance
                 for large-scale training and fine-tuning workloads.
               </p>
@@ -143,7 +143,7 @@ const Training = () => {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
-            <p className="text-lg text-[#243447] mb-16 max-w-3xl">
+            <p className="text-lg text-[#2F3A4A] mb-16 max-w-3xl">
               Our comprehensive training stack provides everything you need from hardware to
               applications, with full flexibility to customise at every layer.
             </p>
@@ -280,7 +280,7 @@ const Training = () => {
         <div className="container-custom">
          <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
-            <p className="text-[#243447] max-w-2xl">
+            <p className="text-[#2F3A4A] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>

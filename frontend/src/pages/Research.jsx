@@ -35,7 +35,7 @@ const Research = () => {
             {/* Authors Row */}
             <div className="flex items-center gap-2 mb-6">
               <Users className="w-5 h-5 text-[#5B6B7A]" />
-              <span className="text-[#243447] text-sm">
+              <span className="text-[#2F3A4A] text-sm">
                 Gowtham, Sai Rupesh, Sanjay Kumar, Saravanan, Venkata Chaithanya
               </span>
             </div>
@@ -50,7 +50,7 @@ const Research = () => {
                 <span className="text-[#0B1F3B] font-medium">Abstract</span>
               </div>
               
-              <p className="text-[#243447] leading-relaxed text-base">
+              <p className="text-[#2F3A4A] leading-relaxed text-base">
                 Blubridge proudly presents the process behind "Blu-WERP", our pipeline that sets a new industry standard for scalable, high-quality LLM pretraining data this month. In our paper, we demonstrate training and evaluation details, including the data preparation pipeline, from JusText extraction to Benchmark-targeted classification...
                 <a href="#" className="text-[#328CC1] hover:underline ml-1">More »</a>
               </p>

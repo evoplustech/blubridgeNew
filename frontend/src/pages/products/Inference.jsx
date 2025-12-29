@@ -255,7 +255,7 @@ const Inference = () => {
                 Fast, affordable,<br />auto-scaling AI<br />inference
               </h1>
               
-              <p className="text-[#243447] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+              <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
                 Designed for maximum efficiency, the inference offering runs on dynamically scaling GPU capacity, with end-to-end optimisation tailored to support both batch processing and real-time streaming demands.
               </p>
               
@@ -306,7 +306,7 @@ const Inference = () => {
                   {item.metric} <span className="text-lg font-medium">{item.label}</span>
                 </div>
                 <p className="text-[#0B1F3B] font-medium mb-1">{item.title}</p>
-                <p className="text-[#243447] text-sm mb-3">{item.description}</p>
+                <p className="text-[#2F3A4A] text-sm mb-3">{item.description}</p>
                 {/* <Link to={item.link} className="text-[#328CC1] text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
                 </Link> */}
@@ -324,7 +324,7 @@ const Inference = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Easily access optimised<br />inference frameworks
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                  Immediate compatibility is available with TensorFlow Serving, PyTorch, and ONNX Runtime to enable rapid inference execution. Proprietary optimization methods lower response times and enhance throughput while preserving model accuracy.
               </p>
               <Link to="/contact">
@@ -358,7 +358,7 @@ const Inference = () => {
                         top: `calc(50% + ${y}px - 28px)`
                       }}
                     >
-                      <span className="text-xs text-[#243447] text-center">{fw.name}</span>
+                      <span className="text-xs text-[#2F3A4A] text-center">{fw.name}</span>
                     </div>
                   );
                 })}
@@ -397,7 +397,7 @@ const Inference = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Dedicated endpoints for<br />100+ open-source models
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Using Inference Endpoints, you can quickly launch Transformers, Diffusers, or bespoke models on dedicated, fully managed compute environments. Choose from over 100 available models, enhanced through Blubrg’s proprietary optimisation layer to achieve maximum performance.
 
               </p>
@@ -412,7 +412,7 @@ const Inference = () => {
                 <div key={i} className="bg-slate-900/50 rounded-lg p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
                   <div className="text-xs text-[#5B6B7A] mb-1">{model.type}</div>
                   <div className="text-[#0B1F3B] font-semibold text-sm mb-2">{model.name}</div>
-                  <div className="text-xs text-[#243447]">{model.publisher}</div>
+                  <div className="text-xs text-[#2F3A4A]">{model.publisher}</div>
                 </div>
               ))}
             </div>
@@ -428,7 +428,7 @@ const Inference = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Built on high-<br />performance GPU<br />compute
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                The inference offering runs on next-generation GPU acceleration. Paired with ultra-fast networking and rapid storage systems, it provides exceptional compute capability for both batch processing and real-time artificial intelligence workloads.
               </p>
               <Link to="/products/gpu-nodes" className="text-[#328CC1] hover:text-blue-300 inline-flex items-center gap-2">
@@ -467,7 +467,7 @@ const Inference = () => {
               <div key={i} className="text-center md:text-left">
                 <feature.icon className="w-10 h-10 text-blue-500 mb-4 mx-auto md:mx-0" />
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-3">{feature.title}</h3>
-                <p className="text-[#243447] text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-[#2F3A4A] text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -482,7 +482,7 @@ const Inference = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                  Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging <Link to="/" className="text-[#328CC1] hover:underline">BluBrg</Link>'s AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
@@ -491,10 +491,10 @@ const Inference = () => {
             <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#243447]">Serverless</span>
+                  <span className="text-sm text-[#2F3A4A]">Serverless</span>
                 </div>
                 <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#243447]">Marketplace</span>
+                  <span className="text-sm text-[#2F3A4A]">Marketplace</span>
                 </div>
               </div>
               
@@ -510,13 +510,13 @@ const Inference = () => {
               <div className="grid grid-cols-2 gap-2 mb-4">
                 {infrastructureTools.map((tool, i) => (
                   <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-[#D6DEC3]/20">
-                    <span className="text-xs text-[#243447]">{tool}</span>
+                    <span className="text-xs text-[#2F3A4A]">{tool}</span>
                   </div>
                 ))}
               </div>
               
               <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
-                <span className="text-sm text-[#243447]">GPU nodes</span>
+                <span className="text-sm text-[#2F3A4A]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
@@ -562,7 +562,7 @@ const Inference = () => {
                 </button>
                 
                 <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-[#243447] pb-4 pr-12">{faq.answer}</p>
+                  <p className="text-[#2F3A4A] pb-4 pr-12">{faq.answer}</p>
                 </div>
               </div>
             ))}

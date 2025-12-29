@@ -150,7 +150,7 @@ const Marketplace = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#0B1F3B] leading-tight">
                 Turnkey AI development and deployment
               </h1>
-              <p className="text-[#243447] text-lg leading-relaxed max-w-xl">
+              <p className="text-[#2F3A4A] text-lg leading-relaxed max-w-xl">
                 Access ready-to-go AI & ML tools and resources, enabling efficient and scalable model development and deployment.
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -183,7 +183,7 @@ const Marketplace = () => {
             {/* Access Leading Tools */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-[#0B1F3B]">Access Leading Tools</h3>
-              <p className="text-[#243447] text-sm leading-relaxed">
+              <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 Develop with leading AI/ML frameworks such as PyTorch and TensorFlow to simplify and accelerate your development workflow.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
@@ -194,7 +194,7 @@ const Marketplace = () => {
             {/* Extensive Model Library */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-[#0B1F3B]">Extensive Model Library</h3>
-              <p className="text-[#243447] text-sm leading-relaxed">
+              <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 Explore our collection of open-source models, enhanced with proprietary optimizations running on NVIDIA GPUs.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
@@ -205,7 +205,7 @@ const Marketplace = () => {
             {/* Tailored Resources */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-[#0B1F3B]">Tailored Resources</h3>
-              <p className="text-[#243447] text-sm leading-relaxed">
+              <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 Choose from preconfigured templates and customizable tools tailored to suit your specific AI use case.
               </p>
              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
@@ -225,7 +225,7 @@ const Marketplace = () => {
               <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] leading-tight">
                 Quickly deploy the best AI tools and frameworks
               </h2>
-              <p className="text-[#243447] text-base leading-relaxed">
+              <p className="text-[#2F3A4A] text-base leading-relaxed">
                 Our AI Marketplace offers a curated selection of top AI/ML tools like PyTorch and TensorFlow, optimised for our infrastructure stack. Enhance developer productivity with the best tools available in the industry.
               </p>
               <Link to="/contact">
@@ -271,7 +271,7 @@ const Marketplace = () => {
               <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
                 Accelerate development with access to leading models
               </h2>
-              <p className="text-[#243447] text-base leading-relaxed">
+              <p className="text-[#2F3A4A] text-base leading-relaxed">
                 Select from a library of open-source and custom LLM models optimized with Blubrg’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
@@ -302,7 +302,7 @@ const Marketplace = () => {
               <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
                 Preconfigured hardware options for ease and efficiency
               </h2>
-              <p className="text-[#243447] text-base leading-relaxed">
+              <p className="text-[#2F3A4A] text-base leading-relaxed">
                 Our ready-to-deploy hardware resources are tailored for specific AI use cases, delivering peak performance and efficiency without the complexity of setup.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
@@ -322,7 +322,7 @@ const Marketplace = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-[#0B1F3B] font-semibold text-base">AI-in-a-Box</h4>
-                    <p className="text-[#243447] text-sm mt-1">Development environment using GPU Nodes.</p>
+                    <p className="text-[#2F3A4A] text-sm mt-1">Development environment using GPU Nodes.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Model Development</span>
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Drivers</span>
@@ -342,7 +342,7 @@ const Marketplace = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-[#0B1F3B] font-semibold text-base">Training Compute</h4>
-                    <p className="text-[#243447] text-sm mt-1">Optimised Kubernetes environment for setting up and training LLM models.</p>
+                    <p className="text-[#2F3A4A] text-sm mt-1">Optimised Kubernetes environment for setting up and training LLM models.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Model Training</span>
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Kubernetes</span>
@@ -362,7 +362,7 @@ const Marketplace = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-[#0B1F3B] font-semibold text-base">Inference Compute</h4>
-                    <p className="text-[#243447] text-sm mt-1">Optimised CI/NK clusters with a specialized scheduler for inference jobs.</p>
+                    <p className="text-[#2F3A4A] text-sm mt-1">Optimised CI/NK clusters with a specialized scheduler for inference jobs.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Autoscaling</span>
                       <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Inference</span>
@@ -384,7 +384,7 @@ const Marketplace = () => {
             {/* Quick Deployment */}
             <div className="space-y-3">
               <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">QUICK DEPLOYMENT</h3>
-              <p className="text-[#243447] text-sm leading-relaxed">
+              <p className="text-[#2F3A4A] text-sm leading-relaxed">
                Deploy a broad range of software and hardware resources in just a few clicks.
               </p>
             </div>
@@ -392,7 +392,7 @@ const Marketplace = () => {
             {/* 80% Lower Cost */}
             <div className="space-y-3">
               <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">80% LOWER COST</h3>
-              <p className="text-[#243447] text-sm leading-relaxed">
+              <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.
               </p>
             </div>
@@ -400,7 +400,7 @@ const Marketplace = () => {
             {/* Tailored for AI */}
             <div className="space-y-3">
               <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">TAILORED FOR AI</h3>
-              <p className="text-[#243447] text-sm leading-relaxed">
+              <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 All applications, software, and hardware are fully integrated and purpose-built for AI.
               </p>
             </div>
@@ -408,7 +408,7 @@ const Marketplace = () => {
             {/* Up to 30% */}
             <div className="space-y-3">
               <h3 className="text-[#0B1F3B] font-semibold text-sm uppercase tracking-wider">UP TO 30%</h3>
-              <p className="text-[#243447] text-sm leading-relaxed">
+              <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 We own the infrastructure, so you can focus on innovation.
               </p>
             </div>
@@ -425,7 +425,7 @@ const Marketplace = () => {
               <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
                 Get access to a fully integrated suite of AI services and compute
               </h2>
-              <p className="text-[#243447] text-base leading-relaxed">
+              <p className="text-[#2F3A4A] text-base leading-relaxed">
                Lower costs, increase revenue, and operate your AI workloads more efficiently on a fully integrated platform. Whether you use Blubrg’s built-in AI/ML tools or your own, the platform is designed to simplify the path from development to production.
               </p>
             </div>
@@ -505,7 +505,7 @@ const Marketplace = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-medium text-sm">BluBrg's Data centers</h4>
-                    <p className="text-[#243447] text-xs">Powered by renewable energy</p>
+                    <p className="text-[#2F3A4A] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>
               </div>
@@ -524,7 +524,7 @@ const Marketplace = () => {
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[#243447] text-xs">{feature}</span>
+                    <span className="text-[#2F3A4A] text-xs">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -555,7 +555,7 @@ const Marketplace = () => {
                 </button>
                 {openFaq === index && (
                   <div className="pb-5">
-                    <p className="text-[#243447] text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#2F3A4A] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

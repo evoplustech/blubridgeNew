@@ -11,7 +11,7 @@ const MediaKit = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1F3D] to-white" />
         <div className="container-custom relative z-10 text-center py-20">
           <h1 className="text-5xl sm:text-6xl font-bold text-[#0B1F3B] mb-6">Media Kit</h1>
-          <p className="text-xl text-[#243447] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#2F3A4A] max-w-2xl mx-auto leading-relaxed">
             Access our brand resources, logos, and press materials. Everything you need to accurately represent BluBrg in your publications and projects.
           </p>
         </div>
@@ -83,23 +83,23 @@ const MediaKit = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Company Overview</h2>
             <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10">
-              <p className="text-lg text-[#243447] leading-relaxed mb-8">
+              <p className="text-lg text-[#2F3A4A] leading-relaxed mb-8">
                 BluBrg delivers cutting-edge AI infrastructure that empowers organizations to train, deploy, and scale machine learning models efficiently. Our platform combines enterprise-grade security with developer-friendly tools, making advanced AI accessible to companies of all sizes.
               </p>
-              <p className="text-lg text-[#243447] leading-relaxed mb-8">
+              <p className="text-lg text-[#2F3A4A] leading-relaxed mb-8">
                 Founded with a vision to democratize artificial intelligence, we provide scalable compute resources, pre-optimized frameworks, and seamless integration capabilities that reduce time-to-market for AI applications.
               </p>
               
               <div className="border-t border-[#D6DEC3] pt-8">
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">Leadership</h3>
-                <p className="text-[#243447] leading-relaxed mb-6">
+                <p className="text-[#2F3A4A] leading-relaxed mb-6">
                   Our executive team brings decades of combined experience in cloud computing, artificial intelligence, and enterprise software. We are committed to building infrastructure that drives innovation while maintaining the highest standards of reliability and security.
                 </p>
               </div>
 
               <div className="border-t border-[#D6DEC3] pt-8">
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">Press Inquiries</h3>
-                <p className="text-[#243447] mb-4">
+                <p className="text-[#2F3A4A] mb-4">
                   For media requests, interviews, or partnership opportunities, please contact our communications team:
                 </p>
                 <Button className="bg-[#328CC1] hover:bg-[#162B4D] text-white">

@@ -171,10 +171,10 @@ const AboutUs = () => {
           
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <p className="text-[#243447] text-lg leading-relaxed">
+              <p className="text-[#2F3A4A] text-lg leading-relaxed">
               We are creators and innovators shaping the future of AI. The way we build technology reflects who we are. We challenge limits, embrace progress, and create systems that help others achieve extraordinary outcomes.
               </p>
-              {/* <p className="text-[#243447] leading-relaxed">
+              {/* <p className="text-[#2F3A4A] leading-relaxed">
                 BluBrg works with the world's best, creating platforms that move the world forward. From the big players to the next big start-ups, we provide the essential infrastructure that powers the AI revolution.
               </p> */}
               
@@ -183,28 +183,28 @@ const AboutUs = () => {
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
                     <span className="text-[#328CC1] font-semibold">Invent Boldly</span>
-                    <span className="text-[#243447]"> We pursue bold ideas without fear, pushing technological boundaries to build products that make significant impact.</span>
+                    <span className="text-[#2F3A4A]"> We pursue bold ideas without fear, pushing technological boundaries to build products that make significant impact.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
                     <span className="text-[#328CC1] font-semibold">Move Fast, Stay Humble</span>
-                    <span className="text-[#243447]"> We prioritise speed and learning. We believe in rapid progress grounded in humility and continuous improvement.</span>
+                    <span className="text-[#2F3A4A]"> We prioritise speed and learning. We believe in rapid progress grounded in humility and continuous improvement.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
                     <span className="text-[#328CC1] font-semibold">Own the Outcome</span>
-                    <span className="text-[#243447]"> We hold ourselves accountable for what we build. We deliver with urgency and take responsibility for achieving results that matter.</span>
+                    <span className="text-[#2F3A4A]"> We hold ourselves accountable for what we build. We deliver with urgency and take responsibility for achieving results that matter.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
                     <span className="text-[#328CC1] font-semibold">Build with Trust</span>
-                    <span className="text-[#243447]"> We operate transparently, earning confidence through clear communication and consistent performance.</span>
+                    <span className="text-[#2F3A4A]"> We operate transparently, earning confidence through clear communication and consistent performance.</span>
                   </div>
                 </div>
               </div>
@@ -232,7 +232,7 @@ const AboutUs = () => {
           <div className="mb-12">
             <p className="text-[#5B6B7A] text-sm uppercase tracking-wider mb-2">OUR TEAM</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
-            <p className="text-[#243447] max-w-3xl leading-relaxed">
+            <p className="text-[#2F3A4A] max-w-3xl leading-relaxed">
               BluBrg is led by proven founders, engineers, strategists and builders — diverse perspectives united by a shared mission to build the infrastructure that powers AI innovation.
             </p>
           </div>
@@ -269,7 +269,7 @@ const AboutUs = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-slate-800/30 rounded-2xl p-6 border border-[#D6DEC3]">
-                <p className="text-[#243447] text-sm leading-relaxed mb-6 italic">
+                <p className="text-[#2F3A4A] text-sm leading-relaxed mb-6 italic">
                   "{testimonial.quote}"
                 </p>
                 <div>
@@ -301,7 +301,7 @@ const AboutUs = () => {
                     className="max-h-8 max-w-full object-contain filter brightness-0 invert opacity-70"
                   />
                 ) : (
-                  <span className="text-[#243447] font-bold text-lg tracking-wider">{investor.name}</span>
+                  <span className="text-[#2F3A4A] font-bold text-lg tracking-wider">{investor.name}</span>
                 )}
               </div>
             ))}
@@ -315,7 +315,7 @@ const AboutUs = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">Investor Relations</h2>
-              <p className="text-[#243447] leading-relaxed">
+              <p className="text-[#2F3A4A] leading-relaxed">
                 BluBrg is a growing market and delivering rapid growth to our investors on the 5 billion company. Stay updated with our latest financial news, quarterly reports, and investor presentations.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors">
@@ -364,7 +364,7 @@ const AboutUs = () => {
                     openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-[#243447] leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#2F3A4A] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}

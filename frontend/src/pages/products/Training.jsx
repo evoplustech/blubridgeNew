@@ -231,7 +231,7 @@ const Training = () => {
                 Compute purpose-<br />built for AI<br />workloads
               </h1>
               
-              <p className="text-[#243447] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+              <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
                 Develop LLMs along with additional AI systems using powerful GPU-based clusters. Managed Kubernetes and Slurm orchestration choices simplify administration while ensuring maximum usage of available computing resources.
               </p>
               
@@ -282,7 +282,7 @@ const Training = () => {
                   {item.metric} <span className="text-lg font-medium">{item.label}</span>
                 </div>
                 <p className="text-[#0B1F3B] font-medium mb-1">{item.title}</p>
-                <p className="text-[#243447] text-sm mb-3">{item.description}</p>
+                <p className="text-[#2F3A4A] text-sm mb-3">{item.description}</p>
                 {/* <Link to={item.link} className="text-[#328CC1] text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
                 </Link> */}
@@ -300,7 +300,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Dynamically manage AI<br />workloads and resources
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
@@ -314,7 +314,7 @@ const Training = () => {
             <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3] p-6">
               <div className="flex items-center gap-4 mb-4">
                 <button className="px-4 py-2 bg-[#0B1F3B] text-white text-sm rounded-lg">Queues (3)</button>
-                {/* <button className="px-4 py-2 text-[#243447] text-sm hover:text-white transition-colors">Nodes</button> */}
+                {/* <button className="px-4 py-2 text-[#2F3A4A] text-sm hover:text-white transition-colors">Nodes</button> */}
               </div>
               
               {/* Queue Items */}
@@ -354,7 +354,7 @@ const Training = () => {
             <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6 relative overflow-hidden">
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-[#0B1F3B] text-white text-xs rounded">COMPUTE</span>
-                {/* <span className="text-[#243447] text-sm">Node allocation</span> */}
+                {/* <span className="text-[#2F3A4A] text-sm">Node allocation</span> */}
               </div>
               
               {/* Node Grid */}
@@ -381,7 +381,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 With our advanced<br />scheduler
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Get the best of both worlds with our Slurm on Kubernetes (SLONK) service. Enjoy advanced job scheduling, resource allocation, and efficient workload management when training LLMs.
               </p>
               {/* <Link to="/docs">
@@ -402,7 +402,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Industry leading GPU<br />clusters at all scales
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
               <Link to="/contact/sales">
@@ -443,7 +443,7 @@ const Training = () => {
               <div key={i} className="text-center md:text-left">
                 <feature.icon className="w-10 h-10 text-blue-500 mb-4 mx-auto md:mx-0" />
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-3">{feature.title}</h3>
-                <p className="text-[#243447] text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-[#2F3A4A] text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -458,7 +458,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging Blubrg AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
@@ -539,7 +539,7 @@ const Training = () => {
                 </button>
                 
                 <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-[#243447] pb-4 pr-12">{faq.answer}</p>
+                  <p className="text-[#2F3A4A] pb-4 pr-12">{faq.answer}</p>
                 </div>
               </div>
             ))}

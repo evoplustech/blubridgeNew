@@ -173,7 +173,7 @@ const Careers = () => {
               Join the team building<br />next-gen AI infrastructure
             </h1>
             
-            <p className="text-[#243447] text-lg leading-relaxed mb-8">
+            <p className="text-[#2F3A4A] text-lg leading-relaxed mb-8">
               We are building the first AI-native hyperscaler, a platform engineered for performance, efficiency, and massive scale. Join us in creating infrastructure that enables organisations around the world to advance their AI ambitions.
             </p>
             
@@ -224,7 +224,7 @@ const Careers = () => {
         <div className="container-custom">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
-            <p className="text-[#243447] text-lg max-w-2xl">
+            <p className="text-[#2F3A4A] text-lg max-w-2xl">
               We are a team that moves fast, aims high, and works with purpose, all driven by curiosity, collaboration, and a commitment to excellence.
             </p>
           </div>
@@ -244,7 +244,7 @@ const Careers = () => {
                         <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
                         <div>
                           <h3 className="text-xl font-bold text-[#328CC1] mb-3">{value.title}</h3>
-                          <p className="text-[#243447] leading-relaxed">{value.description}</p>
+                          <p className="text-[#2F3A4A] leading-relaxed">{value.description}</p>
                         </div>
                       </div>
                     </div>
@@ -270,7 +270,7 @@ const Careers = () => {
                         <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
                         <div>
                           <h3 className="text-xl font-bold text-[#328CC1] mb-3">{value.title}</h3>
-                          <p className="text-[#243447] leading-relaxed">{value.description}</p>
+                          <p className="text-[#2F3A4A] leading-relaxed">{value.description}</p>
                         </div>
                       </div>
                     </div>
@@ -287,7 +287,7 @@ const Careers = () => {
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
-            <p className="text-[#243447] text-lg max-w-2xl">
+            <p className="text-[#2F3A4A] text-lg max-w-2xl">
               Our workplace culture is one where people come together to innovate, learn, and grow. We support each other, work hard, and celebrate what we achieve as a team.
             </p>
           </div>
@@ -302,7 +302,7 @@ const Careers = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-[#243447]">
+            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-[#2F3A4A]">
               <span>Watch on</span>
               <span className="text-[#0B1F3B] font-semibold">▶ YouTube</span>
             </div>
@@ -340,7 +340,7 @@ const Careers = () => {
                     openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-[#243447] leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#2F3A4A] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}

@@ -60,7 +60,7 @@ const Solutions = () => {
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               AI solutions for every use case
             </h1>
-            <p className="text-xl text-[#243447] mb-8">
+            <p className="text-xl text-[#2F3A4A] mb-8">
               Comprehensive AI infrastructure solutions designed to accelerate your innovation across industries.
             </p>
           </div>
@@ -80,7 +80,7 @@ const Solutions = () => {
                   </div>
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{useCase.title}</h3>
-                    <p className="text-[#243447] mb-6">{useCase.description}</p>
+                    <p className="text-[#2F3A4A] mb-6">{useCase.description}</p>
                     <div className="flex flex-wrap gap-4">
                       {useCase.stats.map((stat, i) => (
                         <span key={i} className="text-[#328CC1] font-semibold text-sm">

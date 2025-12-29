@@ -78,7 +78,7 @@ const Pricing = () => {
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               Simple, transparent pricing
             </h1>
-            <p className="text-xl text-[#243447]">
+            <p className="text-xl text-[#2F3A4A]">
               Choose the right infrastructure for your AI workloads. Scale as you grow.
             </p>
           </div>
@@ -121,7 +121,7 @@ const Pricing = () => {
                   </Link>
                   <div className="space-y-3">
                     {plan.features.map((feature, i) => (
-                      <div key={i} className="flex items-center space-x-3 text-[#243447]">
+                      <div key={i} className="flex items-center space-x-3 text-[#2F3A4A]">
                         <Check className="w-5 h-5 text-[#328CC1] flex-shrink-0" />
                         <span>{feature}</span>
                       </div>
@@ -180,7 +180,7 @@ const Pricing = () => {
                 <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                   <CardContent className="p-6">
                     <h3 className="text-[#0B1F3B] font-semibold mb-2">{faq.q}</h3>
-                    <p className="text-[#243447]">{faq.a}</p>
+                    <p className="text-[#2F3A4A]">{faq.a}</p>
                   </CardContent>
                 </Card>
               ))}

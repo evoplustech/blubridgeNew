@@ -276,7 +276,7 @@ const GPUNodes = () => {
                 NVIDIA Accelerated GPU Nodes
               </h1>
               
-              <p className="text-[#243447] text-lg max-w-xl leading-relaxed">
+              <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
                 Unlock high-end computing for AI, machine learning, and high-performance computing (HPC) workloads using bare-metal infrastructure powered by NVIDIA H100, H200, and GB200 GPUs. This setup delivers outstanding scalability, improved energy efficiency, and enterprise-ready customisation.
               </p>
               
@@ -317,7 +317,7 @@ const GPUNodes = () => {
                   <span className="text-3xl md:text-4xl font-bold text-white">{item.metric}</span>
                   <span className="text-lg font-semibold text-white">{item.title}</span>
                 </div>
-                <p className="text-[#243447] text-sm leading-relaxed">{item.description}</p>
+                <p className="text-[#2F3A4A] text-sm leading-relaxed">{item.description}</p>
                 {/* <Link to="/contact" className="inline-flex items-center gap-1 text-[#328CC1] text-sm hover:text-blue-300 transition-colors">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
@@ -335,7 +335,7 @@ const GPUNodes = () => {
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 No frills, just GPU compute
               </h2>
-              <p className="text-[#243447] text-lg leading-relaxed max-w-xl">
+              <p className="text-[#2F3A4A] text-lg leading-relaxed max-w-xl">
                 GPU Nodes are designed for users who need straightforward, high-performance GPU compute without unnecessary complexity. Select the GPU type and quantity you require, and the infrastructure is provisioned to meet your needs.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
@@ -353,12 +353,12 @@ const GPUNodes = () => {
                   <span className="text-xl font-semibold">GPU Nodes</span>
                 </div>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm text-[#243447]">
+                  <div className="flex items-center gap-2 text-sm text-[#2F3A4A]">
                     <span className="w-2 h-2 rounded-full bg-green-500"></span>
                     <span>Clusters (1)</span>
                     <span className="ml-4">Running</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-[#243447]">
+                  <div className="flex items-center gap-2 text-sm text-[#2F3A4A]">
                     <Settings className="w-4 h-4" />
                     <span>manifest.toml</span>
                   </div>
@@ -400,7 +400,7 @@ const GPUNodes = () => {
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Infrastructure that grows<br />with you
               </h2>
-              <p className="text-[#243447] text-lg leading-relaxed max-w-xl">
+              <p className="text-[#2F3A4A] text-lg leading-relaxed max-w-xl">
                   All services operate on a shared, unified platform, making it easy to scale resources as demand evolves. You can begin with bare-metal GPU nodes and later extend your setup with orchestration, scheduling, or application-level services when required.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
@@ -438,7 +438,7 @@ const GPUNodes = () => {
                 onClick={() => setActiveGpu(index)}
               >
                 <h3 className="text-xl font-bold mb-3">{gpu.name}</h3>
-                <p className="text-[#243447] text-sm leading-relaxed">{gpu.description}</p>
+                <p className="text-[#2F3A4A] text-sm leading-relaxed">{gpu.description}</p>
                 {activeGpu === index && (
                   <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-purple-500" />
                 )}
@@ -456,7 +456,7 @@ const GPUNodes = () => {
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
-              <p className="text-[#243447] text-lg leading-relaxed max-w-xl">
+              <p className="text-[#2F3A4A] text-lg leading-relaxed max-w-xl">
                 Reduce costs, boost performance, and streamline AI operations using an integrated compute platform. You can use built-in AI and machine learning tools or seamlessly integrate your existing software stack, enabling a smooth transition from development to production.
               </p>
             </div>
@@ -487,7 +487,7 @@ const GPUNodes = () => {
                   </div>
                   <div>
                     <p className="font-medium text-sm">BluBrg's Data centers</p>
-                    <p className="text-xs text-[#243447]">Powered by renewable energy</p>
+                    <p className="text-xs text-[#2F3A4A]">Powered by renewable energy</p>
                   </div>
                 </div>
               </div>
@@ -526,7 +526,7 @@ const GPUNodes = () => {
                     openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-[#243447] leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#2F3A4A] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}

@@ -248,7 +248,7 @@ const Home1 = () => {
                 from Cloud to Deployment
               </span>
             </h1>
-            <p className="text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
               BluBrg provides enterprise-grade GPU infrastructure, enabling organizations to train, fine-tune, and deploy AI models at any scale with unmatched performance and reliability.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -444,7 +444,7 @@ const Home1 = () => {
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-[#0B1F3B]">
               Trusted by industry leaders transforming their AI capabilities
             </h2>
-            <blockquote className="text-2xl lg:text-3xl font-light text-[#243447] leading-relaxed mb-8">
+            <blockquote className="text-2xl lg:text-3xl font-light text-[#2F3A4A] leading-relaxed mb-8">
               "BluBrg has been instrumental in accelerating our AI development. Their infrastructure reliability and performance have exceeded our expectations."
             </blockquote>
             <div className="flex items-center justify-center gap-4">

@@ -85,7 +85,7 @@ const Documentation = () => {
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               Documentation
             </h1>
-            <p className="text-xl text-[#243447] mb-8">
+            <p className="text-xl text-[#2F3A4A] mb-8">
               Everything you need to build and deploy AI applications on BluBrg.
             </p>
             <div className="max-w-2xl mx-auto">
@@ -108,11 +108,11 @@ const Documentation = () => {
                 <CardContent className="p-8">
                   <div className="text-[#328CC1] mb-4">{section.icon}</div>
                   <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{section.title}</h3>
-                  <p className="text-[#243447] mb-6">{section.description}</p>
+                  <p className="text-[#2F3A4A] mb-6">{section.description}</p>
                   <ul className="space-y-2">
                     {section.links.map((link, i) => (
                       <li key={i}>
-                        <a href={link.url} className="text-[#243447] hover:text-[#328CC1] transition-colors">
+                        <a href={link.url} className="text-[#2F3A4A] hover:text-[#328CC1] transition-colors">
                           {link.name} →
                         </a>
                       </li>
@@ -155,7 +155,7 @@ const Documentation = () => {
               <Card key={idx} className="bg-white border-[#D6DEC3] hover:bg-[#EEF2DC] hover:shadow-lg transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">{tutorial.title}</h3>
-                  <p className="text-[#243447] mb-4">{tutorial.description}</p>
+                  <p className="text-[#2F3A4A] mb-4">{tutorial.description}</p>
                   <p className="text-[#328CC1] text-sm">{tutorial.time}</p>
                 </CardContent>
               </Card>

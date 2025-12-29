@@ -150,7 +150,7 @@ const Inference = () => {
                       key={i}
                       className={`aspect-square ${tool.color} border rounded-xl flex items-center justify-center hover:scale-105 transition-transform duration-200 ${tool.isCenter ? 'ring-2 ring-cyan-400/50' : ''}`}
                     >
-                      <span className="text-[#243447] text-xs font-semibold text-center px-1">{tool.name}</span>
+                      <span className="text-[#2F3A4A] text-xs font-semibold text-center px-1">{tool.name}</span>
                     </div>
                   ))}
                 </div>
@@ -174,7 +174,7 @@ const Inference = () => {
             <div className="space-y-4">
               {/* Marketplace */}
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">MARKETPLACE</h3>
+                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
@@ -187,7 +187,7 @@ const Inference = () => {
 
               {/* Platform */}
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">PLATFORM</h3>
+                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">PLATFORM</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
@@ -200,7 +200,7 @@ const Inference = () => {
 
               {/* Infrastructure */}
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">INFRASTRUCTURE</h3>
+                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
@@ -213,7 +213,7 @@ const Inference = () => {
 
               {/* Hardware */}
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">HARDWARE</h3>
+                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">HARDWARE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['AMD MI300X', 'AMD MI250X', 'NVDA GB200', 'H100', '...'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
@@ -228,24 +228,24 @@ const Inference = () => {
             {/* Right Column - User Experience & Data Centre */}
             <div className="space-y-4">
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
-                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">USER EXPERIENCE</h3>
+                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">USER EXPERIENCE</h3>
                 <div className="space-y-3">
                   {['Web Console', 'API', 'CLI'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full" />
-                      <span className="text-[#243447] text-sm">{item}</span>
+                      <span className="text-[#2F3A4A] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
-                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">DATA CENTRE</h3>
+                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">DATA CENTRE</h3>
                 <div className="space-y-3">
                   {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                      <span className="text-[#243447] text-sm">{item}</span>
+                      <span className="text-[#2F3A4A] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -340,7 +340,7 @@ const Inference = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
-            <p className="text-[#243447] max-w-2xl">
+            <p className="text-[#2F3A4A] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>

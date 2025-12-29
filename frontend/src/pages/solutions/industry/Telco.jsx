@@ -152,7 +152,7 @@ const Telco = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               TELCO
             </h1>
-            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
               Blubrg provides telecommunications providers with the infrastructure and expertise to support a wide range of AI-based services and solutions. With high-performance GPU clusters and scalable architecture, telco companies can enhance network performance, improve customer experience, and deploy advanced automation tools powered by artificial intelligence. The infrastructure also supports modern telecom needs such as 5G and edge computing.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -290,7 +290,7 @@ const Telco = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
-            <p className="text-[#243447] max-w-2xl">
+            <p className="text-[#2F3A4A] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>

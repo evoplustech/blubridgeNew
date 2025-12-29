@@ -163,7 +163,7 @@ const SovereignCloud = () => {
               YOUR HOME ADVANTAGE.
             </h1>
             
-            <p className="text-[#243447] text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+            <p className="text-[#2F3A4A] text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
               Blubrg’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
             </p>
             
@@ -193,14 +193,14 @@ const SovereignCloud = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-[#243447] text-sm uppercase tracking-wider mb-2">THE ADVANTAGES OF A</p>
+              <p className="text-[#2F3A4A] text-sm uppercase tracking-wider mb-2">THE ADVANTAGES OF A</p>
               <h2 className="text-4xl md:text-5xl font-bold">
                 Sovereign AI Cloud
               </h2>
             </div>
             
             <div>
-              <p className="text-[#243447] leading-relaxed">
+              <p className="text-[#2F3A4A] leading-relaxed">
                 Blubrg empowers European organisations to design, deploy, and manage AI systems using their own infrastructure, data, teams, and networks. This approach ensures independence from external providers while keeping data ownership and innovation within local jurisdictions. By retaining intellectual property and skills domestically, organisations can create jobs, strengthen economies, and reduce reliance on foreign legal systems.
               </p>
             </div>
@@ -215,7 +215,7 @@ const SovereignCloud = () => {
             {valuePillars.map((pillar, i) => (
               <div className={`p-6 rounded-xl transition-all duration-300 cursor-pointer bg-slate-900`}>
                 <h3 className="text-sm font-bold text-[#0B1F3B] mb-3 tracking-wider">{pillar.title}</h3>
-                <p className="text-[#243447] text-xs leading-relaxed">{pillar.description}</p>
+                <p className="text-[#2F3A4A] text-xs leading-relaxed">{pillar.description}</p>
                 {/* {pillar.hasLink && activeCard === i && ( */}
                   <Link to="/contact/sales" className="text-[#0B1F3B] text-xs mt-4 inline-flex items-center gap-1 hover:underline">
                     Contact Sales <ArrowRight className="w-3 h-3" />
@@ -232,7 +232,7 @@ const SovereignCloud = () => {
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
-            <p className="text-[#243447] max-w-2xl mx-auto">
+            <p className="text-[#2F3A4A] max-w-2xl mx-auto">
               Blubrg provides a complete AI-ready platform engineered to deliver cost-effective, high-performance compute for demanding workloads.
             </p>
           </div>
@@ -285,7 +285,7 @@ const SovereignCloud = () => {
                     <span className="text-xs text-[#328CC1] uppercase">{article.category}</span>
                   </div>
                   <h3 className="text-sm font-semibold text-[#0B1F3B] mb-2 line-clamp-2">{article.title}</h3>
-                  <p className="text-xs text-[#243447] line-clamp-2">{article.excerpt}</p>
+                  <p className="text-xs text-[#2F3A4A] line-clamp-2">{article.excerpt}</p>
                 </div>
               </div>
             ))}
@@ -301,7 +301,7 @@ const SovereignCloud = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
-              <p className="text-[#243447] mb-6 leading-relaxed">
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Run AI workloads more efficiently on a unified platform designed to reduce complexity and operational overhead. Whether using Blubrg’s built-in AI and machine learning tools or integrating your own stack, the platform supports a smooth transition from experimentation to production.
               </p>
             </div>
@@ -311,10 +311,10 @@ const SovereignCloud = () => {
               {/* Service Flow */}
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#243447]">Serverless Marketplace Training Inference GPU nodes</span>
+                  <span className="text-sm text-[#2F3A4A]">Serverless Marketplace Training Inference GPU nodes</span>
                 </div>
                 <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#243447]">Marketplace</span>
+                  <span className="text-sm text-[#2F3A4A]">Marketplace</span>
                 </div>
               </div>
               
@@ -331,13 +331,13 @@ const SovereignCloud = () => {
               <div className="grid grid-cols-2 gap-2 mb-4">
                 {infrastructureTools.map((tool, i) => (
                   <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-[#D6DEC3]/20">
-                    <span className="text-xs text-[#243447]">{tool}</span>
+                    <span className="text-xs text-[#2F3A4A]">{tool}</span>
                   </div>
                 ))}
               </div>
               
               <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
-                <span className="text-sm text-[#243447]">GPU nodes</span>
+                <span className="text-sm text-[#2F3A4A]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
@@ -383,7 +383,7 @@ const SovereignCloud = () => {
                 </button>
                 
                 <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-[#243447] pb-4 pr-12">{faq.answer}</p>
+                  <p className="text-[#2F3A4A] pb-4 pr-12">{faq.answer}</p>
                 </div>
               </div>
             ))}

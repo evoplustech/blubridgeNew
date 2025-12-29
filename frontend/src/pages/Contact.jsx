@@ -76,7 +76,7 @@ const Contact = () => {
                   <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
                     BluBridge Technologies (P) Ltd.
                   </h3>
-                  <p className="text-[#243447] text-sm leading-relaxed">
+                  <p className="text-[#2F3A4A] text-sm leading-relaxed">
                     Plot #E160 Tiger Varadhachari Road,<br />
                     Kalakshetra Colony, Besant Nagar,<br />
                     Chennai – 600090
@@ -103,7 +103,7 @@ const Contact = () => {
                   <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
                     BluBridge Technologies (P) Ltd.
                   </h3>
-                  <p className="text-[#243447] text-sm leading-relaxed">
+                  <p className="text-[#2F3A4A] text-sm leading-relaxed">
                     30, Norton Rd, Mandavelipakkam,<br />
                     Raja Annamalai Puram,<br />
                     Chennai, Tamil Nadu 600028
@@ -127,13 +127,13 @@ const Contact = () => {
             <div className="space-y-4">
               <div>
                 <h4 className="font-bold text-[#0B1F3B] text-base">Phone:</h4>
-                <a href="tel:+918925987250" className="text-[#243447] text-sm hover:text-[#328CC1]">
+                <a href="tel:+918925987250" className="text-[#2F3A4A] text-sm hover:text-[#328CC1]">
                   +91 8925987250
                 </a>
               </div>
               <div>
                 <h4 className="font-bold text-[#0B1F3B] text-base">Email:</h4>
-                <a href="mailto:info.1@blubridge.com" className="text-[#243447] text-sm hover:text-[#328CC1]">
+                <a href="mailto:info.1@blubridge.com" className="text-[#2F3A4A] text-sm hover:text-[#328CC1]">
                   Info.1@blubridge.com
                 </a>
               </div>
@@ -246,7 +246,7 @@ const Contact = () => {
                     value={formData.inquiryType}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors text-[#243447]"
+                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors text-[#2F3A4A]"
                   >
                     <option value="">Select</option>
                     <option value="sales">Sales Inquiry</option>

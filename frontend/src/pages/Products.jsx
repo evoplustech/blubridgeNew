@@ -68,7 +68,7 @@ const Products = () => {
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               Full-stack AI infrastructure
             </h1>
-            <p className="text-xl text-[#243447] mb-8">
+            <p className="text-xl text-[#2F3A4A] mb-8">
               From serverless endpoints to dedicated GPU clusters, BluBrg provides complete AI infrastructure solutions.
             </p>
             <Link to="/contact">
@@ -96,10 +96,10 @@ const Products = () => {
                 <CardContent className="p-8">
                   <div className="text-[#328CC1] text-sm font-semibold mb-2 uppercase">{product.category}</div>
                   <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{product.title}</h3>
-                  <p className="text-[#243447] mb-6">{product.description}</p>
+                  <p className="text-[#2F3A4A] mb-6">{product.description}</p>
                   <div className="space-y-2 mb-6">
                     {product.features.map((feature, i) => (
-                      <div key={i} className="flex items-center space-x-2 text-[#243447] text-sm">
+                      <div key={i} className="flex items-center space-x-2 text-[#2F3A4A] text-sm">
                         <Check className="w-4 h-4 text-[#328CC1]" />
                         <span>{feature}</span>
                       </div>
