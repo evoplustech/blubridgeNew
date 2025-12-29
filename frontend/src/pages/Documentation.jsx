@@ -77,14 +77,12 @@ const Documentation = () => {
   useDocumentTitle('Documentation | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#E7ECD2]">      {/* Hero */}
-      <section className="py-24 bg-gradient-to-br from-[#0A1F3D] via-[#0D2847] to-[#0A1F3D] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0066FF] rounded-full filter blur-[120px]" />
-        </div>
+    <div className="min-h-screen bg-[#F3F6E8]">
+      {/* Hero */}
+      <section className="py-24 bg-[#EEF2DC] relative overflow-hidden border-b border-[#D6DEC3]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-6xl font-bold text-white mb-6">
+            <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
               Documentation
             </h1>
             <p className="text-xl text-[#243447] mb-8">
@@ -94,7 +92,7 @@ const Documentation = () => {
               <input
                 type="text"
                 placeholder="Search documentation..."
-                className="w-full px-6 py-4 bg-white/10 border border-[#D6DEC3] rounded-lg text-white placeholder:text-[#5B6B7A] focus:outline-none focus:border-[#0066FF]"
+                className="w-full px-6 py-4 bg-white border border-[#D6DEC3] rounded-lg text-[#0B1F3B] placeholder:text-[#7C8A96] focus:outline-none focus:border-[#328CC1]"
               />
             </div>
           </div>
@@ -102,14 +100,14 @@ const Documentation = () => {
       </section>
 
       {/* Documentation Sections */}
-      <section className="py-24 bg-[#0D2847]">
+      <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sections.map((section, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300">
+              <Card key={idx} className="bg-white border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="text-[#328CC1] mb-4">{section.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-3">{section.title}</h3>
+                  <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{section.title}</h3>
                   <p className="text-[#243447] mb-6">{section.description}</p>
                   <ul className="space-y-2">
                     {section.links.map((link, i) => (
@@ -128,9 +126,9 @@ const Documentation = () => {
       </section>
 
       {/* Tutorials */}
-      <section className="py-24 bg-[#E7ECD2]">
+      <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Popular Tutorials</h2>
+          <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Popular Tutorials</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
@@ -154,9 +152,9 @@ const Documentation = () => {
                 time: '12 min read'
               }
             ].map((tutorial, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#EEF2DC] transition-all duration-300 cursor-pointer">
+              <Card key={idx} className="bg-white border-[#D6DEC3] hover:bg-[#EEF2DC] hover:shadow-lg transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{tutorial.title}</h3>
+                  <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">{tutorial.title}</h3>
                   <p className="text-[#243447] mb-4">{tutorial.description}</p>
                   <p className="text-[#328CC1] text-sm">{tutorial.time}</p>
                 </CardContent>
@@ -167,15 +165,15 @@ const Documentation = () => {
       </section>
 
       {/* Support */}
-      <section className="py-24 bg-[#0D2847]">
+      <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Need help?
           </h2>
-          <p className="text-xl text-[#243447] mb-8">
+          <p className="text-xl text-white/80 mb-8">
             Our support team is here to assist you 24/7.
           </p>
-          <Link to="/contact" className="inline-block bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+          <Link to="/contact" className="inline-block bg-white hover:bg-[#EEF2DC] text-[#0B1F3B] px-8 py-4 rounded-lg font-semibold transition-colors">
             Contact Support
           </Link>
         </div>
