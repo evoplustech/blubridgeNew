@@ -182,33 +182,33 @@ const Marketplace = () => {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {/* Access Leading Tools */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">Access Leading Tools</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B]">Access Leading Tools</h3>
               <p className="text-[#243447] text-sm leading-relaxed">
                 Develop with leading AI/ML frameworks such as PyTorch and TensorFlow to simplify and accelerate your development workflow.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors text-sm font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Extensive Model Library */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">Extensive Model Library</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B]">Extensive Model Library</h3>
               <p className="text-[#243447] text-sm leading-relaxed">
                 Explore our collection of open-source models, enhanced with proprietary optimizations running on NVIDIA GPUs.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors text-sm font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Tailored Resources */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">Tailored Resources</h3>
+              <h3 className="text-xl font-semibold text-[#0B1F3B]">Tailored Resources</h3>
               <p className="text-[#243447] text-sm leading-relaxed">
                 Choose from preconfigured templates and customizable tools tailored to suit your specific AI use case.
               </p>
-             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors text-sm font-medium">
+             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -222,14 +222,14 @@ const Marketplace = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] leading-tight">
                 Quickly deploy the best AI tools and frameworks
               </h2>
               <p className="text-[#243447] text-base leading-relaxed">
                 Our AI Marketplace offers a curated selection of top AI/ML tools like PyTorch and TensorFlow, optimised for our infrastructure stack. Enhance developer productivity with the best tools available in the industry.
               </p>
               <Link to="/contact">
-                <Button className="bg-white hover:bg-[#1a1a20] text-white border border-[#D6DEC3] px-6 py-3 text-sm font-medium rounded-lg inline-flex items-center gap-2 mt-4">
+                <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white border border-[#D6DEC3] px-6 py-3 text-sm font-medium rounded-lg inline-flex items-center gap-2 mt-4">
                   Get in Touch <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
