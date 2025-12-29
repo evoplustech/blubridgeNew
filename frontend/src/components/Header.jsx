@@ -164,8 +164,8 @@ const Header = () => {
               
               {activeDropdown === 'solutions' && (
                 <div 
-                  className="absolute top-full -translate-x-1/2 pt-4 " 
-                  style={{ zIndex: 1000, width: '950px', marginLeft: '200px' }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4" 
+                  style={{ zIndex: 1000, width: '950px' }}
                 >
                   <div 
                     className="shadow-xl overflow-hidden bg-white rounded-lg border border-[#D6DEC3]"
