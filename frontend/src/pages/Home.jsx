@@ -321,9 +321,9 @@ const Home = () => {
               Beyond the Horizon
             </h1>
             
-            <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
+            {/* <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
               A full-stack, scalable, and sustainable AI cloud platform.
-            </p>
+            </p> */}
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact/sales">
