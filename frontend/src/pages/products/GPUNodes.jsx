@@ -513,7 +513,7 @@ const GPUNodes = () => {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                 >
-                  <span className="text-lg font-medium pr-8">{faq.question}</span>
+                  <span className="text-lg font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-[#0B1F3B]/80">
                     {openFaq === index ? (
                       <Minus className="w-5 h-5 text-white" />
