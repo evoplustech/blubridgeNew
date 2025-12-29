@@ -318,7 +318,7 @@ const Home = () => {
         <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
-              The hyperscaler<br />engineered for AI
+              Beyond the Horizon
             </h1>
             
             <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
@@ -461,9 +461,9 @@ const Home = () => {
       <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">How We Can Help You</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">How we support you</h2>
             <p className="text-[#243447] max-w-3xl mx-auto leading-relaxed">
-              We welcome opportunities to work alongside different teams over projects of any complexity. By working together, we will develop new systems, solutions, and products to separate you from your competition.
+                We’re always open to collaborating with diverse teams on projects of any scale or complexity. Through close partnership, we help create innovative systems, solutions, and products that set you apart from the competition.
             </p>
           </div>
           
@@ -471,33 +471,33 @@ const Home = () => {
             {[
               {
                 icon: "💡",
-                title: "AI/ML Strategy & Consulting",
-                description: "Have a project idea and need help implementing it? We're here to consult you and share our knowledge to help you avoid all unnecessary pitfalls."
+                title: "AI consulting",
+                description: "Have a project idea and need support bringing it to life? We’re here to guide you with expert consultation and shared insights, helping you steer clear of unnecessary challenges along the way."
               },
               {
                 icon: "🔬",
-                title: "PoC of AI-Based Solution",
-                description: "POC is an essential step before adopting any AI solution. If you have a project idea, our data science consultants will verify that your concept has potential."
+                title: "PoC of AI Solutions",
+                description: "A proof of concept is a critical step before implementing any AI solution. If you have a project idea, our data science consultants will assess its feasibility and validate its potential."
               },
               {
                 icon: "🚀",
-                title: "MVP of AI-Based Product",
-                description: "Need a breakthrough AI product? We're ready to start with a version of just enough features to satisfy early customers and provide feedback for product development."
+                title: "AI Product",
+                description: "Looking to build a breakthrough AI product? We can kick things off with a lean, feature-focused version designed to engage early users and gather valuable feedback to guide future development."
               },
               {
                 icon: "⚡",
                 title: "Custom Model Development",
-                description: "We can build and train custom models for your business needs, or retrain your existing ones (open-source and proprietary) for better efficiency and scalability."
+                description: "We can design and train custom models tailored to your business requirements, or fine-tune your existing models, both open-source and proprietary, which is to improve performance, efficiency, and scalability."
               },
               {
                 icon: "💻",
-                title: "AI Software Development",
-                description: "If you need to develop an innovative web application from scratch, or empower the existing one with AI capabilities, let our experts help you."
+                title: "Software Development",
+                description: "Whether you’re building an innovative web application from the ground up or enhancing an existing one with AI capabilities, our experts are here to support you."
               },
               {
                 icon: "📱",
-                title: "AI-Driven Mobile App Development",
-                description: "Our experts are here to help you build your innovative mobile app from scratch and power it with AI capabilities that your users will love."
+                title: "AI based Application Development",
+                description: "Our specialists can help you create an innovative mobile app from the ground up and enhance it with AI features your users will truly appreciate."
               }
             ].map((card, index) => (
               <div 
