@@ -341,12 +341,12 @@ const FineTuning = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-                <Link to="/contact/sales">
+                <Link to="/contact">
                   <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
                     Start Building
                   </Button>
                 </Link>
-                 <Link to="/contact/sales" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+                 <Link to="/contact" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                   Contact <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -670,12 +670,12 @@ const FineTuning = () => {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

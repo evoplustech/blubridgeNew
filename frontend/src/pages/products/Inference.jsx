@@ -260,12 +260,12 @@ const Inference = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-                <Link to="/contact/sales">
+                <Link to="/contact">
                   <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact/sales" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+                <Link to="/contact" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                   Contact <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -401,7 +401,7 @@ const Inference = () => {
                 Using Inference Endpoints, you can quickly launch Transformers, Diffusers, or bespoke models on dedicated, fully managed compute environments. Choose from over 100 available models, enhanced through Blubrg’s proprietary optimisation layer to achieve maximum performance.
 
               </p>
-              <Link to="/contact/sales" className="text-[#328CC1] hover:text-blue-300 inline-flex items-center gap-2">
+              <Link to="/contact" className="text-[#328CC1] hover:text-blue-300 inline-flex items-center gap-2">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -578,12 +578,12 @@ const Inference = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

@@ -142,8 +142,8 @@ const Healthcare = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">HEALTHCARE</h1>
             <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">Blubrg Cloud offers tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, Blubrg enables healthcare teams to speed up research efforts and deliver more personalised treatments.</p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact/sales"><Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+              <Link to="/contact"><Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -253,12 +253,12 @@ const Healthcare = () => {
             Access thousands of GPUs tailored to your requirements.
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-1">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-1">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

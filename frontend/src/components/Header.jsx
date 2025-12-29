@@ -281,7 +281,7 @@ const Header = () => {
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link 
-              to="/contact/sales" 
+              to="/contact" 
               className="px-6 py-2.5 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors"
             >
               Contact

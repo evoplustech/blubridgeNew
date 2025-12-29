@@ -168,12 +168,12 @@ const SovereignCloud = () => {
             </p>
             
             <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-              <Link to="/contact/sales">
+              <Link to="/contact">
                 <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-8 py-3 rounded font-medium">
                   Get In Touch
                 </Button>
               </Link>
-              <Link to="/contact/sales" className="inline-flex items-center px-3 gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center px-3 gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -217,7 +217,7 @@ const SovereignCloud = () => {
                 <h3 className="text-sm font-bold text-[#0B1F3B] mb-3 tracking-wider">{pillar.title}</h3>
                 <p className="text-[#2F3A4A] text-xs leading-relaxed">{pillar.description}</p>
                 {/* {pillar.hasLink && activeCard === i && ( */}
-                  <Link to="/contact/sales" className="text-[#0B1F3B] text-xs mt-4 inline-flex items-center gap-1 hover:underline">
+                  <Link to="/contact" className="text-[#0B1F3B] text-xs mt-4 inline-flex items-center gap-1 hover:underline">
                     Contact <ArrowRight className="w-3 h-3" />
                   </Link>
                 {/* )} */}
@@ -399,12 +399,12 @@ const SovereignCloud = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

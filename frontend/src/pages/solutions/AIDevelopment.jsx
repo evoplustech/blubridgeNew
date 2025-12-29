@@ -43,12 +43,12 @@ const AIDevelopment = () => {
               BluBrg’s platform makes every step of building AI smoother, enabling you to move quickly from early experiments in interactive notebooks to deploying fully scaled AI applications across multiple GPU clusters. It removes barriers and complexity, helping teams innovate faster and achieve better outcomes.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact/sales">
+              <Link to="/contact">
                 <Button size="lg" className="bg-white hover:bg-white/90 text-[#1A251E] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
 </Link>
             </div>
@@ -448,12 +448,12 @@ const AIDevelopment = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

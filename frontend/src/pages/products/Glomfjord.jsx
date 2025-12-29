@@ -124,12 +124,12 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             </p>
             
             <div className="flex flex-wrap gap-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
-              <Link to="/contact/sales">
+              <Link to="/contact">
                 <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-8 py-3 rounded font-medium">
                   Get Started
                 </Button>
               </Link>
-               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+               <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -386,12 +386,12 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

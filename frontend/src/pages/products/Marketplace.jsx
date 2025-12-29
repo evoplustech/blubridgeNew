@@ -154,12 +154,12 @@ const Marketplace = () => {
                 Access ready-to-go AI & ML tools and resources, enabling efficient and scalable model development and deployment.
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-4">
-                <Link to="/contact/sales">
+                <Link to="/contact">
                   <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 text-base font-medium rounded-lg">
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact/sales" className="flex items-center gap-2 text-[#0B3C5D] hover:text-[#328CC1] transition-colors font-medium">
+                <Link to="/contact" className="flex items-center gap-2 text-[#0B3C5D] hover:text-[#328CC1] transition-colors font-medium">
                   Contact <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -186,7 +186,7 @@ const Marketplace = () => {
               <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 Develop with leading AI/ML frameworks such as PyTorch and TensorFlow to simplify and accelerate your development workflow.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -197,7 +197,7 @@ const Marketplace = () => {
               <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 Explore our collection of open-source models, enhanced with proprietary optimizations running on NVIDIA GPUs.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -208,7 +208,7 @@ const Marketplace = () => {
               <p className="text-[#2F3A4A] text-sm leading-relaxed">
                 Choose from preconfigured templates and customizable tools tailored to suit your specific AI use case.
               </p>
-             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
+             <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -274,7 +274,7 @@ const Marketplace = () => {
               <p className="text-[#2F3A4A] text-base leading-relaxed">
                 Select from a library of open-source and custom LLM models optimized with Blubrg’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
                 Find Out More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -305,7 +305,7 @@ const Marketplace = () => {
               <p className="text-[#2F3A4A] text-base leading-relaxed">
                 Our ready-to-deploy hardware resources are tailored for specific AI use cases, delivering peak performance and efficiency without the complexity of setup.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -572,12 +572,12 @@ const Marketplace = () => {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

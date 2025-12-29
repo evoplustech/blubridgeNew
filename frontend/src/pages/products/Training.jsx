@@ -241,7 +241,7 @@ const Training = () => {
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact/sales" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+                <Link to="/contact" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                   Contact <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -405,7 +405,7 @@ const Training = () => {
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
-              <Link to="/contact/sales">
+              <Link to="/contact">
                 <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
                   Reserve GPUs <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
@@ -555,12 +555,12 @@ const Training = () => {
           </h2>
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
               Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

@@ -252,7 +252,7 @@ const Home1 = () => {
               BluBrg provides enterprise-grade GPU infrastructure, enabling organizations to train, fine-tune, and deploy AI models at any scale with unmatched performance and reliability.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact/sales">
+              <Link to="/contact">
                 <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 text-base font-semibold rounded-md">
                   Book a Demo
                 </Button>
@@ -521,7 +521,7 @@ const Home1 = () => {
             Join the world's leading organizations building on BluBrg's enterprise AI platform.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button size="lg" className="bg-white hover:bg-white/90 text-black px-8 py-6 text-base font-semibold rounded-md">
                 Book a Demo
               </Button>
