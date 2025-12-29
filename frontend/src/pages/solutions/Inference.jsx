@@ -75,7 +75,7 @@ const Inference = () => {
       </section>
 
       {/* Value Proposition Strip - 3 columns */}
-      <section className="py-16 bg-[#050505] border-t border-white/5">
+      <section className="py-16 bg-[#050505] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -133,7 +133,7 @@ const Inference = () => {
 
             {/* Right side - Framework icons grid */}
             <div className="flex justify-center">
-              <div className="relative bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 w-full max-w-md">
+              <div className="relative bg-[#0a0a0a] border border-[#D6DEC3] rounded-2xl p-8 w-full max-w-md">
                 <div className="grid grid-cols-3 gap-4">
                   {[
                     { name: 'PyTorch', color: 'bg-orange-500/20 border-orange-500/30' },
@@ -173,7 +173,7 @@ const Inference = () => {
             {/* Left Column - Stacked categories */}
             <div className="space-y-4">
               {/* Marketplace */}
-              <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
+              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch'].map((item, i) => (
@@ -186,7 +186,7 @@ const Inference = () => {
               </div>
 
               {/* Platform */}
-              <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
+              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">PLATFORM</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
@@ -199,7 +199,7 @@ const Inference = () => {
               </div>
 
               {/* Infrastructure */}
-              <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
+              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
@@ -212,7 +212,7 @@ const Inference = () => {
               </div>
 
               {/* Hardware */}
-              <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
+              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">HARDWARE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['AMD MI300X', 'AMD MI250X', 'NVDA GB200', 'H100', '...'].map((item, i) => (
@@ -227,7 +227,7 @@ const Inference = () => {
 
             {/* Right Column - User Experience & Data Centre */}
             <div className="space-y-4">
-              <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6 h-[calc(50%-8px)]">
+              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">USER EXPERIENCE</h3>
                 <div className="space-y-3">
                   {['Web Console', 'API', 'CLI'].map((item, i) => (
@@ -239,7 +239,7 @@ const Inference = () => {
                 </div>
               </div>
 
-              <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6 h-[calc(50%-8px)]">
+              <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
                 <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">DATA CENTRE</h3>
                 <div className="space-y-3">
                   {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
@@ -286,7 +286,7 @@ const Inference = () => {
                 linkTo: '/about'
               }
             ].map((item, i) => (
-              <div key={i} className="border-l border-white/20 pl-6">
+              <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-white mb-1">{item.metric}</div>
                 <div className="text-white text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed mb-4">{item.desc}</p>
@@ -305,7 +305,7 @@ const Inference = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Inference Card */}
-            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
+            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-blue-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-cyan-400" />
@@ -319,7 +319,7 @@ const Inference = () => {
             </div>
 
             {/* AI Marketplace Card */}
-            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
+            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-blue-400" />
@@ -348,7 +348,7 @@ const Inference = () => {
           <div className="grid md:grid-cols-3 gap-5">
             {/* Model Training Card - Purple Wave */}
             <Link to="/solutions/training">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">TRAINING</span>
@@ -361,7 +361,7 @@ const Inference = () => {
 
             {/* AI Development Card - Orange/Bronze Wave */}
             <Link to="/solutions/ai-development">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
@@ -371,7 +371,7 @@ const Inference = () => {
 
             {/* Model Fine-Tuning Card - Green Wave */}
             <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
@@ -405,7 +405,7 @@ const Inference = () => {
                 answer: "The service combines high-performance GPUs with advanced orchestration to support both batch and streaming inference with low latency and strong scalability."
               }
             ].map((faq, i) => (
-              <div key={i} className="border-b border-white/10">
+              <div key={i} className="border-b border-[#D6DEC3]">
                 <button
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-cyan-400 transition-colors"

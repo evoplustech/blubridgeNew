@@ -149,7 +149,7 @@ const Training = () => {
             </p>
 
             <div className="space-y-8">
-              <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch', 'HuggingFace', 'MLflow', 'Ray', 'Weights & Biases'].map((item, i) => (
@@ -161,7 +161,7 @@ const Training = () => {
                 </div>
               </div>
 
-              <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">PLATFORM</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
@@ -173,7 +173,7 @@ const Training = () => {
                 </div>
               </div>
 
-              <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
@@ -185,7 +185,7 @@ const Training = () => {
                 </div>
               </div>
 
-              <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">HARDWARE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['AMD MI300X', 'AMD MI250X', 'NVIDIA GB200', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA A100', '...'].map((item, i) => (
@@ -198,7 +198,7 @@ const Training = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
+                <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
                   <h3 className="text-xl font-bold text-white mb-6">USER EXPERIENCE</h3>
                   <div className="space-y-3">
                     {['Web Console', 'API', 'CLI'].map((item, i) => (
@@ -209,7 +209,7 @@ const Training = () => {
                     ))}
                   </div>
                 </div>
-                <div className="bg-[#121212] border border-white/10 rounded-xl p-8">
+                <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
                   <h3 className="text-xl font-bold text-white mb-6">DATA CENTRE</h3>
                   <div className="space-y-3">
                     {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
@@ -237,7 +237,7 @@ const Training = () => {
               { metric: '40%', label: 'MORE EFFICIENT', desc: 'Increase utilisation and efficiency across GPU training workloads.' },
               { metric: 'UP TO 7.2X', label: 'FASTER INFERENCE', desc: 'Optimised infrastructure enables faster deployment and inference throughput.' }
             ].map((item, i) => (
-              <div key={i} className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-10">
+              <div key={i} className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-2xl p-10">
                 <div className="text-6xl font-bold text-white mb-2">{item.metric}</div>
                 <div className="text-white text-lg font-semibold mb-4">{item.label}</div>
                 <p className="text-[#5B6B7A] leading-relaxed">{item.desc}</p>
@@ -264,7 +264,7 @@ const Training = () => {
                 desc: 'A curated ecosystem of tools and frameworks to accelerate AI development and deployment.'
               }
             ].map((item, i) => (
-              <Card key={i} className="bg-[#121212] border-white/10 hover:border-purple-500/50 transition-all">
+              <Card key={i} className="bg-[#121212] border-[#D6DEC3] hover:border-purple-500/50 transition-all">
                 <CardContent className="p-12">
                   <div className="mb-8">{item.icon}</div>
                   <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
@@ -288,7 +288,7 @@ const Training = () => {
           <div className="grid md:grid-cols-3 gap-5">
             {/* AI & ML Inference Card - Blue Angular */}
             <Link to="/solutions/inference">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">INFERENCE</span>
@@ -298,7 +298,7 @@ const Training = () => {
 
             {/* AI Development Card - Orange/Bronze Wave */}
             <Link to="/solutions/ai-development">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
@@ -308,7 +308,7 @@ const Training = () => {
 
             {/* Model Fine-Tuning Card - Green Wave */}
             <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
@@ -341,7 +341,7 @@ const Training = () => {
                 answer: "By simplifying orchestration and workload management through technologies like Kubernetes and SLURM, the platform makes managing GPU resources easier and more responsive to changing demands."
               }
             ].map((faq, i) => (
-              <div key={i} className="border-b border-white/10">
+              <div key={i} className="border-b border-[#D6DEC3]">
                 <button
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-amber-400 transition-colors"

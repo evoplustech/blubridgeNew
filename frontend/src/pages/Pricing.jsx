@@ -92,7 +92,7 @@ const Pricing = () => {
             {plans.map((plan, idx) => (
               <Card 
                 key={idx} 
-                className={`bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all duration-300 relative ${
+                className={`bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300 relative ${
                   plan.popular ? 'ring-2 ring-[#0066FF]' : ''
                 }`}
               >
@@ -141,7 +141,7 @@ const Pricing = () => {
             <h2 className="text-4xl font-bold text-white mb-12 text-center">Add-ons & Services</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {addOns.map((addon, idx) => (
-                <Card key={idx} className="bg-white/5 border-white/10">
+                <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                   <CardContent className="p-6 flex justify-between items-center">
                     <span className="text-white font-semibold">{addon.name}</span>
                     <span className="text-[#0066FF]">{addon.price}</span>
@@ -177,7 +177,7 @@ const Pricing = () => {
                   a: 'Yes, new customers receive $500 in credits to test our platform for 30 days.'
                 }
               ].map((faq, idx) => (
-                <Card key={idx} className="bg-white/5 border-white/10">
+                <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                   <CardContent className="p-6">
                     <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
                     <p className="text-[#243447]">{faq.a}</p>

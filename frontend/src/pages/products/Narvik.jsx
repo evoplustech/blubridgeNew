@@ -79,7 +79,7 @@ const Narvik = () => {
                 description: 'Designed to host the world\'s largest AI training clusters'
               }
             ].map((item, i) => (
-              <Card key={i} className="bg-white/5 border-white/10">
+              <Card key={i} className="bg-white/5 border-[#D6DEC3]">
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center text-[#0066FF] mb-4">{item.icon}</div>
                   <div className="text-4xl font-bold text-white mb-2">{item.stat}</div>
@@ -124,7 +124,7 @@ const Narvik = () => {
               </div>
             </div>
             <div>
-              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/20">
+              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-[#D6DEC3]">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-6">Technical Specifications</h3>
                   <div className="space-y-4">
@@ -138,7 +138,7 @@ const Narvik = () => {
                       { label: 'Security', value: 'Tier III+ certified' },
                       { label: 'Expansion Timeline', value: 'Modular, phased' }
                     ].map((spec, i) => (
-                      <div key={i} className="flex justify-between items-center pb-3 border-b border-white/10 last:border-0">
+                      <div key={i} className="flex justify-between items-center pb-3 border-b border-[#D6DEC3] last:border-0">
                         <span className="text-[#243447] text-sm">{spec.label}</span>
                         <span className="text-white font-semibold text-sm">{spec.value}</span>
                       </div>
@@ -177,7 +177,7 @@ const Narvik = () => {
                   icon: '♻️'
                 }
               ].map((item, i) => (
-                <Card key={i} className="bg-white/5 border-white/10">
+                <Card key={i} className="bg-white/5 border-[#D6DEC3]">
                   <CardContent className="p-8 text-center">
                     <div className="text-5xl mb-4">{item.icon}</div>
                     <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
@@ -207,7 +207,7 @@ const Narvik = () => {
                 features: ['Pre-configured clusters', 'Kubernetes or SLURM', 'Automatic scaling', 'Included support']
               }
             ].map((model, i) => (
-              <Card key={i} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all">
+              <Card key={i} className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-3">{model.title}</h3>
                   <p className="text-[#243447] mb-6">{model.description}</p>

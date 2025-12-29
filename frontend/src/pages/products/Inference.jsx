@@ -278,7 +278,7 @@ const Inference = () => {
             
             {/* Right - Animated Inference Visual */}
             <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
-              <div className="absolute inset-0 bg-slate-900/50 rounded-2xl border border-slate-700/30 overflow-hidden">
+              <div className="absolute inset-0 bg-slate-900/50 rounded-2xl border border-[#D6DEC3]/30 overflow-hidden">
                 <canvas 
                   ref={canvasRef} 
                   className="w-full h-full"
@@ -302,7 +302,7 @@ const Inference = () => {
       </section>
 
       {/* SECTION 2: Performance Metrics Strip */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-b border-slate-800/50">
+      <section className="py-16 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {performanceMetrics.map((item, i) => (
@@ -357,7 +357,7 @@ const Inference = () => {
                   return (
                     <div 
                       key={i}
-                      className="absolute w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700 shadow-lg"
+                      className="absolute w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center border border-[#D6DEC3] shadow-lg"
                       style={{
                         left: `calc(50% + ${x}px - 28px)`,
                         top: `calc(50% + ${y}px - 28px)`
@@ -414,7 +414,7 @@ const Inference = () => {
             {/* Model Cards Grid */}
             <div className="grid grid-cols-2 gap-3">
               {modelCards.map((model, i) => (
-                <div key={i} className="bg-slate-900/50 rounded-lg p-4 border border-slate-700/50 hover:border-slate-600/50 transition-colors">
+                <div key={i} className="bg-slate-900/50 rounded-lg p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
                   <div className="text-xs text-[#5B6B7A] mb-1">{model.type}</div>
                   <div className="text-white font-semibold text-sm mb-2">{model.name}</div>
                   <div className="text-xs text-[#243447]">{model.publisher}</div>
@@ -443,12 +443,12 @@ const Inference = () => {
             
             {/* GPU Visual */}
             <div className="relative">
-              <div className="bg-slate-900/50 rounded-xl border border-slate-700/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
+              <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
                 <div className="text-center">
                   {/* GPU server rack representation */}
                   <div className="grid grid-cols-4 gap-2 mb-4">
                     {[...Array(16)].map((_, i) => (
-                      <div key={i} className="h-8 bg-slate-700/50 rounded border border-slate-600/30 flex items-center justify-center">
+                      <div key={i} className="h-8 bg-slate-700/50 rounded border border-[#D6DEC3]/30 flex items-center justify-center">
                         <div className="flex gap-0.5">
                           <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
                           <div className="w-1 h-1 rounded-full bg-blue-500" />
@@ -465,7 +465,7 @@ const Inference = () => {
       </section>
 
       {/* SECTION 6: Feature Strip */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-b border-slate-800/50">
+      <section className="py-16 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, i) => (
@@ -493,12 +493,12 @@ const Inference = () => {
             </div>
             
             {/* Infrastructure Diagram */}
-            <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6">
+            <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Serverless</span>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
@@ -514,18 +514,18 @@ const Inference = () => {
               
               <div className="grid grid-cols-2 gap-2 mb-4">
                 {infrastructureTools.map((tool, i) => (
-                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-slate-700/20">
+                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-[#D6DEC3]/20">
                     <span className="text-xs text-[#243447]">{tool}</span>
                   </div>
                 ))}
               </div>
               
-              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30 mb-4">
+              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
                 <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
-              <div className="bg-slate-900 rounded-lg p-4 border border-slate-700/50">
+              <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
                     <Server className="w-4 h-4 text-blue-400" />
@@ -550,7 +550,7 @@ const Inference = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-slate-700/50 pb-4"
+                className="border-b border-[#D6DEC3] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}

@@ -87,7 +87,7 @@ const Products = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all duration-300 overflow-hidden group">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300 overflow-hidden group">
                 <div className="h-56 overflow-hidden">
                   <img 
                     src={product.image} 

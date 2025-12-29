@@ -244,7 +244,7 @@ const AboutUs = () => {
                   <img 
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full rounded-full object-cover border-2 border-slate-700 group-hover:border-blue-500 transition-colors"
+                    className="w-full h-full rounded-full object-cover border-2 border-[#D6DEC3] group-hover:border-blue-500 transition-colors"
                   />
                 </div>
                 <h3 className="font-semibold text-white text-sm mb-1">{member.name}</h3>
@@ -268,7 +268,7 @@ const AboutUs = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-slate-800/30 rounded-2xl p-6 border border-slate-700/50">
+              <div key={index} className="bg-slate-800/30 rounded-2xl p-6 border border-[#D6DEC3]">
                 <p className="text-[#243447] text-sm leading-relaxed mb-6 italic">
                   "{testimonial.quote}"
                 </p>
@@ -292,7 +292,7 @@ const AboutUs = () => {
             {investors.map((investor, index) => (
               <div 
                 key={index}
-                className="bg-slate-800/30 rounded-xl p-6 border border-slate-700/50 flex items-center justify-center h-24 hover:border-slate-600/50 transition-colors"
+                className="bg-slate-800/30 rounded-xl p-6 border border-[#D6DEC3] flex items-center justify-center h-24 hover:border-[#D6DEC3]/50 transition-colors"
               >
                 {investor.logo ? (
                   <img 
@@ -343,7 +343,7 @@ const AboutUs = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-slate-700/50"
+                className="border-b border-[#D6DEC3]"
               >
                 <button
                   onClick={() => toggleFaq(index)}

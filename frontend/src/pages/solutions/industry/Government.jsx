@@ -229,7 +229,7 @@ const Government = () => {
       </section>
 
       {/* 3-Column Value Propositions */}
-      <section className="py-16 bg-[#050505] border-t border-white/5">
+      <section className="py-16 bg-[#050505] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -311,7 +311,7 @@ const Government = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* AI Compute Training Card */}
-            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-blue-500/30 transition-colors">
+            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-blue-400" />
@@ -325,7 +325,7 @@ const Government = () => {
             </div>
 
             {/* AI Compute Inference Card */}
-            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-blue-500/30 transition-colors">
+            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center">
                   <Cpu className="w-7 h-7 text-blue-400" />
@@ -339,7 +339,7 @@ const Government = () => {
             </div>
 
             {/* AI Marketplace Card */}
-            <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-8 hover:border-blue-500/30 transition-colors">
+            <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-purple-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-blue-400" />
@@ -369,7 +369,7 @@ const Government = () => {
           <div className="grid md:grid-cols-2 gap-5">
             {/* Model Training Card - Purple Wave */}
             <Link to="/solutions/training">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">TRAINING</span>
@@ -379,7 +379,7 @@ const Government = () => {
 
             {/* AI & ML Inference Card - Blue Angular */}
             <Link to="/solutions/inference">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">INFERENCE</span>
@@ -389,7 +389,7 @@ const Government = () => {
 
             {/* AI Development Card - Orange/Bronze Wave */}
             <Link to="/solutions/ai-development">
-              <div className="relative border border-[#353535] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">AI DEVELOPMENT</span>
@@ -399,7 +399,7 @@ const Government = () => {
 
             {/* Model Fine-Tuning Card - Green Wave */}
             <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 border border-[#353535] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl">FINE-TUNING</span>
@@ -432,7 +432,7 @@ const Government = () => {
                 answer: "BluBrg delivers up to 80% cost savings compared to traditional cloud providers through efficient GPU utilisation, pay-as-you-go pricing, and optimised infrastructure. Agencies only pay for the resources they use, eliminating waste from over-provisioning and reducing the total cost of AI initiatives."
               }
             ].map((faq, i) => (
-              <div key={i} className="border-b border-white/10">
+              <div key={i} className="border-b border-[#D6DEC3]">
                 <button
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-blue-400 transition-colors"

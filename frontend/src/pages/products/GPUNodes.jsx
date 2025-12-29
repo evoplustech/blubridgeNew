@@ -347,7 +347,7 @@ const GPUNodes = () => {
             
             {/* GPU Nodes Card Visual */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/80 rounded-2xl p-6 border border-slate-700/50">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/80 rounded-2xl p-6 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
                     <Server className="w-5 h-5 text-white" />
@@ -388,7 +388,7 @@ const GPUNodes = () => {
                   {[...Array(9)].map((_, i) => (
                     <div 
                       key={i} 
-                      className="aspect-square bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg border border-slate-600/50 flex items-center justify-center"
+                      className="aspect-square bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg border border-[#D6DEC3]/50 flex items-center justify-center"
                       style={{ animationDelay: `${i * 0.1}s` }}
                     >
                       <Server className="w-8 h-8 text-slate-500" />
@@ -435,7 +435,7 @@ const GPUNodes = () => {
                 className={`relative rounded-2xl p-6 border transition-all duration-300 cursor-pointer ${
                   activeGpu === index 
                     ? 'border-purple-500/50 bg-gradient-to-br ' + gpu.color
-                    : 'border-slate-700/50 bg-slate-800/30 hover:border-slate-600/50'
+                    : 'border-[#D6DEC3] bg-slate-800/30 hover:border-[#D6DEC3]/50'
                 }`}
                 onClick={() => setActiveGpu(index)}
               >
@@ -469,7 +469,7 @@ const GPUNodes = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-blue-500/30 transition-colors"
+                    className="bg-slate-800/50 rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center">
@@ -507,7 +507,7 @@ const GPUNodes = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-slate-700/50"
+                className="border-b border-[#D6DEC3]"
               >
                 <button
                   onClick={() => toggleFaq(index)}

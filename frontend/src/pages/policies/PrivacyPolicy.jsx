@@ -171,7 +171,7 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* Contact */}
-            <div className="mt-16 pt-8 border-t border-white/10">
+            <div className="mt-16 pt-8 border-t border-[#D6DEC3]">
               <h2 className="text-xl font-medium text-white mb-4">Contact Us</h2>
               <p className="text-[#243447] text-base leading-relaxed">
                 If you have any questions about this Privacy Policy or our data practices, please contact us at{' '}

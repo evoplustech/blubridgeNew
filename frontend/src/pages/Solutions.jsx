@@ -74,7 +74,7 @@ const Solutions = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {useCases.map((useCase, idx) => (
               <Link key={idx} to={useCase.link}>
-                <Card className="bg-white/5 border-white/10 hover:scale-105 transition-transform duration-300 overflow-hidden">
+                <Card className="bg-white/5 border-[#D6DEC3] hover:scale-105 transition-transform duration-300 overflow-hidden">
                   <div className="h-64 overflow-hidden">
                     <img src={useCase.image} alt={useCase.title} className="w-full h-full object-cover" />
                   </div>
@@ -102,7 +102,7 @@ const Solutions = () => {
           <h2 className="text-4xl font-bold text-white mb-12 text-center">By Industry</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((industry, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-white/10 transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-4">{industry.icon}</div>
                   <h3 className="text-xl font-semibold text-white mb-2">{industry.name}</h3>

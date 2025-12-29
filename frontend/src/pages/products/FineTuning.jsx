@@ -220,7 +220,7 @@ const FineTuning = () => {
     }, []);
 
     return (
-      <div className="relative bg-slate-900/80 rounded-xl border border-slate-700/50 p-4 backdrop-blur-sm">
+      <div className="relative bg-slate-900/80 rounded-xl border border-[#D6DEC3] p-4 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs text-[#243447]">Training Progress</span>
           <span className="text-xs text-blue-400">Live</span>
@@ -372,7 +372,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 2: Value Proposition Strip */}
-      <section className="py-12 bg-[#EEF2DC] border-t border-b border-slate-800/50">
+      <section className="py-12 bg-[#EEF2DC] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -407,11 +407,11 @@ const FineTuning = () => {
           </div>
 
           {/* Models Table */}
-          <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden">
+          <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden">
             <div className="overflow-x-auto max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900">
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
-                  <tr className="border-b border-slate-700/50">
+                  <tr className="border-b border-[#D6DEC3]">
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Supported Model Name</th>
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Author</th>
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Type</th>
@@ -421,7 +421,7 @@ const FineTuning = () => {
                 </thead>
                 <tbody>
                   {supportedModels.map((model, index) => (
-                    <tr key={index} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
+                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-slate-800/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{model.name}</td>
                       <td className="px-6 py-4 text-sm text-[#243447]">{model.author}</td>
                       <td className="px-6 py-4 text-sm text-[#243447]">{model.type}</td>
@@ -435,7 +435,7 @@ const FineTuning = () => {
           </div>
 
           {/* Fine-tune Pricing Note */}
-          <div className="mt-8 p-6 bg-slate-900/30 rounded-xl border border-slate-700/30">
+          <div className="mt-8 p-6 bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30">
             <h3 className="text-xl font-semibold text-orange-400 mb-2">Fine-tune Pricing</h3>
             <p className="text-[#243447] text-sm">
               Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
@@ -465,7 +465,7 @@ const FineTuning = () => {
 
           
           <div className="max-w-4xl mx-auto">
-            <div className="relative bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden aspect-video">
+            <div className="relative bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden aspect-video">
              
               <div className="bg-slate-800 px-4 py-2 flex items-center gap-2">
                 <div className="flex gap-1.5">
@@ -484,7 +484,7 @@ const FineTuning = () => {
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center aspect-video">
                 <div className="absolute inset-0 flex">
                  
-                  <div className="w-1/2 p-4 border-r border-slate-700/50">
+                  <div className="w-1/2 p-4 border-r border-[#D6DEC3]">
                     <div className="bg-slate-800/50 rounded p-3 space-y-2">
                       <div className="h-2 bg-blue-500/30 rounded w-3/4" />
                       <div className="h-2 bg-slate-600/50 rounded w-full" />
@@ -547,7 +547,7 @@ const FineTuning = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
-              <div key={i} className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-slate-600/50 transition-colors">
+              <div key={i} className="bg-slate-800/50 rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
                 <div className="text-xs text-[#5B6B7A] mb-1">TEXT GENERATION</div>
                 <div className="text-white font-bold text-sm">{model.name}</div>
                 <div className="text-[#243447] text-xs">{model.size}</div>
@@ -565,7 +565,7 @@ const FineTuning = () => {
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral'].map((name, i) => (
-                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700/50">
+                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-[#D6DEC3]">
                     <div className="w-10 h-10 bg-slate-700 rounded-lg mx-auto mb-2 flex items-center justify-center">
                       <span className="text-xs text-[#243447]">{name.slice(0, 2)}</span>
                     </div>
@@ -629,7 +629,7 @@ const FineTuning = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-slate-700/50 pb-4"
+                className="border-b border-[#D6DEC3] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}

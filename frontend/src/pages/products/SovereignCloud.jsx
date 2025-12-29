@@ -239,7 +239,7 @@ const SovereignCloud = () => {
 
          
           <div className="max-w-4xl mx-auto">
-            <div className="relative bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden aspect-video">
+            <div className="relative bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden aspect-video">
              
               <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                 <div className="text-center">
@@ -271,7 +271,7 @@ const SovereignCloud = () => {
           
           <div className="grid md:grid-cols-4 gap-6">
             {relatedContent.map((article, i) => (
-              <div key={i} className="bg-slate-900/50 rounded-xl border border-slate-700/30 overflow-hidden hover:border-slate-600/50 transition-colors cursor-pointer">
+              <div key={i} className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 overflow-hidden hover:border-[#D6DEC3]/50 transition-colors cursor-pointer">
                 <div className="aspect-video bg-slate-800 overflow-hidden">
                   <img 
                     src={article.image} 
@@ -307,13 +307,13 @@ const SovereignCloud = () => {
             </div>
             
             {/* Infrastructure Diagram */}
-            <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6">
+            <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               {/* Service Flow */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Serverless Marketplace Training Inference GPU nodes</span>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
@@ -330,18 +330,18 @@ const SovereignCloud = () => {
               {/* Tools Grid */}
               <div className="grid grid-cols-2 gap-2 mb-4">
                 {infrastructureTools.map((tool, i) => (
-                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-slate-700/20">
+                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-[#D6DEC3]/20">
                     <span className="text-xs text-[#243447]">{tool}</span>
                   </div>
                 ))}
               </div>
               
-              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30 mb-4">
+              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
                 <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
-              <div className="bg-slate-900 rounded-lg p-4 border border-slate-700/50">
+              <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
                     <Server className="w-4 h-4 text-blue-400" />
@@ -366,7 +366,7 @@ const SovereignCloud = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-slate-700/50 pb-4"
+                className="border-b border-[#D6DEC3] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}

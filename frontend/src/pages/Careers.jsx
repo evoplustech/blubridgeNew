@@ -321,7 +321,7 @@ const Careers = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-slate-700/50"
+                className="border-b border-[#D6DEC3]"
               >
                 <button
                   onClick={() => toggleFaq(index)}

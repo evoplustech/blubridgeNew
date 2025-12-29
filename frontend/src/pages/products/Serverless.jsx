@@ -234,7 +234,7 @@ const Serverless = () => {
       </section>
 
       {/* Value Proposition Strip */}
-      <section className="py-12 bg-[#EEF2DC] border-t border-b border-slate-800/50">
+      <section className="py-12 bg-[#EEF2DC] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
@@ -268,11 +268,11 @@ const Serverless = () => {
           </div>
 
           {/* Pricing Table */}
-          <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 overflow-hidden">
+          <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden">
             <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
-                  <tr className="border-b border-slate-700/50">
+                  <tr className="border-b border-[#D6DEC3]">
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Serverless Endpoint</th>
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Type</th>
                     <th className="text-right px-6 py-4 text-sm font-semibold text-[#243447]">Price</th>
@@ -280,7 +280,7 @@ const Serverless = () => {
                 </thead>
                 <tbody>
                   {pricingModels.map((item, index) => (
-                    <tr key={index} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
+                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-slate-800/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{item.model}</td>
                       <td className="px-6 py-4 text-sm text-[#243447]">{item.type}</td>
                       <td className="px-6 py-4 text-sm text-[#243447] text-right">{item.price}</td>
@@ -301,7 +301,7 @@ const Serverless = () => {
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral', 'Gemma', 'Flux', 'Actions'].map((name, i) => (
-                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700/50">
+                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-[#D6DEC3]">
                     <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
                       <span className="text-xs text-blue-400">{name.charAt(0)}</span>
                     </div>
@@ -375,7 +375,7 @@ const Serverless = () => {
             
            
             <div className="relative">
-              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-slate-700/50">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-[#D6DEC3]">
                 <div className="aspect-video bg-slate-800/50 rounded-xl flex items-center justify-center">
                   <div className="grid grid-cols-3 gap-4">
                     {[...Array(6)].map((_, i) => (
@@ -444,7 +444,7 @@ const Serverless = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-blue-500/30 transition-colors"
+                    className="bg-slate-800/50 rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center">
@@ -482,7 +482,7 @@ const Serverless = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-slate-700/50"
+                className="border-b border-[#D6DEC3]"
               >
                 <button
                   onClick={() => toggleFaq(index)}

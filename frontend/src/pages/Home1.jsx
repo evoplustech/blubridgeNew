@@ -270,7 +270,7 @@ const Home1 = () => {
       </section>
       
       {/* Partner Logos Strip */}
-      <section className="py-16 border-t border-white/5">
+      <section className="py-16 border-t border-[#D6DEC3]">
         <div className="container-custom">
           <p className="text-center text-[#5B6B7A] text-sm mb-10">
             Trusted by leading AI companies, government agencies, and enterprises worldwide
@@ -301,7 +301,7 @@ const Home1 = () => {
           
           <div className="space-y-12 max-w-4xl mx-auto">
             {solutions.map((solution, idx) => (
-              <div key={idx} className="border-b border-white/10 pb-12 last:border-0">
+              <div key={idx} className="border-b border-[#D6DEC3] pb-12 last:border-0">
                 <div className="flex items-start gap-6">
                   <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
                     <solution.icon className="w-6 h-6 text-purple-400" />
@@ -331,7 +331,7 @@ const Home1 = () => {
             {agenticSolutions.map((solution, idx) => (
               <div 
                 key={idx} 
-                className="bg-gradient-to-br from-white/5 to-white/[0.02] rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 group"
+                className="bg-gradient-to-br from-white/5 to-white/[0.02] rounded-2xl p-8 border border-[#D6DEC3] hover:border-[#D6DEC3] transition-all duration-300 group"
               >
                 <span className="text-xs uppercase tracking-wider text-purple-400 font-semibold">
                   {solution.subtitle}
@@ -368,7 +368,7 @@ const Home1 = () => {
             {researchAreas.map((area, idx) => (
               <div 
                 key={idx}
-                className="bg-white/[0.03] rounded-xl p-6 border border-white/5 hover:border-white/15 transition-all duration-300"
+                className="bg-white/[0.03] rounded-xl p-6 border border-[#D6DEC3] hover:border-white/15 transition-all duration-300"
               >
                 <span className="text-xs uppercase tracking-wider text-cyan-400 font-semibold">
                   {area.category}
@@ -386,8 +386,8 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Code/Terminal Window */}
-            <div className="bg-[#0a0a15] rounded-xl border border-white/10 overflow-hidden">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/[0.02]">
+            <div className="bg-[#0a0a15] rounded-xl border border-[#D6DEC3] overflow-hidden">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-[#D6DEC3] bg-white/[0.02]">
                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                 <div className="w-3 h-3 rounded-full bg-green-500/60" />
@@ -474,7 +474,7 @@ const Home1 = () => {
             {caseStudies.map((study, idx) => (
               <div 
                 key={idx}
-                className="bg-white/[0.03] rounded-xl p-6 border border-white/5 hover:border-white/15 transition-all duration-300 group cursor-pointer"
+                className="bg-white/[0.03] rounded-xl p-6 border border-[#D6DEC3] hover:border-white/15 transition-all duration-300 group cursor-pointer"
               >
                 <span className="text-xs uppercase tracking-wider text-purple-400 font-semibold">
                   {study.category}
@@ -493,7 +493,7 @@ const Home1 = () => {
       </section>
       
       {/* Certifications */}
-      <section className="py-16 bg-[#050510] border-t border-white/5">
+      <section className="py-16 bg-[#050510] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <p className="text-center text-white/40 text-sm mb-8 uppercase tracking-wider">
             Our infrastructure is certified compliant with industry standards

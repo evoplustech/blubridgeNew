@@ -26,7 +26,7 @@ const MediaKit = () => {
             </p>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-10 hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-white/10 transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-4xl font-bold text-[#0066FF]">BLUBRG</div>
                 </div>
@@ -38,19 +38,19 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-[#E7ECD2] border border-white/10 rounded-2xl p-10 hover:border-[#0066FF]/50 transition-all">
+              <div className="bg-[#E7ECD2] border border-[#D6DEC3] rounded-2xl p-10 hover:border-[#0066FF]/50 transition-all">
                 <div className="bg-[#0D2847] rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-4xl font-bold text-white">BLUBRG</div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Dark Background Logo</h3>
                 <p className="text-[#5B6B7A] mb-4">Use on dark or colored backgrounds</p>
-                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-[#D6DEC3]">
                   <Download className="w-4 h-4 mr-2" />
                   Download PNG
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-10 hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-white/10 transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-3xl font-bold text-[#0066FF] tracking-wider">B</div>
                 </div>
@@ -62,7 +62,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-10 hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-white/10 transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-2xl font-light text-[#0066FF] tracking-widest">BLUBRG</div>
                 </div>
@@ -82,7 +82,7 @@ const MediaKit = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-6">Company Overview</h2>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-10">
+            <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10">
               <p className="text-lg text-[#243447] leading-relaxed mb-8">
                 BluBrg delivers cutting-edge AI infrastructure that empowers organizations to train, deploy, and scale machine learning models efficiently. Our platform combines enterprise-grade security with developer-friendly tools, making advanced AI accessible to companies of all sizes.
               </p>
@@ -90,14 +90,14 @@ const MediaKit = () => {
                 Founded with a vision to democratize artificial intelligence, we provide scalable compute resources, pre-optimized frameworks, and seamless integration capabilities that reduce time-to-market for AI applications.
               </p>
               
-              <div className="border-t border-white/10 pt-8">
+              <div className="border-t border-[#D6DEC3] pt-8">
                 <h3 className="text-xl font-bold text-white mb-4">Leadership</h3>
                 <p className="text-[#243447] leading-relaxed mb-6">
                   Our executive team brings decades of combined experience in cloud computing, artificial intelligence, and enterprise software. We are committed to building infrastructure that drives innovation while maintaining the highest standards of reliability and security.
                 </p>
               </div>
 
-              <div className="border-t border-white/10 pt-8">
+              <div className="border-t border-[#D6DEC3] pt-8">
                 <h3 className="text-xl font-bold text-white mb-4">Press Inquiries</h3>
                 <p className="text-[#243447] mb-4">
                   For media requests, interviews, or partnership opportunities, please contact our communications team:
@@ -121,7 +121,7 @@ const MediaKit = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-white/10 transition-all">
                 <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#0066FF]" />
                 </div>
@@ -132,7 +132,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-white/10 transition-all">
                 <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#0066FF]" />
                 </div>
@@ -143,7 +143,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-white/10 transition-all">
                 <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#0066FF]" />
                 </div>

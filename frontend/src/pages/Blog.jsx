@@ -58,7 +58,7 @@ const Blog = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
                 <Link key={post.id} to={`/blog/${post.slug}`}>
-                  <Card className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all duration-300 h-full overflow-hidden group">
+                  <Card className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300 h-full overflow-hidden group">
                     <div className="h-56 overflow-hidden">
                       <img 
                         src={post.image} 

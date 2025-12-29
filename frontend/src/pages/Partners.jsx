@@ -64,7 +64,7 @@ const Partners = () => {
         <div className="container-custom">
           <div className="grid grid-cols-3 md:grid-cols-5 gap-8">
             {partnerLogos.map((partner, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-white/10 transition-all duration-300">
                 <CardContent className="p-8 flex items-center justify-center">
                   <div className="text-[#243447] font-bold text-lg text-center">{partner}</div>
                 </CardContent>
@@ -80,7 +80,7 @@ const Partners = () => {
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Partnership Ecosystem</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {partnerTypes.map((type, idx) => (
-              <Card key={idx} className="bg-white/5 border-white/10">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-3">{type.title}</h3>
                   <p className="text-[#243447] mb-6">{type.description}</p>
@@ -107,7 +107,7 @@ const Partners = () => {
             <p className="text-xl text-[#243447] text-center mb-12">
               Join our partner ecosystem and help shape the future of AI infrastructure.
             </p>
-            <Card className="bg-white/5 border-white/10">
+            <Card className="bg-white/5 border-[#D6DEC3]">
               <CardContent className="p-12">
                 <h3 className="text-2xl font-bold text-white mb-6">Partner Benefits</h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-8">

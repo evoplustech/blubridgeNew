@@ -254,7 +254,7 @@ const Training = () => {
             
             {/* Right - Animated 3D Geometric Visual */}
             <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
-              <div className="absolute inset-0 bg-slate-900/50 rounded-2xl border border-slate-700/30 overflow-hidden">
+              <div className="absolute inset-0 bg-slate-900/50 rounded-2xl border border-[#D6DEC3]/30 overflow-hidden">
                 <canvas 
                   ref={canvasRef} 
                   className="w-full h-full"
@@ -278,7 +278,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 2: Performance Metrics Strip */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-b border-slate-800/50">
+      <section className="py-16 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {performanceMetrics.map((item, i) => (
@@ -316,7 +316,7 @@ const Training = () => {
             </div>
             
             {/* Workload Management UI Visual */}
-            <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 p-6">
+            <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3] p-6">
               <div className="flex items-center gap-4 mb-4">
                 <button className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg">Queues (3)</button>
                 {/* <button className="px-4 py-2 text-[#243447] text-sm hover:text-white transition-colors">Nodes</button> */}
@@ -325,7 +325,7 @@ const Training = () => {
               {/* Queue Items */}
               <div className="space-y-3">
                 {['xl-70b-queue-1', 'xl-70b-queue-2'].map((queue, i) => (
-                  <div key={i} className="bg-slate-800/50 rounded-lg p-4 border border-slate-700/30">
+                  <div key={i} className="bg-slate-800/50 rounded-lg p-4 border border-[#D6DEC3]/30">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-white font-medium">{queue}</span>
                       <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded">Active</span>
@@ -336,7 +336,7 @@ const Training = () => {
               </div>
               
               {/* Nodes Info */}
-              <div className="mt-4 pt-4 border-t border-slate-700/50">
+              <div className="mt-4 pt-4 border-t border-[#D6DEC3]">
                 <div className="text-xs text-[#5B6B7A] mb-2">Nodes (4)</div>
                 <div className="grid grid-cols-2 gap-2">
                   {['328241', '328244', '328247', '328255'].map((nodeId, i) => (
@@ -356,7 +356,7 @@ const Training = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Node Diagram Visual */}
-            <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6 relative overflow-hidden">
+            <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6 relative overflow-hidden">
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-blue-600 text-white text-xs rounded">COMPUTE</span>
                 {/* <span className="text-[#243447] text-sm">Node allocation</span> */}
@@ -367,7 +367,7 @@ const Training = () => {
                 {['328241', '328244', '328247', '328255', '328258', '328261', '328264', '328267'].map((id, i) => (
                   <div 
                     key={i} 
-                    className={`p-3 rounded-lg text-center ${i < 4 ? 'bg-blue-600/30 border border-blue-500/50' : 'bg-slate-800/50 border border-slate-700/30'}`}
+                    className={`p-3 rounded-lg text-center ${i < 4 ? 'bg-blue-600/30 border border-blue-500/50' : 'bg-slate-800/50 border border-[#D6DEC3]/30'}`}
                   >
                     <div className={`text-xs font-mono ${i < 4 ? 'text-blue-300' : 'text-[#5B6B7A]'}`}>{id}</div>
                   </div>
@@ -419,12 +419,12 @@ const Training = () => {
             
             {/* GPU Server Rack Visual */}
             <div className="relative">
-              <div className="bg-slate-900/50 rounded-xl border border-slate-700/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
+              <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
                 <div className="text-center">
                   {/* Stylized server rack representation */}
                   <div className="grid grid-cols-4 gap-2 mb-4">
                     {[...Array(16)].map((_, i) => (
-                      <div key={i} className="h-8 bg-slate-700/50 rounded border border-slate-600/30 flex items-center justify-center">
+                      <div key={i} className="h-8 bg-slate-700/50 rounded border border-[#D6DEC3]/30 flex items-center justify-center">
                         <div className="flex gap-0.5">
                           <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
                           <div className="w-1 h-1 rounded-full bg-blue-500" />
@@ -441,7 +441,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 6: Feature Strip (Three Columns) */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-b border-slate-800/50">
+      <section className="py-16 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, i) => (
@@ -469,13 +469,13 @@ const Training = () => {
             </div>
             
             {/* Infrastructure Diagram */}
-            <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6">
+            <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               {/* Service Flow Diagram */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Serverless</span>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
+                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
@@ -491,18 +491,18 @@ const Training = () => {
               
               <div className="grid grid-cols-2 gap-3 mb-4">
                 {['LLM Library', 'Job Management', 'Container Orchestration', 'Optimised Libraries'].map((item, i) => (
-                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-slate-700/20">
+                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-[#D6DEC3]/20">
                     <span className="text-xs text-[#243447]">{item}</span>
                   </div>
                 ))}
               </div>
               
-              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30 mb-4">
+              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
                 <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
-              <div className="bg-slate-900 rounded-lg p-4 border border-slate-700/50">
+              <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
                     <Server className="w-4 h-4 text-blue-400" />
@@ -527,7 +527,7 @@ const Training = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-slate-700/50 pb-4"
+                className="border-b border-[#D6DEC3] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}
