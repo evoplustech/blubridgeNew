@@ -479,10 +479,10 @@ const Home1 = () => {
                 <span className="text-xs uppercase tracking-wider text-purple-400 font-semibold">
                   {study.category}
                 </span>
-                <h3 className="text-lg font-semibold mt-3 mb-3 group-hover:text-purple-300 transition-colors">
+                <h3 className="text-lg font-semibold mt-3 mb-3 group-hover:text-purple-300 transition-colors text-white">
                   {study.title}
                 </h3>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed">{study.description}</p>
+                <p className="text-white/60 text-sm leading-relaxed">{study.description}</p>
                 <div className="mt-4 flex items-center text-purple-400 text-sm font-medium">
                   Read More <ChevronRight className="w-4 h-4 ml-1" />
                 </div>
@@ -495,12 +495,12 @@ const Home1 = () => {
       {/* Certifications */}
       <section className="py-16 bg-[#EEF2DC] border-t border-[#D6DEC3]">
         <div className="container-custom">
-          <p className="text-center text-white/40 text-sm mb-8 uppercase tracking-wider">
+          <p className="text-center text-[#5B6B7A] text-sm mb-8 uppercase tracking-wider">
             Our infrastructure is certified compliant with industry standards
           </p>
           <div className="flex justify-center items-center gap-12 flex-wrap">
             {certifications.map((cert, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-white/40">
+              <div key={idx} className="flex items-center gap-2 text-[#5B6B7A]">
                 <cert.icon className="w-5 h-5" />
                 <span className="font-medium">{cert.name}</span>
               </div>
@@ -512,14 +512,14 @@ const Home1 = () => {
       {/* Final CTA */}
       <section className="py-24 bg-gradient-to-b from-[#050510] to-[#000000]">
         <div className="container-custom text-center">
-          <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight text-white">
             The future of AI infrastructure
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
               starts here
             </span>
           </h2>
-          <p className="text-xl text-[#5B6B7A] mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
             Join the world's leading organizations building on BluBrg's enterprise AI platform.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
@@ -529,7 +529,7 @@ const Home1 = () => {
               </Button>
             </Link>
             <Link to="/products/training">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-[#EEF2DC] px-8 py-6 text-base font-semibold rounded-md">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-md">
                 Explore Platform
               </Button>
             </Link>
