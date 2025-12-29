@@ -111,8 +111,8 @@ const Glomfjord = () => {
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/20 rounded-full border border-blue-600/30 mb-6">
-              <span className="text-blue-400 text-sm font-medium">AI DATA CENTER</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B1F3B]/20 rounded-full border border-blue-600/30 mb-6">
+              <span className="text-[#328CC1] text-sm font-medium">AI DATA CENTER</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
@@ -290,26 +290,26 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-blue-400 hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-[#328CC1] hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
             </div>
             
             {/* Infrastructure Diagram */}
             <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Serverless</span>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
               
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Inference</span>
                 </div>
-                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Training</span>
                 </div>
               </div>
@@ -322,15 +322,15 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                 ))}
               </div>
               
-              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
+              <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
                 <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
               <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <Server className="w-4 h-4 text-blue-400" />
+                  <div className="w-8 h-8 bg-[#0B1F3B]/20 rounded-lg flex items-center justify-center">
+                    <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
                     <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
@@ -360,7 +360,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
                   <span className="text-white text-lg pr-4">{faq.question}</span>
-                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-blue-600 rotate-180' : 'bg-blue-600/80'}`}>
+                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-[#0B1F3B] rotate-180' : 'bg-[#0B1F3B]/80'}`}>
                     {openFaq === index ? (
                       <Minus className="w-4 h-4 text-white" />
                     ) : (
@@ -387,7 +387,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

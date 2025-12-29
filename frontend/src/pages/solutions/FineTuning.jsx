@@ -148,7 +148,7 @@ const FineTuning = () => {
               <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                    <LayoutGrid className="w-6 h-6 text-blue-400" />
+                    <LayoutGrid className="w-6 h-6 text-[#328CC1]" />
                   </div>
                   <div>
                     <h4 className="text-white font-semibold">Training Compute</h4>
@@ -343,11 +343,11 @@ const FineTuning = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                  <LayoutGrid className="w-7 h-7 text-blue-400" />
+                  <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
-              <p className="text-blue-400 text-sm mb-4">Marketplace</p>
+              <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 An ecosystem of services and tools that support the entire model lifecycle, enabling development and deployment using both Blubrg offerings and popular AI/ML technologies.
               </p>
@@ -456,7 +456,7 @@ const FineTuning = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

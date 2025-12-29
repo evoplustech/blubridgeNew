@@ -268,10 +268,10 @@ const GPUNodes = () => {
             {/* Left Content */}
             <div className="space-y-6">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-blue-600 flex items-center justify-center">
+                <div className="w-5 h-5 rounded bg-[#0B1F3B] flex items-center justify-center">
                   <Server className="w-3 h-3 text-white" />
                 </div>
-                <span className="text-blue-400 text-sm font-medium tracking-wide">GPU NODES</span>
+                <span className="text-[#328CC1] text-sm font-medium tracking-wide">GPU NODES</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -310,7 +310,7 @@ const GPUNodes = () => {
       {/* Performance Metrics Section */}
       <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-12">Performance</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#328CC1] mb-12">Performance</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {performanceMetrics.map((item, index) => (
@@ -320,7 +320,7 @@ const GPUNodes = () => {
                   <span className="text-lg font-semibold text-white">{item.title}</span>
                 </div>
                 <p className="text-[#243447] text-sm leading-relaxed">{item.description}</p>
-                {/* <Link to="/contact" className="inline-flex items-center gap-1 text-blue-400 text-sm hover:text-blue-300 transition-colors">
+                {/* <Link to="/contact" className="inline-flex items-center gap-1 text-[#328CC1] text-sm hover:text-blue-300 transition-colors">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
               </div>
@@ -340,7 +340,7 @@ const GPUNodes = () => {
               <p className="text-[#243447] text-lg leading-relaxed max-w-xl">
                 GPU Nodes are designed for users who need straightforward, high-performance GPU compute without unnecessary complexity. Select the GPU type and quantity you require, and the infrastructure is provisioned to meet your needs.
               </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
                 Get In Touch <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -349,7 +349,7 @@ const GPUNodes = () => {
             <div className="relative">
               <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/80 rounded-2xl p-6 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-[#0B1F3B] flex items-center justify-center">
                     <Server className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-xl font-semibold">GPU Nodes</span>
@@ -405,7 +405,7 @@ const GPUNodes = () => {
               <p className="text-[#243447] text-lg leading-relaxed max-w-xl">
                   All services operate on a shared, unified platform, making it easy to scale resources as demand evolves. You can begin with bare-metal GPU nodes and later extend your setup with orchestration, scheduling, or application-level services when required.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -469,11 +469,11 @@ const GPUNodes = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-slate-800/50 rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center">
-                        <service.icon className="w-5 h-5 text-blue-400" />
+                      <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
+                        <service.icon className="w-5 h-5 text-[#328CC1]" />
                       </div>
                       <span className="font-medium text-sm">{service.name}</span>
                     </div>
@@ -485,7 +485,7 @@ const GPUNodes = () => {
               <div className="mt-6 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-4 border border-blue-800/30">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-blue-400" />
+                    <Shield className="w-5 h-5 text-[#328CC1]" />
                   </div>
                   <div>
                     <p className="font-medium text-sm">BluBrg's Data centers</p>
@@ -511,10 +511,10 @@ const GPUNodes = () => {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-lg font-medium pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-blue-600/80">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-[#0B1F3B]/80">
                     {openFaq === index ? (
                       <Minus className="w-5 h-5 text-white" />
                     ) : (
@@ -545,7 +545,7 @@ const GPUNodes = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

@@ -400,7 +400,7 @@ const Education = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

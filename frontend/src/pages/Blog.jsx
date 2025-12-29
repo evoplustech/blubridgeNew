@@ -67,10 +67,10 @@ const Blog = () => {
                       />
                     </div>
                     <CardContent className="p-6">
-                      <div className="text-[#0066FF] text-sm mb-2">{new Date(post.created_at).toLocaleDateString()}</div>
+                      <div className="text-[#328CC1] text-sm mb-2">{new Date(post.created_at).toLocaleDateString()}</div>
                       <h3 className="text-xl font-bold text-white mb-3">{post.title}</h3>
                       <p className="text-[#243447] mb-4 line-clamp-3">{post.excerpt}</p>
-                      <div className="flex items-center space-x-2 text-[#0066FF]">
+                      <div className="flex items-center space-x-2 text-[#328CC1]">
                         <span>Read more</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>

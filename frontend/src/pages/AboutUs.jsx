@@ -182,34 +182,34 @@ const AboutUs = () => {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-blue-400 font-semibold">Invent Boldly</span>
+                    <span className="text-[#328CC1] font-semibold">Invent Boldly</span>
                     <span className="text-[#243447]"> We pursue bold ideas without fear, pushing technological boundaries to build products that make significant impact.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-blue-400 font-semibold">Move Fast, Stay Humble</span>
+                    <span className="text-[#328CC1] font-semibold">Move Fast, Stay Humble</span>
                     <span className="text-[#243447]"> We prioritise speed and learning. We believe in rapid progress grounded in humility and continuous improvement.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-blue-400 font-semibold">Own the Outcome</span>
+                    <span className="text-[#328CC1] font-semibold">Own the Outcome</span>
                     <span className="text-[#243447]"> We hold ourselves accountable for what we build. We deliver with urgency and take responsibility for achieving results that matter.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-blue-400 font-semibold">Build with Trust</span>
+                    <span className="text-[#328CC1] font-semibold">Build with Trust</span>
                     <span className="text-[#243447]"> We operate transparently, earning confidence through clear communication and consistent performance.</span>
                   </div>
                 </div>
               </div>
               
-              <Link to="/careers" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors mt-6">
+              <Link to="/careers" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors mt-6">
                 Join Us <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -250,7 +250,7 @@ const AboutUs = () => {
                 <h3 className="font-semibold text-white text-sm mb-1">{member.name}</h3>
                 <p className="text-[#5B6B7A] text-xs mb-2">{member.title}</p>
                 <div className="flex items-center justify-center gap-2">
-                  <button className="text-blue-400 text-xs hover:text-blue-300 transition-colors flex items-center gap-1">
+                  <button className="text-[#328CC1] text-xs hover:text-blue-300 transition-colors flex items-center gap-1">
                     <Linkedin className="w-3 h-3" />
                     Bio <ArrowRight className="w-3 h-3" />
                   </button>
@@ -318,7 +318,7 @@ const AboutUs = () => {
               <p className="text-[#243447] leading-relaxed">
                 BluBrg is a growing market and delivering rapid growth to our investors on the 5 billion company. Stay updated with our latest financial news, quarterly reports, and investor presentations.
               </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors">
                 Contact IR team <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -347,14 +347,14 @@ const AboutUs = () => {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-lg font-medium pr-8">{faq.question}</span>
                   <div className="flex-shrink-0">
                     {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-blue-400" />
+                      <Minus className="w-5 h-5 text-[#328CC1]" />
                     ) : (
-                      <Plus className="w-5 h-5 text-blue-400" />
+                      <Plus className="w-5 h-5 text-[#328CC1]" />
                     )}
                   </div>
                 </button>
@@ -381,7 +381,7 @@ const AboutUs = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

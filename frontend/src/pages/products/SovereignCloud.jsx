@@ -48,7 +48,7 @@ const SovereignCloud = () => {
       id: 2,
       title: 'SCALABILITY',
       description: 'Blubrg is built to scale Blubrg Cloud delivers hyperscaler-level performance while maintaining the control and governance required by sovereign organisations. The infrastructure can expand seamlessly to meet growing workload demands.',
-      bgColor: 'bg-blue-600',
+      bgColor: 'bg-[#0B1F3B]',
       hasLink: true
     },
     {
@@ -282,7 +282,7 @@ const SovereignCloud = () => {
                 <div className="p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs text-[#5B6B7A]">{article.date}</span>
-                    <span className="text-xs text-blue-400 uppercase">{article.category}</span>
+                    <span className="text-xs text-[#328CC1] uppercase">{article.category}</span>
                   </div>
                   <h3 className="text-sm font-semibold text-white mb-2 line-clamp-2">{article.title}</h3>
                   <p className="text-xs text-[#243447] line-clamp-2">{article.excerpt}</p>
@@ -310,19 +310,19 @@ const SovereignCloud = () => {
             <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               {/* Service Flow */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Serverless Marketplace Training Inference GPU nodes</span>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
               
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Inference</span>
                 </div>
-                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Training</span>
                 </div>
               </div>
@@ -336,15 +336,15 @@ const SovereignCloud = () => {
                 ))}
               </div>
               
-              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
+              <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
                 <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
               <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <Server className="w-4 h-4 text-blue-400" />
+                  <div className="w-8 h-8 bg-[#0B1F3B]/20 rounded-lg flex items-center justify-center">
+                    <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
                     <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
@@ -373,7 +373,7 @@ const SovereignCloud = () => {
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
                   <span className="text-white text-lg pr-4">{faq.question}</span>
-                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-blue-600 rotate-180' : 'bg-blue-600/80'}`}>
+                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-[#0B1F3B] rotate-180' : 'bg-[#0B1F3B]/80'}`}>
                     {openFaq === index ? (
                       <Minus className="w-4 h-4 text-white" />
                     ) : (
@@ -400,7 +400,7 @@ const SovereignCloud = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

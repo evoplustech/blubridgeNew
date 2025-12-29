@@ -209,14 +209,14 @@ const Telco = () => {
             {/* Left Column - Descriptive content */}
             <div className="space-y-8">
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">White-label BluBrg's end-to-end Cloud Platform</h3>
+                <h3 className="text-lg font-semibold text-[#328CC1] mb-2">White-label BluBrg's end-to-end Cloud Platform</h3>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed">
                   Telcos can build their own branded cloud services using Blubrg’s complete cloud platform, giving them the ability to offer AI-powered solutions and services without heavy upfront investment.
                 </p>
               </div>
 
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Deliver Advanced AI Services</h3>
+                <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Deliver Advanced AI Services</h3>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed">
                   Telecom operators can launch AI capabilities such as intelligent chatbots, automated support systems, and virtual assistants faster, improving customer service, reducing churn, and increasing loyalty.
                  </p>
@@ -226,20 +226,20 @@ const Telco = () => {
             {/* Right Column - More use cases */}
             <div className="space-y-8">
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Enhance Customer Experience</h3>
+                <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Enhance Customer Experience</h3>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed">
                   Use AI-driven analytics and automation to personalise interactions, proactively address service issues, and deliver seamless experiences that improve overall customer satisfaction.
                 </p>
               </div>
 
               <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Operate More Sustainably</h3>
+                <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Operate More Sustainably</h3>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed">
                   Deploy AI models closer to users with ultra-low latency while using energy-efficient infrastructure that helps lower power consumption and supports greener network operations.
                 </p>
               </div>
               {/* <div className="border-l-2 border-blue-500 pl-6">
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Streamline Operations with AI</h3>
+                <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Streamline Operations with AI</h3>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed">
                   Automate repetitive network tasks, such as user provisioning or traffic management, to reduce manual effort, minimise errors, and improve operational efficiency.
                 </p>
@@ -258,11 +258,11 @@ const Telco = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                  <Zap className="w-7 h-7 text-blue-400" />
+                  <Zap className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
-              <p className="text-blue-400 text-sm mb-4">Training</p>
+              <p className="text-[#328CC1] text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                  A scalable, performance-tuned compute architecture that reduces training times and boosts team productivity.
               </p>
@@ -272,11 +272,11 @@ const Telco = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center">
-                  <LayoutGrid className="w-7 h-7 text-blue-400" />
+                  <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
-              <p className="text-blue-400 text-sm mb-4">GPU Nodes</p>
+              <p className="text-[#328CC1] text-sm mb-4">GPU Nodes</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 High-performance GPU clusters with advanced networking, storage, and cooling to support AI, machine learning, and high-performance workloads.
               </p>
@@ -365,14 +365,14 @@ const Telco = () => {
               <div key={i} className="border-b border-[#D6DEC3]">
                 <button
                   onClick={() => toggleFaq(i)}
-                  className="w-full flex items-center justify-between py-6 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-6 text-left hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-base font-medium text-white pr-8">{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
                     {openFaq === i ? (
-                      <ChevronUp className="w-4 h-4 text-blue-400" />
+                      <ChevronUp className="w-4 h-4 text-[#328CC1]" />
                     ) : (
-                      <ChevronDown className="w-4 h-4 text-blue-400" />
+                      <ChevronDown className="w-4 h-4 text-[#328CC1]" />
                     )}
                   </div>
                 </button>
@@ -395,7 +395,7 @@ const Telco = () => {
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

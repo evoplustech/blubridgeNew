@@ -96,18 +96,18 @@ const Products = () => {
                   />
                 </div>
                 <CardContent className="p-8">
-                  <div className="text-[#0066FF] text-sm font-semibold mb-2 uppercase">{product.category}</div>
+                  <div className="text-[#328CC1] text-sm font-semibold mb-2 uppercase">{product.category}</div>
                   <h3 className="text-2xl font-bold text-white mb-3">{product.title}</h3>
                   <p className="text-[#243447] mb-6">{product.description}</p>
                   <div className="space-y-2 mb-6">
                     {product.features.map((feature, i) => (
                       <div key={i} className="flex items-center space-x-2 text-[#243447] text-sm">
-                        <Check className="w-4 h-4 text-[#0066FF]" />
+                        <Check className="w-4 h-4 text-[#328CC1]" />
                         <span>{feature}</span>
                       </div>
                     ))}
                   </div>
-                  {/* <Link to={product.link} className="text-[#0066FF] hover:text-[#0052CC] flex items-center space-x-2">
+                  {/* <Link to={product.link} className="text-[#328CC1] hover:text-[#0052CC] flex items-center space-x-2">
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link> */}
@@ -125,7 +125,7 @@ const Products = () => {
             Ready to scale your AI infrastructure?
           </h2>
           <Link to="/contact">
-            <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+            <Button className="bg-white text-[#328CC1] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
               Contact Sales
             </Button>
           </Link>

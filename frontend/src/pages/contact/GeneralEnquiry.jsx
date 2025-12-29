@@ -72,7 +72,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-white text-lg font-medium mb-3">Want a new service or product?</h3>
                     <Link to="/contact/sales">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/5 transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
                         Contact Sales
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -85,7 +85,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-white text-lg font-medium mb-3">Technical issue or question?</h3>
                     <Link to="/contact/support">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/5 transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
                         Contact Support
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -98,7 +98,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-white text-lg font-medium mb-3">Interested in investment?</h3>
                     <Link to="/contact/investors">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/5 transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
                         Contact IR Team
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -207,7 +207,7 @@ const GeneralEnquiry = () => {
                       className="w-4 h-4 rounded border-[#D6DEC3] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-[#243447] text-sm">
-                      I have read and agree to the <Link to="/terms" className="text-white underline hover:text-blue-400">Terms and Conditions</Link> and <Link to="/privacy" className="text-white underline hover:text-blue-400">Privacy Policy</Link>.*
+                      I have read and agree to the <Link to="/terms" className="text-white underline hover:text-[#328CC1]">Terms and Conditions</Link> and <Link to="/privacy" className="text-white underline hover:text-[#328CC1]">Privacy Policy</Link>.*
                     </span>
                   </label>
                   <label className="flex items-start gap-3 cursor-pointer group">
@@ -248,7 +248,7 @@ const GeneralEnquiry = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-transparent hover:bg-white/10 text-white px-10 py-3 text-sm font-medium rounded-full border border-[#0B1F3B] hover:border-white/60 transition-colors"
+                    className="bg-transparent hover:bg-[#EEF2DC] text-white px-10 py-3 text-sm font-medium rounded-full border border-[#0B1F3B] hover:border-white/60 transition-colors"
                   >
                     Submit
                   </button>
@@ -269,7 +269,7 @@ const GeneralEnquiry = () => {
                 Get access to a fully integrated suite of AI services and compute
               </h2>
               <p className="text-[#243447] text-base leading-relaxed">
-                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-blue-400">BluBrg's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
+                Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-[#328CC1]">BluBrg's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
             </div>
 
@@ -280,7 +280,7 @@ const GeneralEnquiry = () => {
                 {/* Serverless */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                   </div>
@@ -290,7 +290,7 @@ const GeneralEnquiry = () => {
                 {/* Marketplace */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                   </div>
@@ -300,7 +300,7 @@ const GeneralEnquiry = () => {
                 {/* Inference */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
@@ -310,7 +310,7 @@ const GeneralEnquiry = () => {
                 {/* Training */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
@@ -320,7 +320,7 @@ const GeneralEnquiry = () => {
                 {/* GPU Nodes */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                     </svg>
                   </div>
@@ -330,7 +330,7 @@ const GeneralEnquiry = () => {
                 {/* LLM Library */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </div>
@@ -342,7 +342,7 @@ const GeneralEnquiry = () => {
               <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-xl p-5">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                   </div>

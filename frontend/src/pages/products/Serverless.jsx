@@ -190,8 +190,8 @@ const Serverless = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/20 rounded-full">
-                <span className="text-blue-400 text-sm font-medium">SERVERLESS</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B1F3B]/20 rounded-full">
+                <span className="text-[#328CC1] text-sm font-medium">SERVERLESS</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -280,7 +280,7 @@ const Serverless = () => {
                 </thead>
                 <tbody>
                   {pricingModels.map((item, index) => (
-                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-slate-800/30 transition-colors">
+                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#EEF2DC]/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{item.model}</td>
                       <td className="px-6 py-4 text-sm text-[#243447]">{item.type}</td>
                       <td className="px-6 py-4 text-sm text-[#243447] text-right">{item.price}</td>
@@ -301,9 +301,9 @@ const Serverless = () => {
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral', 'Gemma', 'Flux', 'Actions'].map((name, i) => (
-                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-[#D6DEC3]">
+                  <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 text-center border border-[#D6DEC3]">
                     <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                      <span className="text-xs text-blue-400">{name.charAt(0)}</span>
+                      <span className="text-xs text-[#328CC1]">{name.charAt(0)}</span>
                     </div>
                     <p className="text-xs text-[#243447]">{name}</p>
                   </div>
@@ -319,7 +319,7 @@ const Serverless = () => {
               <p className="text-[#243447] leading-relaxed">
                 Every layer of the vertically integrated platform is finely tuned, spanning physical systems through orchestration, lowering processing expenses while maintaining stable output. The outcome is measurable cost reduction delivered straight to clients, achieved without compromising performance, scalability, or protection.
               </p>
-              {/* <Link to="/pricing" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              {/* <Link to="/pricing" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors">
                 See pricing <ArrowRight className="w-4 h-4" />
               </Link> */}
             </div>
@@ -368,7 +368,7 @@ const Serverless = () => {
               <p className="text-[#243447] leading-relaxed">
                 → Truly uncompromised serverless computing. Your models stay under your ownership, and your data is never repurposed or used for retraining. Benefit from complete tenant separation, integrated compliance, and powerful computing resources which are available instantly, without the burden of infrastructure 
               </p>
-              <Link to="/docs" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              <Link to="/docs" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors">
                 Learn more <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -376,7 +376,7 @@ const Serverless = () => {
            
             <div className="relative">
               <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-[#D6DEC3]">
-                <div className="aspect-video bg-slate-800/50 rounded-xl flex items-center justify-center">
+                <div className="aspect-video bg-[#EEF2DC] rounded-xl flex items-center justify-center">
                   <div className="grid grid-cols-3 gap-4">
                     {[...Array(6)].map((_, i) => (
                       <div key={i} className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center">
@@ -428,12 +428,12 @@ const Serverless = () => {
            
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                Zero rate limits, maximum<br /><span className="text-blue-400">reliability</span>
+                Zero rate limits, maximum<br /><span className="text-[#328CC1]">reliability</span>
               </h2>
               <p className="text-[#243447] leading-relaxed">
                 → Unlimited throughput with instant start-up and zero delays, delivering rapid, dependable inference alongside automatic scaling capable of supporting any AI workload. We manage expansion, observability, and day-to-day operations in the background, allowing your team to concentrate fully on creation.
               </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors">
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -444,11 +444,11 @@ const Serverless = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-slate-800/50 rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center">
-                        <service.icon className="w-5 h-5 text-blue-400" />
+                      <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
+                        <service.icon className="w-5 h-5 text-[#328CC1]" />
                       </div>
                       <span className="font-medium text-sm">{service.name}</span>
                     </div>
@@ -460,7 +460,7 @@ const Serverless = () => {
               <div className="mt-6 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-4 border border-blue-800/30">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-blue-400" />
+                    <Shield className="w-5 h-5 text-[#328CC1]" />
                   </div>
                   <div>
                     <p className="font-medium text-sm">BluBrg's Data centers</p>
@@ -486,10 +486,10 @@ const Serverless = () => {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-lg font-medium pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-blue-600/80">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-[#0B1F3B]/80">
                     {openFaq === index ? (
                       <Minus className="w-5 h-5 text-white" />
                     ) : (
@@ -520,7 +520,7 @@ const Serverless = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

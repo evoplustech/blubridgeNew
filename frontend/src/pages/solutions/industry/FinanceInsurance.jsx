@@ -227,7 +227,7 @@ const FinanceInsurance = () => {
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
           <div className="mb-12">
-            <p className="text-blue-400 text-sm font-medium mb-3 uppercase tracking-wider">GAIN A COMPETITIVE EDGE</p>
+            <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">GAIN A COMPETITIVE EDGE</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
             <p className="text-base text-[#5B6B7A] max-w-3xl">
               Financial and insurance organisations that leverage GPU cloud technologies gain competitive advantages through faster insights, improved efficiency, and enhanced customer engagement.
@@ -237,7 +237,7 @@ const FinanceInsurance = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Financial Modelling */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Financial Modelling</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Financial Modelling</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Accelerated development</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Speed up the development and evaluation of complex financial models by using GPU resources that allow quicker iteration and deeper analysis.
@@ -246,7 +246,7 @@ const FinanceInsurance = () => {
 
             {/* Fraud Detection */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Fraud Detection</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Fraud Detection</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Real-time Analysis</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Apply GPU-accelerated processing to detect anomalies in real time, helping identify fraudulent activity and reduce financial risk.
@@ -255,7 +255,7 @@ const FinanceInsurance = () => {
 
             {/* Monte Carlo Simulations */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Monte Carlo Simulations</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Monte Carlo Simulations</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Reduced time to insights</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Execute Monte Carlo simulations more rapidly to support derivative pricing, portfolio optimisation, and advanced risk calculations.
@@ -264,7 +264,7 @@ const FinanceInsurance = () => {
 
             {/* Customer Service */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Customer Service</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Customer Service</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Powered by AI Cloud</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Deploy AI-powered chatbots and virtual assistants to manage customer interactions efficiently, improving response times and service quality.
@@ -283,11 +283,11 @@ const FinanceInsurance = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                  <Zap className="w-7 h-7 text-blue-400" />
+                  <Zap className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
-              <p className="text-blue-400 text-sm mb-4">Training</p>
+              <p className="text-[#328CC1] text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A scalable compute environment optimised to reduce training time and increase productivity for machine learning and data science teams.              </p>
             </div>
@@ -296,11 +296,11 @@ const FinanceInsurance = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center">
-                  <Cpu className="w-7 h-7 text-blue-400" />
+                  <Cpu className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
-              <p className="text-blue-400 text-sm mb-4">Inference</p>
+              <p className="text-[#328CC1] text-sm mb-4">Inference</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A performance-optimised platform designed to run inference workloads efficiently at scale for production AI applications.
               </p>
@@ -310,11 +310,11 @@ const FinanceInsurance = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-purple-600/20 rounded-xl flex items-center justify-center">
-                  <LayoutGrid className="w-7 h-7 text-blue-400" />
+                  <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
-              <p className="text-blue-400 text-sm mb-4">Marketplace</p>
+              <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A collection of tools and services that support building, deploying, and scaling AI solutions using both Blubrg offerings and widely used AI frameworks.
               </p>
@@ -402,14 +402,14 @@ const FinanceInsurance = () => {
               <div key={i} className="border-b border-[#D6DEC3]">
                 <button
                   onClick={() => toggleFaq(i)}
-                  className="w-full flex items-center justify-between py-6 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-6 text-left hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-base font-medium text-white pr-8">{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
                     {openFaq === i ? (
-                      <ChevronUp className="w-4 h-4 text-blue-400" />
+                      <ChevronUp className="w-4 h-4 text-[#328CC1]" />
                     ) : (
-                      <ChevronDown className="w-4 h-4 text-blue-400" />
+                      <ChevronDown className="w-4 h-4 text-[#328CC1]" />
                     )}
                   </div>
                 </button>
@@ -432,7 +432,7 @@ const FinanceInsurance = () => {
           </h2> 
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

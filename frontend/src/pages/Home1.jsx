@@ -260,7 +260,7 @@ const Home1 = () => {
                 </Button>
               </Link>
               <Link to="/products/training">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-md">
+                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-[#EEF2DC] px-8 py-6 text-base font-semibold rounded-md">
                   Explore Platform
                 </Button>
               </Link>
@@ -529,7 +529,7 @@ const Home1 = () => {
               </Button>
             </Link>
             <Link to="/products/training">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-md">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-[#EEF2DC] px-8 py-6 text-base font-semibold rounded-md">
                 Explore Platform
               </Button>
             </Link>

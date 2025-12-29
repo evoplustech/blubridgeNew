@@ -64,7 +64,7 @@ const Partners = () => {
         <div className="container-custom">
           <div className="grid grid-cols-3 md:grid-cols-5 gap-8">
             {partnerLogos.map((partner, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-white/10 transition-all duration-300">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#EEF2DC] transition-all duration-300">
                 <CardContent className="p-8 flex items-center justify-center">
                   <div className="text-[#243447] font-bold text-lg text-center">{partner}</div>
                 </CardContent>
@@ -87,7 +87,7 @@ const Partners = () => {
                   <ul className="space-y-2">
                     {type.partners.map((partner, i) => (
                       <li key={i} className="flex items-center space-x-2 text-[#243447]">
-                        <Check className="w-5 h-5 text-[#0066FF]" />
+                        <Check className="w-5 h-5 text-[#328CC1]" />
                         <span>{partner}</span>
                       </li>
                     ))}
@@ -113,7 +113,7 @@ const Partners = () => {
                 <div className="grid md:grid-cols-2 gap-4 mb-8">
                   {benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-center space-x-3 text-[#243447]">
-                      <Check className="w-5 h-5 text-[#0066FF] flex-shrink-0" />
+                      <Check className="w-5 h-5 text-[#328CC1] flex-shrink-0" />
                       <span>{benefit}</span>
                     </div>
                   ))}
@@ -138,7 +138,7 @@ const Partners = () => {
             Let's build together
           </h2>
           <Link to="/contact">
-            <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+            <Button className="bg-white text-[#328CC1] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
               Contact Partnership Team
             </Button>
           </Link>

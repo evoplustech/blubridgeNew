@@ -245,7 +245,7 @@ const Careers = () => {
                       <div className="flex items-start gap-3">
                         <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
                         <div>
-                          <h3 className="text-xl font-bold text-blue-400 mb-3">{value.title}</h3>
+                          <h3 className="text-xl font-bold text-[#328CC1] mb-3">{value.title}</h3>
                           <p className="text-[#243447] leading-relaxed">{value.description}</p>
                         </div>
                       </div>
@@ -271,7 +271,7 @@ const Careers = () => {
                       <div className="flex items-start gap-3">
                         <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
                         <div>
-                          <h3 className="text-xl font-bold text-blue-400 mb-3">{value.title}</h3>
+                          <h3 className="text-xl font-bold text-[#328CC1] mb-3">{value.title}</h3>
                           <p className="text-[#243447] leading-relaxed">{value.description}</p>
                         </div>
                       </div>
@@ -325,14 +325,14 @@ const Careers = () => {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-lg font-medium pr-8">{faq.question}</span>
                   <div className="flex-shrink-0">
                     {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-blue-400" />
+                      <Minus className="w-5 h-5 text-[#328CC1]" />
                     ) : (
-                      <Plus className="w-5 h-5 text-blue-400" />
+                      <Plus className="w-5 h-5 text-[#328CC1]" />
                     )}
                   </div>
                 </button>
@@ -359,7 +359,7 @@ const Careers = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

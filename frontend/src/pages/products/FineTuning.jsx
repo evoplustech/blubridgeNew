@@ -220,10 +220,10 @@ const FineTuning = () => {
     }, []);
 
     return (
-      <div className="relative bg-slate-900/80 rounded-xl border border-[#D6DEC3] p-4 backdrop-blur-sm">
+      <div className="relative bg-white rounded-xl border border-[#D6DEC3] p-4 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs text-[#243447]">Training Progress</span>
-          <span className="text-xs text-blue-400">Live</span>
+          <span className="text-xs text-[#328CC1]">Live</span>
         </div>
         <canvas ref={graphCanvasRef} className="w-full h-[200px]" />
         <div className="flex justify-between mt-2 text-xs text-[#5B6B7A]">
@@ -401,7 +401,7 @@ const FineTuning = () => {
             <p className="text-[#243447] max-w-2xl">
              Adapt top open-source models such as Qwen2.5 and Deepseek R1 to your needs. We continuously review and introduce additional options to ensure you always have a strong and up-to-date starting point.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 text-sm mt-4 hover:text-blue-300">
+            <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] text-sm mt-4 hover:text-blue-300">
               Request Access <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -421,7 +421,7 @@ const FineTuning = () => {
                 </thead>
                 <tbody>
                   {supportedModels.map((model, index) => (
-                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-slate-800/30 transition-colors">
+                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#EEF2DC]/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{model.name}</td>
                       <td className="px-6 py-4 text-sm text-[#243447]">{model.author}</td>
                       <td className="px-6 py-4 text-sm text-[#243447]">{model.type}</td>
@@ -485,7 +485,7 @@ const FineTuning = () => {
                 <div className="absolute inset-0 flex">
                  
                   <div className="w-1/2 p-4 border-r border-[#D6DEC3]">
-                    <div className="bg-slate-800/50 rounded p-3 space-y-2">
+                    <div className="bg-[#EEF2DC] rounded p-3 space-y-2">
                       <div className="h-2 bg-blue-500/30 rounded w-3/4" />
                       <div className="h-2 bg-slate-600/50 rounded w-full" />
                       <div className="h-2 bg-slate-600/50 rounded w-5/6" />
@@ -547,7 +547,7 @@ const FineTuning = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
-              <div key={i} className="bg-slate-800/50 rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
+              <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
                 <div className="text-xs text-[#5B6B7A] mb-1">TEXT GENERATION</div>
                 <div className="text-white font-bold text-sm">{model.name}</div>
                 <div className="text-[#243447] text-xs">{model.size}</div>
@@ -565,7 +565,7 @@ const FineTuning = () => {
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral'].map((name, i) => (
-                  <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-[#D6DEC3]">
+                  <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 text-center border border-[#D6DEC3]">
                     <div className="w-10 h-10 bg-slate-700 rounded-lg mx-auto mb-2 flex items-center justify-center">
                       <span className="text-xs text-[#243447]">{name.slice(0, 2)}</span>
                     </div>
@@ -644,7 +644,7 @@ const FineTuning = () => {
                       </>
                     ) : faq.question}
                   </span>
-                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-blue-600 rotate-180' : 'bg-blue-600/80'}`}>
+                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-[#0B1F3B] rotate-180' : 'bg-[#0B1F3B]/80'}`}>
                     {openFaq === index ? (
                       <Minus className="w-4 h-4 text-white" />
                     ) : (
@@ -671,7 +671,7 @@ const FineTuning = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

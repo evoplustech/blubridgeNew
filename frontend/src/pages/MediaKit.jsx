@@ -26,9 +26,9 @@ const MediaKit = () => {
             </p>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#EEF2DC] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
-                  <div className="text-4xl font-bold text-[#0066FF]">BLUBRG</div>
+                  <div className="text-4xl font-bold text-[#328CC1]">BLUBRG</div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Light Background Logo</h3>
                 <p className="text-[#5B6B7A] mb-4">Use on white or light-colored backgrounds</p>
@@ -50,9 +50,9 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#EEF2DC] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
-                  <div className="text-3xl font-bold text-[#0066FF] tracking-wider">B</div>
+                  <div className="text-3xl font-bold text-[#328CC1] tracking-wider">B</div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Icon Mark</h3>
                 <p className="text-[#5B6B7A] mb-4">Standalone icon for compact use</p>
@@ -62,9 +62,9 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#EEF2DC] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
-                  <div className="text-2xl font-light text-[#0066FF] tracking-widest">BLUBRG</div>
+                  <div className="text-2xl font-light text-[#328CC1] tracking-widest">BLUBRG</div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Wordmark</h3>
                 <p className="text-[#5B6B7A] mb-4">Text-only version of our brand</p>
@@ -121,9 +121,9 @@ const MediaKit = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
                 <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Download className="w-8 h-8 text-[#0066FF]" />
+                  <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Logo Package</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">All logo variations and formats</p>
@@ -132,9 +132,9 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
                 <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Download className="w-8 h-8 text-[#0066FF]" />
+                  <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Brand Guidelines</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">Complete brand usage guide</p>
@@ -143,9 +143,9 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
                 <div className="w-16 h-16 bg-[#0066FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Download className="w-8 h-8 text-[#0066FF]" />
+                  <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Press Images</h3>
                 <p className="text-[#5B6B7A] text-sm mb-6">High-resolution assets</p>

@@ -144,7 +144,7 @@ const Marketplace = () => {
             {/* Left - Text Content */}
             <div className="space-y-6">
               <div className="flex items-center gap-2">
-                <span className="text-blue-400 text-sm font-medium tracking-wider uppercase">MARKETPLACE</span>
+                <span className="text-[#328CC1] text-sm font-medium tracking-wider uppercase">MARKETPLACE</span>
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
@@ -159,7 +159,7 @@ const Marketplace = () => {
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors font-medium">
+                <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-[#328CC1] transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -186,7 +186,7 @@ const Marketplace = () => {
               <p className="text-[#243447] text-sm leading-relaxed">
                 Develop with leading AI/ML frameworks such as PyTorch and TensorFlow to simplify and accelerate your development workflow.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors text-sm font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -197,7 +197,7 @@ const Marketplace = () => {
               <p className="text-[#243447] text-sm leading-relaxed">
                 Explore our collection of open-source models, enhanced with proprietary optimizations running on NVIDIA GPUs.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors text-sm font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -208,7 +208,7 @@ const Marketplace = () => {
               <p className="text-[#243447] text-sm leading-relaxed">
                 Choose from preconfigured templates and customizable tools tailored to suit your specific AI use case.
               </p>
-             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
+             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors text-sm font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -249,7 +249,7 @@ const Marketplace = () => {
                 {['PyTorch', 'TensorFlow', 'Kubeflow', 'ONNX', 'HuggingFace', 'vLLM'].map((framework, idx) => (
                   <div key={idx} className="bg-white border border-[#D6DEC3] rounded-xl p-4 text-center hover:border-blue-500/30 transition-colors">
                     <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
@@ -274,7 +274,7 @@ const Marketplace = () => {
               <p className="text-[#243447] text-base leading-relaxed">
                 Select from a library of open-source and custom LLM models optimized with Blubrg’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
                 Find Out More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -305,7 +305,7 @@ const Marketplace = () => {
               <p className="text-[#243447] text-base leading-relaxed">
                 Our ready-to-deploy hardware resources are tailored for specific AI use cases, delivering peak performance and efficiency without the complexity of setup.
               </p>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -316,7 +316,7 @@ const Marketplace = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                   </div>
@@ -324,9 +324,9 @@ const Marketplace = () => {
                     <h4 className="text-white font-semibold text-base">AI-in-a-Box</h4>
                     <p className="text-[#243447] text-sm mt-1">Development environment using GPU Nodes.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Model Development</span>
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Drivers</span>
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Optimised</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Model Development</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Drivers</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Optimised</span>
                     </div>
                   </div>
                 </div>
@@ -336,7 +336,7 @@ const Marketplace = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
@@ -344,9 +344,9 @@ const Marketplace = () => {
                     <h4 className="text-white font-semibold text-base">Training Compute</h4>
                     <p className="text-[#243447] text-sm mt-1">Optimised Kubernetes environment for setting up and training LLM models.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Model Training</span>
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Kubernetes</span>
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Mi300X</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Model Training</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Kubernetes</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Mi300X</span>
                     </div>
                   </div>
                 </div>
@@ -356,7 +356,7 @@ const Marketplace = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
@@ -364,9 +364,9 @@ const Marketplace = () => {
                     <h4 className="text-white font-semibold text-base">Inference Compute</h4>
                     <p className="text-[#243447] text-sm mt-1">Optimised CI/NK clusters with a specialized scheduler for inference jobs.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Autoscaling</span>
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Inference</span>
-                      <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Kubernetes</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Autoscaling</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Inference</span>
+                      <span className="text-xs text-[#328CC1] bg-blue-500/10 px-2 py-1 rounded">Kubernetes</span>
                     </div>
                   </div>
                 </div>
@@ -437,7 +437,7 @@ const Marketplace = () => {
                 {/* Serverless */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                   </div>
@@ -447,7 +447,7 @@ const Marketplace = () => {
                 {/* Marketplace */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                   </div>
@@ -457,7 +457,7 @@ const Marketplace = () => {
                 {/* Inference */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
@@ -467,7 +467,7 @@ const Marketplace = () => {
                 {/* Training */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
@@ -477,7 +477,7 @@ const Marketplace = () => {
                 {/* GPU nodes */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                     </svg>
                   </div>
@@ -487,7 +487,7 @@ const Marketplace = () => {
                 {/* LLM Library */}
                 <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </div>
@@ -499,7 +499,7 @@ const Marketplace = () => {
               <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-xl p-5">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                   </div>
@@ -541,15 +541,15 @@ const Marketplace = () => {
             {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#D6DEC3]">
                 <button
-                  className="w-full flex items-center justify-between py-5 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                 >
                   <span className="text-white text-lg pr-8">{faq.question}</span>
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-blue-600/80">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 bg-[#0B1F3B]/80">
                     {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-blue-400" />
+                      <Minus className="w-5 h-5 text-[#328CC1]" />
                     ) : (
-                      <Plus className="w-5 h-5 text-blue-400" />
+                      <Plus className="w-5 h-5 text-[#328CC1]" />
                     )}
                   </span>
                 </button>
@@ -573,7 +573,7 @@ const Marketplace = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

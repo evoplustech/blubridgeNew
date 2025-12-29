@@ -333,11 +333,11 @@ const AIDevelopment = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                  <LayoutGrid className="w-7 h-7 text-blue-400" />
+                  <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
-              <p className="text-blue-400 text-sm mb-4">Marketplace</p>
+              <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 An ecosystem of services and tools that support application development and deployment, compatible with both BluBrg offerings and popular AI/ML frameworks.
               </p>
@@ -449,7 +449,7 @@ const AIDevelopment = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

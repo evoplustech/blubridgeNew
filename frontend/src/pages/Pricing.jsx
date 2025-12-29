@@ -122,7 +122,7 @@ const Pricing = () => {
                   <div className="space-y-3">
                     {plan.features.map((feature, i) => (
                       <div key={i} className="flex items-center space-x-3 text-[#243447]">
-                        <Check className="w-5 h-5 text-[#0066FF] flex-shrink-0" />
+                        <Check className="w-5 h-5 text-[#328CC1] flex-shrink-0" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -144,7 +144,7 @@ const Pricing = () => {
                 <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
                   <CardContent className="p-6 flex justify-between items-center">
                     <span className="text-white font-semibold">{addon.name}</span>
-                    <span className="text-[#0066FF]">{addon.price}</span>
+                    <span className="text-[#328CC1]">{addon.price}</span>
                   </CardContent>
                 </Card>
               ))}
@@ -196,7 +196,7 @@ const Pricing = () => {
             Ready to get started?
           </h2>
           <Link to="/contact">
-            <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+            <Button className="bg-white text-[#328CC1] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
               Talk to Sales
             </Button>
           </Link>

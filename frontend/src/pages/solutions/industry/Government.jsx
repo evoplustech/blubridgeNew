@@ -258,7 +258,7 @@ const Government = () => {
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
           <div className="mb-12">
-            <p className="text-blue-400 text-sm font-medium mb-3 uppercase tracking-wider">BUILD A MODERN, DIGITAL PUBLIC SECTOR</p>
+            <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">BUILD A MODERN, DIGITAL PUBLIC SECTOR</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
             <p className="text-base text-[#5B6B7A] max-w-3xl">
               Blubrg’s GPU cloud helps public sector organisations enhance efficiency, improve service quality, and introduce innovative AI-driven solutions across various government functions.
@@ -268,7 +268,7 @@ const Government = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Predictive Analytics in Healthcare */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Predictive Analytics in Healthcare</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Predictive Analytics in Healthcare</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Improved health outcomes</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Improve public health planning and forecasting by using AI to analyse health data, helping anticipate disease outbreaks and manage medical resources more effectively.
@@ -277,7 +277,7 @@ const Government = () => {
 
             {/* Environmental Monitoring */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Environmental Monitoring</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Environmental Monitoring</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Protect Natural Resources</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Accelerate complex simulations and analytics to assess climate conditions, track natural resources, and support planning for sustainable infrastructure and environmental policies.
@@ -286,7 +286,7 @@ const Government = () => {
 
             {/* Public Service Automation */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Public Service Automation</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Public Service Automation</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Increase productivity</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Use AI-powered tools to handle common citizen requests and administrative tasks, increasing productivity and freeing up staff to focus on more complex work.
@@ -295,7 +295,7 @@ const Government = () => {
 
             {/* Public Safety and Security */}
             <div className="border-l-2 border-blue-500 pl-6">
-              <h3 className="text-lg font-semibold text-blue-400 mb-2">Public Safety and Security</h3>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Public Safety and Security</h3>
               <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Maximise productivity</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Provide real-time data analysis and pattern detection that support emergency response coordination, crime prediction, and safety initiatives across communities.
@@ -314,11 +314,11 @@ const Government = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                  <Zap className="w-7 h-7 text-blue-400" />
+                  <Zap className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
-              <p className="text-blue-400 text-sm mb-4">Training</p>
+              <p className="text-[#328CC1] text-sm mb-4">Training</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               A scalable compute platform optimised to reduce training times and help teams rapidly build and refine machine learning models.
               </p>
@@ -328,11 +328,11 @@ const Government = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center">
-                  <Cpu className="w-7 h-7 text-blue-400" />
+                  <Cpu className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
-              <p className="text-blue-400 text-sm mb-4">Inference</p>
+              <p className="text-[#328CC1] text-sm mb-4">Inference</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               A performance-tuned environment designed to run inference workloads efficiently, enabling real-time AI applications in production.
               </p>
@@ -342,11 +342,11 @@ const Government = () => {
             <div className="bg-[#0a0a0a] border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-purple-600/20 rounded-xl flex items-center justify-center">
-                  <LayoutGrid className="w-7 h-7 text-blue-400" />
+                  <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
-              <p className="text-blue-400 text-sm mb-4">Marketplace</p>
+              <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
               <p className="text-[#5B6B7A] text-sm leading-relaxed">
               A suite of tools and frameworks that assist government organisations in developing, deploying, and scaling AI models in a structured and consistent way.
               </p>
@@ -435,14 +435,14 @@ const Government = () => {
               <div key={i} className="border-b border-[#D6DEC3]">
                 <button
                   onClick={() => toggleFaq(i)}
-                  className="w-full flex items-center justify-between py-6 text-left hover:text-blue-400 transition-colors"
+                  className="w-full flex items-center justify-between py-6 text-left hover:text-[#328CC1] transition-colors"
                 >
                   <span className="text-base font-medium text-white pr-8">{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
                     {openFaq === i ? (
-                      <ChevronUp className="w-4 h-4 text-blue-400" />
+                      <ChevronUp className="w-4 h-4 text-[#328CC1]" />
                     ) : (
-                      <ChevronDown className="w-4 h-4 text-blue-400" />
+                      <ChevronDown className="w-4 h-4 text-[#328CC1]" />
                     )}
                   </div>
                 </button>
@@ -466,7 +466,7 @@ const Government = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

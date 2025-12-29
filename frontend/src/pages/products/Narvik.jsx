@@ -22,7 +22,7 @@ const Narvik = () => {
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#0066FF] text-sm font-semibold mb-6">FLAGSHIP LOCATION</div>
+            <div className="inline-block px-4 py-2 bg-[#0066FF]/20 rounded-full text-[#328CC1] text-sm font-semibold mb-6">FLAGSHIP LOCATION</div>
             <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
               Narvik: Arctic AI Infrastructure Hub
             </h1>
@@ -36,7 +36,7 @@ const Narvik = () => {
                 </Button>
               </Link>
               <Link to="/products/sovereign-cloud">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+                <Button variant="outline" className="border-white text-white hover:bg-[#EEF2DC] px-8 py-6 text-lg">
                   Explore Sovereign Options →
                 </Button>
               </Link>
@@ -81,9 +81,9 @@ const Narvik = () => {
             ].map((item, i) => (
               <Card key={i} className="bg-white/5 border-[#D6DEC3]">
                 <CardContent className="p-8 text-center">
-                  <div className="flex justify-center text-[#0066FF] mb-4">{item.icon}</div>
+                  <div className="flex justify-center text-[#328CC1] mb-4">{item.icon}</div>
                   <div className="text-4xl font-bold text-white mb-2">{item.stat}</div>
-                  <div className="text-[#0066FF] font-semibold mb-3">{item.label}</div>
+                  <div className="text-[#328CC1] font-semibold mb-3">{item.label}</div>
                   <p className="text-[#5B6B7A] text-sm">{item.description}</p>
                 </CardContent>
               </Card>
@@ -214,7 +214,7 @@ const Narvik = () => {
                   <ul className="space-y-3">
                     {model.features.map((feature, j) => (
                       <li key={j} className="flex items-center space-x-3 text-[#243447]">
-                        <Check className="w-5 h-5 text-[#0066FF]" />
+                        <Check className="w-5 h-5 text-[#328CC1]" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -244,12 +244,12 @@ const Narvik = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
-              <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+              <Button className="bg-white text-[#328CC1] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
                 Schedule Site Visit
               </Button>
             </Link>
             <Link to="/docs">
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+              <Button variant="outline" className="border-white text-white hover:bg-[#EEF2DC] px-8 py-6 text-lg">
                 Download Facility Overview
               </Button>
             </Link>

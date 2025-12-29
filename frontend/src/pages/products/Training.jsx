@@ -220,16 +220,16 @@ const Training = () => {
         {/* Background gradient with subtle animation */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1420] to-[#0a0a0f]" />
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full filter blur-[120px] animate-pulse" />
+          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-[#0B1F3B]/20 rounded-full filter blur-[120px] animate-pulse" />
         </div>
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content with Animation */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/20 rounded-full border border-blue-600/30">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B1F3B]/20 rounded-full border border-blue-600/30">
                 <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-                <span className="text-blue-400 text-sm font-medium">TRAINING</span>
+                <span className="text-[#328CC1] text-sm font-medium">TRAINING</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
@@ -288,7 +288,7 @@ const Training = () => {
                 </div>
                 <p className="text-white font-medium mb-1">{item.title}</p>
                 <p className="text-[#243447] text-sm mb-3">{item.description}</p>
-                {/* <Link to={item.link} className="text-blue-400 text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
+                {/* <Link to={item.link} className="text-[#328CC1] text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
                 </Link> */}
               </div>
@@ -318,14 +318,14 @@ const Training = () => {
             {/* Workload Management UI Visual */}
             <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3] p-6">
               <div className="flex items-center gap-4 mb-4">
-                <button className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg">Queues (3)</button>
+                <button className="px-4 py-2 bg-[#0B1F3B] text-white text-sm rounded-lg">Queues (3)</button>
                 {/* <button className="px-4 py-2 text-[#243447] text-sm hover:text-white transition-colors">Nodes</button> */}
               </div>
               
               {/* Queue Items */}
               <div className="space-y-3">
                 {['xl-70b-queue-1', 'xl-70b-queue-2'].map((queue, i) => (
-                  <div key={i} className="bg-slate-800/50 rounded-lg p-4 border border-[#D6DEC3]/30">
+                  <div key={i} className="bg-[#EEF2DC] rounded-lg p-4 border border-[#D6DEC3]/30">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-white font-medium">{queue}</span>
                       <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded">Active</span>
@@ -341,7 +341,7 @@ const Training = () => {
                 <div className="grid grid-cols-2 gap-2">
                   {['328241', '328244', '328247', '328255'].map((nodeId, i) => (
                     <div key={i} className="bg-slate-800/30 rounded px-3 py-2 text-xs">
-                      <span className="text-[#243447]">Node ID:</span> <span className="text-blue-400">{nodeId}</span>
+                      <span className="text-[#243447]">Node ID:</span> <span className="text-[#328CC1]">{nodeId}</span>
                     </div>
                   ))}
                 </div>
@@ -358,7 +358,7 @@ const Training = () => {
             {/* Node Diagram Visual */}
             <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6 relative overflow-hidden">
               <div className="flex items-center gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-600 text-white text-xs rounded">COMPUTE</span>
+                <span className="px-3 py-1 bg-[#0B1F3B] text-white text-xs rounded">COMPUTE</span>
                 {/* <span className="text-[#243447] text-sm">Node allocation</span> */}
               </div>
               
@@ -367,7 +367,7 @@ const Training = () => {
                 {['328241', '328244', '328247', '328255', '328258', '328261', '328264', '328267'].map((id, i) => (
                   <div 
                     key={i} 
-                    className={`p-3 rounded-lg text-center ${i < 4 ? 'bg-blue-600/30 border border-blue-500/50' : 'bg-slate-800/50 border border-[#D6DEC3]/30'}`}
+                    className={`p-3 rounded-lg text-center ${i < 4 ? 'bg-[#0B1F3B]/30 border border-blue-500/50' : 'bg-[#EEF2DC] border border-[#D6DEC3]/30'}`}
                   >
                     <div className={`text-xs font-mono ${i < 4 ? 'text-blue-300' : 'text-[#5B6B7A]'}`}>{id}</div>
                   </div>
@@ -472,19 +472,19 @@ const Training = () => {
             <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               {/* Service Flow Diagram */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Serverless</span>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
               
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Inference</span>
                 </div>
-                <div className="bg-blue-600/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
                   <span className="text-sm text-blue-300">Training</span>
                 </div>
               </div>
@@ -497,15 +497,15 @@ const Training = () => {
                 ))}
               </div>
               
-              <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
+              <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
                 <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
               <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <Server className="w-4 h-4 text-blue-400" />
+                  <div className="w-8 h-8 bg-[#0B1F3B]/20 rounded-lg flex items-center justify-center">
+                    <Server className="w-4 h-4 text-[#328CC1]" />
                   </div>
                   <div>
                     <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
@@ -534,7 +534,7 @@ const Training = () => {
                   className="w-full flex items-center justify-between text-left py-3 group"
                 >
                   <span className="text-white text-lg pr-4">{faq.question}</span>
-                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-blue-600 rotate-180' : 'bg-blue-600/80'}`}>
+                  <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-[#0B1F3B] rotate-180' : 'bg-[#0B1F3B]/80'}`}>
                     {openFaq === index ? (
                       <Minus className="w-4 h-4 text-white" />
                     ) : (
@@ -561,7 +561,7 @@ const Training = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/contact/sales">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

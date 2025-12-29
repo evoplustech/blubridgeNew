@@ -108,13 +108,13 @@ const Documentation = () => {
             {sections.map((section, idx) => (
               <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300">
                 <CardContent className="p-8">
-                  <div className="text-[#0066FF] mb-4">{section.icon}</div>
+                  <div className="text-[#328CC1] mb-4">{section.icon}</div>
                   <h3 className="text-2xl font-bold text-white mb-3">{section.title}</h3>
                   <p className="text-[#243447] mb-6">{section.description}</p>
                   <ul className="space-y-2">
                     {section.links.map((link, i) => (
                       <li key={i}>
-                        <a href={link.url} className="text-[#243447] hover:text-[#0066FF] transition-colors">
+                        <a href={link.url} className="text-[#243447] hover:text-[#328CC1] transition-colors">
                           {link.name} →
                         </a>
                       </li>
@@ -154,11 +154,11 @@ const Documentation = () => {
                 time: '12 min read'
               }
             ].map((tutorial, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-white/10 transition-all duration-300 cursor-pointer">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#EEF2DC] transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">{tutorial.title}</h3>
                   <p className="text-[#243447] mb-4">{tutorial.description}</p>
-                  <p className="text-[#0066FF] text-sm">{tutorial.time}</p>
+                  <p className="text-[#328CC1] text-sm">{tutorial.time}</p>
                 </CardContent>
               </Card>
             ))}

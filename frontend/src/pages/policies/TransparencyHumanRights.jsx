@@ -129,7 +129,7 @@ const TransparencyHumanRights = () => {
               <h2 className="text-xl font-medium text-white mb-4">Contact Us</h2>
               <p className="text-[#243447] text-base leading-relaxed">
                 If you have any questions about this statement or our human rights practices, please contact us at{' '}
-                <a href="mailto:legal@blubrg.com" className="text-blue-400 hover:text-blue-300 transition-colors">legal@blubrg.com</a>
+                <a href="mailto:legal@blubrg.com" className="text-[#328CC1] hover:text-blue-300 transition-colors">legal@blubrg.com</a>
               </p>
             </div>
           </div>

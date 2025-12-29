@@ -83,7 +83,7 @@ const Solutions = () => {
                     <p className="text-[#243447] mb-6">{useCase.description}</p>
                     <div className="flex flex-wrap gap-4">
                       {useCase.stats.map((stat, i) => (
-                        <span key={i} className="text-[#0066FF] font-semibold text-sm">
+                        <span key={i} className="text-[#328CC1] font-semibold text-sm">
                           {stat}
                         </span>
                       ))}
@@ -102,7 +102,7 @@ const Solutions = () => {
           <h2 className="text-4xl font-bold text-white mb-12 text-center">By Industry</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((industry, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-white/10 transition-all duration-300">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#EEF2DC] transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-4">{industry.icon}</div>
                   <h3 className="text-xl font-semibold text-white mb-2">{industry.name}</h3>
@@ -121,7 +121,7 @@ const Solutions = () => {
             Let's build your AI solution
           </h2>
           <Link to="/contact">
-            <Button className="bg-white text-[#0066FF] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
+            <Button className="bg-white text-[#328CC1] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
               Contact Sales
             </Button>
           </Link>
