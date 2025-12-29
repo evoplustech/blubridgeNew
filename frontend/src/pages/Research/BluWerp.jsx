@@ -141,9 +141,14 @@ const BluWerp = () => {
             Even after applying structural filters and removing repetitive content, a large amount of web text remains that is grammatically correct but lacks real substance or depth. This text is often superficial, promotional, or otherwise low-value despite appearing well-written. To tackle this issue, we add a semantic quality classifier as the final step in our data-processing pipeline. This classifier is trained to separate genuinely informative and educationally valuable documents from generic or low-quality ones. We chose a FastText-based classifier because it is highly efficient at scale and handles the wide vocabulary variation typical of web data extremely well. By using subword information, FastText can generalize robustly across different styles and domains, enabling us to reliably categorize massive volumes of web documents into high-value and low-value groups with minimal computational cost. The semantic classifier complements the earlier filtering stages: while those remove noise, boilerplate, and duplicates, this final classifier focuses on conceptual richness and usefulness. As a result, the curated dataset is not only clean and diverse but also genuinely substantive providing the kind of high-quality content that best supports effective pretraining of language models and strong downstream reasoning capabilities.
           </p>
 
-          {/* Classifiers Aggregate Score - Note: Figure 5 image not provided */}
+          {/* Figure 5: Classifiers Aggregate Score */}
           <div className="my-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Classifiers Aggregate Score</h2>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_blubridge-research/artifacts/ihwv7uno_figure5.webp" 
+              alt="Classifiers Aggregate Score" 
+              className="w-full max-w-3xl"
+            />
             <p className="text-sm text-gray-600 mt-2 italic">
               Figure 5: Classifier ablation comparison across four approaches. BETR-based FastText classifier achieves highest aggregate accuracy (0.538), outperforming DeBERTa (0.4948), DCLM-bin fasttext classifier (0.5137), and LLaMA-Score+BERT (0.5128) methods.
             </p>
