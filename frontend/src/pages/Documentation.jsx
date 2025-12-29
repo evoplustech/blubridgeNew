@@ -87,14 +87,14 @@ const Documentation = () => {
             <h1 className="text-6xl font-bold text-white mb-6">
               Documentation
             </h1>
-            <p className="text-xl text-white/80 mb-8">
+            <p className="text-xl text-[#243447] mb-8">
               Everything you need to build and deploy AI applications on BluBrg.
             </p>
             <div className="max-w-2xl mx-auto">
               <input
                 type="text"
                 placeholder="Search documentation..."
-                className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:border-[#0066FF]"
+                className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-[#5B6B7A] focus:outline-none focus:border-[#0066FF]"
               />
             </div>
           </div>
@@ -110,11 +110,11 @@ const Documentation = () => {
                 <CardContent className="p-8">
                   <div className="text-[#0066FF] mb-4">{section.icon}</div>
                   <h3 className="text-2xl font-bold text-white mb-3">{section.title}</h3>
-                  <p className="text-white/70 mb-6">{section.description}</p>
+                  <p className="text-[#243447] mb-6">{section.description}</p>
                   <ul className="space-y-2">
                     {section.links.map((link, i) => (
                       <li key={i}>
-                        <a href={link.url} className="text-white/80 hover:text-[#0066FF] transition-colors">
+                        <a href={link.url} className="text-[#243447] hover:text-[#0066FF] transition-colors">
                           {link.name} →
                         </a>
                       </li>
@@ -157,7 +157,7 @@ const Documentation = () => {
               <Card key={idx} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">{tutorial.title}</h3>
-                  <p className="text-white/70 mb-4">{tutorial.description}</p>
+                  <p className="text-[#243447] mb-4">{tutorial.description}</p>
                   <p className="text-[#0066FF] text-sm">{tutorial.time}</p>
                 </CardContent>
               </Card>
@@ -172,7 +172,7 @@ const Documentation = () => {
           <h2 className="text-4xl font-bold text-white mb-6">
             Need help?
           </h2>
-          <p className="text-xl text-white/70 mb-8">
+          <p className="text-xl text-[#243447] mb-8">
             Our support team is here to assist you 24/7.
           </p>
           <Link to="/contact" className="inline-block bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-lg font-semibold transition-colors">

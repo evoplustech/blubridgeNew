@@ -175,7 +175,7 @@ const Careers = () => {
               Join the team building<br />next-gen AI infrastructure
             </h1>
             
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+            <p className="text-[#243447] text-lg leading-relaxed mb-8">
               We are building the first AI-native hyperscaler, a platform engineered for performance, efficiency, and massive scale. Join us in creating infrastructure that enables organisations around the world to advance their AI ambitions.
             </p>
             
@@ -197,7 +197,7 @@ const Careers = () => {
       <section className="py-16 bg-[#F3F6E8]">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">Our Mission</h2>
-          <p className="text-gray-500 text-lg mb-4 ">
+          <p className="text-[#5B6B7A] text-lg mb-4 ">
           Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
           Our goal is to create a cloud platform purpose-built for AI, one that combines massive computational power with reliability and flexibility. We want to help innovators accelerate their ideas by providing infrastructure that keeps up with the demands of modern AI systems.
           </p>
@@ -226,7 +226,7 @@ const Careers = () => {
         <div className="container-custom">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
-            <p className="text-gray-400 text-lg max-w-2xl">
+            <p className="text-[#243447] text-lg max-w-2xl">
               We are a team that moves fast, aims high, and works with purpose, all driven by curiosity, collaboration, and a commitment to excellence.
             </p>
           </div>
@@ -246,7 +246,7 @@ const Careers = () => {
                         <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
                         <div>
                           <h3 className="text-xl font-bold text-blue-400 mb-3">{value.title}</h3>
-                          <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                          <p className="text-[#243447] leading-relaxed">{value.description}</p>
                         </div>
                       </div>
                     </div>
@@ -272,7 +272,7 @@ const Careers = () => {
                         <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
                         <div>
                           <h3 className="text-xl font-bold text-blue-400 mb-3">{value.title}</h3>
-                          <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                          <p className="text-[#243447] leading-relaxed">{value.description}</p>
                         </div>
                       </div>
                     </div>
@@ -289,7 +289,7 @@ const Careers = () => {
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBrg</h2>
-            <p className="text-gray-400 text-lg max-w-2xl">
+            <p className="text-[#243447] text-lg max-w-2xl">
               Our workplace culture is one where people come together to innovate, learn, and grow. We support each other, work hard, and celebrate what we achieve as a team.
             </p>
           </div>
@@ -304,7 +304,7 @@ const Careers = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-gray-400">
+            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-[#243447]">
               <span>Watch on</span>
               <span className="text-white font-semibold">▶ YouTube</span>
             </div>
@@ -342,7 +342,7 @@ const Careers = () => {
                     openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#243447] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}

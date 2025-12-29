@@ -198,7 +198,7 @@ const Serverless = () => {
                 Most cost-effective AI<br />inference
               </h1>
               
-              <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+              <p className="text-[#243447] text-lg max-w-xl leading-relaxed">
                 Four out of five developers ranked us as the most cost-effective GenAI inferencing provider, offering access to popular models with zero rate limits. 
               </p>
               
@@ -239,15 +239,15 @@ const Serverless = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Lower cost, more power</h3>
-              <p className="text-gray-400 text-sm">Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you.</p>
+              <p className="text-[#243447] text-sm">Our fully optimized stack eliminates the inefficiencies you often pay for elsewhere. You get high-performance serverless at a fraction of the typical cost, with those savings passed directly on to you.</p>
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Engineered for AI workloads</h3>
-              <p className="text-gray-400 text-sm">Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.</p>
+              <p className="text-[#243447] text-sm">Get the full cost and performance advantages of our fully integrated stack, purpose-built to support AI workloads at any scale.</p>
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-white mb-2">Scale without the overhead</h3>
-              <p className="text-gray-400 text-sm">From testing through to production, scale your AI workloads without bottlenecks or setup but just results.</p>
+              <p className="text-[#243447] text-sm">From testing through to production, scale your AI workloads without bottlenecks or setup but just results.</p>
             </div>
           </div>
         </div>
@@ -258,7 +258,7 @@ const Serverless = () => {
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
               Pricing applies to every 1 million tokens, covering both prompts and responses for Chat, Multimodal, Language, and Code models. Image models follow a different structure, calculated according to resolution dimensions and processing steps.
             </p>
             <div className="flex gap-4 mt-4">
@@ -273,17 +273,17 @@ const Serverless = () => {
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
                   <tr className="border-b border-slate-700/50">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Serverless Endpoint</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Type</th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">Price</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Serverless Endpoint</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Type</th>
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-[#243447]">Price</th>
                   </tr>
                 </thead>
                 <tbody>
                   {pricingModels.map((item, index) => (
                     <tr key={index} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{item.model}</td>
-                      <td className="px-6 py-4 text-sm text-gray-400">{item.type}</td>
-                      <td className="px-6 py-4 text-sm text-gray-300 text-right">{item.price}</td>
+                      <td className="px-6 py-4 text-sm text-[#243447]">{item.type}</td>
+                      <td className="px-6 py-4 text-sm text-[#243447] text-right">{item.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -305,7 +305,7 @@ const Serverless = () => {
                     <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
                       <span className="text-xs text-blue-400">{name.charAt(0)}</span>
                     </div>
-                    <p className="text-xs text-gray-400">{name}</p>
+                    <p className="text-xs text-[#243447]">{name}</p>
                   </div>
                 ))}
               </div>
@@ -316,7 +316,7 @@ const Serverless = () => {
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Savings by design, not<br />compromise
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-[#243447] leading-relaxed">
                 Every layer of the vertically integrated platform is finely tuned, spanning physical systems through orchestration, lowering processing expenses while maintaining stable output. The outcome is measurable cost reduction delivered straight to clients, achieved without compromising performance, scalability, or protection.
               </p>
               {/* <Link to="/pricing" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
@@ -334,7 +334,7 @@ const Serverless = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Serverless without<br />trade-offs
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are ss
               </p>
               <Link to="/gpu-nodes" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
@@ -365,7 +365,7 @@ const Serverless = () => {
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Serverless without trade-<br />offs
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-[#243447] leading-relaxed">
                 → Truly uncompromised serverless computing. Your models stay under your ownership, and your data is never repurposed or used for retraining. Benefit from complete tenant separation, integrated compliance, and powerful computing resources which are available instantly, without the burden of infrastructure 
               </p>
               <Link to="/docs" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
@@ -399,23 +399,23 @@ const Serverless = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">80%</p>
-              <p className="text-sm font-semibold text-gray-300">LOWER COST</p>
-              <p className="text-sm text-gray-500">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
+              <p className="text-sm font-semibold text-[#243447]">LOWER COST</p>
+              <p className="text-sm text-[#5B6B7A]">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">30%</p>
-              <p className="text-sm font-semibold text-gray-300">FASTER</p>
-              <p className="text-sm text-gray-500">Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
+              <p className="text-sm font-semibold text-[#243447]">FASTER</p>
+              <p className="text-sm text-[#5B6B7A]">Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">+40%</p>
-              <p className="text-sm font-semibold text-gray-300">EFFICIENCY</p>
-              <p className="text-sm text-gray-500">Efficiency gains reaching 40%.</p>
+              <p className="text-sm font-semibold text-[#243447]">EFFICIENCY</p>
+              <p className="text-sm text-[#5B6B7A]">Efficiency gains reaching 40%.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">100%</p>
-              <p className="text-sm font-semibold text-gray-300">RENEWABLE ENERGY</p>
-              <p className="text-sm text-gray-500">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
+              <p className="text-sm font-semibold text-[#243447]">RENEWABLE ENERGY</p>
+              <p className="text-sm text-[#5B6B7A]">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
             </div>
           </div>
         </div>
@@ -430,7 +430,7 @@ const Serverless = () => {
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                 Zero rate limits, maximum<br /><span className="text-blue-400">reliability</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-[#243447] leading-relaxed">
                 → Unlimited throughput with instant start-up and zero delays, delivering rapid, dependable inference alongside automatic scaling capable of supporting any AI workload. We manage expansion, observability, and day-to-day operations in the background, allowing your team to concentrate fully on creation.
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
@@ -464,7 +464,7 @@ const Serverless = () => {
                   </div>
                   <div>
                     <p className="font-medium text-sm">BluBrg's Data centers</p>
-                    <p className="text-xs text-gray-400">Powered by renewable energy</p>
+                    <p className="text-xs text-[#243447]">Powered by renewable energy</p>
                   </div>
                 </div>
               </div>
@@ -503,7 +503,7 @@ const Serverless = () => {
                     openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#243447] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}

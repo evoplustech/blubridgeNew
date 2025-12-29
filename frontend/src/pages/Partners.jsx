@@ -52,7 +52,7 @@ const Partners = () => {
             <h1 className="text-6xl font-bold text-white mb-6">
               Our Partners
             </h1>
-            <p className="text-xl text-white/80">
+            <p className="text-xl text-[#243447]">
               Building the future of AI infrastructure together with industry leaders.
             </p>
           </div>
@@ -66,7 +66,7 @@ const Partners = () => {
             {partnerLogos.map((partner, idx) => (
               <Card key={idx} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300">
                 <CardContent className="p-8 flex items-center justify-center">
-                  <div className="text-white/70 font-bold text-lg text-center">{partner}</div>
+                  <div className="text-[#243447] font-bold text-lg text-center">{partner}</div>
                 </CardContent>
               </Card>
             ))}
@@ -83,10 +83,10 @@ const Partners = () => {
               <Card key={idx} className="bg-white/5 border-white/10">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-3">{type.title}</h3>
-                  <p className="text-white/70 mb-6">{type.description}</p>
+                  <p className="text-[#243447] mb-6">{type.description}</p>
                   <ul className="space-y-2">
                     {type.partners.map((partner, i) => (
-                      <li key={i} className="flex items-center space-x-2 text-white/80">
+                      <li key={i} className="flex items-center space-x-2 text-[#243447]">
                         <Check className="w-5 h-5 text-[#0066FF]" />
                         <span>{partner}</span>
                       </li>
@@ -104,7 +104,7 @@ const Partners = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6 text-center">Become a Partner</h2>
-            <p className="text-xl text-white/80 text-center mb-12">
+            <p className="text-xl text-[#243447] text-center mb-12">
               Join our partner ecosystem and help shape the future of AI infrastructure.
             </p>
             <Card className="bg-white/5 border-white/10">
@@ -112,7 +112,7 @@ const Partners = () => {
                 <h3 className="text-2xl font-bold text-white mb-6">Partner Benefits</h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-8">
                   {benefits.map((benefit, idx) => (
-                    <div key={idx} className="flex items-center space-x-3 text-white/80">
+                    <div key={idx} className="flex items-center space-x-3 text-[#243447]">
                       <Check className="w-5 h-5 text-[#0066FF] flex-shrink-0" />
                       <span>{benefit}</span>
                     </div>

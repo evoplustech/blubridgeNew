@@ -119,7 +119,7 @@ const Glomfjord = () => {
               Glomfjord, Norway
             </h1>
             
-            <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+            <p className="text-[#243447] text-lg md:text-xl max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
 Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on renewable energy and integrates cutting-edge AI infrastructure to deliver industry-leading efficiency without compromising performance. 
             </p>
             
@@ -152,11 +152,11 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
               The data center on the edge of<br />the Arctic Circle
             </h2>
             <br></br>
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-[#243447] text-lg leading-relaxed">
              Situated just above the Arctic Circle, the Glomfjord facility demonstrates how future AI growth can coexist with local development. The location offers unique environmental and logistical advantages that support sustainable, high-capacity compute operations. 
             </p>
             <br></br>
-             <p className="text-gray-400 text-lg leading-relaxed">
+             <p className="text-[#243447] text-lg leading-relaxed">
              Blubrg is also committed to the local community by investing in infrastructure, creating job opportunities, and exploring innovative ways to reuse waste heat, such as heating local facilities. 
             </p>
           </div>
@@ -177,7 +177,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                   <div className="w-20 h-20 rounded-full bg-red-600/80 mx-auto mb-4 flex items-center justify-center cursor-pointer hover:bg-red-600 transition-colors">
                     <Play className="w-8 h-8 text-white ml-1" />
                   </div>
-                  <p className="text-gray-400 text-sm">BBC Storyworks - Transforming Tomorrow</p>
+                  <p className="text-[#243447] text-sm">BBC Storyworks - Transforming Tomorrow</p>
                 </div>
               </div>
               
@@ -191,7 +191,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
               </div>
             </div>
             
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-[#243447] text-sm leading-relaxed">
               BluBrg features in the brand-new online series 'Transforming Tomorrow' – a highlight episode takes you inside our data center in Glomfjord, Norway where we're building the future. You'll hear from our leadership team as they share our vision for how the way we build today can redefine how we live tomorrow. The series is produced by BBC Storyworks Commercial Productions.
             </p>
           </div>
@@ -204,7 +204,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">About</h2>
-              <div className="space-y-4 text-gray-400 leading-relaxed">
+              <div className="space-y-4 text-[#243447] leading-relaxed">
                 <p>
                   Glomfjord is a small industrial town of 1000 people in the North of Norway, just above the Arctic Circle. The industry in the town is based around the 120MW hydro power plant that was built at the end of the fjord over 100 years ago.
                 </p>
@@ -241,7 +241,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
               <div key={i}>
                 <div className="text-3xl md:text-4xl font-bold text-white mb-2">{fact.value}</div>
                 <div className="text-white font-semibold mb-2">{fact.title}</div>
-                <p className="text-gray-400 text-sm leading-relaxed">{fact.description}</p>
+                <p className="text-[#243447] text-sm leading-relaxed">{fact.description}</p>
               </div>
             ))}
           </div>
@@ -265,7 +265,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Power Supply</h2>
-              <div className="space-y-4 text-gray-400 leading-relaxed">
+              <div className="space-y-4 text-[#243447] leading-relaxed">
                 <p>
                   To meet the demand for AI infrastructure, BluBrg operates data centers in regions with a stable oversupply of renewable power. This strategy avoids straining the local grid and prevents driving up energy prices for residents.
                 </p>
@@ -289,7 +289,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <Link to="/" className="text-blue-400 hover:underline">BluBrg</Link>'s built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
             </div>
@@ -298,10 +298,10 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6">
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
-                  <span className="text-sm text-gray-300">Serverless</span>
+                  <span className="text-sm text-[#243447]">Serverless</span>
                 </div>
                 <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
-                  <span className="text-sm text-gray-300">Marketplace</span>
+                  <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
               
@@ -317,13 +317,13 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
               <div className="grid grid-cols-2 gap-2 mb-4">
                 {infrastructureTools.map((tool, i) => (
                   <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-slate-700/20">
-                    <span className="text-xs text-gray-400">{tool}</span>
+                    <span className="text-xs text-[#243447]">{tool}</span>
                   </div>
                 ))}
               </div>
               
               <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30 mb-4">
-                <span className="text-sm text-gray-300">GPU nodes</span>
+                <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
@@ -334,7 +334,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                   </div>
                   <div>
                     <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
-                    <div className="text-xs text-gray-500">Powered by renewable energy</div>
+                    <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
                   </div>
                 </div>
               </div>
@@ -370,7 +370,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                 </button>
                 
                 <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-gray-400 pb-4 pr-12">{faq.answer}</p>
+                  <p className="text-[#243447] pb-4 pr-12">{faq.answer}</p>
                 </div>
               </div>
             ))}

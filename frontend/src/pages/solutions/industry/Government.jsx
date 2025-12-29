@@ -209,7 +209,7 @@ const Government = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               GOVERNMENT
             </h1>
-            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               Blubrg provides secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -219,7 +219,7 @@ const Government = () => {
                 </Button>
               </Link>
             <Link to="/contact">
-                <button className="text-white hover:text-white/80 px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
+                <button className="text-white hover:text-[#243447] px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
@@ -234,19 +234,19 @@ const Government = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Enhanced Data Processing</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Enable government teams to handle and interpret large volumes of data quickly, supporting advanced analytics, real-time monitoring, and AI-based insights that improve operational effectiveness.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Accelerated AI Development</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Deploy and adopt advanced AI technologies more rapidly, enabling capabilities such as enhanced security monitoring, automated services for citizens, and tools for reducing fraud, all while improving service delivery.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Cost Efficiency and Scalability</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Benefit from infrastructure that scales based on demand, allowing agencies to optimise compute resources and control costs without investing in and maintaining large physical hardware fleets.
               </p>
             </div>
@@ -260,7 +260,7 @@ const Government = () => {
           <div className="mb-12">
             <p className="text-blue-400 text-sm font-medium mb-3 uppercase tracking-wider">BUILD A MODERN, DIGITAL PUBLIC SECTOR</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
-            <p className="text-base text-white/60 max-w-3xl">
+            <p className="text-base text-[#5B6B7A] max-w-3xl">
               Blubrg’s GPU cloud helps public sector organisations enhance efficiency, improve service quality, and introduce innovative AI-driven solutions across various government functions.
             </p>
           </div>
@@ -269,8 +269,8 @@ const Government = () => {
             {/* Predictive Analytics in Healthcare */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Predictive Analytics in Healthcare</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Improved health outcomes</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Improved health outcomes</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Improve public health planning and forecasting by using AI to analyse health data, helping anticipate disease outbreaks and manage medical resources more effectively.
               </p>
             </div>
@@ -278,8 +278,8 @@ const Government = () => {
             {/* Environmental Monitoring */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Environmental Monitoring</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Protect Natural Resources</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Protect Natural Resources</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Accelerate complex simulations and analytics to assess climate conditions, track natural resources, and support planning for sustainable infrastructure and environmental policies.
               </p>
             </div>
@@ -287,8 +287,8 @@ const Government = () => {
             {/* Public Service Automation */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Public Service Automation</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Increase productivity</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Increase productivity</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Use AI-powered tools to handle common citizen requests and administrative tasks, increasing productivity and freeing up staff to focus on more complex work.
               </p>
             </div>
@@ -296,8 +296,8 @@ const Government = () => {
             {/* Public Safety and Security */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Public Safety and Security</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Maximise productivity</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Maximise productivity</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Provide real-time data analysis and pattern detection that support emergency response coordination, crime prediction, and safety initiatives across communities.
               </p>
             </div>
@@ -319,7 +319,7 @@ const Government = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Training</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               A scalable compute platform optimised to reduce training times and help teams rapidly build and refine machine learning models.
               </p>
             </div>
@@ -333,7 +333,7 @@ const Government = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Inference</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               A performance-tuned environment designed to run inference workloads efficiently, enabling real-time AI applications in production.
               </p>
             </div>
@@ -347,7 +347,7 @@ const Government = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               A suite of tools and frameworks that assist government organisations in developing, deploying, and scaling AI models in a structured and consistent way.
               </p>
             </div>
@@ -361,7 +361,7 @@ const Government = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-white">More solutions</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
@@ -448,7 +448,7 @@ const Government = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

@@ -40,7 +40,7 @@ const Training = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               MODEL TRAINING
             </h1>
-            <p className="text-lg lg:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               BluBrg&apos;s GPU Cloud offers a highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity, enabling you to achieve your AI goals easier, faster, and more cost-effectively than alternative Cloud platforms.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -95,7 +95,7 @@ const Training = () => {
             ].map((item, i) => (
               <div key={i} className="text-center">
                 <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                <p className="text-white/70 leading-relaxed">{item.desc}</p>
+                <p className="text-[#243447] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -108,16 +108,16 @@ const Training = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <h2 className="text-5xl font-bold text-white mb-8">Accelerated Model Training</h2>
-              <p className="text-lg text-white/70 leading-relaxed mb-6">
+              <p className="text-lg text-[#243447] leading-relaxed mb-6">
                 Training advanced AI models requires flexible, reliable, and cost-efficient
                 infrastructure. Blubrg simplifies this by delivering purpose-built systems
                 designed specifically for AI workloads.
               </p>
-              <p className="text-lg text-white/70 leading-relaxed mb-6">
+              <p className="text-lg text-[#243447] leading-relaxed mb-6">
                 Integrated Slurm and Kubernetes orchestration enables efficient job scheduling
                 and workload management across distributed GPU clusters with minimal setup.
               </p>
-              <p className="text-lg text-white/70 leading-relaxed">
+              <p className="text-lg text-[#243447] leading-relaxed">
                 High-performance bare-metal GPU nodes ensure consistent, predictable performance
                 for large-scale training and fine-tuning workloads.
               </p>
@@ -126,12 +126,12 @@ const Training = () => {
               <div className="bg-gradient-to-br from-purple-900/20 to-indigo-900/20 border border-purple-500/30 rounded-2xl p-12 text-center">
                 <div className="text-purple-400 text-sm font-semibold mb-4">AI-IN-A-BOX</div>
                 <div className="text-4xl font-bold text-white mb-2">Pre-configured</div>
-                <div className="text-white/60">Training Environments</div>
+                <div className="text-[#5B6B7A]">Training Environments</div>
               </div>
               <div className="bg-gradient-to-br from-indigo-900/20 to-blue-900/20 border border-indigo-500/30 rounded-2xl p-12 text-center">
                 <div className="text-indigo-400 text-sm font-semibold mb-4">TRAINING COMPUTE</div>
                 <div className="text-4xl font-bold text-white mb-2">Scalable</div>
-                <div className="text-white/60">GPU Clusters</div>
+                <div className="text-[#5B6B7A]">GPU Clusters</div>
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ const Training = () => {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-white mb-8">Training Stack</h2>
-            <p className="text-lg text-white/70 mb-16 max-w-3xl">
+            <p className="text-lg text-[#243447] mb-16 max-w-3xl">
               Our comprehensive training stack provides everything you need from hardware to
               applications, with full flexibility to customise at every layer.
             </p>
@@ -240,7 +240,7 @@ const Training = () => {
               <div key={i} className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-10">
                 <div className="text-6xl font-bold text-white mb-2">{item.metric}</div>
                 <div className="text-white text-lg font-semibold mb-4">{item.label}</div>
-                <p className="text-white/60 leading-relaxed">{item.desc}</p>
+                <p className="text-[#5B6B7A] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -268,7 +268,7 @@ const Training = () => {
                 <CardContent className="p-12">
                   <div className="mb-8">{item.icon}</div>
                   <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-white/70 leading-relaxed text-lg">{item.desc}</p>
+                  <p className="text-[#243447] leading-relaxed text-lg">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -280,7 +280,7 @@ const Training = () => {
         <div className="container-custom">
          <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-white">More Solutions</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>
@@ -357,7 +357,7 @@ const Training = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

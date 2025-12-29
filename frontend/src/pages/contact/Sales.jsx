@@ -375,7 +375,7 @@ const Sales = () => {
                   />
                 </div>
                 {/* Privacy Notice */}
-                <div className="text-gray-400 text-xs leading-relaxed">
+                <div className="text-[#243447] text-xs leading-relaxed">
                   BluBrg is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below to say how you would like us to contact you:
                 </div>
                 {/* Legal Checkboxes */}
@@ -389,7 +389,7 @@ const Sales = () => {
                       required
                       className="w-5 h-5 rounded border-white/20 bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5"
                     />
-                    <span className="text-gray-400 text-sm">
+                    <span className="text-[#243447] text-sm">
                       I agree to the <Link to="/terms" className="text-blue-400 hover:underline">Terms & Conditions</Link> and <Link to="/privacy" className="text-blue-400 hover:underline">Privacy Policy</Link>
                     </span>
                   </label>
@@ -401,7 +401,7 @@ const Sales = () => {
                       onChange={handleInputChange}
                       className="w-5 h-5 rounded border-white/20 bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5"
                     />
-                    <span className="text-gray-400 text-sm">
+                    <span className="text-[#243447] text-sm">
                       I agree to receive marketing communications from BluBrg
                     </span>
                   </label>
@@ -413,10 +413,10 @@ const Sales = () => {
                     <div className="w-7 h-7 border-2 border-gray-500 rounded flex items-center justify-center">
                       <Check className="w-4 h-4 text-green-500 opacity-0" />
                     </div>
-                    <span className="text-gray-400 text-sm">I'm not a robot</span>
+                    <span className="text-[#243447] text-sm">I'm not a robot</span>
                     <div className="ml-4">
-                      <div className="text-[10px] text-gray-500">reCAPTCHA</div>
-                      <div className="text-[8px] text-gray-600">Privacy - Terms</div>
+                      <div className="text-[10px] text-[#5B6B7A]">reCAPTCHA</div>
+                      <div className="text-[8px] text-[#7C8A96]">Privacy - Terms</div>
                     </div>
                   </div>
                 </div> */}
@@ -443,7 +443,7 @@ const Sales = () => {
               <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">
                 Get access to a fully integrated suite of AI services and compute
               </h2>
-              <p className="text-gray-400 text-base leading-relaxed">
+              <p className="text-[#243447] text-base leading-relaxed">
                 Reduce costs, grow revenue, and run your AI workloads more efficiently on a fully integrated platform. Whether you're using <span className="text-blue-400">BluBrg's</span> built-in AI/ML tools or your own, our platform is designed to simplify the journey from development to production.
               </p>
             </div>
@@ -523,7 +523,7 @@ const Sales = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium text-sm">BluBrg's Data centers</h4>
-                    <p className="text-gray-400 text-xs">Powered by renewable energy</p>
+                    <p className="text-[#243447] text-xs">Powered by renewable energy</p>
                   </div>
                 </div>
               </div>
@@ -542,7 +542,7 @@ const Sales = () => {
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-gray-400 text-sm">{feature}</span>
+                    <span className="text-[#243447] text-sm">{feature}</span>
                   </div>
                 ))}
               </div>

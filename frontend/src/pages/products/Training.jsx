@@ -236,7 +236,7 @@ const Training = () => {
                 Compute purpose-<br />built for AI<br />workloads
               </h1>
               
-              <p className="text-gray-400 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+              <p className="text-[#243447] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
                 Develop LLMs along with additional AI systems using powerful GPU-based clusters. Managed Kubernetes and Slurm orchestration choices simplify administration while ensuring maximum usage of available computing resources.
               </p>
               
@@ -287,7 +287,7 @@ const Training = () => {
                   {item.metric} <span className="text-lg font-medium">{item.label}</span>
                 </div>
                 <p className="text-white font-medium mb-1">{item.title}</p>
-                <p className="text-gray-400 text-sm mb-3">{item.description}</p>
+                <p className="text-[#243447] text-sm mb-3">{item.description}</p>
                 {/* <Link to={item.link} className="text-blue-400 text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
                 </Link> */}
@@ -305,7 +305,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Dynamically manage AI<br />workloads and resources
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
@@ -319,7 +319,7 @@ const Training = () => {
             <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 p-6">
               <div className="flex items-center gap-4 mb-4">
                 <button className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg">Queues (3)</button>
-                {/* <button className="px-4 py-2 text-gray-400 text-sm hover:text-white transition-colors">Nodes</button> */}
+                {/* <button className="px-4 py-2 text-[#243447] text-sm hover:text-white transition-colors">Nodes</button> */}
               </div>
               
               {/* Queue Items */}
@@ -330,18 +330,18 @@ const Training = () => {
                       <span className="text-white font-medium">{queue}</span>
                       <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded">Active</span>
                     </div>
-                    <div className="text-xs text-gray-500">Nodeset: compute-nodes-{i + 1}</div>
+                    <div className="text-xs text-[#5B6B7A]">Nodeset: compute-nodes-{i + 1}</div>
                   </div>
                 ))}
               </div>
               
               {/* Nodes Info */}
               <div className="mt-4 pt-4 border-t border-slate-700/50">
-                <div className="text-xs text-gray-500 mb-2">Nodes (4)</div>
+                <div className="text-xs text-[#5B6B7A] mb-2">Nodes (4)</div>
                 <div className="grid grid-cols-2 gap-2">
                   {['328241', '328244', '328247', '328255'].map((nodeId, i) => (
                     <div key={i} className="bg-slate-800/30 rounded px-3 py-2 text-xs">
-                      <span className="text-gray-400">Node ID:</span> <span className="text-blue-400">{nodeId}</span>
+                      <span className="text-[#243447]">Node ID:</span> <span className="text-blue-400">{nodeId}</span>
                     </div>
                   ))}
                 </div>
@@ -359,7 +359,7 @@ const Training = () => {
             <div className="bg-slate-900/30 rounded-xl border border-slate-700/30 p-6 relative overflow-hidden">
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-blue-600 text-white text-xs rounded">COMPUTE</span>
-                {/* <span className="text-gray-400 text-sm">Node allocation</span> */}
+                {/* <span className="text-[#243447] text-sm">Node allocation</span> */}
               </div>
               
               {/* Node Grid */}
@@ -369,7 +369,7 @@ const Training = () => {
                     key={i} 
                     className={`p-3 rounded-lg text-center ${i < 4 ? 'bg-blue-600/30 border border-blue-500/50' : 'bg-slate-800/50 border border-slate-700/30'}`}
                   >
-                    <div className={`text-xs font-mono ${i < 4 ? 'text-blue-300' : 'text-gray-500'}`}>{id}</div>
+                    <div className={`text-xs font-mono ${i < 4 ? 'text-blue-300' : 'text-[#5B6B7A]'}`}>{id}</div>
                   </div>
                 ))}
               </div>
@@ -386,7 +386,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 With our advanced<br />scheduler
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Get the best of both worlds with our Slurm on Kubernetes (SLONK) service. Enjoy advanced job scheduling, resource allocation, and efficient workload management when training LLMs.
               </p>
               {/* <Link to="/docs">
@@ -407,7 +407,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Industry leading GPU<br />clusters at all scales
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
               <Link to="/contact/sales">
@@ -432,7 +432,7 @@ const Training = () => {
                       </div>
                     ))}
                   </div>
-                  <p className="text-gray-500 text-sm">NVIDIA H100 • H200 • GB200 NVL72</p>
+                  <p className="text-[#5B6B7A] text-sm">NVIDIA H100 • H200 • GB200 NVL72</p>
                 </div>
               </div>
             </div>
@@ -448,7 +448,7 @@ const Training = () => {
               <div key={i} className="text-center md:text-left">
                 <feature.icon className="w-10 h-10 text-blue-500 mb-4 mx-auto md:mx-0" />
                 <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-[#243447] text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -463,7 +463,7 @@ const Training = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Get access to a fully<br />integrated suite of AI<br />services and compute
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging Blubrg AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
@@ -473,10 +473,10 @@ const Training = () => {
               {/* Service Flow Diagram */}
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
-                  <span className="text-sm text-gray-300">Serverless</span>
+                  <span className="text-sm text-[#243447]">Serverless</span>
                 </div>
                 <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30">
-                  <span className="text-sm text-gray-300">Marketplace</span>
+                  <span className="text-sm text-[#243447]">Marketplace</span>
                 </div>
               </div>
               
@@ -492,13 +492,13 @@ const Training = () => {
               <div className="grid grid-cols-2 gap-3 mb-4">
                 {['LLM Library', 'Job Management', 'Container Orchestration', 'Optimised Libraries'].map((item, i) => (
                   <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-slate-700/20">
-                    <span className="text-xs text-gray-400">{item}</span>
+                    <span className="text-xs text-[#243447]">{item}</span>
                   </div>
                 ))}
               </div>
               
               <div className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700/30 mb-4">
-                <span className="text-sm text-gray-300">GPU nodes</span>
+                <span className="text-sm text-[#243447]">GPU nodes</span>
               </div>
               
               {/* Data Center Badge */}
@@ -509,7 +509,7 @@ const Training = () => {
                   </div>
                   <div>
                     <div className="text-white text-sm font-medium">BluBrg's Data centers</div>
-                    <div className="text-xs text-gray-500">Powered by renewable energy</div>
+                    <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
                   </div>
                 </div>
               </div>
@@ -544,7 +544,7 @@ const Training = () => {
                 </button>
                 
                 <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-gray-400 pb-4 pr-12">{faq.answer}</p>
+                  <p className="text-[#243447] pb-4 pr-12">{faq.answer}</p>
                 </div>
               </div>
             ))}

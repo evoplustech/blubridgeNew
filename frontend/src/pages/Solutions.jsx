@@ -60,7 +60,7 @@ const Solutions = () => {
             <h1 className="text-6xl font-bold text-white mb-6">
               AI solutions for every use case
             </h1>
-            <p className="text-xl text-white/80 mb-8">
+            <p className="text-xl text-[#243447] mb-8">
               Comprehensive AI infrastructure solutions designed to accelerate your innovation across industries.
             </p>
           </div>
@@ -80,7 +80,7 @@ const Solutions = () => {
                   </div>
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold text-white mb-3">{useCase.title}</h3>
-                    <p className="text-white/70 mb-6">{useCase.description}</p>
+                    <p className="text-[#243447] mb-6">{useCase.description}</p>
                     <div className="flex flex-wrap gap-4">
                       {useCase.stats.map((stat, i) => (
                         <span key={i} className="text-[#0066FF] font-semibold text-sm">
@@ -106,7 +106,7 @@ const Solutions = () => {
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-4">{industry.icon}</div>
                   <h3 className="text-xl font-semibold text-white mb-2">{industry.name}</h3>
-                  <p className="text-white/60 text-sm">{industry.desc}</p>
+                  <p className="text-[#5B6B7A] text-sm">{industry.desc}</p>
                 </CardContent>
               </Card>
             ))}

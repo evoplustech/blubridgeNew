@@ -78,7 +78,7 @@ const Pricing = () => {
             <h1 className="text-6xl font-bold text-white mb-6">
               Simple, transparent pricing
             </h1>
-            <p className="text-xl text-white/80">
+            <p className="text-xl text-[#243447]">
               Choose the right infrastructure for your AI workloads. Scale as you grow.
             </p>
           </div>
@@ -105,10 +105,10 @@ const Pricing = () => {
                 )}
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                  <p className="text-white/60 mb-6">{plan.description}</p>
+                  <p className="text-[#5B6B7A] mb-6">{plan.description}</p>
                   <div className="mb-6">
                     <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-white/60 ml-2">{plan.unit}</span>
+                    <span className="text-[#5B6B7A] ml-2">{plan.unit}</span>
                   </div>
                   <Link to={plan.link}>
                     <Button className={`w-full mb-6 ${
@@ -121,7 +121,7 @@ const Pricing = () => {
                   </Link>
                   <div className="space-y-3">
                     {plan.features.map((feature, i) => (
-                      <div key={i} className="flex items-center space-x-3 text-white/80">
+                      <div key={i} className="flex items-center space-x-3 text-[#243447]">
                         <Check className="w-5 h-5 text-[#0066FF] flex-shrink-0" />
                         <span>{feature}</span>
                       </div>
@@ -180,7 +180,7 @@ const Pricing = () => {
                 <Card key={idx} className="bg-white/5 border-white/10">
                   <CardContent className="p-6">
                     <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
-                    <p className="text-white/70">{faq.a}</p>
+                    <p className="text-[#243447]">{faq.a}</p>
                   </CardContent>
                 </Card>
               ))}

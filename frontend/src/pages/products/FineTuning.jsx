@@ -222,11 +222,11 @@ const FineTuning = () => {
     return (
       <div className="relative bg-slate-900/80 rounded-xl border border-slate-700/50 p-4 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-xs text-gray-400">Training Progress</span>
+          <span className="text-xs text-[#243447]">Training Progress</span>
           <span className="text-xs text-blue-400">Live</span>
         </div>
         <canvas ref={graphCanvasRef} className="w-full h-[200px]" />
-        <div className="flex justify-between mt-2 text-xs text-gray-500">
+        <div className="flex justify-between mt-2 text-xs text-[#5B6B7A]">
           <span>Epoch 1</span>
           <span>Epoch 10</span>
         </div>
@@ -336,7 +336,7 @@ const FineTuning = () => {
                 Fine-tune open-<br />source models<br />directly in your<br />browser
               </h1>
               
-              <p className="text-gray-400 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+              <p className="text-[#243447] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
                 Serverless, usage-based fine-tuning that keeps you fully in control. Zero configuration, friction-free execution, and uncompromised performance throughout.
               </p>
               
@@ -383,7 +383,7 @@ const FineTuning = () => {
             ].map((item, i) => (
               <div key={i} className="text-center md:text-left">
                 <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm mb-3">{item.desc}</p>
+                <p className="text-[#243447] text-sm mb-3">{item.desc}</p>
                 <Link to="/contact" className="text-orange-400 text-sm hover:text-orange-300 flex items-center gap-1 justify-center md:justify-start">
                   {item.cta} <ArrowRight className="w-3 h-3" />
                 </Link>
@@ -398,7 +398,7 @@ const FineTuning = () => {
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Models</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
              Adapt top open-source models such as Qwen2.5 and Deepseek R1 to your needs. We continuously review and introduce additional options to ensure you always have a strong and up-to-date starting point.
             </p>
             <Link to="/contact" className="inline-flex items-center gap-2 text-blue-400 text-sm mt-4 hover:text-blue-300">
@@ -412,21 +412,21 @@ const FineTuning = () => {
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
                   <tr className="border-b border-slate-700/50">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Supported Model Name</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Author</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Type</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-400">Context</th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-gray-400">Model Size</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Supported Model Name</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Author</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Type</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#243447]">Context</th>
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-[#243447]">Model Size</th>
                   </tr>
                 </thead>
                 <tbody>
                   {supportedModels.map((model, index) => (
                     <tr key={index} className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{model.name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-400">{model.author}</td>
-                      <td className="px-6 py-4 text-sm text-gray-400">{model.type}</td>
-                      <td className="px-6 py-4 text-sm text-gray-400">{model.context}</td>
-                      <td className="px-6 py-4 text-sm text-gray-300 text-right">{model.size}</td>
+                      <td className="px-6 py-4 text-sm text-[#243447]">{model.author}</td>
+                      <td className="px-6 py-4 text-sm text-[#243447]">{model.type}</td>
+                      <td className="px-6 py-4 text-sm text-[#243447]">{model.context}</td>
+                      <td className="px-6 py-4 text-sm text-[#243447] text-right">{model.size}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -437,14 +437,14 @@ const FineTuning = () => {
           {/* Fine-tune Pricing Note */}
           <div className="mt-8 p-6 bg-slate-900/30 rounded-xl border border-slate-700/30">
             <h3 className="text-xl font-semibold text-orange-400 mb-2">Fine-tune Pricing</h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-[#243447] text-sm">
               Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
             </p>
           </div>
 
           {/* Need dedicated infrastructure link */}
           <div className="mt-6 text-center">
-            <Link to="/products/gpu-nodes" className="text-gray-400 hover:text-white text-sm inline-flex items-center gap-2">
+            <Link to="/products/gpu-nodes" className="text-[#243447] hover:text-white text-sm inline-flex items-center gap-2">
               Need dedicated infrastructure? <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -458,7 +458,7 @@ const FineTuning = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               All designed for speed<br />and simplicity
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-[#243447] max-w-2xl mx-auto">
               → Maintain complete transparency across fine-tuning pipelines through simple task monitoring, organised data handling, and intuitive outcome visualisation.
             </p>
           </div>
@@ -474,7 +474,7 @@ const FineTuning = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
                 <div className="flex-1 mx-4">
-                  <div className="bg-slate-700 rounded px-3 py-1 text-xs text-gray-400 max-w-md">
+                  <div className="bg-slate-700 rounded px-3 py-1 text-xs text-[#243447] max-w-md">
                     Introducing BluBrg's fine-tuning service | AI models without the complexity
                   </div>
                 </div>
@@ -496,9 +496,9 @@ const FineTuning = () => {
                   <div className="w-1/2 p-4 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-20 h-20 rounded-full bg-slate-700 mx-auto mb-3 flex items-center justify-center">
-                        <Play className="w-8 h-8 text-white/70" />
+                        <Play className="w-8 h-8 text-[#243447]" />
                       </div>
-                      <p className="text-gray-500 text-sm">Product Demo</p>
+                      <p className="text-[#5B6B7A] text-sm">Product Demo</p>
                     </div>
                   </div>
                 </div>
@@ -513,7 +513,7 @@ const FineTuning = () => {
 
               
               <div className="bg-slate-800 px-4 py-2 flex items-center gap-2">
-                <span className="text-xs text-gray-400">Watch on</span>
+                <span className="text-xs text-[#243447]">Watch on</span>
                 <span className="text-xs text-red-500 font-semibold">▶ YouTube</span>
               </div>
             </div>
@@ -535,7 +535,7 @@ const FineTuning = () => {
                 <div className="text-orange-500 text-sm font-bold mb-2">{step.number}</div>
                 <h3 className="text-orange-400 text-sm font-bold tracking-wider mb-1">{step.title}</h3>
                 <p className="text-white text-base font-medium mb-2">{step.subtitle}</p>
-                <p className="text-gray-400 text-sm">{step.description}</p>
+                <p className="text-[#243447] text-sm">{step.description}</p>
               </div>
             ))}
           </div>
@@ -548,9 +548,9 @@ const FineTuning = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
               <div key={i} className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 hover:border-slate-600/50 transition-colors">
-                <div className="text-xs text-gray-500 mb-1">TEXT GENERATION</div>
+                <div className="text-xs text-[#5B6B7A] mb-1">TEXT GENERATION</div>
                 <div className="text-white font-bold text-sm">{model.name}</div>
-                <div className="text-gray-400 text-xs">{model.size}</div>
+                <div className="text-[#243447] text-xs">{model.size}</div>
                 <div className="text-orange-400 text-xs mt-2">{model.author}</div>
               </div>
             ))}
@@ -567,7 +567,7 @@ const FineTuning = () => {
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral'].map((name, i) => (
                   <div key={i} className="bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700/50">
                     <div className="w-10 h-10 bg-slate-700 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-xs text-gray-400">{name.slice(0, 2)}</span>
+                      <span className="text-xs text-[#243447]">{name.slice(0, 2)}</span>
                     </div>
                     <p className="text-white text-xs font-medium">{name}</p>
                   </div>
@@ -579,7 +579,7 @@ const FineTuning = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Savings by design,<br />not compromise
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Each tier of our vertically unified platform is carefully refined, spanning physical components through coordination layers, reducing processing expenses while maintaining stable output. The outcome is tangible cost reduction delivered straight to users, achieved without compromising velocity, capacity, or protection.
               </p>
               <Link to="/contact" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
@@ -598,7 +598,7 @@ const FineTuning = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Serverless without<br />trade-offs
               </h2>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-[#243447] mb-6 leading-relaxed">
                 Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are ss
               </p>
               <Link to="/gpu-nodes" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
@@ -654,7 +654,7 @@ const FineTuning = () => {
                 </button>
                 
                 <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-gray-400 pb-4 pr-12">{faq.answer}</p>
+                  <p className="text-[#243447] pb-4 pr-12">{faq.answer}</p>
                 </div>
               </div>
             ))}

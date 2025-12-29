@@ -261,7 +261,7 @@ const Manufacturing = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               MANUFACTURING
             </h1>
-            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               Blubrg’s cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -271,7 +271,7 @@ const Manufacturing = () => {
                 </Button>
               </Link>
                <Link to="/contact">
-                <button className="text-white hover:text-white/80 px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
+                <button className="text-white hover:text-[#243447] px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
@@ -286,19 +286,19 @@ const Manufacturing = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Enhanced Simulation</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Run faster and more precise simulations for manufacturing processes such as finite element analysis, computational fluid dynamics, and digital twin modelling to boost design accuracy and throughput.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Improved Predictive Maintenance</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Analyse large streams of sensor data in real time using GPU-powered AI and machine learning to anticipate equipment failures and schedule maintenance before breakdowns occur.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Streamlined Automation</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Support advanced AI techniques in robotics and automation, helping manufacturing operations become more intelligent, efficient, and adaptable to changing production demands.
               </p>
             </div>
@@ -312,7 +312,7 @@ const Manufacturing = () => {
           <div className="mb-12">
             <p className="text-amber-500 text-sm font-medium mb-3 uppercase tracking-wider">STREAMLINE OPERATIONS</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
-            <p className="text-base text-white/60 max-w-3xl">
+            <p className="text-base text-[#5B6B7A] max-w-3xl">
               Blubrg’s AI platform combines industry-leading GPU technology with a fully optimised software stack, enabling manufacturers to improve core activities like supply chain coordination, quality assurance, and product design.
             </p>
           </div>
@@ -321,8 +321,8 @@ const Manufacturing = () => {
             {/* Predictive Maintenance Models */}
             <div className="border-l-2 border-amber-500 pl-6">
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Predictive Maintenance Models</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Equipment Health Monitoring</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Equipment Health Monitoring</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Use AI to build and train models that forecast when machines are likely to fail, allowing maintenance teams to act proactively and minimise downtime and repair costs.
               </p>
             </div>
@@ -330,8 +330,8 @@ const Manufacturing = () => {
             {/* Supply Chain Logistics Optimisation */}
             <div className="border-l-2 border-amber-500 pl-6">
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Supply Chain Logistics Optimisation</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Demand Forecasting & Inventory</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Demand Forecasting & Inventory</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Quickly analyse complex datasets related to inventory, demand forecasting, and logistics, helping teams make better decisions and streamline supply chain processes.
               </p>
             </div>
@@ -339,8 +339,8 @@ const Manufacturing = () => {
             {/* Quality Control and Defect Detection */}
             <div className="border-l-2 border-amber-500 pl-6">
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Quality Control and Defect Detection</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Computer Vision Inspection</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Computer Vision Inspection</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Apply GPU-accelerated systems to monitor production lines in real time, detecting defects quickly and ensuring products consistently meet quality standards.
               </p>
             </div>
@@ -348,8 +348,8 @@ const Manufacturing = () => {
             {/* Design and Simulation */}
             <div className="border-l-2 border-amber-500 pl-6">
               <h3 className="text-lg font-semibold text-amber-400 mb-2">Design and Simulation</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Digital Twin & CFD/FEA</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Digital Twin & CFD/FEA</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Accelerate design iteration cycles by running complex simulations in the cloud, significantly reducing the time it takes to validate designs, especially in industries like automotive and aerospace where precision is vital.
               </p>
             </div>
@@ -371,7 +371,7 @@ const Manufacturing = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-amber-400 text-sm mb-4">Training</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                  A scalable compute environment that shortens model training times and increases productivity for data-intensive workloads.
               </p>
             </div>
@@ -385,7 +385,7 @@ const Manufacturing = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-amber-400 text-sm mb-4">Inference</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A high-performance platform optimised to run inference workloads efficiently and reliably at production scale.
 
               </p>
@@ -400,7 +400,7 @@ const Manufacturing = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-amber-400 text-sm mb-4">Marketplace</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                  A set of tools and services that help teams develop, deploy, and scale AI applications using both Blubrg infrastructure and commonly used AI/ML frameworks.
               </p>
             </div>
@@ -413,7 +413,7 @@ const Manufacturing = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-white">More solutions</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
@@ -501,7 +501,7 @@ const Manufacturing = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

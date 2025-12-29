@@ -180,7 +180,7 @@ const FinanceInsurance = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               FINANCE & INSURANCE
             </h1>
-            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               At Blubrg, we provide GPU cloud computing solutions designed to strengthen the computational capabilities of finance and insurance organisations. Our platform helps teams deliver innovative services faster while improving efficiency, security, and performance across data-intensive operations.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -203,19 +203,19 @@ const FinanceInsurance = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Support Computational Needs</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Run demanding workloads such as financial modelling, risk assessment, and large-scale analytics using powerful GPU-accelerated infrastructure built for high performance.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Accelerate Data Analysis</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Process vast datasets at speed to generate real-time insights that support informed, time-critical decision-making across financial operations.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Scale on demand</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Adapt compute capacity seamlessly as workloads change, ensuring peak performance during high-demand periods while maintaining cost efficiency.
               </p>
             </div>
@@ -229,7 +229,7 @@ const FinanceInsurance = () => {
           <div className="mb-12">
             <p className="text-blue-400 text-sm font-medium mb-3 uppercase tracking-wider">GAIN A COMPETITIVE EDGE</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
-            <p className="text-base text-white/60 max-w-3xl">
+            <p className="text-base text-[#5B6B7A] max-w-3xl">
               Financial and insurance organisations that leverage GPU cloud technologies gain competitive advantages through faster insights, improved efficiency, and enhanced customer engagement.
             </p>
           </div>
@@ -238,8 +238,8 @@ const FinanceInsurance = () => {
             {/* Financial Modelling */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Financial Modelling</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Accelerated development</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Accelerated development</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Speed up the development and evaluation of complex financial models by using GPU resources that allow quicker iteration and deeper analysis.
               </p>
             </div>
@@ -247,8 +247,8 @@ const FinanceInsurance = () => {
             {/* Fraud Detection */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Fraud Detection</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Real-time Analysis</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Real-time Analysis</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Apply GPU-accelerated processing to detect anomalies in real time, helping identify fraudulent activity and reduce financial risk.
               </p>
             </div>
@@ -256,8 +256,8 @@ const FinanceInsurance = () => {
             {/* Monte Carlo Simulations */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Monte Carlo Simulations</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Reduced time to insights</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Reduced time to insights</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Execute Monte Carlo simulations more rapidly to support derivative pricing, portfolio optimisation, and advanced risk calculations.
               </p>
             </div>
@@ -265,8 +265,8 @@ const FinanceInsurance = () => {
             {/* Customer Service */}
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Customer Service</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Powered by AI Cloud</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Powered by AI Cloud</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Deploy AI-powered chatbots and virtual assistants to manage customer interactions efficiently, improving response times and service quality.
               </p>
             </div>
@@ -288,7 +288,7 @@ const FinanceInsurance = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Training</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A scalable compute environment optimised to reduce training time and increase productivity for machine learning and data science teams.              </p>
             </div>
 
@@ -301,7 +301,7 @@ const FinanceInsurance = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-blue-400 text-sm mb-4">Inference</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A performance-optimised platform designed to run inference workloads efficiently at scale for production AI applications.
               </p>
             </div>
@@ -315,7 +315,7 @@ const FinanceInsurance = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A collection of tools and services that support building, deploying, and scaling AI solutions using both Blubrg offerings and widely used AI frameworks.
               </p>
             </div>
@@ -328,7 +328,7 @@ const FinanceInsurance = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-white">More solutions</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
@@ -415,7 +415,7 @@ const FinanceInsurance = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

@@ -39,7 +39,7 @@ const AIDevelopment = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               AI DEVELOPMENT
             </h1>
-            <p className="text-lg lg:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               BluBrg’s platform makes every step of building AI smoother, enabling you to move quickly from early experiments in interactive notebooks to deploying fully scaled AI applications across multiple GPU clusters. It removes barriers and complexity, helping teams innovate faster and achieve better outcomes.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -79,20 +79,20 @@ const AIDevelopment = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Ease of Migration</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                The platform works across cloud, on-premises, and hybrid environments, giving you flexibility and avoiding dependence on a single provider. You can choose the infrastructure setup that best fits your needs.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Expert Assistance</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Tap into skilled support to help guide your transition and ensure you get the most out of your AI infrastructure, with knowledgeable teams helping you optimise performance and execution.
 
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Increased Productivity</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 BluBrg’s cloud stack automates routine and repetitive tasks, liberating your team to focus on strategic work instead of day-to-day infrastructure management.
               </p>
             </div>
@@ -116,16 +116,16 @@ const AIDevelopment = () => {
               <div className="space-y-8">
                 <div className="border-l-2 border-amber-500 pl-5">
                   <h3 className="text-lg font-semibold text-amber-400 mb-2">Access Latest AI Frameworks</h3>
-                  <p className="text-white/50 text-xs font-medium mb-2">AI Development Tools</p>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-[#5B6B7A] text-xs font-medium mb-2">AI Development Tools</p>
+                  <p className="text-[#5B6B7A] text-sm leading-relaxed">
                     You get easy access to modern AI tools and frameworks such as TensorFlow Serving, PyTorch, and ONNX Runtime, enabling you to work with the technologies your team prefers
                   </p>
                 </div>
 
                 <div className="border-l-2 border-amber-500 pl-5">
                   <h3 className="text-lg font-semibold text-amber-400 mb-2">Optimised Resource Utilisation</h3>
-                  <p className="text-white/50 text-xs font-medium mb-2">Maximising Efficiency</p>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-[#5B6B7A] text-xs font-medium mb-2">Maximising Efficiency</p>
+                  <p className="text-[#5B6B7A] text-sm leading-relaxed">
                     The architecture is designed to minimise idle GPU time and maximise throughput, ensuring your compute resources are used as effectively as possible.
                   </p>
                 </div>
@@ -151,7 +151,7 @@ const AIDevelopment = () => {
                       key={i}
                       className={`aspect-square ${tool.color} border rounded-xl flex items-center justify-center hover:scale-105 transition-transform duration-200 ${tool.isCenter ? 'ring-2 ring-amber-400/50' : ''}`}
                     >
-                      <span className="text-white/80 text-xs font-semibold text-center px-1">{tool.name}</span>
+                      <span className="text-[#243447] text-xs font-semibold text-center px-1">{tool.name}</span>
                     </div>
                   ))}
                 </div>
@@ -166,7 +166,7 @@ const AIDevelopment = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">AI-Development<br />Stack</h2>
-            <p className="text-base text-white/60 max-w-2xl">
+            <p className="text-base text-[#5B6B7A] max-w-2xl">
              BluBrg offers a complete technology stack and integrated development environment purpose-built for creating AI models, large language models (LLMs), and other machine learning applications. This stack works seamlessly with a broad set of third-party tools to fit your existing workflows.
             </p>
           </div>
@@ -176,7 +176,7 @@ const AIDevelopment = () => {
             <div className="space-y-4">
               {/* Marketplace */}
               <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
-                <h3 className="text-sm font-bold text-white/80 mb-4 tracking-wider">MARKETPLACE</h3>
+                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-3 py-1.5 text-white text-xs">
@@ -189,7 +189,7 @@ const AIDevelopment = () => {
 
               {/* Platform */}
               <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
-                <h3 className="text-sm font-bold text-white/80 mb-4 tracking-wider">PLATFORM</h3>
+                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">PLATFORM</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-3 py-1.5 text-white text-xs">
@@ -202,7 +202,7 @@ const AIDevelopment = () => {
 
               {/* Infrastructure */}
               <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
-                <h3 className="text-sm font-bold text-white/80 mb-4 tracking-wider">INFRASTRUCTURE</h3>
+                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-3 py-1.5 text-white text-xs">
@@ -215,7 +215,7 @@ const AIDevelopment = () => {
 
               {/* Hardware */}
               <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
-                <h3 className="text-sm font-bold text-white/80 mb-4 tracking-wider">HARDWARE</h3>
+                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">HARDWARE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['AMD MI300X', 'AMD MI50X', 'NVDA GB200', 'H100', '...'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1.5 text-white text-xs">
@@ -230,24 +230,24 @@ const AIDevelopment = () => {
             {/* Right Column - User Experience & Data Centre */}
             <div className="space-y-4">
               <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6 h-[calc(50%-8px)]">
-                <h3 className="text-sm font-bold text-white/80 mb-4 tracking-wider">USER EXPERIENCE</h3>
+                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">USER EXPERIENCE</h3>
                 <div className="space-y-3">
                   {['Web Console', 'API', 'CLI'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      <span className="text-white/80 text-sm">{item}</span>
+                      <span className="text-[#243447] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6 h-[calc(50%-8px)]">
-                <h3 className="text-sm font-bold text-white/80 mb-4 tracking-wider">DATA CENTRE</h3>
+                <h3 className="text-sm font-bold text-[#243447] mb-4 tracking-wider">DATA CENTRE</h3>
                 <div className="space-y-3">
                   {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                      <span className="text-white/80 text-sm">{item}</span>
+                      <span className="text-[#243447] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -299,7 +299,7 @@ const AIDevelopment = () => {
               <div key={i} className="border-l border-white/20 pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-white mb-1">{item.metric}</div>
                 <div className="text-white text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
-                <p className="text-white/50 text-sm leading-relaxed mb-4">{item.desc}</p>
+                <p className="text-[#5B6B7A] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-amber-400 hover:text-amber-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
@@ -323,7 +323,7 @@ const AIDevelopment = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-amber-400 text-sm mb-4">Training</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A scalable, high-performance compute layer designed to shorten training times and boost development productivity.
 
               </p>
@@ -338,7 +338,7 @@ const AIDevelopment = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-blue-400 text-sm mb-4">Marketplace</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 An ecosystem of services and tools that support application development and deployment, compatible with both BluBrg offerings and popular AI/ML frameworks.
               </p>
             </div>
@@ -350,7 +350,7 @@ const AIDevelopment = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-white">More Solutions</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
           </div>
@@ -431,7 +431,7 @@ const AIDevelopment = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

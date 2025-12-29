@@ -250,7 +250,7 @@ const Home1 = () => {
                 from Cloud to Deployment
               </span>
             </h1>
-            <p className="text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               BluBrg provides enterprise-grade GPU infrastructure, enabling organizations to train, fine-tune, and deploy AI models at any scale with unmatched performance and reliability.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -272,7 +272,7 @@ const Home1 = () => {
       {/* Partner Logos Strip */}
       <section className="py-16 border-t border-white/5">
         <div className="container-custom">
-          <p className="text-center text-white/50 text-sm mb-10">
+          <p className="text-center text-[#5B6B7A] text-sm mb-10">
             Trusted by leading AI companies, government agencies, and enterprises worldwide
           </p>
           <div className="flex justify-center items-center gap-16 flex-wrap">
@@ -294,7 +294,7 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Full-Stack AI Solutions</h2>
-            <p className="text-xl text-white/60 max-w-3xl mx-auto">
+            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
               Enterprise-ready infrastructure for every stage of the AI lifecycle, from data preparation to production deployment.
             </p>
           </div>
@@ -308,7 +308,7 @@ const Home1 = () => {
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold mb-3">{solution.title}</h3>
-                    <p className="text-white/60 leading-relaxed">{solution.description}</p>
+                    <p className="text-[#5B6B7A] leading-relaxed">{solution.description}</p>
                   </div>
                 </div>
               </div>
@@ -322,7 +322,7 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Specialized AI Solutions</h2>
-            <p className="text-xl text-white/60 max-w-3xl mx-auto">
+            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
               Purpose-built infrastructure solutions for mission-critical AI applications.
             </p>
           </div>
@@ -337,12 +337,12 @@ const Home1 = () => {
                   {solution.subtitle}
                 </span>
                 <h3 className="text-2xl font-bold mt-3 mb-4">{solution.title}</h3>
-                <p className="text-white/60 mb-6 leading-relaxed">{solution.description}</p>
+                <p className="text-[#5B6B7A] mb-6 leading-relaxed">{solution.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {solution.features.map((feature, fidx) => (
                     <span 
                       key={fidx} 
-                      className="px-3 py-1 bg-white/5 rounded-full text-sm text-white/70"
+                      className="px-3 py-1 bg-white/5 rounded-full text-sm text-[#243447]"
                     >
                       {feature}
                     </span>
@@ -359,7 +359,7 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Infrastructure Excellence</h2>
-            <p className="text-xl text-white/60 max-w-3xl mx-auto">
+            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
               Continuous innovation in AI infrastructure, benchmarking, and sustainable computing.
             </p>
           </div>
@@ -374,7 +374,7 @@ const Home1 = () => {
                   {area.category}
                 </span>
                 <h3 className="text-xl font-semibold mt-3 mb-3">{area.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{area.description}</p>
+                <p className="text-[#5B6B7A] text-sm leading-relaxed">{area.description}</p>
               </div>
             ))}
           </div>
@@ -395,15 +395,15 @@ const Home1 = () => {
               </div>
               <div className="p-6 font-mono text-sm">
                 <div className="text-purple-400">from</div>
-                <div className="text-white/80 ml-4">blubrg <span className="text-purple-400">import</span> GPUCluster</div>
-                <div className="mt-4 text-white/50"># Initialize training cluster</div>
-                <div className="text-white/80">cluster = GPUCluster(</div>
-                <div className="text-white/80 ml-4">gpus=<span className="text-cyan-400">128</span>,</div>
-                <div className="text-white/80 ml-4">type=<span className="text-green-400">"H100"</span>,</div>
-                <div className="text-white/80 ml-4">region=<span className="text-green-400">"eu-north-1"</span></div>
-                <div className="text-white/80">)</div>
-                <div className="mt-4 text-white/50"># Start distributed training</div>
-                <div className="text-white/80">cluster.train(model, dataset)</div>
+                <div className="text-[#243447] ml-4">blubrg <span className="text-purple-400">import</span> GPUCluster</div>
+                <div className="mt-4 text-[#5B6B7A]"># Initialize training cluster</div>
+                <div className="text-[#243447]">cluster = GPUCluster(</div>
+                <div className="text-[#243447] ml-4">gpus=<span className="text-cyan-400">128</span>,</div>
+                <div className="text-[#243447] ml-4">type=<span className="text-green-400">"H100"</span>,</div>
+                <div className="text-[#243447] ml-4">region=<span className="text-green-400">"eu-north-1"</span></div>
+                <div className="text-[#243447]">)</div>
+                <div className="mt-4 text-[#5B6B7A]"># Start distributed training</div>
+                <div className="text-[#243447]">cluster.train(model, dataset)</div>
               </div>
             </div>
             
@@ -412,21 +412,21 @@ const Home1 = () => {
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 Powering Next-Generation AI
               </h2>
-              <p className="text-xl text-white/60 mb-8 leading-relaxed">
+              <p className="text-xl text-[#5B6B7A] mb-8 leading-relaxed">
                 World-class infrastructure designed for the most demanding AI workloads. From foundation model training to real-time inference, BluBrg delivers the performance you need.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-white/80">Latest NVIDIA H100 & H200 GPUs</span>
+                  <span className="text-[#243447]">Latest NVIDIA H100 & H200 GPUs</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-white/80">InfiniBand networking for distributed training</span>
+                  <span className="text-[#243447]">InfiniBand networking for distributed training</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-green-400" />
-                  <span className="text-white/80">100% renewable energy powered</span>
+                  <span className="text-[#243447]">100% renewable energy powered</span>
                 </div>
               </div>
               <Link to="/products/training">
@@ -443,17 +443,17 @@ const Home1 = () => {
       <section className="py-24 bg-[#000000]">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-white/90">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-[#0B1F3B]">
               Trusted by industry leaders transforming their AI capabilities
             </h2>
-            <blockquote className="text-2xl lg:text-3xl font-light text-white/80 leading-relaxed mb-8">
+            <blockquote className="text-2xl lg:text-3xl font-light text-[#243447] leading-relaxed mb-8">
               "BluBrg has been instrumental in accelerating our AI development. Their infrastructure reliability and performance have exceeded our expectations."
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500" />
               <div className="text-left">
                 <p className="font-semibold">Enterprise Customer</p>
-                <p className="text-white/50 text-sm">Leading Technology Company</p>
+                <p className="text-[#5B6B7A] text-sm">Leading Technology Company</p>
               </div>
             </div>
           </div>
@@ -465,7 +465,7 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Resources & Insights</h2>
-            <p className="text-xl text-white/60 max-w-3xl mx-auto">
+            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
               Explore our latest partnerships, case studies, and thought leadership.
             </p>
           </div>
@@ -482,7 +482,7 @@ const Home1 = () => {
                 <h3 className="text-lg font-semibold mt-3 mb-3 group-hover:text-purple-300 transition-colors">
                   {study.title}
                 </h3>
-                <p className="text-white/50 text-sm leading-relaxed">{study.description}</p>
+                <p className="text-[#5B6B7A] text-sm leading-relaxed">{study.description}</p>
                 <div className="mt-4 flex items-center text-purple-400 text-sm font-medium">
                   Read More <ChevronRight className="w-4 h-4 ml-1" />
                 </div>
@@ -519,7 +519,7 @@ const Home1 = () => {
               starts here
             </span>
           </h2>
-          <p className="text-xl text-white/60 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-[#5B6B7A] mb-10 max-w-2xl mx-auto">
             Join the world's leading organizations building on BluBrg's enterprise AI platform.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">

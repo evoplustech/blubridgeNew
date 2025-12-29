@@ -170,7 +170,7 @@ const Home = () => {
               The hyperscaler<br />engineered for AI
             </h1>
             
-            <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
+            <p className="text-xl text-[#0B1F3B] font-light leading-relaxed max-w-md">
               A full-stack, scalable, and sustainable AI cloud platform.
             </p>
             
@@ -180,17 +180,17 @@ const Home = () => {
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
+              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-[#243447] transition-colors font-medium">
                 Start Building <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Partner Logos */}
             <div className="flex flex-wrap items-center gap-6 pt-10">
-              <span className="text-white/70 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
-              <span className="text-white/70 text-xs font-medium tracking-wider">Computacenter</span>
-              <span className="text-white/70 text-xs font-medium tracking-wider">Antler</span>
-              <span className="text-white/70 text-xs font-medium tracking-wider">Open Innovation</span>
+              <span className="text-[#243447] text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
+              <span className="text-[#243447] text-xs font-medium tracking-wider">Computacenter</span>
+              <span className="text-[#243447] text-xs font-medium tracking-wider">Antler</span>
+              <span className="text-[#243447] text-xs font-medium tracking-wider">Open Innovation</span>
             </div>
           </div>
         </div>
@@ -583,7 +583,7 @@ const Home = () => {
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-[#243447] transition-colors font-medium px-6 py-0">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

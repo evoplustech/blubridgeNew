@@ -26,7 +26,7 @@ const Narvik = () => {
             <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
               Narvik: Arctic AI Infrastructure Hub
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-[#0B1F3B] mb-8">
               A next-generation hyperscale campus above the Arctic Circle. Powered entirely by renewable hydroelectric energy with natural cooling advantages and unlimited expansion capacity.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -49,7 +49,7 @@ const Narvik = () => {
       <section className="py-24 bg-[#0D2847]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-white mb-4 text-center">Why Narvik</h2>
-          <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-[#243447] text-center mb-12 max-w-2xl mx-auto">
             Strategic location combining abundant clean energy, extreme cooling efficiency, and enterprise connectivity.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -84,7 +84,7 @@ const Narvik = () => {
                   <div className="flex justify-center text-[#0066FF] mb-4">{item.icon}</div>
                   <div className="text-4xl font-bold text-white mb-2">{item.stat}</div>
                   <div className="text-[#0066FF] font-semibold mb-3">{item.label}</div>
-                  <p className="text-white/60 text-sm">{item.description}</p>
+                  <p className="text-[#5B6B7A] text-sm">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -98,7 +98,7 @@ const Narvik = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">World-Class Infrastructure</h2>
-              <p className="text-white/70 text-lg mb-8">
+              <p className="text-[#243447] text-lg mb-8">
                 Narvik's campus features purpose-built facilities optimized for high-density GPU deployments. Every system is engineered for maximum efficiency and reliability.
               </p>
               <div className="space-y-6">
@@ -118,7 +118,7 @@ const Narvik = () => {
                 ].map((feature, i) => (
                   <div key={i}>
                     <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                    <p className="text-white/70">{feature.description}</p>
+                    <p className="text-[#243447]">{feature.description}</p>
                   </div>
                 ))}
               </div>
@@ -139,7 +139,7 @@ const Narvik = () => {
                       { label: 'Expansion Timeline', value: 'Modular, phased' }
                     ].map((spec, i) => (
                       <div key={i} className="flex justify-between items-center pb-3 border-b border-white/10 last:border-0">
-                        <span className="text-white/70 text-sm">{spec.label}</span>
+                        <span className="text-[#243447] text-sm">{spec.label}</span>
                         <span className="text-white font-semibold text-sm">{spec.value}</span>
                       </div>
                     ))}
@@ -156,7 +156,7 @@ const Narvik = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6 text-center">Sustainable by Design</h2>
-            <p className="text-white/70 text-center mb-12">
+            <p className="text-[#243447] text-center mb-12">
               Narvik demonstrates that hyperscale AI infrastructure can be both powerful and environmentally responsible.
             </p>
             <div className="grid md:grid-cols-3 gap-8">
@@ -181,7 +181,7 @@ const Narvik = () => {
                   <CardContent className="p-8 text-center">
                     <div className="text-5xl mb-4">{item.icon}</div>
                     <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                    <p className="text-white/70 text-sm">{item.description}</p>
+                    <p className="text-[#243447] text-sm">{item.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -210,10 +210,10 @@ const Narvik = () => {
               <Card key={i} className="bg-white/5 border-white/10 hover:border-[#0066FF]/50 transition-all">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-3">{model.title}</h3>
-                  <p className="text-white/70 mb-6">{model.description}</p>
+                  <p className="text-[#243447] mb-6">{model.description}</p>
                   <ul className="space-y-3">
                     {model.features.map((feature, j) => (
-                      <li key={j} className="flex items-center space-x-3 text-white/80">
+                      <li key={j} className="flex items-center space-x-3 text-[#243447]">
                         <Check className="w-5 h-5 text-[#0066FF]" />
                         <span>{feature}</span>
                       </li>
@@ -239,7 +239,7 @@ const Narvik = () => {
           <h2 className="text-5xl font-bold text-white mb-6">
             Power your AI from the Arctic
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-[#0B1F3B] mb-8 max-w-2xl mx-auto">
             Join leading enterprises and research institutions building the future of AI at Narvik.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

@@ -157,7 +157,7 @@ const Education = () => {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               EDUCATION
             </h1>
-            <p className="text-lg lg:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               At Blubrg, we provide GPU cloud computing resources that help educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure gives students, faculty, and researchers access to high-performance computing environments that support advanced computing projects and AI applications.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -180,19 +180,19 @@ const Education = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Enhanced Learning with AI</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Use AI tools and technologies to create personalised educational experiences, adaptive assessments, and intelligent tutoring systems that help students learn more effectively.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Cost-Effective Access to HPC</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Institutions can tap into powerful GPU resources on demand, making high-performance computing affordable and accessible even for smaller schools and departments.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Facilitating Research</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               Our GPU Cloud provides the computational power needed for research in areas such as engineering, biology, data science, and artificial intelligence, helping accelerate discovery and innovation.
               </p>
             </div>
@@ -206,7 +206,7 @@ const Education = () => {
           <div className="mb-12">
             <p className="text-indigo-400 text-sm font-medium mb-3 uppercase tracking-wider">EMPOWERING ACADEMIC RESEARCH</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Example uses</h2>
-            <p className="text-base text-white/60 max-w-3xl">
+            <p className="text-base text-[#5B6B7A] max-w-3xl">
               Blubrg’s GPU Cloud Infrastructure transforms how educators and researchers work across multiple disciplines. It enables advanced research projects by supplying scalable and robust computing resources tailored to the needs of academic users.
             </p>
           </div>
@@ -215,8 +215,8 @@ const Education = () => {
             {/* Foundation Model Training */}
             <div className="border-l-2 border-indigo-500 pl-6">
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">Foundation Model Training</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">High-performance Infrastructure</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">High-performance Infrastructure</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Researchers can access scalable, high-performance computing for developing and training foundational AI models. This helps accelerate deep learning research and experimentation.
               </p>
             </div>
@@ -224,8 +224,8 @@ const Education = () => {
             {/* Synthetic Biology Research */}
             <div className="border-l-2 border-indigo-500 pl-6">
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">Synthetic Biology Research</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Accelerated Discovery</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Accelerated Discovery</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 GPU computing power enables intricate simulations, large-scale data processing, and computational experiments. These capabilities speed up progress in fields like synthetic biology and other data-intensive sciences.
               </p>
             </div>
@@ -233,8 +233,8 @@ const Education = () => {
             {/* AI-Driven Multidisciplinary Studies */}
             <div className="border-l-2 border-indigo-500 pl-6">
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">AI-Driven Multidisciplinary Studies</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Enabling Collaboration</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Enabling Collaboration</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 Our infrastructure supports complex computational studies that span multiple academic fields. It gives research teams a flexible platform where they can collaborate, test ideas, and run analysis more efficiently.
               </p>
             </div>
@@ -242,8 +242,8 @@ const Education = () => {
             {/* Enhancing STEM Education */}
             <div className="border-l-2 border-indigo-500 pl-6">
               <h3 className="text-lg font-semibold text-indigo-400 mb-2">Enhancing STEM Education</h3>
-              <p className="text-white/50 text-xs font-medium mb-2 uppercase tracking-wider">Interactive Learning Environments</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Interactive Learning Environments</p>
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
               STEM educators can use the GPU cloud to build immersive, interactive learning environments that help students explore complex concepts in areas like robotics, physics, and machine learning.
               </p>
             </div>
@@ -265,7 +265,7 @@ const Education = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Compute</h3>
               <p className="text-indigo-400 text-sm mb-4">Training</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                 A scalable, performance-optimised compute environment designed to shorten model training cycles and increase productivity for academic researchers and students.
               </p>
             </div>
@@ -279,7 +279,7 @@ const Education = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">AI Marketplace</h3>
               <p className="text-indigo-400 text-sm mb-4">Marketplace</p>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-[#5B6B7A] text-sm leading-relaxed">
                  A suite of tools and services that help educators and researchers build, deploy, and scale AI applications using both Blubrg offerings and widely used AI/ML frameworks.
               </p>
             </div>
@@ -293,7 +293,7 @@ const Education = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-white">More solutions</h2>
-            <p className="text-gray-400 max-w-2xl">
+            <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
           </div>
@@ -380,7 +380,7 @@ const Education = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>
