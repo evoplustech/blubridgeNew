@@ -107,7 +107,7 @@ const Glomfjord = () => {
         />
         
         {/* Light Overlay - adjusted for light theme */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F3F6E8]/90 via-[#F3F6E8]/70 to-[#F3F6E8]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f3f6e8]/90 via-[#F3F6E8]/70 to-[#f3f6e8]/50" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>

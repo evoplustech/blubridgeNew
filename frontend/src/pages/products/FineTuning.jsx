@@ -321,7 +321,7 @@ const FineTuning = () => {
         />
         
         {/* Light overlay for visual depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F3F6E8]/90 via-[#F3F6E8]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f3f6e8]/90 via-[#F3F6E8]/70 to-transparent" />
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
