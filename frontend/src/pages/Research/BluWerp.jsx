@@ -11,10 +11,11 @@ const BluWerp = () => {
 
         {/* Read the Paper Button */}
         <div className="mb-8">
-          <lin
+          <link to="">
           <button className="bg-[#0B1F3B] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1a3a5c] transition-colors">
             Read the Paper
           </button>
+          </link>
         </div>
 
         {/* Introduction Paragraphs */}
