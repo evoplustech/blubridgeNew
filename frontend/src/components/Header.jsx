@@ -82,8 +82,7 @@ const Header = () => {
 
   const company = [
     { name: 'About Us', link: '/about' },
-    { name: 'Careers', link: '/careers' },
-    { name: 'Research', link: '/research' }
+    { name: 'Careers', link: '/careers' }
   ];
 
   return (

@@ -437,8 +437,8 @@ const Home = () => {
                   { icon: "💡", title: "Telco" },
                   { icon: "🤖", title: "Finance & Insurance" },
                   { icon: "💬", title: "Education" },
-                  { icon: "⚙️", title: "DevOps Services" },
-                  { icon: "📊", title: "Data Science" },
+                  { icon: "⚙️", title: "Legal" },
+                  { icon: "📊", title: "Software & Technology" },
                   { icon: "✨", title: "Generative AI" },
                   { icon: "🔧", title: "Data Engineering" },
                   { icon: "📈", title: "Business Intelligence" }
