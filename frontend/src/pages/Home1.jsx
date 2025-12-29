@@ -293,7 +293,7 @@ const Home1 = () => {
       <section className="py-24 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Full-Stack AI Solutions</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">Full-Stack AI Solutions</h2>
             <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
               Enterprise-ready infrastructure for every stage of the AI lifecycle, from data preparation to production deployment.
             </p>
@@ -303,11 +303,11 @@ const Home1 = () => {
             {solutions.map((solution, idx) => (
               <div key={idx} className="border-b border-[#D6DEC3] pb-12 last:border-0">
                 <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-[#EEF2DC] flex items-center justify-center flex-shrink-0">
                     <solution.icon className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-3">{solution.title}</h3>
+                    <h3 className="text-2xl font-semibold mb-3 text-[#0B1F3B]">{solution.title}</h3>
                     <p className="text-[#5B6B7A] leading-relaxed">{solution.description}</p>
                   </div>
                 </div>
@@ -321,8 +321,8 @@ const Home1 = () => {
       <section className="py-24 bg-gradient-to-b from-[#000000] to-[#050510]">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Specialized AI Solutions</h2>
-            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">Specialized AI Solutions</h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
               Purpose-built infrastructure solutions for mission-critical AI applications.
             </p>
           </div>
@@ -331,18 +331,18 @@ const Home1 = () => {
             {agenticSolutions.map((solution, idx) => (
               <div 
                 key={idx} 
-                className="bg-gradient-to-br from-white/5 to-white/[0.02] rounded-2xl p-8 border border-[#D6DEC3] hover:border-[#D6DEC3] transition-all duration-300 group"
+                className="bg-gradient-to-br from-white/5 to-white/[0.02] rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 group"
               >
                 <span className="text-xs uppercase tracking-wider text-purple-400 font-semibold">
                   {solution.subtitle}
                 </span>
-                <h3 className="text-2xl font-bold mt-3 mb-4">{solution.title}</h3>
-                <p className="text-[#5B6B7A] mb-6 leading-relaxed">{solution.description}</p>
+                <h3 className="text-2xl font-bold mt-3 mb-4 text-white">{solution.title}</h3>
+                <p className="text-white/70 mb-6 leading-relaxed">{solution.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {solution.features.map((feature, fidx) => (
                     <span 
                       key={fidx} 
-                      className="px-3 py-1 bg-white/5 rounded-full text-sm text-[#243447]"
+                      className="px-3 py-1 bg-white/10 rounded-full text-sm text-white/80"
                     >
                       {feature}
                     </span>
@@ -358,7 +358,7 @@ const Home1 = () => {
       <section className="py-24 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Infrastructure Excellence</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">Infrastructure Excellence</h2>
             <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
               Continuous innovation in AI infrastructure, benchmarking, and sustainable computing.
             </p>
@@ -368,12 +368,12 @@ const Home1 = () => {
             {researchAreas.map((area, idx) => (
               <div 
                 key={idx}
-                className="bg-white/[0.03] rounded-xl p-6 border border-[#D6DEC3] hover:border-white/15 transition-all duration-300"
+                className="bg-white rounded-xl p-6 border border-[#D6DEC3] hover:border-[#328CC1] transition-all duration-300"
               >
                 <span className="text-xs uppercase tracking-wider text-cyan-400 font-semibold">
                   {area.category}
                 </span>
-                <h3 className="text-xl font-semibold mt-3 mb-3">{area.title}</h3>
+                <h3 className="text-xl font-semibold mt-3 mb-3 text-[#0B1F3B]">{area.title}</h3>
                 <p className="text-[#5B6B7A] text-sm leading-relaxed">{area.description}</p>
               </div>
             ))}
@@ -386,8 +386,8 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Code/Terminal Window */}
-            <div className="bg-white rounded-xl border border-[#D6DEC3] overflow-hidden">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-[#D6DEC3] bg-white/[0.02]">
+            <div className="bg-[#0a0a0f] rounded-xl border border-white/10 overflow-hidden">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/[0.02]">
                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                 <div className="w-3 h-3 rounded-full bg-green-500/60" />
@@ -395,9 +395,9 @@ const Home1 = () => {
               </div>
               <div className="p-6 font-mono text-sm">
                 <div className="text-purple-400">from</div>
-                <div className="text-[#243447] ml-4">blubrg <span className="text-purple-400">import</span> GPUCluster</div>
-                <div className="mt-4 text-[#5B6B7A]"># Initialize training cluster</div>
-                <div className="text-[#243447]">cluster = GPUCluster(</div>
+                <div className="text-white/80 ml-4">blubrg <span className="text-purple-400">import</span> GPUCluster</div>
+                <div className="mt-4 text-white/50"># Initialize training cluster</div>
+                <div className="text-white/80">cluster = GPUCluster(</div>
                 <div className="text-[#243447] ml-4">gpus=<span className="text-cyan-400">128</span>,</div>
                 <div className="text-[#243447] ml-4">type=<span className="text-green-400">"H100"</span>,</div>
                 <div className="text-[#243447] ml-4">region=<span className="text-green-400">"eu-north-1"</span></div>
