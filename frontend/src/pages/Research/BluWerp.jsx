@@ -23,7 +23,7 @@ const BluWerp = () => {
         </div>
 
         {/* Introduction Paragraphs */}
-        <div className="prose prose-lg max-w-none text-gray-800 space-y-6">
+        <div className="prose prose-lg max-w-none text-gray-800 space-y-6" style>
           <p>
             In today's rapidly evolving technological landscape, artificial intelligence is no longer just a tool. It is a force actively shaping how individuals work, how industries operate, and even how nations govern. Around the world, governments are beginning to recognize its strategic importance; for example, Albania recently appointed a Minister of State for Artificial Intelligence to oversee public procurement and strengthen anti-corruption efforts.
           </p>
