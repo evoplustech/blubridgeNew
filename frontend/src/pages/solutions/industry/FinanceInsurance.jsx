@@ -133,63 +133,24 @@ const FinanceInsurance = () => {
 
   return (
     <div className="min-h-screen bg-[#F3F6E8]">
-      {/* ANIMATED HERO SECTION */}
-      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050810] via-[#030508] to-[#000000]" />
-        
-        {/* Animated financial data canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-60"
-          style={{ pointerEvents: 'none' }}
-        />
-
-        {/* Parallax cityscape silhouette effect */}
-        <div 
-          className="absolute right-0 bottom-0 w-[50%] h-[60%] opacity-20"
-          style={{ 
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        >
-          <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-blue-900/30 to-transparent" />
-          {/* Stylized building silhouettes */}
-          <svg viewBox="0 0 400 300" className="absolute bottom-0 right-0 w-full h-full opacity-50">
-            <defs>
-              <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="rgba(59, 130, 246, 0.3)" />
-                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.1)" />
-              </linearGradient>
-            </defs>
-            <rect x="20" y="150" width="40" height="150" fill="url(#buildingGrad)" />
-            <rect x="70" y="100" width="50" height="200" fill="url(#buildingGrad)" />
-            <rect x="130" y="80" width="35" height="220" fill="url(#buildingGrad)" />
-            <rect x="175" y="120" width="45" height="180" fill="url(#buildingGrad)" />
-            <rect x="230" y="60" width="55" height="240" fill="url(#buildingGrad)" />
-            <rect x="295" y="90" width="40" height="210" fill="url(#buildingGrad)" />
-            <rect x="345" y="130" width="50" height="170" fill="url(#buildingGrad)" />
-          </svg>
-        </div>
-
-        {/* Ambient glow */}
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full filter blur-[120px] animate-pulse" style={{ animationDuration: '5s' }} />
+      {/* HERO SECTION - Light theme */}
+      <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-[#F3F6E8]">
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               FINANCE & INSURANCE
             </h1>
-            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               At Blubrg, we provide GPU cloud computing solutions designed to strengthen the computational capabilities of finance and insurance organisations. Our platform helps teams deliver innovative services faster while improving efficiency, security, and performance across data-intensive operations.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#050810] px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
