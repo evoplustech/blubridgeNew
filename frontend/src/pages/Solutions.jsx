@@ -106,7 +106,7 @@ const Solutions = () => {
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-4">{industry.icon}</div>
                   <h3 className="text-xl font-semibold text-[#0B1F3B] mb-2">{industry.name}</h3>
-                  <p className="text-[#5B6B7A] text-sm">{industry.desc}</p>
+                  <p className="text-[#6B7280] text-sm">{industry.desc}</p>
                 </CardContent>
               </Card>
             ))}

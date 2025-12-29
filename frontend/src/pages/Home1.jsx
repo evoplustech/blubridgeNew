@@ -270,14 +270,14 @@ const Home1 = () => {
       {/* Partner Logos Strip */}
       <section className="py-16 border-t border-[#D6DEC3]">
         <div className="container-custom">
-          <p className="text-center text-[#5B6B7A] text-sm mb-10">
+          <p className="text-center text-[#6B7280] text-sm mb-10">
             Trusted by leading AI companies, government agencies, and enterprises worldwide
           </p>
           <div className="flex justify-center items-center gap-16 flex-wrap">
             {partnerLogos.map((partner, idx) => (
               <div 
                 key={idx} 
-                className="text-[#5B6B7A] text-xl font-semibold tracking-wider"
+                className="text-[#6B7280] text-xl font-semibold tracking-wider"
                 style={{ opacity: partner.opacity }}
               >
                 {partner.name}
@@ -292,7 +292,7 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">Full-Stack AI Solutions</h2>
-            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
+            <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
               Enterprise-ready infrastructure for every stage of the AI lifecycle, from data preparation to production deployment.
             </p>
           </div>
@@ -306,7 +306,7 @@ const Home1 = () => {
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold mb-3 text-[#0B1F3B]">{solution.title}</h3>
-                    <p className="text-[#5B6B7A] leading-relaxed">{solution.description}</p>
+                    <p className="text-[#6B7280] leading-relaxed">{solution.description}</p>
                   </div>
                 </div>
               </div>
@@ -357,7 +357,7 @@ const Home1 = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">Infrastructure Excellence</h2>
-            <p className="text-xl text-[#5B6B7A] max-w-3xl mx-auto">
+            <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
               Continuous innovation in AI infrastructure, benchmarking, and sustainable computing.
             </p>
           </div>
@@ -372,7 +372,7 @@ const Home1 = () => {
                   {area.category}
                 </span>
                 <h3 className="text-xl font-semibold mt-3 mb-3 text-[#0B1F3B]">{area.title}</h3>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed">{area.description}</p>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{area.description}</p>
               </div>
             ))}
           </div>
@@ -451,7 +451,7 @@ const Home1 = () => {
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500" />
               <div className="text-left">
                 <p className="font-semibold text-[#0B1F3B]">Enterprise Customer</p>
-                <p className="text-[#5B6B7A] text-sm">Leading Technology Company</p>
+                <p className="text-[#6B7280] text-sm">Leading Technology Company</p>
               </div>
             </div>
           </div>
@@ -493,12 +493,12 @@ const Home1 = () => {
       {/* Certifications */}
       <section className="py-16 bg-[#F3F1E9] border-t border-[#D6DEC3]">
         <div className="container-custom">
-          <p className="text-center text-[#5B6B7A] text-sm mb-8 uppercase tracking-wider">
+          <p className="text-center text-[#6B7280] text-sm mb-8 uppercase tracking-wider">
             Our infrastructure is certified compliant with industry standards
           </p>
           <div className="flex justify-center items-center gap-12 flex-wrap">
             {certifications.map((cert, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-[#5B6B7A]">
+              <div key={idx} className="flex items-center gap-2 text-[#6B7280]">
                 <cert.icon className="w-5 h-5" />
                 <span className="font-medium">{cert.name}</span>
               </div>

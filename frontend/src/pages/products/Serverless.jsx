@@ -399,22 +399,22 @@ const Serverless = () => {
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">80%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">LOWER COST</p>
-              <p className="text-sm text-[#5B6B7A]">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
+              <p className="text-sm text-[#6B7280]">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">30%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">FASTER</p>
-              <p className="text-sm text-[#5B6B7A]">Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
+              <p className="text-sm text-[#6B7280]">Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">+40%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">EFFICIENCY</p>
-              <p className="text-sm text-[#5B6B7A]">Efficiency gains reaching 40%.</p>
+              <p className="text-sm text-[#6B7280]">Efficiency gains reaching 40%.</p>
             </div>
             <div className="space-y-2">
               <p className="text-3xl md:text-4xl font-bold text-white">100%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">RENEWABLE ENERGY</p>
-              <p className="text-sm text-[#5B6B7A]">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
+              <p className="text-sm text-[#6B7280]">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
             </div>
           </div>
         </div>

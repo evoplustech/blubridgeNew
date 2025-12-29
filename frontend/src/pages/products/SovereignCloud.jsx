@@ -281,7 +281,7 @@ const SovereignCloud = () => {
                 </div>
                 <div className="p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs text-[#5B6B7A]">{article.date}</span>
+                    <span className="text-xs text-[#6B7280]">{article.date}</span>
                     <span className="text-xs text-[#328CC1] uppercase">{article.category}</span>
                   </div>
                   <h3 className="text-sm font-semibold text-[#0B1F3B] mb-2 line-clamp-2">{article.title}</h3>
@@ -348,7 +348,7 @@ const SovereignCloud = () => {
                   </div>
                   <div>
                     <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
-                    <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
+                    <div className="text-xs text-[#6B7280]">Powered by renewable energy</div>
                   </div>
                 </div>
               </div>

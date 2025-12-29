@@ -21,7 +21,7 @@ const MediaKit = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Brand Assets</h2>
-            <p className="text-lg text-[#5B6B7A] mb-12 leading-relaxed">
+            <p className="text-lg text-[#6B7280] mb-12 leading-relaxed">
               Our brand identity represents innovation in AI infrastructure. Please maintain proper spacing and avoid modifying our logos. Use these assets responsibly to ensure consistent brand representation.
             </p>
             
@@ -31,7 +31,7 @@ const MediaKit = () => {
                   <div className="text-4xl font-bold text-[#328CC1]">BLUBRG</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Light Background Logo</h3>
-                <p className="text-[#5B6B7A] mb-4">Use on white or light-colored backgrounds</p>
+                <p className="text-[#6B7280] mb-4">Use on white or light-colored backgrounds</p>
                 <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download PNG
@@ -43,7 +43,7 @@ const MediaKit = () => {
                   <div className="text-4xl font-bold text-white">BLUBRG</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Dark Background Logo</h3>
-                <p className="text-[#5B6B7A] mb-4">Use on dark or colored backgrounds</p>
+                <p className="text-[#6B7280] mb-4">Use on dark or colored backgrounds</p>
                 <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-[#D6DEC3]">
                   <Download className="w-4 h-4 mr-2" />
                   Download PNG
@@ -55,7 +55,7 @@ const MediaKit = () => {
                   <div className="text-3xl font-bold text-[#328CC1] tracking-wider">B</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Icon Mark</h3>
-                <p className="text-[#5B6B7A] mb-4">Standalone icon for compact use</p>
+                <p className="text-[#6B7280] mb-4">Standalone icon for compact use</p>
                 <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download SVG
@@ -67,7 +67,7 @@ const MediaKit = () => {
                   <div className="text-2xl font-light text-[#328CC1] tracking-widest">BLUBRG</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Wordmark</h3>
-                <p className="text-[#5B6B7A] mb-4">Text-only version of our brand</p>
+                <p className="text-[#6B7280] mb-4">Text-only version of our brand</p>
                 <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download SVG
@@ -116,7 +116,7 @@ const MediaKit = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Brand Guidelines</h2>
-            <p className="text-lg text-[#5B6B7A] mb-12">
+            <p className="text-lg text-[#6B7280] mb-12">
               Download our comprehensive resources to ensure accurate representation of the BluBrg brand.
             </p>
             
@@ -126,7 +126,7 @@ const MediaKit = () => {
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Logo Package</h3>
-                <p className="text-[#5B6B7A] text-sm mb-6">All logo variations and formats</p>
+                <p className="text-[#6B7280] text-sm mb-6">All logo variations and formats</p>
                 <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white text-sm">
                   Download ZIP
                 </Button>
@@ -137,7 +137,7 @@ const MediaKit = () => {
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Brand Guidelines</h3>
-                <p className="text-[#5B6B7A] text-sm mb-6">Complete brand usage guide</p>
+                <p className="text-[#6B7280] text-sm mb-6">Complete brand usage guide</p>
                 <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white text-sm">
                   Download PDF
                 </Button>
@@ -148,7 +148,7 @@ const MediaKit = () => {
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">Press Images</h3>
-                <p className="text-[#5B6B7A] text-sm mb-6">High-resolution assets</p>
+                <p className="text-[#6B7280] text-sm mb-6">High-resolution assets</p>
                 <Button className="w-full bg-[#328CC1] hover:bg-[#162B4D] text-white text-sm">
                   Download ZIP
                 </Button>

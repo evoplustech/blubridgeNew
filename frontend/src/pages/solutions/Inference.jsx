@@ -80,19 +80,19 @@ const Inference = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Performance</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Boost throughput and reduce response times using advanced GPU technology specifically tuned for inference workloads.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Workflows</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Blubrg Cloud removes the complexity of managing and scaling inference operations, enabling teams to concentrate on insights and outcomes rather than resource management
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               The platform supports both batch and continuous inference, including streaming use cases, making it suitable for a wide range of deployment scenarios.
               </p>
             </div>
@@ -116,14 +116,14 @@ const Inference = () => {
               <div className="space-y-8">
                 <div className="border-l-2 border-cyan-500 pl-5">
                   <h3 className="text-lg font-semibold text-cyan-400 mb-2">AI & ML Tools</h3>
-                  <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                  <p className="text-[#6B7280] text-sm leading-relaxed">
                     Access the latest frameworks Work seamlessly with widely used AI frameworks such as TensorFlow Serving, PyTorch, and ONNX Runtime to ensure smooth and efficient inference execution.
                   </p>
                 </div>
 
                 <div className="border-l-2 border-cyan-500 pl-5">
                   <h3 className="text-lg font-semibold text-cyan-400 mb-2">Simplified Orchestration and Management</h3>
-                  <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                  <p className="text-[#6B7280] text-sm leading-relaxed">
                    Featuring SLURM and Kubernetes
  Integrated orchestration and scheduling through SLURM and Kubernetes simplify workload management and ensure efficient resource utilisation across inference jobs.
                   </p>
@@ -165,7 +165,7 @@ const Inference = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Inference Stack</h2>
-            <p className="text-base text-[#5B6B7A] max-w-2xl">
+            <p className="text-base text-[#6B7280] max-w-2xl">
               Blubrg provides a complete inference stack designed to deliver high performance, efficiency, and reliability for production-grade inference workloads.            </p>
           </div>
 
@@ -289,7 +289,7 @@ const Inference = () => {
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-1">{item.metric}</div>
                 <div className="text-[#0B1F3B] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed mb-4">{item.desc}</p>
+                <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
@@ -313,7 +313,7 @@ const Inference = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-cyan-400 text-sm mb-4">Inference</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Dedicated GPU compute optimised for inference workloads, delivering consistent performance and cost efficiency at scale.
               </p>
             </div>
@@ -327,7 +327,7 @@ const Inference = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                A collection of tools and services that support the development, deployment, and scaling of inference pipelines using both Blubrg and popular AI frameworks.
               </p>
             </div>
@@ -421,7 +421,7 @@ const Inference = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

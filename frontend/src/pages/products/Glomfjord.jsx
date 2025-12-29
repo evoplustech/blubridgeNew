@@ -334,7 +334,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                   </div>
                   <div>
                     <div className="text-[#0B1F3B] text-sm font-medium">BluBrg's Data centers</div>
-                    <div className="text-xs text-[#5B6B7A]">Powered by renewable energy</div>
+                    <div className="text-xs text-[#6B7280]">Powered by renewable energy</div>
                   </div>
                 </div>
               </div>

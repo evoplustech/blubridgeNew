@@ -80,19 +80,19 @@ const FineTuning = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Unlock the full potential of your AI models and fine-tune to achieve peak performance on your specific datasets and tasks.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Reduce the time it takes to prepare and deploy your AI solutions. With streamlined fine-tuning processes, you can iterate and refine your models more quickly, allowing innovations to reach users sooner.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Easily grow your AI operations without excessive costs. Blubrg’s GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
               </p>
             </div>
@@ -116,16 +116,16 @@ const FineTuning = () => {
               {/* <div className="space-y-8">
                 <div className="border-l-2 border-emerald-500 pl-5">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-2">30% Faster Time to Value for Your AI Projects</h3>
-                  <p className="text-[#5B6B7A] text-xs font-medium mb-2">Accelerate the time to actionable results with an AI stack optimised for rapid experimentation and tuning.</p>
-                  <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                  <p className="text-[#6B7280] text-xs font-medium mb-2">Accelerate the time to actionable results with an AI stack optimised for rapid experimentation and tuning.</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">
                     We own the infrastructure so you can focus on the innovation.
                   </p>
                 </div>
 
                 <div className="border-l-2 border-emerald-500 pl-5">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-2">40% Efficiency Improvement</h3>
-                  <p className="text-[#5B6B7A] text-xs font-medium mb-2">Optimised Resource Utilisation</p>
-                  <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                  <p className="text-[#6B7280] text-xs font-medium mb-2">Optimised Resource Utilisation</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">
                     Increase the effectiveness of compute resources with improved hardware utilisation.
                   </p>
                 </div>
@@ -141,7 +141,7 @@ const FineTuning = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-semibold">AI Marketplace</h4>
-                    <p className="text-[#5B6B7A] text-sm">Pre-built fine-tuning templates</p>
+                    <p className="text-[#6B7280] text-sm">Pre-built fine-tuning templates</p>
                   </div>
                 </div>
               </div>
@@ -152,7 +152,7 @@ const FineTuning = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-semibold">Training Compute</h4>
-                    <p className="text-[#5B6B7A] text-sm">Scalable GPU clusters</p>
+                    <p className="text-[#6B7280] text-sm">Scalable GPU clusters</p>
                   </div>
                 </div>
               </div>
@@ -163,7 +163,7 @@ const FineTuning = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-semibold">Inference & Deployment</h4>
-                    <p className="text-[#5B6B7A] text-sm">One-click model serving</p>
+                    <p className="text-[#6B7280] text-sm">One-click model serving</p>
                   </div>
                 </div>
               </div>
@@ -177,7 +177,7 @@ const FineTuning = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Fine-Tuning Stack</h2>
-            <p className="text-base text-[#5B6B7A] max-w-2xl">
+            <p className="text-base text-[#6B7280] max-w-2xl">
               BluBrg provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
             </p>
           </div>
@@ -310,7 +310,7 @@ const FineTuning = () => {
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-1">{item.metric}</div>
                 <div className="text-[#0B1F3B] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed mb-4">{item.desc}</p>
+                <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
@@ -334,7 +334,7 @@ const FineTuning = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-emerald-400 text-sm mb-4">Training</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 A highly scalable and performance-optimised compute framework that shortens model training cycles and boosts productivity.
               </p>
             </div>
@@ -348,7 +348,7 @@ const FineTuning = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 An ecosystem of services and tools that support the entire model lifecycle, enabling development and deployment using both Blubrg offerings and popular AI/ML technologies.
               </p>
             </div>
@@ -438,7 +438,7 @@ const FineTuning = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

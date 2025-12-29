@@ -283,9 +283,9 @@ const Marketplace = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {modelCards.map((model, idx) => (
                 <div key={idx} className="bg-white border border-[#D6DEC3] rounded-lg p-4 hover:border-blue-500/30 transition-colors">
-                  <span className="text-[#5B6B7A] text-[10px] uppercase tracking-wider">{model.type}</span>
+                  <span className="text-[#6B7280] text-[10px] uppercase tracking-wider">{model.type}</span>
                   <h4 className="text-[#0B1F3B] text-sm font-semibold mt-1 leading-tight">{model.name}</h4>
-                  <span className="text-[#5B6B7A] text-xs mt-1 block">{model.provider}</span>
+                  <span className="text-[#6B7280] text-xs mt-1 block">{model.provider}</span>
                 </div>
               ))}
             </div>

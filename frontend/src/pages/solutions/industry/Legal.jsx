@@ -240,19 +240,19 @@ const Legal = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Document Analysis</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Use powerful AI tools to quickly process and interpret large volumes of legal documents, speeding up tasks such as reviewing case files, contracts, and evidence with greater accuracy.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Improved Predictive Analytics</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Apply machine learning techniques to forecast case trends, assess litigation risk, and uncover patterns across historical data, enabling more informed decision-making.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost Efficiency and Scalability</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Adopt robust GPU computing resources that adjust to workload demands, helping legal teams increase productivity while managing costs as requirements grow.
               </p>
             </div>
@@ -266,7 +266,7 @@ const Legal = () => {
           <div className="mb-12">
             <p className="text-violet-400 text-sm font-medium mb-3 uppercase tracking-wider">TRANSFORMING LEGAL WORKFLOWS</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
-            <p className="text-base text-[#5B6B7A] max-w-3xl">
+            <p className="text-base text-[#6B7280] max-w-3xl">
             Explore how legal organisations use high-performance GPU infrastructure to improve workflows, support critical tasks, and drive innovation across core legal operations.
             </p>
           </div>
@@ -275,8 +275,8 @@ const Legal = () => {
             {/* Automated Analysis */}
             <div className="border-l-2 border-violet-500 pl-6">
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Automated Analysis</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">AI-Powered Document Processing</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">AI-Powered Document Processing</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Reduce preparation time by automating the review and interpretation of large datasets, allowing legal professionals to focus on strategy and judgement.
               </p>
             </div>
@@ -284,8 +284,8 @@ const Legal = () => {
             {/* Regulatory Adherence */}
             <div className="border-l-2 border-violet-500 pl-6">
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Regulatory Adherence</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Compliance Monitoring</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Compliance Monitoring</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Use AI-driven solutions to track and maintain compliance with evolving legal standards, helping reduce regulatory risk and potential penalties.
               </p>
             </div>
@@ -293,8 +293,8 @@ const Legal = () => {
             {/* Case Strategy */}
             <div className="border-l-2 border-violet-500 pl-6">
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Case Strategy</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Predictive Legal Intelligence</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Predictive Legal Intelligence</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Leverage historical insights and predictive modelling to inform litigation strategies, enabling stronger planning and more effective tactical decisions.
               </p>
             </div>
@@ -302,8 +302,8 @@ const Legal = () => {
             {/* Contract Management */}
             <div className="border-l-2 border-violet-500 pl-6">
               <h3 className="text-lg font-semibold text-violet-400 mb-2">Contract Management</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Intelligent Contract Lifecycle</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Intelligent Contract Lifecycle</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Improve contract workflows by automatically identifying key clauses, potential risks, and important details, ensuring consistency and reducing manual effort.
               </p>
             </div>
@@ -325,7 +325,7 @@ const Legal = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-violet-400 text-sm mb-4">Training</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 A scalable compute environment optimised to shorten model training cycles and increase productivity for legal AI workloads.
               </p>
             </div>
@@ -339,7 +339,7 @@ const Legal = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-violet-400 text-sm mb-4">Inference</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                A high-performance platform designed to efficiently run inference workloads for production-level AI applications used in legal processes.
               </p>
             </div>
@@ -353,7 +353,7 @@ const Legal = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-violet-400 text-sm mb-4">Marketplace</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 A collection of tools and frameworks that support the development, deployment, and scaling of AI applications tailored to legal use cases.
               </p>
             </div>
@@ -454,7 +454,7 @@ const Legal = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

@@ -415,7 +415,7 @@ const Sales = () => {
                     </div>
                     <span className="text-[#2F3A4A] text-sm">I'm not a robot</span>
                     <div className="ml-4">
-                      <div className="text-[10px] text-[#5B6B7A]">reCAPTCHA</div>
+                      <div className="text-[10px] text-[#6B7280]">reCAPTCHA</div>
                       <div className="text-[8px] text-[#7C8A96]">Privacy - Terms</div>
                     </div>
                   </div>

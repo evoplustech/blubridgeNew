@@ -34,7 +34,7 @@ const Research = () => {
 
             {/* Authors Row */}
             <div className="flex items-center gap-2 mb-6">
-              <Users className="w-5 h-5 text-[#5B6B7A]" />
+              <Users className="w-5 h-5 text-[#6B7280]" />
               <span className="text-[#2F3A4A] text-sm">
                 Gowtham, Sai Rupesh, Sanjay Kumar, Saravanan, Venkata Chaithanya
               </span>
@@ -46,7 +46,7 @@ const Research = () => {
             {/* Abstract Section */}
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-4">
-                <FileText className="w-5 h-5 text-[#5B6B7A]" />
+                <FileText className="w-5 h-5 text-[#6B7280]" />
                 <span className="text-[#0B1F3B] font-medium">Abstract</span>
               </div>
               

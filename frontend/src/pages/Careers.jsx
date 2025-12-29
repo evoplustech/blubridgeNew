@@ -195,7 +195,7 @@ const Careers = () => {
       <section className="py-16 bg-[#F3F1E9]">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">Our Mission</h2>
-          <p className="text-[#5B6B7A] text-lg mb-4 ">
+          <p className="text-[#6B7280] text-lg mb-4 ">
           Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
           Our goal is to create a cloud platform purpose-built for AI, one that combines massive computational power with reliability and flexibility. We want to help innovators accelerate their ideas by providing infrastructure that keeps up with the demands of modern AI systems.
           </p>

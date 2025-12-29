@@ -230,7 +230,7 @@ const AboutUs = () => {
       {/* <section className="py-20 bg-[#F3F1E9]">
         <div className="container-custom">
           <div className="mb-12">
-            <p className="text-[#5B6B7A] text-sm uppercase tracking-wider mb-2">OUR TEAM</p>
+            <p className="text-[#6B7280] text-sm uppercase tracking-wider mb-2">OUR TEAM</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
             <p className="text-[#2F3A4A] max-w-3xl leading-relaxed">
               BluBrg is led by proven founders, engineers, strategists and builders — diverse perspectives united by a shared mission to build the infrastructure that powers AI innovation.
@@ -248,7 +248,7 @@ const AboutUs = () => {
                   />
                 </div>
                 <h3 className="font-semibold text-white text-sm mb-1">{member.name}</h3>
-                <p className="text-[#5B6B7A] text-xs mb-2">{member.title}</p>
+                <p className="text-[#6B7280] text-xs mb-2">{member.title}</p>
                 <div className="flex items-center justify-center gap-2">
                   <button className="text-[#328CC1] text-xs hover:text-blue-300 transition-colors flex items-center gap-1">
                     <Linkedin className="w-3 h-3" />
@@ -274,8 +274,8 @@ const AboutUs = () => {
                 </p>
                 <div>
                   <p className="text-[#0B1F3B] font-semibold text-sm">{testimonial.author}</p>
-                  <p className="text-[#5B6B7A] text-xs">{testimonial.title}</p>
-                  <p className="text-[#5B6B7A] text-xs">{testimonial.company}</p>
+                  <p className="text-[#6B7280] text-xs">{testimonial.title}</p>
+                  <p className="text-[#6B7280] text-xs">{testimonial.company}</p>
                 </div>
               </div>
             ))}

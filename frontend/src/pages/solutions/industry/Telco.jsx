@@ -175,19 +175,19 @@ const Telco = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Increased Performance</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Handle demanding telco workloads, including real-time traffic processing and deep learning models used for network analytics and optimisation.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Scale Effortlessly</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Support dynamic scaling of AI applications for modern telecom requirements like 5G, Internet of Things (IoT) workloads, and distributed edge networks without compromising performance.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Improve Operability</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Operate energy-efficient infrastructure that reduces overall carbon impact while supporting advanced telco processes and data operations.
               </p>
             </div>
@@ -200,7 +200,7 @@ const Telco = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Telco AI Use Cases</h2>
-            <p className="text-base text-[#5B6B7A] max-w-3xl">
+            <p className="text-base text-[#6B7280] max-w-3xl">
               Explore the different ways telecommunications companies can use Blubrg’s GPU infrastructure to deliver smarter AI services, optimise next-generation networks, and drive innovation across the industry.
             </p>
           </div>
@@ -210,14 +210,14 @@ const Telco = () => {
             <div className="space-y-8">
               <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-[#328CC1] mb-2">White-label BluBrg's end-to-end Cloud Platform</h3>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                <p className="text-[#6B7280] text-sm leading-relaxed">
                   Telcos can build their own branded cloud services using Blubrg’s complete cloud platform, giving them the ability to offer AI-powered solutions and services without heavy upfront investment.
                 </p>
               </div>
 
               <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Deliver Advanced AI Services</h3>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                <p className="text-[#6B7280] text-sm leading-relaxed">
                   Telecom operators can launch AI capabilities such as intelligent chatbots, automated support systems, and virtual assistants faster, improving customer service, reducing churn, and increasing loyalty.
                  </p>
               </div>
@@ -227,20 +227,20 @@ const Telco = () => {
             <div className="space-y-8">
               <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Enhance Customer Experience</h3>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                <p className="text-[#6B7280] text-sm leading-relaxed">
                   Use AI-driven analytics and automation to personalise interactions, proactively address service issues, and deliver seamless experiences that improve overall customer satisfaction.
                 </p>
               </div>
 
               <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Operate More Sustainably</h3>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                <p className="text-[#6B7280] text-sm leading-relaxed">
                   Deploy AI models closer to users with ultra-low latency while using energy-efficient infrastructure that helps lower power consumption and supports greener network operations.
                 </p>
               </div>
               {/* <div className="border-l-2 border-blue-500 pl-6">
                 <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Streamline Operations with AI</h3>
-                <p className="text-[#5B6B7A] text-sm leading-relaxed">
+                <p className="text-[#6B7280] text-sm leading-relaxed">
                   Automate repetitive network tasks, such as user provisioning or traffic management, to reduce manual effort, minimise errors, and improve operational efficiency.
                 </p>
               </div> */}
@@ -263,7 +263,7 @@ const Telco = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-[#328CC1] text-sm mb-4">Training</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                  A scalable, performance-tuned compute architecture that reduces training times and boosts team productivity.
               </p>
             </div>
@@ -277,7 +277,7 @@ const Telco = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-[#328CC1] text-sm mb-4">GPU Nodes</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 High-performance GPU clusters with advanced networking, storage, and cooling to support AI, machine learning, and high-performance workloads.
               </p>
             </div>
@@ -378,7 +378,7 @@ const Telco = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

@@ -84,7 +84,7 @@ const Narvik = () => {
                   <div className="flex justify-center text-[#328CC1] mb-4">{item.icon}</div>
                   <div className="text-4xl font-bold text-[#0B1F3B] mb-2">{item.stat}</div>
                   <div className="text-[#328CC1] font-semibold mb-3">{item.label}</div>
-                  <p className="text-[#5B6B7A] text-sm">{item.description}</p>
+                  <p className="text-[#6B7280] text-sm">{item.description}</p>
                 </CardContent>
               </Card>
             ))}

@@ -225,7 +225,7 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* Consent Notice */}
-                <div className="text-[#5B6B7A] text-xs">
+                <div className="text-[#6B7280] text-xs">
                   By clicking submit below, you consent to allow BluBrg to store and process the personal information submitted above to provide you the content requested.
                 </div>
 

@@ -235,19 +235,19 @@ const SoftwareTechnology = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Processing</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Our GPU clusters deliver substantial computational performance, enabling faster processing for tasks such as machine learning, AI model training, and large-scale data analytics, which significantly shortens development timelines.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified AI Deployment</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               By using scalable GPU clusters tailored to your needs, you can streamline the process of training and deploying AI models. This helps reduce time-to-market for intelligent features and improves overall deployment efficiency.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Collaboration</h3>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               High-performance computing resources are accessible remotely, supporting teams working across different locations and helping streamline collaboration, resource allocation, and project workflows.
               </p>
             </div>
@@ -261,7 +261,7 @@ const SoftwareTechnology = () => {
           <div className="mb-12">
             <p className="text-purple-400 text-sm font-medium mb-3 uppercase tracking-wider">ADVANCING TECH SERVICES</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
-            <p className="text-base text-[#5B6B7A] max-w-3xl">
+            <p className="text-base text-[#6B7280] max-w-3xl">
               Discover how software and technology companies use GPU cloud infrastructure to improve development, support crucial operational needs, and drive innovation in their product offerings.
             </p>
           </div>
@@ -270,8 +270,8 @@ const SoftwareTechnology = () => {
             {/* Building Your Own Large Language Model */}
             <div className="border-l-2 border-purple-500 pl-6">
               <h3 className="text-lg font-semibold text-purple-400 mb-2">Building Your Own Large Language Model</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Custom LLM Development</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Custom LLM Development</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Use powerful GPU clusters to train your own large language models, enabling capabilities like natural language understanding, custom text generation, and domain-specific AI solutions.
               </p>
             </div>
@@ -279,8 +279,8 @@ const SoftwareTechnology = () => {
             {/* Accelerating Drug Discovery */}
             <div className="border-l-2 border-purple-500 pl-6">
               <h3 className="text-lg font-semibold text-purple-400 mb-2">Accelerating Drug Discovery</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Healthcare & Biotech</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Healthcare & Biotech</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Perform complex simulations and analyses that help speed up research in areas like bioinformatics and pharmaceutical development by leveraging parallel processing and high throughput.
               </p>
             </div>
@@ -288,8 +288,8 @@ const SoftwareTechnology = () => {
             {/* Advanced Computer Vision */}
             <div className="border-l-2 border-purple-500 pl-6">
               <h3 className="text-lg font-semibold text-purple-400 mb-2">Advanced Computer Vision</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Image and Video Analysis</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Image and Video Analysis</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Accelerate the development of computer vision applications by including image and video analysis, autonomous systems, and security applications by using GPU-optimized computing.
               </p>
             </div>
@@ -297,8 +297,8 @@ const SoftwareTechnology = () => {
             {/* Enhancing Cybersecurity */}
             <div className="border-l-2 border-purple-500 pl-6">
               <h3 className="text-lg font-semibold text-purple-400 mb-2">Enhancing Cybersecurity</h3>
-              <p className="text-[#5B6B7A] text-xs font-medium mb-2 uppercase tracking-wider">Threat Detection & Response</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Threat Detection & Response</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
               Improve threat detection and response capabilities with GPU-powered systems that analyse large volumes of data in real time to surface patterns and anomalies that indicate risk.
               </p>
             </div>
@@ -320,7 +320,7 @@ const SoftwareTechnology = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-purple-400 text-sm mb-4">Training</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 A flexible compute environment built to speed up model training and support demanding software workload demands.
               </p>
             </div>
@@ -334,7 +334,7 @@ const SoftwareTechnology = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
               <p className="text-purple-400 text-sm mb-4">GPU Nodes</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 Dedicated GPU clusters designed to handle compute-intensive applications, AI workloads, and data processing with reliability and performance.
               </p>
             </div>
@@ -348,7 +348,7 @@ const SoftwareTechnology = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
               <p className="text-purple-400 text-sm mb-4">Marketplace</p>
-              <p className="text-[#5B6B7A] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 An ecosystem of services for developing and deploying AI applications built using BluBrg's tools and popular AI/ML software.
               </p>
             </div>
@@ -448,7 +448,7 @@ const SoftwareTechnology = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

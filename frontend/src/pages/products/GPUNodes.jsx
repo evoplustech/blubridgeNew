@@ -420,7 +420,7 @@ const GPUNodes = () => {
         
         <div className="container-custom relative z-10">
           <div className="mb-12">
-            <p className="text-[#5B6B7A] text-sm uppercase tracking-wider mb-2">OUR GPUS</p>
+            <p className="text-[#6B7280] text-sm uppercase tracking-wider mb-2">OUR GPUS</p>
             <h2 className="text-3xl md:text-4xl font-bold">
               Built with industry leading<br />accelerators
             </h2>

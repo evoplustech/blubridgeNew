@@ -105,10 +105,10 @@ const Pricing = () => {
                 )}
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-[#0B1F3B] mb-2">{plan.name}</h3>
-                  <p className="text-[#5B6B7A] mb-6">{plan.description}</p>
+                  <p className="text-[#6B7280] mb-6">{plan.description}</p>
                   <div className="mb-6">
                     <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-[#5B6B7A] ml-2">{plan.unit}</span>
+                    <span className="text-[#6B7280] ml-2">{plan.unit}</span>
                   </div>
                   <Link to={plan.link}>
                     <Button className={`w-full mb-6 ${

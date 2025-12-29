@@ -126,12 +126,12 @@ const Training = () => {
               <div className="bg-gradient-to-br from-purple-900/20 to-indigo-900/20 border border-purple-500/30 rounded-2xl p-12 text-center">
                 <div className="text-purple-400 text-sm font-semibold mb-4">AI-IN-A-BOX</div>
                 <div className="text-4xl font-bold text-[#0B1F3B] mb-2">Pre-configured</div>
-                <div className="text-[#5B6B7A]">Training Environments</div>
+                <div className="text-[#6B7280]">Training Environments</div>
               </div>
               <div className="bg-gradient-to-br from-indigo-900/20 to-blue-900/20 border border-indigo-500/30 rounded-2xl p-12 text-center">
                 <div className="text-indigo-400 text-sm font-semibold mb-4">TRAINING COMPUTE</div>
                 <div className="text-4xl font-bold text-[#0B1F3B] mb-2">Scalable</div>
-                <div className="text-[#5B6B7A]">GPU Clusters</div>
+                <div className="text-[#6B7280]">GPU Clusters</div>
               </div>
             </div>
           </div>
@@ -240,7 +240,7 @@ const Training = () => {
               <div key={i} className="bg-white border border-[#D6DEC3] rounded-2xl p-10">
                 <div className="text-6xl font-bold text-[#0B1F3B] mb-2">{item.metric}</div>
                 <div className="text-[#0B1F3B] text-lg font-semibold mb-4">{item.label}</div>
-                <p className="text-[#5B6B7A] leading-relaxed">{item.desc}</p>
+                <p className="text-[#6B7280] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -357,7 +357,7 @@ const Training = () => {
                 </button>
                 {openFaq === i && (
                   <div className="pb-6">
-                    <p className="text-[#5B6B7A] text-sm leading-relaxed">{faq.answer}</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

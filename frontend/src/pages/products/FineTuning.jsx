@@ -226,7 +226,7 @@ const FineTuning = () => {
           <span className="text-xs text-[#328CC1]">Live</span>
         </div>
         <canvas ref={graphCanvasRef} className="w-full h-[200px]" />
-        <div className="flex justify-between mt-2 text-xs text-[#5B6B7A]">
+        <div className="flex justify-between mt-2 text-xs text-[#6B7280]">
           <span>Epoch 1</span>
           <span>Epoch 10</span>
         </div>
@@ -498,7 +498,7 @@ const FineTuning = () => {
                       <div className="w-20 h-20 rounded-full bg-slate-700 mx-auto mb-3 flex items-center justify-center">
                         <Play className="w-8 h-8 text-[#2F3A4A]" />
                       </div>
-                      <p className="text-[#5B6B7A] text-sm">Product Demo</p>
+                      <p className="text-[#6B7280] text-sm">Product Demo</p>
                     </div>
                   </div>
                 </div>
@@ -548,7 +548,7 @@ const FineTuning = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
               <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
-                <div className="text-xs text-[#5B6B7A] mb-1">TEXT GENERATION</div>
+                <div className="text-xs text-[#6B7280] mb-1">TEXT GENERATION</div>
                 <div className="text-[#0B1F3B] font-bold text-sm">{model.name}</div>
                 <div className="text-[#2F3A4A] text-xs">{model.size}</div>
                 <div className="text-orange-400 text-xs mt-2">{model.author}</div>
