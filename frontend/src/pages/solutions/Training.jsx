@@ -267,8 +267,8 @@ const Training = () => {
               <Card key={i} className="bg-[#121212] border-[#D6DEC3] hover:border-purple-500/50 transition-all">
                 <CardContent className="p-12">
                   <div className="mb-8">{item.icon}</div>
-                  <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4">{item.title}</h3>
-                  <p className="text-[#243447] leading-relaxed text-lg">{item.desc}</p>
+                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                  <p className="text-white/80 leading-relaxed text-lg">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -279,7 +279,7 @@ const Training = () => {
       <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
          <div className="mb-12">
-            <h2 className="text-3xl font-light mb-4 text-white">More Solutions</h2>
+            <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
             <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
@@ -291,7 +291,7 @@ const Training = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -301,7 +301,7 @@ const Training = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -311,7 +311,7 @@ const Training = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-md">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
