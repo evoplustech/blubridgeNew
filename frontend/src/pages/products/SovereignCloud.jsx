@@ -214,8 +214,8 @@ const SovereignCloud = () => {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {valuePillars.map((pillar, i) => (
               <div className={`p-6 rounded-xl transition-all duration-300 cursor-pointer bg-slate-900`}>
-                <h3 className="text-sm font-bold text-[#0B1F3B] mb-3 tracking-wider">{pillar.title}</h3>
-                <p className="text-[#2F3A4A] text-xs leading-relaxed">{pillar.description}</p>
+                <h3 className="text-sm font-bold text-white mb-3 tracking-wider">{pillar.title}</h3>
+                <p className="text-white text-xs leading-relaxed">{pillar.description}</p>
                 {/* {pillar.hasLink && activeCard === i && ( */}
                   <Link to="/contact" className="text-[#0B1F3B] text-xs mt-4 inline-flex items-center gap-1 hover:underline">
                     Contact <ArrowRight className="w-3 h-3" />
