@@ -237,7 +237,7 @@ const Training = () => {
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
                 <Link to="/contact">
-                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
+                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#F7F6EC] px-6 py-3 rounded font-medium">
                     Get Started
                   </Button>
                 </Link>
@@ -304,7 +304,7 @@ const Training = () => {
                 Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#F7F6EC] px-6 py-3 rounded font-medium">
                   Get Started <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
               </Link>
@@ -406,7 +406,7 @@ const Training = () => {
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
               <Link to="/contact/sales">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#F7F6EC] px-6 py-3 rounded font-medium">
                   Reserve GPUs <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
               </Link>
