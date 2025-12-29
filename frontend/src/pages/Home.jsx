@@ -247,20 +247,6 @@ const Home = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      quote: "AI is transforming the global economy and reshaping the role of renewable energy. With Blubrg, we are supporting infrastructure that is sovereign, scalable, and purpose-built to drive this shift forward. Blubrg’s full-stack, GPU-first approach provides a clear execution advantage. The scale and quality of this Series B round reflect Blubrg’s strong vision, growing momentum, and the depth of our partnership. Through both our Series B investment and joint venture, we are making a meaningful, long-term commitment to building industrial relevance in the era of AI.",
-      name: "Øyvind Eriksen",
-      role: "President & CEO",
-      company: "Aker ASA"
-    },
-    {
-      quote: "In just a few months, Blubrg has advanced with clear focus and speed, transforming bold plans into real production capacity and achieving meaningful relevance quickly. The team is developing large-scale, sovereign infrastructure that enterprises and governments can truly use, delivering reliability, efficiency, and proximity to their data. We’re excited to support [Josh and the] Blubrg [team] as they scale thoughtfully, empower builders with the right infrastructure, and lay a strong foundation for national AI leadership.",
-      name: "Larry Aschebrook",
-      role: "Founder & Managing Partner",
-      company: "G Squared"
-    }
-  ];
 
   const useCases = [
     {
