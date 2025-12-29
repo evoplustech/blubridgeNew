@@ -581,7 +581,7 @@ const Home = () => {
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-[#243447] transition-colors font-medium px-6 py-0">
+            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
               Contact Sales <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
