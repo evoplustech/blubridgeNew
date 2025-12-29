@@ -37,6 +37,7 @@ import AboutUs from './pages/AboutUs';
 import MediaKit from './pages/MediaKit';
 import Careers from './pages/Careers';
 import Research from './pages/Research';
+import BluWerp from './pages/Research/BluWerp';
 
 // Solution Pages - Industry
 import Telco from './pages/solutions/industry/Telco';
