@@ -36,10 +36,10 @@ const FineTuning = () => {
         {/* Hero content - left aligned */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               MODEL<br />FINE-TUNING
             </h1>
-            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               At BluBrg, we offer GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support ensure that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
             </p>
             <div className="flex flex-wrap items-center gap-4">
