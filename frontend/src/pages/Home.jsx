@@ -326,7 +326,7 @@ const Home = () => {
             </p> */}
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link to="/contact/sales">
+              <Link to="/contact">
                 <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
                 </Button>
@@ -682,14 +682,14 @@ const Home = () => {
                 Access thousands of GPUs tailored to your requirements.
               </p>
               <div className="flex gap-4">
-                <Link to="/contact/sales">
+                <Link to="/contact">
                   <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3">
                     Reserve GPUs
                   </Button>
                 </Link>
-                <Link to="/contact/sales">
+                <Link to="/contact">
                   <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#EEF2DC] px-6 py-3">
-                    Contact Sales
+                    Contact
                   </Button>
                 </Link>
               </div>
@@ -748,13 +748,13 @@ const Home = () => {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact/sales">
+            <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
