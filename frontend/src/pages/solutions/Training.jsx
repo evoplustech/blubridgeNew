@@ -346,7 +346,7 @@ const Training = () => {
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-amber-400 transition-colors"
                 >
-                  <span className="text-base font-medium text-white pr-8">{faq.question}</span>
+                  <span className="text-base font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center">
                     {openFaq === i ? (
                       <ChevronUp className="w-4 h-4 text-amber-400" />
