@@ -232,35 +232,33 @@ const Home1 = () => {
     <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#0a0a1a] to-[#000000]" />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#F3F6E8]">
         
         {/* Animated blob - right side */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-[80%] opacity-80">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-[80%] opacity-60">
           <Home1HeroBlob />
         </div>
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-[#0B1F3B]">
               Advanced AI Infrastructure
               <br />
-              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 from Cloud to Deployment
               </span>
             </h1>
-            <p className="text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
               BluBrg provides enterprise-grade GPU infrastructure, enabling organizations to train, fine-tune, and deploy AI models at any scale with unmatched performance and reliability.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-black px-8 py-6 text-base font-semibold rounded-md">
+                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 text-base font-semibold rounded-md">
                   Book a Demo
                 </Button>
               </Link>
               <Link to="/products/training">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-md">
+                <Button size="lg" variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#0B1F3B]/10 px-8 py-6 text-base font-semibold rounded-md">
                   Explore Platform
                 </Button>
               </Link>
