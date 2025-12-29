@@ -298,7 +298,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 3: Dynamic Workload Management */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -400,7 +400,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 5: Industry-leading GPU Clusters */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -456,7 +456,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 7: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

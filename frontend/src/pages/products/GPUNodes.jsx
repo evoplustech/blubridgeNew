@@ -330,7 +330,7 @@ const GPUNodes = () => {
       </section>
 
       {/* No Frills GPU Compute Section */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -414,7 +414,7 @@ const GPUNodes = () => {
       </section>
 
       {/* GPU Accelerators Section */}
-      <section className="py-20 bg-[#EEF2DC] relative overflow-hidden">
+      <section className="py-20 bg-[#F3F6E8] relative overflow-hidden">
         {/* Background server rack image effect */}
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
           <div className="w-full h-full bg-gradient-to-l from-slate-800/50 to-transparent" />
@@ -499,7 +499,7 @@ const GPUNodes = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           

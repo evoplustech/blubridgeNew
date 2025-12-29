@@ -372,7 +372,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 2: Value Proposition Strip */}
-      <section className="py-12 bg-[#EEF2DC] border-t border-b border-[#D6DEC3]">
+      <section className="py-12 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -452,7 +452,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 4: All Designed for Speed & Simplicity */}
-      {/* <section className="py-20 bg-[#EEF2DC]">
+      {/* <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -543,7 +543,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 6: Model Ecosystem Strip */}
-      <section className="py-16 bg-[#EEF2DC]">
+      <section className="py-16 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
@@ -591,7 +591,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 8: Serverless without Trade-offs */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

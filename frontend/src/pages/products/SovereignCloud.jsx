@@ -228,7 +228,7 @@ const SovereignCloud = () => {
       </section>
 
       {/* SECTION 4: What We Offer with Video Embed */}
-      {/* <section className="py-20 bg-[#EEF2DC]">
+      {/* <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
@@ -294,7 +294,7 @@ const SovereignCloud = () => {
       </section> */}
 
       {/* SECTION 6: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

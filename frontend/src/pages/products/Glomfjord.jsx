@@ -164,7 +164,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 3: Embedded Video Section */}
-      {/* <section className="py-16 bg-[#EEF2DC]">
+      {/* <section className="py-16 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Transforming Tomorrow</h2>
           
@@ -232,7 +232,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 5: Key Facts Section */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Key Facts</h2>
           
@@ -282,7 +282,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 7: AI Services/Compute Section */}
-      <section className="py-20 bg-[#EEF2DC]">
+      <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
