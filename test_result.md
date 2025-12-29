@@ -151,7 +151,7 @@ The implementation matches the design specifications exactly and maintains excel
 ---
 
 ### Test Environment
-- **URL:** https://blubridge-update.preview.emergentagent.com
+- **URL:** https://blubridge-research.preview.emergentagent.com
 - **Browser:** Chromium (Playwright)
 - **Viewport:** 1920x1080 (Desktop)
 - **Test Duration:** ~3 minutes
