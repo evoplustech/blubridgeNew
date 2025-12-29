@@ -239,8 +239,8 @@ const Manufacturing = () => {
     <div className="min-h-screen bg-[#F3F6E8]">
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0805] via-[#080604] to-[#000000]" />
+        {/* Background gradient - Light theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F3F6E8] via-[#E8EDD8] to-[#F3F6E8]" />
         
         {/* Animated manufacturing forms canvas */}
         <canvas 
