@@ -170,7 +170,7 @@ const Telco = () => {
       </section>
 
       {/* 3-Column Highlights Strip */}
-      <section className="py-16 bg-[#F3F1E9] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#F7F6EC] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
