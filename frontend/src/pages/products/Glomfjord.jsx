@@ -97,39 +97,30 @@ const Glomfjord = () => {
           }}
         />
         
-        {/* Alternate background for Nordic fjord landscape */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=80')`,
-            transform: `translateY(${heroOffset * 0.5}px) scale(1.1)`
-          }}
-        />
-        
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        {/* Light theme background for Nordic fjord landscape */}
+        <div className="absolute inset-0 bg-[#F3F6E8]" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B1F3B]/20 rounded-full border border-blue-600/30 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#328CC1]/10 rounded-full border border-[#328CC1]/30 mb-6">
               <span className="text-[#328CC1] text-sm font-medium">AI DATA CENTER</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-[#0B1F3B]" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
               Glomfjord, Norway
             </h1>
             
-            <p className="text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+            <p className="text-[#243447] text-lg md:text-xl max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
 Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on renewable energy and integrates cutting-edge AI infrastructure to deliver industry-leading efficiency without compromising performance. 
             </p>
             
             <div className="flex flex-wrap gap-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
               <Link to="/contact/sales">
-                <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded font-medium">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded font-medium">
                   Get Started
                 </Button>
               </Link>
-               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
