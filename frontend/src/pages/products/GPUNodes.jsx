@@ -535,7 +535,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Final CTA Strip */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
             Access thousands of GPUs tailored to your requirements.
