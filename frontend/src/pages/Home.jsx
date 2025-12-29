@@ -434,23 +434,25 @@ const Home = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: "💡", title: "Telco" },
-                  { icon: "🤖", title: "Finance & Insurance" },
-                  { icon: "💬", title: "Education" },
-                  { icon: "⚙️", title: "Legal" },
-                  { icon: "📊", title: "Software & Technology" },
-                  { icon: "✨", title: "Manufacturing" },
-                  { icon: "🔧", title: "Government" },
-                  { icon: "📈", title: "Healthcare" }
-                ].map((service, index) => (
+                  { icon: Radio, title: "Telco" },
+                  { icon: ShieldCheck, title: "Finance & Insurance" },
+                  { icon: GraduationCap, title: "Education" },
+                  { icon: Scale, title: "Legal" },
+                  { icon: Code2, title: "Software & Technology" },
+                  { icon: Factory, title: "Manufacturing" },
+                  { icon: Landmark, title: "Government" },
+                  { icon: HeartPulse, title: "Healthcare" }
+                ].map((service, index) => {
+                  const IconComponent = service.icon;
+                  return (
                   <div 
                     key={index}
                     className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-md transition-all"
                   >
-                    <span className="text-2xl">{service.icon}</span>
+                    <IconComponent className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
                     <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
                   </div>
-                ))}
+                )})}
               </div>
             </div>
           </div>
