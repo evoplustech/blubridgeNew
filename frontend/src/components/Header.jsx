@@ -309,7 +309,7 @@ const Header = () => {
     {/* Mobile Menu Overlay - Rendered outside header for proper z-index */}
     {mobileMenuOpen && (
       <div 
-        className="fixed inset-0 bg-black/60 lg:hidden"
+        className="fixed inset-0 bg-black/20 lg:hidden"
         style={{ zIndex: 1100, top: '104px' }}
         onClick={() => setMobileMenuOpen(false)}
       />
@@ -317,7 +317,7 @@ const Header = () => {
 
     {/* Mobile Menu Panel - Rendered outside header for proper z-index */}
     <div 
-      className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-[#0F2847] lg:hidden shadow-2xl transition-transform duration-300 ease-in-out overflow-y-auto ${
+      className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-white lg:hidden shadow-xl border-l border-[#D6DEC3] transition-transform duration-300 ease-in-out overflow-y-auto ${
         mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`} 
       style={{ zIndex: 1200 }}
@@ -327,7 +327,7 @@ const Header = () => {
           <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'products' ? null : 'products')}
-              className="flex items-center justify-between w-full text-white text-lg font-medium"
+              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
             >
               <span>Products</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'products' ? 'rotate-180' : ''}`} />
@@ -336,12 +336,12 @@ const Header = () => {
               <div className="mt-4 space-y-4 pl-4">
                 {products.map((section, idx) => (
                   <div key={idx}>
-                    <div className="text-white/80 font-semibold text-sm mb-2">{section.title}</div>
+                    <div className="text-[#243447] font-semibold text-sm mb-2">{section.title}</div>
                     {section.items.map((item, i) => (
                       <Link
                         key={i}
                         to={item.link}
-                        className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
+                        className="block text-[#5B6B7A] hover:text-[#328CC1] py-1 text-sm"
                       >
                         {item.name}
                       </Link>
@@ -356,7 +356,7 @@ const Header = () => {
           <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions' ? null : 'solutions')}
-              className="flex items-center justify-between w-full text-white text-lg font-medium"
+              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
             >
               <span>Solutions</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions' ? 'rotate-180' : ''}`} />
@@ -364,24 +364,24 @@ const Header = () => {
             {mobileSubmenuOpen === 'solutions' && (
               <div className="mt-4 space-y-4 pl-4">
                 <div>
-                  <div className="text-white/80 font-semibold text-sm mb-2">Cases</div>
+                  <div className="text-[#243447] font-semibold text-sm mb-2">Cases</div>
                   {solutions.useCase.map((item, i) => (
                     <Link
                       key={i}
                       to={item.link}
-                      className="block text-white/70 hover:text-[#0066FF] py-2 text-sm"
+                      className="block text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
                     >
                       {item.name}
                     </Link>
                   ))}
                 </div>
                 <div>
-                  <div className="text-white/80 font-semibold text-sm mb-2">Industry</div>
+                  <div className="text-[#243447] font-semibold text-sm mb-2">Industry</div>
                   {solutions.industry.map((item, i) => (
                     <Link
                       key={i}
                       to={item.link}
-                      className="block text-white/70 hover:text-[#0066FF] py-2 text-sm"
+                      className="block text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
                     >
                       {item.name}
                     </Link>
@@ -395,7 +395,7 @@ const Header = () => {
           <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'company' ? null : 'company')}
-              className="flex items-center justify-between w-full text-white text-lg font-medium"
+              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
             >
               <span>Company</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'company' ? 'rotate-180' : ''}`} />
@@ -406,7 +406,7 @@ const Header = () => {
                   <Link
                     key={i}
                     to={item.link}
-                    className="block text-white/70 hover:text-[#0066FF] py-1 text-sm"
+                    className="block text-[#5B6B7A] hover:text-[#328CC1] py-1 text-sm"
                   >
                     {item.name}
                   </Link>
@@ -416,20 +416,20 @@ const Header = () => {
           </div>
 
           {/* Direct Links */}
-          <Link to="/contact" className="block text-white text-lg font-medium">Contact</Link>
-          <Link to="/docs" className="block text-white text-lg font-medium">Docs</Link>
+          <Link to="/contact" className="block text-[#0B1F3B] text-lg font-medium">Contact</Link>
+          <Link to="/docs" className="block text-[#0B1F3B] text-lg font-medium">Docs</Link>
 
           {/* Mobile CTA Buttons */}
-          <div className="space-y-3 pt-4 border-t border-white/10">
+          <div className="space-y-3 pt-4 border-t border-[#D6DEC3]">
             <Link 
               to="/contact" 
-              className="block w-full px-6 py-3 bg-white text-[#0A1F3D] rounded-md font-medium text-center"
+              className="block w-full px-6 py-3 bg-[#0B1F3B] text-white rounded-md font-medium text-center hover:bg-[#162B4D]"
             >
               Contact Sales
             </Link>
             <Link 
               to="/login" 
-              className="block w-full px-6 py-3 border border-white text-white rounded-md font-medium text-center"
+              className="block w-full px-6 py-3 border border-[#0B1F3B] text-[#0B1F3B] rounded-md font-medium text-center hover:bg-[#EEF2DC]"
             >
               Login →
             </Link>
