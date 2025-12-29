@@ -428,7 +428,7 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl drop-shadow-md">TRAINING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -445,7 +445,7 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl drop-shadow-md">INFERENCE</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -462,7 +462,7 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl drop-shadow-md">AI DEVELOPMENT</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -479,7 +479,7 @@ const Home = () => {
                   }}
                 />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl drop-shadow-md">FINE-TUNING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
