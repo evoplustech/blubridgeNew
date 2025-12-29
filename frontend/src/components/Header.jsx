@@ -87,9 +87,9 @@ const Header = () => {
 
   return (
     <>
-    <header className="fixed top-0 left-0 right-0 bg-[#030b32]/95 backdrop-blur-lg shadow-lg" style={{ zIndex: 1000 }}>
+    <header className="fixed top-0 left-0 right-0 bg-[#F3F6E8]/95 backdrop-blur-lg shadow-sm border-b border-[#D6DEC3]" style={{ zIndex: 1000 }}>
       {/* Top banner */}
-      <div className="bg-[#0066FF] text-white py-2 px-6 text-center text-sm">
+      <div className="bg-[#0B1F3B] text-white py-2 px-6 text-center text-sm">
         <span>BluBrg contracts approximately 200,000 NVIDIA GB300 GPUs with Microsoft</span>
         <Link to="/news" className="ml-2 underline hover:no-underline">See More →</Link>
       </div>
@@ -97,7 +97,7 @@ const Header = () => {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-white tracking-wider">
+          <Link to="/" className="text-2xl font-bold text-[#0B1F3B] tracking-wider">
             <img src="https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/1ysx1xgx_logo-blubrg.png" alt="BLUBRG" className="h-8" />
           </Link>
 
@@ -109,18 +109,18 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown('products')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-white/90 hover:text-white transition-colors">
+              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
                 <span>Products</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
               
               {activeDropdown === 'products' && (
                 <div className="absolute top-full pt-4 w-[800px]">
-                  <div className="bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg shadow-2xl p-8 grid grid-cols-3 gap-8" style={{ marginLeft: "-160px" }}>
+                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 grid grid-cols-3 gap-8" style={{ marginLeft: "-160px" }}>
                     {products.map((section, idx) => (
                       <div key={idx}>
-                        <h3 className="text-white font-semibold mb-2">{section.title}</h3>
-                        <p className="text-white/60 text-sm mb-4">{section.subtitle}</p>
+                        <h3 className="text-[#0B1F3B] font-semibold mb-2">{section.title}</h3>
+                        <p className="text-[#5B6B7A] text-sm mb-4">{section.subtitle}</p>
                         <div className="space-y-3">
                           {section.items.map((item, i) => {
                             const IconComponent = item.icon;
@@ -128,13 +128,13 @@ const Header = () => {
                             <Link
                               key={i}
                               to={item.link}
-                              className="block text-white/80 hover:text-[#0066FF] transition-colors text-sm"
-                            ><div className="bg-gray-800 rounded-lg px-3 py-2">
+                              className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm"
+                            ><div className="bg-[#EEF2DC] hover:bg-[#E2E8C0] rounded-lg px-3 py-2">
                               <div className="font-medium flex items-center gap-2">
-                                <IconComponent className="w-4 h-4" />
+                                <IconComponent className="w-4 h-4 text-[#0B1F3B]" />
                                 {item.name}
                               </div>
-                              <div className="text-xs text-white/50 ml-6">{item.desc}</div>
+                              <div className="text-xs text-[#5B6B7A] ml-6">{item.desc}</div>
                               </div>
                             </Link>
                           )})}
@@ -152,7 +152,7 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown('solutions')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-white/90 hover:text-white transition-colors">
+              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
                 <span>Solutions</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -163,7 +163,7 @@ const Header = () => {
                   style={{ zIndex: 1000, width: '950px', marginLeft: '200px' }}
                 >
                   <div 
-                    className="shadow-2xl overflow-hidden bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg "
+                    className="shadow-xl overflow-hidden bg-white rounded-lg border border-[#D6DEC3]"
                     style={{ 
                       
                       padding: '20px 28px 30px 28px'
@@ -171,7 +171,7 @@ const Header = () => {
                   >
                     <div className="flex gap-10">
                       <div style={{ flex: '0 0 430px' }}>
-                        <h3 className="text-white font-medium mb-6 text-base">By Use Case</h3>
+                        <h3 className="text-[#0B1F3B] font-medium mb-6 text-base">By Use Case</h3>
                         <div className="grid grid-cols-2 gap-4">
                           {solutions.useCase.map((item, i) => {
                             return (
@@ -182,7 +182,7 @@ const Header = () => {
                                 style={{ 
                                   width: '205px',
                                   height: '103px',
-                                  background: '#000'
+                                  background: '#EEF2DC'
                                 }}
                               >
                                 {/* Model Training */}
@@ -207,7 +207,7 @@ const Header = () => {
                                 
                                 {/* Text label - top left, white, semi-bold */}
                                 <div className="absolute top-4 left-4 z-10">
-                                  <span className="text-white font-semibold text-sm leading-snug">
+                                  <span className="text-white font-semibold text-sm leading-snug drop-shadow-md">
                                     {item.name}
                                   </span>
                                 </div>
@@ -218,15 +218,15 @@ const Header = () => {
                       </div>
                       
                       <div style={{ flex: '1' }}>
-                        <h3 className="text-white font-medium mb-6 text-base">By Industry</h3>
+                        <h3 className="text-[#0B1F3B] font-medium mb-6 text-base">By Industry</h3>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                           {solutions.industry.map((item, i) => (
                             <Link
                               key={i}
                               to={item.link}
-                              className="block text-white rounded-lg transition-all duration-150 cursor-pointer hover:brightness-125"
+                              className="block text-[#0B1F3B] rounded-lg transition-all duration-150 cursor-pointer hover:bg-[#E2E8C0]"
                               style={{ 
-                                background: '#2d3a54',
+                                background: '#EEF2DC',
                                 padding: '12px 20px',
                                 fontSize: '15px',
                                 fontWeight: '400'
@@ -249,20 +249,20 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown('company')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-white/90 hover:text-white transition-colors">
+              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
                 <span>Company</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
               
               {activeDropdown === 'company' && (
                 <div className="absolute top-full left-0 pt-4 w-[250px]">
-                  <div className="bg-gradient-to-br from-[#000] to-[#0D2847] rounded-lg shadow-2xl p-6">
+                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-6">
                     <div className="space-y-2">
                       {company.map((item, i) => (
                         <Link
                           key={i}
                           to={item.link}
-                          className="block text-white/80 hover:text-[#0066FF] transition-colors text-sm"
+                          className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm py-2 px-3 rounded hover:bg-[#EEF2DC]"
                         >
                           {item.name}
                         </Link>
@@ -273,7 +273,7 @@ const Header = () => {
               )}
             </div>
 
-            <Link to="/contact" className="text-white/90 hover:text-white transition-colors">Contact</Link>
+            <Link to="/contact" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">Contact</Link>
             {/* <Link to="/docs" className="text-white/90 hover:text-white transition-colors">Docs</Link> */}
           </div>
 
@@ -281,7 +281,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Link 
               to="/contact/sales" 
-              className="px-6 py-2.5 bg-white text-[#0A1F3D] rounded-md font-medium hover:bg-white/90 transition-colors"
+              className="px-6 py-2.5 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors"
             >
               Contact Sales
             </Link>
@@ -296,7 +296,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-[#0B1F3B] p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
