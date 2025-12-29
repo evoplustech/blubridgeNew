@@ -194,7 +194,7 @@ const Legal = () => {
   return (
     <div className="min-h-screen bg-[#F3F6E8]">
       {/* ANIMATED HERO SECTION */}
-      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-[#F3F6E8]">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#08050d] via-[#0a0812] to-[#000000]" />
         
