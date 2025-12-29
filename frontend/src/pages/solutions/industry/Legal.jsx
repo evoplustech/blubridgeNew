@@ -226,7 +226,7 @@ const Legal = () => {
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
