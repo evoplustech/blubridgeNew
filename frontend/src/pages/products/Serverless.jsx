@@ -208,7 +208,7 @@ const Serverless = () => {
                 </Button>
                 </Link>
                 <Link to="/contact/sales" className="inline-flex items-center px-3 gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
               </div>
             </div>
@@ -397,22 +397,22 @@ const Serverless = () => {
           
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold text-white">80%</p>
+              <p className="text-3xl md:text-4xl font-bold">80%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">LOWER COST</p>
               <p className="text-sm text-[#6B7280]">Blubrg delivers an average cost saving of up to 80% compared to hyperscalers.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold text-white">30%</p>
+              <p className="text-3xl md:text-4xl font-bold">30%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">FASTER</p>
               <p className="text-sm text-[#6B7280]">Blubrg Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold text-white">+40%</p>
+              <p className="text-3xl md:text-4xl font-bold">+40%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">EFFICIENCY</p>
               <p className="text-sm text-[#6B7280]">Efficiency gains reaching 40%.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold text-white">100%</p>
+              <p className="text-3xl md:text-4xl font-bold">100%</p>
               <p className="text-sm font-semibold text-[#2F3A4A]">RENEWABLE ENERGY</p>
               <p className="text-sm text-[#6B7280]">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
             </div>
@@ -524,7 +524,7 @@ const Serverless = () => {
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

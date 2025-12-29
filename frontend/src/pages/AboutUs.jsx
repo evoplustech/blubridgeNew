@@ -99,7 +99,7 @@ const AboutUs = () => {
     },
     {
       question: "How can partners or customers get in touch?",
-      answer: "Partners and customers can reach out through our Contact Sales page, email us directly at contact@blubrg.com, or schedule a consultation through our website. Our team is available to discuss your specific AI infrastructure needs and provide tailored solutions."
+      answer: "Partners and customers can reach out through our Contact page, email us directly at contact@blubrg.com, or schedule a consultation through our website. Our team is available to discuss your specific AI infrastructure needs and provide tailored solutions."
     }
   ];
 
@@ -386,7 +386,7 @@ const AboutUs = () => {
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

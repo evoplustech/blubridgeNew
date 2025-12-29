@@ -287,7 +287,7 @@ const GPUNodes = () => {
                 </Button>
                 </Link>
                 <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
                 
               </div>
@@ -306,7 +306,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Performance Metrics Section */}
-      <section className="py-20 bg-[#f3f6e8]">
+      <section className="py-20 bg-[#e9ecdc]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-[#328CC1] mb-12">Performance</h2>
           
@@ -314,8 +314,8 @@ const GPUNodes = () => {
             {performanceMetrics.map((item, index) => (
               <div key={index} className="space-y-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl md:text-4xl font-bold text-white">{item.metric}</span>
-                  <span className="text-lg font-semibold text-white">{item.title}</span>
+                  <span className="text-3xl md:text-4xl font-bold">{item.metric}</span>
+                  <span className="text-lg font-semibold">{item.title}</span>
                 </div>
                 <p className="text-[#2F3A4A] text-sm leading-relaxed">{item.description}</p>
                 {/* <Link to="/contact" className="inline-flex items-center gap-1 text-[#328CC1] text-sm hover:text-blue-300 transition-colors">
@@ -404,7 +404,7 @@ const GPUNodes = () => {
                   All services operate on a shared, unified platform, making it easy to scale resources as demand evolves. You can begin with bare-metal GPU nodes and later extend your setup with orchestration, scheduling, or application-level services when required.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -537,7 +537,7 @@ const GPUNodes = () => {
       {/* Final CTA Strip */}
       <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
             Access thousands of GPUs tailored to your requirements.
           </h2>
           
@@ -548,7 +548,7 @@ const GPUNodes = () => {
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

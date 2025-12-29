@@ -122,7 +122,7 @@ const Solutions = () => {
           </h2>
           <Link to="/contact">
             <Button className="bg-white text-[#328CC1] hover:bg-white/90 px-8 py-6 text-lg font-semibold">
-              Contact Sales
+              Contact
             </Button>
           </Link>
         </div>

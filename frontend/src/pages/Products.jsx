@@ -124,7 +124,7 @@ const Products = () => {
           </h2>
           <Link to="/contact">
             <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-6 text-lg font-semibold">
-              Contact Sales
+              Contact
             </Button>
           </Link>
         </div>

@@ -130,7 +130,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                 </Button>
               </Link>
                <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -381,7 +381,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
 {/* SECTION 8: Final CTA Section */}
       <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
             Access thousands of GPUs tailored to your requirements.
           </h2>
           
@@ -392,7 +392,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

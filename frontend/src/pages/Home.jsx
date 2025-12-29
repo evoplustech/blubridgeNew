@@ -689,7 +689,7 @@ const Home = () => {
                 </Link>
                 <Link to="/contact/sales">
                   <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#EEF2DC] px-6 py-3">
-                    Contact Sales
+                    Contact
                   </Button>
                 </Link>
               </div>
@@ -754,7 +754,7 @@ const Home = () => {
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

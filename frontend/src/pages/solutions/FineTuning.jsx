@@ -49,7 +49,7 @@ const FineTuning = () => {
                 </Button>
               </Link>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-4 h-4" />
 </Link>
             </div>
           </div>
@@ -448,7 +448,7 @@ const FineTuning = () => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+      <section className="py-20 bg-[#0B1F3B] from-blue-600 via-blue-700 to-indigo-800">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Access thousands of GPUs tailored to your<br />requirements.
@@ -461,7 +461,7 @@ const FineTuning = () => {
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

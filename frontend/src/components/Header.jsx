@@ -284,7 +284,7 @@ const Header = () => {
               to="/contact/sales" 
               className="px-6 py-2.5 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors"
             >
-              Contact Sales
+              Contact
             </Link>
             {/* <Link 
               to="/login" 
@@ -426,7 +426,7 @@ const Header = () => {
               to="/contact" 
               className="block w-full px-6 py-3 bg-[#0B1F3B] text-white rounded-md font-medium text-center hover:bg-[#162B4D]"
             >
-              Contact Sales
+              Contact
             </Link>
             <Link 
               to="/login" 

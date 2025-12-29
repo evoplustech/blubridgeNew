@@ -73,7 +73,7 @@ const GeneralEnquiry = () => {
                     <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Want a new service or product?</h3>
                     <Link to="/contact/sales">
                       <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
-                        Contact Sales
+                        Contact
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
                     </Link>

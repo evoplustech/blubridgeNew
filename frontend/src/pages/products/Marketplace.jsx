@@ -160,7 +160,7 @@ const Marketplace = () => {
                   </Button>
                 </Link>
                 <Link to="/contact/sales" className="flex items-center gap-2 text-[#0B3C5D] hover:text-[#328CC1] transition-colors font-medium">
-                  Contact Sales <ArrowRight className="w-4 h-4" />
+                  Contact <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -187,7 +187,7 @@ const Marketplace = () => {
                 Develop with leading AI/ML frameworks such as PyTorch and TensorFlow to simplify and accelerate your development workflow.
               </p>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] transition-colors text-sm font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -578,7 +578,7 @@ const Marketplace = () => {
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

@@ -37,7 +37,7 @@ const Pricing = () => {
         'Custom configurations',
         '24/7 support'
       ],
-      cta: 'Contact Sales',
+      cta: 'Contact',
       link: '/contact'
     },
     {

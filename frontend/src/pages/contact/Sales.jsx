@@ -76,7 +76,7 @@ const Sales = () => {
     { id: 'solution', label: 'Find a solution' }
   ];
 
-  useDocumentTitle('Contact Sales | BluBrg');
+  useDocumentTitle('Contact | BluBrg');
 
   return (
     <div className="min-h-screen bg-[#f3f6e8]">      {/* Main Contact Section */}
@@ -138,7 +138,7 @@ const Sales = () => {
 
             {/* Right Column - Form */}
             <div className="lg:col-span-8">
-              <h1 className="text-4xl font-light text-[#0B1F3B] mb-10">Contact Sales</h1>
+              <h1 className="text-4xl font-light text-[#0B1F3B] mb-10">Contact</h1>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Row */}

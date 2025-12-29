@@ -144,7 +144,7 @@ const Healthcare = () => {
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales"><Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">Get Started</Button></Link>
               <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
-                Contact Sales <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -259,7 +259,7 @@ const Healthcare = () => {
               </Button>
             </Link>
             <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-1">
-              Contact Sales <ArrowRight className="w-4 h-4" />
+              Contact <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
