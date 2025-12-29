@@ -132,24 +132,36 @@ const Telco = () => {
 
   return (
     <div className="min-h-screen bg-[#F3F6E8]">
-      {/* HERO SECTION - Light theme */}
-      <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-[#F3F6E8]">
+      {/* ANIMATED HERO SECTION - Network mesh visualization */}
+      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#050a15] via-[#030810] to-[#000000]" />
+        
+        {/* Animated canvas for network visualization */}
+        <canvas 
+          ref={canvasRef}
+          className="absolute right-0 top-0 w-[60%] h-full opacity-70"
+          style={{ pointerEvents: 'none' }}
+        />
+
+        {/* Additional ambient glow */}
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '4s' }} />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               TELCO
             </h1>
-            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               Blubrg provides telecommunications providers with the infrastructure and expertise to support a wide range of AI-based services and solutions. With high-performance GPU clusters and scalable architecture, telco companies can enhance network performance, improve customer experience, and deploy advanced automation tools powered by artificial intelligence. The infrastructure also supports modern telecom needs such as 5G and edge computing.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact/sales">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-white/90 text-[#050a15] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+             <Link to="/contact/sales" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
 </Link>
             </div>

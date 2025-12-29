@@ -142,27 +142,38 @@ const SovereignCloud = () => {
   useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section */}
-      <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden bg-[#F3F6E8]">
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
+      <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
+        {/* Background Landscape Image with Parallax */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80')`,
+            transform: `translateY(${heroOffset}px) scale(1.1)`
+          }}
+        />
+        
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[#0B1F3B]" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
               YOUR AI.<br />
               YOUR HOME ADVANTAGE.
             </h1>
             
-            <p className="text-[#243447] text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+            <p className="text-white/90 text-lg max-w-2xl leading-relaxed mb-8" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
               Blubrg’s Sovereign AI Cloud is purpose-built for Europe, delivering strong data protection, operational control, and scalable infrastructure while supporting regional economic development and sustainability objectives.
             </p>
             
             <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
               <Link to="/contact/sales">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded font-medium">
+                <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded font-medium">
                   Get In Touch
                 </Button>
               </Link>
-              <Link to="/contact/sales" className="inline-flex items-center px-3 gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+              <Link to="/contact/sales" className="inline-flex items-center px-3 gap-2 text-white hover:text-blue-300 transition-colors font-medium">
                 Contact Sales <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
