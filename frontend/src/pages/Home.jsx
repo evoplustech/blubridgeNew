@@ -136,7 +136,7 @@ const Home = () => {
   useDocumentTitle('The Hyperscaler Engineered for AI | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white font-['DM_Sans']">
+    <div className="min-h-screen bg-[#F3F6E8] text-[#0B1F3B] font-['DM_Sans']">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div 
@@ -170,13 +170,13 @@ const Home = () => {
               The hyperscaler<br />engineered for AI
             </h1>
             
-            <p className="text-xl text-white/70 font-light leading-relaxed max-w-md">
+            <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
               A full-stack, scalable, and sustainable AI cloud platform.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact/sales">
-                <Button className="bg-white text-[#0a1d54] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
+                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
                 </Button>
               </Link>
@@ -187,26 +187,26 @@ const Home = () => {
 
             {/* Partner Logos */}
             <div className="flex flex-wrap items-center gap-6 pt-10">
-              <span className="text-white/50 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
-              <span className="text-white/50 text-xs font-medium tracking-wider">Computacenter</span>
-              <span className="text-white/50 text-xs font-medium tracking-wider">Antler</span>
-              <span className="text-white/50 text-xs font-medium tracking-wider">Open Innovation</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Computacenter</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Antler</span>
+              <span className="text-white/70 text-xs font-medium tracking-wider">Open Innovation</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* News/Updates Strip */}
-      {/* <section className="py-12 bg-[#0a0a0f] border-t border-slate-800/50">
+      {/* <section className="py-12 bg-[#F3F6E8] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-lg font-medium">Latest News</h3>
+            <h3 className="text-lg font-medium text-[#0B1F3B]">Latest News</h3>
             <div className="flex gap-2">
-              <button className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-slate-800 transition-colors">
-                <ChevronLeft className="w-5 h-5" />
+              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#EEF2DC] transition-colors">
+                <ChevronLeft className="w-5 h-5 text-[#0B1F3B]" />
               </button>
-              <button className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-slate-800 transition-colors">
-                <ChevronRight className="w-5 h-5" />
+              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#EEF2DC] transition-colors">
+                <ChevronRight className="w-5 h-5 text-[#0B1F3B]" />
               </button>
             </div>
           </div>
@@ -221,8 +221,8 @@ const Home = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <p className="text-sm text-gray-500 mb-2">{item.date}</p>
-                <h4 className="text-white font-medium group-hover:text-blue-400 transition-colors">{item.title}</h4>
+                <p className="text-sm text-[#5B6B7A] mb-2">{item.date}</p>
+                <h4 className="text-[#0B1F3B] font-medium group-hover:text-[#328CC1] transition-colors">{item.title}</h4>
               </div>
             ))}
           </div>
@@ -230,26 +230,26 @@ const Home = () => {
       </section> */}
 
       {/* Integrated AI Platform Section */}
-      <section className="py-20 bg-[#0a0a0f]">
+      <section className="py-20 bg-[#EEF2DC]">
         <div className="container-custom">
           <div className="space-y-16">
             {/* Row 1: Text Left, Marketplace Card Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-3xl font-light text-white mb-4">A fully integrated suite of AI services and compute</h3>
-                <p className="text-gray-400 leading-relaxed">Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.</p>
+                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">A fully integrated suite of AI services and compute</h3>
+                <p className="text-[#243447] leading-relaxed">Cut costs, increase revenue, and operate your AI workloads more efficiently with a fully integrated platform. Our platform simplifies the transition from development to production.</p>
               </div>
               <div className="flex justify-end">
                 <Link to="/products/marketplace" className="block">
-                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
-                   <div class="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
-  <svg class="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
+                   <div class="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
+  <svg class="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
       d="M3 7h18M5 7l1 10a2 2 0 002 2h8a2 2 0 002-2l1-10M9 21v-6h6v6M9 7V5a3 3 0 016 0v2" />
   </svg>
 </div>
 
-                    <span className="text-white text-sm font-medium">Marketplace</span>
+                    <span className="text-[#0B1F3B] text-sm font-medium">Marketplace</span>
                   </div>
                 </Link>
               </div>
@@ -259,37 +259,37 @@ const Home = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="flex justify-start order-2 lg:order-1">
                 <Link to="/products/serverless" className="block">
-                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-medium">Serverless</span>
+                    <span className="text-[#0B1F3B] text-sm font-medium">Serverless</span>
                   </div>
                 </Link>
               </div>
               <div className="lg:text-right order-1 lg:order-2">
-                <h3 className="text-3xl font-light text-white mb-4">Serverless model endpoints for inference</h3>
-                <p className="text-gray-400 leading-relaxed">Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference.</p>
+                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Serverless model endpoints for inference</h3>
+                <p className="text-[#243447] leading-relaxed">Serverless enables smooth, scalable AI inference without the burden of managing infrastructure. It automatically adjusts to demand, delivering low-latency, cost-efficient inference.</p>
               </div>
             </div>
 
             {/* Row 3: Text Left, Training Card Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-3xl font-light text-white mb-4">Dedicated training clusters ready to go</h3>
-                <p className="text-gray-400 leading-relaxed">BluBrg's optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes for robust infrastructure management.</p>
+                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Dedicated training clusters ready to go</h3>
+                <p className="text-[#243447] leading-relaxed">BluBrg's optimized GPU clusters are built to shorten model training times and improve productivity. Leverage Slurm and Kubernetes for robust infrastructure management.</p>
               </div>
               <div className="flex justify-end">
                 <Link to="/products/training" className="block">
-                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-medium">Training</span>
+                    <span className="text-[#0B1F3B] text-sm font-medium">Training</span>
                   </div>
                 </Link>
               </div>
@@ -299,37 +299,37 @@ const Home = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="flex justify-start order-2 lg:order-1">
                 <Link to="/products/inference" className="block">
-                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-medium">Inference</span>
+                    <span className="text-[#0B1F3B] text-sm font-medium">Inference</span>
                   </div>
                 </Link>
               </div>
               <div className="lg:text-right order-1 lg:order-2">
-                <h3 className="text-3xl font-light text-white mb-4">Setting a new standard for inference</h3>
-                <p className="text-gray-400 leading-relaxed">Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.</p>
+                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Setting a new standard for inference</h3>
+                <p className="text-[#243447] leading-relaxed">Access high-performance, cost-effective, and auto-scaling infrastructure for AI inference. Every layer of the stack is optimized for both batch and streaming workloads.</p>
               </div>
             </div>
 
             {/* Row 5: Text Left, GPU Nodes Card Right */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-3xl font-light text-white mb-4">Scalable, flexible AI Compute</h3>
-                <p className="text-gray-400 leading-relaxed">BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.</p>
+                <h3 className="text-3xl font-light text-[#0B1F3B] mb-4">Scalable, flexible AI Compute</h3>
+                <p className="text-[#243447] leading-relaxed">BluBrg's GPU Nodes provide powerful computing performance designed for AI and high-performance computing workloads, backed by advanced cooling technology.</p>
               </div>
               <div className="flex justify-end">
                 <Link to="/products/gpu-nodes" className="block">
-                  <div className="w-48 h-48 bg-[#111318] border border-[#252830] rounded-2xl flex flex-col items-center justify-center hover:border-blue-500/30 transition-colors cursor-pointer">
-                    <div className="w-16 h-16 rounded-xl bg-[#1a1f28] border border-[#252830] flex items-center justify-center mb-4">
-                      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-48 h-48 bg-white border border-[#D6DEC3] rounded-2xl flex flex-col items-center justify-center hover:border-[#328CC1] hover:shadow-lg transition-all cursor-pointer">
+                    <div className="w-16 h-16 rounded-xl bg-[#EEF2DC] border border-[#D6DEC3] flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-medium">GPU Nodes</span>
+                    <span className="text-[#0B1F3B] text-sm font-medium">GPU Nodes</span>
                   </div>
                 </Link>
               </div>
