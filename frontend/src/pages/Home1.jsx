@@ -229,7 +229,7 @@ const Home1 = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">
       
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
@@ -243,14 +243,14 @@ const Home1 = () => {
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
               Advanced AI Infrastructure
               <br />
               <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 from Cloud to Deployment
               </span>
             </h1>
-            <p className="text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
               BluBrg provides enterprise-grade GPU infrastructure, enabling organizations to train, fine-tune, and deploy AI models at any scale with unmatched performance and reliability.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -260,7 +260,7 @@ const Home1 = () => {
                 </Button>
               </Link>
               <Link to="/products/training">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-[#EEF2DC] px-8 py-6 text-base font-semibold rounded-md">
+                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-md">
                   Explore Platform
                 </Button>
               </Link>
@@ -279,7 +279,7 @@ const Home1 = () => {
             {partnerLogos.map((partner, idx) => (
               <div 
                 key={idx} 
-                className="text-white/40 text-xl font-semibold tracking-wider"
+                className="text-[#5B6B7A] text-xl font-semibold tracking-wider"
                 style={{ opacity: partner.opacity }}
               >
                 {partner.name}
