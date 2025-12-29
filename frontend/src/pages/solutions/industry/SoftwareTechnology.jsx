@@ -360,7 +360,7 @@ const SoftwareTechnology = () => {
       <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-white">More solutions</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
             <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives.
             </p>
@@ -372,7 +372,7 @@ const SoftwareTechnology = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">TRAINING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">TRAINING</span>
                 </div>
               </div>
             </Link>
@@ -382,7 +382,7 @@ const SoftwareTechnology = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">INFERENCE</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">INFERENCE</span>
                 </div>
               </div>
             </Link>
@@ -392,7 +392,7 @@ const SoftwareTechnology = () => {
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">AI DEVELOPMENT</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">AI DEVELOPMENT</span>
                 </div>
               </div>
             </Link>
@@ -402,7 +402,7 @@ const SoftwareTechnology = () => {
               <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="text-[#0B1F3B] font-semibold text-2xl">FINE-TUNING</span>
+                  <span className="text-white font-semibold text-2xl drop-shadow-lg">FINE-TUNING</span>
                 </div>
               </div>
             </Link>
@@ -437,7 +437,7 @@ const SoftwareTechnology = () => {
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-purple-400 transition-colors"
                 >
-                  <span className="text-base font-medium text-white pr-8">{faq.question}</span>
+                  <span className="text-base font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
                     {openFaq === i ? (
                       <ChevronUp className="w-4 h-4 text-purple-400" />
