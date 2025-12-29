@@ -193,7 +193,7 @@ const Legal = () => {
 
   return (
     <div className="min-h-screen bg-[#F3F6E8]">
-      {/* ANIMATED HERO SECTION */}
+      {/* HERO SECTION - Light theme */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-[#F3F6E8]">
  
 
