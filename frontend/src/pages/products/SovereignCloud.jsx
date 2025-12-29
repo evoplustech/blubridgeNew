@@ -169,7 +169,7 @@ const SovereignCloud = () => {
             
             <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
               <Link to="/contact/sales">
-                <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded font-medium">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded font-medium">
                   Get In Touch
                 </Button>
               </Link>
