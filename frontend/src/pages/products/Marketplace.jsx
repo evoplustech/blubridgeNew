@@ -147,7 +147,7 @@ const Marketplace = () => {
                 <span className="text-[#328CC1] text-sm font-medium tracking-wider uppercase">MARKETPLACE</span>
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#0B1F3B] leading-tight">
                 Turnkey AI development and deployment
               </h1>
               <p className="text-[#243447] text-lg leading-relaxed max-w-xl">
@@ -155,11 +155,11 @@ const Marketplace = () => {
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-4">
                 <Link to="/contact/sales">
-                  <Button className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-base font-medium rounded-lg">
+                  <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 text-base font-medium rounded-lg">
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-[#328CC1] transition-colors font-medium">
+                <Link to="/contact/sales" className="flex items-center gap-2 text-[#0B3C5D] hover:text-[#328CC1] transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
