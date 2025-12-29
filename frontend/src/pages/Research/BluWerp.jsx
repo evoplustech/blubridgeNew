@@ -11,7 +11,7 @@ const BluWerp = () => {
 
         {/* Read the Paper Button */}
         <div className="mb-8">
-         <Link
+         <a
   href="https://arxiv.org/abs/2511.18054"
   target="_blank"
   rel="noopener noreferrer"
@@ -19,7 +19,7 @@ const BluWerp = () => {
   <button className="bg-[#0B1F3B] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1a3a5c] transition-colors">
     Read the Paper
   </button>
-</Link>
+</a>
         </div>
 
         {/* Introduction Paragraphs */}
