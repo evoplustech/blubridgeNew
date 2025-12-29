@@ -393,7 +393,7 @@ const Home = () => {
                 </div>
                 
                 {/* Outer ring with services */}
-                <svg className="w-full h-full" viewBox="0 0 500 320">
+                <svg className="w-full h-full" viewBox="0 0 500 500">
                   {/* Outer circle */}
                   <circle cx="160" cy="160" r="140" fill="none" stroke="#D6DEC3" strokeWidth="1" />
                   
