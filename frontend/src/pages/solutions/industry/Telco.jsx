@@ -149,10 +149,10 @@ const Telco = () => {
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               TELCO
             </h1>
-            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               Blubrg provides telecommunications providers with the infrastructure and expertise to support a wide range of AI-based services and solutions. With high-performance GPU clusters and scalable architecture, telco companies can enhance network performance, improve customer experience, and deploy advanced automation tools powered by artificial intelligence. The infrastructure also supports modern telecom needs such as 5G and edge computing.
             </p>
             <div className="flex flex-wrap gap-4">

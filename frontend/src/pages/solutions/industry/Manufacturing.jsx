@@ -258,10 +258,10 @@ const Manufacturing = () => {
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               MANUFACTURING
             </h1>
-            <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               Blubrg’s cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -271,7 +271,7 @@ const Manufacturing = () => {
                 </Button>
               </Link>
                <Link to="/contact">
-                <button className="text-white hover:text-[#243447] px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
+                <button className="text-white hover:text-white/80 px-6 py-3 text-base font-medium transition-colors flex items-center gap-2">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
