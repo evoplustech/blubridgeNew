@@ -311,28 +311,19 @@ const FineTuning = () => {
   useDocumentTitle('AI Model Fine-tuning | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
-      <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
-        {/* Animated Canvas Background */}
-        <canvas 
-          ref={canvasRef} 
-          className="absolute inset-0 w-full h-full"
-          style={{ background: 'linear-gradient(135deg, #1a0a05 0%, #0a0a0f 50%, #0a0a0f 100%)' }}
-        />
-        
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0f]/90 via-[#0a0a0f]/70 to-transparent" />
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section */}
+      <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden bg-[#F3F6E8]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content with Animation */}
             <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-600/20 rounded-full border border-orange-600/30">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/30">
                 <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-                <span className="text-orange-400 text-sm font-medium">FINE-TUNING</span>
+                <span className="text-orange-600 text-sm font-medium">FINE-TUNING</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B1F3B]" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
                 Fine-tune open-<br />source models<br />directly in your<br />browser
               </h1>
               
@@ -342,11 +333,11 @@ const FineTuning = () => {
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
                 <Link to="/contact/sales">
-                  <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
                     Start Building
                   </Button>
                 </Link>
-                 <Link to="/contact/sales" className="flex items-center gap-2 text-white hover:text-orange-300 transition-colors font-medium">
+                 <Link to="/contact/sales" className="flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
                   Contact Sales <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
