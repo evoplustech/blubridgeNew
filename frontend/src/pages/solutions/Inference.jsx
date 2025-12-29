@@ -339,7 +339,7 @@ const Inference = () => {
       <section className="py-20 bg-[#F3F6E8]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-3xl font-light mb-4 text-white">More Solutions</h2>
+            <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
             <p className="text-[#243447] max-w-2xl">
               BluBrg accelerates the journey from development to deployment, delivering faster time to productivity for your AI initiatives..
             </p>
@@ -410,7 +410,7 @@ const Inference = () => {
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-cyan-400 transition-colors"
                 >
-                  <span className="text-base font-medium text-white pr-8">{faq.question}</span>
+                  <span className="text-base font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
                     {openFaq === i ? (
                       <ChevronUp className="w-4 h-4 text-cyan-400" />
