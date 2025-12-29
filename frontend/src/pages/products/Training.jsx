@@ -356,7 +356,7 @@ const Training = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Node Diagram Visual */}
-            <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6 relative overflow-hidden">
+            <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6 relative overflow-hidden">
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-[#0B1F3B] text-white text-xs rounded">COMPUTE</span>
                 {/* <span className="text-[#243447] text-sm">Node allocation</span> */}
@@ -367,9 +367,9 @@ const Training = () => {
                 {['328241', '328244', '328247', '328255', '328258', '328261', '328264', '328267'].map((id, i) => (
                   <div 
                     key={i} 
-                    className={`p-3 rounded-lg text-center ${i < 4 ? 'bg-[#0B1F3B]/30 border border-blue-500/50' : 'bg-[#EEF2DC] border border-[#D6DEC3]/30'}`}
+                    className={`p-3 rounded-lg text-center ${i < 4 ? 'bg-[#0B1F3B]/50 border border-blue-500/50' : 'bg-[#1a1a2e] border border-[#333]/50'}`}
                   >
-                    <div className={`text-xs font-mono ${i < 4 ? 'text-blue-300' : 'text-[#5B6B7A]'}`}>{id}</div>
+                    <div className={`text-xs font-mono ${i < 4 ? 'text-blue-300' : 'text-white/60'}`}>{id}</div>
                   </div>
                 ))}
               </div>
@@ -383,7 +383,7 @@ const Training = () => {
             </div>
             
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 With our advanced<br />scheduler
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
