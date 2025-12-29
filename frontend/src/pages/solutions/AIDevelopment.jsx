@@ -36,7 +36,7 @@ const AIDevelopment = () => {
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               AI DEVELOPMENT
             </h1>
             <p className="text-lg lg:text-xl text-[#243447] mb-10 leading-relaxed max-w-2xl">
