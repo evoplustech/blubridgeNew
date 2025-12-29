@@ -107,3 +107,7 @@ code {
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+/* Global Section Background Classes */
+.bg-section-hero { background-color: #F3F1E9 !important; }
+.bg-section-alt { background-color: #F7F6EC !important; }
+.bg-section-default { background-color: #F3F1E9 !important; }
