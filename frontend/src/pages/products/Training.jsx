@@ -302,14 +302,14 @@ const Training = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Dynamically manage AI<br />workloads and resources
               </h2>
               <p className="text-[#243447] mb-6 leading-relaxed">
                 Our Managed Kubernetes offering is purpose-built to support LLM training. Blubrg takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
-                <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
                   Get Started <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
               </Link>
