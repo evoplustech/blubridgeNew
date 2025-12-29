@@ -142,7 +142,7 @@ const SovereignCloud = () => {
   useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden bg-[#F3F6E8]">
         
         <div className="container-custom relative z-10">
