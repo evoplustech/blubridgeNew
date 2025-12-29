@@ -215,7 +215,7 @@ const Training = () => {
   useDocumentTitle('GPU Clusters for Training AI Models | BluBrg');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] text-white font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
+    <div className="min-h-screen bg-[#F3F6E8] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background gradient with subtle animation */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d1420] to-[#0a0a0f]" />
@@ -232,11 +232,11 @@ const Training = () => {
                 <span className="text-[#328CC1] text-sm font-medium">TRAINING</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
                 Compute purpose-<br />built for AI<br />workloads
               </h1>
               
-              <p className="text-[#243447] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
+              <p className="text-white/80 text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
                 Develop LLMs along with additional AI systems using powerful GPU-based clusters. Managed Kubernetes and Slurm orchestration choices simplify administration while ensuring maximum usage of available computing resources.
               </p>
               
