@@ -120,7 +120,7 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'products' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[800px]">
+                <div className="fixed pt-4" style={{ width: '800px', left: '50%', transform: 'translateX(-50%)', top: '112px' }}>
                   <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 grid grid-cols-3 gap-8">
                     {products.map((section, idx) => (
                       <div key={idx}>
