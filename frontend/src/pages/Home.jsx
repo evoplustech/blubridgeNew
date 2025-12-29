@@ -386,16 +386,16 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Circular Diagram */}
             <div className="relative flex items-center justify-center">
-              <div className="relative w-80 h-80">
+              <div className="relative" style={{ width: '500px', height: '500px' }}>
                 {/* Center circle */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center z-10">
                   <span className="text-white text-xs font-medium text-center leading-tight">Our AI<br/>Expertise</span>
                 </div>
                 
                 {/* Outer ring with services */}
-                <svg className="w-full h-full" viewBox="0 0 320 320">
+                <svg className="w-full h-full" viewBox="0 0 500 500">
                   {/* Outer circle */}
-                  <circle cx="160" cy="160" r="140" fill="none" stroke="#D6DEC3" strokeWidth="1" />
+                  <circle cx="250" cy="250" r="218" fill="none" stroke="#D6DEC3" strokeWidth="1" />
                   
                   {/* Service nodes positioned around the circle */}
                   {[
@@ -409,8 +409,8 @@ const Home = () => {
                     { label: "Machine Learning", angle: 315 }
                   ].map((item, index) => {
                     const rad = (item.angle * Math.PI) / 180;
-                    const x = 160 + 120 * Math.cos(rad);
-                    const y = 160 + 120 * Math.sin(rad);
+                    const x = 250 + 188 * Math.cos(rad);
+                    const y = 250 + 188 * Math.sin(rad);
                     return (
                       <g key={index}>
                         <circle cx={x} cy={y} r="8" fill="#328CC1" />
