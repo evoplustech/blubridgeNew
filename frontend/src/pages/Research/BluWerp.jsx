@@ -11,11 +11,15 @@ const BluWerp = () => {
 
         {/* Read the Paper Button */}
         <div className="mb-8">
-          <link to='https://arxiv.org/abs/2511.18054'>
-          <button className="bg-[#0B1F3B] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1a3a5c] transition-colors">
-            Read the Paper
-          </button>
-          </link>
+         <Link
+  href="https://arxiv.org/abs/2511.18054"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="bg-[#0B1F3B] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1a3a5c] transition-colors">
+    Read the Paper
+  </button>
+</Link>
         </div>
 
         {/* Introduction Paragraphs */}
