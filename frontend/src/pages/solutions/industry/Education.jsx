@@ -136,7 +136,7 @@ const Education = () => {
       {/* ANIMATED HERO SECTION */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#f3f6e8] via-[#e9ecdc] to-[#f3f6e8]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
         
         {/* Animated academic forms canvas */}
         <canvas 

@@ -134,7 +134,7 @@ const Healthcare = () => {
     <div className="min-h-screen bg-[#fffdf7]">
       {/* HERO */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#f3f6e8] via-[#e9ecdc] to-[#f3f6e8]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
         <canvas ref={canvasRef} className="absolute right-0 top-0 w-[55%] h-full opacity-80" style={{ pointerEvents: 'none', transform: `translate(${offset.x}px, ${offset.y}px)`, transition: 'transform 0.5s ease-out' }} />
         <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">

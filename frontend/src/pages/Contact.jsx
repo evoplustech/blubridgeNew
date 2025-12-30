@@ -52,7 +52,7 @@ const Contact = () => {
     <div 
       className="min-h-screen pt-24 pb-16"
       style={{
-        backgroundColor: '#F3F6E8',
+        backgroundColor: '#fffdf7',
         backgroundImage: `
           linear-gradient(rgba(214, 222, 195, 0.3) 1px, transparent 1px),
           linear-gradient(90deg, rgba(214, 222, 195, 0.3) 1px, transparent 1px)
