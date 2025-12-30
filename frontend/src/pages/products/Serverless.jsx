@@ -473,7 +473,7 @@ const Serverless = () => {
         </div>
       </section> */}
 
-      {/* FAQ Section */}
+      {/* FAQ Section - Section 7 */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
