@@ -672,8 +672,8 @@ const Home = () => {
         </div>
       </section> */}
 
-      {/* NVIDIA Partner Strip */}
-      <section className="py-16 bg-[#F3F6E8] border-t border-b border-[#D6DEC3]">
+      {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
+      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
