@@ -490,10 +490,10 @@ const Inference = () => {
             {/* Infrastructure Diagram */}
             <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#f3f1e9] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#2F3A4A]">Serverless</span>
                 </div>
-                <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
+                <div className="bg-[#f3f1e9] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
                   <span className="text-sm text-[#2F3A4A]">Marketplace</span>
                 </div>
               </div>
@@ -515,7 +515,7 @@ const Inference = () => {
                 ))}
               </div>
               
-              <div className="bg-[#EEF2DC] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
+              <div className="bg-[#f3f1e9] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
                 <span className="text-sm text-[#2F3A4A]">GPU nodes</span>
               </div>
               

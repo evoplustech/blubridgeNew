@@ -152,7 +152,7 @@ const Documentation = () => {
                 time: '12 min read'
               }
             ].map((tutorial, idx) => (
-              <Card key={idx} className="bg-white border-[#D6DEC3] hover:bg-[#EEF2DC] hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <Card key={idx} className="bg-white border-[#D6DEC3] hover:bg-[#f3f1e9] hover:shadow-lg transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">{tutorial.title}</h3>
                   <p className="text-[#2F3A4A] mb-4">{tutorial.description}</p>
@@ -173,7 +173,7 @@ const Documentation = () => {
           <p className="text-xl text-white/80 mb-8">
             Our support team is here to assist you 24/7.
           </p>
-          <Link to="/contact" className="inline-block bg-white hover:bg-[#EEF2DC] text-[#0B1F3B] px-8 py-4 rounded-lg font-semibold transition-colors">
+          <Link to="/contact" className="inline-block bg-white hover:bg-[#f3f1e9] text-[#0B1F3B] px-8 py-4 rounded-lg font-semibold transition-colors">
             Contact Support
           </Link>
         </div>

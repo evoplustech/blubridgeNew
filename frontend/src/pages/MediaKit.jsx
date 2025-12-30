@@ -26,7 +26,7 @@ const MediaKit = () => {
             </p>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#EEF2DC] transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#f3f1e9] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-4xl font-bold text-[#328CC1]">BLUBRG</div>
                 </div>
@@ -50,7 +50,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#EEF2DC] transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#f3f1e9] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-3xl font-bold text-[#328CC1] tracking-wider">B</div>
                 </div>
@@ -62,7 +62,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#EEF2DC] transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#f3f1e9] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-2xl font-light text-[#328CC1] tracking-widest">BLUBRG</div>
                 </div>
@@ -121,7 +121,7 @@ const MediaKit = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#f3f1e9] transition-all">
                 <div className="w-16 h-16 bg-[#328CC1]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
@@ -132,7 +132,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#f3f1e9] transition-all">
                 <div className="w-16 h-16 bg-[#328CC1]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>
@@ -143,7 +143,7 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#EEF2DC] transition-all">
+              <div className="bg-white/5 border border-[#D6DEC3] rounded-xl p-8 text-center hover:bg-[#f3f1e9] transition-all">
                 <div className="w-16 h-16 bg-[#328CC1]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-8 h-8 text-[#328CC1]" />
                 </div>

@@ -72,7 +72,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Want a new service or product?</h3>
                     <Link to="/contact">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#f3f1e9] transition-all group">
                         Contact
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -85,7 +85,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Technical issue or question?</h3>
                     <Link to="/contact/support">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#f3f1e9] transition-all group">
                         Contact Support
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -98,7 +98,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Interested in investment?</h3>
                     <Link to="/contact/investors">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#EEF2DC] transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#f3f1e9] transition-all group">
                         Contact IR Team
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -248,7 +248,7 @@ const GeneralEnquiry = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-transparent hover:bg-[#EEF2DC] text-white px-10 py-3 text-sm font-medium rounded-full border border-[#0B1F3B] hover:border-white/60 transition-colors"
+                    className="bg-transparent hover:bg-[#f3f1e9] text-white px-10 py-3 text-sm font-medium rounded-full border border-[#0B1F3B] hover:border-white/60 transition-colors"
                   >
                     Submit
                   </button>

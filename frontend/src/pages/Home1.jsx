@@ -301,7 +301,7 @@ const Home1 = () => {
             {solutions.map((solution, idx) => (
               <div key={idx} className="border-b border-[#D6DEC3] pb-12 last:border-0">
                 <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-lg bg-[#EEF2DC] flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-[#f3f1e9] flex items-center justify-center flex-shrink-0">
                     <solution.icon className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>

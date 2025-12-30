@@ -348,15 +348,15 @@ const Home = () => {
       </section>
 
       {/* News/Updates Strip */}
-      {/* <section className="py-12 bg-[#F3F6E8] border-t border-[#D6DEC3]">
+      {/* <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-lg font-medium text-[#0B1F3B]">Latest News</h3>
             <div className="flex gap-2">
-              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#EEF2DC] transition-colors">
+              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
                 <ChevronLeft className="w-5 h-5 text-[#0B1F3B]" />
               </button>
-              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#EEF2DC] transition-colors">
+              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
                 <ChevronRight className="w-5 h-5 text-[#0B1F3B]" />
               </button>
             </div>
@@ -506,7 +506,7 @@ const Home = () => {
                 key={index}
                 className="bg-white rounded-xl p-6 border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#EEF2DC] flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[#f3f1e9] flex items-center justify-center mb-4">
                   <span className="text-2xl">{card.icon}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3">{card.title}</h3>
@@ -555,7 +555,7 @@ const Home = () => {
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                       activeInfraTab === index 
                         ? 'bg-[#0B1F3B] text-white' 
-                        : 'bg-white/80 text-[#243447] border border-[#D6DEC3] hover:bg-[#EEF2DC]'
+                        : 'bg-white/80 text-[#243447] border border-[#D6DEC3] hover:bg-[#f3f1e9]'
                     }`}
                   >
                     {tab.name}
@@ -591,7 +591,7 @@ const Home = () => {
       <TestimonialsCarousel />
 
       {/* Use Cases Grid */}
-      {/* <section className="py-20 bg-[#F3F6E8]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl mb-4 font-bold text-[#0B1F3B]">Use cases</h2>
@@ -690,7 +690,7 @@ const Home = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#EEF2DC] px-6 py-3">
+                  <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3">
                     Contact
                   </Button>
                 </Link>
@@ -705,7 +705,7 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      {/* <section className="py-20 bg-[#F3F6E8]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl font-light mb-12 text-[#0B1F3B]">Frequently Asked Questions</h2>
           
@@ -751,7 +751,7 @@ const Home = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

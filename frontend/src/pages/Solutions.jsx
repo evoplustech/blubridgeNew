@@ -102,7 +102,7 @@ const Solutions = () => {
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">By Industry</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((industry, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#EEF2DC] transition-all duration-300">
+              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#f3f1e9] transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-4">{industry.icon}</div>
                   <h3 className="text-xl font-semibold text-[#0B1F3B] mb-2">{industry.name}</h3>

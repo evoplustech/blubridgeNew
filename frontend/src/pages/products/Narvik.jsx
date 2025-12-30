@@ -36,7 +36,7 @@ const Narvik = () => {
                 </Button>
               </Link>
               <Link to="/products/sovereign-cloud">
-                <Button variant="outline" className="border-white text-white hover:bg-[#EEF2DC] px-8 py-6 text-lg">
+                <Button variant="outline" className="border-white text-white hover:bg-[#f3f1e9] px-8 py-6 text-lg">
                   Explore Sovereign Options →
                 </Button>
               </Link>
@@ -249,7 +249,7 @@ const Narvik = () => {
               </Button>
             </Link>
             <Link to="/docs">
-              <Button variant="outline" className="border-white text-white hover:bg-[#EEF2DC] px-8 py-6 text-lg">
+              <Button variant="outline" className="border-white text-white hover:bg-[#f3f1e9] px-8 py-6 text-lg">
                 Download Facility Overview
               </Button>
             </Link>

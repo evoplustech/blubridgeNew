@@ -116,7 +116,7 @@ const Sales = () => {
                 <div className="mb-8">
                   <h4 className="text-lg font-semibold text-[#0B1F3B] mb-3">General question?</h4>
                   <Link to="/contact/general-enquiry">
-                    <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-[#D6DEC3] hover:border-blue-500/50 hover:bg-[#EEF2DC] transition-all group">
+                    <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-[#D6DEC3] hover:border-blue-500/50 hover:bg-[#f3f1e9] transition-all group">
                       Contact General
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -127,7 +127,7 @@ const Sales = () => {
                 {/* <div>
                   <h4 className="text-lg font-semibold text-[#0B1F3B] mb-3">Interested in Investment?</h4>
                   <Link to="/contact/investors">
-                    <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-[#D6DEC3] hover:border-blue-500/50 hover:bg-[#EEF2DC] transition-all group">
+                    <button className="flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-lg border border-[#D6DEC3] hover:border-blue-500/50 hover:bg-[#f3f1e9] transition-all group">
                       Contact IR Team
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>

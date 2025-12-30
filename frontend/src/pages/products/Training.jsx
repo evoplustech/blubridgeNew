@@ -556,7 +556,7 @@ const Training = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

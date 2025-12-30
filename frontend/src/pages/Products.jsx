@@ -123,7 +123,7 @@ const Products = () => {
             Ready to scale your AI infrastructure?
           </h2>
           <Link to="/contact">
-            <Button className="bg-white text-[#0B1F3B] hover:bg-[#EEF2DC] px-8 py-6 text-lg font-semibold">
+            <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-6 text-lg font-semibold">
               Contact
             </Button>
           </Link>

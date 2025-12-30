@@ -467,7 +467,7 @@ const GPUNodes = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">

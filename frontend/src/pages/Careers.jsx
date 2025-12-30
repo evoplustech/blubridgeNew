@@ -283,7 +283,7 @@ const Careers = () => {
       </section>
 
       {/* Life at BluBridge - Video Section */}
-      {/* <section className="py-20 bg-[#EEF2DC]">
+      {/* <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBridge</h2>

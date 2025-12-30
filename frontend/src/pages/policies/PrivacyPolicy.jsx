@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
   useDocumentTitle('Privacy Policy | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8]">      {/* Content Section */}
+    <div className="min-h-screen bg-[#fffdf7]">      {/* Content Section */}
       <section className="py-16">
         <div className="container-custom">
           <div className="max-w-4xl">

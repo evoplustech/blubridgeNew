@@ -279,7 +279,7 @@ const Serverless = () => {
                 </thead>
                 <tbody>
                   {pricingModels.map((item, index) => (
-                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#EEF2DC]/30 transition-colors">
+                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{item.model}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{item.type}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A] text-right">{item.price}</td>
@@ -300,7 +300,7 @@ const Serverless = () => {
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral', 'Gemma', 'Flux', 'Actions'].map((name, i) => (
-                  <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 text-center border border-[#D6DEC3]">
+                  <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 text-center border border-[#D6DEC3]">
                     <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
                       <span className="text-xs text-[#328CC1]">{name.charAt(0)}</span>
                     </div>
@@ -375,7 +375,7 @@ const Serverless = () => {
            
             <div className="relative">
               <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-[#D6DEC3]">
-                <div className="aspect-video bg-[#EEF2DC] rounded-xl flex items-center justify-center">
+                <div className="aspect-video bg-[#f3f1e9] rounded-xl flex items-center justify-center">
                   <div className="grid grid-cols-3 gap-4">
                     {[...Array(6)].map((_, i) => (
                       <div key={i} className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center">
@@ -443,7 +443,7 @@ const Serverless = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">

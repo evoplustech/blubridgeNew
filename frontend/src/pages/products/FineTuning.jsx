@@ -421,7 +421,7 @@ const FineTuning = () => {
                 </thead>
                 <tbody>
                   {supportedModels.map((model, index) => (
-                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#EEF2DC]/30 transition-colors">
+                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
                       <td className="px-6 py-4 text-sm text-white">{model.name}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.author}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.type}</td>
@@ -485,7 +485,7 @@ const FineTuning = () => {
                 <div className="absolute inset-0 flex">
                  
                   <div className="w-1/2 p-4 border-r border-[#D6DEC3]">
-                    <div className="bg-[#EEF2DC] rounded p-3 space-y-2">
+                    <div className="bg-[#f3f1e9] rounded p-3 space-y-2">
                       <div className="h-2 bg-blue-500/30 rounded w-3/4" />
                       <div className="h-2 bg-slate-600/50 rounded w-full" />
                       <div className="h-2 bg-slate-600/50 rounded w-5/6" />
@@ -547,7 +547,7 @@ const FineTuning = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
-              <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
+              <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
                 <div className="text-xs text-[#6B7280] mb-1">TEXT GENERATION</div>
                 <div className="text-[#0B1F3B] font-bold text-sm">{model.name}</div>
                 <div className="text-[#2F3A4A] text-xs">{model.size}</div>
@@ -565,7 +565,7 @@ const FineTuning = () => {
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral'].map((name, i) => (
-                  <div key={i} className="bg-[#EEF2DC] rounded-xl p-4 text-center border border-[#D6DEC3]">
+                  <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 text-center border border-[#D6DEC3]">
                     <div className="w-10 h-10 bg-slate-700 rounded-lg mx-auto mb-2 flex items-center justify-center">
                       <span className="text-xs text-[#2F3A4A]">{name.slice(0, 2)}</span>
                     </div>
