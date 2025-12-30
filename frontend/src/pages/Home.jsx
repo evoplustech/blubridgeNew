@@ -526,8 +526,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* BluBridge Infrastructure Section */}
-      <section className="py-20 relative overflow-hidden">
+      {/* BluBridge Infrastructure Section - Section 4 (EVEN) */}
+      <section className="py-20 relative overflow-hidden bg-[#f3f1e9]">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
