@@ -195,7 +195,7 @@ const Telco = () => {
         </div>
       </section>
 
-      {/* Telco AI Use Cases Section */}
+      {/* Telco AI Use Cases Section - Section 3 */}
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
