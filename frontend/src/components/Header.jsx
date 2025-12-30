@@ -138,7 +138,7 @@ const Header = () => {
                               key={i}
                               to={item.link}
                               className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm"
-                            ><div className="bg-[#EEF2DC] hover:bg-[#E2E8C0] rounded-lg px-3 py-2">
+                            ><div className="bg-[#f3f1e9] hover:bg-[#e8e6de] rounded-lg px-3 py-2">
                               <div className="font-medium flex items-center gap-2">
                                 <IconComponent className="w-4 h-4 text-[#0B1F3B]" />
                                 {item.name}
