@@ -249,8 +249,8 @@ const Telco = () => {
         </div>
       </section>
 
-      {/* Key Services */}
-      <section className="py-24 bg-[#e9ecdc]">
+      {/* Key Services - Section 4 */}
+      <section className="py-24 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
