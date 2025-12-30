@@ -97,8 +97,9 @@ const Header = () => {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-[#0B1F3B] tracking-wider">
-            <img src="https://customer-assets.emergentagent.com/job_scaledup/artifacts/x9xf5rtc_logo3.png" alt="BLUBRG" className="h-8" />
+          <Link to="/" className="text-2xl font-bold text-[#0B1F3B] tracking-wider flex items-center gap-2">
+            <img src="https://customer-assets.emergentagent.com/job_803ee59b-aaf5-4c28-b24a-8a1e0b32e8ce/artifacts/1vlepn9i_image.png" alt="BluBridge Icon" className="h-8 w-8 object-contain" />
+            <img src="https://customer-assets.emergentagent.com/job_scaledup/artifacts/x9xf5rtc_logo3.png" alt="BluBridge" className="h-8" />
           </Link>
 
           {/* Desktop Navigation */}
