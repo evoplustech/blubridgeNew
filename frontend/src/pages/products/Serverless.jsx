@@ -182,7 +182,7 @@ const Serverless = () => {
   useDocumentTitle('Serverless Inference | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* Hero Section with Animated Model Graph */}
+    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* Hero Section with Animated Model Graph - Section 1 */}
       <section className="relative min-h-[550px] flex items-center overflow-hidden bg-[#fffdf7]">
         
         <div className="container-custom relative z-10">
