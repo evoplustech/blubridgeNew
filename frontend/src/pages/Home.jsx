@@ -300,9 +300,9 @@ const Home = () => {
   useDocumentTitle('The Hyperscaler Engineered for AI | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#F3F6E8] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
+      {/* Hero Section - Section 1 (ODD) */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#fffdf7]">
         {/* Hero Banner Background Image */}
         <div 
           className="absolute inset-0"
