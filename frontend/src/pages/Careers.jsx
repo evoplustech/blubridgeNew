@@ -219,8 +219,8 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* What We Value Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* What We Value Section - Section 4 */}
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
