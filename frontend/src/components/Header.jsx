@@ -120,7 +120,7 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'products' && (
-                <div className="fixed pt-4" style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '112px', zIndex: 1000 }}>
+                <div className="fixed pt-4" style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '80px', zIndex: 1000 }}>
                   <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 grid grid-cols-3 gap-8">
                     {products.map((section, idx) => (
                       <div key={idx}>
@@ -165,7 +165,7 @@ const Header = () => {
               {activeDropdown === 'solutions' && (
                 <div 
                   className="fixed pt-4" 
-                  style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '112px', zIndex: 1000 }}
+                  style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '80px', zIndex: 1000 }}
                 >
                   <div 
                     className="shadow-xl overflow-hidden bg-white rounded-lg border border-[#D6DEC3]"
