@@ -190,7 +190,7 @@ const Header = () => {
                                 style={{ 
                                   width: '205px',
                                   height: '103px',
-                                  background: '#EEF2DC'
+                                  background: '#f3f1e9'
                                 }}
                               >
                                 {/* Model Training */}
