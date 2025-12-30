@@ -380,8 +380,8 @@ const Home = () => {
         </div>
       </section> */}
 
-      {/* Our AI Expertise Section */}
-      <section className="py-20 bg-[#F3F6E8]">
+      {/* Our AI Expertise Section - Section 2 (EVEN) */}
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Circular Diagram */}
