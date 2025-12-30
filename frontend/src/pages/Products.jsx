@@ -60,9 +60,9 @@ const Products = () => {
   useDocumentTitle('Products | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f3f6e8]">
+    <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero */}
-      <section className="py-24 bg-[#f3f6e8] relative overflow-hidden border-b border-[#D6DEC3]">
+      <section className="py-24 bg-[#fffdf7] relative overflow-hidden border-b border-[#D6DEC3]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
@@ -81,7 +81,7 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, idx) => (

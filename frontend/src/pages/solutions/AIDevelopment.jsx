@@ -14,7 +14,7 @@ const AIDevelopment = () => {
   useDocumentTitle('Integrated tools for AI development | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f3f6e8]">
+    <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero Section - AI Development Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
@@ -74,7 +74,7 @@ const AIDevelopment = () => {
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#f3f6e8] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#fffdf7] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -101,7 +101,7 @@ const AIDevelopment = () => {
       </section>
 
       {/* Fastest GPU Nodes Available Section */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -162,7 +162,7 @@ const AIDevelopment = () => {
       </section>
 
       {/* AI Development Stack - Two column layout */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">AI-Development<br />Stack</h2>
@@ -258,7 +258,7 @@ const AIDevelopment = () => {
       </section>
 
       {/* Performance Metrics - 2x2 Grid */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -310,7 +310,7 @@ const AIDevelopment = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -346,7 +346,7 @@ const AIDevelopment = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-[#f3f6e8]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -393,7 +393,7 @@ const AIDevelopment = () => {
       
 
       {/* FAQs */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

@@ -131,7 +131,7 @@ const Healthcare = () => {
   useDocumentTitle('GPU Cloud for Healthcare and Biotech | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f3f6e8]">
+    <div className="min-h-screen bg-[#fffdf7]">
       {/* HERO */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#f3f6e8] via-[#e9ecdc] to-[#f3f6e8]" />
@@ -163,7 +163,7 @@ const Healthcare = () => {
       </section>
 
       {/* EXAMPLE USES */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">FOSTERING COLLABORATION AND INNOVATION</p>
@@ -180,7 +180,7 @@ const Healthcare = () => {
       </section>
 
       {/* KEY SERVICES */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -193,7 +193,7 @@ const Healthcare = () => {
 
       {/* MORE SOLUTIONS */}
      
-      <section className="py-20 bg-[#f3f6e8]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>

@@ -30,8 +30,8 @@ const Blog = () => {
   useDocumentTitle('Blog | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f3f6e8]">      {/* Hero */}
-      <section className="py-24 bg-[#f3f6e8] relative overflow-hidden">
+    <div className="min-h-screen bg-[#fffdf7]">      {/* Hero */}
+      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
@@ -48,7 +48,7 @@ const Blog = () => {
       </section>
 
       {/* Blog Posts */}
-      <section className="py-24 bg-[#f3f6e8]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           {loading ? (
             <div className="text-center text-white">Loading posts...</div>
