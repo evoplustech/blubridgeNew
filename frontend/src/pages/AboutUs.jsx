@@ -283,8 +283,8 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Our Investors Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* Our Investors Section - Section 4 */}
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Our Investors</h2>
           
