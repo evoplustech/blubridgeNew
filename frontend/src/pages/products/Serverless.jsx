@@ -232,8 +232,8 @@ const Serverless = () => {
         `}</style>
       </section>
 
-      {/* Value Proposition Strip */}
-      <section className="py-12 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
+      {/* Value Proposition Strip - Section 2 */}
+      <section className="py-12 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
