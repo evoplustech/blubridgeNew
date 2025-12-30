@@ -226,7 +226,7 @@ const Training = () => {
         </div>
       </section>
 
-      {/* Performance */}
+      {/* Performance - Section 5 */}
       <section className="py-32 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20 text-center">Performance</h2>
