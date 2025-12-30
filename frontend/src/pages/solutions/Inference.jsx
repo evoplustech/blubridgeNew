@@ -105,7 +105,7 @@ const Inference = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-cyan-400 text-sm font-medium mb-3 uppercase tracking-wider">BLUBRG PLATFORM</p>
+              <p className="text-cyan-400 text-sm font-medium mb-3 uppercase tracking-wider">BLUBRIDGE PLATFORM</p>
               <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-6 leading-tight">
                 Speed up time-to-<br />insights
               </h2>
