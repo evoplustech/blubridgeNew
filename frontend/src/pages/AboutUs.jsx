@@ -164,8 +164,8 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Who We Are Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* Who We Are Section - Section 2 */}
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-amber-500 mb-8">Who we are</h2>
           
