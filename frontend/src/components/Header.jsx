@@ -234,7 +234,7 @@ const Header = () => {
                               to={item.link}
                               className="block text-[#0B1F3B] rounded-lg transition-all duration-150 cursor-pointer hover:bg-[#E2E8C0]"
                               style={{ 
-                                background: '#EEF2DC',
+                                background: '#f3f1e9',
                                 padding: '12px 20px',
                                 fontSize: '15px',
                                 fontWeight: '400'
