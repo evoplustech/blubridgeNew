@@ -334,7 +334,7 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-      {/* FAQ Section */}
+      {/* FAQ Section - Section 5 */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
