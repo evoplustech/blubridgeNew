@@ -435,7 +435,7 @@ const Header = () => {
             </Link>
             <Link 
               to="/login" 
-              className="block w-full px-6 py-3 border border-[#0B1F3B] text-[#0B1F3B] rounded-md font-medium text-center hover:bg-[#EEF2DC]"
+              className="block w-full px-6 py-3 border border-[#0B1F3B] text-[#0B1F3B] rounded-md font-medium text-center hover:bg-[#f3f1e9]"
             >
               Login →
             </Link>
