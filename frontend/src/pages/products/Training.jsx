@@ -514,7 +514,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0B1F3B]">FAQs</h2>
           
