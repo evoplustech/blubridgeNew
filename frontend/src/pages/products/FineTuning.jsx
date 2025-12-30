@@ -317,7 +317,7 @@ const FineTuning = () => {
         <canvas 
           ref={canvasRef} 
           className="absolute inset-0 w-full h-full"
-          style={{ background: 'linear-gradient(135deg, #F3F6E8 0%, #E8EDD8 50%, #F3F6E8 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #fffdf7 0%, #f3f1e9 50%, #fffdf7 100%)' }}
         />
         
         {/* Light overlay for visual depth */}
