@@ -399,14 +399,14 @@ const Home = () => {
                   
                   {/* Service nodes positioned around the circle */}
                   {[
-                    { label: "Data Science", angle: 0 },
-                    { label: "Data Engineering", angle: 45 },
-                    { label: "DevOps Services", angle: 90 },
-                    { label: "AI Strategy Consulting", angle: 135 },
+                    { label: "Education", angle: 0 },
+                    { label: "Software & Technology", angle: 45 },
+                    { label: "Government", angle: 90 },
+                    { label: "Healthcare", angle: 135 },
                     { label: "Business Intelligence", angle: 180 },
-                    { label: "Generative AI", angle: 225 },
-                    { label: "AI Chatbot Development", angle: 270 },
-                    { label: "Machine Learning", angle: 315 }
+                    { label: "Manufacturing", angle: 225 },
+                    { label: "Telco", angle: 270 },
+                    { label: "Finance & Insurance", angle: 315 }
                   ].map((item, index) => {
                     const rad = (item.angle * Math.PI) / 180;
                     const x = 250 + 188 * Math.cos(rad);
