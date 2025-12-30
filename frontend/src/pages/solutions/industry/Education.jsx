@@ -175,7 +175,7 @@ const Education = () => {
       </section>
 
       {/* 3-Column Value Propositions */}
-      <section className="py-16 bg-[#e9ecdc] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#f3f1e9] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>

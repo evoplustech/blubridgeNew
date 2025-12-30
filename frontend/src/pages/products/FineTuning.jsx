@@ -342,7 +342,7 @@ const FineTuning = () => {
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
                 <Link to="/contact">
-                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
+                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
                     Start Building
                   </Button>
                 </Link>

@@ -282,7 +282,7 @@ const GPUNodes = () => {
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
                   Get Started
                 </Button>
                 </Link>
@@ -306,7 +306,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Performance Metrics Section */}
-      <section className="py-20 bg-[#e9ecdc]">
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-[#328CC1] mb-12">Performance</h2>
           

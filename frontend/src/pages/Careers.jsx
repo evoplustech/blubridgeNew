@@ -177,7 +177,7 @@ const Careers = () => {
               We are building the first AI-native hyperscaler, a platform engineered for performance, efficiency, and massive scale. Join us in creating infrastructure that enables organisations around the world to advance their AI ambitions.
             </p>
             
-            <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc] px-6 py-3 rounded font-medium">
+            <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
               Open Positions
             </Button>
           </div>

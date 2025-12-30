@@ -197,7 +197,7 @@ const Contact = () => {
                     className={`px-6 py-3 rounded-full font-medium text-sm transition-colors ${
                       emailVerified 
                         ? 'bg-green-600 text-white' 
-                        : 'bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e9ecdc]'
+                        : 'bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9]'
                     }`}
                   >
                     {emailVerified ? 'Verified ✓' : 'Verify Email'}
