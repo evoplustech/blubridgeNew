@@ -270,7 +270,7 @@ const Header = () => {
                         <Link
                           key={i}
                           to={item.link}
-                          className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm py-2 px-3 rounded hover:bg-[#EEF2DC]"
+                          className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm py-2 px-3 rounded hover:bg-[#f3f1e9]"
                         >
                           {item.name}
                         </Link>
