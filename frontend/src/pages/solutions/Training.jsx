@@ -75,8 +75,8 @@ const Training = () => {
         `}</style>
       </section>
 
-      {/* Value Proposition Strip */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* Value Proposition Strip - Section 2 */}
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-12">
             {[
