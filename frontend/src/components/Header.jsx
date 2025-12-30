@@ -97,8 +97,10 @@ const Header = () => {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-[#0B1F3B] tracking-wider flex items-center gap-1">
-            <img src="https://customer-assets.emergentagent.com/job_803ee59b-aaf5-4c28-b24a-8a1e0b32e8ce/artifacts/1vlepn9i_image.png" alt="BluBridge Icon" className="h-9 w-9 object-contain" style={{ mixBlendMode: 'multiply' }} />
+          <Link to="/" className="text-2xl font-bold text-[#0B1F3B] tracking-wider flex items-center gap-2">
+            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#0B1F3B] p-1.5">
+              <img src="https://customer-assets.emergentagent.com/job_803ee59b-aaf5-4c28-b24a-8a1e0b32e8ce/artifacts/1vlepn9i_image.png" alt="BluBridge Icon" className="h-full w-full object-contain" style={{ filter: 'invert(1)' }} />
+            </div>
             <img src="https://customer-assets.emergentagent.com/job_scaledup/artifacts/x9xf5rtc_logo3.png" alt="BluBridge" className="h-8" />
           </Link>
 
