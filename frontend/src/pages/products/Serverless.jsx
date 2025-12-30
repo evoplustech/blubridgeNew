@@ -391,8 +391,8 @@ const Serverless = () => {
         </div>
       </section> */}
 
-      {/* Performance Metrics */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* Performance Metrics - Section 6 */}
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Performance</h2>
           
