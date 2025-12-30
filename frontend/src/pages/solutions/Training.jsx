@@ -138,8 +138,8 @@ const Training = () => {
         </div>
       </section>
 
-      {/* Training Stack */}
-      <section className="py-32 bg-[#fffdf7]">
+      {/* Training Stack - Section 4 */}
+      <section className="py-32 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
