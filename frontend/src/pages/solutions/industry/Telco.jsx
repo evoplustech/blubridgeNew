@@ -285,7 +285,7 @@ const Telco = () => {
         </div>
       </section>
 
-      {/* More Solutions */}
+      {/* More Solutions - Section 5 */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
