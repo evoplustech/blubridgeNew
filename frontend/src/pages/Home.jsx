@@ -535,7 +535,7 @@ const Home = () => {
             backgroundImage: `url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F3F6E8]/95 via-[#F3F6E8]/80 to-[#F3F6E8]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f3f1e9]/95 via-[#f3f1e9]/80 to-[#f3f1e9]/60" />
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols gap-12">
