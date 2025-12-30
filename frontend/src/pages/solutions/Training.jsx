@@ -102,7 +102,7 @@ const Training = () => {
         </div>
       </section>
 
-      {/* Accelerated Model Training */}
+      {/* Accelerated Model Training - Section 3 */}
       <section className="py-32 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
