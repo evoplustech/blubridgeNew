@@ -202,7 +202,7 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Culture Image Strip */}
+      {/* Culture Image Strip - Section 3 */}
       <section className="py-8 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
