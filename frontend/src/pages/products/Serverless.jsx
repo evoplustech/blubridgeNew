@@ -252,7 +252,7 @@ const Serverless = () => {
         </div>
       </section>
 
-      {/* Models & Pricing Section */}
+      {/* Models & Pricing Section - Section 3 */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-8">
