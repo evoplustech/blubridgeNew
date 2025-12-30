@@ -347,7 +347,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 4: Advanced Scheduling */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Node Diagram Visual */}
