@@ -292,8 +292,8 @@ const Serverless = () => {
         </div>
       </section>
 
-      {/* Savings by Design Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* Savings by Design Section - Section 4 */}
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Model Icons Grid */}
