@@ -99,12 +99,10 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-[#0B1F3B] flex items-center">
             <img 
-              src="https://customer-assets.emergentagent.com/job_803ee59b-aaf5-4c28-b24a-8a1e0b32e8ce/artifacts/1vlepn9i_image.png" 
-              alt="BluBridge Icon" 
-              className="h-32 w-32 -mr-10 mb-4 object-contain" 
-              style={{ mixBlendMode: 'multiply' }} 
+              src="https://customer-assets.emergentagent.com/job_803ee59b-aaf5-4c28-b24a-8a1e0b32e8ce/artifacts/3ukkumrz_logo-main.png" 
+              alt="BluBridge" 
+              className="h-10 object-contain" 
             />
-            <img src="https://customer-assets.emergentagent.com/job_scaledup/artifacts/x9xf5rtc_logo3.png" alt="BluBridge" className="h-8 ms-0" />
           </Link>
 
           {/* Desktop Navigation */}
