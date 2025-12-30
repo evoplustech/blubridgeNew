@@ -191,8 +191,8 @@ const Careers = () => {
         `}</style>
       </section>
 
-      {/* Our Mission Section */}
-      <section className="py-16 bg-[#fffdf7]">
+      {/* Our Mission Section - Section 2 */}
+      <section className="py-16 bg-[#f3f1e9]">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">Our Mission</h2>
           <p className="text-[#6B7280] text-lg mb-4 ">
