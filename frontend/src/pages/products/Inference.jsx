@@ -336,54 +336,11 @@ const Inference = () => {
             
             {/* Framework Icons Visualization */}
             <div className="relative flex items-center justify-center">
-              <div className="relative w-80 h-80">
-                {/* Central vLLM logo */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#0B1F3B] rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/30">
-                  <span className="text-[#0B1F3B] font-bold text-lg">vLLM</span>
-                </div>
-                
-                {/* Orbiting framework icons */}
-                {frameworkIcons.map((fw, i) => {
-                  const angle = (i / frameworkIcons.length) * Math.PI * 2 - Math.PI / 2;
-                  const radius = 120;
-                  const x = Math.cos(angle) * radius;
-                  const y = Math.sin(angle) * radius;
-                  
-                  return (
-                    <div 
-                      key={i}
-                      className="absolute w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center border border-[#D6DEC3] shadow-lg"
-                      style={{
-                        left: `calc(50% + ${x}px - 28px)`,
-                        top: `calc(50% + ${y}px - 28px)`
-                      }}
-                    >
-                      <span className="text-xs text-[#2F3A4A] text-center">{fw.name}</span>
-                    </div>
-                  );
-                })}
-                
-                {/* Connecting lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                  {frameworkIcons.map((_, i) => {
-                    const angle = (i / frameworkIcons.length) * Math.PI * 2 - Math.PI / 2;
-                    const radius = 120;
-                    const x = 160 + Math.cos(angle) * radius;
-                    const y = 160 + Math.sin(angle) * radius;
-                    
-                    return (
-                      <line 
-                        key={i}
-                        x1="160" y1="160" 
-                        x2={x} y2={y}
-                        stroke="rgba(59, 130, 246, 0.3)"
-                        strokeWidth="1"
-                        strokeDasharray="4,4"
-                      />
-                    );
-                  })}
-                </svg>
-              </div>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_logo-update-17/artifacts/j856orkr_image.png"
+                alt="Inference frameworks including TensorFlow, PyTorch, ONNX, vLLM and more"
+                className="w-full max-w-md h-auto object-contain"
+              />
             </div>
           </div>
         </div>
