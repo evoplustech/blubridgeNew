@@ -247,13 +247,18 @@ const Training = () => {
               </div>
             </div>
             
-            {/* Right - Animated 3D Geometric Visual */}
+            {/* Right - Hero Image with Subtle Animation */}
             <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
-              <div className="absolute inset-0 bg-[#0B1F3B]/10 rounded-2xl border border-[#D6DEC3] overflow-hidden">
-                <canvas 
-                  ref={canvasRef} 
-                  className="w-full h-full"
-                  style={{ background: 'transparent' }}
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_logo-update-17/artifacts/hjk4ft8h_image.png"
+                  alt="AI neural network visualization"
+                  className="w-full h-full object-contain hero-image-float"
+                  style={{
+                    filter: 'drop-shadow(0 0 40px rgba(59, 130, 246, 0.15))',
+                    maskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)'
+                  }}
                 />
               </div>
             </div>
