@@ -271,14 +271,46 @@ const Inference = () => {
               </div>
             </div>
             
-            {/* Right - Animated Inference Visual */}
+            {/* Right - Hero Image with Internal Object Animations */}
             <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
-              <div className="absolute inset-0 bg-[#0B1F3B]/10 rounded-2xl border border-[#D6DEC3] overflow-hidden">
-                <canvas 
-                  ref={canvasRef} 
-                  className="w-full h-full"
-                  style={{ background: 'transparent' }}
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                {/* Base image with blending */}
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_logo-update-17/artifacts/jba8s8ic_image.png"
+                  alt="AI inference data flow visualization"
+                  className="w-full h-full object-contain relative z-10"
+                  style={{
+                    filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.2))',
+                    maskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 65%, transparent 100%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 65%, transparent 100%)'
+                  }}
                 />
+                
+                {/* Internal object animations - energy beam flow */}
+                <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+                  {/* Energy beam pulse animation */}
+                  <div 
+                    className="absolute top-1/2 left-0 w-full h-[3px] inference-beam-flow"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), rgba(100, 180, 255, 0.8), rgba(59, 130, 246, 0.6), transparent)',
+                      transform: 'translateY(-50%)',
+                      filter: 'blur(1px)'
+                    }}
+                  />
+                  
+                  {/* Node glow pulses - positioned over sphere locations */}
+                  <div className="inference-node-pulse absolute" style={{ left: '20%', top: '45%', width: '40px', height: '40px' }} />
+                  <div className="inference-node-pulse absolute" style={{ left: '35%', top: '48%', width: '50px', height: '50px', animationDelay: '0.3s' }} />
+                  <div className="inference-node-pulse absolute" style={{ left: '50%', top: '50%', width: '60px', height: '60px', animationDelay: '0.6s' }} />
+                  <div className="inference-node-pulse absolute" style={{ left: '65%', top: '48%', width: '50px', height: '50px', animationDelay: '0.9s' }} />
+                  <div className="inference-node-pulse absolute" style={{ left: '78%', top: '45%', width: '40px', height: '40px', animationDelay: '1.2s' }} />
+                  
+                  {/* Data particle flow */}
+                  <div className="inference-particle" style={{ animationDelay: '0s' }} />
+                  <div className="inference-particle" style={{ animationDelay: '0.5s' }} />
+                  <div className="inference-particle" style={{ animationDelay: '1s' }} />
+                  <div className="inference-particle" style={{ animationDelay: '1.5s' }} />
+                </div>
               </div>
             </div>
           </div>
