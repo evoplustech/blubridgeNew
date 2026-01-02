@@ -113,7 +113,7 @@ const AboutUs = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80')`,
+            backgroundImage: `url('https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
