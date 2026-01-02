@@ -325,6 +325,57 @@ const Inference = () => {
             from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
           }
+          @keyframes inferenceBeamFlow {
+            0% { opacity: 0; transform: translateY(-50%) translateX(-100%); }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-50%) translateX(100%); }
+          }
+          @keyframes inferenceNodePulse {
+            0%, 100% { 
+              opacity: 0;
+              transform: translate(-50%, -50%) scale(0.8);
+              box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+            50% { 
+              opacity: 0.6;
+              transform: translate(-50%, -50%) scale(1.2);
+              box-shadow: 0 0 20px 10px rgba(59, 130, 246, 0.3);
+            }
+          }
+          @keyframes inferenceParticleFlow {
+            0% { 
+              left: 10%;
+              opacity: 0;
+              transform: translateY(-50%) scale(0.5);
+            }
+            10% { opacity: 1; transform: translateY(-50%) scale(1); }
+            90% { opacity: 1; transform: translateY(-50%) scale(1); }
+            100% { 
+              left: 90%;
+              opacity: 0;
+              transform: translateY(-50%) scale(0.5);
+            }
+          }
+          .inference-beam-flow {
+            animation: inferenceBeamFlow 3s ease-in-out infinite;
+          }
+          .inference-node-pulse {
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+            animation: inferenceNodePulse 2.5s ease-in-out infinite;
+            transform: translate(-50%, -50%);
+          }
+          .inference-particle {
+            position: absolute;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(100, 180, 255, 0.9);
+            box-shadow: 0 0 10px 3px rgba(59, 130, 246, 0.6);
+            animation: inferenceParticleFlow 2.5s ease-in-out infinite;
+          }
         `}</style>
       </section>
 
