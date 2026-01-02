@@ -3,372 +3,70 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight, Plus, Minus } from 'lucide-react';
+import { Users, FileText, ExternalLink } from 'lucide-react';
 
 const Careers = () => {
-  const [openFaq, setOpenFaq] = useState(null);
-  const canvasRef = useRef(null);
-
-  // Animated flowing lines for hero
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawFlowingLines = () => {
-      time += 0.005;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-
-      // Draw multiple flowing curves
-      for (let i = 0; i < 5; i++) {
-        ctx.beginPath();
-        const startY = height * 0.3 + i * 40;
-        const amplitude = 30 + i * 10;
-        const frequency = 0.003 + i * 0.0005;
-        const phase = time * (1 + i * 0.2);
-
-        ctx.moveTo(0, startY);
-        
-        for (let x = 0; x <= width; x += 5) {
-          const y = startY + Math.sin(x * frequency + phase) * amplitude + 
-                    Math.sin(x * frequency * 2 + phase * 1.5) * (amplitude * 0.5);
-          ctx.lineTo(x, y);
-        }
-
-        const gradient = ctx.createLinearGradient(0, 0, width, 0);
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0)');
-        gradient.addColorStop(0.3, `rgba(59, 130, 246, ${0.3 - i * 0.05})`);
-        gradient.addColorStop(0.7, `rgba(59, 130, 246, ${0.4 - i * 0.05})`);
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-        
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2 - i * 0.2;
-        ctx.stroke();
-      }
-
-      // Add subtle glow particles
-      for (let i = 0; i < 20; i++) {
-        const x = (Math.sin(time + i * 0.5) + 1) * width * 0.5;
-        const y = height * 0.2 + (Math.cos(time * 0.5 + i * 0.3) + 1) * height * 0.3;
-        const size = 2 + Math.sin(time * 2 + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.2 + Math.sin(time + i) * 0.1})`;
-        ctx.fill();
-      }
-
-      animationFrame = requestAnimationFrame(drawFlowingLines);
-    };
-
-    resize();
-    window.addEventListener('resize', resize);
-    drawFlowingLines();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrame);
-    };
-  }, []);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const values = [
-    {
-      title: "Relentless Innovation",
-      description: "We constantly challenge the status quo and embrace creative problem-solving. Our goal is to build technology that pushes boundaries and sets new standards.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
-      imagePosition: "right"
-    },
-    {
-      title: "Openness and Transparency",
-      description: "We value honest communication and mutual trust. People here share insights openly, learn from each other, and create systems that are secure, reliable, and effective.",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
-      imagePosition: "left"
-    },
-    {
-      title: "Sustainability",
-      description: "We think about the long-term impacts of the technology we build. Our approach prioritises environmental and societal considerations, ensuring our solutions are both powerful and responsible.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
-      imagePosition: "right"
-    },
-    {
-      title: "Ownership and Accountability",
-      description: "Every team member takes responsibility for their work and its outcomes. We set high standards and strive for excellence in everything we do.",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
-      imagePosition: "left"
-    },
-    {
-      title: "Customer-Centric Focus",
-      description: "Our customers are at the heart of what we deliver. By deeply understanding their needs and challenges, we aim to exceed expectations through quality products and thoughtful service.",
-      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80",
-      imagePosition: "right"
-    },
-    {
-      title: "Full-Speed Collaboration",
-      description: "We collaborate efficiently and respectfully to solve problems together. Clear communication and mutual support help us achieve our shared goals.",
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
-      imagePosition: "left"
-    }
-  ];
-
-  const cultureImages = [
-    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
-    "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&q=80",
-    "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&q=80",
-    "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&q=80"
-  ];
-
-  const faqs = [
-    {
-      question: "What roles are currently open?",
-      answer: "We're actively hiring across engineering, product, operations, and business functions. Our most in-demand roles include ML Infrastructure Engineers, Backend Engineers, DevOps specialists, and Product Managers. Visit our careers portal for the full list of open positions."
-    },
-    {
-      question: "Do you offer remote or hybrid work?",
-      answer: "Yes! We embrace flexible work arrangements. Many of our roles are remote-first, and we also offer hybrid options for those near our offices in Oslo, London, and other key locations. We believe in empowering our team to work where they're most productive."
-    },
-    {
-      question: "What is the hiring process like?",
-      answer: "Our hiring process typically includes an initial recruiter screen, followed by technical assessments relevant to the role, team interviews, and a final conversation with leadership. We aim to complete the process within 2-3 weeks and provide timely feedback at each stage."
-    },
-    {
-      question: "What benefits do you offer?",
-      answer: "We offer competitive compensation packages including equity, comprehensive health insurance, generous PTO, parental leave, learning and development budgets, home office stipends, and regular team events. We're committed to supporting our team's well-being and growth."
-    },
-    {
-      question: "How can I apply or get in touch?",
-      answer: "You can apply directly through our careers page by selecting a role and submitting your application. For general inquiries or if you don't see a suitable role, feel free to send your resume to careers@blubrg.com. We review every application carefully."
-    }
-  ];
-
-  useDocumentTitle('Careers | BluBridge');
-
-  return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* Hero Section with Animated Flowing Lines */}
-      <section className="relative min-h-[500px] flex items-center overflow-hidden bg-[#fffdf7]">
-        
-        {/* Animated canvas for flowing lines */}
-        <canvas 
-          ref={canvasRef} 
-          className="absolute inset-0 w-full h-full"
-          style={{ background: 'transparent' }}
-        />
-        
-        {/* Content */}
-        <div className="container-custom relative z-10">
-          <div className="max-w-2xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-[#0B1F3B]">
-              Join the team building<br />next-gen AI infrastructure
+    // useDocumentTitle('Papers & Publications | BluBridge');
+return (
+    <>
+    {/* <Helmet> */}
+         <title>Careers at Blubridge - Work with Us</title>
+    {/* </Helmet> */}
+     
+    
+    <div>
+      <a title="Google Analytics Alternative" href="https://clicky.com/101490753"><img style={{display:"none"}} alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script async data-id="101490753" src="//static.getclicky.com/js"></script>
+    <section className="px-1 sm:px-2 mb-14 py-0 mt-2">
+        <div className="max-w-6xl mx-auto">
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            </motion.div> */}
+            <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold gradient-text mb-4" style={{lineHeight: '1.2'}}>
+              {/* Join Us */}
             </h1>
             
-            <p className="text-[#2F3A4A] text-lg leading-relaxed mb-8">
-              We are building the first AI-native hyperscaler, a platform engineered for performance, efficiency, and massive scale. Join us in creating infrastructure that enables organisations around the world to advance their AI ambitions.
-            </p>
-            
-            <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
-              Open Positions
-            </Button>
-          </div>
-        </div>
+            <div className='main-inner'>
+                <div className="rounded-xl p-8 px-9 shadow-lg border border-gray-200/50 inner-page">
+                    <h1 className='font-bold text-3xl text-black mb-2'>Join Us</h1>
+                    <div style={{ borderTop: '1px solid #eee', marginBottom: '1em' }}></div>
 
-        <style>{`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
-      </section>
-
-      {/* Our Mission Section - Section 2 */}
-      <section className="py-16 bg-[#f3f1e9]">
-        <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-tight">Our Mission</h2>
-          <p className="text-[#6B7280] text-lg mb-4 ">
-          Build the first AI-native hyperscaler, empowering innovators with high-performance, scalable infrastructure.
-          Our goal is to create a cloud platform purpose-built for AI, one that combines massive computational power with reliability and flexibility. We want to help innovators accelerate their ideas by providing infrastructure that keeps up with the demands of modern AI systems.
-          </p>
-        </div>
-      </section>
-
-      {/* Culture Image Strip - Section 3 */}
-      <section className="py-8 bg-[#fffdf7]">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {cultureImages.map((img, index) => (
-              <div key={index} className="aspect-video rounded-xl overflow-hidden">
-                <img 
-                  src={img} 
-                  alt={`Team culture ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What We Value Section - Section 4 */}
-      <section className="py-20 bg-[#f3f1e9]">
-        <div className="container-custom">
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What we value</h2>
-            <p className="text-[#2F3A4A] text-lg max-w-2xl">
-              We are a team that moves fast, aims high, and works with purpose, all driven by curiosity, collaboration, and a commitment to excellence.
-            </p>
-          </div>
-
-          <div className="space-y-20">
-            {values.map((value, index) => (
-              <div 
-                key={index}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  value.imagePosition === 'left' ? 'lg:flex-row-reverse' : ''
-                }`}
-              >
-                {value.imagePosition === 'right' ? (
-                  <>
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="text-xl font-bold text-[#328CC1] mb-3">{value.title}</h3>
-                          <p className="text-[#2F3A4A] leading-relaxed">{value.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="rounded-2xl overflow-hidden">
-                      <img 
-                        src={value.image} 
-                        alt={value.title}
-                        className="w-full h-[300px] object-cover"
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="rounded-2xl overflow-hidden order-2 lg:order-1">
-                      <img 
-                        src={value.image} 
-                        alt={value.title}
-                        className="w-full h-[300px] object-cover"
-                      />
-                    </div>
-                    <div className="space-y-4 order-1 lg:order-2">
-                      <div className="flex items-start gap-3">
-                        <div className="w-1 h-16 bg-blue-500 flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="text-xl font-bold text-[#328CC1] mb-3">{value.title}</h3>
-                          <p className="text-[#2F3A4A] leading-relaxed">{value.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Life at BluBridge - Video Section */}
-      {/* <section className="py-20 bg-[#f3f1e9]">
-        <div className="container-custom">
-          <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Life at BluBridge</h2>
-            <p className="text-[#2F3A4A] text-lg max-w-2xl">
-              Our workplace culture is one where people come together to innovate, learn, and grow. We support each other, work hard, and celebrate what we achieve as a team.
-            </p>
-          </div>
-
-          
-          <div className="relative rounded-2xl overflow-hidden bg-slate-900 aspect-video max-w-4xl">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-              title="Life at BluBridge"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-sm text-[#2F3A4A]">
-              <span>Watch on</span>
-              <span className="text-[#0B1F3B] font-semibold">▶ YouTube</span>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* FAQ Section - Section 5 */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
-          
-          <div className="space-y-4 max-w-4xl">
-            {faqs.map((faq, index) => (
-              <div 
-                key={index}
-                className="border-b border-[#D6DEC3]"
-              >
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
-                >
-                  <span className="text-lg font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0">
-                    {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-[#328CC1]" />
-                    ) : (
-                      <Plus className="w-5 h-5 text-[#328CC1]" />
-                    )}
-                  </div>
-                </button>
-                
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <p className="text-[#2F3A4A] leading-relaxed">{faq.answer}</p>
+                    <p className='inner-content'>
+                       We have our offices at <a href="https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267d1ab225575:0xe0b23cd509229297!8m2!3d13.0280416!4d80.2681674!16s%2Fg%2F11h3k0tc7n?entry=ttu&g_ep=EgoyMDI1MDIxOS4xIKXMDSoASAFQAw%3D%3D" className='text-[#046bd2] underline'>“30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram,Chennai, Tamil Nadu 600028“</a>
+                    </p>
+                    <h2 className='text-lg font-bold pt-3 text-black'>Must have(s):-</h2>
+                    <ol className='pt-3'>
+                      <li style={{listStyle: 'none',lineHeight:'25px'}}>a) Aptitude and Logical reasoning</li>
+                      <li style={{listStyle: 'none',lineHeight:'25px'}}>b) Linear algebra, Calculus, Probability &amp; Statistics</li>
+                      <li style={{listStyle: 'none',lineHeight:'25px'}}>c) Strong Programming Foundations in C++ or Java</li>
+                      {/* <li>Expertise in Python programming</li>
+                      <li>A solid foundation in calculus and statistics</li>
+                      <li>The drive to be among few in the country working on understanding and creating LLMs</li> */}
+                    </ol>
+                    {/* <p className='dedi'>Then you might be the perfect fit for our team.</p> */}
+                    <h2 className='text-lg font-bold pt-3 text-black'><span className='underline'>How to apply</span>:-</h2>
+                      <p className='dedi'>Before applying, please ensure you read this carefully:</p>
+                      <p className='pt-1'><img style={{ float:'left', marginRight:'7px'}} src='/images/join.png'></img><Link to="/join-our-team"  className="font-medium text-[#046bd2] underline pt-2">Joining Our Research Unit</Link></p>
+                    <p className='dedi'> You are welcome to walk in for an interview on any working day, or you can reach out to us via:</p>
+                    <ul className='models'>
+                      <li><strong>Contact Number: </strong> +91 8925987250</li>
+                      <li><strong>Email: </strong> careers.chennai@blubridge.com</li>
+                      <li><strong>LinkedIn: </strong><a className='text-[#046bd2] underline' href='https://www.linkedin.com/company/blubridge/'>https://linkedin.com/blubridge</a></li>
+                    </ul>
                 </div>
-              </div>
-            ))}
-          </div>
+                </div>
         </div>
-      </section>
+    </section>
 
-      {/* Final CTA Strip */}
-      <section className="py-16 bg-[#0B1F3B]">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
-            Access thousands of GPUs tailored to your requirements.
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
-                Reserve GPUs
-              </Button>
-            </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
-              Contact <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
-  );
+    </>
+  )
+ 
 };
 
 export default Careers;

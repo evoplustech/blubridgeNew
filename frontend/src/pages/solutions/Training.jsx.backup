@@ -42,7 +42,7 @@ const Training = () => {
               MODEL TRAINING
             </h1>
             <p className="text-xl text-white/80 mb-12 leading-relaxed max-w-3xl">
-              Blubrg’s GPU Cloud provides a highly scalable, performance-driven platform that
+              BluBridge's GPU Cloud provides a highly scalable, performance-driven platform that
               significantly reduces training times and boosts productivity. This enables teams
               to achieve AI objectives faster and more cost-effectively than traditional cloud
               solutions.
@@ -98,7 +98,7 @@ const Training = () => {
               <h2 className="text-5xl font-bold text-white mb-8">Accelerated Model Training</h2>
               <p className="text-lg text-white/70 leading-relaxed mb-6">
                 Training advanced AI models requires flexible, reliable, and cost-efficient
-                infrastructure. Blubrg simplifies this by delivering purpose-built systems
+                infrastructure. BluBridge simplifies this by delivering purpose-built systems
                 designed specifically for AI workloads.
               </p>
               <p className="text-lg text-white/70 leading-relaxed mb-6">

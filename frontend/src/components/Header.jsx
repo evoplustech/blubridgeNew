@@ -82,6 +82,7 @@ const Header = () => {
 
   const company = [
     { name: 'About Us', link: '/about' },
+    { name: 'Join Our Team', link: '/joinourteam' },
     { name: 'Careers', link: '/careers' }
   ];
 
@@ -107,10 +108,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {/* Research Link */}
-            <Link to="/research" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-              Research
-            </Link>
+            
 
             {/* Products Dropdown */}
             <div 
@@ -250,6 +248,11 @@ const Header = () => {
                 </div>
               )}
             </div>
+
+            {/* Research Link */}
+            <Link to="/research" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+              Research
+            </Link>
 
             {/* Company Dropdown */}
             <div 

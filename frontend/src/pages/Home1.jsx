@@ -389,11 +389,11 @@ const Home1 = () => {
                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                 <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                <span className="ml-4 text-white/40 text-sm">blubrg-cluster.py</span>
+                <span className="ml-4 text-white/40 text-sm">BluBridge-cluster.py</span>
               </div>
               <div className="p-6 font-mono text-sm">
                 <div className="text-purple-400">from</div>
-                <div className="text-white/80 ml-4">blubrg <span className="text-purple-400">import</span> GPUCluster</div>
+                <div className="text-white/80 ml-4">BluBridge <span className="text-purple-400">import</span> GPUCluster</div>
                 <div className="mt-4 text-white/50"># Initialize training cluster</div>
                 <div className="text-white/80">cluster = GPUCluster(</div>
                 <div className="text-white/70 ml-4">gpus=<span className="text-cyan-400">128</span>,</div>

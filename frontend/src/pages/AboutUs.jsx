@@ -99,7 +99,7 @@ const AboutUs = () => {
     },
     {
       question: "How can partners or customers get in touch?",
-      answer: "Partners and customers can reach out through our Contact page, email us directly at contact@blubrg.com, or schedule a consultation through our website. Our team is available to discuss your specific AI infrastructure needs and provide tailored solutions."
+      answer: "Partners and customers can reach out through our Contact page, email us directly at contact@BluBridge.com, or schedule a consultation through our website. Our team is available to discuss your specific AI infrastructure needs and provide tailored solutions."
     }
   ];
 

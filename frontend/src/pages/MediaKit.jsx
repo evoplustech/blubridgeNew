@@ -28,7 +28,7 @@ const MediaKit = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#f3f1e9] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
-                  <div className="text-4xl font-bold text-[#328CC1]">BLUBRG</div>
+                  <div className="text-4xl font-bold text-[#328CC1]">BluBridge</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Light Background Logo</h3>
                 <p className="text-[#6B7280] mb-4">Use on white or light-colored backgrounds</p>
@@ -40,7 +40,7 @@ const MediaKit = () => {
 
               <div className="bg-[#fffdf7] border border-[#D6DEC3] rounded-2xl p-10 hover:border-[#0066FF]/50 transition-all">
                 <div className="bg-[#fffdf7] rounded-xl h-48 flex items-center justify-center mb-6">
-                  <div className="text-4xl font-bold text-white">BLUBRG</div>
+                  <div className="text-4xl font-bold text-white">BluBridge</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Dark Background Logo</h3>
                 <p className="text-[#6B7280] mb-4">Use on dark or colored backgrounds</p>
@@ -64,7 +64,7 @@ const MediaKit = () => {
 
               <div className="bg-white/5 border border-[#D6DEC3] rounded-2xl p-10 hover:bg-[#f3f1e9] transition-all">
                 <div className="bg-white rounded-xl h-48 flex items-center justify-center mb-6">
-                  <div className="text-2xl font-light text-[#328CC1] tracking-widest">BLUBRG</div>
+                  <div className="text-2xl font-light text-[#328CC1] tracking-widest">BluBridge</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Wordmark</h3>
                 <p className="text-[#6B7280] mb-4">Text-only version of our brand</p>
@@ -104,7 +104,7 @@ const MediaKit = () => {
                 </p>
                 <Button className="bg-[#328CC1] hover:bg-[#162B4D] text-white">
                   <Mail className="w-4 h-4 mr-2" />
-                  press@blubrg.com
+                  press@BluBridge.com
                 </Button>
               </div>
             </div>

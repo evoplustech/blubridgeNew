@@ -175,7 +175,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-xl font-medium text-[#0B1F3B] mb-4">Contact Us</h2>
               <p className="text-[#243447] text-base leading-relaxed">
                 If you have any questions about this Privacy Policy or our data practices, please contact us at{' '}
-                <a href="mailto:privacy@blubrg.com" className="text-[#328CC1] hover:text-blue-300 transition-colors">privacy@blubrg.com</a>
+                <a href="mailto:privacy@BluBridge.com" className="text-[#328CC1] hover:text-blue-300 transition-colors">privacy@BluBridge.com</a>
               </p>
             </div>
           </div>

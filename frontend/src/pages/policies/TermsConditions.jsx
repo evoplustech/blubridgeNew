@@ -123,7 +123,7 @@ const TermsConditions = () => {
               <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">7. Limitation of Liability</h2>
               <div className="space-y-4">
                 <p className="text-[#243447] text-base leading-relaxed">
-                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, BLUBRG SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE SERVICES.
+                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, BluBridge SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE SERVICES.
                 </p>
                 <p className="text-[#243447] text-base leading-relaxed">
                   Our total liability for any claims arising from these Terms or your use of the Services shall not exceed the amount you paid to us in the twelve (12) months preceding the claim.
@@ -192,7 +192,7 @@ const TermsConditions = () => {
               <h2 className="text-xl font-medium text-[#0B1F3B] mb-4">Contact Us</h2>
               <p className="text-[#243447] text-base leading-relaxed">
                 If you have any questions about these Terms, please contact us at{' '}
-                <a href="mailto:legal@blubrg.com" className="text-[#328CC1] hover:text-blue-300 transition-colors">legal@blubrg.com</a>
+                <a href="mailto:legal@BluBridge.com" className="text-[#328CC1] hover:text-blue-300 transition-colors">legal@BluBridge.com</a>
               </p>
             </div>
           </div>

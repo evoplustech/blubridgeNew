@@ -403,7 +403,7 @@ const Home = () => {
                     { label: "Software & Technology", angle: 45 },
                     { label: "Government", angle: 90 },
                     { label: "Healthcare", angle: 135 },
-                    { label: "Business Intelligence", angle: 180 },
+                    { label: "Legal", angle: 180 },
                     { label: "Manufacturing", angle: 225 },
                     { label: "Telco", angle: 270 },
                     { label: "Finance & Insurance", angle: 315 }
@@ -418,7 +418,7 @@ const Home = () => {
                           x={x} 
                           y={y - 15} 
                           textAnchor="middle" 
-                          className="text-[10px] fill-[#0B1F3B] font-medium"
+                          className="text-[13px] fill-[#0B1F3B] font-medium"
                         >
                           {item.label}
                         </text>

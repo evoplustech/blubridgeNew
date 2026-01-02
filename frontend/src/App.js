@@ -58,6 +58,7 @@ import GeneralEnquiry from './pages/contact/GeneralEnquiry';
 import TransparencyHumanRights from './pages/policies/TransparencyHumanRights';
 import PrivacyPolicy from './pages/policies/PrivacyPolicy';
 import TermsConditions from './pages/policies/TermsConditions';
+import JoinOurTeam from './pages/JoinOurTeam';
 function App() {
   return (
     <div className="App">
@@ -101,6 +102,7 @@ function App() {
             
             {/* Company Routes */}
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/joinourteam" element={<JoinOurTeam />} />
             <Route path="/media-kit" element={<MediaKit />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/research" element={<Research />} />
