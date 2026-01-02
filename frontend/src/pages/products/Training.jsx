@@ -274,6 +274,13 @@ const Training = () => {
             from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
           }
+          @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.01); }
+          }
+          .hero-image-float {
+            animation: heroFloat 6s ease-in-out infinite;
+          }
         `}</style>
       </section>
 
