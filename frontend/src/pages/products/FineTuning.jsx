@@ -412,17 +412,18 @@ const FineTuning = () => {
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
                   <tr className="border-b border-[#D6DEC3]">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Supported Model Name</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Author</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Type</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Context</th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Model Size</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Supported Model Name</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Author</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Type</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Context</th>
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-[#ffffff]">Model Size</th>
                   </tr>
                 </thead>
                 <tbody>
                   {supportedModels.map((model, index) => (
-                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
-                      <td className="px-6 py-4 text-sm text-white">{model.name}</td>
+                    // <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
+                      <tr key={index} className="border-b border-[#D6DEC3] bg-white">
+                      <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.name}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.author}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.type}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.context}</td>
@@ -435,8 +436,8 @@ const FineTuning = () => {
           </div>
 
           {/* Fine-tune Pricing Note */}
-          <div className="mt-8 p-6 bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30">
-            <h3 className="text-xl font-semibold text-orange-400 mb-2">Fine-tune Pricing</h3>
+          <div className="mt-8 p-6 bg-white rounded-xl border border-[#D6DEC3]/30">
+            <h3 className="text-xl font-semibold text-black-400 mb-2">Fine-tune Pricing</h3>
             <p className="text-[#2F3A4A] text-sm">
               Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
             </p>
@@ -444,7 +445,7 @@ const FineTuning = () => {
 
           {/* Need dedicated infrastructure link */}
           <div className="mt-6 text-center">
-            <Link to="/products/gpu-nodes" className="text-[#2F3A4A] hover:text-white text-sm inline-flex items-center gap-2">
+            <Link to="/products/gpu-nodes" className="text-[#2F3A4A] text-lg hover:text-grey-100 hover:opacity-80 inline-flex items-center gap-2">
               Need dedicated infrastructure? <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -558,7 +559,41 @@ const FineTuning = () => {
         </div>
       </section>
 
-      {/* SECTION 7: Savings by Design */}
+            {/* Savings by Design Section - Section 4 */}
+      <section className="py-20 bg-[#fffdf7]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Model Icons Grid */}
+            <div className="relative">
+              <div className="grid grid-cols-3 gap-4">
+                {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral', 'Gemma', 'Flux', 'Actions'].map((name, i) => (
+                  <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 text-center border border-[#D6DEC3]">
+                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                      <span className="text-xs text-[#328CC1]">{name.charAt(0)}</span>
+                    </div>
+                    <p className="text-xs text-[#2F3A4A]">{name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right - Text */}
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                Savings by design, not<br />compromise
+              </h2>
+              <p className="text-[#2F3A4A] leading-relaxed">
+                Every layer of the vertically integrated platform is finely tuned, spanning physical systems through orchestration, lowering processing expenses while maintaining stable output. The outcome is measurable cost reduction delivered straight to clients, achieved without compromising performance, scalability, or protection.
+              </p>
+              {/* <Link to="/pricing" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors">
+                See pricing <ArrowRight className="w-4 h-4" />
+              </Link> */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: Savings by Design
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -588,10 +623,10 @@ const FineTuning = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 8: Serverless without Trade-offs */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-15 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

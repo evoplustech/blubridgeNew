@@ -82,7 +82,8 @@ const Serverless = () => {
         ctx.fill();
 
         // Node label
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        // ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
         ctx.font = '11px DM Sans, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(model.name, x, y + pulseSize * 0.7);
@@ -260,10 +261,10 @@ const Serverless = () => {
             <p className="text-[#2F3A4A] max-w-2xl">
               Pricing applies to every 1 million tokens, covering both prompts and responses for Chat, Multimodal, Language, and Code models. Image models follow a different structure, calculated according to resolution dimensions and processing steps.
             </p>
-            <div className="flex gap-4 mt-4">
+            {/* <div className="flex gap-4 mt-4">
               <button className="px-4 py-2 bg-slate-800 text-white text-sm rounded-lg">Endpoints</button>
          
-            </div>
+            </div> */}
           </div>
 
           {/* Pricing Table */}
@@ -272,15 +273,16 @@ const Serverless = () => {
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
                   <tr className="border-b border-[#D6DEC3]">
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Serverless Endpoint</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Type</th>
-                    <th className="text-right px-6 py-4 text-sm font-semibold text-[#2F3A4A]">Price</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Serverless Endpoint</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Type</th>
+                    <th className="text-right px-6 py-4 text-sm font-semibold text-[#ffffff]">Price</th>
                   </tr>
                 </thead>
                 <tbody>
                   {pricingModels.map((item, index) => (
-                    <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
-                      <td className="px-6 py-4 text-sm text-white">{item.model}</td>
+                    // <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
+                    <tr key={index} className="border-b border-[#D6DEC3] bg-white">
+                      <td className="px-6 py-4 text-sm text-[#2F3A4A]">{item.model}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{item.type}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A] text-right">{item.price}</td>
                     </tr>
