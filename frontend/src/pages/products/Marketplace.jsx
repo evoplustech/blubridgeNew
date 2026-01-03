@@ -139,10 +139,10 @@ const Marketplace = () => {
       {/* AI Tools & Frameworks Section */}
       <section className="py-20">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Text */}
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] leading-tight">
+              <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] leading-tight italic">
                 Quickly deploy the best AI tools and frameworks
               </h2>
               <p className="text-[#2F3A4A] text-base leading-relaxed">
@@ -155,28 +155,13 @@ const Marketplace = () => {
               </Link>
             </div>
 
-            {/* Right - Framework Icons Visual */}
-            <div className="relative">
-              <div className="grid grid-cols-3 gap-4">
-                {/* Central M logo */}
-                <div className="col-span-3 flex justify-center mb-4">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                    <span className="text-[#0B1F3B] text-3xl font-bold">M</span>
-                  </div>
-                </div>
-                
-                {/* Framework icons */}
-                {['PyTorch', 'TensorFlow', 'Kubeflow', 'ONNX', 'HuggingFace', 'vLLM'].map((framework, idx) => (
-                  <div key={idx} className="bg-white border border-[#D6DEC3] rounded-xl p-4 text-center hover:border-blue-500/30 transition-colors">
-                    <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <span className="text-[#0B1F3B] text-xs font-medium">{framework}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Right - Marketplace Visual */}
+            <div className="relative flex items-center justify-center">
+              <img
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/j2m1ymjc_Marketplace.png"
+                alt="AI Solutions Marketplace with framework integrations"
+                className="w-full h-auto max-h-[550px] object-contain rounded-xl"
+              />
             </div>
           </div>
         </div>
