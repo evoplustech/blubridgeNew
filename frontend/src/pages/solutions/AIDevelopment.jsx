@@ -315,7 +315,7 @@ const AIDevelopment = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Training Card */}
-            
+            <Link className="" to="/products/training"></Link>
             <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-amber-500/30 to-orange-600/20 rounded-xl flex items-center justify-center">
