@@ -347,6 +347,92 @@ const Home = () => {
         </div>
       </section>
 
+      {/* 360° Rotating Circular Expertise Section - Below Hero */}
+      <section className="py-16 bg-[#fffdf7]">
+        <div className="container-custom flex justify-center items-center">
+          <div className="relative" style={{ width: '420px', height: '420px' }}>
+            {/* Static Center Circle - "Our AI Expertise" */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center z-20">
+              <span className="text-white text-xs font-medium text-center leading-tight">Our AI<br/>Expertise</span>
+            </div>
+            
+            {/* Rotating Outer Ring Container */}
+            <div className="rotating-expertise-ring absolute inset-0" style={{ transformOrigin: 'center center' }}>
+              {/* Circle track */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 420 420">
+                <circle cx="210" cy="210" r="170" fill="none" stroke="#D6DEC3" strokeWidth="1" />
+              </svg>
+              
+              {/* Industry nodes positioned around the circle */}
+              {[
+                { label: "Education", angle: -90 },
+                { label: "Software &", label2: "Technology", angle: -45 },
+                { label: "Government", angle: 0 },
+                { label: "Healthcare", angle: 45 },
+                { label: "Legal", angle: 90 },
+                { label: "Manufacturing", angle: 135 },
+                { label: "Telco", angle: 180 },
+                { label: "Finance &", label2: "Insurance", angle: 225 }
+              ].map((item, index) => {
+                const rad = (item.angle * Math.PI) / 180;
+                const x = 210 + 170 * Math.cos(rad);
+                const y = 210 + 170 * Math.sin(rad);
+                return (
+                  <div 
+                    key={index}
+                    className="absolute rotating-expertise-label"
+                    style={{
+                      left: `${x}px`,
+                      top: `${y}px`,
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                  >
+                    <div className="flex flex-col items-center">
+                      {/* Blue dot node */}
+                      <div className="w-4 h-4 rounded-full bg-[#328CC1] mb-1"></div>
+                      {/* Label text */}
+                      <span className="text-[11px] text-[#0B1F3B] font-medium whitespace-nowrap text-center leading-tight">
+                        {item.label}
+                        {item.label2 && <><br/>{item.label2}</>}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        
+        <style>{`
+          .rotating-expertise-ring {
+            animation: rotateExpertiseRing 50s linear infinite;
+          }
+          
+          @keyframes rotateExpertiseRing {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          
+          /* Counter-rotate labels to keep them upright */
+          .rotating-expertise-label {
+            animation: counterRotateLabel 50s linear infinite;
+          }
+          
+          @keyframes counterRotateLabel {
+            from {
+              transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+              transform: translate(-50%, -50%) rotate(-360deg);
+            }
+          }
+        `}</style>
+      </section>
+
       {/* News/Updates Strip (commented out)
         <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
         <div className="container-custom">
