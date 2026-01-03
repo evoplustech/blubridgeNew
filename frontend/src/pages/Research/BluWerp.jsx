@@ -2,8 +2,8 @@ import React from 'react';
 
 const BluWerp = () => {
   return (
-    <div className="min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fdfff3]">
+    <div className="min-h-screen bg-[#f3f1e9]">
+      <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
           Blu-WERP: Introducing the new State of Art preprocessing pipeline for LLM training

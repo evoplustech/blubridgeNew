@@ -348,9 +348,77 @@ const Home = () => {
       </section>
 
       {/* 360° Rotating Circular Expertise Section - Below Hero */}
-      <section className="py-16 bg-[#fffdf7]">
-        <div className="container-custom flex justify-center items-center">
-          <div className="relative" style={{ width: '420px', height: '420px' }}>
+    
+        
+        <style>{`
+          .rotating-expertise-ring {
+            animation: rotateExpertiseRing 50s linear infinite;
+          }
+          
+          @keyframes rotateExpertiseRing {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          
+          /* Counter-rotate labels to keep them upright */
+          .rotating-expertise-label {
+            animation: counterRotateLabel 50s linear infinite;
+          }
+          
+          @keyframes counterRotateLabel {
+            from {
+              transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+              transform: translate(-50%, -50%) rotate(-360deg);
+            }
+          }
+        `}</style>
+     
+      {/* News/Updates Strip (commented out)
+        <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
+        <div className="container-custom">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-lg font-medium text-[#0B1F3B]">Latest News</h3>
+            <div className="flex gap-2">
+              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
+                <ChevronLeft className="w-5 h-5 text-[#0B1F3B]" />
+              </button>
+              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
+                <ChevronRight className="w-5 h-5 text-[#0B1F3B]" />
+              </button>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {newsItems.map((item, index) => (
+              <div key={index} className="group cursor-pointer">
+                <div className="aspect-video rounded-xl overflow-hidden mb-4">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-sm text-[#5B6B7A] mb-2">{item.date}</p>
+                <h4 className="text-[#0B1F3B] font-medium group-hover:text-[#328CC1] transition-colors">{item.title}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
+
+      {/* Our AI Expertise Section - Section 2 (EVEN) */}
+      <section className="py-20 bg-[#f3f1e9]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left - Circular Diagram */}
+            <div className="relative flex items-center justify-center">
+              <div className="relative" style={{ width: '420px', height: '420px' }}>
             {/* Static Center Circle - "Our AI Expertise" */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center z-20">
               <span className="text-white text-xs font-medium text-center leading-tight">Our AI<br/>Expertise</span>
@@ -401,118 +469,6 @@ const Home = () => {
               })}
             </div>
           </div>
-        </div>
-        
-        <style>{`
-          .rotating-expertise-ring {
-            animation: rotateExpertiseRing 50s linear infinite;
-          }
-          
-          @keyframes rotateExpertiseRing {
-            from {
-              transform: rotate(0deg);
-            }
-            to {
-              transform: rotate(360deg);
-            }
-          }
-          
-          /* Counter-rotate labels to keep them upright */
-          .rotating-expertise-label {
-            animation: counterRotateLabel 50s linear infinite;
-          }
-          
-          @keyframes counterRotateLabel {
-            from {
-              transform: translate(-50%, -50%) rotate(0deg);
-            }
-            to {
-              transform: translate(-50%, -50%) rotate(-360deg);
-            }
-          }
-        `}</style>
-      </section>
-
-      {/* News/Updates Strip (commented out)
-        <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
-        <div className="container-custom">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-lg font-medium text-[#0B1F3B]">Latest News</h3>
-            <div className="flex gap-2">
-              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
-                <ChevronLeft className="w-5 h-5 text-[#0B1F3B]" />
-              </button>
-              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
-                <ChevronRight className="w-5 h-5 text-[#0B1F3B]" />
-              </button>
-            </div>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {newsItems.map((item, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="aspect-video rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <p className="text-sm text-[#5B6B7A] mb-2">{item.date}</p>
-                <h4 className="text-[#0B1F3B] font-medium group-hover:text-[#328CC1] transition-colors">{item.title}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Our AI Expertise Section - Section 2 (EVEN) */}
-      <section className="py-20 bg-[#f3f1e9]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Circular Diagram */}
-            <div className="relative flex items-center justify-center">
-              <div className="relative" style={{ width: '500px', height: '500px' }}>
-                {/* Center circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center z-10">
-                  <span className="text-white text-xs font-medium text-center leading-tight">Our AI<br/>Expertise</span>
-                </div>
-                
-                {/* Outer ring with services */}
-                <svg className="w-full h-full" viewBox="0 0 500 500">
-                  {/* Outer circle */}
-                  <circle cx="250" cy="250" r="218" fill="none" stroke="#D6DEC3" strokeWidth="1" />
-                  
-                  {/* Service nodes positioned around the circle */}
-                  {[
-                    { label: "Education", angle: 0 },
-                    { label: "Software & Technology", angle: 45 },
-                    { label: "Government", angle: 90 },
-                    { label: "Healthcare", angle: 135 },
-                    { label: "Legal", angle: 180 },
-                    { label: "Manufacturing", angle: 225 },
-                    { label: "Telco", angle: 270 },
-                    { label: "Finance & Insurance", angle: 315 }
-                  ].map((item, index) => {
-                    const rad = (item.angle * Math.PI) / 180;
-                    const x = 250 + 188 * Math.cos(rad);
-                    const y = 250 + 188 * Math.sin(rad);
-                    return (
-                      <g key={index}>
-                        <circle cx={x} cy={y} r="8" fill="#328CC1" />
-                        <text 
-                          x={x} 
-                          y={y - 15} 
-                          textAnchor="middle" 
-                          className="text-[13px] fill-[#0B1F3B] font-medium"
-                        >
-                          {item.label}
-                        </text>
-                      </g>
-                    );
-                  })}
-                </svg>
-              </div>
             </div>
             
             {/* Right - Services Grid */}
