@@ -347,8 +347,91 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Premium 3D Rotational Element Section */}
-      
+      {/* 360° Rotating Circular Expertise Section */}
+      <section className="py-20 bg-[#fffdf7]">
+        <div className="container-custom flex justify-center items-center">
+          <div className="relative" style={{ width: '500px', height: '500px' }}>
+            {/* Static Center Circle - "Our AI Expertise" */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-[#0B1F3B] flex items-center justify-center z-20 shadow-lg">
+              <span className="text-white text-sm font-medium text-center leading-tight">Our AI<br/>Expertise</span>
+            </div>
+            
+            {/* Rotating Outer Ring */}
+            <div className="expertise-rotating-ring absolute inset-0">
+              <svg className="w-full h-full" viewBox="0 0 500 500">
+                {/* Outer circle track */}
+                <circle cx="250" cy="250" r="200" fill="none" stroke="#D6DEC3" strokeWidth="1" />
+                
+                {/* Rotating industry labels and nodes */}
+                {[
+                  { label: "Education", angle: -90, icon: "🎓" },
+                  { label: "Software & Technology", angle: -45, icon: "💻" },
+                  { label: "Government", angle: 0, icon: "🏛️" },
+                  { label: "Healthcare", angle: 45, icon: "🏥" },
+                  { label: "Legal", angle: 90, icon: "⚖️" },
+                  { label: "Manufacturing", angle: 135, icon: "🏭" },
+                  { label: "Telco", angle: 180, icon: "📡" },
+                  { label: "Finance & Insurance", angle: 225, icon: "💰" }
+                ].map((item, index) => {
+                  const rad = (item.angle * Math.PI) / 180;
+                  const x = 250 + 200 * Math.cos(rad);
+                  const y = 250 + 200 * Math.sin(rad);
+                  return (
+                    <g key={index} className="expertise-node">
+                      {/* Node circle */}
+                      <circle cx={x} cy={y} r="10" fill="#328CC1" />
+                      {/* Label - positioned outside the circle */}
+                      <text 
+                        x={x} 
+                        y={y - 20} 
+                        textAnchor="middle" 
+                        className="text-[12px] fill-[#0B1F3B] font-medium"
+                        style={{ 
+                          transform: `rotate(${-item.angle}deg)`,
+                          transformOrigin: `${x}px ${y}px`,
+                          transformBox: 'fill-box'
+                        }}
+                      >
+                        {item.label}
+                      </text>
+                    </g>
+                  );
+                })}
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <style>{`
+          .expertise-rotating-ring {
+            animation: expertiseRotate 60s linear infinite;
+            transform-origin: center center;
+          }
+          
+          @keyframes expertiseRotate {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          
+          /* Counter-rotate the text labels to keep them readable */
+          .expertise-node text {
+            animation: expertiseCounterRotate 60s linear infinite;
+          }
+          
+          @keyframes expertiseCounterRotate {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(-360deg);
+            }
+          }
+        `}</style>
+      </section>
       {/* <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="flex items-center justify-between mb-8">
