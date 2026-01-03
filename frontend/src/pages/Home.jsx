@@ -519,24 +519,25 @@ const Home = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Radio, title: "Telco" },
-                  { icon: ShieldCheck, title: "Finance & Insurance" },
-                  { icon: GraduationCap, title: "Education" },
-                  { icon: Scale, title: "Legal" },
-                  { icon: Code2, title: "Software & Technology" },
-                  { icon: Factory, title: "Manufacturing" },
-                  { icon: Landmark, title: "Government" },
-                  { icon: HeartPulse, title: "Healthcare" }
+                  { icon: Radio, title: "Telco", link: "/solutions/industry/telco" },
+                  { icon: ShieldCheck, title: "Finance & Insurance", link: "/solutions/industry/finance-insurance" },
+                  { icon: GraduationCap, title: "Education", link: "/solutions/industry/education" },
+                  { icon: Scale, title: "Legal", link: "/solutions/industry/legal" },
+                  { icon: Code2, title: "Software & Technology", link: "/solutions/industry/software-technology" },
+                  { icon: Factory, title: "Manufacturing", link: "/solutions/industry/manufacturing" },
+                  { icon: Landmark, title: "Government", link: "/solutions/industry/government" },
+                  { icon: HeartPulse, title: "Healthcare", link: "/solutions/industry/healthcare" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
-                  <div 
+                  <Link 
+                    to={service.link}
                     key={index}
                     className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-md transition-all"
                   >
                     <IconComponent className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
                     <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
-                  </div>
+                  </Link>
                 )})}
               </div>
             </div>
