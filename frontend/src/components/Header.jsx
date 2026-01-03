@@ -119,13 +119,57 @@ const Header = () => {
 
       <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-[#0B1F3B] flex items-center">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_803ee59b-aaf5-4c28-b24a-8a1e0b32e8ce/artifacts/3ukkumrz_logo-main.png" 
-              alt="BluBridge" 
-              className="h-10 object-contain" 
-            />
+          {/* Logo with Anthropic-style scroll behavior */}
+          <Link to="/" className="relative flex items-center" style={{ width: '180px', height: '40px' }}>
+            {/* Full wordmark - visible at top */}
+            <div 
+              className="absolute inset-0 flex items-center"
+              style={{
+                opacity: isScrolled ? 0 : (hasAnimated ? 1 : 0),
+                transform: isScrolled 
+                  ? 'translateY(-8px)' 
+                  : (hasAnimated ? 'translateY(0)' : 'translateY(8px)'),
+                transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+                pointerEvents: isScrolled ? 'none' : 'auto'
+              }}
+            >
+              <span 
+                style={{
+                  fontFamily: '"DM Sans", -apple-system, BlinkMacSystemFont, sans-serif',
+                  fontSize: '26px',
+                  fontWeight: '500',
+                  letterSpacing: '-0.5px',
+                  color: '#0B1F3B',
+                  background: 'transparent'
+                }}
+              >
+                BLUBRIDGE
+              </span>
+            </div>
+            
+            {/* Compact wordmark - visible on scroll */}
+            <div 
+              className="absolute inset-0 flex items-center"
+              style={{
+                opacity: isScrolled ? 1 : 0,
+                transform: isScrolled ? 'translateY(0)' : 'translateY(8px)',
+                transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+                pointerEvents: isScrolled ? 'auto' : 'none'
+              }}
+            >
+              <span 
+                style={{
+                  fontFamily: '"DM Sans", -apple-system, BlinkMacSystemFont, sans-serif',
+                  fontSize: '22px',
+                  fontWeight: '500',
+                  letterSpacing: '-0.3px',
+                  color: '#0B1F3B',
+                  background: 'transparent'
+                }}
+              >
+                BLUBRIDGE
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
