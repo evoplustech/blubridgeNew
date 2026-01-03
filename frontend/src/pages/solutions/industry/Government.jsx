@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
@@ -6,176 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid, Cpu } from 'lucide
 
 const Government = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const canvasRef = useRef(null);
-
-  // Animated parallax for hero section
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-
-    const animate = () => {
-      time += 0.004;
-      setOffset({
-        x: Math.sin(time) * 8,
-        y: Math.cos(time * 0.7) * 6
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
-
-  // Canvas animation for government building/pillars visual
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawGovernmentForms = () => {
-      time += 0.008;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-      const centerX = width * 0.5;
-      const baseY = height * 0.85;
-
-      // Draw classical pillars
-      const pillarCount = 5;
-      const pillarSpacing = width * 0.15;
-      const startX = centerX - (pillarCount - 1) * pillarSpacing / 2;
-
-      for (let i = 0; i < pillarCount; i++) {
-        const pillarX = startX + i * pillarSpacing;
-        const pillarHeight = 200 + Math.sin(time + i * 0.5) * 10;
-        const pillarWidth = 30;
-        const pillarY = baseY - pillarHeight;
-
-        // Pillar gradient
-        const pillarGradient = ctx.createLinearGradient(pillarX - pillarWidth/2, pillarY, pillarX + pillarWidth/2, baseY);
-        pillarGradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
-        pillarGradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.25)');
-        pillarGradient.addColorStop(1, 'rgba(59, 130, 246, 0.15)');
-
-        // Main pillar body
-        ctx.fillStyle = pillarGradient;
-        ctx.beginPath();
-        ctx.roundRect(pillarX - pillarWidth/2, pillarY, pillarWidth, pillarHeight, [4, 4, 0, 0]);
-        ctx.fill();
-
-        // Pillar capital (top)
-        ctx.fillStyle = 'rgba(96, 165, 250, 0.4)';
-        ctx.beginPath();
-        ctx.roundRect(pillarX - pillarWidth/2 - 5, pillarY - 15, pillarWidth + 10, 15, [3, 3, 0, 0]);
-        ctx.fill();
-
-        // Pillar base
-        ctx.fillStyle = 'rgba(96, 165, 250, 0.3)';
-        ctx.beginPath();
-        ctx.roundRect(pillarX - pillarWidth/2 - 5, baseY, pillarWidth + 10, 12, [0, 0, 3, 3]);
-        ctx.fill();
-
-        // Vertical lines on pillar (fluting)
-        ctx.strokeStyle = 'rgba(147, 197, 253, 0.2)';
-        ctx.lineWidth = 1;
-        for (let j = -2; j <= 2; j++) {
-          ctx.beginPath();
-          ctx.moveTo(pillarX + j * 5, pillarY + 5);
-          ctx.lineTo(pillarX + j * 5, baseY - 5);
-          ctx.stroke();
-        }
-      }
-
-      // Draw triangular pediment (roof)
-      const pedimentWidth = (pillarCount - 1) * pillarSpacing + 80;
-      const pedimentHeight = 60;
-      const pedimentY = baseY - 220;
-
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.3)';
-      ctx.beginPath();
-      ctx.moveTo(centerX - pedimentWidth/2, pedimentY);
-      ctx.lineTo(centerX, pedimentY - pedimentHeight);
-      ctx.lineTo(centerX + pedimentWidth/2, pedimentY);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.strokeStyle = 'rgba(96, 165, 250, 0.5)';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Draw entablature (horizontal beam below pediment)
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.25)';
-      ctx.fillRect(centerX - pedimentWidth/2 - 10, pedimentY, pedimentWidth + 20, 15);
-
-      // Draw base platform
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.2)';
-      ctx.fillRect(centerX - pedimentWidth/2 - 30, baseY + 12, pedimentWidth + 60, 20);
-
-      // Draw steps
-      for (let i = 0; i < 3; i++) {
-        const stepWidth = pedimentWidth + 80 + i * 40;
-        const stepY = baseY + 32 + i * 12;
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.15 - i * 0.03})`;
-        ctx.fillRect(centerX - stepWidth/2, stepY, stepWidth, 12);
-      }
-
-      // Draw floating data elements
-      for (let i = 0; i < 12; i++) {
-        const particleX = (Math.sin(time * 0.5 + i * 2) + 1) * width * 0.5;
-        const particleY = (Math.cos(time * 0.3 + i * 1.5) + 1) * height * 0.35 + height * 0.05;
-        const size = 2 + Math.sin(time + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(particleX, particleY, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(96, 165, 250, ${0.4 + Math.sin(time * 2 + i) * 0.2})`;
-        ctx.fill();
-      }
-
-      // Draw connecting data lines
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.1)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 6; i++) {
-        const startY = height * 0.1 + i * height * 0.12;
-        ctx.beginPath();
-        ctx.moveTo(0, startY + Math.sin(time + i) * 10);
-        ctx.lineTo(width, startY + Math.cos(time + i) * 10);
-        ctx.stroke();
-      }
-
-      // Draw digital overlay effect on building
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 8; i++) {
-        const y = pedimentY - 30 + i * 30;
-        ctx.beginPath();
-        ctx.moveTo(centerX - pedimentWidth/2 + 20, y);
-        ctx.lineTo(centerX + pedimentWidth/2 - 20, y);
-        ctx.stroke();
-      }
-
-      animationFrame = requestAnimationFrame(drawGovernmentForms);
-    };
-
-    resize();
-    drawGovernmentForms();
-
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -185,41 +15,35 @@ const Government = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* ANIMATED HERO SECTION */}
+      {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
-        
-        {/* Animated government forms canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-80"
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            pointerEvents: 'none',
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.5s ease-out'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/glxuqiod_b5.png)'
           }}
         />
-
-        {/* Ambient glow - adjusted for light theme */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/85 via-[#0B1F3B]/60 to-transparent" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               GOVERNMENT
             </h1>
-            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               BluBridge provides secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#0B1F3B] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-            <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
-                  Contact <ArrowRight className="w-4 h-4" />
+              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -259,7 +83,7 @@ const Government = () => {
             <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">BUILD A MODERN, DIGITAL PUBLIC SECTOR</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
             <p className="text-base text-[#6B7280] max-w-3xl">
-              BluBridge’s GPU cloud helps public sector organisations enhance efficiency, improve service quality, and introduce innovative AI-driven solutions across various government functions.
+              BluBridge's GPU cloud helps public sector organisations enhance efficiency, improve service quality, and introduce innovative AI-driven solutions across various government functions.
             </p>
           </div>
 
