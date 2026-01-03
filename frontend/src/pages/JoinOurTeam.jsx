@@ -5,25 +5,27 @@ const JoinOurTeam = () => {
   useDocumentTitle('Join our Research Team - BluBridge');
 
   return (
-    <div style={{ backgroundColor: '#f3f1e9', minHeight: '100vh', paddingTop: '100px', paddingBottom: '60px' }}>
+    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '100px', paddingBottom: '60px' }}>
       <div style={{ 
-        maxWidth: '900px', 
+        maxWidth: '1000px', 
         margin: '0 auto', 
-        padding: '40px 50px',
-        backgroundColor: '#f3f1e9',
-        fontFamily: 'Georgia, "Times New Roman", serif'
+        padding: '35px 45px 45px 45px',
+        backgroundColor: '#faf8f2',
+        border: '1px solid #e8e6de',
+        fontFamily: '"Times New Roman", Times, Georgia, serif'
       }}>
         {/* Main Title */}
         <h1 style={{ 
           textAlign: 'center', 
-          fontSize: '28px', 
+          fontSize: '26px', 
           fontWeight: 'bold', 
           color: '#000',
           textDecoration: 'underline',
-          textDecorationThickness: '2px',
-          textUnderlineOffset: '4px',
-          marginBottom: '8px',
-          fontFamily: 'Georgia, "Times New Roman", serif'
+          textDecorationThickness: '1.5px',
+          textUnderlineOffset: '3px',
+          marginBottom: '6px',
+          fontFamily: '"Times New Roman", Times, Georgia, serif',
+          fontStyle: 'italic'
         }}>
           Joining our Deep Learning Research Team
         </h1>
@@ -31,195 +33,200 @@ const JoinOurTeam = () => {
         {/* Subtitle */}
         <h2 style={{ 
           textAlign: 'center', 
-          fontSize: '22px', 
+          fontSize: '20px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '30px',
-          fontFamily: 'Georgia, "Times New Roman", serif'
+          marginBottom: '25px',
+          fontFamily: '"Times New Roman", Times, Georgia, serif'
         }}>
           What You Need to Know ?
         </h2>
 
         {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #d0d0d0', margin: '20px 0 25px 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '0 0 20px 0' }} />
 
         {/* Section a) */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '8px' }}>
           <h3 style={{ 
-            fontSize: '17px', 
+            fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '8px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            marginBottom: '6px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             a) Are we a startup?
           </h3>
           <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.6',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            paddingLeft: '18px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.5',
+            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            marginBottom: '0'
           }}>
             <strong>No.</strong> We are a <strong>Deep Learning Research Organization,</strong> not a startup.
           </p>
         </div>
 
         {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #d0d0d0', margin: '20px 0 25px 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '16px 0' }} />
 
         {/* Section b) */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '8px' }}>
           <h3 style={{ 
-            fontSize: '17px', 
+            fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '8px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            marginBottom: '6px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             b) Who is funding us?
           </h3>
           <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.6',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            paddingLeft: '18px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.5',
+            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            marginBottom: '0'
           }}>
             We are entirely <strong>self-funded.</strong>
           </p>
         </div>
 
         {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #d0d0d0', margin: '20px 0 25px 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '16px 0' }} />
 
         {/* Section c) */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '8px' }}>
           <h3 style={{ 
-            fontSize: '17px', 
+            fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '8px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            marginBottom: '6px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             c) Am I eligible to apply?
           </h3>
           <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.6',
-            marginBottom: '12px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            paddingLeft: '18px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.5',
+            marginBottom: '8px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             Ask yourself the following:
           </p>
           <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.8',
+            paddingLeft: '36px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>Do I truly understand the <strong>depth of Deep Learning research?</strong></li>
-            <li style={{ marginBottom: '6px' }}>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
-            <li style={{ marginBottom: '6px' }}>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
+            <li style={{ marginBottom: '3px' }}>Do I truly understand the <strong>depth of Deep Learning research?</strong></li>
+            <li style={{ marginBottom: '3px' }}>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
+            <li style={{ marginBottom: '3px' }}>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
           </ul>
         </div>
 
         {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #d0d0d0', margin: '20px 0 25px 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '16px 0' }} />
 
         {/* Section d) */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '8px' }}>
           <h3 style={{ 
-            fontSize: '17px', 
+            fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '12px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            marginBottom: '8px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             d) Where do I begin? What should I study for the interview?
           </h3>
           <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.8',
+            paddingLeft: '36px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>Begin by appearing for the <strong>initial interview rounds.</strong></li>
-            <li style={{ marginBottom: '6px' }}>If selected, you'll be invited to a <strong>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
-            <li style={{ marginBottom: '6px' }}>You'll get <strong>up to a month</strong> to prepare.</li>
-            <li style={{ marginBottom: '6px' }}>Final selection is based on a <strong>Maths for Deep Learning</strong> test.</li>
+            <li style={{ marginBottom: '3px' }}>Begin by appearing for the <strong>initial interview rounds.</strong></li>
+            <li style={{ marginBottom: '3px' }}>If selected, you'll be invited to a <strong>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
+            <li style={{ marginBottom: '3px' }}>You'll get <strong>up to a month</strong> to prepare.</li>
+            <li style={{ marginBottom: '3px' }}>Final selection is based on a <strong>Maths for Deep Learning</strong> test.</li>
           </ul>
         </div>
 
         {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #d0d0d0', margin: '20px 0 25px 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '16px 0' }} />
 
         {/* Section e) */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '8px' }}>
           <h3 style={{ 
-            fontSize: '17px', 
+            fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '8px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            marginBottom: '6px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             e) How is the pay?
           </h3>
           <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.6',
-            marginBottom: '12px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            paddingLeft: '18px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.5',
+            marginBottom: '8px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             We offer competitive compensation, but ask you to consider:
           </p>
           <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.8',
+            paddingLeft: '36px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>You'll be working on Deep Learning from first principles — how many organizations offer that?</li>
-            <li style={{ marginBottom: '6px' }}>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
-            <li style={{ marginBottom: '6px' }}>Building from "first principles" is not the same as starting "from scratch."</li>
-            <li style={{ marginBottom: '6px' }}>
+            <li style={{ marginBottom: '3px' }}>You'll be working on Deep Learning from first principles — how many organizations offer that?</li>
+            <li style={{ marginBottom: '3px' }}>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
+            <li style={{ marginBottom: '3px' }}>Building from "first principles" is not the same as starting "from scratch."</li>
+            <li style={{ marginBottom: '3px' }}>
               If you were to study this in a university:
               <ul style={{ 
-                paddingLeft: '25px', 
-                marginTop: '8px',
+                paddingLeft: '20px', 
+                marginTop: '6px',
                 listStyleType: 'none',
-                fontFamily: 'Georgia, "Times New Roman", serif'
+                fontFamily: '"Times New Roman", Times, Georgia, serif'
               }}>
-                <li style={{ marginBottom: '4px' }}>► You'd likely go abroad (e.g., the US),</li>
-                <li style={{ marginBottom: '4px' }}>► Pay for a Master's degree,</li>
-                <li style={{ marginBottom: '4px' }}>► Learn theory & practical without real-world application.</li>
+                <li style={{ marginBottom: '2px' }}>► You'd likely go abroad (e.g., the US),</li>
+                <li style={{ marginBottom: '2px' }}>► Pay for a Master's degree,</li>
+                <li style={{ marginBottom: '2px' }}>► Learn theory & practical without real-world application.</li>
               </ul>
             </li>
           </ul>
           
           {/* Lightbulb callout */}
           <div style={{ 
-            paddingLeft: '20px', 
-            marginTop: '16px',
+            paddingLeft: '18px', 
+            marginTop: '12px',
             display: 'flex',
             alignItems: 'flex-start',
-            gap: '8px',
-            fontSize: '15px',
-            color: '#333',
-            lineHeight: '1.6',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            gap: '6px',
+            fontSize: '14px',
+            color: '#222',
+            lineHeight: '1.5',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
-            <span style={{ fontSize: '18px', color: '#f0c000' }}>💡</span>
+            <span style={{ fontSize: '16px', color: '#f0c000', flexShrink: 0 }}>💡</span>
             <span>
               <strong>If compensation is your main driver,</strong> you will find better-paying jobs. We are seeking <strong>like-minded individuals</strong> who value the mission over money.
             </span>
@@ -227,57 +234,59 @@ const JoinOurTeam = () => {
         </div>
 
         {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #d0d0d0', margin: '20px 0 25px 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '16px 0' }} />
 
         {/* Section f) */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '8px' }}>
           <h3 style={{ 
-            fontSize: '17px', 
+            fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '12px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            marginBottom: '8px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             f) Why is this opportunity unique?
           </h3>
           <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.8',
+            paddingLeft: '36px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>We offer a <strong>rare research environment</strong> focused solely on <strong>foundation model development.</strong></li>
-            <li style={{ marginBottom: '6px' }}>We're assembling a team of <strong>passionate, like-minded individuals</strong></li>
-            <li style={{ marginBottom: '6px' }}>Whether you're a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong>Large Language Models,</strong> you're welcome to apply.</li>
+            <li style={{ marginBottom: '3px' }}>We offer a <strong>rare research environment</strong> focused solely on <strong>foundation model development.</strong></li>
+            <li style={{ marginBottom: '3px' }}>We're assembling a team of <strong>passionate, like-minded individuals</strong></li>
+            <li style={{ marginBottom: '3px' }}>Whether you're a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong>Large Language Models,</strong> you're welcome to apply.</li>
           </ul>
         </div>
 
         {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #d0d0d0', margin: '20px 0 25px 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '16px 0' }} />
 
         {/* Section g) */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '0' }}>
           <h3 style={{ 
-            fontSize: '17px', 
+            fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '12px',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            marginBottom: '8px',
+            fontFamily: '"Times New Roman", Times, Georgia, serif'
           }}>
             g) Who should not apply?
           </h3>
           <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '15px', 
-            color: '#333', 
-            lineHeight: '1.8',
+            paddingLeft: '36px', 
+            fontSize: '14px', 
+            color: '#222', 
+            lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: 'Georgia, "Times New Roman", serif'
+            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>Those looking for a <strong>routine 9-to-5 job</strong></li>
-            <li style={{ marginBottom: '6px' }}>Anyone who <strong>struggled with 12th-grade mathematics</strong></li>
+            <li style={{ marginBottom: '3px' }}>Those looking for a <strong>routine 9-to-5 job</strong></li>
+            <li style={{ marginBottom: '3px' }}>Anyone who <strong>struggled with 12th-grade mathematics</strong></li>
           </ul>
         </div>
       </div>

@@ -543,12 +543,12 @@ const Training = () => {
             
             {/* GPU Server Rack Visual */}
             <div className="relative">
-              <div className=" rounded-xl  p-6 aspect-video flex items-center justify-center overflow-hidden">
+              <div className=" rounded-xl  p-6 flex items-center justify-center overflow-hidden">
                 <div className="text-center">
                   <img
                       src="/images/gpu.png"
                       alt="Modern GPU Server Racks"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   {/* Stylized server rack representation */}
                   {/* <div className="grid grid-cols-4 gap-2 mb-4">
