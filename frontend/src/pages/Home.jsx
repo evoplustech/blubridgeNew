@@ -437,12 +437,10 @@ const Home = () => {
             }
           }
         `}</style>
-      </section>;
-            }
-          }
-        `}</style>
       </section>
-      {/* <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
+
+      {/* News/Updates Strip (commented out)
+        <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-lg font-medium text-[#0B1F3B]">Latest News</h3>
