@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
@@ -6,228 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid, Cpu } from 'lucide
 
 const Manufacturing = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const canvasRef = useRef(null);
-
-  // Animated parallax for hero section
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-
-    const animate = () => {
-      time += 0.005;
-      setOffset({
-        x: Math.sin(time) * 10,
-        y: Math.cos(time * 0.7) * 8
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
-
-  // Canvas animation for industrial/manufacturing forms
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawManufacturingForms = () => {
-      time += 0.01;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-      const centerX = width * 0.5;
-      const centerY = height * 0.45;
-
-      // Draw robotic arm base
-      const baseX = centerX;
-      const baseY = height * 0.75;
-      const armAngle = Math.sin(time * 0.5) * 0.3;
-
-      // Base platform
-      ctx.fillStyle = 'rgba(245, 158, 11, 0.2)';
-      ctx.beginPath();
-      ctx.ellipse(baseX, baseY, 60, 15, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Arm segments
-      const segment1Length = 100;
-      const segment2Length = 80;
-      const segment1Angle = -Math.PI / 3 + armAngle;
-      const segment2Angle = segment1Angle + Math.PI / 4 + Math.sin(time * 0.7) * 0.2;
-
-      const joint1X = baseX + Math.cos(segment1Angle) * segment1Length;
-      const joint1Y = baseY + Math.sin(segment1Angle) * segment1Length;
-      const joint2X = joint1X + Math.cos(segment2Angle) * segment2Length;
-      const joint2Y = joint1Y + Math.sin(segment2Angle) * segment2Length;
-
-      // Draw arm segment 1
-      ctx.strokeStyle = 'rgba(245, 158, 11, 0.5)';
-      ctx.lineWidth = 12;
-      ctx.lineCap = 'round';
-      ctx.beginPath();
-      ctx.moveTo(baseX, baseY - 10);
-      ctx.lineTo(joint1X, joint1Y);
-      ctx.stroke();
-
-      // Draw arm segment 2
-      ctx.lineWidth = 8;
-      ctx.beginPath();
-      ctx.moveTo(joint1X, joint1Y);
-      ctx.lineTo(joint2X, joint2Y);
-      ctx.stroke();
-
-      // Joints
-      ctx.fillStyle = 'rgba(251, 191, 36, 0.6)';
-      ctx.beginPath();
-      ctx.arc(baseX, baseY - 10, 15, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(joint1X, joint1Y, 10, 0, Math.PI * 2);
-      ctx.fill();
-
-      // End effector / gripper
-      const gripperOpen = Math.sin(time * 2) * 5 + 10;
-      ctx.strokeStyle = 'rgba(245, 158, 11, 0.6)';
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.moveTo(joint2X, joint2Y);
-      ctx.lineTo(joint2X - gripperOpen, joint2Y + 20);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(joint2X, joint2Y);
-      ctx.lineTo(joint2X + gripperOpen, joint2Y + 20);
-      ctx.stroke();
-
-      // Draw conveyor belt
-      const conveyorY = height * 0.85;
-      ctx.fillStyle = 'rgba(107, 114, 128, 0.3)';
-      ctx.fillRect(0, conveyorY, width, 20);
-      
-      // Conveyor belt segments
-      const beltSegments = 12;
-      for (let i = 0; i < beltSegments; i++) {
-        const segX = ((time * 50 + i * (width / beltSegments)) % width);
-        ctx.fillStyle = 'rgba(156, 163, 175, 0.4)';
-        ctx.fillRect(segX, conveyorY + 2, 8, 16);
-      }
-
-      // Draw floating factory elements
-      const factoryElements = [
-        { x: centerX - 120, y: centerY - 100, type: 'gear' },
-        { x: centerX + 100, y: centerY - 60, type: 'box' },
-        { x: centerX - 80, y: centerY + 30, type: 'sensor' },
-        { x: centerX + 80, y: centerY + 50, type: 'gear' }
-      ];
-
-      factoryElements.forEach((elem, i) => {
-        const floatOffset = Math.sin(time + i * 1.5) * 12;
-        const elemX = elem.x;
-        const elemY = elem.y + floatOffset;
-
-        if (elem.type === 'gear') {
-          // Draw gear
-          const gearRadius = 20;
-          const teeth = 8;
-          ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.arc(elemX, elemY, gearRadius - 5, 0, Math.PI * 2);
-          ctx.stroke();
-          
-          // Gear teeth
-          for (let t = 0; t < teeth; t++) {
-            const angle = (t / teeth) * Math.PI * 2 + time;
-            ctx.beginPath();
-            ctx.moveTo(
-              elemX + Math.cos(angle) * (gearRadius - 5),
-              elemY + Math.sin(angle) * (gearRadius - 5)
-            );
-            ctx.lineTo(
-              elemX + Math.cos(angle) * (gearRadius + 5),
-              elemY + Math.sin(angle) * (gearRadius + 5)
-            );
-            ctx.stroke();
-          }
-        } else if (elem.type === 'box') {
-          // Draw product box
-          ctx.fillStyle = 'rgba(245, 158, 11, 0.2)';
-          ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.roundRect(elemX - 15, elemY - 15, 30, 30, 4);
-          ctx.fill();
-          ctx.stroke();
-        } else if (elem.type === 'sensor') {
-          // Draw sensor/camera
-          ctx.fillStyle = 'rgba(59, 130, 246, 0.3)';
-          ctx.beginPath();
-          ctx.arc(elemX, elemY, 12, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.strokeStyle = 'rgba(59, 130, 246, 0.5)';
-          ctx.stroke();
-          
-          // Sensor beam
-          ctx.strokeStyle = `rgba(59, 130, 246, ${0.2 + Math.sin(time * 3) * 0.1})`;
-          ctx.beginPath();
-          ctx.moveTo(elemX, elemY + 12);
-          ctx.lineTo(elemX - 30, elemY + 50);
-          ctx.lineTo(elemX + 30, elemY + 50);
-          ctx.closePath();
-          ctx.stroke();
-        }
-      });
-
-      // Draw data particles
-      for (let i = 0; i < 15; i++) {
-        const particleX = (Math.sin(time * 0.4 + i * 2.5) + 1) * width * 0.5;
-        const particleY = (Math.cos(time * 0.3 + i * 1.8) + 1) * height * 0.35 + height * 0.1;
-        const size = 2 + Math.sin(time + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(particleX, particleY, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245, 158, 11, ${0.3 + Math.sin(time * 2 + i) * 0.2})`;
-        ctx.fill();
-      }
-
-      // Draw grid lines
-      ctx.strokeStyle = 'rgba(245, 158, 11, 0.08)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 6; i++) {
-        const gridY = height * 0.2 + i * height * 0.12;
-        ctx.beginPath();
-        ctx.moveTo(0, gridY);
-        ctx.lineTo(width, gridY);
-        ctx.stroke();
-      }
-
-      animationFrame = requestAnimationFrame(drawManufacturingForms);
-    };
-
-    resize();
-    drawManufacturingForms();
-
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -237,41 +15,35 @@ const Manufacturing = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* ANIMATED HERO SECTION */}
+      {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
-        
-        {/* Animated manufacturing forms canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-80"
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            pointerEvents: 'none',
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.5s ease-out'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/p2erprfm_b4.png)'
           }}
         />
-
-        {/* Ambient glow - adjusted for light theme */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/85 via-[#0B1F3B]/60 to-transparent" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               MANUFACTURING
             </h1>
-            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              BluBridge’s cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+              BluBridge's cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#0B1F3B] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-               <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
-                  Contact <ArrowRight className="w-4 h-4" />
+              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
+                Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -311,7 +83,7 @@ const Manufacturing = () => {
             <p className="text-amber-500 text-sm font-medium mb-3 uppercase tracking-wider">STREAMLINE OPERATIONS</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Example uses</h2>
             <p className="text-base text-[#6B7280] max-w-3xl">
-              BluBridge’s AI platform combines industry-leading GPU technology with a fully optimised software stack, enabling manufacturers to improve core activities like supply chain coordination, quality assurance, and product design.
+              BluBridge's AI platform combines industry-leading GPU technology with a fully optimised software stack, enabling manufacturers to improve core activities like supply chain coordination, quality assurance, and product design.
             </p>
           </div>
 
