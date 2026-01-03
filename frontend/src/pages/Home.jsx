@@ -356,48 +356,46 @@ const Home = () => {
               <span className="text-white text-sm font-medium text-center leading-tight">Our AI<br/>Expertise</span>
             </div>
             
-            {/* Rotating Outer Ring */}
+            {/* Rotating Outer Ring with Nodes */}
             <div className="expertise-rotating-ring absolute inset-0">
-              <svg className="w-full h-full" viewBox="0 0 500 500">
-                {/* Outer circle track */}
+              {/* Circle track (SVG) */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 500">
                 <circle cx="250" cy="250" r="200" fill="none" stroke="#D6DEC3" strokeWidth="1" />
-                
-                {/* Rotating industry labels and nodes */}
-                {[
-                  { label: "Education", angle: -90, icon: "🎓" },
-                  { label: "Software & Technology", angle: -45, icon: "💻" },
-                  { label: "Government", angle: 0, icon: "🏛️" },
-                  { label: "Healthcare", angle: 45, icon: "🏥" },
-                  { label: "Legal", angle: 90, icon: "⚖️" },
-                  { label: "Manufacturing", angle: 135, icon: "🏭" },
-                  { label: "Telco", angle: 180, icon: "📡" },
-                  { label: "Finance & Insurance", angle: 225, icon: "💰" }
-                ].map((item, index) => {
-                  const rad = (item.angle * Math.PI) / 180;
-                  const x = 250 + 200 * Math.cos(rad);
-                  const y = 250 + 200 * Math.sin(rad);
-                  return (
-                    <g key={index} className="expertise-node">
-                      {/* Node circle */}
-                      <circle cx={x} cy={y} r="10" fill="#328CC1" />
-                      {/* Label - positioned outside the circle */}
-                      <text 
-                        x={x} 
-                        y={y - 20} 
-                        textAnchor="middle" 
-                        className="text-[12px] fill-[#0B1F3B] font-medium"
-                        style={{ 
-                          transform: `rotate(${-item.angle}deg)`,
-                          transformOrigin: `${x}px ${y}px`,
-                          transformBox: 'fill-box'
-                        }}
-                      >
-                        {item.label}
-                      </text>
-                    </g>
-                  );
-                })}
               </svg>
+              
+              {/* Industry nodes with labels */}
+              {[
+                { label: "Education", angle: -90 },
+                { label: "Software & Technology", angle: -45 },
+                { label: "Government", angle: 0 },
+                { label: "Healthcare", angle: 45 },
+                { label: "Legal", angle: 90 },
+                { label: "Manufacturing", angle: 135 },
+                { label: "Telco", angle: 180 },
+                { label: "Finance & Insurance", angle: 225 }
+              ].map((item, index) => {
+                const rad = (item.angle * Math.PI) / 180;
+                const x = 250 + 200 * Math.cos(rad);
+                const y = 250 + 200 * Math.sin(rad);
+                return (
+                  <div 
+                    key={index}
+                    className="absolute expertise-label-container"
+                    style={{
+                      left: `${x}px`,
+                      top: `${y}px`,
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                  >
+                    {/* Blue dot node */}
+                    <div className="w-5 h-5 rounded-full bg-[#328CC1] mx-auto mb-1"></div>
+                    {/* Label text - counter-rotates to stay readable */}
+                    <span className="expertise-label text-[12px] text-[#0B1F3B] font-medium whitespace-nowrap block text-center">
+                      {item.label}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -417,9 +415,10 @@ const Home = () => {
             }
           }
           
-          /* Counter-rotate the text labels to keep them readable */
-          .expertise-node text {
+          /* Counter-rotate labels to keep them horizontal/readable */
+          .expertise-label {
             animation: expertiseCounterRotate 60s linear infinite;
+            display: inline-block;
           }
           
           @keyframes expertiseCounterRotate {
@@ -428,6 +427,17 @@ const Home = () => {
             }
             to {
               transform: rotate(-360deg);
+            }
+          }
+          
+          /* Responsive adjustments */
+          @media (max-width: 640px) {
+            .expertise-label {
+              font-size: 10px;
+            }
+          }
+        `}</style>
+      </section>;
             }
           }
         `}</style>
