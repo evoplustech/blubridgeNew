@@ -404,15 +404,15 @@ const Training = () => {
       {/* SECTION 2: Performance Metrics Strip */}
       <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Performance</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#000000]">Performance</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {performanceMetrics.map((item, i) => (
               <div key={i} className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-1">
-                  {item.metric} <span className="text-lg font-medium">{item.label}</span>
+                <div className="text-3xl md:text-4xl font-bold text-[#000000] mb-1">
+                  {item.metric} <span className="text-lg font-medium text-[#000000]">{item.label}</span>
                 </div>
-                <p className="text-[#0B1F3B] font-medium mb-1">{item.title}</p>
-                <p className="text-[#2F3A4A] text-sm mb-3">{item.description}</p>
+                <p className="text-[#000000] font-medium mb-1">{item.title}</p>
+                <p className="text-[#000000] text-sm mb-3">{item.description}</p>
                 {/* <Link to={item.link} className="text-[#328CC1] text-sm hover:text-blue-300 flex items-center gap-1 justify-center md:justify-start">
                   Learn More <ArrowRight className="w-3 h-3" />
                 </Link> */}
