@@ -235,9 +235,9 @@ const services = [
             {/* Framework Icons Visualization */}
             <div className="relative flex items-center justify-center">
               <img 
-                src="https://customer-assets.emergentagent.com/job_logo-update-17/artifacts/j856orkr_image.png"
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/2ve3047b_Marketplace.png"
                 alt="Inference frameworks including TensorFlow, PyTorch, ONNX, vLLM and more"
-                className="w-full max-w-md h-auto object-contain"
+                className="w-full h-auto max-h-[500px] object-contain"
               />
             </div>
           </div>
