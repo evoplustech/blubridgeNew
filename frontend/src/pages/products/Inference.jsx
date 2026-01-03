@@ -386,7 +386,7 @@ const services = [
       </section>
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f8f9fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
