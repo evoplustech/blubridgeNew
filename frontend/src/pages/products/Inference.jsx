@@ -289,46 +289,18 @@ const Inference = () => {
               </div>
             </div>
             
-            {/* Right - Hero Image with Internal Object Animations */}
+            {/* Right - Hero Image */}
             <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
               <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                {/* Base image with blending */}
+                {/* Hero image */}
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_logo-update-17/artifacts/jba8s8ic_image.png"
-                  alt="AI inference data flow visualization"
+                  src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/3hcnalr5_infarence.png"
+                  alt="AI inference GPU cluster visualization"
                   className="w-full h-full object-contain relative z-10"
                   style={{
-                    filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.2))',
-                    maskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 65%, transparent 100%)',
-                    WebkitMaskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 65%, transparent 100%)'
+                    filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.3))'
                   }}
                 />
-                
-                {/* Internal object animations - energy beam flow */}
-                <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-                  {/* Energy beam pulse animation */}
-                  <div 
-                    className="absolute top-1/2 left-0 w-full h-[3px] inference-beam-flow"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), rgba(100, 180, 255, 0.8), rgba(59, 130, 246, 0.6), transparent)',
-                      transform: 'translateY(-50%)',
-                      filter: 'blur(1px)'
-                    }}
-                  />
-                  
-                  {/* Node glow pulses - positioned over sphere locations */}
-                  <div className="inference-node-pulse absolute" style={{ left: '20%', top: '45%', width: '40px', height: '40px' }} />
-                  <div className="inference-node-pulse absolute" style={{ left: '35%', top: '48%', width: '50px', height: '50px', animationDelay: '0.3s' }} />
-                  <div className="inference-node-pulse absolute" style={{ left: '50%', top: '50%', width: '60px', height: '60px', animationDelay: '0.6s' }} />
-                  <div className="inference-node-pulse absolute" style={{ left: '65%', top: '48%', width: '50px', height: '50px', animationDelay: '0.9s' }} />
-                  <div className="inference-node-pulse absolute" style={{ left: '78%', top: '45%', width: '40px', height: '40px', animationDelay: '1.2s' }} />
-                  
-                  {/* Data particle flow */}
-                  <div className="inference-particle" style={{ animationDelay: '0s' }} />
-                  <div className="inference-particle" style={{ animationDelay: '0.5s' }} />
-                  <div className="inference-particle" style={{ animationDelay: '1s' }} />
-                  <div className="inference-particle" style={{ animationDelay: '1.5s' }} />
-                </div>
               </div>
             </div>
           </div>
@@ -342,57 +314,6 @@ const Inference = () => {
           @keyframes fadeInRight {
             from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
-          }
-          @keyframes inferenceBeamFlow {
-            0% { opacity: 0; transform: translateY(-50%) translateX(-100%); }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(-50%) translateX(100%); }
-          }
-          @keyframes inferenceNodePulse {
-            0%, 100% { 
-              opacity: 0;
-              transform: translate(-50%, -50%) scale(0.8);
-              box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-            }
-            50% { 
-              opacity: 0.6;
-              transform: translate(-50%, -50%) scale(1.2);
-              box-shadow: 0 0 20px 10px rgba(59, 130, 246, 0.3);
-            }
-          }
-          @keyframes inferenceParticleFlow {
-            0% { 
-              left: 10%;
-              opacity: 0;
-              transform: translateY(-50%) scale(0.5);
-            }
-            10% { opacity: 1; transform: translateY(-50%) scale(1); }
-            90% { opacity: 1; transform: translateY(-50%) scale(1); }
-            100% { 
-              left: 90%;
-              opacity: 0;
-              transform: translateY(-50%) scale(0.5);
-            }
-          }
-          .inference-beam-flow {
-            animation: inferenceBeamFlow 3s ease-in-out infinite;
-          }
-          .inference-node-pulse {
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
-            animation: inferenceNodePulse 2.5s ease-in-out infinite;
-            transform: translate(-50%, -50%);
-          }
-          .inference-particle {
-            position: absolute;
-            top: 50%;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(100, 180, 255, 0.9);
-            box-shadow: 0 0 10px 3px rgba(59, 130, 246, 0.6);
-            animation: inferenceParticleFlow 2.5s ease-in-out infinite;
           }
         `}</style>
       </section>
