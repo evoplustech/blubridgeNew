@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
@@ -6,184 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid, Cpu } from 'lucide
 
 const Legal = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const canvasRef = useRef(null);
-
-  // Animated parallax for hero section
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-
-    const animate = () => {
-      time += 0.005;
-      setOffset({
-        x: Math.sin(time) * 10,
-        y: Math.cos(time * 0.7) * 8
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
-
-  // Canvas animation for abstract gavel/legal geometric forms
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawLegalForms = () => {
-      time += 0.012;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-      const centerX = width * 0.5;
-      const centerY = height * 0.45;
-
-      // Draw abstract gavel head (rectangular block)
-      const gavelWidth = 120;
-      const gavelHeight = 45;
-      const gavelRotation = Math.sin(time * 0.5) * 0.05;
-      
-      ctx.save();
-      ctx.translate(centerX, centerY);
-      ctx.rotate(gavelRotation);
-      
-      // Gavel head gradient
-      const gavelGradient = ctx.createLinearGradient(-gavelWidth/2, -gavelHeight/2, gavelWidth/2, gavelHeight/2);
-      gavelGradient.addColorStop(0, 'rgba(139, 92, 246, 0.4)');
-      gavelGradient.addColorStop(0.5, 'rgba(167, 139, 250, 0.3)');
-      gavelGradient.addColorStop(1, 'rgba(139, 92, 246, 0.2)');
-      
-      ctx.fillStyle = gavelGradient;
-      ctx.beginPath();
-      ctx.roundRect(-gavelWidth/2, -gavelHeight/2, gavelWidth, gavelHeight, 6);
-      ctx.fill();
-      
-      // Gavel highlight
-      ctx.strokeStyle = 'rgba(167, 139, 250, 0.5)';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      
-      ctx.restore();
-
-      // Draw gavel handle
-      ctx.save();
-      ctx.translate(centerX, centerY + gavelHeight/2);
-      ctx.rotate(gavelRotation);
-      
-      const handleGradient = ctx.createLinearGradient(0, 0, 0, 100);
-      handleGradient.addColorStop(0, 'rgba(139, 92, 246, 0.3)');
-      handleGradient.addColorStop(1, 'rgba(139, 92, 246, 0.1)');
-      
-      ctx.fillStyle = handleGradient;
-      ctx.beginPath();
-      ctx.roundRect(-8, 0, 16, 100, 4);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(167, 139, 250, 0.3)';
-      ctx.stroke();
-      
-      ctx.restore();
-
-      // Draw scale of justice (simplified geometric version)
-      const scaleX = centerX + 80;
-      const scaleY = centerY - 80;
-      const scaleOffset = Math.sin(time) * 15;
-
-      // Scale pillar
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.4)';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(scaleX, scaleY - 60);
-      ctx.lineTo(scaleX, scaleY + 60);
-      ctx.stroke();
-
-      // Scale beam
-      ctx.beginPath();
-      ctx.moveTo(scaleX - 60, scaleY - 50 + scaleOffset);
-      ctx.lineTo(scaleX + 60, scaleY - 50 - scaleOffset);
-      ctx.stroke();
-
-      // Scale dishes
-      ctx.fillStyle = 'rgba(99, 102, 241, 0.2)';
-      ctx.beginPath();
-      ctx.arc(scaleX - 55, scaleY - 35 + scaleOffset, 25, 0, Math.PI);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(scaleX + 55, scaleY - 35 - scaleOffset, 25, 0, Math.PI);
-      ctx.fill();
-
-      // Draw floating geometric shapes (law books / documents)
-      for (let i = 0; i < 5; i++) {
-        const x = centerX - 100 + i * 50 + Math.sin(time + i) * 10;
-        const y = centerY + 80 + Math.cos(time + i * 0.5) * 15;
-        const bookHeight = 40 + i * 5;
-        const bookWidth = 25;
-        
-        const bookGradient = ctx.createLinearGradient(x, y, x + bookWidth, y - bookHeight);
-        bookGradient.addColorStop(0, `rgba(99, 102, 241, ${0.15 + i * 0.05})`);
-        bookGradient.addColorStop(1, `rgba(139, 92, 246, ${0.1 + i * 0.03})`);
-        
-        ctx.fillStyle = bookGradient;
-        ctx.beginPath();
-        ctx.roundRect(x, y - bookHeight, bookWidth, bookHeight, 2);
-        ctx.fill();
-        
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.3)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
-
-      // Draw floating particles
-      for (let i = 0; i < 15; i++) {
-        const particleX = (Math.sin(time * 0.4 + i * 2.5) + 1) * width * 0.5;
-        const particleY = (Math.cos(time * 0.3 + i * 1.8) + 1) * height * 0.4 + height * 0.1;
-        const size = 2 + Math.sin(time + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(particleX, particleY, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(167, 139, 250, ${0.3 + Math.sin(time * 2 + i) * 0.2})`;
-        ctx.fill();
-      }
-
-      // Draw connecting mesh lines
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 8; i++) {
-        const startX = width * 0.1 + i * width * 0.1;
-        const startY = height * 0.2 + Math.sin(time + i) * 30;
-        const endX = width * 0.2 + i * width * 0.08;
-        const endY = height * 0.8 + Math.cos(time + i) * 20;
-        
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.quadraticCurveTo(centerX, centerY, endX, endY);
-        ctx.stroke();
-      }
-
-      animationFrame = requestAnimationFrame(drawLegalForms);
-    };
-
-    resize();
-    drawLegalForms();
-
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -193,40 +15,34 @@ const Legal = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* ANIMATED HERO SECTION */}
+      {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
-        
-        {/* Animated legal forms canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-80"
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            pointerEvents: 'none',
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.5s ease-out'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/98b6i769_b1.png)'
           }}
         />
-
-        {/* Ambient glow - adjusted for light theme */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/85 via-[#0B1F3B]/60 to-transparent" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               LEGAL
             </h1>
-            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we offer GPU cluster computing solutions designed to elevate your organisation’s computing capabilities. Our infrastructure supports advanced legal analytics, accelerates case research, and helps legal teams deliver more efficient and impactful services.
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+              At BluBridge, we offer GPU cluster computing solutions designed to elevate your organisation's computing capabilities. Our infrastructure supports advanced legal analytics, accelerates case research, and helps legal teams deliver more efficient and impactful services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#0B1F3B] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
