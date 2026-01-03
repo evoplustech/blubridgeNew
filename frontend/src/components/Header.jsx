@@ -153,7 +153,7 @@ const Header = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/ivtn213o_B-icon.png"
                 alt="BluBridge"
-                className="h-10 object-contain"
+                style={{ height: '40px', width: 'auto', objectFit: 'contain' }}
               />
             </div>
           </Link>
