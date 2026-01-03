@@ -31,7 +31,7 @@ return (
               {/* Join Us */}
             </h1>
             
-            <div className='main-inner'>
+            <div className='main-inner bg-[#fffdf7]'>
                 <div className="rounded-xl p-8 px-9 shadow-lg border border-gray-200/50 inner-page">
                     <h1 className='font-bold text-3xl text-black mb-2'>Join Us</h1>
                     <div style={{ borderTop: '1px solid #eee', marginBottom: '1em' }}></div>
