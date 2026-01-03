@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
@@ -6,123 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-reac
 
 const Telco = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const canvasRef = useRef(null);
-
-  // Animated network mesh visualization for hero
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let nodes = [];
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const initNodes = () => {
-      nodes = [];
-      const nodeCount = 60;
-      for (let i = 0; i < nodeCount; i++) {
-        nodes.push({
-          x: Math.random() * canvas.offsetWidth,
-          y: Math.random() * canvas.offsetHeight,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 2 + 1,
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-    };
-
-    const animate = () => {
-      time += 0.01;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-      // Update and draw nodes
-      nodes.forEach((node, i) => {
-        // Update position with subtle movement
-        node.x += node.vx + Math.sin(time + node.pulse) * 0.2;
-        node.y += node.vy + Math.cos(time + node.pulse) * 0.2;
-
-        // Wrap around edges
-        if (node.x < 0) node.x = canvas.offsetWidth;
-        if (node.x > canvas.offsetWidth) node.x = 0;
-        if (node.y < 0) node.y = canvas.offsetHeight;
-        if (node.y > canvas.offsetHeight) node.y = 0;
-
-        // Draw connections to nearby nodes
-        nodes.forEach((other, j) => {
-          if (i === j) return;
-          const dx = other.x - node.x;
-          const dy = other.y - node.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          if (dist < 120) {
-            const alpha = (1 - dist / 120) * 0.3;
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(node.x, node.y);
-            ctx.lineTo(other.x, other.y);
-            ctx.stroke();
-          }
-        });
-
-        // Draw node with pulse effect
-        const pulseSize = Math.sin(time * 2 + node.pulse) * 0.5 + 1;
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.6 + Math.sin(time + node.pulse) * 0.2})`;
-        ctx.fill();
-
-        // Draw glow
-        const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.radius * 4);
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius * 4, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      });
-
-      // Draw moving signal lines
-      for (let i = 0; i < 3; i++) {
-        const progress = ((time * 0.5 + i * 0.33) % 1);
-        const startNode = nodes[i * 10 % nodes.length];
-        const endNode = nodes[(i * 10 + 5) % nodes.length];
-        if (startNode && endNode) {
-          const x = startNode.x + (endNode.x - startNode.x) * progress;
-          const y = startNode.y + (endNode.y - startNode.y) * progress;
-          
-          ctx.beginPath();
-          ctx.arc(x, y, 3, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(96, 165, 250, 0.8)';
-          ctx.fill();
-        }
-      }
-
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    resize();
-    initNodes();
-    animate();
-
-    window.addEventListener('resize', () => {
-      resize();
-      initNodes();
-    });
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -132,38 +15,36 @@ const Telco = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* ANIMATED HERO SECTION - Network mesh visualization */}
+      {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
-        
-        {/* Animated canvas for network visualization */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[60%] h-full opacity-70"
-          style={{ pointerEvents: 'none' }}
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/atc1dacp_Telco.png)'
+          }}
         />
-
-        {/* Additional ambient glow - adjusted for light theme */}
-        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '4s' }} />
+        
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/85 via-[#0B1F3B]/60 to-transparent" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               TELCO
             </h1>
-            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               BluBridge provides telecommunications providers with the infrastructure and expertise to support a wide range of AI-based services and solutions. With high-performance GPU clusters and scalable architecture, telco companies can enhance network performance, improve customer experience, and deploy advanced automation tools powered by artificial intelligence. The infrastructure also supports modern telecom needs such as 5G and edge computing.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#0B1F3B] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-             <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+             <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
-</Link>
+              </Link>
             </div>
           </div>
         </div>
