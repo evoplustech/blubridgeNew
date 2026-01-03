@@ -13,7 +13,6 @@ import {
   Landmark
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 /* ------------------------------------------------------------------
    AI Expertise Orbit – merged (CSS-driven, zero JS animation logic)
