@@ -529,7 +529,7 @@ const Training = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
-                Industry leading GPU<br />clusters at all scales
+                Industry leading GPU sdfsdfsdfsdfsdfs<br />clusters at all scales
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
@@ -545,8 +545,13 @@ const Training = () => {
             <div className="relative">
               <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
                 <div className="text-center">
+                  <img
+                      src="/images/gpu.png"
+                      alt="Modern GPU Server Racks"
+                      className="w-full h-full object-cover"
+                    />
                   {/* Stylized server rack representation */}
-                  <div className="grid grid-cols-4 gap-2 mb-4">
+                  {/* <div className="grid grid-cols-4 gap-2 mb-4">
                     {[...Array(16)].map((_, i) => (
                       <div key={i} className="h-8 bg-[#1a1a2e] rounded border border-[#333]/50 flex items-center justify-center">
                         <div className="flex gap-0.5">
@@ -555,8 +560,8 @@ const Training = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                  <p className="text-white/70 text-sm">NVIDIA H100 • H200 • GB200 NVL72</p>
+                  </div> */}
+                  {/* <p className="text-white/70 text-sm">NVIDIA H100 • H200 • GB200 NVL72</p> */}
                 </div>
               </div>
             </div>

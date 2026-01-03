@@ -174,7 +174,7 @@ const Inference = () => {
                   alt="AI inference GPU cluster visualization"
                   className="w-full h-full object-contain relative z-10"
                   style={{
-                    filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.3))'
+                   
                   }}
                 />
               </div>
