@@ -347,6 +347,12 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Inference Clusters - Cinematic Hero Visual Section */}
+      <section className="relative w-full overflow-hidden" style={{ backgroundColor: '#030508' }}>
+        {/* Canvas for animated inference clusters visualization */}
+        <InferenceClustersVisual />
+      </section>
+
       {/* 360° Rotating Circular Expertise Section - Below Hero */}
     
         
