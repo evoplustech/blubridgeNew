@@ -5,14 +5,14 @@ const JoinOurTeam = () => {
   useDocumentTitle('Join our Research Team - BluBridge');
 
   return (
-    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '100px', paddingBottom: '60px' }}>
+    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '50px', paddingBottom: '50px' }}>
       <div style={{ 
         maxWidth: '1000px', 
         margin: '0 auto', 
         padding: '35px 45px 45px 45px',
         backgroundColor: '#faf8f2',
         border: '1px solid #e8e6de',
-        fontFamily: '"Times New Roman", Times, Georgia, serif'
+        
       }}>
         {/* Main Title */}
         <h1 style={{ 
@@ -23,9 +23,7 @@ const JoinOurTeam = () => {
           textDecoration: 'underline',
           textDecorationThickness: '1.5px',
           textUnderlineOffset: '3px',
-          marginBottom: '6px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif',
-          fontStyle: 'italic'
+          marginBottom: '6px'
         }}>
           Joining our Deep Learning Research Team
         </h1>
@@ -36,8 +34,7 @@ const JoinOurTeam = () => {
           fontSize: '20px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '25px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '25px'
         }}>
           What You Need to Know ?
         </h2>
@@ -51,8 +48,7 @@ const JoinOurTeam = () => {
             fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '6px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '6px'
           }}>
             a) Are we a startup?
           </h3>
@@ -61,7 +57,6 @@ const JoinOurTeam = () => {
             fontSize: '14px', 
             color: '#222', 
             lineHeight: '1.5',
-            fontFamily: '"Times New Roman", Times, Georgia, serif',
             marginBottom: '0'
           }}>
             <strong>No.</strong> We are a <strong>Deep Learning Research Organization,</strong> not a startup.
@@ -77,8 +72,7 @@ const JoinOurTeam = () => {
             fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '6px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '6px'
           }}>
             b) Who is funding us?
           </h3>
@@ -87,7 +81,7 @@ const JoinOurTeam = () => {
             fontSize: '14px', 
             color: '#222', 
             lineHeight: '1.5',
-            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            
             marginBottom: '0'
           }}>
             We are entirely <strong>self-funded.</strong>
@@ -103,8 +97,7 @@ const JoinOurTeam = () => {
             fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '6px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '6px'
           }}>
             c) Am I eligible to apply?
           </h3>
@@ -113,8 +106,7 @@ const JoinOurTeam = () => {
             fontSize: '14px', 
             color: '#222', 
             lineHeight: '1.5',
-            marginBottom: '8px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '8px'
           }}>
             Ask yourself the following:
           </p>
@@ -124,7 +116,6 @@ const JoinOurTeam = () => {
             color: '#222', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: '"Times New Roman", Times, Georgia, serif',
             margin: '0'
           }}>
             <li style={{ marginBottom: '3px' }}>Do I truly understand the <strong>depth of Deep Learning research?</strong></li>
@@ -142,8 +133,7 @@ const JoinOurTeam = () => {
             fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '8px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '8px'
           }}>
             d) Where do I begin? What should I study for the interview?
           </h3>
@@ -153,7 +143,7 @@ const JoinOurTeam = () => {
             color: '#222', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: '"Times New Roman", Times, Georgia, serif',
+            
             margin: '0'
           }}>
             <li style={{ marginBottom: '3px' }}>Begin by appearing for the <strong>initial interview rounds.</strong></li>
@@ -172,8 +162,7 @@ const JoinOurTeam = () => {
             fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '6px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '6px'
           }}>
             e) How is the pay?
           </h3>
@@ -182,8 +171,7 @@ const JoinOurTeam = () => {
             fontSize: '14px', 
             color: '#222', 
             lineHeight: '1.5',
-            marginBottom: '8px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '8px'
           }}>
             We offer competitive compensation, but ask you to consider:
           </p>
@@ -193,7 +181,6 @@ const JoinOurTeam = () => {
             color: '#222', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: '"Times New Roman", Times, Georgia, serif',
             margin: '0'
           }}>
             <li style={{ marginBottom: '3px' }}>You'll be working on Deep Learning from first principles — how many organizations offer that?</li>
@@ -204,8 +191,7 @@ const JoinOurTeam = () => {
               <ul style={{ 
                 paddingLeft: '20px', 
                 marginTop: '6px',
-                listStyleType: 'none',
-                fontFamily: '"Times New Roman", Times, Georgia, serif'
+                listStyleType: 'none'
               }}>
                 <li style={{ marginBottom: '2px' }}>► You'd likely go abroad (e.g., the US),</li>
                 <li style={{ marginBottom: '2px' }}>► Pay for a Master's degree,</li>
@@ -223,8 +209,7 @@ const JoinOurTeam = () => {
             gap: '6px',
             fontSize: '14px',
             color: '#222',
-            lineHeight: '1.5',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            lineHeight: '1.5'            
           }}>
             <span style={{ fontSize: '16px', color: '#f0c000', flexShrink: 0 }}>💡</span>
             <span>
@@ -242,8 +227,7 @@ const JoinOurTeam = () => {
             fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '8px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '8px'
           }}>
             f) Why is this opportunity unique?
           </h3>
@@ -253,7 +237,6 @@ const JoinOurTeam = () => {
             color: '#222', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: '"Times New Roman", Times, Georgia, serif',
             margin: '0'
           }}>
             <li style={{ marginBottom: '3px' }}>We offer a <strong>rare research environment</strong> focused solely on <strong>foundation model development.</strong></li>
@@ -271,8 +254,7 @@ const JoinOurTeam = () => {
             fontSize: '15px', 
             fontWeight: 'bold', 
             color: '#000', 
-            marginBottom: '8px',
-            fontFamily: '"Times New Roman", Times, Georgia, serif'
+            marginBottom: '8px'
           }}>
             g) Who should not apply?
           </h3>
@@ -282,7 +264,6 @@ const JoinOurTeam = () => {
             color: '#222', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            fontFamily: '"Times New Roman", Times, Georgia, serif',
             margin: '0'
           }}>
             <li style={{ marginBottom: '3px' }}>Those looking for a <strong>routine 9-to-5 job</strong></li>

@@ -293,10 +293,17 @@ const Inference = () => {
             
             {/* GPU Visual */}
             <div className="relative">
-              <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
+              <div className=" rounded-xl  p-6  flex items-center justify-center overflow-hidden">
                 <div className="text-center">
+                  <div className="rounded-xl overflow-hidden">
+                <img 
+                  src="/images/serverless.png" 
+                  alt="Enterprise GPU Infrastructure"
+                  className="h-auto object-contain"
+                />
+              </div>
                   {/* GPU server rack representation */}
-                  <div className="grid grid-cols-4 gap-2 mb-4">
+                  {/* <div className="grid grid-cols-4 gap-2 mb-4">
                     {[...Array(16)].map((_, i) => (
                       <div key={i} className="h-8 bg-slate-700/50 rounded border border-[#D6DEC3]/30 flex items-center justify-center">
                         <div className="flex gap-0.5">
@@ -305,8 +312,8 @@ const Inference = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                  <p className="text-[#6B7280] text-sm">NVIDIA H100 • H200 • GB200 NVL72</p>
+                  </div> */}
+                  {/* <p className="text-[#6B7280] text-sm">NVIDIA H100 • H200 • GB200 NVL72</p> */}
                 </div>
               </div>
             </div>

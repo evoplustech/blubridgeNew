@@ -645,10 +645,15 @@ const FineTuning = () => {
               {/* GPU/Hardware Image */}
               <div className="rounded-xl overflow-hidden">
                 <img 
+                  src="/images/serverless.png" 
+                  alt="Enterprise GPU Infrastructure"
+                  className="h-auto object-cover"
+                />
+                {/* <img 
                   src="https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/dzdppu4v_Nvidia-GB200.avif" 
                   alt="Enterprise GPU Infrastructure"
                   className="w-full h-auto object-cover"
-                />
+                /> */}
               </div>
             </div>
           </div>

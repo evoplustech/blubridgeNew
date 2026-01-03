@@ -459,7 +459,7 @@ const Home = () => {
                       {/* Blue dot node */}
                       <div className="w-4 h-4 rounded-full bg-[#328CC1] mb-1"></div>
                       {/* Label text */}
-                      <span className="text-[11px] text-[#0B1F3B] font-medium whitespace-nowrap text-center leading-tight">
+                      <span className="text-[13px] text-[#0B1F3B] font-medium whitespace-nowrap text-center leading-tight">
                         {item.label}
                         {item.label2 && <><br/>{item.label2}</>}
                       </span>
