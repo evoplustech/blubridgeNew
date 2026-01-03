@@ -6,36 +6,35 @@ const Careers = () => {
   useDocumentTitle('Careers at BluBridge - Work with Us');
 
   return (
-    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '100px', paddingBottom: '60px' }}>
+    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '60px', paddingBottom: '20px' }} className="rounded-2xl">
       <div style={{ 
         maxWidth: '900px', 
         margin: '0 auto', 
         padding: '35px 50px 45px 50px',
         backgroundColor: '#faf8f2',
-        border: '1px solid #e8e6de',
-        fontFamily: '"Times New Roman", Times, Georgia, serif'
-      }}>
+        border: '1px solid #e8e6de'
+        
+      }} className="rounded-2xl">
         {/* Title */}
         <h1 style={{ 
           fontSize: '28px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '15px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '15px'
         }}>
           Join Us
         </h1>
 
         {/* Divider */}
         <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '0 0 18px 0' }} />
+        <a href="/joinourteam" class="text-lg font-bold pt-3 text-[#046bd2] underline mb-4 block"><h2>What You Need to Know ?</h2></a>
 
         {/* Office Address */}
         <p style={{ 
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.6',
-          marginBottom: '20px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '20px'
         }}>
           We have our offices at{' '}
           <a 
@@ -53,8 +52,7 @@ const Careers = () => {
           fontSize: '17px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '12px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '12px'
         }}>
           Must have(s):-
         </h2>
@@ -64,8 +62,7 @@ const Careers = () => {
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.8',
-          marginBottom: '20px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '20px'
         }}>
           <p style={{ marginBottom: '4px' }}>a) Aptitude and Logical reasoning</p>
           <p style={{ marginBottom: '4px' }}>b) Linear algebra, Calculus, Probability & Statistics</p>
@@ -77,8 +74,7 @@ const Careers = () => {
           fontSize: '17px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '12px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '12px'
         }}>
           <span style={{ textDecoration: 'underline' }}>How to apply</span>:-
         </h2>
@@ -87,8 +83,7 @@ const Careers = () => {
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.6',
-          marginBottom: '10px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '10px'
         }}>
           Before applying, please ensure you read this carefully:
         </p>
@@ -99,7 +94,6 @@ const Careers = () => {
           color: '#222', 
           lineHeight: '1.6',
           marginBottom: '14px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif',
           display: 'flex',
           alignItems: 'center',
           gap: '6px'
@@ -117,8 +111,7 @@ const Careers = () => {
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.6',
-          marginBottom: '14px',
-          fontFamily: '"Times New Roman", Times, Georgia, serif'
+          marginBottom: '14px'
         }}>
           You are welcome to walk in for an interview on any working day, or you can reach out to us via:
         </p>
@@ -130,7 +123,6 @@ const Careers = () => {
           color: '#222', 
           lineHeight: '1.9',
           listStyleType: 'disc',
-          fontFamily: '"Times New Roman", Times, Georgia, serif',
           margin: '0'
         }}>
           <li style={{ marginBottom: '2px' }}>

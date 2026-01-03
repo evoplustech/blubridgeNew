@@ -248,6 +248,16 @@ const services = [
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Model Cards Grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {modelCards.map((model, i) => (
+                <div key={i} className="bg-slate-900/50 rounded-lg p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
+                  <div className="text-xs text-[#6B7280] mb-1">{model.type}</div>
+                  <div className="text-[#0B1F3B] font-semibold text-sm mb-2">{model.name}</div>
+                  <div className="text-xs text-[#2F3A4A]">{model.publisher}</div>
+                </div>
+              ))}
+            </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
                 Dedicated endpoints for<br />100+ open-source models
@@ -259,17 +269,6 @@ const services = [
               <Link to="/contact" className="text-[#328CC1] hover:text-blue-300 inline-flex items-center gap-2">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
-            
-            {/* Model Cards Grid */}
-            <div className="grid grid-cols-2 gap-3">
-              {modelCards.map((model, i) => (
-                <div key={i} className="bg-slate-900/50 rounded-lg p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
-                  <div className="text-xs text-[#6B7280] mb-1">{model.type}</div>
-                  <div className="text-[#0B1F3B] font-semibold text-sm mb-2">{model.name}</div>
-                  <div className="text-xs text-[#2F3A4A]">{model.publisher}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
