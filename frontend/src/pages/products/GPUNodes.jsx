@@ -134,12 +134,12 @@ const GPUNodes = () => {
               </div>
             </div>
             
-            {/* Right - Animated GPU Visual */}
-            <div className="relative h-[400px] lg:h-[500px]">
-              <canvas 
-                ref={canvasRef} 
-                className="w-full h-full"
-                style={{ background: 'transparent' }}
+            {/* Right - Hero Image */}
+            <div className="relative h-[400px] lg:h-[500px] flex items-center justify-center">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/xv6hsihb_Bare%20Metal.png"
+                alt="Bare Metal GPU Infrastructure"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
