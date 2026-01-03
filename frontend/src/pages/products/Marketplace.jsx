@@ -66,11 +66,12 @@ const Marketplace = () => {
               </div>
             </div>
 
-            {/* Right - Animated Visual */}
+            {/* Right - Hero Image */}
             <div className="relative flex items-center justify-center">
-              <canvas
-                ref={canvasRef}
-                className="w-full h-[400px]"
+              <img
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/jrfpxs8e_market.png"
+                alt="AI Solutions Marketplace - Turnkey AI Development & Deployment"
+                className="w-full h-auto max-h-[500px] object-contain rounded-lg"
               />
             </div>
           </div>
