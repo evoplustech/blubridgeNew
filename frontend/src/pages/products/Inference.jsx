@@ -252,10 +252,10 @@ const services = [
             {/* Model Cards Grid */}
             <div className="grid grid-cols-2 gap-3">
               {modelCards.map((model, i) => (
-                <div key={i} className="bg-slate-900/50 rounded-lg p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
-                  <div className="text-xs text-[#6B7280] mb-1">{model.type}</div>
-                  <div className="text-[#0B1F3B] font-semibold text-sm mb-2">{model.name}</div>
-                  <div className="text-xs text-[#2F3A4A]">{model.publisher}</div>
+                <div key={i} className="bg-[#d1d5db] rounded-lg p-5 hover:shadow-md transition-all">
+                  <div className="text-xs text-[#6B7280] mb-1 uppercase tracking-wide">{model.type}</div>
+                  <div className="text-[#0B1F3B] font-bold text-sm mb-2">{model.name}</div>
+                  <div className="text-xs text-[#6B7280]">{model.publisher}</div>
                 </div>
               ))}
             </div>
