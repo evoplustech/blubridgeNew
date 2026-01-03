@@ -12,10 +12,10 @@ import {
   Factory,
   Landmark
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 
 /* ------------------------------------------------------------------
-   AI Expertise Orbit – merged (CSS-driven, zero JS animation logic)
+   AI Expertise Orbit – CSS-driven
 ------------------------------------------------------------------- */
 const AIExpertiseOrbit = () => {
   const rings = [
@@ -61,6 +61,7 @@ const AIExpertiseOrbit = () => {
             .filter(a => a.ring === ring.key)
             .map((a, idx) => {
               const vars = { "--angle": `${a.angle}deg`, "--angleNeg": `${-a.angle}deg` };
+
               if (a.type === "dummy") {
                 return (
                   <div key={idx} className={`atom dummy ${a.dummyClass}`} style={vars}>
@@ -70,6 +71,7 @@ const AIExpertiseOrbit = () => {
                   </div>
                 );
               }
+
               const Icon = a.Icon;
               return (
                 <div key={idx} className={`atom ${a.sizeClass}`} style={vars}>
@@ -95,7 +97,7 @@ const AIExpertiseOrbit = () => {
 };
 
 /* ------------------------------------------------------------------
-   Home – merged, no regressions
+   Home
 ------------------------------------------------------------------- */
 const Home = () => {
   const [activeInfraTab, setActiveInfraTab] = useState(0);
@@ -139,6 +141,7 @@ const Home = () => {
             <p className="text-[#243447] mb-8 leading-relaxed max-w-xl">
               We design, build, and operate the full AI infrastructure stack.
             </p>
+
             <div className="flex gap-4">
               <Link to="/contact">
                 <Button className="bg-[#0B1F3B] text-white px-8 py-4">
@@ -190,6 +193,7 @@ const Home = () => {
               <p className="text-sm mb-4">
                 {infraTabs[activeInfraTab].description}
               </p>
+
               <div className="grid grid-cols-2 gap-2">
                 {infraTabs[activeInfraTab].features.map((f, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm">
@@ -198,6 +202,7 @@ const Home = () => {
                   </div>
                 ))}
               </div>
+
               <Link
                 to={infraTabs[activeInfraTab].link}
                 className="inline-flex items-center gap-2 mt-4 text-[#328CC1]"
