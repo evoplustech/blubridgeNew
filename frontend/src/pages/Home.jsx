@@ -208,8 +208,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <TestimonialsCarousel />
     </div>
   );
 };
