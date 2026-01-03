@@ -255,9 +255,9 @@ const GPUNodes = () => {
       {/* GPU Accelerators Section */}
       <section className="py-20 bg-[#fffdf7] relative overflow-hidden">
         {/* Background server rack image effect */}
-        {/* <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
           <div className="w-full h-full bg-gradient-to-l from-slate-800/50 to-transparent" />
-        </div> */}
+        </div>
         
         <div className="container-custom relative z-10">
           <div className="mb-12">
