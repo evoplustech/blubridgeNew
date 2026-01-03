@@ -320,7 +320,7 @@ const Home = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
               The hyperscaler<br></br>engineered for AI
             </h1>
-            <p className = "text-sm text-white/90 font-light leading-relaxed max-w-md">A complete, scalable, and sustainable AI platform.</p>
+            <p className = "text-white/90 font-light leading-relaxed max-w-md">A complete, scalable, and sustainable AI platform.</p>
             {/* <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
               A full-stack, scalable, and sustainable AI cloud platform.
             </p> */}
