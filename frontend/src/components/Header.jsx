@@ -6,7 +6,29 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const location = useLocation();
+
+  // Scroll detection for logo transition
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = 100; // Trigger after hero section
+      const scrolled = window.scrollY > scrollThreshold;
+      setIsScrolled(scrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Initial load animation trigger
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasAnimated(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Close mobile menu when route changes
   useEffect(() => {
