@@ -183,49 +183,91 @@ const TestimonialsCarousel = () => {
   );
 };
 
-/* =========================================================
-   AI Expertise Orbit (Isolated, CSS-driven)
-========================================================= */
 const AIExpertiseOrbit = () => {
   const rings = [
-    { r: 170, className: "orbit-ring orbit-slow" }
+    { key: 1, className: 'orbit-1', radius: '105px' },
+    { key: 2, className: 'orbit-2', radius: '155px' },
+    { key: 3, className: 'orbit-3', radius: '212px' }
   ];
 
-  const items = [
-    { label: "Education", angle: -90 },
-    { label: "Software & Technology", angle: -45 },
-    { label: "Government", angle: 0 },
-    { label: "Healthcare", angle: 45 },
-    { label: "Legal", angle: 90 },
-    { label: "Manufacturing", angle: 135 },
-    { label: "Telco", angle: 180 },
-    { label: "Finance & Insurance", angle: 225 }
+  const atoms = [
+    // INNER ring: 2 features + 1 dummy
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Telco' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Finance' },
+    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
+
+    // MIDDLE ring: 2 features + 1 dummy
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: GraduationCap, label: 'Education' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: HeartPulse, label: 'Healthcare' },
+    { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
+
+    // OUTER ring: 4 features + 2 dummies
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Scale, label: 'Legal' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: Factory, label: 'Manufacturing' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Landmark, label: 'Government' },
+    { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
+    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
   ];
 
   return (
-    <div className="expertise-orbit-wrapper">
-      {/* Center */}
-      <div className="expertise-center">
-        <span>Our AI<br />Expertise</span>
+    <div className="orbit-container relative w-[520px] h-[520px]">
+      {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
+        <circle className="track" cx="260" cy="260" r="105" />
+        <circle className="track" cx="260" cy="260" r="155" />
+        <circle className="track" cx="260" cy="260" r="212" />
+      </svg>
+
+      {/* Center badge */}
+      <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#DBD6C4]">
+        <span className="text-white text-xs font-medium text-center leading-tight">
+        <img width="30px" src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/8gxakifs_b1icon.png"/>
+        </span>
       </div>
 
-      {/* Ring */}
-      {rings.map((ring, rIdx) => (
-        <div key={rIdx} className={ring.className}>
-          <svg viewBox="0 0 420 420">
-            <circle cx="210" cy="210" r={ring.r} />
-          </svg>
+      {/* Rings + atoms */}
+      {rings.map((ring) => (
+        <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
+          {atoms
+            .filter((a) => a.ring === ring.key)
+            .map((a, idx) => {
+              const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
 
-          {items.map((item, i) => (
-            <div
-              key={i}
-              className="orbit-item"
-              style={{ "--angle": `${item.angle}deg` }}
-            >
-              <div className="orbit-node" />
-              <span>{item.label}</span>
-            </div>
-          ))}
+              if (a.type === 'dummy') {
+                return (
+                  <div
+                    key={idx}
+                    className={`atom dummy ${a.dummyClass}`}
+                    style={styleVars}
+                    aria-hidden="true"
+                  >
+                    <div className="atom-anchor">
+                      <div className="dummy-dot" />
+                    </div>
+                  </div>
+                );
+              }
+
+              const Icon = a.Icon;
+              return (
+                <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
+                  <div className="atom-anchor">
+                    <div className="atom-angle-fix">
+                      {/* This inner node counter-rotates via CSS so labels stay upright */}
+                      <div className="atom-spin-fix">
+                        <div className="atom-content">
+                          <div className="atom-icon">
+                            <Icon className="atom-icon-svg" strokeWidth={1.5} />
+                          </div>
+                          <div className="atom-label">{a.label}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
         </div>
       ))}
     </div>
@@ -460,64 +502,16 @@ const Home = () => {
           </div>
         </div>
       </section> */}
-
+     
+       
+      
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Circular Diagram */}
             <div className="relative flex items-center justify-center">
-              <div className="relative" style={{ width: '420px', height: '420px' }}>
-            {/* Static Center Circle - "Our AI Expertise" */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center z-20">
-              <span className="text-white text-xs font-medium text-center leading-tight">Our AI<br/>Expertise</span>
-            </div>
-            
-            {/* Rotating Outer Ring Container */}
-            <div className="rotating-expertise-ring absolute inset-0" style={{ transformOrigin: 'center center' }}>
-              {/* Circle track */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 420 420">
-                <circle cx="210" cy="210" r="170" fill="none" stroke="#D6DEC3" strokeWidth="1" />
-              </svg>
-              
-              {/* Industry nodes positioned around the circle */}
-              {[
-                { label: "Education", angle: -90 },
-                { label: "Software &", label2: "Technology", angle: -45 },
-                { label: "Government", angle: 0 },
-                { label: "Healthcare", angle: 45 },
-                { label: "Legal", angle: 90 },
-                { label: "Manufacturing", angle: 135 },
-                { label: "Telco", angle: 180 },
-                { label: "Finance &", label2: "Insurance", angle: 225 }
-              ].map((item, index) => {
-                const rad = (item.angle * Math.PI) / 180;
-                const x = 210 + 170 * Math.cos(rad);
-                const y = 210 + 170 * Math.sin(rad);
-                return (
-                  <div 
-                    key={index}
-                    className="absolute rotating-expertise-label"
-                    style={{
-                      left: `${x}px`,
-                      top: `${y}px`,
-                      transform: 'translate(-50%, -50%)'
-                    }}
-                  >
-                    <div className="flex flex-col items-center">
-                      {/* Blue dot node */}
-                      <div className="w-4 h-4 rounded-full bg-[#328CC1] mb-1"></div>
-                      {/* Label text */}
-                      <span className="text-[13px] text-[#0B1F3B] font-medium whitespace-nowrap text-center leading-tight">
-                        {item.label}
-                        {item.label2 && <><br/>{item.label2}</>}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+              <AIExpertiseOrbit />    
             </div>
             
             {/* Right - Services Grid */}

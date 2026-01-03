@@ -3,7 +3,7 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 
 const Careers = () => {
-  useDocumentTitle('Careers at BluBridge - Work with Us');
+  useDocumentTitle('Careers | BluBridge');
 
   return (
     <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '60px', paddingBottom: '20px' }} className="rounded-2xl">

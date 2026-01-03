@@ -2,7 +2,7 @@ import React from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const JoinOurTeam = () => {
-  useDocumentTitle('Join our Research Team - BluBridge');
+  useDocumentTitle('Join our Research Team | BluBridge');
 
   return (
     <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '50px', paddingBottom: '50px' }}>
