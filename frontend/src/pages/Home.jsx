@@ -390,7 +390,7 @@ const Home = () => {
                     {/* Blue dot node */}
                     <div className="w-5 h-5 rounded-full bg-[#328CC1] mx-auto mb-1"></div>
                     {/* Label text - counter-rotates to stay readable */}
-                    <span className="expertise-label text-xs text-[#0B1F3B] font-medium whitespace-nowrap block text-center">
+                    <span className="expertise-label text-[12px] text-[#0B1F3B] font-medium whitespace-nowrap block text-center">
                       {item.label}
                     </span>
                   </div>
@@ -407,23 +407,42 @@ const Home = () => {
           }
           
           @keyframes expertiseRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
           }
           
+          /* Counter-rotate labels to keep them horizontal/readable */
           .expertise-label {
             animation: expertiseCounterRotate 60s linear infinite;
             display: inline-block;
           }
           
           @keyframes expertiseCounterRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(-360deg);
+            }
+          }
+          
+          /* Responsive adjustments */
+          @media (max-width: 640px) {
+            .expertise-label {
+              font-size: 10px;
+            }
+          }
+        `}</style>
+      </section>;
+            }
           }
         `}</style>
       </section>
-
-      {/* News/Updates Strip (commented out) */}
+      {/* <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-lg font-medium text-[#0B1F3B]">Latest News</h3>
