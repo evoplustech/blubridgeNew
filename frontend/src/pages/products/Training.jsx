@@ -543,7 +543,7 @@ const Training = () => {
             
             {/* GPU Server Rack Visual */}
             <div className="relative">
-              <div className=" rounded-xl border border-[#D6DEC3]/30 p-6 aspect-video flex items-center justify-center overflow-hidden">
+              <div className=" rounded-xl  p-6 aspect-video flex items-center justify-center overflow-hidden">
                 <div className="text-center">
                   <img
                       src="/images/gpu.png"
