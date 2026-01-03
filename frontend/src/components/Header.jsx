@@ -119,16 +119,16 @@ const Header = () => {
 
       <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
-          {/* Logo with Anthropic-style scroll behavior */}
+          {/* Logo with scroll-based switch behavior */}
           <Link to="/" className="relative flex items-center" style={{ width: '180px', height: '40px' }}>
-            {/* Full logo - visible at top */}
+            {/* Primary logo - visible at top */}
             <div 
               className="absolute inset-0 flex items-center"
               style={{
                 opacity: isScrolled ? 0 : (hasAnimated ? 1 : 0),
                 transform: isScrolled 
-                  ? 'translateY(-8px)' 
-                  : (hasAnimated ? 'translateY(0)' : 'translateY(8px)'),
+                  ? 'translateY(-6px)' 
+                  : (hasAnimated ? 'translateY(0)' : 'translateY(6px)'),
                 transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)',
                 pointerEvents: isScrolled ? 'none' : 'auto'
               }}
@@ -140,20 +140,20 @@ const Header = () => {
               />
             </div>
             
-            {/* Compact logo - visible on scroll */}
+            {/* B-icon logo - visible on scroll */}
             <div 
               className="absolute inset-0 flex items-center"
               style={{
                 opacity: isScrolled ? 1 : 0,
-                transform: isScrolled ? 'translateY(0)' : 'translateY(8px)',
+                transform: isScrolled ? 'translateY(0)' : 'translateY(6px)',
                 transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)',
                 pointerEvents: isScrolled ? 'auto' : 'none'
               }}
             >
               <img 
-                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/8j6y1qxx_logo3.png"
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/ivtn213o_B-icon.png"
                 alt="BluBridge"
-                className="h-8 object-contain"
+                className="h-10 object-contain"
               />
             </div>
           </Link>
