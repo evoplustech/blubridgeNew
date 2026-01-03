@@ -366,9 +366,9 @@ const GPUNodes = () => {
               </div>
               
               {/* Decorative server image placeholder */}
-              <div className="absolute -bottom-8 -left-8 w-32 h-32 opacity-40">
+              {/* <div className="absolute -bottom-8 -left-8 w-32 h-32 opacity-40">
                 <div className="w-full h-full bg-gradient-to-br from-slate-600 to-slate-800 rounded-lg transform rotate-12" />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

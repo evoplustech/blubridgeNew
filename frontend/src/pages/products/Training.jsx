@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus, Server, Layers, Cpu } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Server, Layers, Cpu,Zap,  Database, Cloud, Shield, Settings } from 'lucide-react';
+
+
 
 const Training = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -211,6 +213,27 @@ const Training = () => {
     { name: 'Optimised Libraries', type: 'tool' },
     { name: 'GPU nodes', type: 'hardware' }
   ];
+
+  const LayoutGrid = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="7" height="7"></rect>
+    <rect x="14" y="3" width="7" height="7"></rect>
+    <rect x="14" y="14" width="7" height="7"></rect>
+    <rect x="3" y="14" width="7" height="7"></rect>
+  </svg>
+);
+
+    const services = [
+    { name: "Serverless", icon: Cloud },
+    { name: "Marketplace", icon: LayoutGrid },
+    { name: "Inference", icon: Zap },
+    { name: "Training", icon: Cpu },
+    { name: "GPU nodes", icon: Server },
+    { name: "LLM Library", icon: Database }
+  ];
+
+  // Add missing LayoutGrid icon
+
 
   useDocumentTitle('GPU Clusters for Training AI Models | BluBridge');
 
@@ -474,11 +497,41 @@ const Training = () => {
                 Lower spending, increase income, and operate artificial intelligence workloads with greater effectiveness through a completely unified environment. Whether leveraging BluBridge AI/ML capabilities or integrating external solutions, this platform streamlines progression from creation stages into live deployment.
               </p>
             </div>
-            
+            {/* Services Grid */}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                {services.map((service, index) => (
+                  <div 
+                    key={index}
+                    className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
+                        <service.icon className="w-5 h-5 text-[#328CC1]" />
+                      </div>
+                      <span className="font-medium text-sm">{service.name}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Data Center Card */}
+              <div className="mt-6 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-4 border border-blue-800/30">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-[#328CC1]" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm">BluBridge's Data centers</p>
+                    <p className="text-xs text-[#2F3A4A]">Powered by renewable energy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* Infrastructure Diagram */}
-            <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6">
+            {/* <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6"> */}
               {/* Service Flow Diagram */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
+              {/* <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-[#1a1a2e] rounded-lg p-3 text-center border border-[#333]/50">
                   <span className="text-sm text-white/80">Serverless</span>
                 </div>
@@ -506,10 +559,10 @@ const Training = () => {
               
               <div className="bg-[#1a1a2e] rounded-lg p-3 text-center border border-[#333]/50 mb-4">
                 <span className="text-sm text-white/80">GPU nodes</span>
-              </div>
+              </div> */}
               
               {/* Data Center Badge */}
-              <div className="bg-[#0B1F3B] rounded-lg p-4 border border-blue-500/30">
+              {/* <div className="bg-[#0B1F3B] rounded-lg p-4 border border-blue-500/30">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
                     <Server className="w-4 h-4 text-[#328CC1]" />
@@ -519,8 +572,8 @@ const Training = () => {
                     <div className="text-xs text-white/60">Powered by renewable energy</div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </div>
         </div>
       </section>
