@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
@@ -6,179 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid, Cpu } from 'lucide
 
 const SoftwareTechnology = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const canvasRef = useRef(null);
-
-  // Animated parallax for hero section
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-
-    const animate = () => {
-      time += 0.006;
-      setOffset({
-        x: Math.sin(time) * 12,
-        y: Math.cos(time * 0.7) * 10
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
-
-  // Canvas animation for abstract tech forms (laptop, code, wireframes)
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawTechForms = () => {
-      time += 0.01;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-      const centerX = width * 0.5;
-      const centerY = height * 0.45;
-
-      // Draw abstract laptop shape
-      const laptopWidth = 200;
-      const laptopHeight = 130;
-      const laptopX = centerX - laptopWidth / 2;
-      const laptopY = centerY - laptopHeight / 2;
-      const laptopFloat = Math.sin(time) * 8;
-
-      // Laptop screen
-      const screenGradient = ctx.createLinearGradient(laptopX, laptopY + laptopFloat, laptopX + laptopWidth, laptopY + laptopHeight + laptopFloat);
-      screenGradient.addColorStop(0, 'rgba(99, 102, 241, 0.3)');
-      screenGradient.addColorStop(0.5, 'rgba(139, 92, 246, 0.2)');
-      screenGradient.addColorStop(1, 'rgba(99, 102, 241, 0.1)');
-      
-      ctx.fillStyle = screenGradient;
-      ctx.beginPath();
-      ctx.roundRect(laptopX, laptopY + laptopFloat, laptopWidth, laptopHeight * 0.7, 8);
-      ctx.fill();
-      
-      // Screen border
-      ctx.strokeStyle = 'rgba(139, 92, 246, 0.5)';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Draw code lines on screen
-      for (let i = 0; i < 6; i++) {
-        const lineWidth = 30 + Math.random() * 80;
-        const lineX = laptopX + 15;
-        const lineY = laptopY + 15 + i * 12 + laptopFloat;
-        
-        ctx.fillStyle = `rgba(167, 139, 250, ${0.4 + Math.sin(time + i) * 0.2})`;
-        ctx.fillRect(lineX, lineY, lineWidth, 4);
-        
-        // Syntax highlighting dots
-        if (i % 2 === 0) {
-          ctx.fillStyle = 'rgba(74, 222, 128, 0.6)';
-          ctx.fillRect(lineX + lineWidth + 10, lineY, 20, 4);
-        }
-      }
-
-      // Laptop base
-      ctx.fillStyle = 'rgba(99, 102, 241, 0.2)';
-      ctx.beginPath();
-      ctx.moveTo(laptopX - 20, laptopY + laptopHeight * 0.7 + 10 + laptopFloat);
-      ctx.lineTo(laptopX + laptopWidth + 20, laptopY + laptopHeight * 0.7 + 10 + laptopFloat);
-      ctx.lineTo(laptopX + laptopWidth + 10, laptopY + laptopHeight * 0.7 + 25 + laptopFloat);
-      ctx.lineTo(laptopX - 10, laptopY + laptopHeight * 0.7 + 25 + laptopFloat);
-      ctx.closePath();
-      ctx.fill();
-
-      // Draw floating UI elements
-      const uiElements = [
-        { x: centerX - 120, y: centerY - 100, w: 60, h: 40 },
-        { x: centerX + 80, y: centerY - 80, w: 50, h: 35 },
-        { x: centerX - 100, y: centerY + 80, w: 70, h: 45 },
-        { x: centerX + 100, y: centerY + 60, w: 55, h: 38 }
-      ];
-
-      uiElements.forEach((ui, i) => {
-        const floatOffset = Math.sin(time + i * 1.5) * 15;
-        const uiGradient = ctx.createLinearGradient(ui.x, ui.y + floatOffset, ui.x + ui.w, ui.y + ui.h + floatOffset);
-        uiGradient.addColorStop(0, `rgba(99, 102, 241, ${0.15 + i * 0.05})`);
-        uiGradient.addColorStop(1, `rgba(139, 92, 246, ${0.1 + i * 0.03})`);
-        
-        ctx.fillStyle = uiGradient;
-        ctx.beginPath();
-        ctx.roundRect(ui.x, ui.y + floatOffset, ui.w, ui.h, 6);
-        ctx.fill();
-        
-        ctx.strokeStyle = 'rgba(167, 139, 250, 0.3)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-        
-        // Mini lines inside
-        ctx.fillStyle = 'rgba(167, 139, 250, 0.4)';
-        ctx.fillRect(ui.x + 8, ui.y + 10 + floatOffset, ui.w * 0.5, 3);
-        ctx.fillRect(ui.x + 8, ui.y + 18 + floatOffset, ui.w * 0.7, 3);
-      });
-
-      // Draw wireframe grid
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 8; i++) {
-        const gridY = height * 0.15 + i * height * 0.1;
-        ctx.beginPath();
-        ctx.moveTo(0, gridY + Math.sin(time + i * 0.5) * 5);
-        ctx.lineTo(width, gridY + Math.cos(time + i * 0.5) * 5);
-        ctx.stroke();
-      }
-
-      // Draw floating data particles
-      for (let i = 0; i < 20; i++) {
-        const particleX = (Math.sin(time * 0.5 + i * 2) + 1) * width * 0.5;
-        const particleY = (Math.cos(time * 0.3 + i * 1.5) + 1) * height * 0.4 + height * 0.1;
-        const size = 2 + Math.sin(time + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(particleX, particleY, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(139, 92, 246, ${0.4 + Math.sin(time * 2 + i) * 0.2})`;
-        ctx.fill();
-      }
-
-      // Draw connecting lines
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.15)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 5; i++) {
-        const startX = width * 0.1 + i * width * 0.15;
-        const startY = height * 0.2 + Math.sin(time + i) * 30;
-        const endX = centerX + (i - 2) * 40;
-        const endY = centerY + Math.cos(time + i) * 20;
-        
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.quadraticCurveTo(startX + 50, (startY + endY) / 2 - 30, endX, endY);
-        ctx.stroke();
-      }
-
-      animationFrame = requestAnimationFrame(drawTechForms);
-    };
-
-    resize();
-    drawTechForms();
-
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -188,40 +15,34 @@ const SoftwareTechnology = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* ANIMATED HERO SECTION */}
+      {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
-        
-        {/* Animated tech forms canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-80"
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            pointerEvents: 'none',
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.5s ease-out'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/kpfcfp5n_b2.png)'
           }}
         />
-
-        {/* Ambient glow - adjusted for light theme */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/85 via-[#0B1F3B]/60 to-transparent" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               SOFTWARE & TECHNOLOGY
             </h1>
-            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               At BluBridge, we provide GPU cluster computing solutions that support software and technology companies in powering their compute-intensive tasks. With high-performance infrastructure and scalable cloud capabilities, technology teams can build, deploy, and scale advanced products more quickly and reliably.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#0B1F3B] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
