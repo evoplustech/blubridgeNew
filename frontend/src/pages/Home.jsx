@@ -384,16 +384,16 @@ const Home = () => {
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Circular Diagram */}
+            {/* Left - Circular Diagram with Rotating Outer Ring */}
             <div className="relative flex items-center justify-center">
               <div className="relative" style={{ width: '500px', height: '500px' }}>
-                {/* Center circle */}
+                {/* Center circle - STATIC */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center z-10">
                   <span className="text-white text-xs font-medium text-center leading-tight">Our AI<br/>Expertise</span>
                 </div>
                 
-                {/* Outer ring with services */}
-                <svg className="w-full h-full" viewBox="0 0 500 500">
+                {/* Outer ring with services - ROTATING */}
+                <svg className="w-full h-full expertise-outer-ring" viewBox="0 0 500 500">
                   {/* Outer circle */}
                   <circle cx="250" cy="250" r="218" fill="none" stroke="#D6DEC3" strokeWidth="1" />
                   
@@ -426,6 +426,23 @@ const Home = () => {
                     );
                   })}
                 </svg>
+                
+                {/* Rotation Animation Styles */}
+                <style>{`
+                  .expertise-outer-ring {
+                    animation: expertiseRingRotate 60s linear infinite;
+                    transform-origin: center center;
+                  }
+                  
+                  @keyframes expertiseRingRotate {
+                    from {
+                      transform: rotate(0deg);
+                    }
+                    to {
+                      transform: rotate(360deg);
+                    }
+                  }
+                `}</style>
               </div>
             </div>
             
