@@ -3,7 +3,7 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent } from '../../components/ui/card';
-import { ArrowRight, ChevronDown, ChevronUp, Zap, ShoppingCart } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronUp, Zap, ShoppingCart,LayoutGrid } from 'lucide-react';
 
 const Training = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -248,30 +248,41 @@ const Training = () => {
       </section>
 
       {/* Key Services - Section 6 */}
-      <section className="py-32 bg-[#f3f1e9]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20">Key Services</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            {[
-              {
-                icon: <Zap className="w-16 h-16 text-purple-400" />,
-                title: 'AI Compute – Training',
-                desc: 'A scalable, performance-optimised compute layer purpose-built for large-scale AI model training.'
-              },
-              {
-                icon: <ShoppingCart className="w-16 h-16 text-cyan-400" />,
-                title: 'AI Marketplace',
-                desc: 'A curated ecosystem of tools and frameworks to accelerate AI development and deployment.'
-              }
-            ].map((item, i) => (
-              <Card key={i} className="bg-[#121212] border-[#D6DEC3] hover:border-purple-500/50 transition-all">
-                <CardContent className="p-12">
-                  <div className="mb-8">{item.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-white/80 leading-relaxed text-lg">{item.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* AI Compute Training Card */}
+            <Link className="" to="/products/training">
+            <div className="hover:bg-[#e8e6de] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+              <div className="mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-amber-500/30 to-orange-600/20 rounded-xl flex items-center justify-center">
+                  <Zap className="w-7 h-7 text-amber-400" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
+              <p className="text-amber-400 text-sm mb-4">Training</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
+                A scalable, high-performance compute layer designed to shorten training times and boost development productivity.
+
+              </p>
+            </div>
+            </Link>
+            {/* AI Marketplace Card */}
+             <Link className="" to="/products/marketplace">
+            <div className="hover:bg-[#e8e6de] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+              <div className="mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
+                  <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
+              <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">
+                An ecosystem of services and tools that support application development and deployment, compatible with both BluBridge offerings and popular AI/ML frameworks.
+              </p>
+            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -325,7 +336,7 @@ const Training = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes Nscale’s GPU Cloud different from others?",
+                question: "What makes BluBridge’s GPU Cloud different from others?",
                 answer: "BluBridge controls the entire stack from data centre infrastructure to orchestration software, enabling deep optimisation across every layer. This integrated approach delivers exceptional performance, efficiency, and support for scaling AI workloads."
               },
               {

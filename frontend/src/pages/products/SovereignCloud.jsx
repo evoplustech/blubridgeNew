@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus, Server, Play } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Server, Play, Layers, Cpu,Zap,  Database, Cloud, Shield, Settings,SlidersHorizontal } from 'lucide-react';
 
 const SovereignCloud = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -137,6 +137,24 @@ const SovereignCloud = () => {
     'Optimised Libraries',
     'Optimised Compilers and Tools',
     'Optimised Runtime'
+  ];
+
+const LayoutGrid = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="7" height="7"></rect>
+    <rect x="14" y="3" width="7" height="7"></rect>
+    <rect x="14" y="14" width="7" height="7"></rect>
+    <rect x="3" y="14" width="7" height="7"></rect>
+  </svg>
+);
+
+const services = [
+    { name: "Serverless", icon: Cloud ,link:"/products/serverless"},
+    { name: "Marketplace", icon: LayoutGrid,link:"/products/marketplace" },
+    { name: "Inference", icon: Zap ,link:"/products/inference"},
+    { name: "Training", icon: Cpu ,link:"/products/training"},
+    { name: "GPU nodes", icon: Server ,link:"/products/gpu-nodes"},
+    { name: "Fine-Tuning", icon: SlidersHorizontal ,link:"/products/fine-tuning"}
   ];
 
   useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBridge');
@@ -307,48 +325,31 @@ const SovereignCloud = () => {
             </div>
             
             {/* Infrastructure Diagram */}
-            <div className="bg-slate-900/30 rounded-xl border border-[#D6DEC3]/30 p-6">
-              {/* Service Flow */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-[#f3f1e9] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#2F3A4A]">Serverless Marketplace Training Inference GPU nodes</span>
-                </div>
-                <div className="bg-[#f3f1e9] rounded-lg p-3 text-center border border-[#D6DEC3]/30">
-                  <span className="text-sm text-[#2F3A4A]">Marketplace</span>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
-                  <span className="text-sm text-blue-300">Inference</span>
-                </div>
-                <div className="bg-[#0B1F3B]/20 rounded-lg p-3 text-center border border-blue-500/30">
-                  <span className="text-sm text-blue-300">Training</span>
-                </div>
-              </div>
-              
-              {/* Tools Grid */}
-              <div className="grid grid-cols-2 gap-2 mb-4">
-                {infrastructureTools.map((tool, i) => (
-                  <div key={i} className="bg-slate-800/30 rounded-lg p-2 text-center border border-[#D6DEC3]/20">
-                    <span className="text-xs text-[#2F3A4A]">{tool}</span>
+            <div className="p-6">
+               <div className="grid grid-cols-2 gap-4 ">
+                {services.map((service, index) => (
+                 <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
+                    key={index}
+                    className="hover:bg-[#e8e6de] bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-3 ">
+                      <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
+                        <service.icon className="w-5 h-5 text-[#328CC1]" />
+                      </div>
+                      <span className=" font-medium text-sm">{service.name}</span>
+                    </div>
                   </div>
+                  </Link>
                 ))}
               </div>
-              
-              <div className="bg-[#f3f1e9] rounded-lg p-3 text-center border border-[#D6DEC3]/30 mb-4">
-                <span className="text-sm text-[#2F3A4A]">GPU nodes</span>
-              </div>
-              
-              {/* Data Center Badge */}
-              <div className="bg-slate-900 rounded-lg p-4 border border-[#D6DEC3]">
+              <div className="mt-6 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-4 border border-blue-800/30">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-[#0B1F3B]/20 rounded-lg flex items-center justify-center">
-                    <Server className="w-4 h-4 text-[#328CC1]" />
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-[#328CC1]" />
                   </div>
                   <div>
-                    <div className="text-[#0B1F3B] text-sm font-medium">BluBridge's Data centers</div>
-                    <div className="text-xs text-[#6B7280]">Powered by renewable energy</div>
+                    <p className="font-medium text-sm">BluBridge's Data centers</p>
+                    <p className="text-xs text-[#2F3A4A]">Powered by renewable energy</p>
                   </div>
                 </div>
               </div>

@@ -351,19 +351,20 @@ const services = [
             
             {/* Services Grid */}
             <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 ">
                 {services.map((service, index) => (
-                  <div 
+                 <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
                     key={index}
-                    className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="hover:bg-[#e8e6de] bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 ">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
                         <service.icon className="w-5 h-5 text-[#328CC1]" />
                       </div>
-                       <Link to={service.link}><span className="font-medium text-sm">{service.name}</span></Link>
+                      <span className=" font-medium text-sm">{service.name}</span>
                     </div>
                   </div>
+                  </Link>
                 ))}
               </div>
               

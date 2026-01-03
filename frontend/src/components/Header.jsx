@@ -296,7 +296,7 @@ const Header = () => {
                             <Link
                               key={i}
                               to={item.link}
-                              className="block text-[#0B1F3B] rounded-lg transition-all duration-150 cursor-pointer hover:bg-[#e8e6de]"
+                              className="hover:text-[#328CC1] block text-[#0B1F3B] rounded-lg transition-all duration-150 cursor-pointer hover:bg-[#e8e6de]"
                               style={{ 
                                 background: '#f3f1e9',
                                 padding: '12px 20px',
