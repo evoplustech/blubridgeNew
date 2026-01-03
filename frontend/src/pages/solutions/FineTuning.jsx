@@ -271,7 +271,7 @@ const FineTuning = () => {
       {/* Performance Metrics - 4 Column */}
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-16">Performance</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
@@ -308,9 +308,9 @@ const FineTuning = () => {
               }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
-                <div className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-1">{item.metric}</div>
-                <div className="text-[#0B1F3B] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
-                <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{item.desc}</p>
+                <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
+                <div className="text-[#000000] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
+                <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
