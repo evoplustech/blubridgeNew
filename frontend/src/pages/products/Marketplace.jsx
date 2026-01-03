@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus, Server, Layers, Cpu,Zap,  Database, Cloud, Shield, Settings } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Server, Layers, Cpu,Zap,  Database, Cloud, Shield, Settings,SlidersHorizontal } from 'lucide-react';
 
 const Marketplace = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -45,12 +45,12 @@ const Marketplace = () => {
 );
 
     const services = [
-    { name: "Serverless", icon: Cloud },
-    { name: "Marketplace", icon: LayoutGrid },
-    { name: "Inference", icon: Zap },
-    { name: "Training", icon: Cpu },
-    { name: "GPU nodes", icon: Server },
-    { name: "LLM Library", icon: Database }
+    { name: "Serverless", icon: Cloud ,link:"/products/serverless"},
+    { name: "Marketplace", icon: LayoutGrid,link:"/products/marketplace" },
+    { name: "Inference", icon: Zap ,link:"/products/inference"},
+    { name: "Training", icon: Cpu ,link:"/products/training"},
+    { name: "GPU nodes", icon: Server ,link:"/products/gpu-nodes"},
+    { name: "Fine-Tuning", icon: SlidersHorizontal ,link:"/products/fine-tuning"}
   ];
 
   useDocumentTitle('AI Marketplace | BluBridge');
@@ -158,7 +158,7 @@ const Marketplace = () => {
             {/* Right - Marketplace Visual */}
             <div className="relative flex items-center justify-center">
               <img
-                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/j2m1ymjc_Marketplace.png"
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/sw4huahq_Market-place.png"
                 alt="AI Solutions Marketplace with framework integrations"
                 className="w-full h-auto max-h-[550px] object-contain rounded-xl"
               />
@@ -337,7 +337,7 @@ const Marketplace = () => {
             {/* Right - Services Grid with Infrastructure */}
             
             {/* Start  */}
-                <div className="relative">
+              <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 {services.map((service, index) => (
                   <div 
@@ -348,7 +348,7 @@ const Marketplace = () => {
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
                         <service.icon className="w-5 h-5 text-[#328CC1]" />
                       </div>
-                      <span className="font-medium text-sm">{service.name}</span>
+                      <Link to={service.link}><span className="font-medium text-sm">{service.name}</span></Link>
                     </div>
                   </div>
                 ))}
