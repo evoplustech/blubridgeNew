@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
@@ -6,105 +6,6 @@ import { ArrowRight, Plus, Minus } from 'lucide-react';
 
 const Marketplace = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const canvasRef = useRef(null);
-
-  // Animated hero canvas effect - stylized "M" logo with glow
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawMarketplaceAnimation = () => {
-      time += 0.008;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-      const centerX = width * 0.5;
-      const centerY = height * 0.5;
-
-      // Outer glow ring
-      const glowGradient = ctx.createRadialGradient(centerX, centerY, 60, centerX, centerY, 180);
-      glowGradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
-      glowGradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.15)');
-      glowGradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, 180, 0, Math.PI * 2);
-      ctx.fillStyle = glowGradient;
-      ctx.fill();
-
-      // Pulsing ring
-      const pulseRadius = 100 + Math.sin(time * 2) * 10;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, pulseRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 + Math.sin(time * 2) * 0.1})`;
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Inner circle background
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, 80, 0, Math.PI * 2);
-      const circleGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 80);
-      circleGradient.addColorStop(0, 'rgba(37, 99, 235, 0.8)');
-      circleGradient.addColorStop(1, 'rgba(30, 58, 138, 0.9)');
-      ctx.fillStyle = circleGradient;
-      ctx.fill();
-
-      // Draw "M" letter
-      ctx.save();
-      ctx.translate(centerX, centerY);
-      ctx.fillStyle = 'white';
-      ctx.font = 'bold 72px Inter, system-ui, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('M', 0, 4);
-      ctx.restore();
-
-      // Orbiting framework icons (simplified as dots)
-      const orbitRadius = 140;
-      for (let i = 0; i < 6; i++) {
-        const angle = (i / 6) * Math.PI * 2 + time * 0.3;
-        const x = centerX + Math.cos(angle) * orbitRadius;
-        const y = centerY + Math.sin(angle) * orbitRadius * 0.6;
-        
-        // Icon background circle
-        ctx.beginPath();
-        ctx.arc(x, y, 20, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(30, 41, 59, 0.9)';
-        ctx.fill();
-        ctx.strokeStyle = 'rgba(59, 130, 246, 0.5)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        // Connection line to center
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = 'rgba(59, 130, 246, 0.2)';
-        ctx.setLineDash([4, 4]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      }
-
-      animationFrame = requestAnimationFrame(drawMarketplaceAnimation);
-    };
-
-    resize();
-    window.addEventListener('resize', resize);
-    drawMarketplaceAnimation();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrame);
-    };
-  }, []);
 
   const faqs = [
     {

@@ -252,42 +252,7 @@ const GPUNodes = () => {
         </div>
       </section>
 
-      {/* GPU Accelerators Section */}
-      <section className="py-20 bg-[#fffdf7] relative overflow-hidden">
-        {/* Background server rack image effect */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
-          <div className="w-full h-full bg-gradient-to-l from-slate-800/50 to-transparent" />
-        </div>
-        
-        <div className="container-custom relative z-10">
-          <div className="mb-12">
-            <p className="text-[#6B7280] text-sm uppercase tracking-wider mb-2">OUR GPUS</p>
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Built with industry leading<br />accelerators
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {gpuCards.map((gpu, index) => (
-              <div 
-                key={index}
-                className={`relative rounded-2xl p-6 border transition-all duration-300 cursor-pointer ${
-                  activeGpu === index 
-                    ? 'border-purple-500/50 bg-gradient-to-br ' + gpu.color
-                    : 'border-[#D6DEC3] bg-slate-800/30 hover:border-[#D6DEC3]/50'
-                }`}
-                onClick={() => setActiveGpu(index)}
-              >
-                <h3 className="text-xl font-bold mb-3">{gpu.name}</h3>
-                <p className="text-[#2F3A4A] text-sm leading-relaxed">{gpu.description}</p>
-                {activeGpu === index && (
-                  <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-purple-500" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Integrated AI Services Section */}
       <section className="py-20 bg-[#fffdf7]">
