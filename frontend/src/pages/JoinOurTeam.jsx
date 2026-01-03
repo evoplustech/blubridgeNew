@@ -25,7 +25,7 @@ const JoinOurTeam = () => {
           textUnderlineOffset: '3px',
           marginBottom: '6px'
         }}>
-          Joining our Deep Learning Research Team
+          Join our Deep Learning Research Team
         </h1>
         
         {/* Subtitle */}

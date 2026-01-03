@@ -35,7 +35,7 @@ return (
                 <div className="rounded-xl p-8 px-9 shadow-lg border border-gray-200/50 inner-page">
                     <h1 className='font-bold text-3xl text-black mb-2'>Join Us</h1>
                     <div style={{ borderTop: '1px solid #eee', marginBottom: '1em' }}></div>
-
+                    <a href="/joinourteam" class="text-lg font-bold pt-3 text-[#046bd2] underline mb-4 block"><h2>What You Need to Know ?</h2></a>
                     <p className='inner-content'>
                        We have our offices at <a href="https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267d1ab225575:0xe0b23cd509229297!8m2!3d13.0280416!4d80.2681674!16s%2Fg%2F11h3k0tc7n?entry=ttu&g_ep=EgoyMDI1MDIxOS4xIKXMDSoASAFQAw%3D%3D" className='text-[#046bd2] underline'>“30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram,Chennai, Tamil Nadu 600028“</a>
                     </p>
