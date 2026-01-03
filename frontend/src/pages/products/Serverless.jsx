@@ -396,28 +396,28 @@ const Serverless = () => {
       {/* Performance Metrics - Section 6 */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Performance</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#000000]">Performance</h2>
           
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold">80%</p>
-              <p className="text-sm font-semibold text-[#2F3A4A]">LOWER COST</p>
-              <p className="text-sm text-[#6B7280]">BluBridge delivers an average cost saving of up to 80% compared to hyperscalers.</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#000000]">80%</p>
+              <p className="text-sm font-semibold text-[#000000]">LOWER COST</p>
+              <p className="text-sm text-[#000000]">BluBridge delivers an average cost saving of up to 80% compared to hyperscalers.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold">30%</p>
-              <p className="text-sm font-semibold text-[#2F3A4A]">FASTER</p>
-              <p className="text-sm text-[#6B7280]">BluBridge Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#000000]">30%</p>
+              <p className="text-sm font-semibold text-[#000000]">FASTER</p>
+              <p className="text-sm text-[#000000]">BluBridge Cloud shortens the path to actionable insights by as much as 30%, powered by a stack purpose-built and tuned specifically for AI workloads.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold">+40%</p>
-              <p className="text-sm font-semibold text-[#2F3A4A]">EFFICIENCY</p>
-              <p className="text-sm text-[#6B7280]">Efficiency gains reaching 40%.</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#000000]">+40%</p>
+              <p className="text-sm font-semibold text-[#000000]">EFFICIENCY</p>
+              <p className="text-sm text-[#000000]">Efficiency gains reaching 40%.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-3xl md:text-4xl font-bold">100%</p>
-              <p className="text-sm font-semibold text-[#2F3A4A]">RENEWABLE ENERGY</p>
-              <p className="text-sm text-[#6B7280]">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#000000]">100%</p>
+              <p className="text-sm font-semibold text-[#000000]">RENEWABLE ENERGY</p>
+              <p className="text-sm text-[#000000]">The Serverless Inference platform operates entirely on 100% renewable energy sourced from hydropower dams.</p>
             </div>
           </div>
         </div>
