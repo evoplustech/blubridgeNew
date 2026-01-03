@@ -321,7 +321,7 @@ const services = [
       </section>
 
       {/* SECTION 6: Feature Strip */}
-      <section className="py-16 bg-[#f8f9fa] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, i) => (
