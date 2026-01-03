@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Server, Layers, Cpu,Zap,  Database, Cloud, Shield, Settings } from 'lucide-react';
 
 const Marketplace = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -33,6 +33,24 @@ const Marketplace = () => {
     { type: 'IMAGE GENERATION', name: 'STABLE DIFFUSION 3 MEDIUM', provider: 'STABILITY AI' },
     { type: 'TEXT GENERATION', name: 'MIXTRAL 8X7B INSTRUCT', provider: 'MISTRAL AI' },
     { type: 'TEXT GENERATION', name: 'PHI 3', provider: 'MICROSOFT' }
+  ];
+
+    const LayoutGrid = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="7" height="7"></rect>
+    <rect x="14" y="3" width="7" height="7"></rect>
+    <rect x="14" y="14" width="7" height="7"></rect>
+    <rect x="3" y="14" width="7" height="7"></rect>
+  </svg>
+);
+
+    const services = [
+    { name: "Serverless", icon: Cloud },
+    { name: "Marketplace", icon: LayoutGrid },
+    { name: "Inference", icon: Zap },
+    { name: "Training", icon: Cpu },
+    { name: "GPU nodes", icon: Server },
+    { name: "LLM Library", icon: Database }
   ];
 
   useDocumentTitle('AI Marketplace | BluBridge');
@@ -169,19 +187,6 @@ const Marketplace = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
-                Accelerate development with access to leading models
-              </h2>
-              <p className="text-[#2F3A4A] text-base leading-relaxed">
-                Select from a library of open-source and custom LLM models optimized with BluBridge’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
-              </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
-                Find Out More <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Right - Model Cards Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {modelCards.map((model, idx) => (
                 <div key={idx} className="bg-white border border-[#D6DEC3] rounded-lg p-4 hover:border-blue-500/30 transition-colors">
@@ -190,6 +195,18 @@ const Marketplace = () => {
                   <span className="text-[#6B7280] text-xs mt-1 block">{model.provider}</span>
                 </div>
               ))}
+            </div>
+            {/* Right - Model Cards Grid */}
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-light  leading-tight">
+                Accelerate development with access to leading models
+              </h2>
+              <p className="text-[#2F3A4A] text-base leading-relaxed">
+                Select from a library of open-source and custom LLM models optimized with BluBridge’s proprietary software. Speed up development and deployment using models built to support a broad range of applications and industries.
+              </p>
+              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors font-medium">
+                Find Out More <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -201,7 +218,7 @@ const Marketplace = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-light  leading-tight">
                 Preconfigured hardware options for ease and efficiency
               </h2>
               <p className="text-[#2F3A4A] text-base leading-relaxed">
@@ -324,7 +341,7 @@ const Marketplace = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-light leading-tight">
                 Get access to a fully integrated suite of AI services and compute
               </h2>
               <p className="text-[#2F3A4A] text-base leading-relaxed">
@@ -333,104 +350,39 @@ const Marketplace = () => {
             </div>
 
             {/* Right - Services Grid with Infrastructure */}
-            <div className="space-y-6">
-              {/* Services Icons Grid */}
-              <div className="grid grid-cols-3 gap-3">
-                {/* Serverless */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                    </svg>
-                  </div>
-                  <span className="text-[#0B1F3B] text-xs font-medium">Serverless</span>
-                </div>
-
-                {/* Marketplace */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                    </svg>
-                  </div>
-                  <span className="text-[#0B1F3B] text-xs font-medium">Marketplace</span>
-                </div>
-
-                {/* Inference */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <span className="text-[#0B1F3B] text-xs font-medium">Inference</span>
-                </div>
-
-                {/* Training */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <span className="text-[#0B1F3B] text-xs font-medium">Training</span>
-                </div>
-
-                {/* GPU nodes */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                    </svg>
-                  </div>
-                  <span className="text-[#0B1F3B] text-xs font-medium">GPU nodes</span>
-                </div>
-
-                {/* LLM Library */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                  </div>
-                  <span className="text-[#0B1F3B] text-xs font-medium">LLM Library</span>
-                </div>
-              </div>
-
-              {/* Data Center Card */}
-              <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-xl p-5">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-[#0B1F3B] font-medium text-sm">BluBridge's Data centers</h4>
-                    <p className="text-[#2F3A4A] text-xs">Powered by renewable energy</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature List */}
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  'Pre-configured Software',
-                  'Pre-configured Infrastructure',
-                  'Job Management',
-                  'Job Scheduling',
-                  'Container Orchestration',
-                  'Optimised Libraries',
-                  'Optimised Compilers and Tools',
-                  'Optimised Runtime'
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[#2F3A4A] text-xs">{feature}</span>
+            
+            {/* Start  */}
+                <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                {services.map((service, index) => (
+                  <div 
+                    key={index}
+                    className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
+                        <service.icon className="w-5 h-5 text-[#328CC1]" />
+                      </div>
+                      <span className="font-medium text-sm">{service.name}</span>
+                    </div>
                   </div>
                 ))}
               </div>
+              
+              {/* Data Center Card */}
+              <div className="mt-6 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-4 border border-blue-800/30">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-[#328CC1]" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm">BluBridge's Data centers</p>
+                    <p className="text-xs text-[#2F3A4A]">Powered by renewable energy</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            {/* End */}
           </div>
         </div>
       </section>

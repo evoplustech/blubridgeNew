@@ -216,11 +216,16 @@ const GPUNodes = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="pt-15 pb-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <img
+                      src="/images/gpu.png"
+                      alt="Modern GPU Server Racks"
+                      className="w-full h-full object-contain"
+                    />
             {/* Server Visual */}
-            <div className="relative order-2 lg:order-1">
+            {/* <div className="relative order-2 lg:order-1">
               <div className="aspect-square max-w-md mx-auto relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-800/30 to-transparent rounded-2xl" />
                 <div className="grid grid-cols-3 gap-2 p-8">
@@ -235,7 +240,7 @@ const GPUNodes = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
             
             <div className="space-y-6 order-1 lg:order-2">
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">
