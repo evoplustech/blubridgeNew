@@ -107,7 +107,7 @@ const Healthcare = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <Link className="" to="/products/training">
-              <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
+              <div className="hover:bg-[#f5f4f1] min-h-[310px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
                 <div className="mb-6">
                   <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                     <Zap className="w-7 h-7 text-[#328CC1]" />
@@ -119,7 +119,7 @@ const Healthcare = () => {
               </div>
             </Link>
             <Link className="" to="/products/inference">
-              <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
+              <div className="hover:bg-[#f5f4f1] min-h-[310px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
                 <div className="mb-6">
                   <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center">
                     <Cpu className="w-7 h-7 text-[#328CC1]" />

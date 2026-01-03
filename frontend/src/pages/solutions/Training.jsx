@@ -254,7 +254,7 @@ const Training = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Training Card */}
             <Link className="" to="/products/training">
-            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-amber-500/30 to-orange-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-amber-400" />
@@ -270,7 +270,7 @@ const Training = () => {
             </Link>
             {/* AI Marketplace Card */}
              <Link className="" to="/products/marketplace">
-            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />

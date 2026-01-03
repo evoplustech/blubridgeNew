@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, Plus, Minus, Linkedin } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Linkedin ,Zap,Cpu,LayoutGrid} from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const AboutUs = () => {
@@ -307,8 +307,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
-
+      </section> 
       {/* Investor Relations Section */}
       {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
