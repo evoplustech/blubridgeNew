@@ -245,7 +245,7 @@ const services = [
       </section>
 
       {/* SECTION 4: Model Grid Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f8f9fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Model Cards Grid */}
