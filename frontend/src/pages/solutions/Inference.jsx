@@ -305,6 +305,7 @@ const Inference = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Inference Card */}
+            <Link className="" to="/products/inference">
             <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-blue-600/20 rounded-xl flex items-center justify-center">
@@ -317,8 +318,9 @@ const Inference = () => {
               Dedicated GPU compute optimised for inference workloads, delivering consistent performance and cost efficiency at scale.
               </p>
             </div>
-
+            </Link>
             {/* AI Marketplace Card */}
+            <Link className="" to="/products/marketplace">
             <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-cyan-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
@@ -331,6 +333,7 @@ const Inference = () => {
                A collection of tools and services that support the development, deployment, and scaling of inference pipelines using both BluBridge and popular AI frameworks.
               </p>
             </div>
+            </Link>
           </div>
         </div>
       </section>
