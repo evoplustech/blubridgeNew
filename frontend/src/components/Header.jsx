@@ -151,7 +151,7 @@ const Header = () => {
               }}
             >
               <img 
-                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/ivtn213o_B-icon.png"
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/8gxakifs_b1icon.png"
                 alt="BluBridge"
                 style={{ height: '40px', width: 'auto', objectFit: 'contain' }}
               />

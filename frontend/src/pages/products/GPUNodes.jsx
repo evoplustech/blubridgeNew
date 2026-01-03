@@ -276,18 +276,14 @@ const GPUNodes = () => {
             {gpuCards.map((gpu, index) => (
               <div 
                 key={index}
-                className={`relative rounded-2xl p-6 border transition-all duration-300 cursor-pointer ${
-                  activeGpu === index 
-                    ? 'border-purple-500/50 bg-gradient-to-br ' + gpu.color
-                    : 'border-[#D6DEC3] bg-slate-800/30 hover:border-[#D6DEC3]/50'
-                }`}
+                className={`relative rounded-2xl p-6 border transition-all duration-300 cursor-pointer border-[#D6DEC3] bg-slate-400/30 hover:border-[#D6DEC3]/50 `}
                 onClick={() => setActiveGpu(index)}
               >
                 <h3 className="text-xl font-bold mb-3">{gpu.name}</h3>
                 <p className="text-[#2F3A4A] text-sm leading-relaxed">{gpu.description}</p>
-                {activeGpu === index && (
+                {/* {activeGpu === index && (
                   <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-purple-500" />
-                )}
+                )} */}
               </div>
             ))}
           </div>
