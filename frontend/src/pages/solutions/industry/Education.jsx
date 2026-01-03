@@ -133,7 +133,8 @@ const Education = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Training Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-indigo-500/30 transition-colors">
+            <Link className="" to="/products/training">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-indigo-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-indigo-500/30 to-purple-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-indigo-400" />
@@ -145,9 +146,10 @@ const Education = () => {
                 A scalable, performance-optimised compute environment designed to shorten model training cycles and increase productivity for academic researchers and students.
               </p>
             </div>
-
+            </Link>
             {/* AI Marketplace Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-indigo-500/30 transition-colors">
+            <Link className="" to="/products/marketplace">
+            <div className=" hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-indigo-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-indigo-500/30 to-blue-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-indigo-400" />
@@ -159,6 +161,7 @@ const Education = () => {
                  A suite of tools and services that help educators and researchers build, deploy, and scale AI applications using both BluBridge offerings and widely used AI/ML frameworks.
               </p>
             </div>
+            </Link>
           </div>
         </div>
       </section>

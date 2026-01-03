@@ -326,7 +326,8 @@ const FineTuning = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Training Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
+            <Link className="" to="/products/training">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-emerald-500/30 to-green-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-emerald-400" />
@@ -338,9 +339,10 @@ const FineTuning = () => {
                 A highly scalable and performance-optimised compute framework that shortens model training cycles and boosts productivity.
               </p>
             </div>
-
+            </Link> 
             {/* Marketplace Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
+            <Link className="" to="/products/marketplace">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
@@ -352,6 +354,7 @@ const FineTuning = () => {
                 An ecosystem of services and tools that support the entire model lifecycle, enabling development and deployment using both BluBridge offerings and popular AI/ML technologies.
               </p>
             </div>
+            </Link> 
           </div>
         </div>
       </section>

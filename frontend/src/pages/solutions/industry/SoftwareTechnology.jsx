@@ -131,9 +131,10 @@ const SoftwareTechnology = () => {
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {/* AI Compute Training Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colors">
+            <Link className="h-full" to="/products/training">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colorsh-full flex flex-col hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-purple-400" />
@@ -145,9 +146,10 @@ const SoftwareTechnology = () => {
                 A flexible compute environment built to speed up model training and support demanding software workload demands.
               </p>
             </div>
-
+            </Link>
             {/* AI Compute Inference Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colors">
+            <Link className="h-full" to="/products/gpu-nodes">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colorsh-full flex flex-col hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-blue-600/20 rounded-xl flex items-center justify-center">
                   <Cpu className="w-7 h-7 text-purple-400" />
@@ -159,9 +161,10 @@ const SoftwareTechnology = () => {
                 Dedicated GPU clusters designed to handle compute-intensive applications, AI workloads, and data processing with reliability and performance.
               </p>
             </div>
-
+            </Link>
             {/* AI Marketplace Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colors">
+            <Link className="h-full" to="/products/marketplace">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colorsh-full flex flex-col hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-purple-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-violet-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-purple-400" />
@@ -173,6 +176,7 @@ const SoftwareTechnology = () => {
                 An ecosystem of services for developing and deploying AI applications built using BluBridge's tools and popular AI/ML software.
               </p>
             </div>
+            </Link>   
           </div>
         </div>
       </section>

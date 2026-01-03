@@ -136,7 +136,8 @@ const Telco = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Training Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
+            <Link className="" to="/products/training">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-[#328CC1]" />
@@ -148,9 +149,10 @@ const Telco = () => {
                  A scalable, performance-tuned compute architecture that reduces training times and boosts team productivity.
               </p>
             </div>
-
+              </Link>
             {/* AI Compute GPU Nodes Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
+            <Link className="" to="/products/gpu-nodes">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-blue-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
@@ -162,6 +164,7 @@ const Telco = () => {
                 High-performance GPU clusters with advanced networking, storage, and cooling to support AI, machine learning, and high-performance workloads.
               </p>
             </div>
+            </Link>
           </div>
         </div>
       </section>

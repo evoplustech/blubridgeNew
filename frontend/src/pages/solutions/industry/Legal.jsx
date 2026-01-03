@@ -133,7 +133,8 @@ const Legal = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* AI Compute Training Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-violet-500/30 transition-colors">
+            <Link className="" to="/products/training">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-violet-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-violet-500/30 to-purple-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-violet-400" />
@@ -145,9 +146,10 @@ const Legal = () => {
                 A scalable compute environment optimised to shorten model training cycles and increase productivity for legal AI workloads.
               </p>
             </div>
-
+            </Link>
             {/* AI Compute Inference Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-violet-500/30 transition-colors">
+            <Link className="" to="/products/inference">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-violet-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-violet-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <Cpu className="w-7 h-7 text-violet-400" />
@@ -159,9 +161,10 @@ const Legal = () => {
                A high-performance platform designed to efficiently run inference workloads for production-level AI applications used in legal processes.
               </p>
             </div>
-
+          </Link>
             {/* AI Marketplace Card */}
-            <div className="bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-violet-500/30 transition-colors">
+            <Link className="" to="/products/marketplace">
+            <div className="hover:bg-[#f5f4f1] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-violet-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-violet-500/30 to-blue-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-violet-400" />
@@ -173,6 +176,7 @@ const Legal = () => {
                 A collection of tools and frameworks that support the development, deployment, and scaling of AI applications tailored to legal use cases.
               </p>
             </div>
+            </Link>
           </div>
         </div>
       </section>
