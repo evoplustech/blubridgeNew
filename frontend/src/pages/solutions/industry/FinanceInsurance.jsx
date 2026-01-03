@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
@@ -6,124 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid, Cpu } from 'lucide
 
 const FinanceInsurance = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const canvasRef = useRef(null);
-
-  // Animated parallax for hero section
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-
-    const animate = () => {
-      time += 0.008;
-      setOffset({
-        x: Math.sin(time) * 15,
-        y: Math.cos(time * 0.7) * 10
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
-
-  // Canvas animation for financial data visualization
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawFinanceChart = () => {
-      time += 0.02;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-
-      // Draw animated grid lines
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.1)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 10; i++) {
-        const y = (height / 10) * i;
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // Draw moving candlestick-like bars
-      for (let i = 0; i < 15; i++) {
-        const x = (width / 15) * i + 20;
-        const baseHeight = Math.sin(time + i * 0.5) * 50 + 100;
-        const barHeight = baseHeight + Math.random() * 20;
-        
-        // Bar body
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.3 + Math.sin(time + i) * 0.1})`;
-        ctx.fillRect(x, height - barHeight, 15, barHeight * 0.6);
-        
-        // Bar wick
-        ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
-        ctx.beginPath();
-        ctx.moveTo(x + 7.5, height - barHeight);
-        ctx.lineTo(x + 7.5, height - barHeight - 20);
-        ctx.stroke();
-      }
-
-      // Draw flowing line chart
-      ctx.beginPath();
-      ctx.strokeStyle = 'rgba(96, 165, 250, 0.6)';
-      ctx.lineWidth = 2;
-      for (let i = 0; i <= width; i += 5) {
-        const y = height / 2 + Math.sin((i + time * 50) * 0.02) * 60 + Math.sin((i + time * 30) * 0.05) * 30;
-        if (i === 0) {
-          ctx.moveTo(i, y);
-        } else {
-          ctx.lineTo(i, y);
-        }
-      }
-      ctx.stroke();
-
-      // Draw glowing data points
-      for (let i = 0; i < 8; i++) {
-        const x = (width / 8) * i + width / 16;
-        const y = height / 2 + Math.sin((x + time * 50) * 0.02) * 60;
-        
-        const gradient = ctx.createRadialGradient(x, y, 0, x, y, 15);
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.8)');
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-        
-        ctx.beginPath();
-        ctx.arc(x, y, 15, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-        
-        ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(147, 197, 253, 0.9)';
-        ctx.fill();
-      }
-
-      animationFrame = requestAnimationFrame(drawFinanceChart);
-    };
-
-    resize();
-    drawFinanceChart();
-
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -133,63 +15,34 @@ const FinanceInsurance = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* ANIMATED HERO SECTION */}
+      {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
-        
-        {/* Animated financial data canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-60"
-          style={{ pointerEvents: 'none' }}
-        />
-
-        {/* Parallax cityscape silhouette effect */}
+        {/* Background Image */}
         <div 
-          className="absolute right-0 bottom-0 w-[50%] h-[60%] opacity-30"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.3s ease-out'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/vuzoogt1_FINANCE.png)'
           }}
-        >
-          <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-[#328CC1]/20 to-transparent" />
-          {/* Stylized building silhouettes */}
-          <svg viewBox="0 0 400 300" className="absolute bottom-0 right-0 w-full h-full opacity-50">
-            <defs>
-              <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="rgba(50, 140, 193, 0.3)" />
-                <stop offset="100%" stopColor="rgba(50, 140, 193, 0.1)" />
-              </linearGradient>
-            </defs>
-            <rect x="20" y="150" width="40" height="150" fill="url(#buildingGrad)" />
-            <rect x="70" y="100" width="50" height="200" fill="url(#buildingGrad)" />
-            <rect x="130" y="80" width="35" height="220" fill="url(#buildingGrad)" />
-            <rect x="175" y="120" width="45" height="180" fill="url(#buildingGrad)" />
-            <rect x="230" y="60" width="55" height="240" fill="url(#buildingGrad)" />
-            <rect x="295" y="90" width="40" height="210" fill="url(#buildingGrad)" />
-            <rect x="345" y="130" width="50" height="170" fill="url(#buildingGrad)" />
-          </svg>
-        </div>
-
-        {/* Ambient glow - adjusted for light theme */}
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-[#328CC1]/10 rounded-full filter blur-[120px] animate-pulse" style={{ animationDuration: '5s' }} />
+        />
+        
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/85 via-[#0B1F3B]/60 to-transparent" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               FINANCE & INSURANCE
             </h1>
-            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               At BluBridge, we provide GPU cloud computing solutions designed to strengthen the computational capabilities of finance and insurance organisations. Our platform helps teams deliver innovative services faster while improving efficiency, security, and performance across data-intensive operations.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#0B1F3B] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
