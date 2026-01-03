@@ -9,8 +9,7 @@ const Research = () => {
     <div 
       className="min-h-screen pt-24 pb-16"
       style={{
-        backgroundColor: '#fffdf7',
-       
+        backgroundColor: '#f3f1e9',
       }}
     >
       <div className="container-custom">
@@ -21,7 +20,10 @@ const Research = () => {
 
         {/* Paper Card */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]">
+          <div 
+            className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
+            style={{ backgroundColor: '#fffdf7' }}
+          >
             
             {/* Paper Title */}
             <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-6">
