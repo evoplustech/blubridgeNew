@@ -529,7 +529,7 @@ const Training = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
-                Industry leading GPU sdfsdfsdfsdfsdfs<br />clusters at all scales
+                Industry leading GPU<br />clusters at all scales
               </h2>
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
