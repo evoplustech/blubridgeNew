@@ -158,7 +158,7 @@ const Marketplace = () => {
             {/* Right - Marketplace Visual */}
             <div className="relative flex items-center justify-center">
               <img
-                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/sw4huahq_Market-place.png"
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/90simyfu_Marketplace.png"
                 alt="AI Solutions Marketplace with framework integrations"
                 className="w-full h-auto max-h-[550px] object-contain rounded-xl"
               />
