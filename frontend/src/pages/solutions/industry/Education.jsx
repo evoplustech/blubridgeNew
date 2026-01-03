@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../components/ui/button';
@@ -6,124 +6,6 @@ import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-reac
 
 const Education = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const canvasRef = useRef(null);
-
-  // Animated parallax for hero section
-  useEffect(() => {
-    let animationFrame;
-    let time = 0;
-
-    const animate = () => {
-      time += 0.006;
-      setOffset({
-        x: Math.sin(time) * 12,
-        y: Math.cos(time * 0.8) * 8
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
-
-  // Canvas animation for abstract vertical academic forms
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    const drawAcademicForms = () => {
-      time += 0.015;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-
-      // Draw vertical book-like abstract columns
-      const columnCount = 8;
-      const columnWidth = width / (columnCount + 2);
-      
-      for (let i = 0; i < columnCount; i++) {
-        const x = (i + 1.5) * columnWidth;
-        const columnHeight = height * (0.5 + Math.sin(time + i * 0.5) * 0.15);
-        const yOffset = Math.sin(time * 0.8 + i * 0.3) * 20;
-        
-        // Draw column shadow/glow
-        const gradient = ctx.createLinearGradient(x, height - columnHeight + yOffset, x, height);
-        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.1)');
-        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.2)');
-        gradient.addColorStop(1, 'rgba(99, 102, 241, 0.05)');
-        
-        // Main column
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.roundRect(
-          x - columnWidth * 0.3, 
-          height - columnHeight + yOffset, 
-          columnWidth * 0.6, 
-          columnHeight,
-          [8, 8, 0, 0]
-        );
-        ctx.fill();
-        
-        // Top highlight
-        ctx.fillStyle = `rgba(129, 140, 248, ${0.3 + Math.sin(time + i) * 0.1})`;
-        ctx.fillRect(x - columnWidth * 0.3, height - columnHeight + yOffset, columnWidth * 0.6, 4);
-        
-        // Spine detail
-        ctx.fillStyle = 'rgba(165, 180, 252, 0.15)';
-        ctx.fillRect(x - columnWidth * 0.28, height - columnHeight + yOffset + 10, 2, columnHeight - 20);
-      }
-
-      // Draw floating particles (knowledge dots)
-      for (let i = 0; i < 20; i++) {
-        const particleX = (Math.sin(time * 0.5 + i * 2) + 1) * width * 0.5;
-        const particleY = (Math.cos(time * 0.3 + i * 1.5) + 1) * height * 0.4 + height * 0.1;
-        const size = 2 + Math.sin(time + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(particleX, particleY, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(165, 180, 252, ${0.3 + Math.sin(time * 2 + i) * 0.2})`;
-        ctx.fill();
-      }
-
-      // Draw connecting lines between some columns (knowledge flow)
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.15)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < columnCount - 1; i += 2) {
-        const x1 = (i + 1.5) * columnWidth;
-        const x2 = (i + 2.5) * columnWidth;
-        const y1 = height * 0.3 + Math.sin(time + i) * 30;
-        const y2 = height * 0.35 + Math.cos(time + i) * 25;
-        
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.quadraticCurveTo((x1 + x2) / 2, y1 - 50, x2, y2);
-        ctx.stroke();
-      }
-
-      animationFrame = requestAnimationFrame(drawAcademicForms);
-    };
-
-    resize();
-    drawAcademicForms();
-
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -133,40 +15,34 @@ const Education = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* ANIMATED HERO SECTION */}
+      {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Background gradient - Light theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fffdf7] via-[#f3f1e9] to-[#fffdf7]" />
-        
-        {/* Animated academic forms canvas */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute right-0 top-0 w-[55%] h-full opacity-80"
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            pointerEvents: 'none',
-            transform: `translate(${offset.x}px, ${offset.y}px)`,
-            transition: 'transform 0.5s ease-out'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/30p1f6x8_bann.png)'
           }}
         />
-
-        {/* Ambient glow - adjusted for light theme */}
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-[#328CC1]/10 rounded-full filter blur-[100px] animate-pulse" style={{ animationDuration: '5s' }} />
+        
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/85 via-[#0B1F3B]/60 to-transparent" />
 
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
               EDUCATION
             </h1>
-            <p className="text-lg lg:text-xl text-[#2F3A4A] mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
               At BluBridge, we provide GPU cloud computing resources that help educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure gives students, faculty, and researchers access to high-performance computing environments that support advanced computing projects and AI applications.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-white hover:bg-gray-100 text-[#0B1F3B] px-10 py-6 text-base font-medium rounded-md">
                   Get Started
                 </Button>
               </Link>
-             <Link to="/contact" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B1F3B] transition-colors font-medium">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
                 Contact <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
