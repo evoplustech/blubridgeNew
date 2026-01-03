@@ -149,16 +149,16 @@ const GPUNodes = () => {
       {/* Performance Metrics Section */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#328CC1] mb-12">Performance</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#000000] mb-12">Performance</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {performanceMetrics.map((item, index) => (
               <div key={index} className="space-y-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl md:text-4xl font-bold">{item.metric}</span>
-                  <span className="text-lg font-semibold">{item.title}</span>
+                  <span className="text-3xl md:text-4xl font-bold text-[#000000]">{item.metric}</span>
+                  <span className="text-lg font-semibold text-[#000000]">{item.title}</span>
                 </div>
-                <p className="text-[#2F3A4A] text-sm leading-relaxed">{item.description}</p>
+                <p className="text-[#000000] text-sm leading-relaxed">{item.description}</p>
                 {/* <Link to="/contact" className="inline-flex items-center gap-1 text-[#328CC1] text-sm hover:text-blue-300 transition-colors">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
