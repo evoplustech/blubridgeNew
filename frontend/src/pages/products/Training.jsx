@@ -320,12 +320,83 @@ const Training = () => {
             from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
           }
-          @keyframes heroFloat {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-8px) scale(1.01); }
+          
+          /* Ultra-smooth micro-floating for entire cluster - cinematic feel */
+          @keyframes trainingClusterFloat {
+            0% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-4px) translateX(2px); }
+            50% { transform: translateY(-6px) translateX(0px); }
+            75% { transform: translateY(-3px) translateX(-2px); }
+            100% { transform: translateY(0px) translateX(0px); }
           }
-          .hero-image-float {
-            animation: heroFloat 6s ease-in-out infinite;
+          .training-cluster-float {
+            animation: trainingClusterFloat 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          }
+          
+          /* Central core gentle pulsing - breathing effect */
+          @keyframes trainingCorePulse {
+            0%, 100% { 
+              opacity: 0;
+              transform: translate(-50%, -50%) scale(0.85);
+              box-shadow: 0 0 30px 15px rgba(59, 130, 246, 0);
+            }
+            50% { 
+              opacity: 0.35;
+              transform: translate(-50%, -50%) scale(1.1);
+              box-shadow: 0 0 50px 25px rgba(59, 130, 246, 0.15);
+            }
+          }
+          .training-core-pulse {
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 180, 255, 0.25) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%);
+            animation: trainingCorePulse 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            transform: translate(-50%, -50%);
+          }
+          
+          /* Outer sphere subtle independent drift - physics-like */
+          @keyframes trainingSphereGlow {
+            0%, 100% { 
+              opacity: 0;
+              transform: translate(-50%, -50%) scale(0.8);
+            }
+            30% { 
+              opacity: 0.5;
+              transform: translate(-50%, -50%) scale(1);
+            }
+            70% { 
+              opacity: 0.3;
+              transform: translate(-50%, -50%) scale(1.15);
+            }
+          }
+          .training-sphere-drift {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 180, 255, 0.5) 0%, transparent 70%);
+            animation: trainingSphereGlow 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            transform: translate(-50%, -50%);
+          }
+          
+          /* Connection line shimmer - subtle energy flow */
+          @keyframes trainingLineShimmer {
+            0%, 100% { 
+              opacity: 0;
+              background: linear-gradient(90deg, transparent, transparent);
+            }
+            40% { 
+              opacity: 0.6;
+              background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.4), rgba(150, 200, 255, 0.6), rgba(100, 180, 255, 0.4), transparent);
+            }
+            60% { 
+              opacity: 0.4;
+              background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.3), rgba(150, 200, 255, 0.5), rgba(100, 180, 255, 0.3), transparent);
+            }
+          }
+          .training-line-shimmer {
+            height: 2px;
+            border-radius: 1px;
+            animation: trainingLineShimmer 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            filter: blur(0.5px);
           }
         `}</style>
       </section>
