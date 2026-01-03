@@ -270,19 +270,42 @@ const Training = () => {
               </div>
             </div>
             
-            {/* Right - Hero Image with Subtle Animation */}
+            {/* Right - Training Cluster with Ultra-Realistic Motion */}
             <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
               <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_logo-update-17/artifacts/hjk4ft8h_image.png"
-                  alt="AI neural network visualization"
-                  className="w-full h-full object-contain hero-image-float"
-                  style={{
-                    filter: 'drop-shadow(0 0 40px rgba(59, 130, 246, 0.15))',
-                    maskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)',
-                    WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)'
-                  }}
-                />
+                {/* Main cluster image with micro-floating motion */}
+                <div className="relative w-full h-full training-cluster-float">
+                  <img 
+                    src="https://customer-assets.emergentagent.com/job_logo-update-17/artifacts/d2sd6azc_Training%20Cluster.png"
+                    alt="AI training cluster visualization"
+                    className="w-full h-full object-contain"
+                    style={{
+                      filter: 'drop-shadow(0 0 60px rgba(59, 130, 246, 0.25))',
+                      maskImage: 'radial-gradient(ellipse 92% 88% at 50% 50%, black 70%, transparent 100%)',
+                      WebkitMaskImage: 'radial-gradient(ellipse 92% 88% at 50% 50%, black 70%, transparent 100%)'
+                    }}
+                  />
+                  
+                  {/* Overlay for internal light pulsing effect */}
+                  <div className="absolute inset-0 pointer-events-none">
+                    {/* Central core glow pulse */}
+                    <div className="training-core-pulse absolute" style={{ left: '50%', top: '50%', width: '120px', height: '120px' }} />
+                    
+                    {/* Outer sphere drift indicators - subtle glow points */}
+                    <div className="training-sphere-drift absolute" style={{ left: '30%', top: '35%', animationDelay: '0s' }} />
+                    <div className="training-sphere-drift absolute" style={{ left: '70%', top: '35%', animationDelay: '1.5s' }} />
+                    <div className="training-sphere-drift absolute" style={{ left: '25%', top: '60%', animationDelay: '3s' }} />
+                    <div className="training-sphere-drift absolute" style={{ left: '75%', top: '60%', animationDelay: '4.5s' }} />
+                    <div className="training-sphere-drift absolute" style={{ left: '50%', top: '25%', animationDelay: '2s' }} />
+                    <div className="training-sphere-drift absolute" style={{ left: '50%', top: '75%', animationDelay: '5s' }} />
+                    
+                    {/* Connection line shimmer effects */}
+                    <div className="training-line-shimmer absolute" style={{ left: '35%', top: '45%', width: '80px', transform: 'rotate(-25deg)', animationDelay: '0s' }} />
+                    <div className="training-line-shimmer absolute" style={{ left: '55%', top: '45%', width: '80px', transform: 'rotate(25deg)', animationDelay: '2s' }} />
+                    <div className="training-line-shimmer absolute" style={{ left: '40%', top: '55%', width: '60px', transform: 'rotate(45deg)', animationDelay: '4s' }} />
+                    <div className="training-line-shimmer absolute" style={{ left: '55%', top: '55%', width: '60px', transform: 'rotate(-45deg)', animationDelay: '6s' }} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
