@@ -121,7 +121,7 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           {/* Logo with Anthropic-style scroll behavior */}
           <Link to="/" className="relative flex items-center" style={{ width: '180px', height: '40px' }}>
-            {/* Full wordmark - visible at top */}
+            {/* Full logo - visible at top */}
             <div 
               className="absolute inset-0 flex items-center"
               style={{
@@ -133,21 +133,14 @@ const Header = () => {
                 pointerEvents: isScrolled ? 'none' : 'auto'
               }}
             >
-              <span 
-                style={{
-                  fontFamily: '"DM Sans", -apple-system, BlinkMacSystemFont, sans-serif',
-                  fontSize: '26px',
-                  fontWeight: '500',
-                  letterSpacing: '-0.5px',
-                  color: '#0B1F3B',
-                  background: 'transparent'
-                }}
-              >
-                BLUBRIDGE
-              </span>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/8j6y1qxx_logo3.png"
+                alt="BluBridge"
+                className="h-10 object-contain"
+              />
             </div>
             
-            {/* Compact wordmark - visible on scroll */}
+            {/* Compact logo - visible on scroll */}
             <div 
               className="absolute inset-0 flex items-center"
               style={{
@@ -157,18 +150,11 @@ const Header = () => {
                 pointerEvents: isScrolled ? 'auto' : 'none'
               }}
             >
-              <span 
-                style={{
-                  fontFamily: '"DM Sans", -apple-system, BlinkMacSystemFont, sans-serif',
-                  fontSize: '22px',
-                  fontWeight: '500',
-                  letterSpacing: '-0.3px',
-                  color: '#0B1F3B',
-                  background: 'transparent'
-                }}
-              >
-                BLUBRIDGE
-              </span>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/8j6y1qxx_logo3.png"
+                alt="BluBridge"
+                className="h-8 object-contain"
+              />
             </div>
           </Link>
 
