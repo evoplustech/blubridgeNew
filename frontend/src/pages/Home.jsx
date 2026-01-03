@@ -318,7 +318,7 @@ const Home = () => {
         <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
-              Beyond the Horizon
+              The hyperscaler<br></br>engineered for AI
             </h1>
             
             {/* <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
