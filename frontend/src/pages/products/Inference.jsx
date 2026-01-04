@@ -252,7 +252,7 @@ const services = [
             {/* Model Cards Grid */}
             <div className="grid grid-cols-2 gap-3">
               {modelCards.map((model, i) => (
-                <div key={i} className="rounded-lg p-5 hover:shadow-md transition-all" style={{ backgroundColor: 'rgba(202, 202, 202, 0.5)' }}>
+                <div key={i} className="rounded-lg p-5 hover:shadow-md transition-all" style={{ backgroundColor: 'rgba(211, 211, 211, 0.5)' }}>
                   <div className="text-xs text-[#6B7280] mb-1 uppercase tracking-wide">{model.type}</div>
                   <div className="text-[#0B1F3B] font-bold text-sm mb-2">{model.name}</div>
                   <div className="text-xs text-[#6B7280]">{model.publisher}</div>

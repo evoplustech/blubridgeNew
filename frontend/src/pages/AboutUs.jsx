@@ -268,7 +268,7 @@ const AboutUs = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-slate-800/30 rounded-2xl p-6 border border-[#D6DEC3]">
+              <div key={index} className="bg-[#eee] rounded-2xl p-6 border border-[#D6DEC3]">
                 <p className="text-[#2F3A4A] text-sm leading-relaxed mb-6 italic">
                   "{testimonial.quote}"
                 </p>
