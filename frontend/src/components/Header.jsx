@@ -121,39 +121,39 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           {/* Logo with scroll-based switch behavior */}
           <Link to="/" className="relative flex items-center" style={{ width: '180px', height: '40px' }}>
-            {/* Primary logo - visible at top */}
+            {/* Primary BLUBRIDGE wordmark - visible at top */}
             <div 
               className="absolute inset-0 flex items-center"
               style={{
                 opacity: isScrolled ? 0 : (hasAnimated ? 1 : 0),
                 transform: isScrolled 
-                  ? 'translateY(-6px)' 
-                  : (hasAnimated ? 'translateY(0)' : 'translateY(6px)'),
-                transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+                  ? 'translateY(-3px)' 
+                  : (hasAnimated ? 'translateY(0)' : 'translateY(3px)'),
+                transition: 'opacity 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.4, 0, 0.2, 1)',
                 pointerEvents: isScrolled ? 'none' : 'auto'
               }}
             >
               <img 
-                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/twuef0ms_logo-new.png"
+                src="https://customer-assets.emergentagent.com/job_3065e4ef-2ede-45c3-b222-cb5ecd6f8830/artifacts/p8wf6567_Logo%20Header%20Site%20Open.png"
                 alt="BluBridge"
-                style={{ height: '40px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
               />
             </div>
             
-            {/* B-icon logo - visible on scroll */}
+            {/* Compact B icon - visible on scroll */}
             <div 
               className="absolute inset-0 flex items-center"
               style={{
                 opacity: isScrolled ? 1 : 0,
-                transform: isScrolled ? 'translateY(0)' : 'translateY(6px)',
-                transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: isScrolled ? 'translateY(0)' : 'translateY(3px)',
+                transition: 'opacity 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.4, 0, 0.2, 1)',
                 pointerEvents: isScrolled ? 'auto' : 'none'
               }}
             >
               <img 
-                src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/8gxakifs_b1icon.png"
+                src="https://customer-assets.emergentagent.com/job_3065e4ef-2ede-45c3-b222-cb5ecd6f8830/artifacts/6nm5pn3v_Logo%20Header%20Scroll%20Down-Mention%20Secion.png"
                 alt="BluBridge"
-                style={{ height: '40px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
               />
             </div>
           </Link>
