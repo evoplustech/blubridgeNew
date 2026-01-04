@@ -134,7 +134,7 @@ const Header = () => {
               }}
             >
               <img 
-                src="https://customer-assets.emergentagent.com/job_3065e4ef-2ede-45c3-b222-cb5ecd6f8830/artifacts/p8wf6567_Logo%20Header%20Site%20Open.png"
+                src="/images/blubridge-wordmark.png"
                 alt="BluBridge"
                 style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
               />
@@ -151,7 +151,7 @@ const Header = () => {
               }}
             >
               <img 
-                src="https://customer-assets.emergentagent.com/job_3065e4ef-2ede-45c3-b222-cb5ecd6f8830/artifacts/6nm5pn3v_Logo%20Header%20Scroll%20Down-Mention%20Secion.png"
+                src="/images/b-icon.png"
                 alt="BluBridge"
                 style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
               />
