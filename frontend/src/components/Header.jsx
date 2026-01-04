@@ -134,9 +134,9 @@ const Header = () => {
               }}
             >
               <img 
-                src="/images/blubridge-wordmark.png"
+                src="/images/blubridge-logo.svg"
                 alt="BluBridge"
-                style={{ height: '24px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '22px', width: 'auto', objectFit: 'contain' }}
               />
             </div>
             
@@ -151,9 +151,9 @@ const Header = () => {
               }}
             >
               <img 
-                src="/images/b-icon.png"
+                src="/images/b-logo.svg"
                 alt="BluBridge"
-                style={{ height: '32px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '28px', width: 'auto', objectFit: 'contain' }}
               />
             </div>
           </Link>
