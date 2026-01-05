@@ -1,22 +1,14 @@
-import React,{useRef} from 'react';
+import React from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
-import JoinOurTeam from './JoinOurTeam';
-
 
 const Careers = () => {
   useDocumentTitle('Careers | BluBridge');
-  const joinOurTeamRef = useRef(null);
-  const handleScrollToJoin = () => {
-    joinOurTeamRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  };
+
   return (
     <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '60px', paddingBottom: '20px' }} className="rounded-2xl">
       <div style={{ 
-        //  maxWidth: '900px', 
+        maxWidth: '900px', 
         margin: '0 auto', 
         padding: '35px 50px 45px 50px',
         backgroundColor: '#faf8f2',
@@ -44,7 +36,7 @@ const Careers = () => {
           lineHeight: '1.6',
           marginBottom: '20px'
         }}>
-          We have our office at{' '}
+          We have our offices at{' '}
           <a 
             href="https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z"
             target="_blank"
@@ -107,28 +99,14 @@ const Careers = () => {
           gap: '6px'
         }}>
           <span style={{ fontSize: '16px' }}>👆</span>
-          {/* <Link 
+          <Link 
             to="/joinourteam"
             style={{ color: '#046bd2', textDecoration: 'underline', fontWeight: '500' }}
           >
             Joining Our Research Unit
-          </Link> */}
-          <a
-            onClick={handleScrollToJoin}
-            style={{
-              color: '#046bd2',
-              textDecoration: 'underline',
-              fontWeight: '500',
-              background: 'none',
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer'
-            }}
-          >
-            Joining Our Research Unit
-          </a>
+          </Link>
         </p>
-            
+
         <p style={{ 
           fontSize: '15px', 
           color: '#222', 
@@ -165,10 +143,6 @@ const Careers = () => {
             </a>
           </li>
         </ul>
-      </div>
-      {/* Join Our Team Section */}
-      <div  style={{ marginTop: '80px' }}>
-        <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
     </div>
   );

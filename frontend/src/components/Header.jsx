@@ -134,7 +134,7 @@ const Header = () => {
               }}
             >
               <img 
-                src="/images/blubridge-logo.svg"
+                src="/images/blubridge-wordmark.png"
                 alt="BluBridge"
                 style={{ height: '22px', width: 'auto', objectFit: 'contain' }}
               />
@@ -151,7 +151,7 @@ const Header = () => {
               }}
             >
               <img 
-                src="/images/b-logo.svg"
+                src="/images/b-icon.png"
                 alt="BluBridge"
                 style={{ height: '28px', width: 'auto', objectFit: 'contain' }}
               />

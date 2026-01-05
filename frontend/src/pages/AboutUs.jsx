@@ -89,17 +89,17 @@ const AboutUs = () => {
       question: "What industries does BluBridge serve?",
       answer: "BluBridge serves a diverse range of industries including technology, finance, healthcare, manufacturing, telecommunications, government, education, and research institutions. Our infrastructure solutions are designed to meet the unique computational demands of each sector."
     },
-    {
-      question: "Where is BluBridge headquartered?",
-      answer: "BluBridge is headquartered in Oslo, Norway, with data centers strategically located across Europe and expanding globally. Our facilities are powered by renewable energy sources, reflecting our commitment to sustainable AI infrastructure."
-    },
+    // {
+    //   question: "Where is BluBridge headquartered?",
+    //   answer: "BluBridge is headquartered in Oslo, Norway, with data centers strategically located across Europe and expanding globally. Our facilities are powered by renewable energy sources, reflecting our commitment to sustainable AI infrastructure."
+    // },
     {
       question: "Who are BluBridge's key investors?",
       answer: "BluBridge is backed by leading global investors including NVIDIA, Aker, Nokia, Dell Technologies, Point72, G Squared, Fidelity, and Blue Owl Capital. This strong investor base reflects confidence in our technology and market position."
     },
     {
       question: "How can partners or customers get in touch?",
-      answer: "Partners and customers can reach out through our Contact page, email us directly at contact@BluBridge.com, or schedule a consultation through our website. Our team is available to discuss your specific AI infrastructure needs and provide tailored solutions."
+      answer: "Partners and customers can reach out through our Contact page or schedule a consultation through our website. Our team is available to discuss your specific AI infrastructure needs and provide tailored solutions."
     }
   ];
 
@@ -152,7 +152,8 @@ const AboutUs = () => {
             </h1>
             
             <p className="text-white/90 text-lg max-w-2xl leading-relaxed mb-8">
-              AI is changing the world, impacting industries, economies, and human experiences. BluBridge is creating the advanced infrastructure, systems, and solutions that allow organisations, enterprises, and governments to build, launch, and expand their most ambitious AI systems across the globe.
+              We are an AI research and consulting company focused on turning intelligence into real-world impact.
+              Our work bridges deep research with practical execution, helping organisations move from ideas to deployed AI systems. By combining scientific rigor with hands-on consulting, we enable businesses to build, scale, and trust AI that delivers measurable outcomes.
             </p>
             
             <Link to="/contact">
@@ -172,7 +173,7 @@ const AboutUs = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <p className="text-[#2F3A4A] text-lg leading-relaxed">
-              We are creators and innovators shaping the future of AI. The way we build technology reflects who we are. We challenge limits, embrace progress, and create systems that help others achieve extraordinary outcomes.
+                We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
               </p>
               {/* <p className="text-[#2F3A4A] leading-relaxed">
                 BluBridge works with the world's best, creating platforms that move the world forward. From the big players to the next big start-ups, we provide the essential infrastructure that powers the AI revolution.
@@ -182,29 +183,29 @@ const AboutUs = () => {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-[#328CC1] font-semibold">Invent Boldly</span>
-                    <span className="text-[#2F3A4A]"> We pursue bold ideas without fear, pushing technological boundaries to build products that make significant impact.</span>
+                    <span className="text-[#328CC1] font-semibold">Research with Purpose</span>
+                    <span className="text-[#2F3A4A]"> We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-[#328CC1] font-semibold">Move Fast, Stay Humble</span>
-                    <span className="text-[#2F3A4A]"> We prioritise speed and learning. We believe in rapid progress grounded in humility and continuous improvement.</span>
+                    <span className="text-[#328CC1] font-semibold">From Insight to Implementation</span>
+                    <span className="text-[#2F3A4A]"> We don’t stop at theory. Our consulting practice transforms research outcomes into production-ready AI systems, guiding clients from strategy and design to deployment and optimisation.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-[#328CC1] font-semibold">Own the Outcome</span>
-                    <span className="text-[#2F3A4A]"> We hold ourselves accountable for what we build. We deliver with urgency and take responsibility for achieving results that matter.</span>
+                    <span className="text-[#328CC1] font-semibold">Build Responsibly, Grow Confidently</span>
+                    <span className="text-[#2F3A4A]"> We prioritise robustness, transparency, and ethical use of AI. Every system we design is built to be reliable, explainable, and scalable in real operational environments.</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
-                    <span className="text-[#328CC1] font-semibold">Build with Trust</span>
-                    <span className="text-[#2F3A4A]"> We operate transparently, earning confidence through clear communication and consistent performance.</span>
+                    <span className="text-[#328CC1] font-semibold">Own the Impact</span>
+                    <span className="text-[#2F3A4A]"> We take responsibility for outcomes, not just deliverables. By working as an extension of our clients’ teams, we ensure that AI initiatives create lasting value, not experimental dead ends.</span>
                   </div>
                 </div>
               </div>

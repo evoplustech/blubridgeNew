@@ -222,7 +222,7 @@ const AIExpertiseOrbit = () => {
       {/* Center badge */}
       <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#DBD6C4]">
         <span className="text-white text-xs font-medium text-center leading-tight">
-        <img width="30px" src="https://customer-assets.emergentagent.com/job_visual-swap-4/artifacts/8gxakifs_b1icon.png"/>
+        <img width="30px" src="/images/b-center.png"/>
         </span>
       </div>
 

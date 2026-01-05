@@ -64,13 +64,13 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
           {/* Left Column - Our Offices */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
+          <div className="bg-[#efede5] backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" >
               Our Offices
             </h2>
             
             {/* Office Card 1 */}
-            <div className="border border-[#D6DEC3] rounded-xl p-6 mb-4">
+            <div className="bg-[#ffffff] border border-[#D6DEC3] rounded-xl p-6 mb-4">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
@@ -97,7 +97,7 @@ const Contact = () => {
             </div>
 
             {/* Office Card 2 */}
-            <div className="border border-[#D6DEC3] rounded-xl p-6 mb-8">
+            <div className="bg-[#ffffff] border border-[#D6DEC3] rounded-xl p-6 mb-8">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
@@ -141,7 +141,7 @@ const Contact = () => {
           </div>
 
           {/* Right Column - Contact Us Form */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
+          <div className="bg-[#efede5] backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" >
               Contact Us
             </h2>

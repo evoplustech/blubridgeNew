@@ -14,12 +14,12 @@ const Research = () => {
     >
       <div className="container-custom">
         {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-[#0B1F3B] mb-12">
+        <h1 className="text-4xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-12">
           Papers & Publications
         </h1>
 
         {/* Paper Card */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-8xl mx-auto px-4">
           <div 
             className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
             style={{ backgroundColor: '#fffdf7' }}

@@ -1,13 +1,13 @@
 import React from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
-const JoinOurTeam = () => {
+const JoinOurTeam = ({ scrollRef }) => {
   useDocumentTitle('Join our Research Team | BluBridge');
 
   return (
-    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '50px', paddingBottom: '50px' }}>
+    <div  style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '50px', paddingBottom: '50px' }}>
       <div style={{ 
-        maxWidth: '1000px', 
+        // maxWidth: '1000px', 
         margin: '0 auto', 
         padding: '35px 45px 45px 45px',
         backgroundColor: '#faf8f2',
@@ -15,7 +15,9 @@ const JoinOurTeam = () => {
         
       }}>
         {/* Main Title */}
-        <h1 style={{ 
+        <h1 
+          ref={scrollRef}
+        style={{ 
           textAlign: 'center', 
           fontSize: '26px', 
           fontWeight: 'bold', 
@@ -23,7 +25,8 @@ const JoinOurTeam = () => {
           textDecoration: 'underline',
           textDecorationThickness: '1.5px',
           textUnderlineOffset: '3px',
-          marginBottom: '6px'
+          marginBottom: '6px',
+          scrollMarginTop: '150px' 
         }}>
           Join our Deep Learning Research Team
         </h1>
