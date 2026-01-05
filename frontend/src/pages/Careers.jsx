@@ -21,7 +21,7 @@ const Careers = () => {
       paddingBottom: '70px' 
     }}>
       <div style={{ 
-        maxWidth: '1000px',
+        maxWidth: '1261px',
         margin: '0 auto', 
         padding: '0 20px'
       }}>
@@ -31,7 +31,6 @@ const Careers = () => {
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '30px',
-          
           lineHeight: '1.2'
         }}>
           Join Us
@@ -39,10 +38,10 @@ const Careers = () => {
 
         {/* Office Address */}
         <p style={{ 
-          fontSize: '15px', 
+          fontSize: '16px', 
           color: '#333333', 
           lineHeight: '1.6',
-          marginBottom: '25px',
+          marginBottom: '25px'
         }}>
           We have our office at{' '}
           <a 
@@ -56,59 +55,54 @@ const Careers = () => {
         </p>
 
         {/* Must have(s) */}
-        <h2 style={{ 
-          fontSize: '18px', 
+        <h3 style={{ 
+          fontSize: '1.25rem', 
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '15px',
-          
           lineHeight: '1.3'
         }}>
           Must have(s):-
-        </h2>
+        </h3>
 
         <div style={{ 
           paddingLeft: '20px', 
-          fontSize: '15px', 
-          color: '#333333', 
-          lineHeight: '1.7',
-          marginBottom: '30px',
+          marginBottom: '30px'
         }}>
-          <p style={{ marginBottom: '8px' }}>a) Aptitude and Logical reasoning</p>
-          <p style={{ marginBottom: '8px' }}>b) Linear algebra, Calculus, Probability &amp; Statistics</p>
-          <p style={{ marginBottom: '8px' }}>c) Strong Programming Foundations in C++ or Java</p>
+          <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>a) Aptitude and Logical reasoning</p>
+          <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>b) Linear algebra, Calculus, Probability &amp; Statistics</p>
+          <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>c) Strong Programming Foundations in C++ or Java</p>
         </div>
 
         {/* How to apply */}
-        <h2 style={{ 
-          fontSize: '18px', 
+        <h3 style={{ 
+          fontSize: '1.25rem', 
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '15px',
-          
           lineHeight: '1.3'
         }}>
           <span style={{ textDecoration: 'underline' }}>How to apply</span>:-
-        </h2>
+        </h3>
 
         <p style={{ 
-          fontSize: '15px', 
+          fontSize: '16px', 
           color: '#333333', 
           lineHeight: '1.6',
-          marginBottom: '15px',
+          marginBottom: '15px'
         }}>
           Before applying, please ensure you read this carefully:
         </p>
 
         {/* Joining Our Research Unit link */}
         <p style={{ 
-          fontSize: '15px', 
+          fontSize: '16px', 
           color: '#333333', 
           lineHeight: '1.6',
           marginBottom: '20px',
           display: 'flex',
           alignItems: 'center',
-          gap: '8px',
+          gap: '8px'
         }}>
           <span style={{ fontSize: '16px' }}>👆</span>
           <a
@@ -128,10 +122,10 @@ const Careers = () => {
         </p>
             
         <p style={{ 
-          fontSize: '15px', 
+          fontSize: '16px', 
           color: '#333333', 
           lineHeight: '1.6',
-          marginBottom: '15px',
+          marginBottom: '15px'
         }}>
           You are welcome to walk in for an interview on any working day, or you can reach out to us via:
         </p>
@@ -139,19 +133,19 @@ const Careers = () => {
         {/* Contact Details */}
         <ul style={{ 
           paddingLeft: '30px', 
-          fontSize: '15px', 
+          fontSize: '16px', 
           color: '#333333', 
           lineHeight: '1.8',
           listStyleType: 'disc',
-          margin: '0 0 40px 0',
+          margin: '0 0 40px 0'
         }}>
-          <li style={{ marginBottom: '5px' }}>
+          <li style={{ fontSize: '16px', marginBottom: '5px' }}>
             <strong style={{ color: '#000000' }}>Contact Number:</strong> +91 8925987250
           </li>
-          <li style={{ marginBottom: '5px' }}>
+          <li style={{ fontSize: '16px', marginBottom: '5px' }}>
             <strong style={{ color: '#000000' }}>Email:</strong> careers.chennai@blubridge.com
           </li>
-          <li style={{ marginBottom: '5px' }}>
+          <li style={{ fontSize: '16px', marginBottom: '5px' }}>
             <strong style={{ color: '#000000' }}>LinkedIn:</strong>{' '}
             <a 
               href="https://www.linkedin.com/company/blubridge/"
