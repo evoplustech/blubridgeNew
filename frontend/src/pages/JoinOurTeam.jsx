@@ -186,9 +186,9 @@ const JoinOurTeam = ({ scrollRef }) => {
             listStyleType: 'disc',
             margin: '0'
           }}>
-            <li style={{ marginBottom: '3px' }}>You'll be working on Deep Learning from first principles — how many organizations offer that?</li>
+            <li style={{ marginBottom: '3px' }}>You&apos;ll be working on Deep Learning from first principles — how many organizations offer that?</li>
             <li style={{ marginBottom: '3px' }}>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
-            <li style={{ marginBottom: '3px' }}>Building from "first principles" is not the same as starting "from scratch."</li>
+            <li style={{ marginBottom: '3px' }}>Building from &quot;first principles&quot; is not the same as starting &quot;from scratch.&quot;</li>
             <li style={{ marginBottom: '3px' }}>
               If you were to study this in a university:
               <ul style={{ 
