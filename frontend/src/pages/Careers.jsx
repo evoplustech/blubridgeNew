@@ -157,7 +157,7 @@ const Careers = () => {
             </a>
           </li>
           <li style={{ fontSize: '16px', marginBottom: '5px' }}>
-            <strong style={{ color: '#000000' }}>LinkedIn:</strong>{' '}
+            <strong style={{ color: '#000000' }}>X (Twitter):</strong>{' '}
             <a 
               href="https://www.linkedin.com/company/blubridge/"
               target="_blank"
