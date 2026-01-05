@@ -150,8 +150,8 @@ const JoinOurTeam = ({ scrollRef }) => {
             margin: '0'
           }}>
             <li style={{ marginBottom: '3px' }}>Begin by appearing for the <strong>initial interview rounds.</strong></li>
-            <li style={{ marginBottom: '3px' }}>If selected, you'll be invited to a <strong>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
-            <li style={{ marginBottom: '3px' }}>You'll get <strong>up to a month</strong> to prepare.</li>
+            <li style={{ marginBottom: '3px' }}>If selected, you&apos;ll be invited to a <strong>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
+            <li style={{ marginBottom: '3px' }}>You&apos;ll get <strong>up to a month</strong> to prepare.</li>
             <li style={{ marginBottom: '3px' }}>Final selection is based on a <strong>Maths for Deep Learning</strong> test.</li>
           </ul>
         </div>
