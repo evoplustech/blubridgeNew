@@ -196,8 +196,8 @@ const JoinOurTeam = ({ scrollRef }) => {
                 marginTop: '6px',
                 listStyleType: 'none'
               }}>
-                <li style={{ marginBottom: '2px' }}>► You'd likely go abroad (e.g., the US),</li>
-                <li style={{ marginBottom: '2px' }}>► Pay for a Master's degree,</li>
+                <li style={{ marginBottom: '2px' }}>► You&apos;d likely go abroad (e.g., the US),</li>
+                <li style={{ marginBottom: '2px' }}>► Pay for a Master&apos;s degree,</li>
                 <li style={{ marginBottom: '2px' }}>► Learn theory & practical without real-world application.</li>
               </ul>
             </li>
