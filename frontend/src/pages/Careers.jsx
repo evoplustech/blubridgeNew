@@ -1,48 +1,48 @@
-import React,{useRef} from 'react';
+import React, { useRef } from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
-import { Link } from 'react-router-dom';
 import JoinOurTeam from './JoinOurTeam';
-
 
 const Careers = () => {
   useDocumentTitle('Careers | BluBridge');
   const joinOurTeamRef = useRef(null);
+  
   const handleScrollToJoin = () => {
     joinOurTeamRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
   };
+
   return (
-    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '60px', paddingBottom: '20px' }} className="rounded-2xl">
+    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '60px', paddingBottom: '20px' }}>
       <div style={{ 
-        //  maxWidth: '900px', 
         margin: '0 auto', 
         padding: '35px 50px 45px 50px',
         backgroundColor: '#faf8f2',
-        border: '1px solid #e8e6de'
-        
-      }} className="rounded-2xl">
+        border: '1px solid #e8e6de',
+        borderRadius: '12px'
+      }}>
         {/* Title */}
         <h1 style={{ 
           fontSize: '28px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '15px'
+          marginBottom: '15px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           Join Us
         </h1>
 
         {/* Divider */}
         <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '0 0 18px 0' }} />
-        {/* <a href="/joinourteam" class="text-lg font-bold pt-3 text-[#046bd2] underline mb-4 block"><h2>What You Need to Know ?</h2></a> */}
 
         {/* Office Address */}
         <p style={{ 
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.6',
-          marginBottom: '20px'
+          marginBottom: '20px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           We have our office at{' '}
           <a 
@@ -60,7 +60,8 @@ const Careers = () => {
           fontSize: '17px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '12px'
+          marginBottom: '12px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           Must have(s):-
         </h2>
@@ -70,10 +71,11 @@ const Careers = () => {
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.8',
-          marginBottom: '20px'
+          marginBottom: '20px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <p style={{ marginBottom: '4px' }}>a) Aptitude and Logical reasoning</p>
-          <p style={{ marginBottom: '4px' }}>b) Linear algebra, Calculus, Probability & Statistics</p>
+          <p style={{ marginBottom: '4px' }}>b) Linear algebra, Calculus, Probability &amp; Statistics</p>
           <p style={{ marginBottom: '4px' }}>c) Strong Programming Foundations in C++ or Java</p>
         </div>
 
@@ -82,7 +84,8 @@ const Careers = () => {
           fontSize: '17px', 
           fontWeight: 'bold', 
           color: '#000',
-          marginBottom: '12px'
+          marginBottom: '12px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <span style={{ textDecoration: 'underline' }}>How to apply</span>:-
         </h2>
@@ -91,7 +94,8 @@ const Careers = () => {
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.6',
-          marginBottom: '10px'
+          marginBottom: '10px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           Before applying, please ensure you read this carefully:
         </p>
@@ -104,15 +108,10 @@ const Careers = () => {
           marginBottom: '14px',
           display: 'flex',
           alignItems: 'center',
-          gap: '6px'
+          gap: '6px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <span style={{ fontSize: '16px' }}>👆</span>
-          {/* <Link 
-            to="/joinourteam"
-            style={{ color: '#046bd2', textDecoration: 'underline', fontWeight: '500' }}
-          >
-            Joining Our Research Unit
-          </Link> */}
           <a
             onClick={handleScrollToJoin}
             style={{
@@ -133,7 +132,8 @@ const Careers = () => {
           fontSize: '15px', 
           color: '#222', 
           lineHeight: '1.6',
-          marginBottom: '14px'
+          marginBottom: '14px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           You are welcome to walk in for an interview on any working day, or you can reach out to us via:
         </p>
@@ -145,7 +145,8 @@ const Careers = () => {
           color: '#222', 
           lineHeight: '1.9',
           listStyleType: 'disc',
-          margin: '0'
+          margin: '0',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <li style={{ marginBottom: '2px' }}>
             <strong>Contact Number:</strong> +91 8925987250
@@ -166,8 +167,9 @@ const Careers = () => {
           </li>
         </ul>
       </div>
+
       {/* Join Our Team Section */}
-      <div  style={{ marginTop: '80px' }}>
+      <div style={{ marginTop: '80px' }}>
         <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
     </div>
