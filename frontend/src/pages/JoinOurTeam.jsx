@@ -11,7 +11,7 @@ const JoinOurTeam = ({ scrollRef }) => {
       paddingBottom: '50px' 
     }}>
       <div style={{ 
-        maxWidth: '1000px',
+        maxWidth: '1261px',
         margin: '0 auto', 
         padding: '0 20px'
       }}>
@@ -28,7 +28,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             textUnderlineOffset: '4px',
             marginBottom: '10px',
             scrollMarginTop: '150px',
-            
             lineHeight: '1.3'
           }}
         >
@@ -42,7 +41,6 @@ const JoinOurTeam = ({ scrollRef }) => {
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '35px',
-          
           lineHeight: '1.3'
         }}>
           What You Need to Know ?
@@ -54,21 +52,20 @@ const JoinOurTeam = ({ scrollRef }) => {
         {/* Section a) */}
         <div style={{ marginBottom: '30px' }}>
           <h3 style={{ 
-            fontSize: '18px', 
+            fontSize: '1.25rem', 
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            
             lineHeight: '1.3'
           }}>
             a) Are we a startup?
           </h3>
           <p style={{ 
             paddingLeft: '20px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.6',
-            marginBottom: '0',
+            marginBottom: '0'
           }}>
             <strong style={{ color: '#000000' }}>No.</strong> We are a <strong style={{ color: '#000000' }}>Deep Learning Research Organization,</strong> not a startup.
           </p>
@@ -80,21 +77,20 @@ const JoinOurTeam = ({ scrollRef }) => {
         {/* Section b) */}
         <div style={{ marginBottom: '30px' }}>
           <h3 style={{ 
-            fontSize: '18px', 
+            fontSize: '1.25rem', 
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            
             lineHeight: '1.3'
           }}>
             b) Who is funding us?
           </h3>
           <p style={{ 
             paddingLeft: '20px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.6',
-            marginBottom: '0',
+            marginBottom: '0'
           }}>
             We are entirely <strong style={{ color: '#000000' }}>self-funded.</strong>
           </p>
@@ -106,35 +102,34 @@ const JoinOurTeam = ({ scrollRef }) => {
         {/* Section c) */}
         <div style={{ marginBottom: '30px' }}>
           <h3 style={{ 
-            fontSize: '18px', 
+            fontSize: '1.25rem', 
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            
             lineHeight: '1.3'
           }}>
             c) Am I eligible to apply?
           </h3>
           <p style={{ 
             paddingLeft: '20px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.6',
-            marginBottom: '12px',
+            marginBottom: '12px'
           }}>
             Ask yourself the following:
           </p>
           <ul style={{ 
             paddingLeft: '45px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            margin: '0',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>Do I truly understand the <strong style={{ color: '#000000' }}>depth of Deep Learning research?</strong></li>
-            <li style={{ marginBottom: '6px' }}>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
-            <li style={{ marginBottom: '6px' }}>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Do I truly understand the <strong style={{ color: '#000000' }}>depth of Deep Learning research?</strong></li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
           </ul>
         </div>
 
@@ -144,27 +139,26 @@ const JoinOurTeam = ({ scrollRef }) => {
         {/* Section d) */}
         <div style={{ marginBottom: '30px' }}>
           <h3 style={{ 
-            fontSize: '18px', 
+            fontSize: '1.25rem', 
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '12px',
-            
             lineHeight: '1.3'
           }}>
             d) Where do I begin? What should I study for the interview?
           </h3>
           <ul style={{ 
             paddingLeft: '45px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            margin: '0',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>Begin by appearing for the <strong style={{ color: '#000000' }}>initial interview rounds.</strong></li>
-            <li style={{ marginBottom: '6px' }}>If selected, you&apos;ll be invited to a <strong style={{ color: '#000000' }}>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
-            <li style={{ marginBottom: '6px' }}>You&apos;ll get <strong style={{ color: '#000000' }}>up to a month</strong> to prepare.</li>
-            <li style={{ marginBottom: '6px' }}>Final selection is based on a <strong style={{ color: '#000000' }}>Maths for Deep Learning</strong> test.</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Begin by appearing for the <strong style={{ color: '#000000' }}>initial interview rounds.</strong></li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>If selected, you&apos;ll be invited to a <strong style={{ color: '#000000' }}>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>You&apos;ll get <strong style={{ color: '#000000' }}>up to a month</strong> to prepare.</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Final selection is based on a <strong style={{ color: '#000000' }}>Maths for Deep Learning</strong> test.</li>
           </ul>
         </div>
 
@@ -174,45 +168,44 @@ const JoinOurTeam = ({ scrollRef }) => {
         {/* Section e) */}
         <div style={{ marginBottom: '30px' }}>
           <h3 style={{ 
-            fontSize: '18px', 
+            fontSize: '1.25rem', 
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            
             lineHeight: '1.3'
           }}>
             e) How is the pay?
           </h3>
           <p style={{ 
             paddingLeft: '20px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.6',
-            marginBottom: '12px',
+            marginBottom: '12px'
           }}>
             We offer competitive compensation, but ask you to consider:
           </p>
           <ul style={{ 
             paddingLeft: '45px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            margin: '0',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>You&apos;ll be working on Deep Learning from first principles — how many organizations offer that?</li>
-            <li style={{ marginBottom: '6px' }}>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
-            <li style={{ marginBottom: '6px' }}>Building from &quot;first principles&quot; is not the same as starting &quot;from scratch.&quot;</li>
-            <li style={{ marginBottom: '6px' }}>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>You&apos;ll be working on Deep Learning from first principles — how many organizations offer that?</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Building from &quot;first principles&quot; is not the same as starting &quot;from scratch.&quot;</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>
               If you were to study this in a university:
               <ul style={{ 
                 paddingLeft: '25px', 
                 marginTop: '8px',
                 listStyleType: 'none'
               }}>
-                <li style={{ marginBottom: '4px' }}>▶ You&apos;d likely go abroad (e.g., the US),</li>
-                <li style={{ marginBottom: '4px' }}>▶ Pay for a Master&apos;s degree,</li>
-                <li style={{ marginBottom: '4px' }}>▶ Learn theory &amp; practical without real-world application.</li>
+                <li style={{ fontSize: '16px', marginBottom: '4px' }}>▶ You&apos;d likely go abroad (e.g., the US),</li>
+                <li style={{ fontSize: '16px', marginBottom: '4px' }}>▶ Pay for a Master&apos;s degree,</li>
+                <li style={{ fontSize: '16px', marginBottom: '4px' }}>▶ Learn theory &amp; practical without real-world application.</li>
               </ul>
             </li>
           </ul>
@@ -224,9 +217,9 @@ const JoinOurTeam = ({ scrollRef }) => {
             display: 'flex',
             alignItems: 'flex-start',
             gap: '8px',
-            fontSize: '15px',
+            fontSize: '16px',
             color: '#333333',
-            lineHeight: '1.6',
+            lineHeight: '1.6'
           }}>
             <span style={{ fontSize: '16px', flexShrink: 0 }}>💡</span>
             <span>
@@ -241,26 +234,25 @@ const JoinOurTeam = ({ scrollRef }) => {
         {/* Section f) */}
         <div style={{ marginBottom: '30px' }}>
           <h3 style={{ 
-            fontSize: '18px', 
+            fontSize: '1.25rem', 
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '12px',
-            
             lineHeight: '1.3'
           }}>
             f) Why is this opportunity unique?
           </h3>
           <ul style={{ 
             paddingLeft: '45px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            margin: '0',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>We offer a <strong style={{ color: '#000000' }}>rare research environment</strong> focused solely on <strong style={{ color: '#000000' }}>foundation model development.</strong></li>
-            <li style={{ marginBottom: '6px' }}>We&apos;re assembling a team of <strong style={{ color: '#000000' }}>passionate, like-minded individuals</strong></li>
-            <li style={{ marginBottom: '6px' }}>Whether you&apos;re a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong style={{ color: '#000000' }}>Large Language Models,</strong> you&apos;re welcome to apply.</li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>We offer a <strong style={{ color: '#000000' }}>rare research environment</strong> focused solely on <strong style={{ color: '#000000' }}>foundation model development.</strong></li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>We&apos;re assembling a team of <strong style={{ color: '#000000' }}>passionate, like-minded individuals</strong></li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Whether you&apos;re a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong style={{ color: '#000000' }}>Large Language Models,</strong> you&apos;re welcome to apply.</li>
           </ul>
         </div>
 
@@ -270,25 +262,24 @@ const JoinOurTeam = ({ scrollRef }) => {
         {/* Section g) */}
         <div style={{ marginBottom: '0' }}>
           <h3 style={{ 
-            fontSize: '18px', 
+            fontSize: '1.25rem', 
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '12px',
-            
             lineHeight: '1.3'
           }}>
             g) Who should not apply?
           </h3>
           <ul style={{ 
             paddingLeft: '45px', 
-            fontSize: '15px', 
+            fontSize: '16px', 
             color: '#333333', 
             lineHeight: '1.7',
             listStyleType: 'disc',
-            margin: '0',
+            margin: '0'
           }}>
-            <li style={{ marginBottom: '6px' }}>Those looking for a <strong style={{ color: '#000000' }}>routine 9-to-5 job</strong></li>
-            <li style={{ marginBottom: '6px' }}>Anyone who <strong style={{ color: '#000000' }}>struggled with 12th-grade mathematics</strong></li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Those looking for a <strong style={{ color: '#000000' }}>routine 9-to-5 job</strong></li>
+            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Anyone who <strong style={{ color: '#000000' }}>struggled with 12th-grade mathematics</strong></li>
           </ul>
         </div>
       </div>
