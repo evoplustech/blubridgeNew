@@ -243,8 +243,8 @@ const JoinOurTeam = ({ scrollRef }) => {
             margin: '0'
           }}>
             <li style={{ marginBottom: '3px' }}>We offer a <strong>rare research environment</strong> focused solely on <strong>foundation model development.</strong></li>
-            <li style={{ marginBottom: '3px' }}>We're assembling a team of <strong>passionate, like-minded individuals</strong></li>
-            <li style={{ marginBottom: '3px' }}>Whether you're a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong>Large Language Models,</strong> you're welcome to apply.</li>
+            <li style={{ marginBottom: '3px' }}>We&apos;re assembling a team of <strong>passionate, like-minded individuals</strong></li>
+            <li style={{ marginBottom: '3px' }}>Whether you&apos;re a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong>Large Language Models,</strong> you&apos;re welcome to apply.</li>
           </ul>
         </div>
 
