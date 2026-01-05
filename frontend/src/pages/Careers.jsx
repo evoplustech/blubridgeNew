@@ -104,7 +104,7 @@ const Careers = () => {
           alignItems: 'center',
           gap: '8px'
         }}>
-          <span style={{ fontSize: '16px' }}>👆</span>
+          <span style={{ fontSize: '16px' }}>👇</span>
           <a
             onClick={handleScrollToJoin}
             style={{
@@ -161,6 +161,7 @@ const Careers = () => {
 
       {/* Join Our Team Section */}
       <div style={{ marginTop: '60px' }}>
+        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
         <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
     </div>
