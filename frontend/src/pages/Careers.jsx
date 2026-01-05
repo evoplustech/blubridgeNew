@@ -51,7 +51,7 @@ const Careers = () => {
             rel="noopener noreferrer"
             style={{ color: '#046bd2', textDecoration: 'underline' }}
           >
-            "30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram, Chennai, Tamil Nadu 600028"
+            &quot;30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram, Chennai, Tamil Nadu 600028&quot;
           </a>
         </p>
 
