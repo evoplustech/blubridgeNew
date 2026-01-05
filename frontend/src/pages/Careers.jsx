@@ -14,42 +14,43 @@ const Careers = () => {
   };
 
   return (
-    <div style={{ backgroundColor: '#f5f3eb', minHeight: '100vh', paddingTop: '60px', paddingBottom: '20px' }}>
+    <div style={{ 
+      backgroundColor: '#FAFAF7', 
+      minHeight: '100vh', 
+      paddingTop: '50px', 
+      paddingBottom: '70px' 
+    }}>
       <div style={{ 
+        maxWidth: '1000px',
         margin: '0 auto', 
-        padding: '35px 50px 45px 50px',
-        backgroundColor: '#faf8f2',
-        border: '1px solid #e8e6de',
-        borderRadius: '12px'
+        padding: '0 20px'
       }}>
         {/* Title */}
         <h1 style={{ 
-          fontSize: '28px', 
+          fontSize: '36px', 
           fontWeight: 'bold', 
-          color: '#000',
-          marginBottom: '15px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          color: '#1A1A1A',
+          marginBottom: '30px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          lineHeight: '1.2'
         }}>
           Join Us
         </h1>
 
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '0 0 18px 0' }} />
-
         {/* Office Address */}
         <p style={{ 
           fontSize: '15px', 
-          color: '#222', 
+          color: '#333333', 
           lineHeight: '1.6',
-          marginBottom: '20px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          marginBottom: '25px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           We have our office at{' '}
           <a 
             href="https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#046bd2', textDecoration: 'underline' }}
+            style={{ color: '#007BFF', textDecoration: 'underline' }}
           >
             &quot;30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram, Chennai, Tamil Nadu 600028&quot;
           </a>
@@ -57,45 +58,47 @@ const Careers = () => {
 
         {/* Must have(s) */}
         <h2 style={{ 
-          fontSize: '17px', 
+          fontSize: '18px', 
           fontWeight: 'bold', 
-          color: '#000',
-          marginBottom: '12px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          color: '#1A1A1A',
+          marginBottom: '15px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          lineHeight: '1.3'
         }}>
           Must have(s):-
         </h2>
 
         <div style={{ 
-          paddingLeft: '8px', 
+          paddingLeft: '20px', 
           fontSize: '15px', 
-          color: '#222', 
-          lineHeight: '1.8',
-          marginBottom: '20px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          color: '#333333', 
+          lineHeight: '1.7',
+          marginBottom: '30px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
-          <p style={{ marginBottom: '4px' }}>a) Aptitude and Logical reasoning</p>
-          <p style={{ marginBottom: '4px' }}>b) Linear algebra, Calculus, Probability &amp; Statistics</p>
-          <p style={{ marginBottom: '4px' }}>c) Strong Programming Foundations in C++ or Java</p>
+          <p style={{ marginBottom: '8px' }}>a) Aptitude and Logical reasoning</p>
+          <p style={{ marginBottom: '8px' }}>b) Linear algebra, Calculus, Probability &amp; Statistics</p>
+          <p style={{ marginBottom: '8px' }}>c) Strong Programming Foundations in C++ or Java</p>
         </div>
 
         {/* How to apply */}
         <h2 style={{ 
-          fontSize: '17px', 
+          fontSize: '18px', 
           fontWeight: 'bold', 
-          color: '#000',
-          marginBottom: '12px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          color: '#1A1A1A',
+          marginBottom: '15px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          lineHeight: '1.3'
         }}>
           <span style={{ textDecoration: 'underline' }}>How to apply</span>:-
         </h2>
 
         <p style={{ 
           fontSize: '15px', 
-          color: '#222', 
+          color: '#333333', 
           lineHeight: '1.6',
-          marginBottom: '10px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          marginBottom: '15px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           Before applying, please ensure you read this carefully:
         </p>
@@ -103,19 +106,19 @@ const Careers = () => {
         {/* Joining Our Research Unit link */}
         <p style={{ 
           fontSize: '15px', 
-          color: '#222', 
+          color: '#333333', 
           lineHeight: '1.6',
-          marginBottom: '14px',
+          marginBottom: '20px',
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          gap: '8px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <span style={{ fontSize: '16px' }}>👆</span>
           <a
             onClick={handleScrollToJoin}
             style={{
-              color: '#046bd2',
+              color: '#007BFF',
               textDecoration: 'underline',
               fontWeight: '500',
               background: 'none',
@@ -130,37 +133,37 @@ const Careers = () => {
             
         <p style={{ 
           fontSize: '15px', 
-          color: '#222', 
+          color: '#333333', 
           lineHeight: '1.6',
-          marginBottom: '14px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          marginBottom: '15px',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           You are welcome to walk in for an interview on any working day, or you can reach out to us via:
         </p>
 
         {/* Contact Details */}
         <ul style={{ 
-          paddingLeft: '25px', 
+          paddingLeft: '30px', 
           fontSize: '15px', 
-          color: '#222', 
-          lineHeight: '1.9',
+          color: '#333333', 
+          lineHeight: '1.8',
           listStyleType: 'disc',
-          margin: '0',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+          margin: '0 0 40px 0',
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
-          <li style={{ marginBottom: '2px' }}>
-            <strong>Contact Number:</strong> +91 8925987250
+          <li style={{ marginBottom: '5px' }}>
+            <strong style={{ color: '#000000' }}>Contact Number:</strong> +91 8925987250
           </li>
-          <li style={{ marginBottom: '2px' }}>
-            <strong>Email:</strong> careers.chennai@blubridge.com
+          <li style={{ marginBottom: '5px' }}>
+            <strong style={{ color: '#000000' }}>Email:</strong> careers.chennai@blubridge.com
           </li>
-          <li style={{ marginBottom: '2px' }}>
-            <strong>LinkedIn:</strong>{' '}
+          <li style={{ marginBottom: '5px' }}>
+            <strong style={{ color: '#000000' }}>LinkedIn:</strong>{' '}
             <a 
               href="https://www.linkedin.com/company/blubridge/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#046bd2', textDecoration: 'underline' }}
+              style={{ color: '#007BFF', textDecoration: 'underline' }}
             >
               https://linkedin.com/blubridge
             </a>
@@ -169,7 +172,7 @@ const Careers = () => {
       </div>
 
       {/* Join Our Team Section */}
-      <div style={{ marginTop: '80px' }}>
+      <div style={{ marginTop: '60px' }}>
         <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
     </div>
