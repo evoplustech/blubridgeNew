@@ -388,7 +388,7 @@ const Home = () => {
     }
   ];
 
-  useDocumentTitle('The Hyperscaler Engineered for AI | BluBridge');
+  useDocumentTitle('Beyond the Horizon | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
@@ -409,7 +409,7 @@ const Home = () => {
         <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
-              The hyperscaler<br></br>engineered for AI
+              Beyond the Horizon<br></br>
             </h1>
             <p className = "text-white/90 font-light leading-relaxed max-w-md">A complete, scalable, and sustainable AI platform.</p>
             {/* <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
@@ -428,12 +428,12 @@ const Home = () => {
             </div>
 
             {/* Partner Logos */}
-            <div className="flex flex-wrap items-center gap-6 pt-10">
+            {/* <div className="flex flex-wrap items-center gap-6 pt-10">
               <span className="text-white/70 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
               <span className="text-white/70 text-xs font-medium tracking-wider">Computacenter</span>
               <span className="text-white/70 text-xs font-medium tracking-wider">Antler</span>
               <span className="text-white/70 text-xs font-medium tracking-wider">Open Innovation</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -604,8 +604,8 @@ const Home = () => {
           {/* CTA Button */}
           <div className="text-center">
             <Link to="/contact">
-              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-4 text-base font-medium rounded-lg">
-                I Need Free Consultation
+              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-6 py-4 text-base font-medium rounded-lg">
+                Talk To Us
               </Button>
             </Link>
           </div>
