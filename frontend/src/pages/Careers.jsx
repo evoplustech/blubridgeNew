@@ -43,7 +43,6 @@ const Careers = () => {
           color: '#333333', 
           lineHeight: '1.6',
           marginBottom: '25px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           We have our office at{' '}
           <a 
@@ -74,7 +73,6 @@ const Careers = () => {
           color: '#333333', 
           lineHeight: '1.7',
           marginBottom: '30px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <p style={{ marginBottom: '8px' }}>a) Aptitude and Logical reasoning</p>
           <p style={{ marginBottom: '8px' }}>b) Linear algebra, Calculus, Probability &amp; Statistics</p>
@@ -98,7 +96,6 @@ const Careers = () => {
           color: '#333333', 
           lineHeight: '1.6',
           marginBottom: '15px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           Before applying, please ensure you read this carefully:
         </p>
@@ -112,7 +109,6 @@ const Careers = () => {
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <span style={{ fontSize: '16px' }}>👆</span>
           <a
@@ -136,7 +132,6 @@ const Careers = () => {
           color: '#333333', 
           lineHeight: '1.6',
           marginBottom: '15px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           You are welcome to walk in for an interview on any working day, or you can reach out to us via:
         </p>
@@ -149,7 +144,6 @@ const Careers = () => {
           lineHeight: '1.8',
           listStyleType: 'disc',
           margin: '0 0 40px 0',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
           <li style={{ marginBottom: '5px' }}>
             <strong style={{ color: '#000000' }}>Contact Number:</strong> +91 8925987250

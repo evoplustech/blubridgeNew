@@ -69,7 +69,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             color: '#333333', 
             lineHeight: '1.6',
             marginBottom: '0',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             <strong style={{ color: '#000000' }}>No.</strong> We are a <strong style={{ color: '#000000' }}>Deep Learning Research Organization,</strong> not a startup.
           </p>
@@ -96,7 +95,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             color: '#333333', 
             lineHeight: '1.6',
             marginBottom: '0',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             We are entirely <strong style={{ color: '#000000' }}>self-funded.</strong>
           </p>
@@ -123,7 +121,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             color: '#333333', 
             lineHeight: '1.6',
             marginBottom: '12px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             Ask yourself the following:
           </p>
@@ -134,7 +131,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             lineHeight: '1.7',
             listStyleType: 'disc',
             margin: '0',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             <li style={{ marginBottom: '6px' }}>Do I truly understand the <strong style={{ color: '#000000' }}>depth of Deep Learning research?</strong></li>
             <li style={{ marginBottom: '6px' }}>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
@@ -164,7 +160,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             lineHeight: '1.7',
             listStyleType: 'disc',
             margin: '0',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             <li style={{ marginBottom: '6px' }}>Begin by appearing for the <strong style={{ color: '#000000' }}>initial interview rounds.</strong></li>
             <li style={{ marginBottom: '6px' }}>If selected, you&apos;ll be invited to a <strong style={{ color: '#000000' }}>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
@@ -194,7 +189,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             color: '#333333', 
             lineHeight: '1.6',
             marginBottom: '12px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             We offer competitive compensation, but ask you to consider:
           </p>
@@ -205,7 +199,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             lineHeight: '1.7',
             listStyleType: 'disc',
             margin: '0',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             <li style={{ marginBottom: '6px' }}>You&apos;ll be working on Deep Learning from first principles — how many organizations offer that?</li>
             <li style={{ marginBottom: '6px' }}>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
@@ -234,7 +227,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontSize: '15px',
             color: '#333333',
             lineHeight: '1.6',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             <span style={{ fontSize: '16px', flexShrink: 0 }}>💡</span>
             <span>
@@ -265,7 +257,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             lineHeight: '1.7',
             listStyleType: 'disc',
             margin: '0',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             <li style={{ marginBottom: '6px' }}>We offer a <strong style={{ color: '#000000' }}>rare research environment</strong> focused solely on <strong style={{ color: '#000000' }}>foundation model development.</strong></li>
             <li style={{ marginBottom: '6px' }}>We&apos;re assembling a team of <strong style={{ color: '#000000' }}>passionate, like-minded individuals</strong></li>
@@ -295,7 +286,6 @@ const JoinOurTeam = ({ scrollRef }) => {
             lineHeight: '1.7',
             listStyleType: 'disc',
             margin: '0',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
           }}>
             <li style={{ marginBottom: '6px' }}>Those looking for a <strong style={{ color: '#000000' }}>routine 9-to-5 job</strong></li>
             <li style={{ marginBottom: '6px' }}>Anyone who <strong style={{ color: '#000000' }}>struggled with 12th-grade mathematics</strong></li>
