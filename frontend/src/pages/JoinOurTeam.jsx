@@ -28,7 +28,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             textUnderlineOffset: '4px',
             marginBottom: '10px',
             scrollMarginTop: '150px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}
         >
@@ -42,7 +42,7 @@ const JoinOurTeam = ({ scrollRef }) => {
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '35px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          
           lineHeight: '1.3'
         }}>
           What You Need to Know ?
@@ -58,7 +58,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}>
             a) Are we a startup?
@@ -85,7 +85,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}>
             b) Who is funding us?
@@ -112,7 +112,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}>
             c) Am I eligible to apply?
@@ -152,7 +152,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '12px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}>
             d) Where do I begin? What should I study for the interview?
@@ -183,7 +183,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '10px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}>
             e) How is the pay?
@@ -253,7 +253,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '12px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}>
             f) Why is this opportunity unique?
@@ -283,7 +283,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             fontWeight: 'bold', 
             color: '#1A1A1A', 
             marginBottom: '12px',
-            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            
             lineHeight: '1.3'
           }}>
             g) Who should not apply?

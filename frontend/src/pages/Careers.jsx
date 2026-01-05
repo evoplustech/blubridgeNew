@@ -31,7 +31,7 @@ const Careers = () => {
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '30px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          
           lineHeight: '1.2'
         }}>
           Join Us
@@ -62,7 +62,7 @@ const Careers = () => {
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '15px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          
           lineHeight: '1.3'
         }}>
           Must have(s):-
@@ -87,7 +87,7 @@ const Careers = () => {
           fontWeight: 'bold', 
           color: '#1A1A1A',
           marginBottom: '15px',
-          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          
           lineHeight: '1.3'
         }}>
           <span style={{ textDecoration: 'underline' }}>How to apply</span>:-
