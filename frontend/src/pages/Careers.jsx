@@ -156,6 +156,17 @@ const Careers = () => {
               https://linkedin.com/blubridge
             </a>
           </li>
+          <li style={{ fontSize: '16px', marginBottom: '5px' }}>
+            <strong style={{ color: '#000000' }}>LinkedIn:</strong>{' '}
+            <a 
+              href="https://www.linkedin.com/company/blubridge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#007BFF', textDecoration: 'underline' }}
+            >
+              https://linkedin.com/blubridge
+            </a>
+          </li>
         </ul>
       </div>
 

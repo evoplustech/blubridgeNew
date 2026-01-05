@@ -398,23 +398,20 @@ const Home = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_a62583f5-4a60-4a2f-85e4-0dcf59f38513/artifacts/dmown8tg_Home-Page-Banner-New.png)',
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_3065e4ef-2ede-45c3-b222-cb5ecd6f8830/artifacts/2p0jckef_Banner-N.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/40" />
         
         <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white drop-shadow-lg">
               Beyond the Horizon<br></br>
             </h1>
-            <p className = "text-white/90 font-light leading-relaxed max-w-md">A complete, scalable, and sustainable AI platform.</p>
-            {/* <p className="text-xl text-white/90 font-light leading-relaxed max-w-md">
-              A full-stack, scalable, and sustainable AI cloud platform.
-            </p> */}
+            <p className="text-white text-lg font-light leading-relaxed max-w-md drop-shadow-md">A complete, scalable, and sustainable AI platform.</p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact">
@@ -422,18 +419,10 @@ const Home = () => {
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
+              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium drop-shadow-md">
                 Start Building <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-
-            {/* Partner Logos */}
-            {/* <div className="flex flex-wrap items-center gap-6 pt-10">
-              <span className="text-white/70 text-xs font-medium tracking-wider">Hewlett Packard Enterprise</span>
-              <span className="text-white/70 text-xs font-medium tracking-wider">Computacenter</span>
-              <span className="text-white/70 text-xs font-medium tracking-wider">Antler</span>
-              <span className="text-white/70 text-xs font-medium tracking-wider">Open Innovation</span>
-            </div> */}
           </div>
         </div>
       </section>
