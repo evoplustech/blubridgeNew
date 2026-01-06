@@ -178,14 +178,18 @@ const AboutUs = () => {
             letterSpacing: '-0.5px'
           }}>Who we are</h2>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
-              <p className="text-[#2F3A4A] text-lg leading-relaxed">
-                We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
-              </p>
-              {/* <p className="text-[#2F3A4A] leading-relaxed">
-                BluBridge works with the world's best, creating platforms that move the world forward. From the big players to the next big start-ups, we provide the essential infrastructure that powers the AI revolution.
-              </p> */}
+          {/* Introductory Paragraph */}
+          <p style={{ 
+            fontSize: '18px', 
+            lineHeight: '1.7', 
+            color: '#333333', 
+            textAlign: 'center', 
+            marginBottom: '48px',
+            maxWidth: '800px',
+            margin: '0 auto 48px auto'
+          }}>
+            We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
+          </p>
               
               <div className="space-y-4 mt-8">
                 <div className="flex items-start gap-3">
