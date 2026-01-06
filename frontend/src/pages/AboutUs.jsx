@@ -222,46 +222,107 @@ const AboutUs = () => {
                 }}>We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</p>
               </div>
             </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <div>
-                    <span className="text-[#328CC1] font-semibold">From Insight to Implementation</span>
-                    <span className="text-[#2F3A4A]"> We don’t stop at theory. Our consulting practice transforms research outcomes into production-ready AI systems, guiding clients from strategy and design to deployment and optimisation.</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <div>
-                    <span className="text-[#328CC1] font-semibold">Build Responsibly, Grow Confidently</span>
-                    <span className="text-[#2F3A4A]"> We prioritise robustness, transparency, and ethical use of AI. Every system we design is built to be reliable, explainable, and scalable in real operational environments.</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <div>
-                    <span className="text-[#328CC1] font-semibold">Own the Impact</span>
-                    <span className="text-[#2F3A4A]"> We take responsibility for outcomes, not just deliverables. By working as an extension of our clients’ teams, we ensure that AI initiatives create lasting value, not experimental dead ends.</span>
-                  </div>
-                </div>
+            
+            {/* Right Column - Item 1 */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '8px', 
+                height: '8px', 
+                borderRadius: '50%', 
+                backgroundColor: '#328CC1', 
+                marginTop: '8px',
+                flexShrink: 0
+              }} />
+              <div>
+                <p style={{ 
+                  fontSize: '18px', 
+                  fontWeight: '600', 
+                  color: '#328CC1', 
+                  marginBottom: '8px',
+                  lineHeight: '1.3'
+                }}>From Insight to Implementation</p>
+                <p style={{ 
+                  fontSize: '16px', 
+                  lineHeight: '1.6', 
+                  color: '#333333'
+                }}>We don&apos;t stop at theory. Our consulting practice transforms research outcomes into production-ready AI systems, guiding clients from strategy and design to deployment and optimisation.</p>
               </div>
-              
-              <Link to="/careers" className="inline-flex items-center gap-2 text-[#328CC1] hover:text-blue-300 transition-colors mt-6">
-                Join Us <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
             
-            {/* Right Image */}
-            <div className="relative rounded-2xl overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" 
-                alt="Team at conference"
-                className="w-full h-[400px] object-cover rounded-2xl"
-              />
+            {/* Left Column - Item 2 */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '8px', 
+                height: '8px', 
+                borderRadius: '50%', 
+                backgroundColor: '#328CC1', 
+                marginTop: '8px',
+                flexShrink: 0
+              }} />
+              <div>
+                <p style={{ 
+                  fontSize: '18px', 
+                  fontWeight: '600', 
+                  color: '#328CC1', 
+                  marginBottom: '8px',
+                  lineHeight: '1.3'
+                }}>Build Responsibly, Grow Confidently</p>
+                <p style={{ 
+                  fontSize: '16px', 
+                  lineHeight: '1.6', 
+                  color: '#333333'
+                }}>We prioritise robustness, transparency, and ethical use of AI. Every system we design is built to be reliable, explainable, and scalable in real operational environments.</p>
+              </div>
             </div>
+            
+            {/* Right Column - Item 2 */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '8px', 
+                height: '8px', 
+                borderRadius: '50%', 
+                backgroundColor: '#328CC1', 
+                marginTop: '8px',
+                flexShrink: 0
+              }} />
+              <div>
+                <p style={{ 
+                  fontSize: '18px', 
+                  fontWeight: '600', 
+                  color: '#328CC1', 
+                  marginBottom: '8px',
+                  lineHeight: '1.3'
+                }}>Own the Impact</p>
+                <p style={{ 
+                  fontSize: '16px', 
+                  lineHeight: '1.6', 
+                  color: '#333333'
+                }}>We take responsibility for outcomes, not just deliverables. By working as an extension of our clients&apos; teams, we ensure that AI initiatives create lasting value, not experimental dead ends.</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Join Us Button - Centered */}
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link 
+              to="/careers" 
+              style={{ 
+                display: 'inline-block',
+                backgroundColor: '#0B1F3B', 
+                color: '#FFFFFF', 
+                padding: '14px 32px', 
+                borderRadius: '4px',
+                fontSize: '16px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                letterSpacing: '0.5px'
+              }}
+            >
+              Join Us
+            </Link>
           </div>
         </div>
       </section>
-
       {/* Leadership Team Section */}
       {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
