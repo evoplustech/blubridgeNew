@@ -8,8 +8,6 @@ const AboutUs = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef(null);
-  const whoWeAreRef = useRef(null);
-  const [whoWeAreVisible, setWhoWeAreVisible] = useState(false);
 
   // Parallax effect for hero
   useEffect(() => {
@@ -18,34 +16,6 @@ const AboutUs = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Intersection Observer for "Who we are" section animation
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) {
-      setWhoWeAreVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setWhoWeAreVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    if (whoWeAreRef.current) {
-      observer.observe(whoWeAreRef.current);
-    }
-
-    return () => observer.disconnect();
   }, []);
 
   const toggleFaq = (index) => {
