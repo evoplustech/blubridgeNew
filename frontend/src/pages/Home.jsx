@@ -398,7 +398,7 @@ const Home = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_frontend-fixes-13/artifacts/ie1yr3pi_Gemini_Generated_Image_s9jut8s9jut8s9ju.png)',
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_d99298b3-5fa2-42c3-ba95-0306b7ad01f2/artifacts/qwyrgfjz_Home-Banne.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}
