@@ -365,7 +365,7 @@ const AboutUs = () => {
           {/* Join Us Button - Centered */}
           <div 
             className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
-            style={{ textAlign: 'center', marginTop: '48px', animationDelay: '480ms' }}>
+            style={{ textAlign: 'center', marginTop: '48px', animationDelay: '900ms' }}>
             <Link 
               to="/careers" 
               style={{ 
