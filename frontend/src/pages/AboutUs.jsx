@@ -139,26 +139,6 @@ const AboutUs = () => {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
           }
-          @keyframes whoWeAreFadeIn {
-            0% { opacity: 0; transform: translateY(28px); }
-            100% { opacity: 1; transform: translateY(0); }
-          }
-          .who-we-are-animate {
-            animation: whoWeAreFadeIn 850ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-          }
-          .who-we-are-hidden {
-            opacity: 0;
-            transform: translateY(28px);
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .who-we-are-hidden {
-              opacity: 1;
-              transform: none;
-            }
-            .who-we-are-animate {
-              animation: none;
-            }
-          }
         `}</style>
         
         <div className="container-custom relative z-10">
