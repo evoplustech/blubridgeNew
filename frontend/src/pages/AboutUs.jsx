@@ -169,6 +169,26 @@ const AboutUs = () => {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
           }
+          @keyframes whoWeAreFadeIn {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .who-we-are-animate {
+            animation: whoWeAreFadeIn 500ms ease-out forwards;
+          }
+          .who-we-are-hidden {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .who-we-are-hidden {
+              opacity: 1;
+              transform: none;
+            }
+            .who-we-are-animate {
+              animation: none;
+            }
+          }
         `}</style>
         
         <div className="container-custom relative z-10">
