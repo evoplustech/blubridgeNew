@@ -242,7 +242,7 @@ const AboutUs = () => {
               marginBottom: '48px',
               maxWidth: '800px',
               margin: '0 auto 48px auto',
-              animationDelay: '80ms'
+              animationDelay: '150ms'
             }}>
             We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
           </p>
