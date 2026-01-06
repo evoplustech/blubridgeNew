@@ -167,7 +167,7 @@ const AboutUs = () => {
 
       {/* Who We Are Section - Section 2 */}
       <section className="py-20 bg-[#f3f1e9]">
-        <div className="container-custom">
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px' }}>
           {/* Heading */}
           <h2 style={{ 
             fontSize: '36px', 
