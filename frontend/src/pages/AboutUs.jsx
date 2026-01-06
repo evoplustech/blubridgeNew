@@ -367,7 +367,7 @@ const AboutUs = () => {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-[#eee] rounded-2xl p-6 border border-[#D6DEC3]">
                 <p className="text-[#2F3A4A] text-sm leading-relaxed mb-6 italic">
-                  "{testimonial.quote}"
+                  "                  &ldquo;{testimonial.quote}&rdquo;"
                 </p>
                 <div>
                   <p className="text-[#0B1F3B] font-semibold text-sm">{testimonial.author}</p>
