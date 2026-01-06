@@ -252,7 +252,7 @@ const AboutUs = () => {
             {/* Left Column - Item 1 */}
             <div 
               className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
-              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '160ms' }}>
+              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '300ms' }}>
               <div style={{ 
                 width: '8px', 
                 height: '8px', 
