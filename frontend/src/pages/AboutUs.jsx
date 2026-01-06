@@ -168,7 +168,15 @@ const AboutUs = () => {
       {/* Who We Are Section - Section 2 */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Who we are</h2>
+          {/* Heading */}
+          <h2 style={{ 
+            fontSize: '36px', 
+            fontWeight: '700', 
+            color: '#1A1A1A', 
+            textAlign: 'center', 
+            marginBottom: '32px',
+            letterSpacing: '-0.5px'
+          }}>Who we are</h2>
           
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
