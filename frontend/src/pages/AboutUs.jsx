@@ -113,7 +113,7 @@ const AboutUs = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
           style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_f1ae1432-e69e-4452-8bf4-7695fb1baeb9/artifacts/zt87kh31_DSC09568%20%282%29%28c%29.JPG')`,
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_f1ae1432-e69e-4452-8bf4-7695fb1baeb9/artifacts/2qb3dkbr_DSC09568%20%282%29%28c2%29.JPG')`,
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
