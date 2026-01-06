@@ -216,35 +216,43 @@ const AboutUs = () => {
       </section>
 
       {/* Who We Are Section - Section 2 */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#f3f1e9]" ref={whoWeAreRef}>
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
           {/* Heading */}
-          <h2 style={{ 
-            fontSize: '36px', 
-            fontWeight: '700', 
-            color: '#1A1A1A', 
-            textAlign: 'center', 
-            marginBottom: '32px',
-            letterSpacing: '-0.5px'
-          }}>Who we are</h2>
+          <h2 
+            className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
+            style={{ 
+              fontSize: '36px', 
+              fontWeight: '700', 
+              color: '#1A1A1A', 
+              textAlign: 'center', 
+              marginBottom: '32px',
+              letterSpacing: '-0.5px',
+              animationDelay: '0ms'
+            }}>Who we are</h2>
           
           {/* Introductory Paragraph */}
-          <p style={{ 
-            fontSize: '18px', 
-            lineHeight: '1.7', 
-            color: '#333333', 
-            textAlign: 'center', 
-            marginBottom: '48px',
-            maxWidth: '800px',
-            margin: '0 auto 48px auto'
-          }}>
+          <p 
+            className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
+            style={{ 
+              fontSize: '18px', 
+              lineHeight: '1.7', 
+              color: '#333333', 
+              textAlign: 'center', 
+              marginBottom: '48px',
+              maxWidth: '800px',
+              margin: '0 auto 48px auto',
+              animationDelay: '80ms'
+            }}>
             We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
           </p>
               
           {/* Two Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '40px 48px' }}>
             {/* Left Column - Item 1 */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+            <div 
+              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
+              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '160ms' }}>
               <div style={{ 
                 width: '8px', 
                 height: '8px', 
@@ -270,7 +278,9 @@ const AboutUs = () => {
             </div>
             
             {/* Right Column - Item 1 */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+            <div 
+              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
+              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '240ms' }}>
               <div style={{ 
                 width: '8px', 
                 height: '8px', 
@@ -296,7 +306,9 @@ const AboutUs = () => {
             </div>
             
             {/* Left Column - Item 2 */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+            <div 
+              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
+              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '320ms' }}>
               <div style={{ 
                 width: '8px', 
                 height: '8px', 
@@ -322,7 +334,9 @@ const AboutUs = () => {
             </div>
             
             {/* Right Column - Item 2 */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+            <div 
+              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
+              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '400ms' }}>
               <div style={{ 
                 width: '8px', 
                 height: '8px', 
@@ -349,7 +363,9 @@ const AboutUs = () => {
           </div>
           
           {/* Join Us Button - Centered */}
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <div 
+            className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
+            style={{ textAlign: 'center', marginTop: '48px', animationDelay: '480ms' }}>
             <Link 
               to="/careers" 
               style={{ 
