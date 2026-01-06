@@ -166,24 +166,21 @@ const AboutUs = () => {
       </section>
 
       {/* Who We Are Section - Section 2 */}
-      <section className="py-20 bg-[#f3f1e9]" ref={whoWeAreRef}>
+      <section className="py-20 bg-[#f3f1e9]">
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
           {/* Heading */}
           <h2 
-            className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
             style={{ 
               fontSize: '36px', 
               fontWeight: '700', 
               color: '#1A1A1A', 
               textAlign: 'center', 
               marginBottom: '32px',
-              letterSpacing: '-0.5px',
-              animationDelay: '0ms'
+              letterSpacing: '-0.5px'
             }}>Who we are</h2>
           
           {/* Introductory Paragraph */}
           <p 
-            className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
             style={{ 
               fontSize: '18px', 
               lineHeight: '1.7', 
@@ -191,131 +188,149 @@ const AboutUs = () => {
               textAlign: 'center', 
               marginBottom: '48px',
               maxWidth: '800px',
-              margin: '0 auto 48px auto',
-              animationDelay: '150ms'
+              margin: '0 auto 48px auto'
             }}>
             We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
           </p>
               
-          {/* Two Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '40px 48px' }}>
-            {/* Left Column - Item 1 */}
+          {/* Two Column Grid with White Containers */}
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>
+            {/* Container 1 - Research with Purpose */}
             <div 
-              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
-              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '300ms' }}>
-              <div style={{ 
-                width: '8px', 
-                height: '8px', 
-                borderRadius: '50%', 
-                backgroundColor: '#328CC1', 
-                marginTop: '8px',
-                flexShrink: 0
-              }} />
-              <div>
-                <p style={{ 
-                  fontSize: '18px', 
-                  fontWeight: '600', 
-                  color: '#328CC1', 
-                  marginBottom: '8px',
-                  lineHeight: '1.3'
-                }}>Research with Purpose</p>
-                <p style={{ 
-                  fontSize: '16px', 
-                  lineHeight: '1.6', 
-                  color: '#333333'
-                }}>We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</p>
+              style={{ 
+                backgroundColor: '#FFFFFF', 
+                padding: '24px',
+                borderRadius: '8px'
+              }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  backgroundColor: '#328CC1', 
+                  marginTop: '8px',
+                  flexShrink: 0
+                }} />
+                <div>
+                  <p style={{ 
+                    fontSize: '18px', 
+                    fontWeight: '600', 
+                    color: '#328CC1', 
+                    marginBottom: '8px',
+                    lineHeight: '1.3'
+                  }}>Research with Purpose</p>
+                  <p style={{ 
+                    fontSize: '16px', 
+                    lineHeight: '1.6', 
+                    color: '#333333'
+                  }}>We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</p>
+                </div>
               </div>
             </div>
             
-            {/* Right Column - Item 1 */}
+            {/* Container 2 - From Insight to Implementation */}
             <div 
-              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
-              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '450ms' }}>
-              <div style={{ 
-                width: '8px', 
-                height: '8px', 
-                borderRadius: '50%', 
-                backgroundColor: '#328CC1', 
-                marginTop: '8px',
-                flexShrink: 0
-              }} />
-              <div>
-                <p style={{ 
-                  fontSize: '18px', 
-                  fontWeight: '600', 
-                  color: '#328CC1', 
-                  marginBottom: '8px',
-                  lineHeight: '1.3'
-                }}>From Insight to Implementation</p>
-                <p style={{ 
-                  fontSize: '16px', 
-                  lineHeight: '1.6', 
-                  color: '#333333'
-                }}>We don&apos;t stop at theory. Our consulting practice transforms research outcomes into production-ready AI systems, guiding clients from strategy and design to deployment and optimisation.</p>
+              style={{ 
+                backgroundColor: '#FFFFFF', 
+                padding: '24px',
+                borderRadius: '8px'
+              }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  backgroundColor: '#328CC1', 
+                  marginTop: '8px',
+                  flexShrink: 0
+                }} />
+                <div>
+                  <p style={{ 
+                    fontSize: '18px', 
+                    fontWeight: '600', 
+                    color: '#328CC1', 
+                    marginBottom: '8px',
+                    lineHeight: '1.3'
+                  }}>From Insight to Implementation</p>
+                  <p style={{ 
+                    fontSize: '16px', 
+                    lineHeight: '1.6', 
+                    color: '#333333'
+                  }}>We don&apos;t stop at theory. Our consulting practice transforms research outcomes into production-ready AI systems, guiding clients from strategy and design to deployment and optimisation.</p>
+                </div>
               </div>
             </div>
             
-            {/* Left Column - Item 2 */}
+            {/* Container 3 - Build Responsibly, Grow Confidently */}
             <div 
-              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
-              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '600ms' }}>
-              <div style={{ 
-                width: '8px', 
-                height: '8px', 
-                borderRadius: '50%', 
-                backgroundColor: '#328CC1', 
-                marginTop: '8px',
-                flexShrink: 0
-              }} />
-              <div>
-                <p style={{ 
-                  fontSize: '18px', 
-                  fontWeight: '600', 
-                  color: '#328CC1', 
-                  marginBottom: '8px',
-                  lineHeight: '1.3'
-                }}>Build Responsibly, Grow Confidently</p>
-                <p style={{ 
-                  fontSize: '16px', 
-                  lineHeight: '1.6', 
-                  color: '#333333'
-                }}>We prioritise robustness, transparency, and ethical use of AI. Every system we design is built to be reliable, explainable, and scalable in real operational environments.</p>
+              style={{ 
+                backgroundColor: '#FFFFFF', 
+                padding: '24px',
+                borderRadius: '8px'
+              }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  backgroundColor: '#328CC1', 
+                  marginTop: '8px',
+                  flexShrink: 0
+                }} />
+                <div>
+                  <p style={{ 
+                    fontSize: '18px', 
+                    fontWeight: '600', 
+                    color: '#328CC1', 
+                    marginBottom: '8px',
+                    lineHeight: '1.3'
+                  }}>Build Responsibly, Grow Confidently</p>
+                  <p style={{ 
+                    fontSize: '16px', 
+                    lineHeight: '1.6', 
+                    color: '#333333'
+                  }}>We prioritise robustness, transparency, and ethical use of AI. Every system we design is built to be reliable, explainable, and scalable in real operational environments.</p>
+                </div>
               </div>
             </div>
             
-            {/* Right Column - Item 2 */}
+            {/* Container 4 - Own the Impact */}
             <div 
-              className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
-              style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', animationDelay: '750ms' }}>
-              <div style={{ 
-                width: '8px', 
-                height: '8px', 
-                borderRadius: '50%', 
-                backgroundColor: '#328CC1', 
-                marginTop: '8px',
-                flexShrink: 0
-              }} />
-              <div>
-                <p style={{ 
-                  fontSize: '18px', 
-                  fontWeight: '600', 
-                  color: '#328CC1', 
-                  marginBottom: '8px',
-                  lineHeight: '1.3'
-                }}>Own the Impact</p>
-                <p style={{ 
-                  fontSize: '16px', 
-                  lineHeight: '1.6', 
-                  color: '#333333'
-                }}>We take responsibility for outcomes, not just deliverables. By working as an extension of our clients&apos; teams, we ensure that AI initiatives create lasting value, not experimental dead ends.</p>
+              style={{ 
+                backgroundColor: '#FFFFFF', 
+                padding: '24px',
+                borderRadius: '8px'
+              }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  backgroundColor: '#328CC1', 
+                  marginTop: '8px',
+                  flexShrink: 0
+                }} />
+                <div>
+                  <p style={{ 
+                    fontSize: '18px', 
+                    fontWeight: '600', 
+                    color: '#328CC1', 
+                    marginBottom: '8px',
+                    lineHeight: '1.3'
+                  }}>Own the Impact</p>
+                  <p style={{ 
+                    fontSize: '16px', 
+                    lineHeight: '1.6', 
+                    color: '#333333'
+                  }}>We take responsibility for outcomes, not just deliverables. By working as an extension of our clients&apos; teams, we ensure that AI initiatives create lasting value, not experimental dead ends.</p>
+                </div>
               </div>
             </div>
           </div>
           
           {/* Join Us Button - Centered */}
           <div 
-            className={whoWeAreVisible ? 'who-we-are-animate' : 'who-we-are-hidden'}
-            style={{ textAlign: 'center', marginTop: '48px', animationDelay: '900ms' }}>
+            style={{ textAlign: 'center', marginTop: '48px' }}>
             <Link 
               to="/careers" 
               style={{ 
