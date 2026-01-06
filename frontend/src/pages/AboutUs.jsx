@@ -191,14 +191,37 @@ const AboutUs = () => {
             We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
           </p>
               
-              <div className="space-y-4 mt-8">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <div>
-                    <span className="text-[#328CC1] font-semibold">Research with Purpose</span>
-                    <span className="text-[#2F3A4A]"> We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</span>
-                  </div>
-                </div>
+          {/* Two Column Grid */}
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(2, 1fr)', 
+            gap: '40px 48px'
+          }} className="grid-cols-1 md:grid-cols-2">
+            {/* Left Column - Item 1 */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '8px', 
+                height: '8px', 
+                borderRadius: '50%', 
+                backgroundColor: '#328CC1', 
+                marginTop: '8px',
+                flexShrink: 0
+              }} />
+              <div>
+                <p style={{ 
+                  fontSize: '18px', 
+                  fontWeight: '600', 
+                  color: '#328CC1', 
+                  marginBottom: '8px',
+                  lineHeight: '1.3'
+                }}>Research with Purpose</p>
+                <p style={{ 
+                  fontSize: '16px', 
+                  lineHeight: '1.6', 
+                  color: '#333333'
+                }}>We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</p>
+              </div>
+            </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                   <div>
