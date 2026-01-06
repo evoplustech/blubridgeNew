@@ -192,11 +192,7 @@ const AboutUs = () => {
           </p>
               
           {/* Two Column Grid */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(2, 1fr)', 
-            gap: '40px 48px'
-          }} className="grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '40px 48px' }}>
             {/* Left Column - Item 1 */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
               <div style={{ 
