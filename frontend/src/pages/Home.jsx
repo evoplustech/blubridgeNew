@@ -398,9 +398,11 @@ const Home = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_f1ae1432-e69e-4452-8bf4-7695fb1baeb9/artifacts/ozujiorh_ChatGPT%20Image%20Jan%206%2C%202026%2C%2003_44_30%20PM-Photoroom.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_f1ae1432-e69e-4452-8bf4-7695fb1baeb9/artifacts/9ho5zu8x_ChatGPT%20Image%20Jan%206%2C%202026%2C%2003_44_30%20PM-Photoroom.png)',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center right',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: '#0a1628'
           }}
         />
         {/* Dark overlay for text readability */}
