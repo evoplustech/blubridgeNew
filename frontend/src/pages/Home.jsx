@@ -398,7 +398,7 @@ const Home = () => {
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, #1a1f3c 0%, #252a4a 25%, #1e2542 50%, #2a2f52 75%, #1a1f3c 100%)'
+            background: 'linear-gradient(135deg, #1e2344 0%, #282e52 25%, #232848 50%, #2d3358 75%, #1e2344 100%)'
           }}
         />
         
@@ -407,55 +407,55 @@ const Home = () => {
         
         {/* LAYER 2: Deep Cloud Layer - Slowest parallax */}
         <div className="absolute inset-0 hero-cloud-deep">
-          <div className="absolute inset-[-50%] w-[200%] h-[200%] hero-cloud-deep-inner" style={{
+          <div className="absolute inset-[-60%] w-[220%] h-[220%] hero-cloud-deep-inner" style={{
             background: `
-              radial-gradient(ellipse 80% 60% at 20% 30%, rgba(99, 102, 141, 0.35) 0%, transparent 50%),
-              radial-gradient(ellipse 70% 50% at 80% 70%, rgba(75, 85, 130, 0.3) 0%, transparent 45%),
-              radial-gradient(ellipse 90% 70% at 60% 20%, rgba(88, 94, 135, 0.25) 0%, transparent 55%)
+              radial-gradient(ellipse 90% 70% at 15% 35%, rgba(110, 115, 160, 0.45) 0%, transparent 55%),
+              radial-gradient(ellipse 80% 60% at 85% 65%, rgba(90, 100, 150, 0.4) 0%, transparent 50%),
+              radial-gradient(ellipse 100% 80% at 55% 15%, rgba(100, 108, 155, 0.35) 0%, transparent 60%)
             `
           }} />
         </div>
         
         {/* LAYER 3: Mid Cloud Layer - Medium parallax with Mars dust */}
         <div className="absolute inset-0 hero-cloud-mid">
-          <div className="absolute inset-[-30%] w-[160%] h-[160%] hero-cloud-mid-inner" style={{
+          <div className="absolute inset-[-40%] w-[180%] h-[180%] hero-cloud-mid-inner" style={{
             background: `
-              radial-gradient(ellipse 60% 45% at 70% 40%, rgba(139, 92, 76, 0.28) 0%, transparent 50%),
-              radial-gradient(ellipse 55% 50% at 25% 60%, rgba(120, 100, 140, 0.32) 0%, transparent 45%),
-              radial-gradient(ellipse 70% 55% at 50% 80%, rgba(100, 85, 120, 0.25) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 40% at 85% 25%, rgba(145, 100, 85, 0.22) 0%, transparent 45%)
+              radial-gradient(ellipse 70% 55% at 75% 45%, rgba(155, 105, 85, 0.38) 0%, transparent 55%),
+              radial-gradient(ellipse 65% 55% at 20% 55%, rgba(135, 115, 160, 0.42) 0%, transparent 50%),
+              radial-gradient(ellipse 80% 60% at 45% 85%, rgba(115, 100, 140, 0.35) 0%, transparent 55%),
+              radial-gradient(ellipse 60% 50% at 90% 20%, rgba(160, 115, 95, 0.32) 0%, transparent 50%)
             `
           }} />
         </div>
         
         {/* LAYER 4: Foreground Cloud Layer - Fastest parallax */}
         <div className="absolute inset-0 hero-cloud-front">
-          <div className="absolute inset-[-20%] w-[140%] h-[140%] hero-cloud-front-inner" style={{
+          <div className="absolute inset-[-25%] w-[150%] h-[150%] hero-cloud-front-inner" style={{
             background: `
-              radial-gradient(ellipse 45% 35% at 15% 45%, rgba(160, 110, 90, 0.25) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 40% at 75% 55%, rgba(130, 120, 160, 0.28) 0%, transparent 45%),
-              radial-gradient(ellipse 40% 30% at 45% 30%, rgba(115, 95, 135, 0.2) 0%, transparent 40%)
+              radial-gradient(ellipse 55% 45% at 10% 50%, rgba(175, 125, 100, 0.35) 0%, transparent 55%),
+              radial-gradient(ellipse 60% 50% at 80% 50%, rgba(145, 135, 175, 0.38) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 40% at 40% 25%, rgba(130, 110, 150, 0.3) 0%, transparent 45%)
             `
           }} />
         </div>
         
         {/* LAYER 5: Volumetric Nebula Wisps - Visible horizontal drift */}
         <div className="absolute inset-0 hero-nebula-wisps">
-          <div className="absolute inset-[-40%] w-[180%] h-[180%] hero-nebula-inner" style={{
+          <div className="absolute inset-[-50%] w-[200%] h-[200%] hero-nebula-inner" style={{
             background: `
-              radial-gradient(ellipse 100% 40% at 30% 50%, rgba(120, 90, 140, 0.22) 0%, transparent 60%),
-              radial-gradient(ellipse 80% 35% at 70% 45%, rgba(140, 95, 80, 0.2) 0%, transparent 55%)
+              radial-gradient(ellipse 120% 50% at 25% 55%, rgba(135, 105, 160, 0.3) 0%, transparent 65%),
+              radial-gradient(ellipse 100% 45% at 75% 40%, rgba(160, 110, 95, 0.28) 0%, transparent 60%)
             `
           }} />
         </div>
         
         {/* LAYER 6: Mars Dust Accents - Warm tones with diagonal drift */}
         <div className="absolute inset-0 hero-mars-accent">
-          <div className="absolute inset-[-25%] w-[150%] h-[150%] hero-mars-inner" style={{
+          <div className="absolute inset-[-30%] w-[160%] h-[160%] hero-mars-inner" style={{
             background: `
-              radial-gradient(ellipse 50% 35% at 65% 65%, rgba(180, 120, 80, 0.18) 0%, transparent 50%),
-              radial-gradient(ellipse 45% 30% at 20% 75%, rgba(165, 105, 75, 0.15) 0%, transparent 45%),
-              radial-gradient(ellipse 55% 40% at 80% 30%, rgba(150, 95, 70, 0.12) 0%, transparent 50%)
+              radial-gradient(ellipse 60% 45% at 70% 70%, rgba(195, 135, 95, 0.28) 0%, transparent 55%),
+              radial-gradient(ellipse 55% 40% at 15% 80%, rgba(180, 120, 85, 0.25) 0%, transparent 50%),
+              radial-gradient(ellipse 65% 50% at 85% 25%, rgba(165, 110, 80, 0.22) 0%, transparent 55%)
             `
           }} />
         </div>
@@ -466,8 +466,8 @@ const Home = () => {
         {/* LAYER 8: Lavender/Blue Haze Glow */}
         <div className="absolute inset-0 hero-haze-glow" style={{
           background: `
-            radial-gradient(ellipse 60% 40% at 50% 50%, rgba(147, 130, 180, 0.12) 0%, transparent 60%),
-            radial-gradient(ellipse 50% 35% at 30% 40%, rgba(100, 120, 180, 0.1) 0%, transparent 50%)
+            radial-gradient(ellipse 70% 50% at 50% 50%, rgba(160, 145, 195, 0.18) 0%, transparent 65%),
+            radial-gradient(ellipse 60% 45% at 25% 35%, rgba(115, 135, 195, 0.15) 0%, transparent 55%)
           `
         }} />
         
@@ -475,7 +475,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(100deg, rgba(26, 31, 60, 0.55) 0%, rgba(26, 31, 60, 0.35) 35%, transparent 65%)'
+            background: 'linear-gradient(100deg, rgba(30, 35, 68, 0.5) 0%, rgba(30, 35, 68, 0.3) 35%, transparent 65%)'
           }}
         />
         
@@ -483,7 +483,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 120% 100% at 50% 50%, transparent 40%, rgba(26, 31, 60, 0.35) 100%)'
+            background: 'radial-gradient(ellipse 130% 110% at 50% 50%, transparent 45%, rgba(30, 35, 68, 0.3) 100%)'
           }}
         />
         
