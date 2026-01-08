@@ -618,7 +618,7 @@ const Home = () => {
         }
         
         ctx.strokeStyle = `rgba(${lineColor.r}, ${lineColor.g}, ${lineColor.b}, ${lineOpacity})`;
-        ctx.lineWidth = isHovered ? 1.2 : 0.8;
+        ctx.lineWidth = isHovered ? 1.4 : 0.8;
         ctx.beginPath();
         ctx.moveTo(n1.x, n1.y);
         ctx.lineTo(n2.x, n2.y);
@@ -626,7 +626,7 @@ const Home = () => {
       });
       
       // ==============================================
-      // HOVER INTERACTION - Local brightening
+      // HOVER INTERACTION - Local DARKENING
       // ==============================================
       nodes.forEach(node => {
         const dx = node.x - mouseX;
@@ -635,21 +635,32 @@ const Home = () => {
         
         if (dist < hoverRadius && mouseX > 0) {
           const proximity = 1 - dist / hoverRadius;
-          node.targetOpacity = node.baseOpacity + proximity * 0.35;
+          // DARKEN on hover - increase opacity significantly for darker appearance
+          node.targetOpacity = Math.min(0.85, node.baseOpacity + proximity * 0.5);
+          // Also slightly increase node size on hover for emphasis
+          node.hoverScale = 1 + proximity * 0.15;
         } else {
           node.targetOpacity = node.baseOpacity;
+          node.hoverScale = 1;
         }
       });
       
       // ==============================================
-      // DRAW NODES - Warm, blended with background
+      // DRAW NODES - Warm, blended with background (DARKEN on hover)
       // ==============================================
       nodes.forEach(node => {
         // Subtle size pulse for life
         const pulse = 1 + Math.sin(frameCount * 0.02 + node.phaseX) * 0.05;
-        const displayRadius = node.baseRadius * pulse;
+        const hoverScale = node.hoverScale || 1;
+        const displayRadius = node.baseRadius * pulse * hoverScale;
         
-        ctx.fillStyle = `rgba(${nodeColor.r}, ${nodeColor.g}, ${nodeColor.b}, ${node.currentOpacity})`;
+        // Use darker color when hovered (lower RGB values = darker)
+        const isHovered = node.currentOpacity > node.baseOpacity + 0.1;
+        const r = isHovered ? Math.max(40, nodeColor.r - 60) : nodeColor.r;
+        const g = isHovered ? Math.max(35, nodeColor.g - 50) : nodeColor.g;
+        const b = isHovered ? Math.max(30, nodeColor.b - 40) : nodeColor.b;
+        
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${node.currentOpacity})`;
         ctx.beginPath();
         ctx.arc(node.x, node.y, displayRadius, 0, Math.PI * 2);
         ctx.fill();
