@@ -392,83 +392,166 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Section 1 (ODD) - Cinematic Space Video Background */}
+      {/* Hero Section - Section 1 (ODD) - Warm Desert Theme with Geometric Parallelograms */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* LAYER 1: Base Space Gradient (STATIC) - Deep indigo → violet → Mars-orange */}
+        {/* LAYER 1: Warm Desert Gradient Background */}
         <div 
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse 85% 85% at 15% 95%, rgba(30, 25, 70, 0.95) 0%, transparent 55%),
-              radial-gradient(ellipse 75% 70% at 50% 50%, rgba(60, 45, 100, 0.65) 0%, transparent 60%),
-              radial-gradient(ellipse 55% 45% at 88% 12%, rgba(180, 100, 55, 0.4) 0%, transparent 50%),
-              linear-gradient(140deg, #0f0d1a 0%, #1a1535 25%, #251850 45%, #2a1a48 65%, #1f1530 85%, #12101d 100%)
+              radial-gradient(ellipse 120% 100% at 20% 20%, rgba(235, 220, 195, 0.95) 0%, transparent 50%),
+              radial-gradient(ellipse 100% 80% at 80% 80%, rgba(180, 140, 100, 0.4) 0%, transparent 60%),
+              linear-gradient(135deg, #e8dcc8 0%, #d4c4a8 20%, #c9b08a 40%, #bfa070 60%, #b89860 80%, #a88855 100%)
             `
           }}
         />
         
-        {/* LAYER 2: Soft Nebula Cloud - Very low opacity, slow horizontal drift */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="hero-nebula-soft absolute" style={{
-            top: '-30%',
-            left: '-100%',
-            width: '350%',
-            height: '160%',
+        {/* LAYER 2: Soft Atmospheric Haze */}
+        <div 
+          className="absolute inset-0"
+          style={{
             background: `
-              radial-gradient(ellipse 45% 35% at 25% 45%, rgba(90, 60, 140, 0.06) 0%, transparent 70%),
-              radial-gradient(ellipse 50% 40% at 65% 55%, rgba(70, 80, 150, 0.05) 0%, transparent 65%),
-              radial-gradient(ellipse 40% 30% at 45% 35%, rgba(100, 70, 130, 0.04) 0%, transparent 60%)
+              radial-gradient(ellipse 80% 60% at 30% 30%, rgba(255, 250, 240, 0.4) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 50% at 70% 60%, rgba(210, 180, 140, 0.25) 0%, transparent 45%)
             `
+          }}
+        />
+        
+        {/* LAYER 3: Subtle Grain/Noise Texture Overlay */}
+        <div className="absolute inset-0 hero-grain-texture" />
+        
+        {/* LAYER 4: FAR DEPTH Parallelograms (Background - Slowest, Blurred) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="hero-para-far-1 absolute" style={{
+            right: '5%', top: '15%',
+            width: '200px', height: '120px',
+            border: '1.5px solid rgba(201, 160, 107, 0.3)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
+            transform: 'perspective(500px) rotateY(-25deg) rotateZ(8deg)',
+            filter: 'blur(1.5px)'
+          }} />
+          <div className="hero-para-far-2 absolute" style={{
+            right: '-5%', top: '55%',
+            width: '180px', height: '110px',
+            border: '1.5px solid rgba(201, 160, 107, 0.28)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.02) 0%, transparent 100%)',
+            transform: 'perspective(500px) rotateY(30deg) rotateZ(-5deg)',
+            filter: 'blur(1px)'
+          }} />
+          <div className="hero-para-far-3 absolute" style={{
+            right: '25%', top: '-8%',
+            width: '220px', height: '130px',
+            border: '1.5px solid rgba(201, 160, 107, 0.25)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.02) 0%, transparent 100%)',
+            transform: 'perspective(500px) rotateY(-35deg) rotateZ(12deg)',
+            filter: 'blur(2px)'
           }} />
         </div>
         
-        {/* LAYER 3: FAR DEPTH - Micro dots (0.5-1px), very slow, many directions */}
-        <div className="absolute inset-0 hero-dots-far-1" />
-        <div className="absolute inset-0 hero-dots-far-2" />
-        <div className="absolute inset-0 hero-dots-far-3" />
-        
-        {/* LAYER 4: MID DEPTH - Small dots (1-2px), medium speed, varied paths */}
-        <div className="absolute inset-0 hero-dots-mid-1" />
-        <div className="absolute inset-0 hero-dots-mid-2" />
-        <div className="absolute inset-0 hero-dots-mid-3" />
-        <div className="absolute inset-0 hero-dots-mid-4" />
-        
-        {/* LAYER 5: NEAR DEPTH - Medium dots (2-3px), faster motion */}
-        <div className="absolute inset-0 hero-dots-near-1" />
-        <div className="absolute inset-0 hero-dots-near-2" />
-        
-        {/* LAYER 6: GLOW DOTS - Soft blurred dots (4-6px), slow floating */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="hero-glow-1 absolute rounded-full" style={{ top: '18%', right: '12%', width: '6px', height: '6px', background: 'radial-gradient(circle, rgba(255,200,150,0.7) 0%, transparent 70%)', filter: 'blur(2px)' }} />
-          <div className="hero-glow-2 absolute rounded-full" style={{ top: '35%', left: '25%', width: '5px', height: '5px', background: 'radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%)', filter: 'blur(2px)' }} />
-          <div className="hero-glow-3 absolute rounded-full" style={{ top: '55%', right: '30%', width: '4px', height: '4px', background: 'radial-gradient(circle, rgba(200,220,255,0.65) 0%, transparent 70%)', filter: 'blur(1.5px)' }} />
-          <div className="hero-glow-4 absolute rounded-full" style={{ top: '72%', left: '55%', width: '5px', height: '5px', background: 'radial-gradient(circle, rgba(255,220,180,0.55) 0%, transparent 70%)', filter: 'blur(2px)' }} />
-          <div className="hero-glow-5 absolute rounded-full" style={{ top: '25%', right: '45%', width: '4px', height: '4px', background: 'radial-gradient(circle, rgba(220,230,255,0.6) 0%, transparent 70%)', filter: 'blur(1.5px)' }} />
-          <div className="hero-glow-6 absolute rounded-full" style={{ top: '65%', left: '15%', width: '6px', height: '6px', background: 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%)', filter: 'blur(2px)' }} />
-          <div className="hero-glow-7 absolute rounded-full" style={{ top: '42%', right: '18%', width: '5px', height: '5px', background: 'radial-gradient(circle, rgba(255,190,140,0.6) 0%, transparent 70%)', filter: 'blur(2px)' }} />
-          <div className="hero-glow-8 absolute rounded-full" style={{ top: '85%', left: '72%', width: '4px', height: '4px', background: 'radial-gradient(circle, rgba(210,225,255,0.55) 0%, transparent 70%)', filter: 'blur(1.5px)' }} />
+        {/* LAYER 5: MID DEPTH Parallelograms (Medium Speed, Sharp) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="hero-para-mid-1 absolute" style={{
+            right: '15%', top: '25%',
+            width: '400px', height: '250px',
+            border: '1.5px solid rgba(201, 160, 107, 0.5)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            transform: 'perspective(600px) rotateY(-30deg) rotateZ(6deg)',
+            boxShadow: '0 0 20px rgba(201, 160, 107, 0.1)'
+          }} />
+          <div className="hero-para-mid-2 absolute" style={{
+            right: '-10%', top: '35%',
+            width: '350px', height: '220px',
+            border: '1.5px solid rgba(201, 160, 107, 0.45)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
+            transform: 'perspective(600px) rotateY(25deg) rotateZ(-8deg)',
+            boxShadow: '0 0 15px rgba(201, 160, 107, 0.08)'
+          }} />
+          <div className="hero-para-mid-3 absolute" style={{
+            right: '30%', top: '60%',
+            width: '320px', height: '200px',
+            border: '1.5px solid rgba(201, 160, 107, 0.4)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
+            transform: 'perspective(600px) rotateY(-20deg) rotateZ(10deg)'
+          }} />
+          <div className="hero-para-mid-4 absolute" style={{
+            right: '5%', top: '75%',
+            width: '380px', height: '240px',
+            border: '1.5px solid rgba(201, 160, 107, 0.42)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            transform: 'perspective(600px) rotateY(35deg) rotateZ(-4deg)'
+          }} />
         </div>
         
-        {/* LAYER 7: Mars Cosmic Accent - Warm glow (top-right) */}
-        <div className="absolute inset-0 hero-mars-glow" style={{
-          background: 'radial-gradient(ellipse 40% 35% at 85% 15%, rgba(200, 120, 60, 0.25) 0%, rgba(180, 100, 50, 0.1) 40%, transparent 70%)'
-        }} />
+        {/* LAYER 6: NEAR DEPTH Parallelograms (Foreground - Fastest, Largest) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="hero-para-near-1 absolute" style={{
+            right: '8%', top: '10%',
+            width: '650px', height: '400px',
+            border: '2px solid rgba(201, 160, 107, 0.65)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, transparent 100%)',
+            transform: 'perspective(800px) rotateY(-28deg) rotateZ(5deg)',
+            boxShadow: '0 0 30px rgba(201, 160, 107, 0.12)'
+          }} />
+          <div className="hero-para-near-2 absolute" style={{
+            right: '-15%', top: '45%',
+            width: '550px', height: '350px',
+            border: '2px solid rgba(201, 160, 107, 0.6)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            transform: 'perspective(800px) rotateY(32deg) rotateZ(-7deg)',
+            boxShadow: '0 0 25px rgba(201, 160, 107, 0.1)'
+          }} />
+          <div className="hero-para-near-3 absolute" style={{
+            right: '20%', top: '70%',
+            width: '500px', height: '320px',
+            border: '2px solid rgba(201, 160, 107, 0.55)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            transform: 'perspective(800px) rotateY(-22deg) rotateZ(9deg)'
+          }} />
+        </div>
         
-        {/* LAYER 8: Content Layer (100% STATIC) */}
+        {/* LAYER 7: Additional Accent Parallelograms */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="hero-para-accent-1 absolute" style={{
+            right: '45%', top: '5%',
+            width: '280px', height: '170px',
+            border: '1.5px solid rgba(201, 160, 107, 0.35)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
+            transform: 'perspective(550px) rotateY(28deg) rotateZ(-10deg)',
+            filter: 'blur(0.5px)'
+          }} />
+          <div className="hero-para-accent-2 absolute" style={{
+            right: '55%', top: '80%',
+            width: '250px', height: '150px',
+            border: '1.5px solid rgba(201, 160, 107, 0.32)',
+            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.02) 0%, transparent 100%)',
+            transform: 'perspective(550px) rotateY(-32deg) rotateZ(6deg)',
+            filter: 'blur(1px)'
+          }} />
+        </div>
+        
+        {/* LAYER 8: Text Contrast Overlay (Left side darkening for readability) */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(100deg, rgba(60, 50, 40, 0.25) 0%, rgba(60, 50, 40, 0.1) 30%, transparent 50%)'
+          }}
+        />
+        
+        {/* LAYER 9: Content Layer (100% STATIC) */}
         <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#2a2520] drop-shadow-sm">
               Beyond the Horizon<br></br>
             </h1>
-            <p className="text-white/90 text-lg font-light leading-relaxed max-w-md drop-shadow-md">A complete, scalable, and sustainable AI platform.</p>
+            <p className="text-[#3d3530] text-lg font-light leading-relaxed max-w-md">A complete, scalable, and sustainable AI platform.</p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
+                <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium drop-shadow-md">
+              <Link to="/contact" className="flex items-center gap-2 text-[#2a2520] hover:text-[#5a4a40] transition-colors font-medium">
                 Start Building <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
