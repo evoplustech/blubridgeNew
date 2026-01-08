@@ -677,7 +677,7 @@ const Home = () => {
         `}</style>
      
       {/* Who We Are & What We Aim To Do Section - NEW */}
-      <section className="py-20 bg-[#f8f9fa]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Card - Who We Are? */}
