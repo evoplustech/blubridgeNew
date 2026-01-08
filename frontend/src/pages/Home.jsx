@@ -390,7 +390,7 @@ const Home = () => {
 
   useDocumentTitle('Beyond the Horizon | BluBridge');
 
-  // Neural Network Canvas Initialization
+  // Neural Network Canvas Initialization - Dark nodes on warm background
   useEffect(() => {
     const canvas = document.getElementById('neural-network-canvas');
     if (!canvas) return;
@@ -406,20 +406,31 @@ const Home = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Neural network nodes
+    // Neural network nodes - dark charcoal on warm background
     const nodes = [];
-    const nodeCount = 40;
+    const nodeCount = 45;
     
-    // Initialize nodes with random positions
+    // Initialize nodes with random positions (less dense on left 1/3)
     for (let i = 0; i < nodeCount; i++) {
+      // Weight distribution toward right side
+      const xWeight = Math.random();
+      const x = xWeight < 0.3 ? (Math.random() * canvas.width * 0.35) : (canvas.width * 0.35 + Math.random() * canvas.width * 0.65);
+      
+      const rand = Math.random();
+      let radius;
+      if (rand < 0.75) radius = 3 + Math.random(); // 75% standard (3-4px)
+      else if (rand < 0.95) radius = 5 + Math.random(); // 20% hub (5-6px)
+      else radius = 2; // 5% small (2px)
+      
       nodes.push({
-        x: Math.random() * canvas.width,
+        x: x,
         y: Math.random() * canvas.height,
-        radius: Math.random() < 0.8 ? (3 + Math.random()) : (5 + Math.random()), // 80% small, 20% hub
-        opacity: 0.5 + Math.random() * 0.2,
+        radius: radius,
+        opacity: 0.5 + Math.random() * 0.15,
         pulsePhase: Math.random() * Math.PI * 2,
-        vx: (Math.random() - 0.5) * 0.3, // Slow drift
-        vy: (Math.random() - 0.5) * 0.3
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        hoverBrightness: 0
       });
     }
     
@@ -428,18 +439,23 @@ const Home = () => {
     let mouseY = -1000;
     const hoverRadius = 150;
     
-    // Ambient connections (static)
-    const ambientConnections = [];
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 200 && ambientConnections.length < 12) {
-          ambientConnections.push({ i, j });
+    // Generate ambient/static connections
+    const generateAmbientConnections = () => {
+      const connections = [];
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist > 150 && dist < 250 && connections.length < 16) {
+            connections.push({ i, j, dist });
+          }
         }
       }
-    }
+      return connections;
+    };
+    
+    let ambientConnections = generateAmbientConnections();
     
     // Animation loop
     let animationId;
@@ -450,63 +466,83 @@ const Home = () => {
       nodes.forEach(node => {
         node.x += node.vx;
         node.y += node.vy;
-        node.pulsePhase += 0.02;
+        node.pulsePhase += 0.015;
         
         // Bounce off edges
         if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
         if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+        
+        // Keep nodes in bounds
+        node.x = Math.max(0, Math.min(canvas.width, node.x));
+        node.y = Math.max(0, Math.min(canvas.height, node.y));
       });
       
-      // Draw ambient connections (faint)
-      ctx.strokeStyle = 'rgba(208, 208, 208, 0.18)';
-      ctx.lineWidth = 0.5;
+      // Draw ambient/static connections (medium gray, subtle)
       ambientConnections.forEach(conn => {
+        const node1 = nodes[conn.i];
+        const node2 = nodes[conn.j];
+        ctx.strokeStyle = 'rgba(90, 90, 90, 0.28)';
+        ctx.lineWidth = 0.8;
         ctx.beginPath();
-        ctx.moveTo(nodes[conn.i].x, nodes[conn.i].y);
-        ctx.lineTo(nodes[conn.j].x, nodes[conn.j].y);
+        ctx.moveTo(node1.x, node1.y);
+        ctx.lineTo(node2.x, node2.y);
         ctx.stroke();
       });
       
-      // Draw hover connections (bright blue)
+      // Draw hover connections (darker, more visible)
       nodes.forEach(node => {
         const dx = node.x - mouseX;
         const dy = node.y - mouseY;
         const dist = Math.sqrt(dx * dx + dy * dy);
         
         if (dist < hoverRadius) {
-          const opacity = 0.5 * (1 - dist / hoverRadius);
-          ctx.strokeStyle = `rgba(96, 165, 250, ${opacity})`;
+          const opacity = 0.6 * (1 - dist / hoverRadius);
+          
+          // Draw connection line - dark brown/charcoal
+          ctx.strokeStyle = `rgba(60, 50, 40, ${opacity})`;
           ctx.lineWidth = 1.5;
-          ctx.shadowColor = 'rgba(59, 130, 246, 0.35)';
-          ctx.shadowBlur = 3;
           ctx.beginPath();
           ctx.moveTo(mouseX, mouseY);
           ctx.lineTo(node.x, node.y);
           ctx.stroke();
-          ctx.shadowBlur = 0;
           
-          // Brighten node on hover
-          node.hoverBrightness = 1;
+          // Highlight node
+          node.hoverBrightness = Math.min(1, node.hoverBrightness + 0.15);
         } else {
-          node.hoverBrightness = Math.max(0, (node.hoverBrightness || 0) - 0.05);
+          node.hoverBrightness = Math.max(0, node.hoverBrightness - 0.05);
         }
       });
       
-      // Draw nodes
+      // Draw cursor dot when hovering
+      if (mouseX > 0 && mouseY > 0) {
+        ctx.fillStyle = 'rgba(42, 37, 32, 0.7)';
+        ctx.beginPath();
+        ctx.arc(mouseX, mouseY, 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Draw nodes - dark charcoal color
       nodes.forEach(node => {
-        const pulse = Math.sin(node.pulsePhase) * 0.1 + 1;
-        const brightness = node.opacity + (node.hoverBrightness || 0) * 0.4;
+        const pulse = Math.sin(node.pulsePhase) * 0.08 + 1;
+        const brightness = node.opacity + node.hoverBrightness * 0.35;
         
-        // Glow effect
-        ctx.shadowColor = `rgba(255, 255, 255, ${brightness * 0.3})`;
-        ctx.shadowBlur = 4;
+        // Subtle shadow
+        ctx.shadowColor = 'rgba(42, 42, 42, 0.25)';
+        ctx.shadowBlur = 3;
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
         
-        ctx.fillStyle = `rgba(224, 224, 224, ${brightness})`;
+        // Node fill - dark charcoal
+        ctx.fillStyle = `rgba(42, 42, 42, ${brightness})`;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius * pulse, 0, Math.PI * 2);
         ctx.fill();
         
+        // Reset shadow
+        ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
       });
       
       animationId = requestAnimationFrame(animate);
@@ -526,14 +562,26 @@ const Home = () => {
       mouseY = -1000;
     };
     
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
+    // Check if touch device
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (!isTouchDevice) {
+      canvas.addEventListener('mousemove', handleMouseMove);
+      canvas.addEventListener('mouseleave', handleMouseLeave);
+      canvas.style.cursor = 'crosshair';
+    }
+    
+    // Regenerate connections periodically
+    const connectionInterval = setInterval(() => {
+      ambientConnections = generateAmbientConnections();
+    }, 10000);
     
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationId);
+      clearInterval(connectionInterval);
     };
   }, []);
 
