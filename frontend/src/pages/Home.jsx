@@ -909,7 +909,7 @@ const Home = () => {
       </section>
 
       {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20" style={{ backgroundColor: '#FAFAF7' }}>
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">Our Primary Areas of Research and Engineering</h2>
