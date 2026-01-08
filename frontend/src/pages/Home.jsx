@@ -820,40 +820,90 @@ const Home = () => {
      
        
       
-      {/* Our AI Expertise Section - Section 2 (EVEN) */}
-      <section className="py-20 bg-[#f3f1e9]">
-        <div className="container-custom">
+      {/* Our AI Expertise - Research Teams Section */}
+      <section className="py-20 bg-[#f8f9fa]">
+        <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Circular Diagram */}
             <div className="relative flex items-center justify-center">
               <AIExpertiseOrbit />    
             </div>
             
-            {/* Right - Services Grid */}
+            {/* Right - Research Teams Grid */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-8 font-['Inter']">
+                Our AI expertise - Our Research Teams
+              </h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Radio, title: "Telco", link: "/solutions/industry/telco" },
-                  { icon: ShieldCheck, title: "Finance & Insurance", link: "/solutions/industry/finance-insurance" },
-                  { icon: GraduationCap, title: "Education", link: "/solutions/industry/education" },
-                  { icon: Scale, title: "Legal", link: "/solutions/industry/legal" },
-                  { icon: Code2, title: "Software & Technology", link: "/solutions/industry/software-technology" },
-                  { icon: Factory, title: "Manufacturing", link: "/solutions/industry/manufacturing" },
-                  { icon: Landmark, title: "Government", link: "/solutions/industry/government" },
-                  { icon: HeartPulse, title: "Healthcare", link: "/solutions/industry/healthcare" }
-                ].map((service, index) => {
-                  const IconComponent = service.icon;
-                  return (
-                  <Link 
-                    to={service.link}
+                  { 
+                    title: "Data", 
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+                      </svg>
+                    )
+                  },
+                  { 
+                    title: "Tokenizer", 
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                      </svg>
+                    )
+                  },
+                  { 
+                    title: "Tensor & Operations", 
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1"/>
+                      </svg>
+                    )
+                  },
+                  { 
+                    title: "CGAD", 
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                        <path d="M12 3L2 9l10 6 10-6-10-6z"/>
+                        <path d="M2 17l10 6 10-6M2 13l10 6 10-6"/>
+                      </svg>
+                    )
+                  },
+                  { 
+                    title: "Compiler", 
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                        <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+                      </svg>
+                    )
+                  },
+                  { 
+                    title: "Distributed Training", 
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                        <circle cx="12" cy="5" r="3"/>
+                        <circle cx="5" cy="19" r="3"/>
+                        <circle cx="19" cy="19" r="3"/>
+                        <path d="M12 8v4m-4.5 3.5L10 13m7 2.5L14 13"/>
+                      </svg>
+                    )
+                  }
+                ].map((team, index) => (
+                  <div 
                     key={index}
-                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-md transition-all"
+                    className="flex items-center gap-3 p-5 bg-white rounded-xl border border-[#e5e7eb] hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer"
                   >
-                    <IconComponent className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
-                    <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
-                  </Link>
-                )})}
+                    <div className="text-[#0f172a]">
+                      {team.icon}
+                    </div>
+                    <span className="text-[#374151] font-medium text-sm">{team.title}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
