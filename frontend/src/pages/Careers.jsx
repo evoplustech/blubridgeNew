@@ -18,7 +18,7 @@ const Careers = () => {
       backgroundColor: '#fffdf7', 
       minHeight: '100vh', 
       paddingTop: '50px', 
-      paddingBottom: '70px' 
+      
     }}>
       <div style={{ 
         maxWidth: '1261px',
@@ -172,7 +172,7 @@ const Careers = () => {
 
       {/* Join Our Team Section */}
       <div style={{ marginTop: '60px' }}>
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
+        {/* <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', padding: '0 0 30px 0' }} /> */}
         <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
     </div>

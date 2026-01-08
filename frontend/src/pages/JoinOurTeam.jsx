@@ -6,7 +6,7 @@ const JoinOurTeam = ({ scrollRef }) => {
 
   return (
     <div style={{ 
-      backgroundColor: '#FAFAF7', 
+      backgroundColor: '#efede5', 
       paddingTop: '0', 
       paddingBottom: '50px' 
     }}>
@@ -28,7 +28,8 @@ const JoinOurTeam = ({ scrollRef }) => {
             textUnderlineOffset: '4px',
             marginBottom: '10px',
             scrollMarginTop: '150px',
-            lineHeight: '1.3'
+            lineHeight: '1.3',
+            paddingTop:'70px'
           }}
         >
           Join our Deep Learning Research Team
@@ -46,8 +47,7 @@ const JoinOurTeam = ({ scrollRef }) => {
           What You Need to Know ?
         </h2>
 
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
+      
 
         {/* Section a) */}
         <div style={{ marginBottom: '30px' }}>
