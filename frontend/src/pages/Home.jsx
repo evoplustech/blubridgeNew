@@ -394,96 +394,124 @@ const Home = () => {
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
       {/* Hero Section - Section 1 (ODD) - Animated Space Background */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* BASE: Deep Space Gradient - Medium-dark navy/indigo */}
+        {/* BASE: Deep Space Gradient - Navy to indigo */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, #1e2344 0%, #282e52 25%, #232848 50%, #2d3358 75%, #1e2344 100%)'
+            background: 'radial-gradient(ellipse 150% 100% at 50% 0%, #1a1a2e 0%, #0d0d1a 40%, #05050a 100%)'
           }}
         />
         
-        {/* LAYER 1: Background Stars - Slow drift */}
-        <div className="absolute inset-0 hero-stars-back" />
+        {/* LAYER 1: Deep Background Stars - Tiny, faint, slow drift */}
+        <div className="absolute inset-0 hero-deep-stars" />
         
-        {/* LAYER 2: Deep Cloud Layer - Slowest parallax */}
-        <div className="absolute inset-0 hero-cloud-deep">
-          <div className="absolute inset-[-60%] w-[220%] h-[220%] hero-cloud-deep-inner" style={{
+        {/* LAYER 2: Deep Space Haze - Very slow gradient movement */}
+        <div className="absolute inset-0 hero-space-haze">
+          <div className="absolute inset-[-20%] w-[140%] h-[140%] hero-space-haze-inner" style={{
             background: `
-              radial-gradient(ellipse 90% 70% at 15% 35%, rgba(110, 115, 160, 0.45) 0%, transparent 55%),
-              radial-gradient(ellipse 80% 60% at 85% 65%, rgba(90, 100, 150, 0.4) 0%, transparent 50%),
-              radial-gradient(ellipse 100% 80% at 55% 15%, rgba(100, 108, 155, 0.35) 0%, transparent 60%)
+              radial-gradient(ellipse 80% 50% at 70% 30%, rgba(30, 35, 80, 0.4) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 20% 60%, rgba(25, 30, 70, 0.35) 0%, transparent 55%)
             `
           }} />
         </div>
         
-        {/* LAYER 3: Mid Cloud Layer - Medium parallax with Mars dust */}
-        <div className="absolute inset-0 hero-cloud-mid">
-          <div className="absolute inset-[-40%] w-[180%] h-[180%] hero-cloud-mid-inner" style={{
+        {/* LAYER 3: Nebula Base - Purple/Blue diagonal band */}
+        <div className="absolute inset-0 hero-nebula-base">
+          <div className="absolute inset-[-30%] w-[160%] h-[160%] hero-nebula-base-inner" style={{
             background: `
-              radial-gradient(ellipse 70% 55% at 75% 45%, rgba(155, 105, 85, 0.38) 0%, transparent 55%),
-              radial-gradient(ellipse 65% 55% at 20% 55%, rgba(135, 115, 160, 0.42) 0%, transparent 50%),
-              radial-gradient(ellipse 80% 60% at 45% 85%, rgba(115, 100, 140, 0.35) 0%, transparent 55%),
-              radial-gradient(ellipse 60% 50% at 90% 20%, rgba(160, 115, 95, 0.32) 0%, transparent 50%)
+              linear-gradient(135deg, transparent 20%, rgba(90, 50, 140, 0.35) 35%, rgba(60, 80, 160, 0.4) 50%, rgba(100, 60, 150, 0.3) 65%, transparent 80%)
             `
           }} />
         </div>
         
-        {/* LAYER 4: Foreground Cloud Layer - Fastest parallax */}
-        <div className="absolute inset-0 hero-cloud-front">
-          <div className="absolute inset-[-25%] w-[150%] h-[150%] hero-cloud-front-inner" style={{
+        {/* LAYER 4: Nebula Highlights - Pink/Magenta accents */}
+        <div className="absolute inset-0 hero-nebula-highlights">
+          <div className="absolute inset-[-25%] w-[150%] h-[150%] hero-nebula-highlights-inner" style={{
             background: `
-              radial-gradient(ellipse 55% 45% at 10% 50%, rgba(175, 125, 100, 0.35) 0%, transparent 55%),
-              radial-gradient(ellipse 60% 50% at 80% 50%, rgba(145, 135, 175, 0.38) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 40% at 40% 25%, rgba(130, 110, 150, 0.3) 0%, transparent 45%)
+              radial-gradient(ellipse 40% 30% at 55% 35%, rgba(180, 100, 180, 0.25) 0%, transparent 50%),
+              radial-gradient(ellipse 35% 25% at 45% 45%, rgba(140, 80, 160, 0.2) 0%, transparent 45%),
+              radial-gradient(ellipse 30% 20% at 60% 40%, rgba(120, 140, 200, 0.22) 0%, transparent 40%)
             `
           }} />
         </div>
         
-        {/* LAYER 5: Volumetric Nebula Wisps - Visible horizontal drift */}
-        <div className="absolute inset-0 hero-nebula-wisps">
-          <div className="absolute inset-[-50%] w-[200%] h-[200%] hero-nebula-inner" style={{
+        {/* LAYER 5: Cosmic Cloud Wisps - Soft drifting motion */}
+        <div className="absolute inset-0 hero-cosmic-clouds">
+          <div className="absolute inset-[-35%] w-[170%] h-[170%] hero-cosmic-clouds-inner" style={{
             background: `
-              radial-gradient(ellipse 120% 50% at 25% 55%, rgba(135, 105, 160, 0.3) 0%, transparent 65%),
-              radial-gradient(ellipse 100% 45% at 75% 40%, rgba(160, 110, 95, 0.28) 0%, transparent 60%)
+              radial-gradient(ellipse 50% 35% at 65% 30%, rgba(100, 70, 150, 0.28) 0%, transparent 55%),
+              radial-gradient(ellipse 45% 30% at 35% 50%, rgba(70, 100, 160, 0.25) 0%, transparent 50%),
+              radial-gradient(ellipse 55% 40% at 50% 25%, rgba(80, 60, 140, 0.2) 0%, transparent 60%)
             `
           }} />
         </div>
         
-        {/* LAYER 6: Mars Dust Accents - Warm tones with diagonal drift */}
-        <div className="absolute inset-0 hero-mars-accent">
-          <div className="absolute inset-[-30%] w-[160%] h-[160%] hero-mars-inner" style={{
+        {/* LAYER 6: Mid Stars - Medium brightness, varied sizes */}
+        <div className="absolute inset-0 hero-mid-stars" />
+        
+        {/* LAYER 7: Bright Amber Star Glow - Upper right */}
+        <div className="absolute inset-0 hero-amber-star">
+          <div className="absolute" style={{
+            top: '15%',
+            right: '12%',
+            width: '120px',
+            height: '120px',
+            background: 'radial-gradient(circle, rgba(255, 180, 80, 0.6) 0%, rgba(255, 150, 50, 0.3) 30%, rgba(255, 120, 30, 0.1) 50%, transparent 70%)',
+            filter: 'blur(2px)'
+          }} />
+        </div>
+        
+        {/* LAYER 8: Secondary Stars Glow */}
+        <div className="absolute inset-0 hero-star-glows">
+          <div className="absolute" style={{
+            top: '40%',
+            left: '45%',
+            width: '60px',
+            height: '60px',
+            background: 'radial-gradient(circle, rgba(200, 220, 255, 0.7) 0%, rgba(180, 200, 255, 0.3) 40%, transparent 70%)',
+            filter: 'blur(1px)'
+          }} />
+          <div className="absolute" style={{
+            top: '35%',
+            right: '35%',
+            width: '40px',
+            height: '40px',
+            background: 'radial-gradient(circle, rgba(255, 200, 150, 0.6) 0%, rgba(255, 180, 120, 0.2) 50%, transparent 70%)',
+            filter: 'blur(1px)'
+          }} />
+        </div>
+        
+        {/* LAYER 9: Mars Horizon Atmosphere - Bottom glow */}
+        <div className="absolute inset-0 hero-mars-atmosphere">
+          <div className="absolute bottom-0 left-0 right-0 h-[35%] hero-mars-atmo-inner" style={{
             background: `
-              radial-gradient(ellipse 60% 45% at 70% 70%, rgba(195, 135, 95, 0.28) 0%, transparent 55%),
-              radial-gradient(ellipse 55% 40% at 15% 80%, rgba(180, 120, 85, 0.25) 0%, transparent 50%),
-              radial-gradient(ellipse 65% 50% at 85% 25%, rgba(165, 110, 80, 0.22) 0%, transparent 55%)
+              linear-gradient(to top, rgba(180, 120, 80, 0.25) 0%, rgba(150, 100, 70, 0.15) 30%, rgba(100, 80, 100, 0.1) 60%, transparent 100%)
             `
           }} />
         </div>
         
-        {/* LAYER 7: Foreground Stars - Subtle drift */}
-        <div className="absolute inset-0 hero-stars-front" />
+        {/* LAYER 10: Mars Dust Particles - Horizontal flow near bottom */}
+        <div className="absolute inset-0 hero-mars-dust">
+          <div className="absolute bottom-0 left-[-20%] right-[-20%] h-[25%] hero-mars-dust-inner" style={{
+            background: `
+              radial-gradient(ellipse 80% 40% at 30% 80%, rgba(200, 140, 100, 0.12) 0%, transparent 50%),
+              radial-gradient(ellipse 70% 35% at 70% 90%, rgba(180, 130, 90, 0.1) 0%, transparent 45%),
+              radial-gradient(ellipse 90% 45% at 50% 85%, rgba(160, 120, 85, 0.08) 0%, transparent 55%)
+            `
+          }} />
+        </div>
         
-        {/* LAYER 8: Lavender/Blue Haze Glow */}
-        <div className="absolute inset-0 hero-haze-glow" style={{
-          background: `
-            radial-gradient(ellipse 70% 50% at 50% 50%, rgba(160, 145, 195, 0.18) 0%, transparent 65%),
-            radial-gradient(ellipse 60% 45% at 25% 35%, rgba(115, 135, 195, 0.15) 0%, transparent 55%)
-          `
-        }} />
+        {/* LAYER 11: Foreground Stars - Brighter, larger */}
+        <div className="absolute inset-0 hero-foreground-stars" />
         
-        {/* LAYER 9: Text Readability - Left-center darkening */}
+        {/* LAYER 12: Subtle star twinkle overlay */}
+        <div className="absolute inset-0 hero-twinkle-overlay" />
+        
+        {/* Text Readability Gradient - Subtle left darkening */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(100deg, rgba(30, 35, 68, 0.5) 0%, rgba(30, 35, 68, 0.3) 35%, transparent 65%)'
-          }}
-        />
-        
-        {/* LAYER 10: Soft Vignette */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 130% 110% at 50% 50%, transparent 45%, rgba(30, 35, 68, 0.3) 100%)'
+            background: 'linear-gradient(100deg, rgba(10, 10, 20, 0.4) 0%, rgba(10, 10, 20, 0.2) 30%, transparent 55%)'
           }}
         />
         
