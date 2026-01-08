@@ -640,33 +640,35 @@ const Home = () => {
       const rect = canvas.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
+      isHovering = true;
+    };
+    
+    const handleMouseEnter = () => {
+      isHovering = true;
     };
     
     const handleMouseLeave = () => {
       mouseX = -1000;
       mouseY = -1000;
+      isHovering = false;
     };
     
-    // Check if touch device
+    // Check if touch device - disable hover on touch
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
     if (!isTouchDevice) {
       canvas.addEventListener('mousemove', handleMouseMove);
+      canvas.addEventListener('mouseenter', handleMouseEnter);
       canvas.addEventListener('mouseleave', handleMouseLeave);
       canvas.style.cursor = 'crosshair';
     }
     
-    // Regenerate connections periodically
-    const connectionInterval = setInterval(() => {
-      ambientConnections = generateAmbientConnections();
-    }, 10000);
-    
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseenter', handleMouseEnter);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationId);
-      clearInterval(connectionInterval);
     };
   }, []);
 
