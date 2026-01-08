@@ -609,15 +609,24 @@ const Home = () => {
         const d2 = Math.sqrt((n2.x - mouseX) ** 2 + (n2.y - mouseY) ** 2);
         const isHovered = (d1 < hoverRadius || d2 < hoverRadius) && mouseX > 0;
         
-        // Line opacity - more visible when hovered
+        // Line opacity and color - DARKEN when hovered
         let lineOpacity = conn.baseOpacity * (1 - currentDist / 400);
         lineOpacity = Math.max(0.06, Math.min(0.28, lineOpacity));
         
+        // Darker lines on hover
+        let lineR = lineColor.r;
+        let lineG = lineColor.g;
+        let lineB = lineColor.b;
+        
         if (isHovered) {
-          lineOpacity = Math.min(0.45, lineOpacity * 2.2);
+          lineOpacity = Math.min(0.55, lineOpacity * 2.5);
+          // Darken line color
+          lineR = Math.max(50, lineColor.r - 70);
+          lineG = Math.max(40, lineColor.g - 60);
+          lineB = Math.max(35, lineColor.b - 50);
         }
         
-        ctx.strokeStyle = `rgba(${lineColor.r}, ${lineColor.g}, ${lineColor.b}, ${lineOpacity})`;
+        ctx.strokeStyle = `rgba(${lineR}, ${lineG}, ${lineB}, ${lineOpacity})`;
         ctx.lineWidth = isHovered ? 1.4 : 0.8;
         ctx.beginPath();
         ctx.moveTo(n1.x, n1.y);
