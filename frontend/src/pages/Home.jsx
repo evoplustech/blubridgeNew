@@ -795,34 +795,24 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
               {
-                icon: "💡",
-                title: "AI consulting",
-                description: "Have a project idea and need support bringing it to life? We’re here to guide you with expert consultation and shared insights, helping you steer clear of unnecessary challenges along the way."
+                Icon: TrendingUp,
+                title: "Scaling Laws",
+                description: "Researching how model performance scales with data, parameters, and compute to design efficient, predictable, and cost-optimized AI systems."
               },
               {
-                icon: "🔬",
-                title: "PoC of AI Solutions",
-                description: "A proof of concept is a critical step before implementing any AI solution. If you have a project idea, our data science consultants will assess its feasibility and validate its potential."
+                Icon: Users,
+                title: "Human Work Optimization",
+                description: "Designing systems that augment human effort through intelligent workflows, evaluation loops, and automation that improves productivity and decision quality."
               },
               {
-                icon: "🚀",
-                title: "AI Product",
-                description: "Looking to build a breakthrough AI product? We can kick things off with a lean, feature-focused version designed to engage early users and gather valuable feedback to guide future development."
+                Icon: Brain,
+                title: "Multimodal Agents",
+                description: "Building intelligent agents capable of reasoning across text, vision, and data streams to perform complex tasks and adaptive decision-making."
               },
               {
-                icon: "⚡",
-                title: "Custom Model Development",
-                description: "We can design and train custom models tailored to your business requirements, or fine-tune your existing models, both open-source and proprietary, which is to improve performance, efficiency, and scalability."
-              },
-              {
-                icon: "💻",
-                title: "Software Development",
-                description: "Whether you’re building an innovative web application from the ground up or enhancing an existing one with AI capabilities, our experts are here to support you."
-              },
-              {
-                icon: "📱",
-                title: "AI based Application Development",
-                description: "Our specialists can help you create an innovative mobile app from the ground up and enhance it with AI features your users will truly appreciate."
+                Icon: Zap,
+                title: "Reinforcement Learning",
+                description: "Training models through reward-driven learning to optimize behavior, improve policy performance, and adapt dynamically in real-world environments."
               }
             ].map((card, index) => (
               <div 
