@@ -262,362 +262,210 @@ code {
 .dummy-blue .dummy-dot { background: #328CC1; }
 .dummy-orange .dummy-dot { background: #f4a000; }
 
-/* ===== HOME PAGE HERO SECTION - Cinematic Space Video Background ===== */
+/* ===== HOME PAGE HERO SECTION - Warm Desert Theme with Geometric Parallelograms ===== */
 
-/* Soft Nebula Cloud - Very slow horizontal drift */
-.hero-nebula-soft {
-  animation: nebulaSoftDrift 80s linear infinite;
-  will-change: transform;
+/* Subtle Grain/Noise Texture */
+.hero-grain-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  mix-blend-mode: overlay;
 }
 
-@keyframes nebulaSoftDrift {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(28.5%); }
+/* ========== FAR DEPTH Parallelograms (Background - Slowest, 20-25s) ========== */
+
+.hero-para-far-1 {
+  animation: paraFarMove1 22s ease-in-out infinite, paraFarRotate 45s linear infinite, paraFarOpacity 10s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
-/* ========== FAR DEPTH DOTS (0.5-1px) - Very slow, multiple directions ========== */
-
-/* Far Layer 1 - Diagonal top-left to bottom-right */
-.hero-dots-far-1 {
-  background-image: 
-    radial-gradient(0.6px 0.6px at 2% 5%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 6% 18%, rgba(220,235,255,0.35) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 10% 32%, rgba(255,255,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 14% 48%, rgba(200,220,255,0.32) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 18% 62%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 22% 78%, rgba(230,240,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 26% 8%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 30% 25%, rgba(210,225,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 34% 42%, rgba(255,255,255,0.37) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 38% 58%, rgba(240,248,255,0.35) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 42% 75%, rgba(255,255,255,0.39) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 46% 92%, rgba(220,232,255,0.32) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 50% 12%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 54% 28%, rgba(200,215,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 58% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 62% 62%, rgba(230,242,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 66% 78%, rgba(255,255,255,0.37) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 70% 95%, rgba(210,220,255,0.35) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 74% 15%, rgba(255,255,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 78% 35%, rgba(240,250,255,0.32) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 82% 52%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 86% 68%, rgba(220,235,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 90% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 94% 3%, rgba(200,218,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 98% 22%, rgba(255,255,255,0.37) 0%, transparent 100%);
-  animation: dotsFar1 35s linear infinite;
-  will-change: transform;
+.hero-para-far-2 {
+  animation: paraFarMove2 25s ease-in-out infinite, paraFarRotate 50s linear infinite reverse, paraFarOpacity 12s ease-in-out infinite 2s;
+  will-change: transform, opacity;
 }
 
-@keyframes dotsFar1 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(25px, 25px); }
+.hero-para-far-3 {
+  animation: paraFarMove3 20s ease-in-out infinite, paraFarRotate 55s linear infinite, paraFarOpacity 11s ease-in-out infinite 4s;
+  will-change: transform, opacity;
 }
 
-/* Far Layer 2 - Right to left */
-.hero-dots-far-2 {
-  background-image: 
-    radial-gradient(0.5px 0.5px at 4% 12%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 8% 28%, rgba(230,242,255,0.32) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 12% 45%, rgba(255,255,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 16% 62%, rgba(210,225,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 20% 78%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 24% 95%, rgba(240,250,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 28% 8%, rgba(255,255,255,0.37) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 32% 22%, rgba(220,235,255,0.35) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 36% 38%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 40% 55%, rgba(200,220,255,0.32) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 44% 72%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 48% 88%, rgba(230,245,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 52% 5%, rgba(255,255,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 56% 18%, rgba(210,228,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 60% 35%, rgba(255,255,255,0.37) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 64% 52%, rgba(240,252,255,0.35) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 68% 68%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 72% 85%, rgba(220,238,255,0.32) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 76% 2%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 80% 15%, rgba(200,215,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 84% 32%, rgba(255,255,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 88% 48%, rgba(230,240,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 92% 65%, rgba(255,255,255,0.37) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 96% 82%, rgba(210,222,255,0.35) 0%, transparent 100%);
-  animation: dotsFar2 40s linear infinite;
-  will-change: transform;
+@keyframes paraFarMove1 {
+  0% { transform: perspective(500px) rotateY(-25deg) rotateZ(8deg) translate(0, 0); }
+  50% { transform: perspective(500px) rotateY(-25deg) rotateZ(8deg) translate(-40px, -60px); }
+  100% { transform: perspective(500px) rotateY(-25deg) rotateZ(8deg) translate(0, 0); }
 }
 
-@keyframes dotsFar2 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-30px); }
+@keyframes paraFarMove2 {
+  0% { transform: perspective(500px) rotateY(30deg) rotateZ(-5deg) translate(0, 0); }
+  50% { transform: perspective(500px) rotateY(30deg) rotateZ(-5deg) translate(50px, 40px); }
+  100% { transform: perspective(500px) rotateY(30deg) rotateZ(-5deg) translate(0, 0); }
 }
 
-/* Far Layer 3 - Bottom to top */
-.hero-dots-far-3 {
-  background-image: 
-    radial-gradient(0.6px 0.6px at 3% 10%, rgba(255,255,255,0.35) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 9% 30%, rgba(220,232,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 15% 50%, rgba(255,255,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 21% 70%, rgba(240,248,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 27% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 33% 15%, rgba(200,218,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 39% 35%, rgba(255,255,255,0.37) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 45% 55%, rgba(230,242,255,0.32) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 51% 75%, rgba(255,255,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 57% 95%, rgba(210,225,255,0.35) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 63% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 69% 40%, rgba(240,250,255,0.33) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 75% 60%, rgba(255,255,255,0.36) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 81% 80%, rgba(220,235,255,0.34) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 87% 5%, rgba(255,255,255,0.38) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 93% 25%, rgba(200,220,255,0.36) 0%, transparent 100%);
-  animation: dotsFar3 45s linear infinite;
-  will-change: transform;
+@keyframes paraFarMove3 {
+  0% { transform: perspective(500px) rotateY(-35deg) rotateZ(12deg) translate(0, 0); }
+  50% { transform: perspective(500px) rotateY(-35deg) rotateZ(12deg) translate(-30px, 50px); }
+  100% { transform: perspective(500px) rotateY(-35deg) rotateZ(12deg) translate(0, 0); }
 }
 
-@keyframes dotsFar3 {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-20px); }
+@keyframes paraFarRotate {
+  0% { --rotate-add: 0deg; }
+  100% { --rotate-add: 360deg; }
 }
 
-/* ========== MID DEPTH DOTS (1-2px) - Medium speed, varied directions ========== */
-
-/* Mid Layer 1 - Left to right, diagonal up */
-.hero-dots-mid-1 {
-  background-image: 
-    radial-gradient(1.5px 1.5px at 2% 8%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 7% 25%, rgba(220,235,255,0.55) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 12% 42%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 17% 58%, rgba(200,220,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 22% 75%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 27% 92%, rgba(240,250,255,0.55) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 32% 12%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 37% 28%, rgba(230,242,255,0.58) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 42% 45%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 47% 62%, rgba(210,228,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 52% 78%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 57% 95%, rgba(255,240,220,0.5) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 62% 15%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 67% 32%, rgba(220,235,255,0.58) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 72% 48%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 77% 65%, rgba(200,218,255,0.55) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 82% 82%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 87% 5%, rgba(240,248,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 92% 22%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 97% 38%, rgba(230,240,255,0.55) 0%, transparent 100%);
-  animation: dotsMid1 8s linear infinite;
-  will-change: transform;
+@keyframes paraFarOpacity {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.4; }
 }
 
-@keyframes dotsMid1 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(40px, -15px); }
+/* ========== MID DEPTH Parallelograms (Medium - 15-20s) ========== */
+
+.hero-para-mid-1 {
+  animation: paraMidMove1 18s ease-in-out infinite, paraMidRotate1 35s linear infinite, paraMidOpacity 9s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
-/* Mid Layer 2 - Right to left, diagonal down */
-.hero-dots-mid-2 {
-  background-image: 
-    radial-gradient(1.2px 1.2px at 5% 15%, rgba(255,255,255,0.62) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 10% 35%, rgba(210,225,255,0.58) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 20% 75%, rgba(240,250,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 25% 95%, rgba(255,255,255,0.58) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 30% 18%, rgba(220,238,255,0.62) 0%, transparent 100%),
-    radial-gradient(1px 1px at 35% 38%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 40% 58%, rgba(200,220,255,0.55) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 45% 78%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 50% 98%, rgba(230,245,255,0.58) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 22%, rgba(255,255,255,0.62) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 60% 42%, rgba(255,230,200,0.48) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 65% 62%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 70% 82%, rgba(210,228,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 75% 5%, rgba(255,255,255,0.58) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 80% 25%, rgba(240,252,255,0.62) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 85% 45%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 90% 65%, rgba(220,235,255,0.55) 0%, transparent 100%),
-    radial-gradient(1px 1px at 95% 85%, rgba(255,255,255,0.62) 0%, transparent 100%);
-  animation: dotsMid2 10s linear infinite;
-  will-change: transform;
+.hero-para-mid-2 {
+  animation: paraMidMove2 16s ease-in-out infinite, paraMidRotate2 40s linear infinite reverse, paraMidOpacity 8s ease-in-out infinite 1.5s;
+  will-change: transform, opacity;
 }
 
-@keyframes dotsMid2 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-45px, 20px); }
+.hero-para-mid-3 {
+  animation: paraMidMove3 20s ease-in-out infinite, paraMidRotate1 38s linear infinite, paraMidOpacity 10s ease-in-out infinite 3s;
+  will-change: transform, opacity;
 }
 
-/* Mid Layer 3 - Top to bottom */
-.hero-dots-mid-3 {
-  background-image: 
-    radial-gradient(1.5px 1.5px at 4% 3%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 11% 20%, rgba(230,242,255,0.55) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 18% 38%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 25% 55%, rgba(200,218,255,0.58) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 32% 72%, rgba(255,255,255,0.62) 0%, transparent 100%),
-    radial-gradient(1px 1px at 39% 90%, rgba(240,250,255,0.55) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 46% 8%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 53% 25%, rgba(210,225,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 60% 42%, rgba(255,255,255,0.58) 0%, transparent 100%),
-    radial-gradient(1px 1px at 67% 60%, rgba(220,235,255,0.62) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 74% 78%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 81% 95%, rgba(255,235,210,0.45) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 88% 12%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 95% 30%, rgba(230,245,255,0.55) 0%, transparent 100%);
-  animation: dotsMid3 12s linear infinite;
-  will-change: transform;
+.hero-para-mid-4 {
+  animation: paraMidMove4 15s ease-in-out infinite, paraMidRotate2 42s linear infinite, paraMidOpacity 9s ease-in-out infinite 2s;
+  will-change: transform, opacity;
 }
 
-@keyframes dotsMid3 {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(35px); }
+@keyframes paraMidMove1 {
+  0% { transform: perspective(600px) rotateY(-30deg) rotateZ(6deg) translate(0, 0); }
+  25% { transform: perspective(600px) rotateY(-30deg) rotateZ(7deg) translate(-50px, -40px); }
+  50% { transform: perspective(600px) rotateY(-30deg) rotateZ(6deg) translate(-80px, -70px); }
+  75% { transform: perspective(600px) rotateY(-30deg) rotateZ(5deg) translate(-40px, -35px); }
+  100% { transform: perspective(600px) rotateY(-30deg) rotateZ(6deg) translate(0, 0); }
 }
 
-/* Mid Layer 4 - Bottom-left to top-right diagonal */
-.hero-dots-mid-4 {
-  background-image: 
-    radial-gradient(1.2px 1.2px at 3% 88%, rgba(255,255,255,0.58) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 9% 72%, rgba(240,250,255,0.62) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 21% 38%, rgba(210,228,255,0.55) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 27% 22%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 33% 5%, rgba(220,238,255,0.58) 0%, transparent 100%),
-    radial-gradient(1px 1px at 39% 92%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 45% 75%, rgba(200,220,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 51% 58%, rgba(255,255,255,0.62) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 57% 42%, rgba(230,245,255,0.55) 0%, transparent 100%),
-    radial-gradient(1px 1px at 63% 25%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 69% 8%, rgba(255,225,190,0.42) 0%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 75% 95%, rgba(255,255,255,0.58) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 81% 78%, rgba(210,225,255,0.62) 0%, transparent 100%),
-    radial-gradient(1px 1px at 87% 62%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1.8px 1.8px at 93% 45%, rgba(240,252,255,0.55) 0%, transparent 100%);
-  animation: dotsMid4 9s linear infinite;
-  will-change: transform;
+@keyframes paraMidMove2 {
+  0% { transform: perspective(600px) rotateY(25deg) rotateZ(-8deg) translate(0, 0); }
+  25% { transform: perspective(600px) rotateY(25deg) rotateZ(-7deg) translate(60px, 30px); }
+  50% { transform: perspective(600px) rotateY(25deg) rotateZ(-8deg) translate(100px, 50px); }
+  75% { transform: perspective(600px) rotateY(25deg) rotateZ(-9deg) translate(50px, 25px); }
+  100% { transform: perspective(600px) rotateY(25deg) rotateZ(-8deg) translate(0, 0); }
 }
 
-@keyframes dotsMid4 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(35px, -30px); }
+@keyframes paraMidMove3 {
+  0% { transform: perspective(600px) rotateY(-20deg) rotateZ(10deg) translate(0, 0); }
+  50% { transform: perspective(600px) rotateY(-20deg) rotateZ(11deg) translate(-70px, -50px); }
+  100% { transform: perspective(600px) rotateY(-20deg) rotateZ(10deg) translate(0, 0); }
 }
 
-/* ========== NEAR DEPTH DOTS (2-3px) - Faster motion ========== */
-
-/* Near Layer 1 - Fast diagonal */
-.hero-dots-near-1 {
-  background-image: 
-    radial-gradient(2.5px 2.5px at 5% 12%, rgba(255,255,255,0.75) 0%, transparent 100%),
-    radial-gradient(2px 2px at 15% 35%, rgba(220,235,255,0.7) 0%, transparent 100%),
-    radial-gradient(3px 3px at 25% 58%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(2.2px 2.2px at 35% 82%, rgba(200,220,255,0.72) 0%, transparent 100%),
-    radial-gradient(2.5px 2.5px at 45% 8%, rgba(255,255,255,0.75) 0%, transparent 100%),
-    radial-gradient(2px 2px at 55% 28%, rgba(240,250,255,0.68) 0%, transparent 100%),
-    radial-gradient(3px 3px at 65% 52%, rgba(255,255,255,0.78) 0%, transparent 100%),
-    radial-gradient(2.2px 2.2px at 75% 75%, rgba(255,235,200,0.55) 0%, transparent 100%),
-    radial-gradient(2.5px 2.5px at 85% 95%, rgba(255,255,255,0.72) 0%, transparent 100%),
-    radial-gradient(2px 2px at 95% 18%, rgba(210,228,255,0.7) 0%, transparent 100%);
-  animation: dotsNear1 6s linear infinite;
-  will-change: transform;
+@keyframes paraMidMove4 {
+  0% { transform: perspective(600px) rotateY(35deg) rotateZ(-4deg) translate(0, 0); }
+  50% { transform: perspective(600px) rotateY(35deg) rotateZ(-3deg) translate(80px, -60px); }
+  100% { transform: perspective(600px) rotateY(35deg) rotateZ(-4deg) translate(0, 0); }
 }
 
-@keyframes dotsNear1 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 25px); }
+@keyframes paraMidRotate1 {
+  0% { filter: none; }
+  50% { filter: drop-shadow(0 0 8px rgba(201, 160, 107, 0.15)); }
+  100% { filter: none; }
 }
 
-/* Near Layer 2 - Fast opposite diagonal */
-.hero-dots-near-2 {
-  background-image: 
-    radial-gradient(2px 2px at 8% 22%, rgba(255,255,255,0.72) 0%, transparent 100%),
-    radial-gradient(2.5px 2.5px at 18% 48%, rgba(230,245,255,0.68) 0%, transparent 100%),
-    radial-gradient(2.2px 2.2px at 28% 72%, rgba(255,255,255,0.75) 0%, transparent 100%),
-    radial-gradient(3px 3px at 38% 95%, rgba(200,218,255,0.7) 0%, transparent 100%),
-    radial-gradient(2px 2px at 48% 15%, rgba(255,255,255,0.78) 0%, transparent 100%),
-    radial-gradient(2.5px 2.5px at 58% 38%, rgba(240,252,255,0.72) 0%, transparent 100%),
-    radial-gradient(2.2px 2.2px at 68% 62%, rgba(255,255,255,0.68) 0%, transparent 100%),
-    radial-gradient(3px 3px at 78% 85%, rgba(220,238,255,0.75) 0%, transparent 100%),
-    radial-gradient(2px 2px at 88% 5%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(2.5px 2.5px at 98% 32%, rgba(255,230,195,0.5) 0%, transparent 100%);
-  animation: dotsNear2 7s linear infinite;
-  will-change: transform;
+@keyframes paraMidRotate2 {
+  0% { filter: none; }
+  50% { filter: drop-shadow(0 0 10px rgba(201, 160, 107, 0.12)); }
+  100% { filter: none; }
 }
 
-@keyframes dotsNear2 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-40px, 30px); }
+@keyframes paraMidOpacity {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
 }
 
-/* ========== GLOW DOTS (4-6px) - Slow floating ========== */
+/* ========== NEAR DEPTH Parallelograms (Foreground - Fastest, 10-15s) ========== */
 
-.hero-glow-1 { animation: glowFloat1 18s ease-in-out infinite; }
-.hero-glow-2 { animation: glowFloat2 22s ease-in-out infinite; }
-.hero-glow-3 { animation: glowFloat3 20s ease-in-out infinite; }
-.hero-glow-4 { animation: glowFloat4 25s ease-in-out infinite; }
-.hero-glow-5 { animation: glowFloat5 19s ease-in-out infinite; }
-.hero-glow-6 { animation: glowFloat6 23s ease-in-out infinite; }
-.hero-glow-7 { animation: glowFloat7 21s ease-in-out infinite; }
-.hero-glow-8 { animation: glowFloat8 24s ease-in-out infinite; }
-
-@keyframes glowFloat1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(12px, -18px) scale(1.05); }
-  50% { transform: translate(-8px, -28px) scale(0.95); }
-  75% { transform: translate(15px, -10px) scale(1.02); }
+.hero-para-near-1 {
+  animation: paraNearMove1 12s ease-in-out infinite, paraNearRotate1 30s linear infinite, paraNearOpacity 8s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
-@keyframes glowFloat2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-15px, 12px) scale(0.98); }
-  50% { transform: translate(10px, 22px) scale(1.04); }
-  75% { transform: translate(-8px, 8px) scale(1); }
+.hero-para-near-2 {
+  animation: paraNearMove2 14s ease-in-out infinite, paraNearRotate2 28s linear infinite reverse, paraNearOpacity 9s ease-in-out infinite 1s;
+  will-change: transform, opacity;
 }
 
-@keyframes glowFloat3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(18px, 8px) scale(1.03); }
-  50% { transform: translate(-12px, -15px) scale(0.97); }
-  75% { transform: translate(8px, 12px) scale(1.01); }
+.hero-para-near-3 {
+  animation: paraNearMove3 11s ease-in-out infinite, paraNearRotate1 32s linear infinite, paraNearOpacity 7s ease-in-out infinite 2s;
+  will-change: transform, opacity;
 }
 
-@keyframes glowFloat4 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-10px, -20px) scale(1.05); }
-  50% { transform: translate(15px, -8px) scale(0.96); }
-  75% { transform: translate(-5px, 10px) scale(1.02); }
+@keyframes paraNearMove1 {
+  0% { transform: perspective(800px) rotateY(-28deg) rotateZ(5deg) translate(0, 0); }
+  25% { transform: perspective(800px) rotateY(-28deg) rotateZ(6deg) translate(-60px, -50px); }
+  50% { transform: perspective(800px) rotateY(-28deg) rotateZ(5deg) translate(-100px, -90px); }
+  75% { transform: perspective(800px) rotateY(-28deg) rotateZ(4deg) translate(-50px, -45px); }
+  100% { transform: perspective(800px) rotateY(-28deg) rotateZ(5deg) translate(0, 0); }
 }
 
-@keyframes glowFloat5 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(14px, 15px) scale(0.98); }
-  50% { transform: translate(-10px, 25px) scale(1.04); }
-  75% { transform: translate(8px, -5px) scale(1); }
+@keyframes paraNearMove2 {
+  0% { transform: perspective(800px) rotateY(32deg) rotateZ(-7deg) translate(0, 0); }
+  25% { transform: perspective(800px) rotateY(32deg) rotateZ(-6deg) translate(70px, 40px); }
+  50% { transform: perspective(800px) rotateY(32deg) rotateZ(-7deg) translate(120px, 70px); }
+  75% { transform: perspective(800px) rotateY(32deg) rotateZ(-8deg) translate(60px, 35px); }
+  100% { transform: perspective(800px) rotateY(32deg) rotateZ(-7deg) translate(0, 0); }
 }
 
-@keyframes glowFloat6 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-18px, -10px) scale(1.03); }
-  50% { transform: translate(12px, -20px) scale(0.97); }
-  75% { transform: translate(-6px, 8px) scale(1.01); }
+@keyframes paraNearMove3 {
+  0% { transform: perspective(800px) rotateY(-22deg) rotateZ(9deg) translate(0, 0); }
+  50% { transform: perspective(800px) rotateY(-22deg) rotateZ(10deg) translate(-90px, -70px); }
+  100% { transform: perspective(800px) rotateY(-22deg) rotateZ(9deg) translate(0, 0); }
 }
 
-@keyframes glowFloat7 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(10px, -15px) scale(1.04); }
-  50% { transform: translate(-15px, -5px) scale(0.98); }
-  75% { transform: translate(5px, 12px) scale(1.02); }
+@keyframes paraNearRotate1 {
+  0% { filter: drop-shadow(0 0 20px rgba(201, 160, 107, 0.08)); }
+  50% { filter: drop-shadow(0 0 30px rgba(201, 160, 107, 0.15)); }
+  100% { filter: drop-shadow(0 0 20px rgba(201, 160, 107, 0.08)); }
 }
 
-@keyframes glowFloat8 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-12px, 18px) scale(0.97); }
-  50% { transform: translate(8px, 28px) scale(1.03); }
-  75% { transform: translate(-5px, 10px) scale(1); }
+@keyframes paraNearRotate2 {
+  0% { filter: drop-shadow(0 0 18px rgba(201, 160, 107, 0.1)); }
+  50% { filter: drop-shadow(0 0 28px rgba(201, 160, 107, 0.18)); }
+  100% { filter: drop-shadow(0 0 18px rgba(201, 160, 107, 0.1)); }
 }
 
-/* Mars Glow - Subtle breathing */
-.hero-mars-glow {
-  animation: marsGlowPulse 15s ease-in-out infinite;
+@keyframes paraNearOpacity {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.75; }
 }
 
-@keyframes marsGlowPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.02); }
+/* ========== ACCENT Parallelograms ========== */
+
+.hero-para-accent-1 {
+  animation: paraAccentMove1 17s ease-in-out infinite, paraAccentOpacity 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hero-para-accent-2 {
+  animation: paraAccentMove2 19s ease-in-out infinite, paraAccentOpacity 11s ease-in-out infinite 3s;
+  will-change: transform, opacity;
+}
+
+@keyframes paraAccentMove1 {
+  0% { transform: perspective(550px) rotateY(28deg) rotateZ(-10deg) translate(0, 0); }
+  50% { transform: perspective(550px) rotateY(28deg) rotateZ(-9deg) translate(-55px, -45px); }
+  100% { transform: perspective(550px) rotateY(28deg) rotateZ(-10deg) translate(0, 0); }
+}
+
+@keyframes paraAccentMove2 {
+  0% { transform: perspective(550px) rotateY(-32deg) rotateZ(6deg) translate(0, 0); }
+  50% { transform: perspective(550px) rotateY(-32deg) rotateZ(7deg) translate(45px, 55px); }
+  100% { transform: perspective(550px) rotateY(-32deg) rotateZ(6deg) translate(0, 0); }
+}
+
+@keyframes paraAccentOpacity {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
 }
 
 /* ===== END HOME PAGE HERO SECTION ===== */
