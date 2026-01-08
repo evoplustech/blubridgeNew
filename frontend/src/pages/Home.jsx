@@ -408,19 +408,19 @@ const Home = () => {
       generateStaticConnections();
     };
     
-    // NODE SPECIFICATIONS
+    // NODE SPECIFICATIONS - More visible for better appearance
     const nodeCount = 32; // 30-35 nodes total (sparse)
-    const nodeRadius = 2.0; // 3-4px diameter (2px radius)
-    const nodeBaseOpacity = 0.28; // Slightly more visible (25-30%)
-    const nodeColor = { r: 100, g: 90, b: 80 }; // Darker gray for better contrast
+    const nodeRadius = 2.5; // 5px diameter 
+    const nodeBaseOpacity = 0.35; // More visible (35%)
+    const nodeColor = { r: 80, g: 70, b: 60 }; // Dark brownish-gray for contrast
     
-    // CONNECTION SPECIFICATIONS
-    const connectionMinDist = 150;
+    // CONNECTION SPECIFICATIONS - More visible
+    const connectionMinDist = 120;
     const connectionMaxDist = 280;
-    const maxConnections = 16; // 12-18 connections
-    const connectionOpacity = 0.25; // Slightly more visible (22-28%)
-    const connectionWidth = 0.7;
-    const connectionColor = { r: 120, g: 110, b: 100 }; // Darker for visibility
+    const maxConnections = 20; // More connections for visible network
+    const connectionOpacity = 0.32; // More visible
+    const connectionWidth = 0.8;
+    const connectionColor = { r: 90, g: 80, b: 70 }; // Dark for visibility
     
     // HOVER SPECIFICATIONS
     const hoverRadius = 120;
