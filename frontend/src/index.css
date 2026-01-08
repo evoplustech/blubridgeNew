@@ -262,79 +262,67 @@ code {
 .dummy-blue .dummy-dot { background: #328CC1; }
 .dummy-orange .dummy-dot { background: #f4a000; }
 
-/* ===== HOME PAGE HERO SECTION - Warm Desert Theme with Geometric Parallelograms ===== */
-
-/* Subtle Grain/Noise Texture */
-.hero-grain-texture {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.025;
-  mix-blend-mode: overlay;
-}
+/* ===== HOME PAGE HERO SECTION - Dark Space Theme with Parallelograms & Neural Network ===== */
 
 /* ========== FAR DEPTH Parallelograms (Background - Slowest, 20-25s) ========== */
 
 .hero-para-far-1 {
-  animation: paraFarMove1 22s ease-in-out infinite, paraFarRotate 45s linear infinite, paraFarOpacity 10s ease-in-out infinite;
+  animation: paraFarMove1 22s ease-in-out infinite, paraFarOpacity 10s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
 .hero-para-far-2 {
-  animation: paraFarMove2 25s ease-in-out infinite, paraFarRotate 50s linear infinite reverse, paraFarOpacity 12s ease-in-out infinite 2s;
+  animation: paraFarMove2 25s ease-in-out infinite, paraFarOpacity 12s ease-in-out infinite 2s;
   will-change: transform, opacity;
 }
 
 .hero-para-far-3 {
-  animation: paraFarMove3 20s ease-in-out infinite, paraFarRotate 55s linear infinite, paraFarOpacity 11s ease-in-out infinite 4s;
+  animation: paraFarMove3 20s ease-in-out infinite, paraFarOpacity 11s ease-in-out infinite 4s;
   will-change: transform, opacity;
 }
 
 @keyframes paraFarMove1 {
   0% { transform: perspective(500px) rotateY(-25deg) rotateZ(8deg) translate(0, 0); }
-  50% { transform: perspective(500px) rotateY(-25deg) rotateZ(8deg) translate(-40px, -60px); }
+  50% { transform: perspective(500px) rotateY(-25deg) rotateZ(9deg) translate(-40px, -60px); }
   100% { transform: perspective(500px) rotateY(-25deg) rotateZ(8deg) translate(0, 0); }
 }
 
 @keyframes paraFarMove2 {
   0% { transform: perspective(500px) rotateY(30deg) rotateZ(-5deg) translate(0, 0); }
-  50% { transform: perspective(500px) rotateY(30deg) rotateZ(-5deg) translate(50px, 40px); }
+  50% { transform: perspective(500px) rotateY(30deg) rotateZ(-4deg) translate(50px, 40px); }
   100% { transform: perspective(500px) rotateY(30deg) rotateZ(-5deg) translate(0, 0); }
 }
 
 @keyframes paraFarMove3 {
   0% { transform: perspective(500px) rotateY(-35deg) rotateZ(12deg) translate(0, 0); }
-  50% { transform: perspective(500px) rotateY(-35deg) rotateZ(12deg) translate(-30px, 50px); }
+  50% { transform: perspective(500px) rotateY(-35deg) rotateZ(13deg) translate(-30px, 50px); }
   100% { transform: perspective(500px) rotateY(-35deg) rotateZ(12deg) translate(0, 0); }
-}
-
-@keyframes paraFarRotate {
-  0% { --rotate-add: 0deg; }
-  100% { --rotate-add: 360deg; }
 }
 
 @keyframes paraFarOpacity {
   0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.4; }
+  50% { opacity: 0.35; }
 }
 
 /* ========== MID DEPTH Parallelograms (Medium - 15-20s) ========== */
 
 .hero-para-mid-1 {
-  animation: paraMidMove1 18s ease-in-out infinite, paraMidRotate1 35s linear infinite, paraMidOpacity 9s ease-in-out infinite;
+  animation: paraMidMove1 18s ease-in-out infinite, paraMidOpacity 9s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
 .hero-para-mid-2 {
-  animation: paraMidMove2 16s ease-in-out infinite, paraMidRotate2 40s linear infinite reverse, paraMidOpacity 8s ease-in-out infinite 1.5s;
+  animation: paraMidMove2 16s ease-in-out infinite, paraMidOpacity 8s ease-in-out infinite 1.5s;
   will-change: transform, opacity;
 }
 
 .hero-para-mid-3 {
-  animation: paraMidMove3 20s ease-in-out infinite, paraMidRotate1 38s linear infinite, paraMidOpacity 10s ease-in-out infinite 3s;
+  animation: paraMidMove3 20s ease-in-out infinite, paraMidOpacity 10s ease-in-out infinite 3s;
   will-change: transform, opacity;
 }
 
 .hero-para-mid-4 {
-  animation: paraMidMove4 15s ease-in-out infinite, paraMidRotate2 42s linear infinite, paraMidOpacity 9s ease-in-out infinite 2s;
+  animation: paraMidMove4 15s ease-in-out infinite, paraMidOpacity 9s ease-in-out infinite 2s;
   will-change: transform, opacity;
 }
 
@@ -366,37 +354,25 @@ code {
   100% { transform: perspective(600px) rotateY(35deg) rotateZ(-4deg) translate(0, 0); }
 }
 
-@keyframes paraMidRotate1 {
-  0% { filter: none; }
-  50% { filter: drop-shadow(0 0 8px rgba(201, 160, 107, 0.15)); }
-  100% { filter: none; }
-}
-
-@keyframes paraMidRotate2 {
-  0% { filter: none; }
-  50% { filter: drop-shadow(0 0 10px rgba(201, 160, 107, 0.12)); }
-  100% { filter: none; }
-}
-
 @keyframes paraMidOpacity {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.6; }
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.55; }
 }
 
 /* ========== NEAR DEPTH Parallelograms (Foreground - Fastest, 10-15s) ========== */
 
 .hero-para-near-1 {
-  animation: paraNearMove1 12s ease-in-out infinite, paraNearRotate1 30s linear infinite, paraNearOpacity 8s ease-in-out infinite;
+  animation: paraNearMove1 12s ease-in-out infinite, paraNearOpacity 8s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
 .hero-para-near-2 {
-  animation: paraNearMove2 14s ease-in-out infinite, paraNearRotate2 28s linear infinite reverse, paraNearOpacity 9s ease-in-out infinite 1s;
+  animation: paraNearMove2 14s ease-in-out infinite, paraNearOpacity 9s ease-in-out infinite 1s;
   will-change: transform, opacity;
 }
 
 .hero-para-near-3 {
-  animation: paraNearMove3 11s ease-in-out infinite, paraNearRotate1 32s linear infinite, paraNearOpacity 7s ease-in-out infinite 2s;
+  animation: paraNearMove3 11s ease-in-out infinite, paraNearOpacity 7s ease-in-out infinite 2s;
   will-change: transform, opacity;
 }
 
@@ -420,18 +396,6 @@ code {
   0% { transform: perspective(800px) rotateY(-22deg) rotateZ(9deg) translate(0, 0); }
   50% { transform: perspective(800px) rotateY(-22deg) rotateZ(10deg) translate(-90px, -70px); }
   100% { transform: perspective(800px) rotateY(-22deg) rotateZ(9deg) translate(0, 0); }
-}
-
-@keyframes paraNearRotate1 {
-  0% { filter: drop-shadow(0 0 20px rgba(201, 160, 107, 0.08)); }
-  50% { filter: drop-shadow(0 0 30px rgba(201, 160, 107, 0.15)); }
-  100% { filter: drop-shadow(0 0 20px rgba(201, 160, 107, 0.08)); }
-}
-
-@keyframes paraNearRotate2 {
-  0% { filter: drop-shadow(0 0 18px rgba(201, 160, 107, 0.1)); }
-  50% { filter: drop-shadow(0 0 28px rgba(201, 160, 107, 0.18)); }
-  100% { filter: drop-shadow(0 0 18px rgba(201, 160, 107, 0.1)); }
 }
 
 @keyframes paraNearOpacity {
@@ -465,7 +429,12 @@ code {
 
 @keyframes paraAccentOpacity {
   0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.45; }
+}
+
+/* Neural Network Canvas Cursor */
+.hero-neural-section canvas {
+  cursor: crosshair;
 }
 
 /* ===== END HOME PAGE HERO SECTION ===== */
