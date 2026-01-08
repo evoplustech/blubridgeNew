@@ -785,7 +785,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How We Can Help You Section - Section 3 (ODD) */}
+      {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="text-center mb-12">
