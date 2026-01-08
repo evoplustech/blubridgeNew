@@ -390,6 +390,153 @@ const Home = () => {
 
   useDocumentTitle('Beyond the Horizon | BluBridge');
 
+  // Neural Network Canvas Initialization
+  useEffect(() => {
+    const canvas = document.getElementById('neural-network-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    const section = canvas.parentElement;
+    
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = section.offsetWidth;
+      canvas.height = section.offsetHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Neural network nodes
+    const nodes = [];
+    const nodeCount = 40;
+    
+    // Initialize nodes with random positions
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() < 0.8 ? (3 + Math.random()) : (5 + Math.random()), // 80% small, 20% hub
+        opacity: 0.5 + Math.random() * 0.2,
+        pulsePhase: Math.random() * Math.PI * 2,
+        vx: (Math.random() - 0.5) * 0.3, // Slow drift
+        vy: (Math.random() - 0.5) * 0.3
+      });
+    }
+    
+    // Mouse position
+    let mouseX = -1000;
+    let mouseY = -1000;
+    const hoverRadius = 150;
+    
+    // Ambient connections (static)
+    const ambientConnections = [];
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 200 && ambientConnections.length < 12) {
+          ambientConnections.push({ i, j });
+        }
+      }
+    }
+    
+    // Animation loop
+    let animationId;
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Update node positions (slow drift)
+      nodes.forEach(node => {
+        node.x += node.vx;
+        node.y += node.vy;
+        node.pulsePhase += 0.02;
+        
+        // Bounce off edges
+        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+      });
+      
+      // Draw ambient connections (faint)
+      ctx.strokeStyle = 'rgba(208, 208, 208, 0.18)';
+      ctx.lineWidth = 0.5;
+      ambientConnections.forEach(conn => {
+        ctx.beginPath();
+        ctx.moveTo(nodes[conn.i].x, nodes[conn.i].y);
+        ctx.lineTo(nodes[conn.j].x, nodes[conn.j].y);
+        ctx.stroke();
+      });
+      
+      // Draw hover connections (bright blue)
+      nodes.forEach(node => {
+        const dx = node.x - mouseX;
+        const dy = node.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < hoverRadius) {
+          const opacity = 0.5 * (1 - dist / hoverRadius);
+          ctx.strokeStyle = `rgba(96, 165, 250, ${opacity})`;
+          ctx.lineWidth = 1.5;
+          ctx.shadowColor = 'rgba(59, 130, 246, 0.35)';
+          ctx.shadowBlur = 3;
+          ctx.beginPath();
+          ctx.moveTo(mouseX, mouseY);
+          ctx.lineTo(node.x, node.y);
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+          
+          // Brighten node on hover
+          node.hoverBrightness = 1;
+        } else {
+          node.hoverBrightness = Math.max(0, (node.hoverBrightness || 0) - 0.05);
+        }
+      });
+      
+      // Draw nodes
+      nodes.forEach(node => {
+        const pulse = Math.sin(node.pulsePhase) * 0.1 + 1;
+        const brightness = node.opacity + (node.hoverBrightness || 0) * 0.4;
+        
+        // Glow effect
+        ctx.shadowColor = `rgba(255, 255, 255, ${brightness * 0.3})`;
+        ctx.shadowBlur = 4;
+        
+        ctx.fillStyle = `rgba(224, 224, 224, ${brightness})`;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius * pulse, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.shadowBlur = 0;
+      });
+      
+      animationId = requestAnimationFrame(animate);
+    };
+    
+    animate();
+    
+    // Mouse event handlers
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    };
+    
+    const handleMouseLeave = () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    };
+    
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
+    
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
       {/* Hero Section - Section 1 (ODD) - Dark Space Theme with Parallelograms & Neural Network */}
