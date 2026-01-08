@@ -426,11 +426,12 @@ const Home = () => {
         x: x,
         y: Math.random() * canvas.height,
         radius: radius,
-        opacity: 0.5 + Math.random() * 0.15,
+        baseOpacity: 0.30 + Math.random() * 0.05, // ADJUSTMENT 1: Default 30-35% opacity
+        currentOpacity: 0.30 + Math.random() * 0.05, // Current animated opacity
+        targetOpacity: 0.30 + Math.random() * 0.05, // Target opacity for smooth transition
         pulsePhase: Math.random() * Math.PI * 2,
-        vx: (Math.random() - 0.5) * 0.2,
-        vy: (Math.random() - 0.5) * 0.2,
-        hoverBrightness: 0
+        vx: (Math.random() - 0.5) * 0.6, // ADJUSTMENT 2: Increased movement speed (3x faster)
+        vy: (Math.random() - 0.5) * 0.6  // ADJUSTMENT 2: Increased movement speed (3x faster)
       });
     }
     
@@ -439,7 +440,7 @@ const Home = () => {
     let mouseY = -1000;
     const hoverRadius = 150;
     
-    // Generate ambient/static connections
+    // ADJUSTMENT 3: Generate more ambient/static connections that are always visible
     const generateAmbientConnections = () => {
       const connections = [];
       for (let i = 0; i < nodes.length; i++) {
@@ -447,7 +448,8 @@ const Home = () => {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist > 150 && dist < 250 && connections.length < 16) {
+          // Wider distance range and more connections for better visibility
+          if (dist > 80 && dist < 200 && connections.length < 30) {
             connections.push({ i, j, dist });
           }
         }
@@ -462,7 +464,7 @@ const Home = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Update node positions (slow drift)
+      // Update node positions (faster drift due to ADJUSTMENT 2)
       nodes.forEach(node => {
         node.x += node.vx;
         node.y += node.vy;
@@ -475,21 +477,26 @@ const Home = () => {
         // Keep nodes in bounds
         node.x = Math.max(0, Math.min(canvas.width, node.x));
         node.y = Math.max(0, Math.min(canvas.height, node.y));
+        
+        // ADJUSTMENT 1: Smooth opacity interpolation (0.15 ease)
+        const opacityDiff = node.targetOpacity - node.currentOpacity;
+        node.currentOpacity += opacityDiff * 0.15;
       });
       
-      // Draw ambient/static connections (medium gray, subtle)
+      // ADJUSTMENT 3: Draw ambient/static connections - more visible (always on)
       ambientConnections.forEach(conn => {
         const node1 = nodes[conn.i];
         const node2 = nodes[conn.j];
-        ctx.strokeStyle = 'rgba(90, 90, 90, 0.28)';
-        ctx.lineWidth = 0.8;
+        // Increased opacity for always-visible static connections
+        ctx.strokeStyle = 'rgba(80, 70, 60, 0.35)';
+        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(node1.x, node1.y);
         ctx.lineTo(node2.x, node2.y);
         ctx.stroke();
       });
       
-      // Draw hover connections (darker, more visible)
+      // Draw hover connections and update node target opacity
       nodes.forEach(node => {
         const dx = node.x - mouseX;
         const dy = node.y - mouseY;
@@ -506,10 +513,11 @@ const Home = () => {
           ctx.lineTo(node.x, node.y);
           ctx.stroke();
           
-          // Highlight node
-          node.hoverBrightness = Math.min(1, node.hoverBrightness + 0.15);
+          // ADJUSTMENT 1: Set target opacity to hover state (65-75%)
+          node.targetOpacity = 0.65 + Math.random() * 0.10;
         } else {
-          node.hoverBrightness = Math.max(0, node.hoverBrightness - 0.05);
+          // ADJUSTMENT 1: Return to default opacity (30-35%)
+          node.targetOpacity = node.baseOpacity;
         }
       });
       
@@ -521,10 +529,9 @@ const Home = () => {
         ctx.fill();
       }
       
-      // Draw nodes - dark charcoal color
+      // Draw nodes - dark charcoal color with animated opacity
       nodes.forEach(node => {
         const pulse = Math.sin(node.pulsePhase) * 0.08 + 1;
-        const brightness = node.opacity + node.hoverBrightness * 0.35;
         
         // Subtle shadow
         ctx.shadowColor = 'rgba(42, 42, 42, 0.25)';
@@ -532,8 +539,8 @@ const Home = () => {
         ctx.shadowOffsetX = 1;
         ctx.shadowOffsetY = 1;
         
-        // Node fill - dark charcoal
-        ctx.fillStyle = `rgba(42, 42, 42, ${brightness})`;
+        // Node fill - dark charcoal with smooth animated opacity
+        ctx.fillStyle = `rgba(42, 42, 42, ${node.currentOpacity})`;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius * pulse, 0, Math.PI * 2);
         ctx.fill();
