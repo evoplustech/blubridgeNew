@@ -918,35 +918,34 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
               {
-                Icon: TrendingUp,
-                title: "Scaling Laws",
-                description: "Researching how model performance scales with data, parameters, and compute to design efficient, predictable, and cost-optimized AI systems."
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/z0syfeo4_icon1.png",
+                title: "Scaling Laws"
               },
               {
-                Icon: Users,
-                title: "Human Work Optimization",
-                description: "Designing systems that augment human effort through intelligent workflows, evaluation loops, and automation that improves productivity and decision quality."
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/gpekkfp1_icon2.png",
+                title: "Human Work Optimization"
               },
               {
-                Icon: Brain,
-                title: "Multimodal Agents",
-                description: "Building intelligent agents capable of reasoning across text, vision, and data streams to perform complex tasks and adaptive decision-making."
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/no96kn3y_icon3.png",
+                title: "Multimodal Agents"
               },
               {
-                Icon: Zap,
-                title: "Reinforcement Learning",
-                description: "Training models through reward-driven learning to optimize behavior, improve policy performance, and adapt dynamically in real-world environments."
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/d9mbefc0_icon4.png",
+                title: "Reinforcement Learning"
               }
             ].map((card, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl p-6 border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all"
+                className="bg-white rounded-2xl p-8 border border-[#e8e8e8] shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#f3f1e9] flex items-center justify-center mb-4">
-                  <card.Icon className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
+                <div className="w-24 h-24 mb-6 flex items-center justify-center">
+                  <img 
+                    src={card.image} 
+                    alt={card.title}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3">{card.title}</h3>
-                <p className="text-[#243447] text-sm leading-relaxed">{card.description}</p>
+                <h3 className="text-base font-semibold text-[#0B1F3B]">{card.title}</h3>
               </div>
             ))}
           </div>
