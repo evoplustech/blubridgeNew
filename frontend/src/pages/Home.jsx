@@ -992,7 +992,7 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">
-                BluBridge is now an NVIDIA Preferred Partner
+                BluBridge is now an NVIDIA Inception Partner
               </h2>
               <p className="text-[#243447] mb-6">
                 Access thousands of GPUs tailored to your requirements.
