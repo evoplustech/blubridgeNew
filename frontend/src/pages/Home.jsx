@@ -728,18 +728,6 @@ const Home = () => {
       cancelAnimationFrame(animationId);
     };
   }, []);
-    if (!isTouchDevice) {
-      canvas.addEventListener('mousemove', handleMouseMove);
-      canvas.addEventListener('mouseleave', handleMouseLeave);
-    }
-    
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(animationId);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
