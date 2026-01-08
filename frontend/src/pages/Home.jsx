@@ -390,8 +390,8 @@ const Home = () => {
 
   useDocumentTitle('Beyond the Horizon | BluBridge');
 
-  // BluBridge Neural Network - Light grid background with cluster-based hover
-  // Reference: BluBridge.ai hero - light beige grid, soft grey-blue nodes, cluster highlighting
+  // BluBridge Neural Intelligence Background - Fully Connected Network
+  // Reference: BluBridge.ai hero background - warm gradient with connected neural nodes
   useEffect(() => {
     const canvas = document.getElementById('neural-network-canvas');
     if (!canvas) return;
@@ -399,28 +399,26 @@ const Home = () => {
     const ctx = canvas.getContext('2d');
     const section = canvas.parentElement;
     
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = section.offsetWidth;
+      canvas.height = section.offsetHeight;
+      initializeNetwork();
+    };
+    
     // ==============================================
-    // CONFIGURATION - BluBridge.ai style
+    // NEURAL NETWORK CONFIGURATION
     // ==============================================
-    const nodeCount = 65; // More nodes for even distribution
-    const maxNeighbors = 4; // Each node connects to 3-4 nearest neighbors
+    const nodeCount = 55; // Enough nodes for full coverage
+    const connectionDistance = 220; // Max distance for connections
+    const minConnections = 2; // Every node must have at least 2 connections
     
-    // Colors - Soft grey-blue tones
-    const nodeColor = { r: 160, g: 165, b: 175 }; // Soft grey-blue
-    const lineColor = { r: 170, g: 175, b: 185 }; // Slightly lighter grey
-    const highlightNodeColor = { r: 60, g: 65, b: 75 }; // Dark grey for highlight
-    const highlightLineColor = { r: 80, g: 85, b: 95 }; // Dark grey for highlight lines
+    // Node appearance
+    const nodeColor = { r: 140, g: 115, b: 85 }; // Warm brown-gold tone
+    const lineColor = { r: 160, g: 130, b: 95 }; // Slightly lighter warm tone
     
-    // Opacity levels
-    const defaultNodeOpacity = 0.4;
-    const defaultLineOpacity = 0.25;
-    const highlightNodeOpacity = 0.9;
-    const highlightLineOpacity = 0.7;
-    const fadedNodeOpacity = 0.2;
-    const fadedLineOpacity = 0.12;
-    
-    // Subtle motion
-    const driftSpeed = 0.08; // Very slow, organic motion
+    // Animation speeds (varied for organic feel)
+    const baseSpeed = 0.35; // Noticeable but calm movement
     
     let nodes = [];
     let connections = [];
@@ -428,34 +426,10 @@ const Home = () => {
     // Mouse tracking
     let mouseX = -1000;
     let mouseY = -1000;
+    const hoverRadius = 180;
     
     // ==============================================
-    // DRAW GRID BACKGROUND
-    // ==============================================
-    const drawGrid = () => {
-      const gridSize = 40;
-      ctx.strokeStyle = 'rgba(200, 195, 185, 0.3)';
-      ctx.lineWidth = 0.5;
-      
-      // Vertical lines
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
-        ctx.stroke();
-      }
-      
-      // Horizontal lines
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
-        ctx.stroke();
-      }
-    };
-    
-    // ==============================================
-    // INITIALIZE EVENLY DISTRIBUTED NETWORK
+    // INITIALIZE FULLY CONNECTED NETWORK
     // ==============================================
     const initializeNetwork = () => {
       nodes = [];
@@ -463,247 +437,254 @@ const Home = () => {
       
       const w = canvas.width;
       const h = canvas.height;
+      const padding = 50;
       
-      // Create grid-based distribution with jitter for organic feel
-      const cols = 10;
-      const rows = 7;
-      const cellW = w / cols;
-      const cellH = h / rows;
-      
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          if (nodes.length >= nodeCount) break;
-          
-          // Grid position with organic jitter
-          const jitterX = (Math.random() - 0.5) * cellW * 0.7;
-          const jitterY = (Math.random() - 0.5) * cellH * 0.7;
-          const x = cellW * (col + 0.5) + jitterX;
-          const y = cellH * (row + 0.5) + jitterY;
-          
-          // Keep within bounds
-          const finalX = Math.max(30, Math.min(w - 30, x));
-          const finalY = Math.max(30, Math.min(h - 30, y));
-          
-          // Node size (small, uniform with slight variation)
-          const radius = 2.5 + Math.random() * 1.5;
-          
-          // Subtle drift direction
-          const driftAngle = Math.random() * Math.PI * 2;
-          
-          nodes.push({
-            x: finalX,
-            y: finalY,
-            baseX: finalX,
-            baseY: finalY,
-            radius,
-            vx: Math.cos(driftAngle) * driftSpeed,
-            vy: Math.sin(driftAngle) * driftSpeed,
-            phase: Math.random() * Math.PI * 2,
-            currentOpacity: defaultNodeOpacity,
-            targetOpacity: defaultNodeOpacity,
-            isHighlighted: false
-          });
-        }
+      // Create nodes with unique sizes and organic placement
+      for (let i = 0; i < nodeCount; i++) {
+        // Organic distribution - avoid grid patterns
+        const angle = Math.random() * Math.PI * 2;
+        const radiusFromCenter = Math.random() * Math.min(w, h) * 0.45;
+        const centerX = w / 2 + (Math.random() - 0.5) * w * 0.3;
+        const centerY = h / 2 + (Math.random() - 0.5) * h * 0.2;
+        
+        let x = centerX + Math.cos(angle) * radiusFromCenter + (Math.random() - 0.5) * 150;
+        let y = centerY + Math.sin(angle) * radiusFromCenter + (Math.random() - 0.5) * 100;
+        
+        // Keep within bounds
+        x = Math.max(padding, Math.min(w - padding, x));
+        y = Math.max(padding, Math.min(h - padding, y));
+        
+        // Unique node sizes (small, medium, few larger)
+        let radius;
+        const sizeRand = Math.random();
+        if (sizeRand < 0.5) radius = 1.8 + Math.random() * 0.8; // Small (1.8-2.6)
+        else if (sizeRand < 0.85) radius = 2.8 + Math.random() * 1.2; // Medium (2.8-4.0)
+        else radius = 4.2 + Math.random() * 1.5; // Larger (4.2-5.7)
+        
+        // Varied movement directions and speeds
+        const moveAngle = Math.random() * Math.PI * 2;
+        const speed = baseSpeed * (0.6 + Math.random() * 0.8); // 60%-140% of base
+        
+        nodes.push({
+          x, y,
+          radius,
+          baseRadius: radius,
+          // Movement
+          vx: Math.cos(moveAngle) * speed,
+          vy: Math.sin(moveAngle) * speed,
+          // Opacity
+          baseOpacity: 0.35 + Math.random() * 0.15,
+          currentOpacity: 0.35,
+          targetOpacity: 0.35,
+          // For organic motion variation
+          phaseX: Math.random() * Math.PI * 2,
+          phaseY: Math.random() * Math.PI * 2,
+          driftSpeed: 0.005 + Math.random() * 0.01
+        });
       }
       
-      // Build connections - each node to 3-4 nearest neighbors
+      // ==============================================
+      // BUILD FULLY CONNECTED NETWORK - NO ISOLATED NODES
+      // ==============================================
       buildConnections();
     };
     
-    // ==============================================
-    // BUILD CONNECTIONS (3-4 nearest neighbors each)
-    // ==============================================
     const buildConnections = () => {
       connections = [];
-      const connectedPairs = new Set();
+      const nodeConnCount = new Array(nodes.length).fill(0);
       
-      nodes.forEach((node, i) => {
-        // Find distances to all other nodes
-        const distances = [];
-        nodes.forEach((other, j) => {
-          if (i !== j) {
-            const dx = node.x - other.x;
-            const dy = node.y - other.y;
-            distances.push({ j, dist: Math.sqrt(dx * dx + dy * dy) });
-          }
-        });
-        
-        // Sort by distance and connect to 3-4 nearest
-        distances.sort((a, b) => a.dist - b.dist);
-        const numConnections = 3 + Math.floor(Math.random() * 2); // 3 or 4
-        
-        for (let k = 0; k < Math.min(numConnections, distances.length); k++) {
-          const j = distances[k].j;
-          const pairKey = i < j ? `${i}-${j}` : `${j}-${i}`;
+      // First pass: Connect nearby nodes
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
           
-          if (!connectedPairs.has(pairKey)) {
-            connectedPairs.add(pairKey);
-            connections.push({
-              i: Math.min(i, j),
-              j: Math.max(i, j),
-              currentOpacity: defaultLineOpacity,
-              targetOpacity: defaultLineOpacity,
-              isHighlighted: false
+          if (dist < connectionDistance) {
+            connections.push({ i, j, dist, baseOpacity: 0.15 + (1 - dist / connectionDistance) * 0.12 });
+            nodeConnCount[i]++;
+            nodeConnCount[j]++;
+          }
+        }
+      }
+      
+      // Second pass: Ensure EVERY node has at least minConnections
+      for (let i = 0; i < nodes.length; i++) {
+        while (nodeConnCount[i] < minConnections) {
+          // Find nearest unconnected node
+          let nearestIdx = -1;
+          let nearestDist = Infinity;
+          
+          for (let j = 0; j < nodes.length; j++) {
+            if (i === j) continue;
+            
+            // Check if already connected
+            const alreadyConnected = connections.some(
+              c => (c.i === i && c.j === j) || (c.i === j && c.j === i)
+            );
+            if (alreadyConnected) continue;
+            
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < nearestDist) {
+              nearestDist = dist;
+              nearestIdx = j;
+            }
+          }
+          
+          if (nearestIdx !== -1) {
+            const minI = Math.min(i, nearestIdx);
+            const maxI = Math.max(i, nearestIdx);
+            connections.push({ 
+              i: minI, 
+              j: maxI, 
+              dist: nearestDist,
+              baseOpacity: Math.max(0.08, 0.2 - nearestDist / 800)
             });
+            nodeConnCount[i]++;
+            nodeConnCount[nearestIdx]++;
+          } else {
+            break; // No more nodes to connect
           }
         }
-      });
+      }
     };
     
     // ==============================================
-    // FIND NEAREST CLUSTER (3-4 connected nodes)
-    // ==============================================
-    const findNearestCluster = () => {
-      if (mouseX < 0 || mouseY < 0) return { nodes: [], connections: [] };
-      
-      // Find nearest node to cursor
-      let nearestNode = -1;
-      let nearestDist = Infinity;
-      
-      nodes.forEach((node, i) => {
-        const dx = node.x - mouseX;
-        const dy = node.y - mouseY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        if (dist < 100 && dist < nearestDist) { // 100px detection radius
-          nearestDist = dist;
-          nearestNode = i;
-        }
-      });
-      
-      if (nearestNode === -1) return { nodes: [], connections: [] };
-      
-      // Get the cluster: nearest node + its directly connected neighbors (max 3-4)
-      const clusterNodes = new Set([nearestNode]);
-      const clusterConnections = [];
-      
-      // Find connections involving the nearest node
-      connections.forEach((conn, connIdx) => {
-        if (conn.i === nearestNode || conn.j === nearestNode) {
-          clusterNodes.add(conn.i);
-          clusterNodes.add(conn.j);
-          clusterConnections.push(connIdx);
-        }
-      });
-      
-      // Also add connections between cluster nodes
-      connections.forEach((conn, connIdx) => {
-        if (clusterNodes.has(conn.i) && clusterNodes.has(conn.j)) {
-          if (!clusterConnections.includes(connIdx)) {
-            clusterConnections.push(connIdx);
-          }
-        }
-      });
-      
-      return { 
-        nodes: Array.from(clusterNodes), 
-        connections: clusterConnections 
-      };
-    };
-    
-    // ==============================================
-    // ANIMATION LOOP
+    // ANIMATION LOOP - CINEMATIC MOTION
     // ==============================================
     let animationId;
     let frameCount = 0;
     
     const animate = () => {
-      // Clear and draw grid background
-      ctx.fillStyle = 'rgba(250, 248, 243, 1)'; // Light warm off-white
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      drawGrid();
-      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       frameCount++;
       
-      // Subtle floating motion
-      nodes.forEach(node => {
-        node.phase += 0.008;
-        const driftX = Math.sin(node.phase) * 8;
-        const driftY = Math.cos(node.phase * 0.7) * 6;
-        node.x = node.baseX + driftX;
-        node.y = node.baseY + driftY;
+      // Update node positions - continuous drift with organic variation
+      nodes.forEach((node, idx) => {
+        // Add subtle sine wave drift for organic feel
+        node.phaseX += node.driftSpeed;
+        node.phaseY += node.driftSpeed * 1.3;
+        
+        const driftX = Math.sin(node.phaseX) * 0.15;
+        const driftY = Math.cos(node.phaseY) * 0.12;
+        
+        node.x += node.vx + driftX;
+        node.y += node.vy + driftY;
+        
+        // Smooth edge wrapping (no harsh bounces)
+        const margin = 30;
+        if (node.x < -margin) node.x = canvas.width + margin;
+        if (node.x > canvas.width + margin) node.x = -margin;
+        if (node.y < -margin) node.y = canvas.height + margin;
+        if (node.y > canvas.height + margin) node.y = -margin;
+        
+        // Smooth opacity transition
+        const opacityDiff = node.targetOpacity - node.currentOpacity;
+        node.currentOpacity += opacityDiff * 0.08;
       });
       
-      // Find cluster to highlight
-      const cluster = findNearestCluster();
-      const highlightedNodes = new Set(cluster.nodes);
-      const highlightedConns = new Set(cluster.connections);
-      const isAnyHighlighted = cluster.nodes.length > 0;
+      // Rebuild connections periodically (every ~3 seconds) as nodes move
+      if (frameCount % 180 === 0) {
+        buildConnections();
+      }
       
-      // Update node targets
-      nodes.forEach((node, i) => {
-        if (!isAnyHighlighted) {
-          node.targetOpacity = defaultNodeOpacity;
-          node.isHighlighted = false;
-        } else if (highlightedNodes.has(i)) {
-          node.targetOpacity = highlightNodeOpacity;
-          node.isHighlighted = true;
-        } else {
-          node.targetOpacity = fadedNodeOpacity;
-          node.isHighlighted = false;
-        }
-        // Smooth transition
-        node.currentOpacity += (node.targetOpacity - node.currentOpacity) * 0.12;
-      });
-      
-      // Update connection targets
-      connections.forEach((conn, i) => {
-        if (!isAnyHighlighted) {
-          conn.targetOpacity = defaultLineOpacity;
-          conn.isHighlighted = false;
-        } else if (highlightedConns.has(i)) {
-          conn.targetOpacity = highlightLineOpacity;
-          conn.isHighlighted = true;
-        } else {
-          conn.targetOpacity = fadedLineOpacity;
-          conn.isHighlighted = false;
-        }
-        // Smooth transition
-        conn.currentOpacity += (conn.targetOpacity - conn.currentOpacity) * 0.12;
-      });
-      
-      // Draw connections
+      // ==============================================
+      // DRAW CONNECTIONS - All nodes must be connected
+      // ==============================================
       ctx.lineCap = 'round';
+      
       connections.forEach(conn => {
         const n1 = nodes[conn.i];
         const n2 = nodes[conn.j];
-        const color = conn.isHighlighted ? highlightLineColor : lineColor;
         
-        ctx.strokeStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${conn.currentOpacity})`;
-        ctx.lineWidth = conn.isHighlighted ? 1.5 : 0.8;
+        // Calculate current distance for dynamic opacity
+        const dx = n1.x - n2.x;
+        const dy = n1.y - n2.y;
+        const currentDist = Math.sqrt(dx * dx + dy * dy);
+        
+        // Check if either node is being hovered
+        const d1 = Math.sqrt((n1.x - mouseX) ** 2 + (n1.y - mouseY) ** 2);
+        const d2 = Math.sqrt((n2.x - mouseX) ** 2 + (n2.y - mouseY) ** 2);
+        const isHovered = (d1 < hoverRadius || d2 < hoverRadius) && mouseX > 0;
+        
+        // Line opacity and color - DARKEN when hovered
+        let lineOpacity = conn.baseOpacity * (1 - currentDist / 400);
+        lineOpacity = Math.max(0.06, Math.min(0.28, lineOpacity));
+        
+        // Darker lines on hover
+        let lineR = lineColor.r;
+        let lineG = lineColor.g;
+        let lineB = lineColor.b;
+        
+        if (isHovered) {
+          lineOpacity = Math.min(0.55, lineOpacity * 2.5);
+          // Darken line color
+          lineR = Math.max(50, lineColor.r - 70);
+          lineG = Math.max(40, lineColor.g - 60);
+          lineB = Math.max(35, lineColor.b - 50);
+        }
+        
+        ctx.strokeStyle = `rgba(${lineR}, ${lineG}, ${lineB}, ${lineOpacity})`;
+        ctx.lineWidth = isHovered ? 1.4 : 0.8;
         ctx.beginPath();
         ctx.moveTo(n1.x, n1.y);
         ctx.lineTo(n2.x, n2.y);
         ctx.stroke();
       });
       
-      // Draw nodes
+      // ==============================================
+      // HOVER INTERACTION - Local DARKENING
+      // ==============================================
       nodes.forEach(node => {
-        const color = node.isHighlighted ? highlightNodeColor : nodeColor;
+        const dx = node.x - mouseX;
+        const dy = node.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
         
-        ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${node.currentOpacity})`;
+        if (dist < hoverRadius && mouseX > 0) {
+          const proximity = 1 - dist / hoverRadius;
+          // DARKEN on hover - increase opacity significantly for darker appearance
+          node.targetOpacity = Math.min(0.85, node.baseOpacity + proximity * 0.5);
+          // Also slightly increase node size on hover for emphasis
+          node.hoverScale = 1 + proximity * 0.15;
+        } else {
+          node.targetOpacity = node.baseOpacity;
+          node.hoverScale = 1;
+        }
+      });
+      
+      // ==============================================
+      // DRAW NODES - Warm, blended with background (DARKEN on hover)
+      // ==============================================
+      nodes.forEach(node => {
+        // Subtle size pulse for life
+        const pulse = 1 + Math.sin(frameCount * 0.02 + node.phaseX) * 0.05;
+        const hoverScale = node.hoverScale || 1;
+        const displayRadius = node.baseRadius * pulse * hoverScale;
+        
+        // Use darker color when hovered (lower RGB values = darker)
+        const isHovered = node.currentOpacity > node.baseOpacity + 0.1;
+        const r = isHovered ? Math.max(40, nodeColor.r - 60) : nodeColor.r;
+        const g = isHovered ? Math.max(35, nodeColor.g - 50) : nodeColor.g;
+        const b = isHovered ? Math.max(30, nodeColor.b - 40) : nodeColor.b;
+        
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${node.currentOpacity})`;
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, displayRadius, 0, Math.PI * 2);
         ctx.fill();
       });
       
       animationId = requestAnimationFrame(animate);
     };
     
-    // ==============================================
-    // INITIALIZE
-    // ==============================================
-    const resizeCanvas = () => {
-      canvas.width = section.offsetWidth;
-      canvas.height = section.offsetHeight;
-      initializeNetwork();
-    };
-    
+    // Initialize and start
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     animate();
     
-    // Mouse events
+    // Mouse event handlers
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
@@ -715,6 +696,7 @@ const Home = () => {
       mouseY = -1000;
     };
     
+    // Desktop only - no hover on touch devices
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (!isTouchDevice) {
       canvas.addEventListener('mousemove', handleMouseMove);
