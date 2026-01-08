@@ -392,127 +392,69 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Section 1 (ODD) - 8-Layer Animated Space Stack */}
+      {/* Hero Section - Section 1 (ODD) - Cinematic Space Video Background */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* LAYER 1: Base Space Gradient (STATIC FOUNDATION) */}
+        {/* LAYER 1: Base Space Gradient (STATIC) - Deep indigo → violet → Mars-orange */}
         <div 
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse 80% 80% at 20% 90%, rgba(30, 27, 75, 0.95) 0%, transparent 50%),
-              radial-gradient(ellipse 70% 70% at 50% 50%, rgba(75, 60, 130, 0.7) 0%, transparent 60%),
-              radial-gradient(ellipse 60% 50% at 85% 15%, rgba(180, 100, 60, 0.35) 0%, transparent 45%),
-              linear-gradient(135deg, #12102a 0%, #1a1540 30%, #251a4a 50%, #2a1f45 70%, #1f1835 100%)
+              radial-gradient(ellipse 85% 85% at 15% 95%, rgba(30, 25, 70, 0.95) 0%, transparent 55%),
+              radial-gradient(ellipse 75% 70% at 50% 50%, rgba(60, 45, 100, 0.65) 0%, transparent 60%),
+              radial-gradient(ellipse 55% 45% at 88% 12%, rgba(180, 100, 55, 0.4) 0%, transparent 50%),
+              linear-gradient(140deg, #0f0d1a 0%, #1a1535 25%, #251850 45%, #2a1a48 65%, #1f1530 85%, #12101d 100%)
             `
           }}
         />
         
-        {/* LAYER 2: Nebula Cloud Layer - FAR DEPTH (6-10% opacity, 90-120s loop) */}
+        {/* LAYER 2: Soft Nebula Cloud - Very low opacity, slow horizontal drift */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="hero-nebula-far absolute" style={{
-            top: '-20%',
+          <div className="hero-nebula-soft absolute" style={{
+            top: '-30%',
             left: '-100%',
-            width: '300%',
-            height: '140%',
+            width: '350%',
+            height: '160%',
             background: `
-              radial-gradient(ellipse 40% 35% at 30% 50%, rgba(100, 70, 150, 0.08) 0%, transparent 70%),
-              radial-gradient(ellipse 50% 40% at 70% 40%, rgba(80, 90, 160, 0.07) 0%, transparent 65%),
-              radial-gradient(ellipse 45% 30% at 50% 60%, rgba(90, 60, 140, 0.06) 0%, transparent 60%)
+              radial-gradient(ellipse 45% 35% at 25% 45%, rgba(90, 60, 140, 0.06) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 40% at 65% 55%, rgba(70, 80, 150, 0.05) 0%, transparent 65%),
+              radial-gradient(ellipse 40% 30% at 45% 35%, rgba(100, 70, 130, 0.04) 0%, transparent 60%)
             `
           }} />
         </div>
         
-        {/* LAYER 3: Nebula Cloud Layer - MID DEPTH (10-14% opacity, 45-60s loop) */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="hero-nebula-mid absolute" style={{
-            top: '-15%',
-            left: '0%',
-            width: '300%',
-            height: '130%',
-            background: `
-              radial-gradient(ellipse 35% 30% at 25% 45%, rgba(130, 90, 170, 0.12) 0%, transparent 65%),
-              radial-gradient(ellipse 40% 35% at 60% 55%, rgba(100, 110, 180, 0.11) 0%, transparent 60%),
-              radial-gradient(ellipse 30% 25% at 80% 35%, rgba(120, 80, 160, 0.13) 0%, transparent 55%)
-            `
-          }} />
-        </div>
+        {/* LAYER 3: FAR DEPTH - Micro dots (0.5-1px), very slow, many directions */}
+        <div className="absolute inset-0 hero-dots-far-1" />
+        <div className="absolute inset-0 hero-dots-far-2" />
+        <div className="absolute inset-0 hero-dots-far-3" />
         
-        {/* LAYER 4: Star Particle Field - SMALL DOTS (HIGH density, 1-2px, visible motion) */}
-        <div className="absolute inset-0 hero-stars-small" />
+        {/* LAYER 4: MID DEPTH - Small dots (1-2px), medium speed, varied paths */}
+        <div className="absolute inset-0 hero-dots-mid-1" />
+        <div className="absolute inset-0 hero-dots-mid-2" />
+        <div className="absolute inset-0 hero-dots-mid-3" />
+        <div className="absolute inset-0 hero-dots-mid-4" />
         
-        {/* LAYER 5: Star Particle Field - MICRO DOTS (VERY HIGH density, 0.5-1px) */}
-        <div className="absolute inset-0 hero-stars-micro" />
+        {/* LAYER 5: NEAR DEPTH - Medium dots (2-3px), faster motion */}
+        <div className="absolute inset-0 hero-dots-near-1" />
+        <div className="absolute inset-0 hero-dots-near-2" />
         
-        {/* LAYER 6: Floating Light Orbs (3-5 orbs, warm amber + soft white) */}
+        {/* LAYER 6: GLOW DOTS - Soft blurred dots (4-6px), slow floating */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Orb 1 - Large Amber */}
-          <div className="hero-orb-1 absolute" style={{
-            top: '20%',
-            right: '15%',
-            width: '100px',
-            height: '100px',
-            background: 'radial-gradient(circle, rgba(255, 170, 80, 0.5) 0%, rgba(255, 140, 50, 0.2) 40%, transparent 70%)',
-            filter: 'blur(8px)',
-            borderRadius: '50%'
-          }} />
-          {/* Orb 2 - Medium White */}
-          <div className="hero-orb-2 absolute" style={{
-            top: '45%',
-            left: '60%',
-            width: '60px',
-            height: '60px',
-            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(220, 230, 255, 0.15) 50%, transparent 70%)',
-            filter: 'blur(6px)',
-            borderRadius: '50%'
-          }} />
-          {/* Orb 3 - Small Amber */}
-          <div className="hero-orb-3 absolute" style={{
-            top: '65%',
-            right: '25%',
-            width: '45px',
-            height: '45px',
-            background: 'radial-gradient(circle, rgba(255, 190, 100, 0.4) 0%, rgba(255, 160, 70, 0.15) 50%, transparent 70%)',
-            filter: 'blur(5px)',
-            borderRadius: '50%'
-          }} />
-          {/* Orb 4 - Tiny White */}
-          <div className="hero-orb-4 absolute" style={{
-            top: '30%',
-            left: '45%',
-            width: '35px',
-            height: '35px',
-            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(200, 210, 255, 0.1) 50%, transparent 70%)',
-            filter: 'blur(4px)',
-            borderRadius: '50%'
-          }} />
-          {/* Orb 5 - Medium Amber-White */}
-          <div className="hero-orb-5 absolute" style={{
-            top: '55%',
-            right: '40%',
-            width: '50px',
-            height: '50px',
-            background: 'radial-gradient(circle, rgba(255, 220, 180, 0.35) 0%, rgba(255, 200, 150, 0.1) 50%, transparent 70%)',
-            filter: 'blur(5px)',
-            borderRadius: '50%'
-          }} />
+          <div className="hero-glow-1 absolute rounded-full" style={{ top: '18%', right: '12%', width: '6px', height: '6px', background: 'radial-gradient(circle, rgba(255,200,150,0.7) 0%, transparent 70%)', filter: 'blur(2px)' }} />
+          <div className="hero-glow-2 absolute rounded-full" style={{ top: '35%', left: '25%', width: '5px', height: '5px', background: 'radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%)', filter: 'blur(2px)' }} />
+          <div className="hero-glow-3 absolute rounded-full" style={{ top: '55%', right: '30%', width: '4px', height: '4px', background: 'radial-gradient(circle, rgba(200,220,255,0.65) 0%, transparent 70%)', filter: 'blur(1.5px)' }} />
+          <div className="hero-glow-4 absolute rounded-full" style={{ top: '72%', left: '55%', width: '5px', height: '5px', background: 'radial-gradient(circle, rgba(255,220,180,0.55) 0%, transparent 70%)', filter: 'blur(2px)' }} />
+          <div className="hero-glow-5 absolute rounded-full" style={{ top: '25%', right: '45%', width: '4px', height: '4px', background: 'radial-gradient(circle, rgba(220,230,255,0.6) 0%, transparent 70%)', filter: 'blur(1.5px)' }} />
+          <div className="hero-glow-6 absolute rounded-full" style={{ top: '65%', left: '15%', width: '6px', height: '6px', background: 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%)', filter: 'blur(2px)' }} />
+          <div className="hero-glow-7 absolute rounded-full" style={{ top: '42%', right: '18%', width: '5px', height: '5px', background: 'radial-gradient(circle, rgba(255,190,140,0.6) 0%, transparent 70%)', filter: 'blur(2px)' }} />
+          <div className="hero-glow-8 absolute rounded-full" style={{ top: '85%', left: '72%', width: '4px', height: '4px', background: 'radial-gradient(circle, rgba(210,225,255,0.55) 0%, transparent 70%)', filter: 'blur(1.5px)' }} />
         </div>
         
-        {/* LAYER 7: Space Dust / Haze Overlay (4-6% opacity, vertical drift, 120s loop) */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="hero-space-dust absolute" style={{
-            top: '0%',
-            left: '-10%',
-            width: '120%',
-            height: '300%',
-            background: `
-              radial-gradient(ellipse 100% 20% at 30% 30%, rgba(150, 140, 180, 0.05) 0%, transparent 50%),
-              radial-gradient(ellipse 100% 15% at 70% 60%, rgba(140, 130, 170, 0.04) 0%, transparent 45%),
-              radial-gradient(ellipse 100% 18% at 50% 80%, rgba(160, 150, 190, 0.05) 0%, transparent 55%)
-            `
-          }} />
-        </div>
+        {/* LAYER 7: Mars Cosmic Accent - Warm glow (top-right) */}
+        <div className="absolute inset-0 hero-mars-glow" style={{
+          background: 'radial-gradient(ellipse 40% 35% at 85% 15%, rgba(200, 120, 60, 0.25) 0%, rgba(180, 100, 50, 0.1) 40%, transparent 70%)'
+        }} />
         
-        {/* LAYER 8: Content Layer (STATIC - NO animation) */}
+        {/* LAYER 8: Content Layer (100% STATIC) */}
         <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white drop-shadow-lg">
