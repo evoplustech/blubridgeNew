@@ -229,12 +229,18 @@ const Header = () => {
                   style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '80px', zIndex: 1000 }}
                 >
                   <div 
-                    className="shadow-xl overflow-hidden bg-white rounded-lg border border-[#D6DEC3]"
+                    className="shadow-xl overflow-hidden bg-white rounded-lg border border-[#D6DEC3] relative"
                     style={{ 
-                      padding: '20px 28px 30px 28px'
+                      padding: '20px 28px 30px 28px',
+                      minHeight: '280px'
                     }}
                   >
-                    <div className="flex gap-10">
+                    {/* Coming Soon Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                      <span className="coming-soon-text text-3xl font-semibold">Coming Soon</span>
+                    </div>
+                    {/* Hidden original content */}
+                    <div className="flex gap-10 invisible">
                       <div style={{ flex: '0 0 430px' }}>
                         <h3 className="text-[#0B1F3B] font-medium mb-6 text-base">By Use Case</h3>
                         <div className="grid grid-cols-2 gap-4">
