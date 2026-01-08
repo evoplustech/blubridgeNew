@@ -191,23 +191,21 @@ const AIExpertiseOrbit = () => {
   ];
 
   const atoms = [
-    // INNER ring: 2 features + 1 dummy
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Telco' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Finance' },
-    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
+    // INNER ring: Data (9 o'clock position)
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 180, Icon: Database, label: 'Data' },
+    { ring: 1, type: 'dummy', angle: 0, dummyClass: 'dummy-blue' },
 
-    // MIDDLE ring: 2 features + 1 dummy
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: GraduationCap, label: 'Education' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: HeartPulse, label: 'Healthcare' },
-    { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
+    // MIDDLE ring: Distributed Training, CGAD, Compiler
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 315, Icon: Network, label: 'Distributed Training' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 135, Icon: Scale, label: 'CGAD' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 210, Icon: Terminal, label: 'Compiler' },
+    { ring: 2, type: 'dummy', angle: 45, dummyClass: 'dummy-orange' },
 
-    // OUTER ring: 4 features + 2 dummies
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Scale, label: 'Legal' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: Factory, label: 'Manufacturing' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Landmark, label: 'Government' },
+    // OUTER ring: Tokenizer, Tensor & Operations
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 240, Icon: CheckCircle, label: 'Tokenizer' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 330, Icon: Layers, label: 'Tensor & Operations' },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
-    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
+    { ring: 3, type: 'dummy', angle: 120, dummyClass: 'dummy-orange' }
   ];
 
   return (
