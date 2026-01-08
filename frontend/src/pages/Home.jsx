@@ -437,6 +437,7 @@ const Home = () => {
       nodes = [];
       const w = canvas.width;
       const h = canvas.height;
+      const padding = 30; // Padding from edges
       
       // Create a grid-like distribution with slight randomness
       const cols = 7;
@@ -456,7 +457,6 @@ const Home = () => {
           const offsetY = (Math.random() - 0.5) * cellH * jitter;
           
           // Ensure nodes are within bounds with padding
-          const padding = 30;
           const x = Math.max(padding, Math.min(w - padding, baseX + offsetX));
           const y = Math.max(padding, Math.min(h - padding, baseY + offsetY));
           
