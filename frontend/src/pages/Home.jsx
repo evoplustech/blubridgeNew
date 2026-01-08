@@ -901,8 +901,8 @@ const Home = () => {
         </div>
       </section> */}
 
-      {/* New Testimonials Carousel Section */}
-      <TestimonialsCarousel />
+      {/* New Testimonials Carousel Section - HIDDEN */}
+      {/* <TestimonialsCarousel /> */}
 
       {/* Use Cases Grid */}
       {/* <section className="py-20 bg-[#fffdf7]">
