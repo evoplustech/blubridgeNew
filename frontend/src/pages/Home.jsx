@@ -405,18 +405,18 @@ const Home = () => {
     const connectionDistance = 180;
     
     // Colors - subtle warm tones
-    const defaultNodeColor = { r: 165, g: 145, b: 120 }; // Light warm gray
-    const defaultLineColor = { r: 175, g: 155, b: 130 }; // Light warm gray
-    const highlightNodeColor = { r: 90, g: 75, b: 55 }; // Dark gold/brown
-    const highlightLineColor = { r: 100, g: 85, b: 65 }; // Dark gold/brown
+    const defaultNodeColor = { r: 145, g: 125, b: 100 }; // Light warm gray
+    const defaultLineColor = { r: 155, g: 135, b: 110 }; // Light warm gray
+    const highlightNodeColor = { r: 70, g: 55, b: 40 }; // Dark gold/brown
+    const highlightLineColor = { r: 80, g: 65, b: 50 }; // Dark gold/brown
     
     // Opacity levels
-    const defaultNodeOpacity = 0.25;
-    const defaultLineOpacity = 0.15;
-    const highlightNodeOpacity = 0.75;
-    const highlightLineOpacity = 0.55;
-    const fadedNodeOpacity = 0.12;
-    const fadedLineOpacity = 0.08;
+    const defaultNodeOpacity = 0.35;
+    const defaultLineOpacity = 0.22;
+    const highlightNodeOpacity = 0.85;
+    const highlightLineOpacity = 0.65;
+    const fadedNodeOpacity = 0.15;
+    const fadedLineOpacity = 0.10;
     
     let nodes = [];
     let connections = [];
