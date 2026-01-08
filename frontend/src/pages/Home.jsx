@@ -389,7 +389,8 @@ const Home = () => {
 
   useDocumentTitle('Beyond the Horizon | BluBridge');
 
-  // Neural Network Canvas Initialization - Dark nodes on warm background
+  // BluBridge Neural Intelligence Background - Fully Connected Network
+  // Reference: BluBridge.ai hero background - warm gradient with connected neural nodes
   useEffect(() => {
     const canvas = document.getElementById('neural-network-canvas');
     if (!canvas) return;
@@ -401,159 +402,265 @@ const Home = () => {
     const resizeCanvas = () => {
       canvas.width = section.offsetWidth;
       canvas.height = section.offsetHeight;
+      initializeNetwork();
     };
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
     
-    // Neural network nodes - dark charcoal on warm background
-    const nodes = [];
-    const nodeCount = 45;
+    // ==============================================
+    // NEURAL NETWORK CONFIGURATION
+    // ==============================================
+    const nodeCount = 55; // Enough nodes for full coverage
+    const connectionDistance = 220; // Max distance for connections
+    const minConnections = 2; // Every node must have at least 2 connections
     
-    // Initialize nodes with random positions (less dense on left 1/3)
-    for (let i = 0; i < nodeCount; i++) {
-      // Weight distribution toward right side
-      const xWeight = Math.random();
-      const x = xWeight < 0.3 ? (Math.random() * canvas.width * 0.35) : (canvas.width * 0.35 + Math.random() * canvas.width * 0.65);
-      
-      const rand = Math.random();
-      let radius;
-      if (rand < 0.75) radius = 3 + Math.random(); // 75% standard (3-4px)
-      else if (rand < 0.95) radius = 5 + Math.random(); // 20% hub (5-6px)
-      else radius = 2; // 5% small (2px)
-      
-      nodes.push({
-        x: x,
-        y: Math.random() * canvas.height,
-        radius: radius,
-        baseOpacity: 0.30 + Math.random() * 0.05, // Default 30-35% opacity
-        currentOpacity: 0.30 + Math.random() * 0.05, // Current animated opacity
-        targetOpacity: 0.30 + Math.random() * 0.05, // Target opacity for smooth transition
-        pulsePhase: Math.random() * Math.PI * 2,
-        vx: (Math.random() - 0.5) * 0.6, // Increased movement speed (3x faster)
-        vy: (Math.random() - 0.5) * 0.6  // Increased movement speed (3x faster)
-      });
-    }
+    // Node appearance
+    const nodeColor = { r: 140, g: 115, b: 85 }; // Warm brown-gold tone
+    const lineColor = { r: 160, g: 130, b: 95 }; // Slightly lighter warm tone
     
-    // Mouse position
+    // Animation speeds (varied for organic feel)
+    const baseSpeed = 0.35; // Noticeable but calm movement
+    
+    let nodes = [];
+    let connections = [];
+    
+    // Mouse tracking
     let mouseX = -1000;
     let mouseY = -1000;
-    const hoverRadius = 150;
+    const hoverRadius = 180;
     
-    // Generate ambient/static connections that are always visible
-    const generateAmbientConnections = () => {
-      const connections = [];
+    // ==============================================
+    // INITIALIZE FULLY CONNECTED NETWORK
+    // ==============================================
+    const initializeNetwork = () => {
+      nodes = [];
+      connections = [];
+      
+      const w = canvas.width;
+      const h = canvas.height;
+      const padding = 50;
+      
+      // Create nodes with unique sizes and organic placement
+      for (let i = 0; i < nodeCount; i++) {
+        // Organic distribution - avoid grid patterns
+        const angle = Math.random() * Math.PI * 2;
+        const radiusFromCenter = Math.random() * Math.min(w, h) * 0.45;
+        const centerX = w / 2 + (Math.random() - 0.5) * w * 0.3;
+        const centerY = h / 2 + (Math.random() - 0.5) * h * 0.2;
+        
+        let x = centerX + Math.cos(angle) * radiusFromCenter + (Math.random() - 0.5) * 150;
+        let y = centerY + Math.sin(angle) * radiusFromCenter + (Math.random() - 0.5) * 100;
+        
+        // Keep within bounds
+        x = Math.max(padding, Math.min(w - padding, x));
+        y = Math.max(padding, Math.min(h - padding, y));
+        
+        // Unique node sizes (small, medium, few larger)
+        let radius;
+        const sizeRand = Math.random();
+        if (sizeRand < 0.5) radius = 1.8 + Math.random() * 0.8; // Small (1.8-2.6)
+        else if (sizeRand < 0.85) radius = 2.8 + Math.random() * 1.2; // Medium (2.8-4.0)
+        else radius = 4.2 + Math.random() * 1.5; // Larger (4.2-5.7)
+        
+        // Varied movement directions and speeds
+        const moveAngle = Math.random() * Math.PI * 2;
+        const speed = baseSpeed * (0.6 + Math.random() * 0.8); // 60%-140% of base
+        
+        nodes.push({
+          x, y,
+          radius,
+          baseRadius: radius,
+          // Movement
+          vx: Math.cos(moveAngle) * speed,
+          vy: Math.sin(moveAngle) * speed,
+          // Opacity
+          baseOpacity: 0.35 + Math.random() * 0.15,
+          currentOpacity: 0.35,
+          targetOpacity: 0.35,
+          // For organic motion variation
+          phaseX: Math.random() * Math.PI * 2,
+          phaseY: Math.random() * Math.PI * 2,
+          driftSpeed: 0.005 + Math.random() * 0.01
+        });
+      }
+      
+      // ==============================================
+      // BUILD FULLY CONNECTED NETWORK - NO ISOLATED NODES
+      // ==============================================
+      buildConnections();
+    };
+    
+    const buildConnections = () => {
+      connections = [];
+      const nodeConnCount = new Array(nodes.length).fill(0);
+      
+      // First pass: Connect nearby nodes
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          // Wider distance range and more connections for better visibility
-          if (dist > 80 && dist < 200 && connections.length < 30) {
-            connections.push({ i, j, dist });
+          
+          if (dist < connectionDistance) {
+            connections.push({ i, j, dist, baseOpacity: 0.15 + (1 - dist / connectionDistance) * 0.12 });
+            nodeConnCount[i]++;
+            nodeConnCount[j]++;
           }
         }
       }
-      return connections;
+      
+      // Second pass: Ensure EVERY node has at least minConnections
+      for (let i = 0; i < nodes.length; i++) {
+        while (nodeConnCount[i] < minConnections) {
+          // Find nearest unconnected node
+          let nearestIdx = -1;
+          let nearestDist = Infinity;
+          
+          for (let j = 0; j < nodes.length; j++) {
+            if (i === j) continue;
+            
+            // Check if already connected
+            const alreadyConnected = connections.some(
+              c => (c.i === i && c.j === j) || (c.i === j && c.j === i)
+            );
+            if (alreadyConnected) continue;
+            
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < nearestDist) {
+              nearestDist = dist;
+              nearestIdx = j;
+            }
+          }
+          
+          if (nearestIdx !== -1) {
+            const minI = Math.min(i, nearestIdx);
+            const maxI = Math.max(i, nearestIdx);
+            connections.push({ 
+              i: minI, 
+              j: maxI, 
+              dist: nearestDist,
+              baseOpacity: Math.max(0.08, 0.2 - nearestDist / 800)
+            });
+            nodeConnCount[i]++;
+            nodeConnCount[nearestIdx]++;
+          } else {
+            break; // No more nodes to connect
+          }
+        }
+      }
     };
     
-    let ambientConnections = generateAmbientConnections();
-    
-    // Animation loop
+    // ==============================================
+    // ANIMATION LOOP - CINEMATIC MOTION
+    // ==============================================
     let animationId;
+    let frameCount = 0;
+    
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      frameCount++;
       
-      // Update node positions (faster drift)
-      nodes.forEach(node => {
-        node.x += node.vx;
-        node.y += node.vy;
-        node.pulsePhase += 0.015;
+      // Update node positions - continuous drift with organic variation
+      nodes.forEach((node, idx) => {
+        // Add subtle sine wave drift for organic feel
+        node.phaseX += node.driftSpeed;
+        node.phaseY += node.driftSpeed * 1.3;
         
-        // Bounce off edges
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+        const driftX = Math.sin(node.phaseX) * 0.15;
+        const driftY = Math.cos(node.phaseY) * 0.12;
         
-        // Keep nodes in bounds
-        node.x = Math.max(0, Math.min(canvas.width, node.x));
-        node.y = Math.max(0, Math.min(canvas.height, node.y));
+        node.x += node.vx + driftX;
+        node.y += node.vy + driftY;
         
-        // Smooth opacity interpolation (0.15 ease)
+        // Smooth edge wrapping (no harsh bounces)
+        const margin = 30;
+        if (node.x < -margin) node.x = canvas.width + margin;
+        if (node.x > canvas.width + margin) node.x = -margin;
+        if (node.y < -margin) node.y = canvas.height + margin;
+        if (node.y > canvas.height + margin) node.y = -margin;
+        
+        // Smooth opacity transition
         const opacityDiff = node.targetOpacity - node.currentOpacity;
-        node.currentOpacity += opacityDiff * 0.15;
+        node.currentOpacity += opacityDiff * 0.08;
       });
       
-      // Draw ambient/static connections - more visible (always on)
-      ambientConnections.forEach(conn => {
-        const node1 = nodes[conn.i];
-        const node2 = nodes[conn.j];
-        // Increased opacity for always-visible static connections
-        ctx.strokeStyle = 'rgba(80, 70, 60, 0.35)';
-        ctx.lineWidth = 1;
+      // Rebuild connections periodically (every ~3 seconds) as nodes move
+      if (frameCount % 180 === 0) {
+        buildConnections();
+      }
+      
+      // ==============================================
+      // DRAW CONNECTIONS - All nodes must be connected
+      // ==============================================
+      ctx.lineCap = 'round';
+      
+      connections.forEach(conn => {
+        const n1 = nodes[conn.i];
+        const n2 = nodes[conn.j];
+        
+        // Calculate current distance for dynamic opacity
+        const dx = n1.x - n2.x;
+        const dy = n1.y - n2.y;
+        const currentDist = Math.sqrt(dx * dx + dy * dy);
+        
+        // Check if either node is being hovered
+        const d1 = Math.sqrt((n1.x - mouseX) ** 2 + (n1.y - mouseY) ** 2);
+        const d2 = Math.sqrt((n2.x - mouseX) ** 2 + (n2.y - mouseY) ** 2);
+        const isHovered = (d1 < hoverRadius || d2 < hoverRadius) && mouseX > 0;
+        
+        // Line opacity - more visible when hovered
+        let lineOpacity = conn.baseOpacity * (1 - currentDist / 400);
+        lineOpacity = Math.max(0.06, Math.min(0.28, lineOpacity));
+        
+        if (isHovered) {
+          lineOpacity = Math.min(0.45, lineOpacity * 2.2);
+        }
+        
+        ctx.strokeStyle = `rgba(${lineColor.r}, ${lineColor.g}, ${lineColor.b}, ${lineOpacity})`;
+        ctx.lineWidth = isHovered ? 1.2 : 0.8;
         ctx.beginPath();
-        ctx.moveTo(node1.x, node1.y);
-        ctx.lineTo(node2.x, node2.y);
+        ctx.moveTo(n1.x, n1.y);
+        ctx.lineTo(n2.x, n2.y);
         ctx.stroke();
       });
       
-      // Draw hover connections and update node target opacity
+      // ==============================================
+      // HOVER INTERACTION - Local brightening
+      // ==============================================
       nodes.forEach(node => {
         const dx = node.x - mouseX;
         const dy = node.y - mouseY;
         const dist = Math.sqrt(dx * dx + dy * dy);
         
-        if (dist < hoverRadius) {
-          const opacity = 0.6 * (1 - dist / hoverRadius);
-          
-          // Draw connection line - dark brown/charcoal
-          ctx.strokeStyle = `rgba(60, 50, 40, ${opacity})`;
-          ctx.lineWidth = 1.5;
-          ctx.beginPath();
-          ctx.moveTo(mouseX, mouseY);
-          ctx.lineTo(node.x, node.y);
-          ctx.stroke();
-          
-          // Set target opacity to hover state (65-75%)
-          node.targetOpacity = 0.65 + Math.random() * 0.10;
+        if (dist < hoverRadius && mouseX > 0) {
+          const proximity = 1 - dist / hoverRadius;
+          node.targetOpacity = node.baseOpacity + proximity * 0.35;
         } else {
-          // Return to default opacity (30-35%)
           node.targetOpacity = node.baseOpacity;
         }
       });
       
-      // Draw cursor dot when hovering
-      if (mouseX > 0 && mouseY > 0) {
-        ctx.fillStyle = 'rgba(42, 37, 32, 0.7)';
-        ctx.beginPath();
-        ctx.arc(mouseX, mouseY, 4, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      
-      // Draw nodes - dark charcoal color with animated opacity
+      // ==============================================
+      // DRAW NODES - Warm, blended with background
+      // ==============================================
       nodes.forEach(node => {
-        const pulse = Math.sin(node.pulsePhase) * 0.08 + 1;
+        // Subtle size pulse for life
+        const pulse = 1 + Math.sin(frameCount * 0.02 + node.phaseX) * 0.05;
+        const displayRadius = node.baseRadius * pulse;
         
-        // Subtle shadow
-        ctx.shadowColor = 'rgba(42, 42, 42, 0.25)';
-        ctx.shadowBlur = 3;
-        ctx.shadowOffsetX = 1;
-        ctx.shadowOffsetY = 1;
-        
-        // Node fill - dark charcoal with smooth animated opacity
-        ctx.fillStyle = `rgba(42, 42, 42, ${node.currentOpacity})`;
+        ctx.fillStyle = `rgba(${nodeColor.r}, ${nodeColor.g}, ${nodeColor.b}, ${node.currentOpacity})`;
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius * pulse, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, displayRadius, 0, Math.PI * 2);
         ctx.fill();
-        
-        // Reset shadow
-        ctx.shadowColor = 'transparent';
-        ctx.shadowBlur = 0;
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 0;
       });
       
       animationId = requestAnimationFrame(animate);
     };
     
+    // Initialize and start
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
     animate();
     
     // Mouse event handlers
@@ -568,26 +675,18 @@ const Home = () => {
       mouseY = -1000;
     };
     
-    // Check if touch device
+    // Desktop only - no hover on touch devices
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
     if (!isTouchDevice) {
       canvas.addEventListener('mousemove', handleMouseMove);
       canvas.addEventListener('mouseleave', handleMouseLeave);
-      canvas.style.cursor = 'crosshair';
     }
-    
-    // Regenerate connections periodically
-    const connectionInterval = setInterval(() => {
-      ambientConnections = generateAmbientConnections();
-    }, 10000);
     
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationId);
-      clearInterval(connectionInterval);
     };
   }, []);
 
