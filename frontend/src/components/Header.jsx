@@ -175,7 +175,13 @@ const Header = () => {
               
               {activeDropdown === 'products' && (
                 <div className="fixed pt-4" style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '80px', zIndex: 1000 }}>
-                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 grid grid-cols-3 gap-8">
+                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 relative" style={{ minHeight: '280px' }}>
+                    {/* Coming Soon Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                      <span className="coming-soon-text text-3xl font-semibold">Coming Soon</span>
+                    </div>
+                    {/* Hidden original content */}
+                    <div className="grid grid-cols-3 gap-8 invisible">
                     {products.map((section, idx) => (
                       <div key={idx}>
                         <h3 className="text-[#0B1F3B] font-semibold mb-2">{section.title}</h3>
@@ -200,6 +206,7 @@ const Header = () => {
                         </div>
                       </div>
                     ))}
+                    </div>
                   </div>
                 </div>
               )}
