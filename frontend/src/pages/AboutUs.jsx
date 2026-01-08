@@ -197,11 +197,24 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>
             {/* Container 1 - Research with Purpose */}
             <div 
+              // style={{ 
+              //   backgroundColor: '#FFFFFF', 
+              //   padding: '24px',
+              //   borderRadius: '8px'
+              // }}
+
               style={{ 
-                backgroundColor: '#FFFFFF', 
-                padding: '24px',
-                borderRadius: '8px'
-              }}>
+                background: 'rgba(255, 255, 255, 0.9)',
+    backdropFilter: 'blur(10px)',
+    padding: '28px 24px',
+    borderRadius: '16px',
+    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+    border: '1px solid rgba(255, 255, 255, 0.4)',
+    transition: 'all 0.3s ease'
+              }}
+              
+              
+              >
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
                   width: '8px', 
@@ -458,7 +471,7 @@ const AboutUs = () => {
       </section> */}
 
       {/* FAQ Section - Section 5 */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
           
@@ -493,24 +506,30 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-3xl text-white md:text-4xl lg:text-5xl font-bold mb-8">
-            Access thousands of GPUs tailored to your requirements.
+            {/* Access thousands of GPUs tailored to your requirements. */}
+            Know more about our Research
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-4 py-3 rounded font-medium">
+                Contact Us
+              </Button>
+            </Link>
+            {/* <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
             <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-100 transition-colors font-medium px-6 py-0">
               Contact <ArrowRight className="w-4 h-4" />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

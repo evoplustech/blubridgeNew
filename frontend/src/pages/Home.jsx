@@ -750,13 +750,16 @@ const Home = () => {
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact">
-                <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-8 py-3 rounded font-medium text-base">
+                {/* <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
+                </Button> */}
+                <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-4 py-3 rounded font-medium text-base">
+                  Contact Us
                 </Button>
               </Link>
-              <Link to="/contact" className="flex items-center gap-2 text-[#2a2520] hover:text-[#5a4a40] transition-colors font-medium">
+              {/* <Link to="/contact" className="flex items-center gap-2 text-[#2a2520] hover:text-[#5a4a40] transition-colors font-medium">
                 Start Building <ArrowRight className="w-4 h-4" />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -949,13 +952,13 @@ const Home = () => {
           </div>
           
           {/* CTA Button */}
-          <div className="text-center">
+          {/* <div className="text-center">
             <Link to="/contact">
               <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-6 py-4 text-base font-medium rounded-lg">
                 Talk To Us
               </Button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -1114,10 +1117,16 @@ const Home = () => {
                 BluBridge is now an NVIDIA Inception Partner
               </h2>
               <p className="text-[#243447] mb-6">
-                Access thousands of GPUs tailored to your requirements.
+                {/* Access thousands of GPUs tailored to your requirements. */}
+                Know more about our Research
               </p>
               <div className="flex gap-4">
                 <Link to="/contact">
+                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-4 py-3">
+                    Contact Us
+                  </Button>
+                </Link>
+                {/* <Link to="/contact">
                   <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3">
                     Reserve GPUs
                   </Button>
@@ -1126,7 +1135,7 @@ const Home = () => {
                   <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3">
                     Contact
                   </Button>
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="flex items-center justify-center lg:justify-end gap-8">
@@ -1179,18 +1188,24 @@ const Home = () => {
       <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
-            Access thousands of GPUs tailored to your requirements.
+            {/* Access thousands of GPUs tailored to your requirements. */}
+            Know more about our Research 
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+                Contact Us
+              </Button>
+            </Link>
+            {/* <Link to="/contact">
               <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
             <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
               Contact <ArrowRight className="w-4 h-4" />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>
