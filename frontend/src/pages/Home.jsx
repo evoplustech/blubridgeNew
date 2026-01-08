@@ -4,6 +4,7 @@ import { Button } from '../components/ui/button';
 import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, Scale, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useEmblaCarousel from 'embla-carousel-react';
+import NodeConnections2 from './NodeConnections2';
 
 // Testimonials Carousel Component
 const TestimonialsCarousel = () => {
@@ -713,7 +714,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
       {/* Hero Section - Section 1 (ODD) - Warm Sandy Background with Neural Network */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section ">
         {/* LAYER 0: Warm Sandy/Beige Background Gradient (KEEP AS-IS) */}
         <div 
           className="absolute inset-0"
@@ -738,10 +739,10 @@ const Home = () => {
         />
         
         {/* LAYER 2: Neural Network Canvas (Interactive) */}
-        <canvas id="neural-network-canvas" className="absolute inset-0 w-full h-full" style={{ zIndex: 10 }} />
-        
+        <canvas id="neural-network-canvas" className="absolute inset-0 w-full h-full" style={{ zIndex: 10 }} /> 
+        {/* <NodeConnections2></NodeConnections2> */}
         {/* LAYER 3: Content (100% STATIC - Always on top) */}
-        <div className="container-custom relative py-24" style={{ zIndex: 100 }}>
+        <div className="container-custom relative py-24 z-10" >
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#2a2520] drop-shadow-sm">
               Beyond the Horizon<br></br>
