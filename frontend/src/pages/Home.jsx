@@ -410,17 +410,17 @@ const Home = () => {
     
     // NODE SPECIFICATIONS
     const nodeCount = 32; // 30-35 nodes total (sparse)
-    const nodeRadius = 1.75; // 3-4px diameter (1.5-2px radius)
-    const nodeBaseOpacity = 0.22; // 20-25% opacity (very subtle)
-    const nodeColor = { r: 140, g: 140, b: 140 }; // Light gray #8a8a8a to #9a9a9a
+    const nodeRadius = 2.0; // 3-4px diameter (2px radius)
+    const nodeBaseOpacity = 0.28; // Slightly more visible (25-30%)
+    const nodeColor = { r: 100, g: 90, b: 80 }; // Darker gray for better contrast
     
     // CONNECTION SPECIFICATIONS
     const connectionMinDist = 150;
     const connectionMaxDist = 280;
     const maxConnections = 16; // 12-18 connections
-    const connectionOpacity = 0.20; // 18-22% opacity
-    const connectionWidth = 0.5;
-    const connectionColor = { r: 168, g: 168, b: 168 }; // #a0a0a0 to #b0b0b0
+    const connectionOpacity = 0.25; // Slightly more visible (22-28%)
+    const connectionWidth = 0.7;
+    const connectionColor = { r: 120, g: 110, b: 100 }; // Darker for visibility
     
     // HOVER SPECIFICATIONS
     const hoverRadius = 120;
