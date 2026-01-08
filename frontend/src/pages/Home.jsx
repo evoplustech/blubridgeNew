@@ -190,134 +190,80 @@ const AIExpertiseOrbit = () => {
     { key: 3, className: 'orbit-3', radius: '212px' }
   ];
 
-  // Research Teams with custom SVG icons
-  const researchTeams = [
-    // INNER ring: Data
-    { ring: 1, angle: 270, label: 'Data', color: '#3b82f6', 
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
-          <path d="M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
-        </svg>
-      )
-    },
-    // INNER ring: Compiler  
-    { ring: 1, angle: 90, label: 'Compiler', color: '#3b82f6',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
-        </svg>
-      )
-    },
-    // MIDDLE ring: Tensor & Operations
-    { ring: 2, angle: 315, label: 'Tensor & Operations', color: '#06b6d4',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <rect x="3" y="3" width="7" height="7" rx="1"/>
-          <rect x="14" y="3" width="7" height="7" rx="1"/>
-          <rect x="3" y="14" width="7" height="7" rx="1"/>
-          <rect x="14" y="14" width="7" height="7" rx="1"/>
-        </svg>
-      )
-    },
-    // MIDDLE ring: CGAD
-    { ring: 2, angle: 180, label: 'CGAD', color: '#3b82f6',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path d="M12 3L2 9l10 6 10-6-10-6z"/>
-          <path d="M2 17l10 6 10-6M2 13l10 6 10-6"/>
-        </svg>
-      )
-    },
-    // OUTER ring: Tokenizer
-    { ring: 3, angle: 45, label: 'Tokenizer', color: '#f59e0b',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-          <rect x="9" y="3" width="6" height="4" rx="1"/>
-          <path d="M9 12h6M9 16h6"/>
-        </svg>
-      )
-    },
-    // OUTER ring: Distributed Training
-    { ring: 3, angle: 225, label: 'Distributed Training', color: '#f59e0b',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-          <circle cx="12" cy="5" r="3"/>
-          <circle cx="5" cy="19" r="3"/>
-          <circle cx="19" cy="19" r="3"/>
-          <path d="M12 8v4m-4.5 3.5L10 13m7 2.5L14 13"/>
-        </svg>
-      )
-    }
-  ];
+  const atoms = [
+    // INNER ring: 2 features + 1 dummy
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Telco' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Finance' },
+    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
-  // Dummy dots for visual interest
-  const dummyDots = [
-    { ring: 1, angle: 180, color: '#3b82f6' },
-    { ring: 2, angle: 45, color: '#f59e0b' },
-    { ring: 2, angle: 270, color: '#06b6d4' },
-    { ring: 3, angle: 135, color: '#3b82f6' },
-    { ring: 3, angle: 315, color: '#f59e0b' }
+    // MIDDLE ring: 2 features + 1 dummy
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: GraduationCap, label: 'Education' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: HeartPulse, label: 'Healthcare' },
+    { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
+
+    // OUTER ring: 4 features + 2 dummies
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Scale, label: 'Legal' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: Factory, label: 'Manufacturing' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Landmark, label: 'Government' },
+    { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
+    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
   ];
 
   return (
     <div className="orbit-container relative w-[520px] h-[520px]">
-      {/* SVG tracks */}
+      {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
         <circle className="track" cx="260" cy="260" r="105" />
         <circle className="track" cx="260" cy="260" r="155" />
         <circle className="track" cx="260" cy="260" r="212" />
       </svg>
 
-      {/* Center badge with B logo */}
+      {/* Center badge */}
       <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#DBD6C4]">
         <span className="text-white text-xs font-medium text-center leading-tight">
-          <img width="30px" src="/images/b-center.png" alt="BluBridge"/>
+        <img width="30px" src="/images/b-center.png"/>
         </span>
       </div>
 
-      {/* Rings with research team bubbles */}
+      {/* Rings + atoms */}
       {rings.map((ring) => (
         <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
-          {/* Research Team Bubbles */}
-          {researchTeams
-            .filter((team) => team.ring === ring.key)
-            .map((team, idx) => {
-              const styleVars = { '--angle': `${team.angle}deg`, '--angleNeg': `${-team.angle}deg` };
+          {atoms
+            .filter((a) => a.ring === ring.key)
+            .map((a, idx) => {
+              const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
+
+              if (a.type === 'dummy') {
+                return (
+                  <div
+                    key={idx}
+                    className={`atom dummy ${a.dummyClass}`}
+                    style={styleVars}
+                    aria-hidden="true"
+                  >
+                    <div className="atom-anchor">
+                      <div className="dummy-dot" />
+                    </div>
+                  </div>
+                );
+              }
+
+              const Icon = a.Icon;
               return (
-                <div key={idx} className="atom atom--research" style={styleVars}>
+                <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
                   <div className="atom-anchor">
                     <div className="atom-angle-fix">
+                      {/* This inner node counter-rotates via CSS so labels stay upright */}
                       <div className="atom-spin-fix">
-                        <div className="atom-content-research" style={{ borderColor: team.color }}>
-                          <div className="atom-icon-research" style={{ color: team.color }}>
-                            {team.icon}
+                        <div className="atom-content">
+                          <div className="atom-icon">
+                            <Icon className="atom-icon-svg" strokeWidth={1.5} />
                           </div>
-                          <div className="atom-label-research">{team.label}</div>
+                          <div className="atom-label">{a.label}</div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
-          
-          {/* Dummy dots */}
-          {dummyDots
-            .filter((dot) => dot.ring === ring.key)
-            .map((dot, idx) => {
-              const styleVars = { '--angle': `${dot.angle}deg`, '--angleNeg': `${-dot.angle}deg` };
-              return (
-                <div
-                  key={`dot-${idx}`}
-                  className="atom dummy"
-                  style={styleVars}
-                  aria-hidden="true"
-                >
-                  <div className="atom-anchor">
-                    <div className="dummy-dot" style={{ backgroundColor: dot.color }} />
                   </div>
                 </div>
               );
