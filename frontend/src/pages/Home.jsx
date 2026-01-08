@@ -773,30 +773,27 @@ const Home = () => {
               <AIExpertiseOrbit />    
             </div>
             
-            {/* Right - Services Grid */}
+            {/* Right - Research Teams Grid (6 tabs, static, no links) */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI expertise - Our Research Teams</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Radio, title: "Telco", link: "/solutions/industry/telco" },
-                  { icon: ShieldCheck, title: "Finance & Insurance", link: "/solutions/industry/finance-insurance" },
-                  { icon: GraduationCap, title: "Education", link: "/solutions/industry/education" },
-                  { icon: Scale, title: "Legal", link: "/solutions/industry/legal" },
-                  { icon: Code2, title: "Software & Technology", link: "/solutions/industry/software-technology" },
-                  { icon: Factory, title: "Manufacturing", link: "/solutions/industry/manufacturing" },
-                  { icon: Landmark, title: "Government", link: "/solutions/industry/government" },
-                  { icon: HeartPulse, title: "Healthcare", link: "/solutions/industry/healthcare" }
+                  { icon: Database, title: "Data" },
+                  { icon: CheckCircle, title: "Tokenizer" },
+                  { icon: Layers, title: "Tensor & Operations" },
+                  { icon: Scale, title: "CGAD" },
+                  { icon: Terminal, title: "Compiler" },
+                  { icon: Network, title: "Distributed Training" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
-                  <Link 
-                    to={service.link}
+                  <div 
                     key={index}
                     className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-md transition-all"
                   >
                     <IconComponent className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
                     <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
-                  </Link>
+                  </div>
                 )})}
               </div>
             </div>
