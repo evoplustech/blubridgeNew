@@ -726,7 +726,7 @@ const Home = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#2a2520] drop-shadow-sm">
               Beyond the Horizon<br></br>
             </h1>
-            <p className="text-[#3d3530] text-lg font-light leading-relaxed max-w-md">A complete, scalable, and sustainable AI platform.</p>
+            <p className="text-[#3d3530] text-lg font-light leading-relaxed max-w-md">An Independent AI Research Lab.</p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact">
@@ -859,7 +859,7 @@ const Home = () => {
             
             {/* Right - Research Teams Grid (6 tabs, static, no links) */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI expertise - Our Research Teams</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our Research Teams</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Database, title: "Data" },
