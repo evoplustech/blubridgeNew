@@ -1012,7 +1012,7 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center lg:justify-end gap-8">
               <span className="text-5xl font-bold text-[#0B1F3B]/20 tracking-tight">NVIDIA</span>
-              <div className="text-sm text-[#5B6B7A]">Preferred Partner</div>
+              <div className="text-sm text-[#5B6B7A]">Inception Partner</div>
             </div>
           </div>
         </div>
