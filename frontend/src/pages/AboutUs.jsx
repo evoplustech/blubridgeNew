@@ -187,7 +187,7 @@ const AboutUs = () => {
               color: '#333333', 
               textAlign: 'center', 
               marginBottom: '48px',
-              maxWidth: '800px',
+              maxWidth: '900px',
               margin: '0 auto 48px auto'
             }}>
             We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
@@ -197,24 +197,13 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>
             {/* Container 1 - Research with Purpose */}
             <div 
-              // style={{ 
-              //   backgroundColor: '#FFFFFF', 
-              //   padding: '24px',
-              //   borderRadius: '8px'
-              // }}
-
               style={{ 
-                background: 'rgba(255, 255, 255, 0.9)',
-    backdropFilter: 'blur(10px)',
-    padding: '28px 24px',
-    borderRadius: '16px',
-    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
-    border: '1px solid rgba(255, 255, 255, 0.4)',
-    transition: 'all 0.3s ease'
-              }}
-              
-              
-              >
+                backgroundColor: '#FFFFFF', 
+                padding: '24px',
+                borderRadius: '12px',
+                border: '1px solid #e5e5e5',
+                borderLeft: '4px solid #328CC1'
+              }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
                   width: '8px', 
@@ -228,7 +217,7 @@ const AboutUs = () => {
                   <p style={{ 
                     fontSize: '18px', 
                     fontWeight: '600', 
-                    color: '#328CC1', 
+                    color: '#1A1A1A', 
                     marginBottom: '8px',
                     lineHeight: '1.3'
                   }}>Research with Purpose</p>
@@ -246,7 +235,9 @@ const AboutUs = () => {
               style={{ 
                 backgroundColor: '#FFFFFF', 
                 padding: '24px',
-                borderRadius: '8px'
+                borderRadius: '12px',
+                border: '1px solid #e5e5e5',
+                borderLeft: '4px solid #328CC1'
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
@@ -261,7 +252,7 @@ const AboutUs = () => {
                   <p style={{ 
                     fontSize: '18px', 
                     fontWeight: '600', 
-                    color: '#328CC1', 
+                    color: '#1A1A1A', 
                     marginBottom: '8px',
                     lineHeight: '1.3'
                   }}>From Insight to Implementation</p>
@@ -279,7 +270,9 @@ const AboutUs = () => {
               style={{ 
                 backgroundColor: '#FFFFFF', 
                 padding: '24px',
-                borderRadius: '8px'
+                borderRadius: '12px',
+                border: '1px solid #e5e5e5',
+                borderLeft: '4px solid #328CC1'
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
@@ -294,7 +287,7 @@ const AboutUs = () => {
                   <p style={{ 
                     fontSize: '18px', 
                     fontWeight: '600', 
-                    color: '#328CC1', 
+                    color: '#1A1A1A', 
                     marginBottom: '8px',
                     lineHeight: '1.3'
                   }}>Build Responsibly, Grow Confidently</p>
@@ -312,7 +305,9 @@ const AboutUs = () => {
               style={{ 
                 backgroundColor: '#FFFFFF', 
                 padding: '24px',
-                borderRadius: '8px'
+                borderRadius: '12px',
+                border: '1px solid #e5e5e5',
+                borderLeft: '4px solid #328CC1'
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
@@ -327,7 +322,7 @@ const AboutUs = () => {
                   <p style={{ 
                     fontSize: '18px', 
                     fontWeight: '600', 
-                    color: '#328CC1', 
+                    color: '#1A1A1A', 
                     marginBottom: '8px',
                     lineHeight: '1.3'
                   }}>Own the Impact</p>
