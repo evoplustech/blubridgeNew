@@ -203,7 +203,7 @@ const AIExpertiseOrbit = () => {
 
     // OUTER ring: Tokenizer, Tensor & Operations
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 240, Icon: CheckCircle, label: 'Tokenizer' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 330, Icon: Layers, label: 'Tensor & Operations' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Layers, label: 'Tensor & Operations' },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
     { ring: 3, type: 'dummy', angle: 120, dummyClass: 'dummy-orange' }
   ];
@@ -681,17 +681,10 @@ const Home = () => {
             {/* Left Card - Who We Are? */}
             <div className="bg-white rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
               {/* Lightbulb Icon */}
-              <div className="mb-5">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 4C17.373 4 12 9.373 12 16c0 4.127 2.053 7.778 5.2 10 .897.635 1.8 1.56 1.8 2.667V32h10v-3.333c0-1.107.903-2.032 1.8-2.667C33.947 23.778 36 20.127 36 16c0-6.627-5.373-12-12-12z" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M19 32v2a5 5 0 0 0 10 0v-2" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M19 36h10" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M24 4v-2M4 16H2M8 8L6 6M40 8l2-2M44 16h2" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+             
               
               {/* Heading */}
-              <h3 className="text-2xl font-bold text-[#0f172a] mb-5 font-['Inter']">
+              <h3 className="text-2xl text-[#0f172a] mb-5 font-['Inter']">
                 Who We Are?
               </h3>
               
@@ -704,19 +697,10 @@ const Home = () => {
             {/* Right Card - What We Aim to Do? */}
             <div className="bg-white rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
               {/* Microscope/Telescope Icon */}
-              <div className="mb-5">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 44h16M28 44V28" stroke="#1e3a5f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M28 28c5.523 0 10-4.477 10-10V8l-4-4-14 14v4c0 5.523 4.477 10 8 10z" stroke="#1e3a5f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M20 18l-8 8M16 14l-4 4" stroke="#1e3a5f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="34" cy="8" r="2" stroke="#60a5fa" strokeWidth="2"/>
-                  <path d="M8 40l8-8" stroke="#1e3a5f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="6" cy="42" r="4" stroke="#1e3a5f" strokeWidth="2"/>
-                </svg>
-              </div>
+             
               
               {/* Heading */}
-              <h3 className="text-2xl font-bold text-[#0f172a] mb-5 font-['Inter']">
+              <h3 className="text-2xl text-[#0f172a] mb-5 font-['Inter']">
                 What We Aim to Do?
               </h3>
               
@@ -775,7 +759,7 @@ const Home = () => {
             
             {/* Right - Research Teams Grid (6 tabs, static, no links) */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8">Our AI expertise - Our Research Teams</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI expertise - Our Research Teams</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Database, title: "Data" },
