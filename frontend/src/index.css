@@ -262,176 +262,362 @@ code {
 .dummy-blue .dummy-dot { background: #328CC1; }
 .dummy-orange .dummy-dot { background: #f4a000; }
 
-/* ===== HOME PAGE HERO SECTION - 8-Layer Video-Like Animated Space ===== */
+/* ===== HOME PAGE HERO SECTION - Cinematic Space Video Background ===== */
 
-/* LAYER 2: Nebula Cloud - FAR DEPTH (90-120s loop, left → right) */
-.hero-nebula-far {
-  animation: nebulaFarDrift 100s linear infinite;
+/* Soft Nebula Cloud - Very slow horizontal drift */
+.hero-nebula-soft {
+  animation: nebulaSoftDrift 80s linear infinite;
   will-change: transform;
 }
 
-@keyframes nebulaFarDrift {
+@keyframes nebulaSoftDrift {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(33.33%); }
+  100% { transform: translateX(28.5%); }
 }
 
-/* LAYER 3: Nebula Cloud - MID DEPTH (45-60s loop, right → left with vertical offset) */
-.hero-nebula-mid {
-  animation: nebulaMidDrift 50s linear infinite;
-  will-change: transform;
-}
+/* ========== FAR DEPTH DOTS (0.5-1px) - Very slow, multiple directions ========== */
 
-@keyframes nebulaMidDrift {
-  0% { transform: translate(0%, 0%); }
-  100% { transform: translate(-33.33%, 3%); }
-}
-
-/* LAYER 4: Star Particle Field - SMALL DOTS (HIGH density, 1-2px, visible diagonal drift) */
-.hero-stars-small {
+/* Far Layer 1 - Diagonal top-left to bottom-right */
+.hero-dots-far-1 {
   background-image: 
-    radial-gradient(1.5px 1.5px at 3% 8%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 7% 22%, rgba(220, 230, 255, 0.6) 0%, transparent 100%),
-    radial-gradient(2px 2px at 12% 45%, rgba(255, 255, 255, 0.75) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 18% 68%, rgba(200, 220, 255, 0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 23% 15%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 28% 82%, rgba(230, 240, 255, 0.7) 0%, transparent 100%),
-    radial-gradient(2px 2px at 33% 38%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 38% 55%, rgba(210, 225, 255, 0.55) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 43% 12%, rgba(255, 255, 255, 0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 48% 72%, rgba(240, 245, 255, 0.6) 0%, transparent 100%),
-    radial-gradient(2px 2px at 53% 28%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 58% 88%, rgba(220, 235, 255, 0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 63% 42%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 68% 18%, rgba(200, 215, 255, 0.7) 0%, transparent 100%),
-    radial-gradient(2px 2px at 73% 62%, rgba(255, 255, 255, 0.75) 0%, transparent 100%),
-    radial-gradient(1px 1px at 78% 35%, rgba(230, 240, 255, 0.55) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 83% 78%, rgba(255, 255, 255, 0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 88% 5%, rgba(210, 225, 255, 0.6) 0%, transparent 100%),
-    radial-gradient(2px 2px at 93% 52%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 97% 92%, rgba(240, 248, 255, 0.65) 0%, transparent 100%);
-  animation: starsSmallDrift 12s linear infinite;
+    radial-gradient(0.6px 0.6px at 2% 5%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 6% 18%, rgba(220,235,255,0.35) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 10% 32%, rgba(255,255,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 14% 48%, rgba(200,220,255,0.32) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 18% 62%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 22% 78%, rgba(230,240,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 26% 8%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 30% 25%, rgba(210,225,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 34% 42%, rgba(255,255,255,0.37) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 38% 58%, rgba(240,248,255,0.35) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 42% 75%, rgba(255,255,255,0.39) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 46% 92%, rgba(220,232,255,0.32) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 50% 12%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 54% 28%, rgba(200,215,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 58% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 62% 62%, rgba(230,242,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 66% 78%, rgba(255,255,255,0.37) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 70% 95%, rgba(210,220,255,0.35) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 74% 15%, rgba(255,255,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 78% 35%, rgba(240,250,255,0.32) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 82% 52%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 86% 68%, rgba(220,235,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 90% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 94% 3%, rgba(200,218,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 98% 22%, rgba(255,255,255,0.37) 0%, transparent 100%);
+  animation: dotsFar1 35s linear infinite;
   will-change: transform;
 }
 
-@keyframes starsSmallDrift {
+@keyframes dotsFar1 {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(30px, 30px); }
+  100% { transform: translate(25px, 25px); }
 }
 
-/* LAYER 5: Star Particle Field - MICRO DOTS (VERY HIGH density, 0.5-1px, ultra-slow) */
-.hero-stars-micro {
+/* Far Layer 2 - Right to left */
+.hero-dots-far-2 {
   background-image: 
-    radial-gradient(0.5px 0.5px at 2% 5%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 5% 18%, rgba(230, 240, 255, 0.3) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 8% 32%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 11% 48%, rgba(220, 235, 255, 0.32) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 14% 65%, rgba(255, 255, 255, 0.38) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 17% 82%, rgba(240, 248, 255, 0.35) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 20% 12%, rgba(255, 255, 255, 0.42) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 24% 28%, rgba(210, 225, 255, 0.3) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 28% 45%, rgba(255, 255, 255, 0.36) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 32% 62%, rgba(230, 242, 255, 0.33) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 36% 78%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 40% 8%, rgba(220, 232, 255, 0.35) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 44% 25%, rgba(255, 255, 255, 0.38) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 48% 42%, rgba(240, 250, 255, 0.32) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 52% 58%, rgba(255, 255, 255, 0.36) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 56% 75%, rgba(210, 220, 255, 0.4) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 60% 92%, rgba(255, 255, 255, 0.34) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 64% 15%, rgba(230, 240, 255, 0.38) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 68% 35%, rgba(255, 255, 255, 0.32) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 72% 52%, rgba(220, 235, 255, 0.36) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 76% 68%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 80% 85%, rgba(240, 248, 255, 0.33) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 84% 3%, rgba(255, 255, 255, 0.38) 0%, transparent 100%),
-    radial-gradient(0.6px 0.6px at 88% 22%, rgba(210, 225, 255, 0.35) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 92% 40%, rgba(255, 255, 255, 0.36) 0%, transparent 100%),
-    radial-gradient(0.7px 0.7px at 96% 58%, rgba(230, 242, 255, 0.32) 0%, transparent 100%),
-    radial-gradient(0.5px 0.5px at 99% 75%, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
-  animation: starsMicroDrift 25s linear infinite;
+    radial-gradient(0.5px 0.5px at 4% 12%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 8% 28%, rgba(230,242,255,0.32) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 12% 45%, rgba(255,255,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 16% 62%, rgba(210,225,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 20% 78%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 24% 95%, rgba(240,250,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 28% 8%, rgba(255,255,255,0.37) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 32% 22%, rgba(220,235,255,0.35) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 36% 38%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 40% 55%, rgba(200,220,255,0.32) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 44% 72%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 48% 88%, rgba(230,245,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 52% 5%, rgba(255,255,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 56% 18%, rgba(210,228,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 60% 35%, rgba(255,255,255,0.37) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 64% 52%, rgba(240,252,255,0.35) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 68% 68%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 72% 85%, rgba(220,238,255,0.32) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 76% 2%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 80% 15%, rgba(200,215,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 84% 32%, rgba(255,255,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 88% 48%, rgba(230,240,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 92% 65%, rgba(255,255,255,0.37) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 96% 82%, rgba(210,222,255,0.35) 0%, transparent 100%);
+  animation: dotsFar2 40s linear infinite;
   will-change: transform;
 }
 
-@keyframes starsMicroDrift {
+@keyframes dotsFar2 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-30px); }
+}
+
+/* Far Layer 3 - Bottom to top */
+.hero-dots-far-3 {
+  background-image: 
+    radial-gradient(0.6px 0.6px at 3% 10%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 9% 30%, rgba(220,232,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 15% 50%, rgba(255,255,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 21% 70%, rgba(240,248,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 27% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 33% 15%, rgba(200,218,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 39% 35%, rgba(255,255,255,0.37) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 45% 55%, rgba(230,242,255,0.32) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 51% 75%, rgba(255,255,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 57% 95%, rgba(210,225,255,0.35) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 63% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 69% 40%, rgba(240,250,255,0.33) 0%, transparent 100%),
+    radial-gradient(0.6px 0.6px at 75% 60%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 81% 80%, rgba(220,235,255,0.34) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 87% 5%, rgba(255,255,255,0.38) 0%, transparent 100%),
+    radial-gradient(0.5px 0.5px at 93% 25%, rgba(200,220,255,0.36) 0%, transparent 100%);
+  animation: dotsFar3 45s linear infinite;
+  will-change: transform;
+}
+
+@keyframes dotsFar3 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+/* ========== MID DEPTH DOTS (1-2px) - Medium speed, varied directions ========== */
+
+/* Mid Layer 1 - Left to right, diagonal up */
+.hero-dots-mid-1 {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 2% 8%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1px 1px at 7% 25%, rgba(220,235,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 12% 42%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 17% 58%, rgba(200,220,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 22% 75%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1px 1px at 27% 92%, rgba(240,250,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 32% 12%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 37% 28%, rgba(230,242,255,0.58) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 42% 45%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1px 1px at 47% 62%, rgba(210,228,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 52% 78%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 57% 95%, rgba(255,240,220,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 62% 15%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 32%, rgba(220,235,255,0.58) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 72% 48%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 77% 65%, rgba(200,218,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 82% 82%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1px 1px at 87% 5%, rgba(240,248,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 92% 22%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 97% 38%, rgba(230,240,255,0.55) 0%, transparent 100%);
+  animation: dotsMid1 8s linear infinite;
+  will-change: transform;
+}
+
+@keyframes dotsMid1 {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(15px, 15px); }
+  100% { transform: translate(40px, -15px); }
 }
 
-/* LAYER 6: Floating Light Orbs - Gentle floating with scale breathing */
-.hero-orb-1 {
-  animation: orbFloat1 25s ease-in-out infinite, orbScale 8s ease-in-out infinite;
+/* Mid Layer 2 - Right to left, diagonal down */
+.hero-dots-mid-2 {
+  background-image: 
+    radial-gradient(1.2px 1.2px at 5% 15%, rgba(255,255,255,0.62) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 10% 35%, rgba(210,225,255,0.58) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 20% 75%, rgba(240,250,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 25% 95%, rgba(255,255,255,0.58) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 30% 18%, rgba(220,238,255,0.62) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 38%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 40% 58%, rgba(200,220,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 45% 78%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 50% 98%, rgba(230,245,255,0.58) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 22%, rgba(255,255,255,0.62) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 60% 42%, rgba(255,230,200,0.48) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 65% 62%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 82%, rgba(210,228,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 5%, rgba(255,255,255,0.58) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 80% 25%, rgba(240,252,255,0.62) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 85% 45%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 90% 65%, rgba(220,235,255,0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 85%, rgba(255,255,255,0.62) 0%, transparent 100%);
+  animation: dotsMid2 10s linear infinite;
   will-change: transform;
 }
 
-.hero-orb-2 {
-  animation: orbFloat2 22s ease-in-out infinite, orbScale 7s ease-in-out infinite 1s;
+@keyframes dotsMid2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-45px, 20px); }
+}
+
+/* Mid Layer 3 - Top to bottom */
+.hero-dots-mid-3 {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 4% 3%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 11% 20%, rgba(230,242,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 18% 38%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 25% 55%, rgba(200,218,255,0.58) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 32% 72%, rgba(255,255,255,0.62) 0%, transparent 100%),
+    radial-gradient(1px 1px at 39% 90%, rgba(240,250,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 46% 8%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 53% 25%, rgba(210,225,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 60% 42%, rgba(255,255,255,0.58) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 60%, rgba(220,235,255,0.62) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 74% 78%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 81% 95%, rgba(255,235,210,0.45) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 12%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 30%, rgba(230,245,255,0.55) 0%, transparent 100%);
+  animation: dotsMid3 12s linear infinite;
   will-change: transform;
 }
 
-.hero-orb-3 {
-  animation: orbFloat3 28s ease-in-out infinite, orbScale 9s ease-in-out infinite 2s;
+@keyframes dotsMid3 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(35px); }
+}
+
+/* Mid Layer 4 - Bottom-left to top-right diagonal */
+.hero-dots-mid-4 {
+  background-image: 
+    radial-gradient(1.2px 1.2px at 3% 88%, rgba(255,255,255,0.58) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 9% 72%, rgba(240,250,255,0.62) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 21% 38%, rgba(210,228,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 27% 22%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 33% 5%, rgba(220,238,255,0.58) 0%, transparent 100%),
+    radial-gradient(1px 1px at 39% 92%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 45% 75%, rgba(200,220,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 51% 58%, rgba(255,255,255,0.62) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 57% 42%, rgba(230,245,255,0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 63% 25%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 69% 8%, rgba(255,225,190,0.42) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 75% 95%, rgba(255,255,255,0.58) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 81% 78%, rgba(210,225,255,0.62) 0%, transparent 100%),
+    radial-gradient(1px 1px at 87% 62%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 93% 45%, rgba(240,252,255,0.55) 0%, transparent 100%);
+  animation: dotsMid4 9s linear infinite;
   will-change: transform;
 }
 
-.hero-orb-4 {
-  animation: orbFloat4 20s ease-in-out infinite, orbScale 6s ease-in-out infinite 0.5s;
+@keyframes dotsMid4 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(35px, -30px); }
+}
+
+/* ========== NEAR DEPTH DOTS (2-3px) - Faster motion ========== */
+
+/* Near Layer 1 - Fast diagonal */
+.hero-dots-near-1 {
+  background-image: 
+    radial-gradient(2.5px 2.5px at 5% 12%, rgba(255,255,255,0.75) 0%, transparent 100%),
+    radial-gradient(2px 2px at 15% 35%, rgba(220,235,255,0.7) 0%, transparent 100%),
+    radial-gradient(3px 3px at 25% 58%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 35% 82%, rgba(200,220,255,0.72) 0%, transparent 100%),
+    radial-gradient(2.5px 2.5px at 45% 8%, rgba(255,255,255,0.75) 0%, transparent 100%),
+    radial-gradient(2px 2px at 55% 28%, rgba(240,250,255,0.68) 0%, transparent 100%),
+    radial-gradient(3px 3px at 65% 52%, rgba(255,255,255,0.78) 0%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 75% 75%, rgba(255,235,200,0.55) 0%, transparent 100%),
+    radial-gradient(2.5px 2.5px at 85% 95%, rgba(255,255,255,0.72) 0%, transparent 100%),
+    radial-gradient(2px 2px at 95% 18%, rgba(210,228,255,0.7) 0%, transparent 100%);
+  animation: dotsNear1 6s linear infinite;
   will-change: transform;
 }
 
-.hero-orb-5 {
-  animation: orbFloat5 24s ease-in-out infinite, orbScale 8s ease-in-out infinite 1.5s;
+@keyframes dotsNear1 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 25px); }
+}
+
+/* Near Layer 2 - Fast opposite diagonal */
+.hero-dots-near-2 {
+  background-image: 
+    radial-gradient(2px 2px at 8% 22%, rgba(255,255,255,0.72) 0%, transparent 100%),
+    radial-gradient(2.5px 2.5px at 18% 48%, rgba(230,245,255,0.68) 0%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 28% 72%, rgba(255,255,255,0.75) 0%, transparent 100%),
+    radial-gradient(3px 3px at 38% 95%, rgba(200,218,255,0.7) 0%, transparent 100%),
+    radial-gradient(2px 2px at 48% 15%, rgba(255,255,255,0.78) 0%, transparent 100%),
+    radial-gradient(2.5px 2.5px at 58% 38%, rgba(240,252,255,0.72) 0%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 68% 62%, rgba(255,255,255,0.68) 0%, transparent 100%),
+    radial-gradient(3px 3px at 78% 85%, rgba(220,238,255,0.75) 0%, transparent 100%),
+    radial-gradient(2px 2px at 88% 5%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(2.5px 2.5px at 98% 32%, rgba(255,230,195,0.5) 0%, transparent 100%);
+  animation: dotsNear2 7s linear infinite;
   will-change: transform;
 }
 
-@keyframes orbFloat1 {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(15px, -20px); }
-  50% { transform: translate(-10px, -35px); }
-  75% { transform: translate(20px, -15px); }
+@keyframes dotsNear2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-40px, 30px); }
 }
 
-@keyframes orbFloat2 {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(-20px, 15px); }
-  50% { transform: translate(10px, 25px); }
-  75% { transform: translate(-15px, 10px); }
+/* ========== GLOW DOTS (4-6px) - Slow floating ========== */
+
+.hero-glow-1 { animation: glowFloat1 18s ease-in-out infinite; }
+.hero-glow-2 { animation: glowFloat2 22s ease-in-out infinite; }
+.hero-glow-3 { animation: glowFloat3 20s ease-in-out infinite; }
+.hero-glow-4 { animation: glowFloat4 25s ease-in-out infinite; }
+.hero-glow-5 { animation: glowFloat5 19s ease-in-out infinite; }
+.hero-glow-6 { animation: glowFloat6 23s ease-in-out infinite; }
+.hero-glow-7 { animation: glowFloat7 21s ease-in-out infinite; }
+.hero-glow-8 { animation: glowFloat8 24s ease-in-out infinite; }
+
+@keyframes glowFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(12px, -18px) scale(1.05); }
+  50% { transform: translate(-8px, -28px) scale(0.95); }
+  75% { transform: translate(15px, -10px) scale(1.02); }
 }
 
-@keyframes orbFloat3 {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(25px, 10px); }
-  50% { transform: translate(-15px, -20px); }
-  75% { transform: translate(10px, 15px); }
+@keyframes glowFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-15px, 12px) scale(0.98); }
+  50% { transform: translate(10px, 22px) scale(1.04); }
+  75% { transform: translate(-8px, 8px) scale(1); }
 }
 
-@keyframes orbFloat4 {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(-10px, -25px); }
-  50% { transform: translate(20px, -10px); }
-  75% { transform: translate(-5px, 15px); }
+@keyframes glowFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(18px, 8px) scale(1.03); }
+  50% { transform: translate(-12px, -15px) scale(0.97); }
+  75% { transform: translate(8px, 12px) scale(1.01); }
 }
 
-@keyframes orbFloat5 {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(18px, 12px); }
-  50% { transform: translate(-8px, 28px); }
-  75% { transform: translate(12px, -8px); }
+@keyframes glowFloat4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-10px, -20px) scale(1.05); }
+  50% { transform: translate(15px, -8px) scale(0.96); }
+  75% { transform: translate(-5px, 10px) scale(1.02); }
 }
 
-@keyframes orbScale {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+@keyframes glowFloat5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(14px, 15px) scale(0.98); }
+  50% { transform: translate(-10px, 25px) scale(1.04); }
+  75% { transform: translate(8px, -5px) scale(1); }
 }
 
-/* LAYER 7: Space Dust / Haze - Vertical drift bottom → top (120s loop) */
-.hero-space-dust {
-  animation: spaceDustDrift 120s linear infinite;
-  will-change: transform;
+@keyframes glowFloat6 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-18px, -10px) scale(1.03); }
+  50% { transform: translate(12px, -20px) scale(0.97); }
+  75% { transform: translate(-6px, 8px) scale(1.01); }
 }
 
-@keyframes spaceDustDrift {
-  0% { transform: translateY(0%); }
-  100% { transform: translateY(-66.67%); }
+@keyframes glowFloat7 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10px, -15px) scale(1.04); }
+  50% { transform: translate(-15px, -5px) scale(0.98); }
+  75% { transform: translate(5px, 12px) scale(1.02); }
+}
+
+@keyframes glowFloat8 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-12px, 18px) scale(0.97); }
+  50% { transform: translate(8px, 28px) scale(1.03); }
+  75% { transform: translate(-5px, 10px) scale(1); }
+}
+
+/* Mars Glow - Subtle breathing */
+.hero-mars-glow {
+  animation: marsGlowPulse 15s ease-in-out infinite;
+}
+
+@keyframes marsGlowPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
 }
 
 /* ===== END HOME PAGE HERO SECTION ===== */
