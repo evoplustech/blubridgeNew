@@ -392,41 +392,30 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Section 1 (ODD) - Warm Desert Theme with Geometric Parallelograms */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* LAYER 1: Warm Desert Gradient Background */}
+      {/* Hero Section - Section 1 (ODD) - Dark Space Theme with Parallelograms & Neural Network */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section">
+        {/* LAYER 0: Dark Space Background (KEEP AS-IS - DO NOT MODIFY) */}
         <div 
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse 120% 100% at 20% 20%, rgba(235, 220, 195, 0.95) 0%, transparent 50%),
-              radial-gradient(ellipse 100% 80% at 80% 80%, rgba(180, 140, 100, 0.4) 0%, transparent 60%),
-              linear-gradient(135deg, #e8dcc8 0%, #d4c4a8 20%, #c9b08a 40%, #bfa070 60%, #b89860 80%, #a88855 100%)
+              radial-gradient(ellipse 85% 85% at 15% 95%, rgba(30, 25, 70, 0.95) 0%, transparent 55%),
+              radial-gradient(ellipse 75% 70% at 50% 50%, rgba(60, 45, 100, 0.65) 0%, transparent 60%),
+              radial-gradient(ellipse 55% 45% at 88% 12%, rgba(180, 100, 55, 0.4) 0%, transparent 50%),
+              linear-gradient(140deg, #0f0d1a 0%, #1a1535 25%, #251850 45%, #2a1a48 65%, #1f1530 85%, #12101d 100%)
             `
           }}
         />
         
-        {/* LAYER 2: Soft Atmospheric Haze */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: `
-              radial-gradient(ellipse 80% 60% at 30% 30%, rgba(255, 250, 240, 0.4) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 50% at 70% 60%, rgba(210, 180, 140, 0.25) 0%, transparent 45%)
-            `
-          }}
-        />
+        {/* LAYER 1: Neural Network Canvas (Interactive) */}
+        <canvas id="neural-network-canvas" className="absolute inset-0 w-full h-full pointer-events-auto" style={{ zIndex: 20 }} />
         
-        {/* LAYER 3: Subtle Grain/Noise Texture Overlay */}
-        <div className="absolute inset-0 hero-grain-texture" />
-        
-        {/* LAYER 4: FAR DEPTH Parallelograms (Background - Slowest, Blurred) */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* LAYER 2: FAR DEPTH Parallelograms (Background - Blurred, Low Opacity) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 5 }}>
           <div className="hero-para-far-1 absolute" style={{
             right: '5%', top: '15%',
             width: '200px', height: '120px',
             border: '1.5px solid rgba(201, 160, 107, 0.3)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
             transform: 'perspective(500px) rotateY(-25deg) rotateZ(8deg)',
             filter: 'blur(1.5px)'
           }} />
@@ -434,7 +423,6 @@ const Home = () => {
             right: '-5%', top: '55%',
             width: '180px', height: '110px',
             border: '1.5px solid rgba(201, 160, 107, 0.28)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.02) 0%, transparent 100%)',
             transform: 'perspective(500px) rotateY(30deg) rotateZ(-5deg)',
             filter: 'blur(1px)'
           }} />
@@ -442,80 +430,71 @@ const Home = () => {
             right: '25%', top: '-8%',
             width: '220px', height: '130px',
             border: '1.5px solid rgba(201, 160, 107, 0.25)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.02) 0%, transparent 100%)',
             transform: 'perspective(500px) rotateY(-35deg) rotateZ(12deg)',
             filter: 'blur(2px)'
           }} />
         </div>
         
-        {/* LAYER 5: MID DEPTH Parallelograms (Medium Speed, Sharp) */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* LAYER 3: MID DEPTH Parallelograms (Medium Opacity) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 10 }}>
           <div className="hero-para-mid-1 absolute" style={{
             right: '15%', top: '25%',
             width: '400px', height: '250px',
-            border: '1.5px solid rgba(201, 160, 107, 0.5)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            border: '1.5px solid rgba(212, 165, 116, 0.5)',
             transform: 'perspective(600px) rotateY(-30deg) rotateZ(6deg)',
             boxShadow: '0 0 20px rgba(201, 160, 107, 0.1)'
           }} />
           <div className="hero-para-mid-2 absolute" style={{
             right: '-10%', top: '35%',
             width: '350px', height: '220px',
-            border: '1.5px solid rgba(201, 160, 107, 0.45)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
+            border: '1.5px solid rgba(212, 165, 116, 0.45)',
             transform: 'perspective(600px) rotateY(25deg) rotateZ(-8deg)',
             boxShadow: '0 0 15px rgba(201, 160, 107, 0.08)'
           }} />
           <div className="hero-para-mid-3 absolute" style={{
             right: '30%', top: '60%',
             width: '320px', height: '200px',
-            border: '1.5px solid rgba(201, 160, 107, 0.4)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
+            border: '1.5px solid rgba(212, 165, 116, 0.4)',
             transform: 'perspective(600px) rotateY(-20deg) rotateZ(10deg)'
           }} />
           <div className="hero-para-mid-4 absolute" style={{
             right: '5%', top: '75%',
             width: '380px', height: '240px',
-            border: '1.5px solid rgba(201, 160, 107, 0.42)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            border: '1.5px solid rgba(212, 165, 116, 0.42)',
             transform: 'perspective(600px) rotateY(35deg) rotateZ(-4deg)'
           }} />
         </div>
         
-        {/* LAYER 6: NEAR DEPTH Parallelograms (Foreground - Fastest, Largest) */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* LAYER 4: NEAR DEPTH Parallelograms (Foreground - High Opacity) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 30 }}>
           <div className="hero-para-near-1 absolute" style={{
             right: '8%', top: '10%',
             width: '650px', height: '400px',
-            border: '2px solid rgba(201, 160, 107, 0.65)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, transparent 100%)',
+            border: '2px solid rgba(212, 165, 116, 0.65)',
             transform: 'perspective(800px) rotateY(-28deg) rotateZ(5deg)',
-            boxShadow: '0 0 30px rgba(201, 160, 107, 0.12)'
+            boxShadow: '0 0 30px rgba(201, 160, 107, 0.15)'
           }} />
           <div className="hero-para-near-2 absolute" style={{
             right: '-15%', top: '45%',
             width: '550px', height: '350px',
-            border: '2px solid rgba(201, 160, 107, 0.6)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            border: '2px solid rgba(212, 165, 116, 0.6)',
             transform: 'perspective(800px) rotateY(32deg) rotateZ(-7deg)',
-            boxShadow: '0 0 25px rgba(201, 160, 107, 0.1)'
+            boxShadow: '0 0 25px rgba(201, 160, 107, 0.12)'
           }} />
           <div className="hero-para-near-3 absolute" style={{
             right: '20%', top: '70%',
             width: '500px', height: '320px',
-            border: '2px solid rgba(201, 160, 107, 0.55)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.04) 0%, transparent 100%)',
+            border: '2px solid rgba(212, 165, 116, 0.55)',
             transform: 'perspective(800px) rotateY(-22deg) rotateZ(9deg)'
           }} />
         </div>
         
-        {/* LAYER 7: Additional Accent Parallelograms */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* LAYER 5: Accent Parallelograms */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 8 }}>
           <div className="hero-para-accent-1 absolute" style={{
             right: '45%', top: '5%',
             width: '280px', height: '170px',
             border: '1.5px solid rgba(201, 160, 107, 0.35)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.03) 0%, transparent 100%)',
             transform: 'perspective(550px) rotateY(28deg) rotateZ(-10deg)',
             filter: 'blur(0.5px)'
           }} />
@@ -523,35 +502,26 @@ const Home = () => {
             right: '55%', top: '80%',
             width: '250px', height: '150px',
             border: '1.5px solid rgba(201, 160, 107, 0.32)',
-            background: 'linear-gradient(135deg, rgba(212, 165, 116, 0.02) 0%, transparent 100%)',
             transform: 'perspective(550px) rotateY(-32deg) rotateZ(6deg)',
             filter: 'blur(1px)'
           }} />
         </div>
         
-        {/* LAYER 8: Text Contrast Overlay (Left side darkening for readability) */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(100deg, rgba(60, 50, 40, 0.25) 0%, rgba(60, 50, 40, 0.1) 30%, transparent 50%)'
-          }}
-        />
-        
-        {/* LAYER 9: Content Layer (100% STATIC) */}
-        <div className="container-custom relative z-10 py-24">
+        {/* LAYER 6: Content (100% STATIC - Always on top) */}
+        <div className="container-custom relative py-24" style={{ zIndex: 100 }}>
           <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#2a2520] drop-shadow-sm">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white drop-shadow-lg">
               Beyond the Horizon<br></br>
             </h1>
-            <p className="text-[#3d3530] text-lg font-light leading-relaxed max-w-md">A complete, scalable, and sustainable AI platform.</p>
+            <p className="text-white/90 text-lg font-light leading-relaxed max-w-md drop-shadow-md">A complete, scalable, and sustainable AI platform.</p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact">
-                <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-8 py-3 rounded font-medium text-base">
+                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
                 </Button>
               </Link>
-              <Link to="/contact" className="flex items-center gap-2 text-[#2a2520] hover:text-[#5a4a40] transition-colors font-medium">
+              <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium drop-shadow-md">
                 Start Building <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
