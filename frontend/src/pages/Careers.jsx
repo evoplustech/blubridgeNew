@@ -15,7 +15,7 @@ const Careers = () => {
 
   return (
     <div style={{ 
-      backgroundColor: '#FAFAF7', 
+      backgroundColor: '#fffdf7', 
       minHeight: '100vh', 
       paddingTop: '50px', 
       paddingBottom: '70px' 
