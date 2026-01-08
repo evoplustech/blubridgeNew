@@ -392,98 +392,81 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Section 1 (ODD) - Animated Space Background */}
+      {/* Hero Section - Section 1 (ODD) - Layered Space Animation from Reference Image */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* BASE: Deep Space Gradient - Medium-dark navy/indigo */}
+        {/* LAYER 1: Far Background Star Field - Almost static, extremely slow drift */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-[-10%] w-[120%] h-[120%] hero-layer-1-stars"
           style={{
-            background: 'linear-gradient(135deg, #1e2344 0%, #282e52 25%, #232848 50%, #2d3358 75%, #1e2344 100%)'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_054c6154-c997-42dd-917f-5077fa81e0aa/artifacts/yoxdrgs1_Space.png)',
+            backgroundSize: '130% 130%',
+            backgroundPosition: 'center center',
+            filter: 'brightness(0.6) contrast(0.9)',
+            opacity: 0.5
           }}
         />
         
-        {/* LAYER 1: Background Stars - Slow drift */}
-        <div className="absolute inset-0 hero-stars-back" />
-        
-        {/* LAYER 2: Deep Cloud Layer - Slowest parallax */}
-        <div className="absolute inset-0 hero-cloud-deep">
-          <div className="absolute inset-[-60%] w-[220%] h-[220%] hero-cloud-deep-inner" style={{
-            background: `
-              radial-gradient(ellipse 90% 70% at 15% 35%, rgba(110, 115, 160, 0.45) 0%, transparent 55%),
-              radial-gradient(ellipse 80% 60% at 85% 65%, rgba(90, 100, 150, 0.4) 0%, transparent 50%),
-              radial-gradient(ellipse 100% 80% at 55% 15%, rgba(100, 108, 155, 0.35) 0%, transparent 60%)
-            `
-          }} />
-        </div>
-        
-        {/* LAYER 3: Mid Cloud Layer - Medium parallax with Mars dust */}
-        <div className="absolute inset-0 hero-cloud-mid">
-          <div className="absolute inset-[-40%] w-[180%] h-[180%] hero-cloud-mid-inner" style={{
-            background: `
-              radial-gradient(ellipse 70% 55% at 75% 45%, rgba(155, 105, 85, 0.38) 0%, transparent 55%),
-              radial-gradient(ellipse 65% 55% at 20% 55%, rgba(135, 115, 160, 0.42) 0%, transparent 50%),
-              radial-gradient(ellipse 80% 60% at 45% 85%, rgba(115, 100, 140, 0.35) 0%, transparent 55%),
-              radial-gradient(ellipse 60% 50% at 90% 20%, rgba(160, 115, 95, 0.32) 0%, transparent 50%)
-            `
-          }} />
-        </div>
-        
-        {/* LAYER 4: Foreground Cloud Layer - Fastest parallax */}
-        <div className="absolute inset-0 hero-cloud-front">
-          <div className="absolute inset-[-25%] w-[150%] h-[150%] hero-cloud-front-inner" style={{
-            background: `
-              radial-gradient(ellipse 55% 45% at 10% 50%, rgba(175, 125, 100, 0.35) 0%, transparent 55%),
-              radial-gradient(ellipse 60% 50% at 80% 50%, rgba(145, 135, 175, 0.38) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 40% at 40% 25%, rgba(130, 110, 150, 0.3) 0%, transparent 45%)
-            `
-          }} />
-        </div>
-        
-        {/* LAYER 5: Volumetric Nebula Wisps - Visible horizontal drift */}
-        <div className="absolute inset-0 hero-nebula-wisps">
-          <div className="absolute inset-[-50%] w-[200%] h-[200%] hero-nebula-inner" style={{
-            background: `
-              radial-gradient(ellipse 120% 50% at 25% 55%, rgba(135, 105, 160, 0.3) 0%, transparent 65%),
-              radial-gradient(ellipse 100% 45% at 75% 40%, rgba(160, 110, 95, 0.28) 0%, transparent 60%)
-            `
-          }} />
-        </div>
-        
-        {/* LAYER 6: Mars Dust Accents - Warm tones with diagonal drift */}
-        <div className="absolute inset-0 hero-mars-accent">
-          <div className="absolute inset-[-30%] w-[160%] h-[160%] hero-mars-inner" style={{
-            background: `
-              radial-gradient(ellipse 60% 45% at 70% 70%, rgba(195, 135, 95, 0.28) 0%, transparent 55%),
-              radial-gradient(ellipse 55% 40% at 15% 80%, rgba(180, 120, 85, 0.25) 0%, transparent 50%),
-              radial-gradient(ellipse 65% 50% at 85% 25%, rgba(165, 110, 80, 0.22) 0%, transparent 55%)
-            `
-          }} />
-        </div>
-        
-        {/* LAYER 7: Foreground Stars - Subtle drift */}
-        <div className="absolute inset-0 hero-stars-front" />
-        
-        {/* LAYER 8: Lavender/Blue Haze Glow */}
-        <div className="absolute inset-0 hero-haze-glow" style={{
-          background: `
-            radial-gradient(ellipse 70% 50% at 50% 50%, rgba(160, 145, 195, 0.18) 0%, transparent 65%),
-            radial-gradient(ellipse 60% 45% at 25% 35%, rgba(115, 135, 195, 0.15) 0%, transparent 55%)
-          `
-        }} />
-        
-        {/* LAYER 9: Text Readability - Left-center darkening */}
+        {/* LAYER 2: Mid-Depth Star Clusters - Slow lateral drift */}
         <div 
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-[-8%] w-[116%] h-[116%] hero-layer-2-clusters"
           style={{
-            background: 'linear-gradient(100deg, rgba(30, 35, 68, 0.5) 0%, rgba(30, 35, 68, 0.3) 35%, transparent 65%)'
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_054c6154-c997-42dd-917f-5077fa81e0aa/artifacts/yoxdrgs1_Space.png)',
+            backgroundSize: '115% 115%',
+            backgroundPosition: 'center center',
+            filter: 'brightness(0.75) contrast(1.05)',
+            opacity: 0.65
           }}
         />
         
-        {/* LAYER 10: Soft Vignette */}
+        {/* LAYER 3: Milky Way Dust Cloud (PRIMARY) - Main visual, slow diagonal motion */}
+        <div 
+          className="absolute inset-[-5%] w-[110%] h-[110%] hero-layer-3-milkyway"
+          style={{
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_054c6154-c997-42dd-917f-5077fa81e0aa/artifacts/yoxdrgs1_Space.png)',
+            backgroundSize: '105% 105%',
+            backgroundPosition: 'center center',
+            filter: 'brightness(0.9) contrast(1.1)',
+            opacity: 0.85
+          }}
+        />
+        
+        {/* LAYER 4: Soft Nebula Haze - Warm golden tint, slow organic flow */}
+        <div 
+          className="absolute inset-[-3%] w-[106%] h-[106%] hero-layer-4-nebula"
+          style={{
+            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_054c6154-c997-42dd-917f-5077fa81e0aa/artifacts/yoxdrgs1_Space.png)',
+            backgroundSize: '108% 108%',
+            backgroundPosition: 'center center',
+            filter: 'brightness(1.05) contrast(1.15) saturate(1.1)',
+            opacity: 0.35,
+            mixBlendMode: 'screen'
+          }}
+        />
+        
+        {/* LAYER 5: Micro Particle Grain - Tiny dust particles, random movement */}
+        <div className="absolute inset-0 hero-layer-5-particles" />
+        
+        {/* Warm Golden Color Overlay - Enhances the golden-brown space tone */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 130% 110% at 50% 50%, transparent 45%, rgba(30, 35, 68, 0.3) 100%)'
+            background: 'radial-gradient(ellipse 150% 100% at 50% 50%, rgba(180, 150, 100, 0.08) 0%, transparent 70%)'
+          }}
+        />
+        
+        {/* Text Readability - Left-center subtle darkening */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(100deg, rgba(20, 15, 10, 0.45) 0%, rgba(20, 15, 10, 0.2) 35%, transparent 60%)'
+          }}
+        />
+        
+        {/* Soft Vignette - Maintains depth */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 130% 110% at 50% 50%, transparent 50%, rgba(15, 10, 5, 0.25) 100%)'
           }}
         />
         
