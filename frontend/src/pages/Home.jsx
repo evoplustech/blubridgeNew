@@ -84,6 +84,7 @@ const TestimonialsCarousel = () => {
   }, [emblaApi, onSelect]);
 
   return (
+    
     <section className="py-20 overflow-hidden bg-[#fffdf7]">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-16">
@@ -91,7 +92,7 @@ const TestimonialsCarousel = () => {
         </h2>
         
         <div className="relative">
-          {/* Navigation Arrows */}
+        
           <button 
             onClick={scrollPrev}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
@@ -108,7 +109,7 @@ const TestimonialsCarousel = () => {
             <ChevronRight className="w-8 h-8" />
           </button>
 
-          {/* Carousel Container */}
+        
           <div className="overflow-hidden mx-12" ref={emblaRef}>
             <div className="flex">
               {clientTestimonials.map((testimonial, index) => (
@@ -121,7 +122,7 @@ const TestimonialsCarousel = () => {
                       selectedIndex === index ? 'scale-100 opacity-100' : 'scale-95 opacity-60'
                     }`}
                   >
-                    {/* Header with Avatar and Clutch Badge */}
+                  
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex items-center gap-4">
                         <img 
@@ -135,7 +136,7 @@ const TestimonialsCarousel = () => {
                         </div>
                       </div>
                       
-                      {/* Clutch Badge */}
+                    
                       <div className="text-right flex-shrink-0">
                         <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Reviewed on</p>
                         <p className="font-bold text-[#0B1F3B] text-xl tracking-tight" style={{ fontFamily: 'serif' }}>Clutch</p>
@@ -147,12 +148,12 @@ const TestimonialsCarousel = () => {
                       </div>
                     </div>
                     
-                    {/* Testimonial Text */}
+                   
                     <p className="text-gray-600 leading-relaxed text-[15px]">
                       {testimonial.text}
                     </p>
                     
-                    {/* Quote Mark */}
+                    
                     <div className="flex justify-end mt-6">
                       <span className="text-6xl text-gray-200 font-serif leading-none">"</span>
                     </div>
@@ -162,7 +163,7 @@ const TestimonialsCarousel = () => {
             </div>
           </div>
 
-          {/* Pagination Dots */}
+          
           <div className="flex justify-center gap-2 mt-10">
             {scrollSnaps.map((_, index) => (
               <button
@@ -840,8 +841,8 @@ const Home = () => {
       </section>
 
       {/* BluBridge Infrastructure Section - Section 4 (EVEN) */}
-      <section className="py-20 relative overflow-hidden bg-[#f3f1e9]">
-        {/* Background Image */}
+      {/* <section className="py-20 relative overflow-hidden bg-[#f3f1e9]">
+       
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -852,14 +853,14 @@ const Home = () => {
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols gap-12">
-            {/* Left - Text and Tabs */}
+           
             <div>
               <h2 className="text-4xl font-light mb-6 text-[#0B1F3B]">BluBridge's Infrastructure</h2>
               <p className="text-[#243447] mb-8 leading-relaxed">
                 BluBridge manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
               </p>
               
-              {/* Tab Buttons */}
+            
               <div className="flex flex-wrap gap-2 mb-8">
                 {infraTabs.map((tab, index) => (
                   <button
@@ -876,7 +877,7 @@ const Home = () => {
                 ))}
               </div>
               
-              {/* Active Tab Content */}
+           
               <div className="bg-white rounded-xl p-6 border border-[#D6DEC3] shadow-sm">
                 <h3 className="text-xl font-medium mb-3 text-[#0B1F3B]">{infraTabs[activeInfraTab].title}</h3>
                 <p className="text-[#243447] mb-4 text-sm leading-relaxed">{infraTabs[activeInfraTab].description}</p>
@@ -894,11 +895,11 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Right - Empty for background image */}
+            
             <div />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* New Testimonials Carousel Section */}
       <TestimonialsCarousel />
