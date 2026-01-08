@@ -277,12 +277,12 @@ code {
     radial-gradient(1.5px 1.5px at 75% 15%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
     radial-gradient(1px 1px at 85% 55%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
     radial-gradient(1px 1px at 95% 85%, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
-  animation: starsBackDrift 80s linear infinite;
+  animation: starsBackDrift 45s linear infinite;
 }
 
 @keyframes starsBackDrift {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(-30px, 15px); }
+  100% { transform: translate(-60px, 30px); }
 }
 
 /* Foreground Stars - Slightly faster drift */
@@ -293,106 +293,106 @@ code {
     radial-gradient(1.5px 1.5px at 50% 20%, rgba(255, 255, 255, 0.65) 0%, transparent 100%),
     radial-gradient(1.5px 1.5px at 70% 80%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
     radial-gradient(2px 2px at 90% 40%, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
-  animation: starsFrontDrift 60s linear infinite;
+  animation: starsFrontDrift 35s linear infinite;
 }
 
 @keyframes starsFrontDrift {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(-50px, 25px); }
+  100% { transform: translate(-100px, 50px); }
 }
 
-/* Deep Cloud Layer - Slowest parallax (25s cycle - visible motion) */
+/* Deep Cloud Layer - Slowest parallax (20s cycle - clearly visible) */
 .hero-cloud-deep {
   overflow: hidden;
 }
 
 .hero-cloud-deep-inner {
-  animation: cloudDeepDrift 25s ease-in-out infinite;
+  animation: cloudDeepDrift 20s ease-in-out infinite;
 }
 
 @keyframes cloudDeepDrift {
   0% { transform: translate(0%, 0%); }
-  25% { transform: translate(2%, -1%); }
-  50% { transform: translate(4%, 0%); }
-  75% { transform: translate(2%, 1%); }
+  25% { transform: translate(3%, -1.5%); }
+  50% { transform: translate(6%, 0%); }
+  75% { transform: translate(3%, 1.5%); }
   100% { transform: translate(0%, 0%); }
 }
 
-/* Mid Cloud Layer - Medium parallax (18s cycle - clearly visible) */
+/* Mid Cloud Layer - Medium parallax (14s cycle - very visible) */
 .hero-cloud-mid {
   overflow: hidden;
 }
 
 .hero-cloud-mid-inner {
-  animation: cloudMidDrift 18s ease-in-out infinite;
+  animation: cloudMidDrift 14s ease-in-out infinite;
 }
 
 @keyframes cloudMidDrift {
   0% { transform: translate(0%, 0%); }
-  25% { transform: translate(3%, -1.5%); }
-  50% { transform: translate(6%, 0.5%); }
-  75% { transform: translate(3%, 1%); }
+  25% { transform: translate(5%, -2%); }
+  50% { transform: translate(10%, 1%); }
+  75% { transform: translate(5%, 2%); }
   100% { transform: translate(0%, 0%); }
 }
 
-/* Foreground Cloud Layer - Fastest parallax (12s cycle - most visible) */
+/* Foreground Cloud Layer - Fastest parallax (8s cycle - most visible) */
 .hero-cloud-front {
   overflow: hidden;
 }
 
 .hero-cloud-front-inner {
-  animation: cloudFrontDrift 12s ease-in-out infinite;
+  animation: cloudFrontDrift 8s ease-in-out infinite;
 }
 
 @keyframes cloudFrontDrift {
   0% { transform: translate(0%, 0%); }
-  25% { transform: translate(4%, -2%); }
-  50% { transform: translate(8%, 0%); }
-  75% { transform: translate(4%, 2%); }
+  25% { transform: translate(6%, -3%); }
+  50% { transform: translate(12%, 0%); }
+  75% { transform: translate(6%, 3%); }
   100% { transform: translate(0%, 0%); }
 }
 
-/* Nebula Wisps - Horizontal drift with diagonal (15s cycle) */
+/* Nebula Wisps - Horizontal drift with diagonal (10s cycle) */
 .hero-nebula-wisps {
   overflow: hidden;
 }
 
 .hero-nebula-inner {
-  animation: nebulaWispDrift 15s ease-in-out infinite;
+  animation: nebulaWispDrift 10s ease-in-out infinite;
 }
 
 @keyframes nebulaWispDrift {
   0% { transform: translate(0%, 0%) scale(1); }
-  33% { transform: translate(5%, -2%) scale(1.02); }
-  66% { transform: translate(3%, 1%) scale(0.98); }
+  33% { transform: translate(8%, -3%) scale(1.03); }
+  66% { transform: translate(4%, 2%) scale(0.97); }
   100% { transform: translate(0%, 0%) scale(1); }
 }
 
-/* Mars Dust Accents - Diagonal drift with subtle pulse (20s cycle) */
+/* Mars Dust Accents - Diagonal drift with subtle pulse (12s cycle) */
 .hero-mars-accent {
   overflow: hidden;
 }
 
 .hero-mars-inner {
-  animation: marsDustDrift 20s ease-in-out infinite;
+  animation: marsDustDrift 12s ease-in-out infinite;
 }
 
 @keyframes marsDustDrift {
   0% { transform: translate(0%, 0%); opacity: 1; }
-  25% { transform: translate(3%, -2%); opacity: 0.9; }
-  50% { transform: translate(5%, 1%); opacity: 1.05; }
-  75% { transform: translate(2%, 2%); opacity: 0.95; }
+  25% { transform: translate(5%, -3%); opacity: 0.85; }
+  50% { transform: translate(8%, 1%); opacity: 1.1; }
+  75% { transform: translate(3%, 3%); opacity: 0.9; }
   100% { transform: translate(0%, 0%); opacity: 1; }
 }
 
-/* Haze Glow - Gentle breathing (10s cycle) */
+/* Haze Glow - Gentle breathing (6s cycle - noticeable pulse) */
 .hero-haze-glow {
-  animation: hazeGlowPulse 10s ease-in-out infinite;
+  animation: hazeGlowPulse 6s ease-in-out infinite;
 }
 
 @keyframes hazeGlowPulse {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.03); }
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
 /* ===== END HOME PAGE HERO SECTION ===== */
