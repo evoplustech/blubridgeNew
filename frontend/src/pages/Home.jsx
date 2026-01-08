@@ -830,7 +830,7 @@ const Home = () => {
                 className="bg-white rounded-xl p-6 border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#f3f1e9] flex items-center justify-center mb-4">
-                  <span className="text-2xl">{card.icon}</span>
+                  <card.Icon className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3">{card.title}</h3>
                 <p className="text-[#243447] text-sm leading-relaxed">{card.description}</p>
