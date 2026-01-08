@@ -392,19 +392,71 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Section 1 (ODD) */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#fffdf7]">
-        {/* Hero Banner Background Image */}
+      {/* Hero Section - Section 1 (ODD) - Cinematic Space Background */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Layer 1: Deep Space Base - Static starfield */}
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_d99298b3-5fa2-42c3-ba95-0306b7ad01f2/artifacts/qwyrgfjz_Home-Banne.png)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=85)',
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        
+        {/* Layer 2: Cosmic Dust Cloud - Slow drift animation */}
+        <div 
+          className="absolute inset-0 hero-cosmic-dust"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1711560705847-689f9c29bceb?w=1920&q=80)',
+            backgroundSize: '120% 120%',
+            backgroundPosition: 'center center',
+            opacity: 0.4
+          }}
+        />
+        
+        {/* Layer 3: Mars Dust Particles - Subtle warm tones */}
+        <div 
+          className="absolute inset-0 hero-mars-dust"
+          style={{
+            background: 'radial-gradient(ellipse at 70% 60%, rgba(180, 100, 60, 0.12) 0%, transparent 50%), radial-gradient(ellipse at 30% 80%, rgba(139, 69, 19, 0.08) 0%, transparent 45%)'
+          }}
+        />
+        
+        {/* Layer 4: Deep Space Color Gradient Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.7) 25%, rgba(15, 23, 42, 0.6) 50%, rgba(30, 41, 59, 0.75) 75%, rgba(15, 23, 42, 0.85) 100%)'
+          }}
+        />
+        
+        {/* Layer 5: Animated Star Particles */}
+        <div className="absolute inset-0 hero-star-field" />
+        
+        {/* Layer 6: Atmospheric Haze - Mars-inspired */}
+        <div 
+          className="absolute inset-0 hero-atmospheric-haze"
+          style={{
+            background: 'radial-gradient(ellipse at 80% 20%, rgba(180, 83, 9, 0.06) 0%, transparent 40%), radial-gradient(ellipse at 20% 70%, rgba(59, 130, 246, 0.04) 0%, transparent 50%)'
+          }}
+        />
+        
+        {/* Layer 7: Vignette for depth */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse at center, transparent 30%, rgba(15, 23, 42, 0.5) 100%)'
+          }}
+        />
+        
+        {/* Layer 8: Left side darkening for text readability */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.3) 40%, transparent 70%)'
+          }}
+        />
         
         <div className="container-custom relative z-10 py-24">
           <div className="max-w-2xl space-y-6">
