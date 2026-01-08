@@ -294,7 +294,7 @@ const Home = () => {
     },
     {
       date: "15 May, 2025",
-      title: "BluBridge Named NVIDIA Preferred Partner for AI Cloud Infrastructure",
+      title: "BluBridge Named NVIDIA Inception Partner for AI Cloud Infrastructure",
       image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&q=80"
     }
   ];
