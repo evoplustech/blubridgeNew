@@ -263,8 +263,17 @@ code {
 .dummy-orange .dummy-dot { background: #f4a000; }
 
 /* Research Team Bubble Styles */
-.atom--research .atom-anchor {
+.atom--research {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
   transform: rotate(var(--angle)) translateX(var(--radius));
+}
+
+.atom--research .atom-anchor {
+  transform: translate(-50%, -50%);
+  transform-origin: center;
 }
 
 .atom-content-research {
