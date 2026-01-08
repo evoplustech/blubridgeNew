@@ -17,6 +17,33 @@ code {
     monospace;
 }
 
+/* Coming Soon - Gold Gradient Text with Left-to-Right Animation */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.coming-soon-text {
+  background: linear-gradient(
+    90deg,
+    #b8956e 0%,
+    #d4a574 25%,
+    #c9a267 50%,
+    #d4a574 75%,
+    #b8956e 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s linear infinite;
+  letter-spacing: 0.02em;
+}
+
 @keyframes orbitRotateCCW {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
