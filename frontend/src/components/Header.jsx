@@ -2,22 +2,31 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory } from 'lucide-react';
 
-// Animated Letter Component for "Coming Soon" text
+// Animated Letter Component for "Coming Soon" text with shimmer effect
 const AnimatedText = ({ text, isVisible }) => {
   const letters = text.split('');
   
   return (
-    <span className="inline-flex">
+    <span className="inline-flex shimmer-text-container">
       {letters.map((letter, index) => (
         <span
           key={index}
+          className="shimmer-letter"
           style={{
             display: 'inline-block',
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
             transition: `opacity 280ms cubic-bezier(0.4, 0, 0.2, 1), transform 280ms cubic-bezier(0.4, 0, 0.2, 1)`,
             transitionDelay: isVisible ? `${index * 30}ms` : '0ms',
-            minWidth: letter === ' ' ? '0.3em' : 'auto'
+            minWidth: letter === ' ' ? '0.3em' : 'auto',
+            color: '#c9a57e',
+            background: 'linear-gradient(90deg, #c9a57e 0%, #e8d4b8 25%, #fff8e7 50%, #e8d4b8 75%, #c9a57e 100%)',
+            backgroundSize: '200% 100%',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            animation: isVisible ? 'shimmer 2.5s ease-in-out infinite' : 'none',
+            animationDelay: `${index * 50}ms`
           }}
         >
           {letter}
