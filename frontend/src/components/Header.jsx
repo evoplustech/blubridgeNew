@@ -247,12 +247,10 @@ const Header = () => {
             {/* Solutions Dropdown */}
             <div 
               className="relative"
-              ref={activeDropdown === 'solutions' ? dropdownRef : null}
+              onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
+              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
             >
-              <button 
-                onClick={() => toggleDropdown('solutions')}
-                className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors"
-              >
+              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
                 <span>Solutions</span>
                 <ChevronDown 
                   className="w-4 h-4 transition-transform duration-250" 
