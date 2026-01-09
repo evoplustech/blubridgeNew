@@ -199,7 +199,7 @@ const AIExpertiseOrbit = () => {
 
     // MIDDLE ring: Distributed Training, CGAD, Compiler
     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 315, Icon: Network, label: 'Distributed Training' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 135, Icon: Scale, label: 'CGAD' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 135, Icon: GitBranch, label: 'CGAD' },
     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 210, Icon: Terminal, label: 'Compiler' },
     { ring: 2, type: 'dummy', angle: 45, dummyClass: 'dummy-orange' },
 
