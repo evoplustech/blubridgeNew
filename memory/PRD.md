@@ -25,6 +25,13 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 ## What's Been Implemented
 
 ### January 9, 2025
+- **Homepage "Who We Are?" & "What We Aim to Do?" Interactive Section**: Transformed static cards into interactive collapsible accordion
+  - Both content containers hidden by default, only titles visible initially
+  - Clickable titles with hover effects (blue color change, animated underline reveal)
+  - Smooth 400ms slide-down + fade-in animation on expand
+  - Only one card open at a time
+  - Rotating chevron icons as visual indicators
+
 - **Careers Page FAQ Transformation**: Converted static FAQ section into professional accordion format
   - 7 FAQ items (a-g) with smooth expand/collapse animation (300ms)
   - Only one item opens at a time
