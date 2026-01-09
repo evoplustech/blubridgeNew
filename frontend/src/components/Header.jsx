@@ -249,75 +249,54 @@ const Header = () => {
             {/* Solutions Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setActiveDropdown('solutions')}
-              onMouseLeave={() => setActiveDropdown(null)}
+              ref={activeDropdown === 'solutions' ? dropdownRef : null}
             >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+              <button 
+                onClick={() => toggleDropdown('solutions')}
+                className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors"
+              >
                 <span>Solutions</span>
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown 
+                  className="w-4 h-4 transition-transform duration-250" 
+                  style={{ transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                />
               </button>
               
               {activeDropdown === 'solutions' && (
                 <div 
-                  className="fixed pt-4" 
-                  style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '80px', zIndex: 1000 }}
+                  className="absolute pt-3" 
+                  style={{ 
+                    width: '500px', 
+                    left: '50%', 
+                    transform: 'translateX(-50%)', 
+                    top: '100%', 
+                    zIndex: 1000 
+                  }}
                 >
                   <div 
-                    className="shadow-xl overflow-hidden bg-white rounded-lg border border-[#D6DEC3] relative"
+                    className="bg-white rounded-xl shadow-lg border border-[#e8e6de] relative overflow-hidden"
                     style={{ 
-                      padding: '20px 28px 30px 28px',
-                      height: '322px'
+                      height: '200px',
+                      opacity: dropdownVisible ? 1 : 0,
+                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
+                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
-                    {/* Coming Soon Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center z-10">
-                      <span className="coming-soon-text text-3xl font-semibold">Coming Soon</span>
+                    {/* Coming Soon Text - Centered */}
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center"
+                      style={{
+                        opacity: dropdownVisible ? 1 : 0,
+                        transform: dropdownVisible ? 'translateY(0)' : 'translateY(8px)',
+                        transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 80ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 80ms'
+                      }}
+                    >
+                      <span className="coming-soon-text text-2xl font-medium">Coming Soon</span>
                     </div>
-                    {/* Hidden original content */}
-                    <div className="flex gap-10 invisible">
-                      <div style={{ flex: '0 0 430px' }}>
-                        <h3 className="text-[#0B1F3B] font-medium mb-6 text-base">By Use Case</h3>
-                        <div className="grid grid-cols-2 gap-4">
-                          {solutions.useCase.map((item, i) => {
-                            return (
-                              <Link
-                                key={i}
-                                to={item.link}
-                                className="relative block overflow-hidden rounded-xl group cursor-pointer transition-transform duration-150 hover:translate-y-[-1px]"
-                                style={{ 
-                                  width: '205px',
-                                  height: '103px',
-                                  background: '#f3f1e9'
-                                }}
-                              >
-                                {/* Model Training */}
-                                {i === 0 && (
-                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/eylbs7nd_Training.avif')` }} />
-                                )}
-                                
-                                {/* AI & ML Inference */}
-                                {i === 1 && (
-                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/wbzmtk9k_INFERENCE.avif')` }} />
-                                )}
-                                
-                                {/* AI Development */}
-                                {i === 2 && (
-                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/eaznhozl_AI%20Development.avif')` }} />
-                                )}
-                                
-                                {/* Model Fine-Tuning */}
-                                {i === 3 && (
-                                  <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/wde7a5kz_Finetuning.avif')` }} />
-                                )}
-                                
-                                {/* Text label - top left, white, semi-bold */}
-                                <div className="absolute top-4 left-4 z-10">
-                                  <span className="text-white font-semibold text-sm leading-snug drop-shadow-md">
-                                    {item.name}
-                                  </span>
-                                </div>
-                              </Link>
-                            );
+                  </div>
+                </div>
+              )}
+            </div>
                           })}
                         </div>
                       </div>
