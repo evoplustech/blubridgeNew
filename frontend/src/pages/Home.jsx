@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap,Scale,Server,SlidersHorizontal } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useEmblaCarousel from 'embla-carousel-react';
 import NodeConnections2 from './NodeConnections2';
@@ -193,21 +193,23 @@ const AIExpertiseOrbit = () => {
   ];
 
   const atoms = [
-    // INNER ring: Data (9 o'clock position)
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 180, Icon: Database, label: 'Data' },
-    { ring: 1, type: 'dummy', angle: 0, dummyClass: 'dummy-blue' },
+    // INNER ring: 2 features + 1 dummy
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Tokenizer' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Data' },
+    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
-    // MIDDLE ring: Distributed Training, CGAD, Compiler
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 315, Icon: Network, label: 'Distributed Training' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 135, Icon: GitBranch, label: 'CGAD' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 210, Icon: Terminal, label: 'Compiler' },
-    { ring: 2, type: 'dummy', angle: 45, dummyClass: 'dummy-orange' },
+    // MIDDLE ring: 2 features + 1 dummy
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: Layers, label: (<>Tensor & <br />Operations</>)},
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: GitBranch, label: (<>Computational <br />Graph</>)},
+    { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
 
-    // OUTER ring: Tokenizer, Tensor & Operations
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 240, Icon: CheckCircle, label: 'Tokenizer' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Layers, label: 'Tensor & Operations' },
+    // OUTER ring: 4 features + 2 dummies
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Terminal, label:(<>Auto <br />Differentiation</>)},
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Network, label: 'Compiler' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: SlidersHorizontal, label: 'Quantization' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Server, label: (<>Distributed<br />Training</>) },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
-    { ring: 3, type: 'dummy', angle: 120, dummyClass: 'dummy-orange' }
+    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
   ];
 
   return (
@@ -273,6 +275,95 @@ const AIExpertiseOrbit = () => {
     </div>
   );
 };
+
+// const AIExpertiseOrbit = () => {
+//   const rings = [
+//     { key: 1, className: 'orbit-1', radius: '105px' },
+//     { key: 2, className: 'orbit-2', radius: '155px' },
+//     { key: 3, className: 'orbit-3', radius: '212px' }
+//   ];
+
+//   const atoms = [
+//     // INNER ring: Data (9 o'clock position)
+//     { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 180, Icon: Database, label: 'Data' },
+//     { ring: 1, type: 'dummy', angle: 0, dummyClass: 'dummy-blue' },
+
+//     // MIDDLE ring: Distributed Training, CGAD, Compiler
+//     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 315, Icon: Network, label: 'Distributed Training' },
+//     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 135, Icon: GitBranch, label: 'CGAD' },
+//     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 210, Icon: Terminal, label: 'Compiler' },
+//     { ring: 2, type: 'dummy', angle: 45, dummyClass: 'dummy-orange' },
+
+//     // OUTER ring: Tokenizer, Tensor & Operations
+//     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 240, Icon: CheckCircle, label: 'Tokenizer' },
+//     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Layers, label: 'Tensor & Operations' },
+//     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
+//     { ring: 3, type: 'dummy', angle: 120, dummyClass: 'dummy-orange' }
+//   ];
+
+//   return (
+//     <div className="orbit-container relative w-[520px] h-[520px]">
+//       {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
+//       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
+//         <circle className="track" cx="260" cy="260" r="105" />
+//         <circle className="track" cx="260" cy="260" r="155" />
+//         <circle className="track" cx="260" cy="260" r="212" />
+//       </svg>
+
+//       {/* Center badge */}
+//       <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#DBD6C4]">
+//         <span className="text-white text-xs font-medium text-center leading-tight">
+//         <img width="30px" src="/images/b-center.png"/>
+//         </span>
+//       </div>
+
+//       {/* Rings + atoms */}
+//       {rings.map((ring) => (
+//         <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
+//           {atoms
+//             .filter((a) => a.ring === ring.key)
+//             .map((a, idx) => {
+//               const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
+
+//               if (a.type === 'dummy') {
+//                 return (
+//                   <div
+//                     key={idx}
+//                     className={`atom dummy ${a.dummyClass}`}
+//                     style={styleVars}
+//                     aria-hidden="true"
+//                   >
+//                     <div className="atom-anchor">
+//                       <div className="dummy-dot" />
+//                     </div>
+//                   </div>
+//                 );
+//               }
+
+//               const Icon = a.Icon;
+//               return (
+//                 <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
+//                   <div className="atom-anchor">
+//                     <div className="atom-angle-fix">
+//                       {/* This inner node counter-rotates via CSS so labels stay upright */}
+//                       <div className="atom-spin-fix">
+//                         <div className="atom-content">
+//                           <div className="atom-icon">
+//                             <Icon className="atom-icon-svg" strokeWidth={1.5} />
+//                           </div>
+//                           <div className="atom-label">{a.label}</div>
+//                         </div>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
 const Home = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -727,7 +818,7 @@ const Home = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.7)'
+            backgroundColor: 'rgba(0, 0, 0, 0.5)'
           }}
         />
         
@@ -879,9 +970,11 @@ const Home = () => {
                   { icon: Database, title: "Data" },
                   { icon: CheckCircle, title: "Tokenizer" },
                   { icon: Layers, title: "Tensor & Operations" },
-                  { icon: GitBranch, title: "CGAD" },
-                  { icon: Terminal, title: "Compiler" },
-                  { icon: Network, title: "Distributed Training" }
+                  { icon: GitBranch, title: "Computational Graph" },
+                  { icon: Terminal, title: "Auto Differentiation" },
+                  { icon: Network, title: "Compiler" },
+                   { icon: SlidersHorizontal, title: "Quantization" },
+                  { icon: Server, title: "Distributed Training" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
@@ -909,19 +1002,19 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
               {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/z0syfeo4_icon1.png",
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/d9mbefc0_icon4.png",
                 title: "Scaling Laws"
               },
               {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/gpekkfp1_icon2.png",
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/no96kn3y_icon3.png",
                 title: "Human Work Optimization"
               },
               {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/no96kn3y_icon3.png",
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/gpekkfp1_icon2.png",
                 title: "Multimodal Agents"
               },
               {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/d9mbefc0_icon4.png",
+                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/z0syfeo4_icon1.png",
                 title: "Reinforcement Learning"
               }
             ].map((card, index) => (

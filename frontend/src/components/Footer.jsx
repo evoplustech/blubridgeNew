@@ -62,7 +62,7 @@ const Footer = () => {
           {/* Product Links */}
           <div>
             <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">PRODUCT</h3>
-            <ul className="space-y-3">
+            {/* <ul className="space-y-3">
               <li><Link to="/products/gpu-nodes" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">GPU Nodes</Link></li>
               <li><Link to="/products/fine-tuning" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Fine-tuning</Link></li>
               <li><Link to="/products/marketplace" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Marketplace</Link></li>
@@ -70,18 +70,24 @@ const Footer = () => {
               <li><Link to="/products/training" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Training Clusters</Link></li>
               <li><Link to="/products/serverless" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Serverless</Link></li>
               <li><Link to="/products/glomfjord" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Glomfjord</Link></li>
-            </ul>
+            </ul> */}
+             <ul className="space-y-3">
+              <li>Coming Soon</li>
+             </ul>
           </div>
 
           {/* Solutions Links */}
           <div>
             <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">SOLUTIONS</h3>
-            <ul className="space-y-3">
+            {/* <ul className="space-y-3">
               <li><Link to="/solutions/training" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Model Training</Link></li>
               <li><Link to="/solutions/fine-tuning" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Model Fine-Tuning</Link></li>
               <li><Link to="/solutions/inference" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">AI & ML Inference</Link></li>
               <li><Link to="/solutions/ai-development" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">AI Development</Link></li>
-            </ul>
+            </ul> */}
+             <ul className="space-y-3">
+              <li>Coming Soon</li>
+             </ul>
           </div>
 
           {/* Company Links */}
