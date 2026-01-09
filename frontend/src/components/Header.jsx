@@ -253,7 +253,7 @@ const Header = () => {
                   }}
                 >
                   <div 
-                    className="bg-white rounded-xl shadow-lg border border-[#e8e6de] relative overflow-hidden"
+                    className="bg-white rounded-xl shadow-lg border border-[#fffdf7] relative overflow-hidden"
                     style={{ 
                       height: '200px',
                       opacity: dropdownVisible ? 1 : 0,
