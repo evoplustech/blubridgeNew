@@ -368,6 +368,11 @@ const AIExpertiseOrbit = () => {
 const Home = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [activeInfraTab, setActiveInfraTab] = useState(0);
+  const [expandedAboutCard, setExpandedAboutCard] = useState(null);
+
+  const toggleAboutCard = (cardId) => {
+    setExpandedAboutCard(expandedAboutCard === cardId ? null : cardId);
+  };
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
