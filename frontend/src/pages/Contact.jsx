@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const Contact = () => {
@@ -31,7 +31,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
     setTimeout(() => {
       alert('Thank you for your inquiry. We will get back to you soon!');
       setIsSubmitting(false);
@@ -50,40 +49,94 @@ const Contact = () => {
 
   return (
     <div 
-      className="min-h-screen pt-24 pb-16"
+      data-testid="contact-page"
       style={{
-        backgroundColor: '#fffdf7'
+        minHeight: '100vh',
+        paddingTop: '100px',
+        paddingBottom: '60px',
+        backgroundColor: '#efede5'
       }}
     >
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div style={{
+        maxWidth: '1180px',
+        margin: '0 auto',
+        padding: '0 24px'
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '24px'
+        }}>
           
           {/* Left Column - Our Offices */}
-          <div className="bg-[#efede5] backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
-            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" >
+          <div 
+            data-testid="offices-card"
+            style={{
+              backgroundColor: '#fffdf7',
+              borderRadius: '16px',
+              padding: '36px 32px',
+              border: '1px solid #e8e6e0'
+            }}
+          >
+            <h2 style={{ 
+              fontSize: '28px', 
+              fontWeight: '700', 
+              color: '#0B1F3B',
+              marginBottom: '28px',
+              textAlign: 'center',
+              letterSpacing: '-0.02em'
+            }}>
               Our Offices
             </h2>
             
             {/* Office Card 1 */}
-            <div className="bg-[#ffffff] border border-[#D6DEC3] rounded-xl p-6 mb-4">
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #e0ded8',
+              borderRadius: '12px',
+              padding: '20px 24px',
+              marginBottom: '16px'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div style={{ flex: 1 }}>
+                  <h3 style={{
+                    fontWeight: '600',
+                    color: '#0B1F3B',
+                    fontSize: '16px',
+                    marginBottom: '8px',
+                    lineHeight: '1.3'
+                  }}>
                     BluBridge Technologies (P) Ltd.
                   </h3>
-                  <p className="text-[#2F3A4A] text-sm leading-relaxed">
+                  <p style={{
+                    color: '#4a5568',
+                    fontSize: '14px',
+                    lineHeight: '1.6',
+                    margin: 0
+                  }}>
                     Plot #E160 Tiger Varadhachari Road,<br />
                     Kalakshetra Colony, Besant Nagar,<br />
                     Chennai – 600090
                   </p>
                 </div>
-                <div className="flex flex-col items-center ml-4">
-                  <MapPin className="w-6 h-6 text-[#0B1F3B] mb-2" />
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  alignItems: 'center',
+                  marginLeft: '16px',
+                  paddingTop: '4px'
+                }}>
+                  <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
                     href="https://maps.google.com/?q=Plot+E160+Tiger+Varadhachari+Road+Kalakshetra+Colony+Besant+Nagar+Chennai+600090"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#328CC1] text-sm hover:underline whitespace-nowrap"
+                    style={{ 
+                      color: '#3b82f6', 
+                      fontSize: '13px',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap'
+                    }}
                   >
                     View on Map »
                   </a>
@@ -92,25 +145,53 @@ const Contact = () => {
             </div>
 
             {/* Office Card 2 */}
-            <div className="bg-[#ffffff] border border-[#D6DEC3] rounded-xl p-6 mb-8">
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <h3 className="font-bold text-[#0B1F3B] text-lg mb-2">
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #e0ded8',
+              borderRadius: '12px',
+              padding: '20px 24px',
+              marginBottom: '28px'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div style={{ flex: 1 }}>
+                  <h3 style={{
+                    fontWeight: '600',
+                    color: '#0B1F3B',
+                    fontSize: '16px',
+                    marginBottom: '8px',
+                    lineHeight: '1.3'
+                  }}>
                     BluBridge Technologies (P) Ltd.
                   </h3>
-                  <p className="text-[#2F3A4A] text-sm leading-relaxed">
+                  <p style={{
+                    color: '#4a5568',
+                    fontSize: '14px',
+                    lineHeight: '1.6',
+                    margin: 0
+                  }}>
                     30, Norton Rd, Mandavelipakkam,<br />
                     Raja Annamalai Puram,<br />
                     Chennai, Tamil Nadu 600028
                   </p>
                 </div>
-                <div className="flex flex-col items-center ml-4">
-                  <MapPin className="w-6 h-6 text-[#0B1F3B] mb-2" />
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  alignItems: 'center',
+                  marginLeft: '16px',
+                  paddingTop: '4px'
+                }}>
+                  <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
                     href="https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#328CC1] text-sm hover:underline whitespace-nowrap"
+                    style={{ 
+                      color: '#3b82f6', 
+                      fontSize: '13px',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap'
+                    }}
                   >
                     View on Map »
                   </a>
@@ -118,17 +199,88 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-bold text-[#0B1F3B] text-base">Phone:</h4>
-                <a href="tel:+918925987250" className="text-[#2F3A4A] text-sm hover:text-[#328CC1]">
+            {/* Contact Info Boxes */}
+            <div style={{ display: 'flex', gap: '16px' }}>
+              {/* Contact Number Box */}
+              <div style={{
+                flex: 1,
+                backgroundColor: '#f8f7f3',
+                borderRadius: '12px',
+                padding: '20px',
+                border: '1px solid #e8e6e0'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                  <div style={{
+                    width: '36px',
+                    height: '36px',
+                    backgroundColor: '#e8e6e0',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <Phone size={18} color="#4a5568" />
+                  </div>
+                  <span style={{ 
+                    fontSize: '14px', 
+                    fontWeight: '600', 
+                    color: '#0B1F3B'
+                  }}>
+                    Contact Number
+                  </span>
+                </div>
+                <a 
+                  href="tel:+918925987250" 
+                  style={{ 
+                    fontSize: '14px', 
+                    color: '#4a5568',
+                    textDecoration: 'none',
+                    marginLeft: '48px',
+                    display: 'block'
+                  }}
+                >
                   +91 8925987250
                 </a>
               </div>
-              <div>
-                <h4 className="font-bold text-[#0B1F3B] text-base">Email:</h4>
-                <a href="mailto:info.1@blubridge.com" className="text-[#2F3A4A] text-sm hover:text-[#328CC1]">
+
+              {/* Email Box */}
+              <div style={{
+                flex: 1,
+                backgroundColor: '#f8f7f3',
+                borderRadius: '12px',
+                padding: '20px',
+                border: '1px solid #e8e6e0'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                  <div style={{
+                    width: '36px',
+                    height: '36px',
+                    backgroundColor: '#e8e6e0',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <Mail size={18} color="#4a5568" />
+                  </div>
+                  <span style={{ 
+                    fontSize: '14px', 
+                    fontWeight: '600', 
+                    color: '#0B1F3B'
+                  }}>
+                    Email
+                  </span>
+                </div>
+                <a 
+                  href="mailto:info.1@blubridge.com" 
+                  style={{ 
+                    fontSize: '14px', 
+                    color: '#4a5568',
+                    textDecoration: 'none',
+                    marginLeft: '48px',
+                    display: 'block'
+                  }}
+                >
                   Info.1@blubridge.com
                 </a>
               </div>
@@ -136,17 +288,38 @@ const Contact = () => {
           </div>
 
           {/* Right Column - Contact Us Form */}
-          <div className="bg-[#efede5] backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[#E8EDD8]">
-            <h2 className="text-3xl font-bold text-[#0B1F3B] mb-8 text-center" >
+          <div 
+            data-testid="contact-form-card"
+            style={{
+              backgroundColor: '#fffdf7',
+              borderRadius: '16px',
+              padding: '36px 32px',
+              border: '1px solid #e8e6e0'
+            }}
+          >
+            <h2 style={{ 
+              fontSize: '28px', 
+              fontWeight: '700', 
+              color: '#0B1F3B',
+              marginBottom: '28px',
+              textAlign: 'center',
+              letterSpacing: '-0.02em'
+            }}>
               Contact Us
             </h2>
             
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit}>
               {/* First Name & Last Name */}
-              <div className="grid grid-cols-2 gap-4">
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
                 <div>
-                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
-                    First Name<span className="text-red-500">*</span>
+                  <label style={{
+                    display: 'block',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#0B1F3B',
+                    marginBottom: '8px'
+                  }}>
+                    First Name<span style={{ color: '#ef4444' }}>*</span>
                   </label>
                   <input
                     type="text"
@@ -154,12 +327,27 @@ const Contact = () => {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                    style={{
+                      width: '100%',
+                      padding: '12px 16px',
+                      border: '1px solid #d4d4d4',
+                      borderRadius: '8px',
+                      backgroundColor: '#ffffff',
+                      fontSize: '14px',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
                   />
                 </div>
                 <div>
-                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
-                    Last Name<span className="text-red-500">*</span>
+                  <label style={{
+                    display: 'block',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#0B1F3B',
+                    marginBottom: '8px'
+                  }}>
+                    Last Name<span style={{ color: '#ef4444' }}>*</span>
                   </label>
                   <input
                     type="text"
@@ -167,33 +355,62 @@ const Contact = () => {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                    style={{
+                      width: '100%',
+                      padding: '12px 16px',
+                      border: '1px solid #d4d4d4',
+                      borderRadius: '8px',
+                      backgroundColor: '#ffffff',
+                      fontSize: '14px',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
                   />
                 </div>
               </div>
 
               {/* Email with Verify Button */}
-              <div>
-                <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
-                  Email<span className="text-red-500">*</span>
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  color: '#0B1F3B',
+                  marginBottom: '8px'
+                }}>
+                  Email<span style={{ color: '#ef4444' }}>*</span>
                 </label>
-                <div className="flex gap-3">
+                <div style={{ display: 'flex', gap: '12px' }}>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="flex-1 px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                    style={{
+                      flex: 1,
+                      padding: '12px 16px',
+                      border: '1px solid #d4d4d4',
+                      borderRadius: '8px',
+                      backgroundColor: '#ffffff',
+                      fontSize: '14px',
+                      outline: 'none'
+                    }}
                   />
                   <button
                     type="button"
                     onClick={handleVerifyEmail}
-                    className={`px-6 py-3 rounded-full font-medium text-sm transition-colors ${
-                      emailVerified 
-                        ? 'bg-green-600 text-white' 
-                        : 'bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9]'
-                    }`}
+                    style={{
+                      padding: '12px 20px',
+                      borderRadius: '24px',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                      backgroundColor: emailVerified ? '#16a34a' : '#ffffff',
+                      color: emailVerified ? '#ffffff' : '#0B1F3B',
+                      border: emailVerified ? 'none' : '1px solid #0B1F3B'
+                    }}
                   >
                     {emailVerified ? 'Verified ✓' : 'Verify Email'}
                   </button>
@@ -201,19 +418,42 @@ const Contact = () => {
               </div>
 
               {/* Phone Number & Inquiry Type */}
-              <div className="grid grid-cols-2 gap-4">
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
                 <div>
-                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
-                    Phone No<span className="text-red-500">*</span>
+                  <label style={{
+                    display: 'block',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#0B1F3B',
+                    marginBottom: '8px'
+                  }}>
+                    Phone No<span style={{ color: '#ef4444' }}>*</span>
                   </label>
-                  <div className="flex">
-                    <div className="flex items-center px-3 border border-r-0 border-[#D6DEC3] rounded-l-lg bg-[#F9FAF5]">
-                      <span className="text-lg mr-1">🇮🇳</span>
+                  <div style={{ display: 'flex' }}>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      padding: '0 12px',
+                      backgroundColor: '#f5f5f4',
+                      border: '1px solid #d4d4d4',
+                      borderRight: 'none',
+                      borderRadius: '8px 0 0 8px',
+                      gap: '4px'
+                    }}>
+                      <span style={{ fontSize: '16px' }}>🇮🇳</span>
                       <select
                         name="phoneCode"
                         value={formData.phoneCode}
                         onChange={handleInputChange}
-                        className="bg-transparent text-sm text-[#0B1F3B] focus:outline-none py-3"
+                        style={{
+                          backgroundColor: 'transparent',
+                          border: 'none',
+                          fontSize: '14px',
+                          color: '#0B1F3B',
+                          outline: 'none',
+                          cursor: 'pointer',
+                          padding: '12px 0'
+                        }}
                       >
                         <option value="+91">+91</option>
                         <option value="+1">+1</option>
@@ -228,22 +468,47 @@ const Contact = () => {
                       value={formData.phoneNumber}
                       onChange={handleInputChange}
                       required
-                      className="flex-1 px-4 py-3 border border-[#D6DEC3] rounded-r-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors"
+                      style={{
+                        flex: 1,
+                        padding: '12px 16px',
+                        border: '1px solid #d4d4d4',
+                        borderRadius: '0 8px 8px 0',
+                        backgroundColor: '#ffffff',
+                        fontSize: '14px',
+                        outline: 'none'
+                      }}
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
-                    Inquiry Type<span className="text-red-500">*</span>
+                  <label style={{
+                    display: 'block',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#0B1F3B',
+                    marginBottom: '8px'
+                  }}>
+                    Inquiry Type<span style={{ color: '#ef4444' }}>*</span>
                   </label>
                   <select
                     name="inquiryType"
                     value={formData.inquiryType}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors text-[#2F3A4A]"
+                    style={{
+                      width: '100%',
+                      padding: '12px 16px',
+                      border: '1px solid #d4d4d4',
+                      borderRadius: '8px',
+                      backgroundColor: '#ffffff',
+                      fontSize: '14px',
+                      color: formData.inquiryType ? '#0B1F3B' : '#9ca3af',
+                      outline: 'none',
+                      cursor: 'pointer',
+                      boxSizing: 'border-box'
+                    }}
                   >
-                    <option value="">Select</option>
+                    <option value="" disabled>Select</option>
                     <option value="sales">Sales Inquiry</option>
                     <option value="support">Technical Support</option>
                     <option value="partnership">Partnership</option>
@@ -254,9 +519,15 @@ const Contact = () => {
               </div>
 
               {/* Message */}
-              <div>
-                <label className="block text-[#0B1F3B] text-sm font-medium mb-2">
-                  How can we help you?<span className="text-red-500">*</span>
+              <div style={{ marginBottom: '28px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  color: '#0B1F3B',
+                  marginBottom: '8px'
+                }}>
+                  How can we help you?<span style={{ color: '#ef4444' }}>*</span>
                 </label>
                 <textarea
                   name="message"
@@ -264,16 +535,36 @@ const Contact = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-[#D6DEC3] rounded-lg bg-white focus:outline-none focus:border-[#328CC1] focus:ring-1 focus:ring-[#328CC1] transition-colors resize-none"
+                  style={{
+                    width: '100%',
+                    padding: '12px 16px',
+                    border: '1px solid #d4d4d4',
+                    borderRadius: '8px',
+                    backgroundColor: '#ffffff',
+                    fontSize: '14px',
+                    outline: 'none',
+                    resize: 'none',
+                    boxSizing: 'border-box'
+                  }}
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="flex justify-center pt-4">
+              <div style={{ textAlign: 'center' }}>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-12 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors disabled:opacity-70"
+                  style={{
+                    padding: '14px 48px',
+                    backgroundColor: '#0B1F3B',
+                    color: '#ffffff',
+                    fontSize: '15px',
+                    fontWeight: '500',
+                    borderRadius: '8px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    opacity: isSubmitting ? 0.7 : 1
+                  }}
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
