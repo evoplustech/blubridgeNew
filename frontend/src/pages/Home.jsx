@@ -893,7 +893,7 @@ const Home = () => {
       {/* Who We Are & What We Aim To Do Section - Interactive Collapsible */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Card - Who We Are? */}
             <div 
               className="bg-[#f3f1e9] rounded-2xl shadow-sm border border-[#e8eaed] overflow-hidden transition-all duration-400"
