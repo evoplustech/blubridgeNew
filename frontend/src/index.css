@@ -475,3 +475,26 @@ code {
 }
 
 /* ===== END HOME PAGE HERO SECTION ===== */
+
+
+/* ===== INTERACTIVE ABOUT CARDS SECTION ===== */
+.duration-400 {
+  transition-duration: 400ms;
+}
+
+/* Scale animation on card expansion */
+@keyframes slideReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-content-reveal {
+  animation: slideReveal 0.4s ease-out forwards;
+}
+/* ===== END INTERACTIVE ABOUT CARDS ===== */
