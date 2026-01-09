@@ -206,7 +206,7 @@ const Contact = () => {
                 flex: 1,
                 backgroundColor: '#f8f7f3',
                 borderRadius: '12px',
-                padding: '20px',
+                padding: '10px',
                 border: '1px solid #e8e6e0'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
@@ -228,8 +228,7 @@ const Contact = () => {
                   }}>
                     Contact Number
                   </span>
-                </div>
-                <a 
+ <a 
                   href="tel:+918925987250" 
                   style={{ 
                     fontSize: '14px', 
@@ -241,6 +240,8 @@ const Contact = () => {
                 >
                   +91 8925987250
                 </a>
+                </div>
+               
               </div>
 
               {/* Email Box */}
@@ -248,7 +249,7 @@ const Contact = () => {
                 flex: 1,
                 backgroundColor: '#f8f7f3',
                 borderRadius: '12px',
-                padding: '20px',
+                padding: '10px',
                 border: '1px solid #e8e6e0'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
