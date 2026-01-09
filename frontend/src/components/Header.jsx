@@ -232,7 +232,7 @@ const Header = () => {
                     className="shadow-xl overflow-hidden bg-white rounded-lg border border-[#D6DEC3] relative"
                     style={{ 
                       padding: '20px 28px 30px 28px',
-                      minHeight: '280px'
+                      height: '322px'
                     }}
                   >
                     {/* Coming Soon Overlay */}
