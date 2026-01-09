@@ -793,7 +793,7 @@ const Home = () => {
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Card - Who We Are? */}
-            <div className="bg-white rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
+            <div className="bg-[#f3f1e9] rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
               {/* Lightbulb Icon */}
              
               
@@ -809,7 +809,7 @@ const Home = () => {
             </div>
             
             {/* Right Card - What We Aim to Do? */}
-            <div className="bg-white rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
+            <div className="bg-[#f3f1e9] rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
               {/* Microscope/Telescope Icon */}
              
               
@@ -900,7 +900,7 @@ const Home = () => {
       </section>
 
       {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
-      <section className="py-20" style={{ backgroundColor: '#FAFAF7' }}>
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">Our Primary Areas of Research and Engineering</h2>
@@ -927,7 +927,7 @@ const Home = () => {
             ].map((card, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-[#e8e8e8] shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
+                className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#e8e8e8] shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
               >
                 <div className="w-24 h-24 mb-6 flex items-center justify-center">
                   <img 
