@@ -15,7 +15,7 @@ const Careers = () => {
 
   return (
     <div style={{ 
-      backgroundColor: '#fffdf7', 
+      backgroundColor: '#efede5', 
       minHeight: '100vh', 
       paddingTop: '50px', 
       
@@ -25,6 +25,13 @@ const Careers = () => {
         margin: '0 auto', 
         padding: '0 20px'
       }}>
+        {/* Join Us Container */}
+        <div style={{
+          backgroundColor: '#fffdf7',
+          borderRadius: '12px',
+          padding: '40px 50px',
+          marginBottom: '30px'
+        }}>
         {/* Title */}
         <h1 style={{ 
           fontSize: '36px', 
