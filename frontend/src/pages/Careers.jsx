@@ -53,7 +53,7 @@ const Careers = () => {
           lineHeight: '1.6',
           marginBottom: '20px',
         }}>
-          <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>b) <a 
+          <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>a) <a 
             href="https://www.google.com/maps/place/Blubridge+Technologies/@12.9954492,80.2654151,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267e2599dbced:0xc9079da2f4d833f!8m2!3d12.995444!4d80.26799!16s%2Fg%2F11mry3n8lv?coh=277534&entry=tts&g_ep=EgoyMDI2MDEwNi4wIPu8ASoKLDEwMDc5MjA3MUgBUAM%3D&skid=65fe5d4b-b9b5-43ec-b2f4-ed5d4490dbfc"
             target="_blank"
             rel="noopener noreferrer"
@@ -62,7 +62,7 @@ const Careers = () => {
             &quot;No. E160 Tiger Varadhachari Road, Kalakshetra Colony, Besant Nagar, Chennai - 600090&quot;
           </a></p>
         </p>
-        <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>a) <a 
+        <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>b) <a 
             href="https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z"
             target="_blank"
             rel="noopener noreferrer"
