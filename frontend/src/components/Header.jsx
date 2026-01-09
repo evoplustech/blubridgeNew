@@ -197,47 +197,49 @@ const Header = () => {
             {/* Products Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setActiveDropdown('products')}
-              onMouseLeave={() => setActiveDropdown(null)}
+              ref={activeDropdown === 'products' ? dropdownRef : null}
             >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+              <button 
+                onClick={() => toggleDropdown('products')}
+                className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors"
+              >
                 <span>Products</span>
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown 
+                  className="w-4 h-4 transition-transform duration-250" 
+                  style={{ transform: activeDropdown === 'products' ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                />
               </button>
               
               {activeDropdown === 'products' && (
-                <div className="fixed pt-4" style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '80px', zIndex: 1000 }}>
-                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 relative" style={{ height: '322px' }}>
-                    {/* Coming Soon Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center z-10">
-                      <span className="coming-soon-text text-3xl font-semibold">Coming Soon</span>
-                    </div>
-                    {/* Hidden original content */}
-                    <div className="grid grid-cols-3 gap-8 invisible">
-                    {products.map((section, idx) => (
-                      <div key={idx}>
-                        <h3 className="text-[#0B1F3B] font-semibold mb-2">{section.title}</h3>
-                        <p className="text-[#5B6B7A] text-sm mb-4">{section.subtitle}</p>
-                        <div className="space-y-3">
-                          {section.items.map((item, i) => {
-                            const IconComponent = item.icon;
-                            return (
-                            <Link
-                              key={i}
-                              to={item.link}
-                              className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm"
-                            ><div className="bg-[#f3f1e9] hover:bg-[#e8e6de] rounded-lg px-3 py-2">
-                              <div className="font-medium flex items-center gap-2">
-                                <IconComponent className="w-4 h-4 text-[#0B1F3B]" />
-                                {item.name}
-                              </div>
-                              <div className="text-xs text-[#5B6B7A] ml-6">{item.desc}</div>
-                              </div>
-                            </Link>
-                          )})}
-                        </div>
-                      </div>
-                    ))}
+                <div 
+                  className="absolute pt-3" 
+                  style={{ 
+                    width: '500px', 
+                    left: '50%', 
+                    transform: 'translateX(-50%)', 
+                    top: '100%', 
+                    zIndex: 1000 
+                  }}
+                >
+                  <div 
+                    className="bg-white rounded-xl shadow-lg border border-[#e8e6de] relative overflow-hidden"
+                    style={{ 
+                      height: '200px',
+                      opacity: dropdownVisible ? 1 : 0,
+                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
+                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                  >
+                    {/* Coming Soon Text - Centered */}
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center"
+                      style={{
+                        opacity: dropdownVisible ? 1 : 0,
+                        transform: dropdownVisible ? 'translateY(0)' : 'translateY(8px)',
+                        transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 80ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 80ms'
+                      }}
+                    >
+                      <span className="coming-soon-text text-2xl font-medium">Coming Soon</span>
                     </div>
                   </div>
                 </div>
