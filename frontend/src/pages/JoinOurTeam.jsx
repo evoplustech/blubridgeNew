@@ -40,9 +40,6 @@ const faqData = [
     question: 'What skills should I have ?',
     content: (
       <div className="pl-1">
-        <p className="text-base text-gray-700 leading-relaxed mb-3">
-          Ask yourself the following:
-        </p>
         <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
           <li>Do I truly understand the <strong className="text-black">depth of Deep Learning research?</strong></li>
           <li>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
