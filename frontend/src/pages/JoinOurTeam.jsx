@@ -1,15 +1,120 @@
 import React from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../components/ui/accordion';
+import { ChevronDown } from 'lucide-react';
+
+const faqData = [
+  {
+    id: 'startup',
+    question: 'Are we a startup?',
+    content: (
+      <p className="text-base text-gray-700 leading-relaxed pl-1">
+        <strong className="text-black">No.</strong> We are a <strong className="text-black">Deep Learning Research Organization,</strong> not a startup.
+      </p>
+    )
+  },
+  {
+    id: 'funding',
+    question: 'Who is funding us?',
+    content: (
+      <p className="text-base text-gray-700 leading-relaxed pl-1">
+        We are entirely <strong className="text-black">self-funded.</strong>
+      </p>
+    )
+  },
+  {
+    id: 'eligible',
+    question: 'Am I eligible to apply?',
+    content: (
+      <div className="pl-1">
+        <p className="text-base text-gray-700 leading-relaxed mb-3">
+          Ask yourself the following:
+        </p>
+        <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
+          <li>Do I truly understand the <strong className="text-black">depth of Deep Learning research?</strong></li>
+          <li>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
+          <li>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
+        </ul>
+      </div>
+    )
+  },
+  {
+    id: 'begin',
+    question: 'Where do I begin? What should I study for the interview?',
+    content: (
+      <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
+        <li>Begin by appearing for the <strong className="text-black">initial interview rounds.</strong></li>
+        <li>If selected, you'll be invited to a <strong className="text-black">second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
+        <li>You'll get <strong className="text-black">up to a month</strong> to prepare.</li>
+        <li>Final selection is based on a <strong className="text-black">Maths for Deep Learning</strong> test.</li>
+      </ul>
+    )
+  },
+  {
+    id: 'pay',
+    question: 'How is the pay?',
+    content: (
+      <div className="pl-1">
+        <p className="text-base text-gray-700 leading-relaxed mb-3">
+          We offer competitive compensation, but ask you to consider:
+        </p>
+        <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
+          <li>You'll be working on Deep Learning from first principles — how many organizations offer that?</li>
+          <li>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
+          <li>Building from "first principles" is not the same as starting "from scratch."</li>
+          <li>
+            If you were to study this in a university:
+            <ul className="pl-6 mt-2 space-y-1 list-none">
+              <li className="text-base">▶ You'd likely go abroad (e.g., the US),</li>
+              <li className="text-base">▶ Pay for a Master's degree,</li>
+              <li className="text-base">▶ Learn theory & practical without real-world application.</li>
+            </ul>
+          </li>
+        </ul>
+        <div className="flex items-start gap-2 mt-4 text-base text-gray-700 leading-relaxed">
+          <span className="text-base flex-shrink-0">💡</span>
+          <span>
+            <strong className="text-black">If compensation is your main driver,</strong> you will find better-paying jobs. We are seeking <strong className="text-black">like-minded individuals</strong> who value the mission over money.
+          </span>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: 'unique',
+    question: 'Why is this opportunity unique?',
+    content: (
+      <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
+        <li>We offer a <strong className="text-black">rare research environment</strong> focused solely on <strong className="text-black">foundation model development.</strong></li>
+        <li>We're assembling a team of <strong className="text-black">passionate, like-minded individuals</strong></li>
+        <li>Whether you're a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong className="text-black">Large Language Models,</strong> you're welcome to apply.</li>
+      </ul>
+    )
+  },
+  {
+    id: 'not-apply',
+    question: 'Who should not apply?',
+    content: (
+      <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
+        <li>Those looking for a <strong className="text-black">routine 9-to-5 job</strong></li>
+        <li>Anyone who <strong className="text-black">struggled with 12th-grade mathematics</strong></li>
+      </ul>
+    )
+  }
+];
 
 const JoinOurTeam = ({ scrollRef }) => {
   useDocumentTitle('Join our Research Team | BluBridge');
 
   return (
-    <div style={{ 
-      backgroundColor: '#efede5', 
-      paddingTop: '0', 
-      paddingBottom: '50px' 
-    }}>
+    <div 
+      data-testid="join-our-team-page"
+      style={{ 
+        backgroundColor: '#efede5', 
+        paddingTop: '0', 
+        paddingBottom: '50px' 
+      }}
+    >
       <div style={{ 
         maxWidth: '1261px',
         margin: '0 auto', 
@@ -22,273 +127,71 @@ const JoinOurTeam = ({ scrollRef }) => {
           padding: '40px 50px',
           borderBottom: '3px solid rgb(211, 205, 185)'
         }}>
-        {/* Main Title */}
-        <h1 
-          ref={scrollRef}
-          style={{ 
-            textAlign: 'center', 
-            fontSize: '24px', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A',
-            textDecoration: 'underline',
-            textDecorationThickness: '1px',
-            textUnderlineOffset: '4px',
-            marginBottom: '10px',
-            scrollMarginTop: '150px',
-            lineHeight: '1.3',
-            paddingTop:'0'
-          }}
-        >
-          Join our Deep Learning Research Team
-        </h1>
-        
-        {/* Subtitle */}
-        <h2 style={{ 
-          textAlign: 'center', 
-          fontSize: '18px', 
-          fontWeight: 'bold', 
-          color: '#1A1A1A',
-          marginBottom: '35px',
-          lineHeight: '1.3'
-        }}>
-          What You Need to Know ?
-        </h2>
-
-      
-
-        {/* Section a) */}
-        <div style={{ marginBottom: '30px' }}>
-          <h3 style={{ 
-            fontSize: '1.25rem', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A', 
-            marginBottom: '10px',
-            lineHeight: '1.3'
-          }}>
-            a) Are we a startup?
-          </h3>
-          <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.6',
-            marginBottom: '0'
-          }}>
-            <strong style={{ color: '#000000' }}>No.</strong> We are a <strong style={{ color: '#000000' }}>Deep Learning Research Organization,</strong> not a startup.
-          </p>
-        </div>
-
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
-
-        {/* Section b) */}
-        <div style={{ marginBottom: '30px' }}>
-          <h3 style={{ 
-            fontSize: '1.25rem', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A', 
-            marginBottom: '10px',
-            lineHeight: '1.3'
-          }}>
-            b) Who is funding us?
-          </h3>
-          <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.6',
-            marginBottom: '0'
-          }}>
-            We are entirely <strong style={{ color: '#000000' }}>self-funded.</strong>
-          </p>
-        </div>
-
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
-
-        {/* Section c) */}
-        <div style={{ marginBottom: '30px' }}>
-          <h3 style={{ 
-            fontSize: '1.25rem', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A', 
-            marginBottom: '10px',
-            lineHeight: '1.3'
-          }}>
-            c) Am I eligible to apply?
-          </h3>
-          <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.6',
-            marginBottom: '12px'
-          }}>
-            Ask yourself the following:
-          </p>
-          <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.7',
-            listStyleType: 'disc',
-            margin: '0'
-          }}>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Do I truly understand the <strong style={{ color: '#000000' }}>depth of Deep Learning research?</strong></li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
-          </ul>
-        </div>
-
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
-
-        {/* Section d) */}
-        <div style={{ marginBottom: '30px' }}>
-          <h3 style={{ 
-            fontSize: '1.25rem', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A', 
-            marginBottom: '12px',
-            lineHeight: '1.3'
-          }}>
-            d) Where do I begin? What should I study for the interview?
-          </h3>
-          <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.7',
-            listStyleType: 'disc',
-            margin: '0'
-          }}>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Begin by appearing for the <strong style={{ color: '#000000' }}>initial interview rounds.</strong></li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>If selected, you&apos;ll be invited to a <strong style={{ color: '#000000' }}>second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>You&apos;ll get <strong style={{ color: '#000000' }}>up to a month</strong> to prepare.</li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Final selection is based on a <strong style={{ color: '#000000' }}>Maths for Deep Learning</strong> test.</li>
-          </ul>
-        </div>
-
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
-
-        {/* Section e) */}
-        <div style={{ marginBottom: '30px' }}>
-          <h3 style={{ 
-            fontSize: '1.25rem', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A', 
-            marginBottom: '10px',
-            lineHeight: '1.3'
-          }}>
-            e) How is the pay?
-          </h3>
-          <p style={{ 
-            paddingLeft: '20px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.6',
-            marginBottom: '12px'
-          }}>
-            We offer competitive compensation, but ask you to consider:
-          </p>
-          <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.7',
-            listStyleType: 'disc',
-            margin: '0'
-          }}>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>You&apos;ll be working on Deep Learning from first principles — how many organizations offer that?</li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Building from &quot;first principles&quot; is not the same as starting &quot;from scratch.&quot;</li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>
-              If you were to study this in a university:
-              <ul style={{ 
-                paddingLeft: '25px', 
-                marginTop: '8px',
-                listStyleType: 'none'
-              }}>
-                <li style={{ fontSize: '16px', marginBottom: '4px' }}>▶ You&apos;d likely go abroad (e.g., the US),</li>
-                <li style={{ fontSize: '16px', marginBottom: '4px' }}>▶ Pay for a Master&apos;s degree,</li>
-                <li style={{ fontSize: '16px', marginBottom: '4px' }}>▶ Learn theory &amp; practical without real-world application.</li>
-              </ul>
-            </li>
-          </ul>
+          {/* Main Title */}
+          <h1 
+            ref={scrollRef}
+            data-testid="join-team-heading"
+            style={{ 
+              textAlign: 'center', 
+              fontSize: '24px', 
+              fontWeight: 'bold', 
+              color: '#1A1A1A',
+              textDecoration: 'underline',
+              textDecorationThickness: '1px',
+              textUnderlineOffset: '4px',
+              marginBottom: '10px',
+              scrollMarginTop: '150px',
+              lineHeight: '1.3',
+              paddingTop: '0'
+            }}
+          >
+            Join our Deep Learning Research Team
+          </h1>
           
-          {/* Lightbulb callout */}
-          <div style={{ 
-            paddingLeft: '20px', 
-            marginTop: '15px',
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: '8px',
-            fontSize: '16px',
-            color: '#333333',
-            lineHeight: '1.6'
-          }}>
-            <span style={{ fontSize: '16px', flexShrink: 0 }}>💡</span>
-            <span>
-              <strong style={{ color: '#000000' }}>If compensation is your main driver,</strong> you will find better-paying jobs. We are seeking <strong style={{ color: '#000000' }}>like-minded individuals</strong> who value the mission over money.
-            </span>
-          </div>
-        </div>
+          {/* Subtitle */}
+          <h2 
+            data-testid="join-team-subheading"
+            style={{ 
+              textAlign: 'center', 
+              fontSize: '18px', 
+              fontWeight: 'bold', 
+              color: '#1A1A1A',
+              marginBottom: '35px',
+              lineHeight: '1.3'
+            }}
+          >
+            What You Need to Know ?
+          </h2>
 
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
-
-        {/* Section f) */}
-        <div style={{ marginBottom: '30px' }}>
-          <h3 style={{ 
-            fontSize: '1.25rem', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A', 
-            marginBottom: '12px',
-            lineHeight: '1.3'
-          }}>
-            f) Why is this opportunity unique?
-          </h3>
-          <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.7',
-            listStyleType: 'disc',
-            margin: '0'
-          }}>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>We offer a <strong style={{ color: '#000000' }}>rare research environment</strong> focused solely on <strong style={{ color: '#000000' }}>foundation model development.</strong></li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>We&apos;re assembling a team of <strong style={{ color: '#000000' }}>passionate, like-minded individuals</strong></li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Whether you&apos;re a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong style={{ color: '#000000' }}>Large Language Models,</strong> you&apos;re welcome to apply.</li>
-          </ul>
-        </div>
-
-        {/* Divider */}
-        <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', margin: '0 0 30px 0' }} />
-
-        {/* Section g) */}
-        <div style={{ marginBottom: '0' }}>
-          <h3 style={{ 
-            fontSize: '1.25rem', 
-            fontWeight: 'bold', 
-            color: '#1A1A1A', 
-            marginBottom: '12px',
-            lineHeight: '1.3'
-          }}>
-            g) Who should not apply?
-          </h3>
-          <ul style={{ 
-            paddingLeft: '45px', 
-            fontSize: '16px', 
-            color: '#333333', 
-            lineHeight: '1.7',
-            listStyleType: 'disc',
-            margin: '0'
-          }}>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Those looking for a <strong style={{ color: '#000000' }}>routine 9-to-5 job</strong></li>
-            <li style={{ fontSize: '16px', marginBottom: '6px' }}>Anyone who <strong style={{ color: '#000000' }}>struggled with 12th-grade mathematics</strong></li>
-          </ul>
-        </div>
+          {/* FAQ Accordion */}
+          <Accordion 
+            type="single" 
+            collapsible 
+            className="w-full"
+            data-testid="faq-accordion"
+          >
+            {faqData.map((faq, index) => (
+              <AccordionItem 
+                key={faq.id} 
+                value={faq.id}
+                className="border-b border-gray-200 last:border-b-0"
+                data-testid={`faq-item-${faq.id}`}
+              >
+                <AccordionTrigger 
+                  className="py-5 text-left text-[1.1rem] font-semibold text-gray-900 hover:no-underline hover:text-gray-700 transition-colors duration-200 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-gray-500 [&>svg]:transition-transform [&>svg]:duration-300"
+                  data-testid={`faq-trigger-${faq.id}`}
+                >
+                  <span className="pr-4">{String.fromCharCode(97 + index)}) {faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent 
+                  className="pb-5 pt-0"
+                  data-testid={`faq-content-${faq.id}`}
+                >
+                  {faq.content}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>
