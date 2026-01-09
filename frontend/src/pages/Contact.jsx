@@ -305,7 +305,7 @@ const Contact = () => {
           <div 
             data-testid="contact-form-card"
             style={{
-              backgroundColor: '#fffdf7',
+              backgroundColor: 'rgb(239, 237, 229)',
               borderRadius: '16px',
               padding: '36px 32px',
               border: '1px solid #e8e6e0'
