@@ -253,16 +253,11 @@ const Header = () => {
                       transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
-                    {/* Coming Soon Text - Centered */}
-                    <div 
-                      className="absolute inset-0 flex items-center justify-center"
-                      style={{
-                        opacity: dropdownVisible ? 1 : 0,
-                        transform: dropdownVisible ? 'translateY(0)' : 'translateY(8px)',
-                        transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 80ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 80ms'
-                      }}
-                    >
-                      <span className="coming-soon-text text-2xl font-medium">Coming Soon</span>
+                    {/* Coming Soon Text - Letter by Letter Animation */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-2xl font-medium text-[#0B1F3B]">
+                        <AnimatedText text="Coming Soon" isVisible={dropdownVisible} />
+                      </span>
                     </div>
                   </div>
                 </div>
