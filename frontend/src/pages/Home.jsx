@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap,Scale,Server,SlidersHorizontal } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap,Scale,Server,SlidersHorizontal,Repeat} from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useEmblaCarousel from 'embla-carousel-react';
 import NodeConnections2 from './NodeConnections2';
@@ -194,8 +194,8 @@ const AIExpertiseOrbit = () => {
 
   const atoms = [
     // INNER ring: 2 features + 1 dummy
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Tokenizer' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Data' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: CheckCircle, label: 'Tokenizer' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: Database, label: 'Data' },
     { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
     // MIDDLE ring: 2 features + 1 dummy
@@ -204,8 +204,8 @@ const AIExpertiseOrbit = () => {
     { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
 
     // OUTER ring: 4 features + 2 dummies
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Terminal, label:(<>Auto <br />Differentiation</>)},
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Network, label: 'Compiler' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Repeat, label:(<>Auto <br />Differentiation</>)},
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Terminal, label: 'Compiler' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: SlidersHorizontal, label: 'Quantization' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Server, label: (<>Distributed<br />Training</>) },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
@@ -964,15 +964,15 @@ const Home = () => {
             
             {/* Right - Research Teams Grid (6 tabs, static, no links) */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our Research Teams</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Current Research Teams</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Database, title: "Data" },
                   { icon: CheckCircle, title: "Tokenizer" },
                   { icon: Layers, title: "Tensor & Operations" },
                   { icon: GitBranch, title: "Computational Graph" },
-                  { icon: Terminal, title: "Auto Differentiation" },
-                  { icon: Network, title: "Compiler" },
+                  { icon: Repeat, title: "Auto Differentiation" },
+                  { icon: Terminal, title: "Compiler" },
                    { icon: SlidersHorizontal, title: "Quantization" },
                   { icon: Server, title: "Distributed Training" }
                 ].map((service, index) => {

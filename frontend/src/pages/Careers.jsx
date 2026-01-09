@@ -54,7 +54,7 @@ const Careers = () => {
           marginBottom: '20px',
         }}>
           <p style={{ fontSize: '16px', color: '#333333', lineHeight: '1.7', marginBottom: '8px' }}>a) <a 
-            href="https://www.google.com/maps/place/Blubridge+Technologies/@12.9954492,80.2654151,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267e2599dbced:0xc9079da2f4d833f!8m2!3d12.995444!4d80.26799!16s%2Fg%2F11mry3n8lv?coh=277534&entry=tts&g_ep=EgoyMDI2MDEwNi4wIPu8ASoKLDEwMDc5MjA3MUgBUAM%3D&skid=65fe5d4b-b9b5-43ec-b2f4-ed5d4490dbfc"
+            href="https://www.google.com/maps/place/Blubridge+Technologies/@12.9954492,80.2654151,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267e2599dbced:0xc9079da2f4d833f!8m2!3d12.995444!4d80.26799!16s%2Fg%2F11mry3n8lv?coh=277534&entry=tts&g_ep=EgoyMDI2MDEwNi4wIPu8ASoKLDEwMDc5MjA3MUgBUAM%3D&skid=blubridge-frontend-1"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: '#007BFF', textDecoration: 'underline' }}

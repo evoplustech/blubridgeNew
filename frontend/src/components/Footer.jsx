@@ -5,6 +5,7 @@ import { Input } from './ui/input';
 import { useToast } from '../hooks/use-toast';
 import axios from 'axios';
 
+
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
@@ -100,6 +101,7 @@ const Footer = () => {
               <li><Link to="/contact" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Contact</Link></li>
               <li><a href="https://www.linkedin.com/company/blubridge/" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">LinkedIn</a></li>
               <li><a href="https://x.com/BlubridgeAI" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">X (Twitter)</a></li>
+              <li><a href="https://www.youtube.com/@blubridge-ai" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">YouTube</a></li>
             </ul>
           </div>
 
@@ -154,7 +156,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-[#D6DEC3]">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2">
-              <img src="https://site-updates-12.preview.emergentagent.com/images/blubridge-wordmark.png" alt="BluBridge" className="object-contain" />
+              <img src="https://blubridge-frontend-1.preview.emergentagent.com/images/blubridge-wordmark.png" alt="BluBridge" className="object-contain" />
             </div>
             <p className="text-[#5B6B7A] text-sm">©2026 BluBridge Technologies Private Limited. All rights reserved</p>
             <div className="flex space-x-6 text-sm">

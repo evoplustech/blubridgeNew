@@ -263,7 +263,7 @@ const Header = () => {
                   >
                     {/* Coming Soon Text - Letter by Letter Animation */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-2xl font-medium text-[#0B1F3B]">
+                      <span className="text-3xl font-medium text-[#0B1F3B]">
                         <AnimatedText text="Coming Soon" isVisible={dropdownVisible} />
                       </span>
                     </div>
@@ -308,7 +308,7 @@ const Header = () => {
                   >
                     {/* Coming Soon Text - Letter by Letter Animation */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-2xl font-medium text-[#0B1F3B]">
+                      <span className="text-3xl font-medium text-[#0B1F3B]">
                         <AnimatedText text="Coming Soon" isVisible={dropdownVisible} />
                       </span>
                     </div>
