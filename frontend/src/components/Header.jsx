@@ -297,35 +297,6 @@ const Header = () => {
                 </div>
               )}
             </div>
-                          })}
-                        </div>
-                      </div>
-                      
-                      <div style={{ flex: '1' }}>
-                        <h3 className="text-[#0B1F3B] font-medium mb-6 text-base">By Industry</h3>
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                          {solutions.industry.map((item, i) => (
-                            <Link
-                              key={i}
-                              to={item.link}
-                              className="hover:text-[#328CC1] block text-[#0B1F3B] rounded-lg transition-all duration-150 cursor-pointer hover:bg-[#e8e6de]"
-                              style={{ 
-                                background: '#f3f1e9',
-                                padding: '12px 20px',
-                                fontSize: '15px',
-                                fontWeight: '400'
-                              }}
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
 
             {/* Research Link */}
             <Link to="/research" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
