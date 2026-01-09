@@ -54,7 +54,7 @@ const Contact = () => {
         minHeight: '100vh',
         paddingTop: '100px',
         paddingBottom: '60px',
-        backgroundColor: '#efede5'
+        backgroundColor: 'rgb(255, 253, 247)'
       }}
     >
       <div style={{
@@ -72,7 +72,7 @@ const Contact = () => {
           <div 
             data-testid="offices-card"
             style={{
-              backgroundColor: '#fffdf7',
+              backgroundColor: 'rgb(239, 237, 229)',
               borderRadius: '16px',
               padding: '36px 32px',
               border: '1px solid #e8e6e0'

@@ -37,7 +37,7 @@ const faqData = [
   },
   {
     id: 'must',
-    question: 'Must-Have Skills',
+    question: 'What skills should I have ?',
     content: (
       <div className="pl-1">
         <p className="text-base text-gray-700 leading-relaxed mb-3">
