@@ -199,91 +199,102 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Info Boxes */}
-            <div style={{ display: 'flex', gap: '16px' }}>
+            {/* Contact Info Boxes - Exact Design Match */}
+            <div style={{ display: 'flex', gap: '12px' }}>
               {/* Contact Number Box */}
               <div style={{
                 flex: 1,
-                backgroundColor: '#f8f7f3',
+                backgroundColor: '#ffffff',
                 borderRadius: '12px',
-                padding: '10px',
-                border: '1px solid #e8e6e0'
+                border: '1px solid #e0ded8',
+                display: 'flex',
+                alignItems: 'center',
+                overflow: 'hidden'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <div style={{
-                    width: '36px',
-                    height: '36px',
-                    backgroundColor: '#e8e6e0',
-                    borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <Phone size={18} color="#4a5568" />
-                  </div>
-                  <span style={{ 
-                    fontSize: '14px', 
+                <div style={{
+                  width: '56px',
+                  height: '56px',
+                  backgroundColor: '#f0efe9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  borderRadius: '12px 0 0 12px'
+                }}>
+                  <Phone size={22} color="#5a5a5a" />
+                </div>
+                <div style={{ padding: '12px 16px' }}>
+                  <p style={{ 
+                    fontSize: '11px', 
                     fontWeight: '600', 
-                    color: '#0B1F3B'
+                    color: '#888888',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                    margin: 0,
+                    marginBottom: '2px'
                   }}>
                     Contact Number
-                  </span>
- <a 
-                  href="tel:+918925987250" 
-                  style={{ 
-                    fontSize: '14px', 
-                    color: '#4a5568',
-                    textDecoration: 'none',
-                    marginLeft: '48px',
-                    display: 'block'
-                  }}
-                >
-                  +91 8925987250
-                </a>
+                  </p>
+                  <a 
+                    href="tel:+918925987250" 
+                    style={{ 
+                      fontSize: '14px', 
+                      color: '#333333',
+                      textDecoration: 'none',
+                      fontWeight: '500'
+                    }}
+                  >
+                    +91 8925987250
+                  </a>
                 </div>
-               
               </div>
 
               {/* Email Box */}
               <div style={{
                 flex: 1,
-                backgroundColor: '#f8f7f3',
+                backgroundColor: '#ffffff',
                 borderRadius: '12px',
-                padding: '10px',
-                border: '1px solid #e8e6e0'
+                border: '1px solid #e0ded8',
+                display: 'flex',
+                alignItems: 'center',
+                overflow: 'hidden'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <div style={{
-                    width: '36px',
-                    height: '36px',
-                    backgroundColor: '#e8e6e0',
-                    borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <Mail size={18} color="#4a5568" />
-                  </div>
-                  <span style={{ 
-                    fontSize: '14px', 
+                <div style={{
+                  width: '56px',
+                  height: '56px',
+                  backgroundColor: '#f0efe9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  borderRadius: '12px 0 0 12px'
+                }}>
+                  <Mail size={22} color="#5a5a5a" />
+                </div>
+                <div style={{ padding: '12px 16px' }}>
+                  <p style={{ 
+                    fontSize: '11px', 
                     fontWeight: '600', 
-                    color: '#0B1F3B'
+                    color: '#888888',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                    margin: 0,
+                    marginBottom: '2px'
                   }}>
                     Email
-                  </span>
+                  </p>
+                  <a 
+                    href="mailto:careers@blubridge.com" 
+                    style={{ 
+                      fontSize: '14px', 
+                      color: '#333333',
+                      textDecoration: 'none',
+                      fontWeight: '500'
+                    }}
+                  >
+                    careers@blubridge.com
+                  </a>
                 </div>
-                <a 
-                  href="mailto:info.1@blubridge.com" 
-                  style={{ 
-                    fontSize: '14px', 
-                    color: '#4a5568',
-                    textDecoration: 'none',
-                    marginLeft: '48px',
-                    display: 'block'
-                  }}
-                >
-                  Info.1@blubridge.com
-                </a>
               </div>
             </div>
           </div>
