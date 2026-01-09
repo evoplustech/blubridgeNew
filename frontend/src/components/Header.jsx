@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory } from 'lucide-react';
 
@@ -8,12 +8,42 @@ const Header = () => {
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
   const location = useLocation();
+
+  // Handle click outside to close dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setActiveDropdown(null);
+        setDropdownVisible(false);
+      }
+    };
+
+    if (activeDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [activeDropdown]);
+
+  // Handle dropdown toggle
+  const toggleDropdown = (name) => {
+    if (activeDropdown === name) {
+      setDropdownVisible(false);
+      setTimeout(() => setActiveDropdown(null), 250);
+    } else {
+      setActiveDropdown(name);
+      setTimeout(() => setDropdownVisible(true), 10);
+    }
+  };
 
   // Scroll detection for logo transition
   useEffect(() => {
     const handleScroll = () => {
-      const scrollThreshold = 100; // Trigger after hero section
+      const scrollThreshold = 100;
       const scrolled = window.scrollY > scrollThreshold;
       setIsScrolled(scrolled);
     };
@@ -30,10 +60,12 @@ const Header = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Close mobile menu when route changes
+  // Close dropdowns when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileSubmenuOpen(null);
+    setActiveDropdown(null);
+    setDropdownVisible(false);
   }, [location]);
 
   // Prevent body scroll when mobile menu is open
