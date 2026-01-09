@@ -175,7 +175,7 @@ const Header = () => {
               
               {activeDropdown === 'products' && (
                 <div className="fixed pt-4" style={{ width: '950px', left: '50%', transform: 'translateX(-50%)', top: '80px', zIndex: 1000 }}>
-                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 relative" style={{ minHeight: '280px' }}>
+                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-8 relative" style={{ height: '322px' }}>
                     {/* Coming Soon Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">
                       <span className="coming-soon-text text-3xl font-semibold">Coming Soon</span>
