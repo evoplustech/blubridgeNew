@@ -202,7 +202,7 @@ const AboutUs = () => {
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
-                borderLeft: '4px solid #328CC1'
+                borderLeft: '4px solid rgb(11, 31, 59)'
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
@@ -237,7 +237,7 @@ const AboutUs = () => {
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
-                borderLeft: '4px solid #328CC1'
+                borderLeft: '4px solid rgb(11, 31, 59)'
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
@@ -272,7 +272,7 @@ const AboutUs = () => {
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
-                borderLeft: '4px solid #328CC1'
+                borderLeft: '4px solid rgb(11, 31, 59)'
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 
@@ -307,7 +307,7 @@ const AboutUs = () => {
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
-                borderLeft: '4px solid #328CC1'
+                borderLeft: '4px solid rgb(11, 31, 59)'
               }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ 

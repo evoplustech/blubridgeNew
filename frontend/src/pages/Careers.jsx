@@ -23,14 +23,16 @@ const Careers = () => {
       <div style={{ 
         maxWidth: '1261px',
         margin: '0 auto', 
-        padding: '0 20px'
+        padding: '0 20px',
+        
       }}>
         {/* Join Us Container */}
         <div style={{
           backgroundColor: '#fffdf7',
           borderRadius: '12px',
           padding: '40px 50px',
-          marginBottom: '30px'
+          marginBottom: '30px',
+          borderBottom: '3px solid rgb(211, 205, 185)'
         }}>
         {/* Title */}
         <h1 style={{ 

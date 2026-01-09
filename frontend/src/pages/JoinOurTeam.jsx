@@ -19,7 +19,8 @@ const JoinOurTeam = ({ scrollRef }) => {
         <div style={{
           backgroundColor: '#fffdf7',
           borderRadius: '12px',
-          padding: '40px 50px'
+          padding: '40px 50px',
+          borderBottom: '3px solid rgb(211, 205, 185)'
         }}>
         {/* Main Title */}
         <h1 

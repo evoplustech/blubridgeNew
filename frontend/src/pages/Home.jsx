@@ -723,11 +723,11 @@ const Home = () => {
           }}
         />
         
-        {/* LAYER 1: Subtle overlay for text readability */}
+        {/* LAYER 1: Dark overlay for text readability */}
         <div 
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%)`
+            backgroundColor: 'rgba(0, 0, 0, 0.7)'
           }}
         />
         
