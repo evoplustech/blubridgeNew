@@ -713,35 +713,25 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Section 1 (ODD) - Warm Sandy Background with Neural Network */}
+      {/* Hero Section - Section 1 (ODD) - Banner Image Background */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section ">
-        {/* LAYER 0: Warm Sandy/Beige Background Gradient (KEEP AS-IS) */}
+        {/* LAYER 0: Banner Image Background */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            background: `
-              radial-gradient(ellipse 120% 100% at 20% 20%, rgba(235, 220, 195, 0.95) 0%, transparent 50%),
-              radial-gradient(ellipse 100% 80% at 80% 80%, rgba(180, 140, 100, 0.4) 0%, transparent 60%),
-              linear-gradient(135deg, #e8dcc8 0%, #d4c4a8 20%, #c9b08a 40%, #bfa070 60%, #b89860 80%, #a88855 100%)
-            `
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_site-updates-12/artifacts/qz1jemhh_Banner.jpg')`
           }}
         />
         
-        {/* LAYER 1: Soft Atmospheric Haze */}
+        {/* LAYER 1: Subtle overlay for text readability */}
         <div 
           className="absolute inset-0"
           style={{
-            background: `
-              radial-gradient(ellipse 80% 60% at 30% 30%, rgba(255, 250, 240, 0.4) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 50% at 70% 60%, rgba(210, 180, 140, 0.25) 0%, transparent 45%)
-            `
+            background: `linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%)`
           }}
         />
         
-        {/* LAYER 2: Neural Network Canvas (Interactive) */}
-        <canvas id="neural-network-canvas" className="absolute inset-0 w-full h-full" style={{ zIndex: 10 }} /> 
-        {/* <NodeConnections2></NodeConnections2> */}
-        {/* LAYER 3: Content (100% STATIC - Always on top) */}
+        {/* LAYER 2: Content (Always on top) */}
         <div className="container-custom relative py-24 z-10" >
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#2a2520] drop-shadow-sm">
