@@ -124,7 +124,7 @@ const Contact = () => {
                   flexDirection: 'column', 
                   alignItems: 'center',
                   marginLeft: '16px',
-                  paddingTop: '4px'
+                  paddingTop: '22px'
                 }}>
                   <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
@@ -179,7 +179,7 @@ const Contact = () => {
                   flexDirection: 'column', 
                   alignItems: 'center',
                   marginLeft: '16px',
-                  paddingTop: '4px'
+                  paddingTop: '22px'
                 }}>
                   <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
@@ -200,16 +200,17 @@ const Contact = () => {
             </div>
 
             {/* Contact Info Boxes - Exact Design Match */}
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div style={{ display: 'flex', gap: '12px',  }}>
               {/* Contact Number Box */}
               <div style={{
                 flex: 1,
                 backgroundColor: '#ffffff',
-                borderRadius: '12px',
+                borderRadius: '10px',
                 border: '1px solid #e0ded8',
                 display: 'flex',
                 alignItems: 'center',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                paddingLeft:'7px'
               }}>
                 <div style={{
                   width: '56px',
@@ -219,11 +220,11 @@ const Contact = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
-                  borderRadius: '12px 0 0 12px'
+                  borderRadius: '10px'
                 }}>
                   <Phone size={22} color="#5a5a5a" />
                 </div>
-                <div style={{ padding: '12px 16px' }}>
+                <div style={{ padding: '12px 10px' }}>
                   <p style={{ 
                     fontSize: '11px', 
                     fontWeight: '600', 
@@ -253,11 +254,12 @@ const Contact = () => {
               <div style={{
                 flex: 1,
                 backgroundColor: '#ffffff',
-                borderRadius: '12px',
+                borderRadius: '10px',
                 border: '1px solid #e0ded8',
                 display: 'flex',
                 alignItems: 'center',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                paddingLeft:'7px'
               }}>
                 <div style={{
                   width: '56px',
@@ -267,11 +269,11 @@ const Contact = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
-                  borderRadius: '12px 0 0 12px'
+                  borderRadius: '10px'
                 }}>
                   <Mail size={22} color="#5a5a5a" />
                 </div>
-                <div style={{ padding: '12px 16px' }}>
+                <div style={{ padding: '12px 10px' }}>
                   <p style={{ 
                     fontSize: '11px', 
                     fontWeight: '600', 

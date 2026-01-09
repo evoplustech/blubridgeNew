@@ -27,6 +27,19 @@ const faqData = [
     question: 'Am I eligible to apply?',
     content: (
       <div className="pl-1">
+        <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
+          <li>Aptitude and Logical reasoning</li>
+          <li>Linear algebra, Calculus, Probability & Statistics</li>
+          <li>Strong Programming Foundations in C++ or Java</li>
+        </ul>
+      </div>
+    )
+  },
+  {
+    id: 'must',
+    question: 'Must-Have Skills',
+    content: (
+      <div className="pl-1">
         <p className="text-base text-gray-700 leading-relaxed mb-3">
           Ask yourself the following:
         </p>
