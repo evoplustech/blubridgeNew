@@ -288,6 +288,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             <li style={{ fontSize: '16px', marginBottom: '6px' }}>Anyone who <strong style={{ color: '#000000' }}>struggled with 12th-grade mathematics</strong></li>
           </ul>
         </div>
+        </div>
       </div>
     </div>
   );
