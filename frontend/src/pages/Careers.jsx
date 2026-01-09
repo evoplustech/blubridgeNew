@@ -175,10 +175,11 @@ const Careers = () => {
             </a>
           </li>
         </ul>
+        </div>
       </div>
 
       {/* Join Our Team Section */}
-      <div style={{ marginTop: '60px' }}>
+      <div style={{ marginTop: '30px' }}>
         {/* <hr style={{ border: 'none', borderTop: '1px solid #E0E0E0', padding: '0 0 30px 0' }} /> */}
         <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
