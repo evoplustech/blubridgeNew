@@ -1,0 +1,78 @@
+# BluBridge Website - Product Requirements Document
+
+## Original Problem Statement
+Building the BluBridge corporate website - a static full-stack React/FastAPI application for a Deep Learning Research Organization. The project involves rapid, iterative UI and content updates with strict adherence to visual references.
+
+## User Personas
+- **Deep Learning Researchers**: Potential team members exploring career opportunities
+- **Business Stakeholders**: Organizations interested in AI/ML products and solutions
+- **General Visitors**: Learning about BluBridge's mission and offerings
+
+## Core Requirements
+- **Strict Adherence**: Implement all UI prompts exactly as described using provided visual attachments
+- **Scope Isolation**: Changes confined to specific pages/sections mentioned in prompts
+- **Visual Fidelity**: Output must be 100% visually identical to reference images
+- **Iterative Development**: Support continuous flow of UI change requests
+
+## Tech Stack
+- **Frontend**: React + TailwindCSS + Shadcn/UI + Framer Motion
+- **Backend**: FastAPI (Python)
+- **Database**: MongoDB (minimal usage - mostly static content)
+- **Key Libraries**: @radix-ui/react-accordion, embla-carousel-react, lucide-react, framer-motion
+
+---
+
+## What's Been Implemented
+
+### January 9, 2025
+- **Careers Page FAQ Transformation**: Converted static FAQ section into professional accordion format
+  - 7 FAQ items (a-g) with smooth expand/collapse animation (300ms)
+  - Only one item opens at a time
+  - Preserved all original content, bullet points, and bold emphasis
+  - Clean divider lines, rotating chevron icons
+
+### Previous Session (Handoff)
+- **Navigation Dropdown Overhaul**: Hover-triggered Products/Solutions dropdowns with framer-motion animations
+- **"Coming Soon" Text Animation**: Per-letter staggered fade-in with two-tone gradient shimmer (#c9a57e, #bd8346)
+- **Home Page Hero**: Replaced canvas animation with static Banner.jpg + 70% black overlay
+- **Careers Page Styling**: Updated to beige background (#efede5) with white cards (#fffdf7)
+- **Research Teams Icon**: Updated CGAD icon to GitBranch
+
+---
+
+## Prioritized Backlog
+
+### P0 - Immediate
+- [PENDING USER VERIFICATION] Two-tone gradient shimmer effect on dropdown "Coming Soon" text
+
+### P1 - High Priority
+- Apply 3-Grid color to About Page
+- Fix Container Width Inconsistencies in `/products/Training.jsx` and `/products/SovereignCloud.jsx`
+- Create Individual GPU Node Pages
+
+### P2 - Medium Priority
+- Verify Header Logo Scroll Behavior
+- Create Blog/Press Pages
+- Create "Home-1" page cloning scale.com (on hold)
+- Create Contact Sub-pages
+
+### P3 - Technical Debt/Refactoring
+- Extract `AnimatedText` component from `Header.jsx` to its own file
+- Extract `AIExpertiseOrbit` from `Home.jsx`
+- Standardize container widths globally
+
+---
+
+## Key Files Reference
+- `/app/frontend/src/components/Header.jsx` - Navigation with dropdown logic
+- `/app/frontend/src/pages/Home.jsx` - Hero section, research teams
+- `/app/frontend/src/pages/Careers.jsx` - Career page structure
+- `/app/frontend/src/pages/JoinOurTeam.jsx` - FAQ accordion component
+- `/app/frontend/src/index.css` - Custom CSS including shimmer animation
+- `/app/frontend/tailwind.config.js` - Theme configuration
+
+## Third-Party Integrations
+- Brevo (Sendinblue) - Email services
+- Embla Carousel React - Carousel functionality
+- Lucide React - Icons
+- Framer Motion - Animations
