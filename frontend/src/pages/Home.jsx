@@ -889,7 +889,7 @@ const Home = () => {
                   { icon: Database, title: "Data" },
                   { icon: CheckCircle, title: "Tokenizer" },
                   { icon: Layers, title: "Tensor & Operations" },
-                  { icon: Scale, title: "CGAD" },
+                  { icon: GitBranch, title: "CGAD" },
                   { icon: Terminal, title: "Compiler" },
                   { icon: Network, title: "Distributed Training" }
                 ].map((service, index) => {
