@@ -57,7 +57,7 @@ const Careers = () => {
     { icon: Phone, label: 'Contact Number', value: '+91 8925987250', href: 'tel:+918925987250' },
     { icon: Mail, label: 'Email', value: 'careers@blubridge.com', href: 'mailto:careers@blubridge.com' },
     { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/blubridge', href: 'https://www.linkedin.com/company/blubridge/' },
-    { icon: Twitter, label: 'X (Twitter)', value: 'x.com/BlubridgeAI', href: 'https://x.com/BlubridgeAI/' }
+    { icon: XIcon, label: 'X (Twitter)', value: 'x.com/BlubridgeAI', href: 'https://x.com/BlubridgeAI/' }
   ];
 
   return (

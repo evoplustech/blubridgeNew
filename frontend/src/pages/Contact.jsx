@@ -93,7 +93,7 @@ const Contact = () => {
             <div style={{
               backgroundColor: '#ffffff',
               border: '1px solid #e0ded8',
-              border: '1px solid #e0ded8',
+              borderLeft: '1px solid #e0ded8',
               borderRadius: '12px',
               padding: '20px 24px',
               marginBottom: '16px'
