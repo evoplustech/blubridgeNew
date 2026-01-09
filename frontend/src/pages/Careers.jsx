@@ -230,7 +230,7 @@ const Careers = () => {
           {/* ======================================== */}
           {/* 2. MUST-HAVE SKILLS - Research Card */}
           {/* ======================================== */}
-          <section data-testid="must-have-skills-section" style={{ marginBottom: '50px' }}>
+          {/* <section data-testid="must-have-skills-section" style={{ marginBottom: '50px' }}>
             <div style={{
               backgroundColor: '#f8f7f3',
               borderRadius: '12px',
@@ -275,12 +275,12 @@ const Careers = () => {
                 ))}
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* ======================================== */}
           {/* 3. HOW TO APPLY - Guided Action Card */}
           {/* ======================================== */}
-          <section data-testid="how-to-apply-section" style={{ marginBottom: '50px' }}>
+          {/* <section data-testid="how-to-apply-section" style={{ marginBottom: '50px' }}>
             <div style={{
               backgroundColor: '#f8f7f3',
               borderRadius: '12px',
@@ -306,7 +306,7 @@ const Careers = () => {
                 Before applying, please ensure you read this carefully:
               </p>
 
-              {/* Primary Link */}
+             
               <button
                 onClick={handleScrollToJoin}
                 data-testid="joining-research-unit-link"
@@ -336,7 +336,7 @@ const Careers = () => {
                 <ChevronRight size={18} style={{ marginLeft: '2px' }} />
               </button>
             </div>
-          </section>
+          </section> */}
 
           {/* ======================================== */}
           {/* 4. CONTACT & WALK-IN DETAILS */}

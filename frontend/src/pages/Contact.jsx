@@ -150,7 +150,7 @@ const Contact = () => {
               border: '1px solid #e0ded8',
               borderRadius: '12px',
               padding: '20px 24px',
-              marginBottom: '28px'
+              marginBottom: '15px'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
@@ -200,7 +200,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Info Boxes - Exact Design Match */}
-            <div style={{ display: 'flex', gap: '12px',  }}>
+            <div style={{ }}>
               {/* Contact Number Box */}
               <div style={{
                 flex: 1,
@@ -210,7 +210,8 @@ const Contact = () => {
                 display: 'flex',
                 alignItems: 'center',
                 overflow: 'hidden',
-                paddingLeft:'7px'
+                paddingLeft:'7px',
+                marginBottom:'15px'
               }}>
                 <div style={{
                   width: '56px',
@@ -286,7 +287,7 @@ const Contact = () => {
                     Email
                   </p>
                   <a 
-                    href="mailto:careers@blubridge.com" 
+                    href="mailto:info.1@blubridge.com" 
                     style={{ 
                       fontSize: '14px', 
                       color: '#333333',
@@ -294,7 +295,7 @@ const Contact = () => {
                       fontWeight: '500'
                     }}
                   >
-                    careers@blubridge.com
+                    info.1@blubridge.com
                   </a>
                 </div>
               </div>

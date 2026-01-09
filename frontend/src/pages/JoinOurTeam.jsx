@@ -41,9 +41,9 @@ const faqData = [
     content: (
       <div className="pl-1">
         <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
-          <li>Do I truly understand the <strong className="text-black">depth of Deep Learning research?</strong></li>
-          <li>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
-          <li>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
+          <li>Aptitude and Logical Reasoning</li>
+          <li>Proficient in Linear Algebra, Calculus, Probability & Statistics</li>
+          <li>Strong Programming Foundations in C++ or Java</li>
         </ul>
       </div>
     )
