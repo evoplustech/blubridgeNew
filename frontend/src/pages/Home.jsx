@@ -912,7 +912,7 @@ const Home = () => {
                   </span>
                   <span 
                     className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
-                      expandedAboutCard === 'whoWeAre' ? 'rotate-180' : ''
+                      expandedAboutCards.whoWeAre ? 'rotate-180' : ''
                     }`}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -925,7 +925,7 @@ const Home = () => {
               {/* Collapsible Content */}
               <div 
                 className={`overflow-hidden transition-all duration-400 ease-out ${
-                  expandedAboutCard === 'whoWeAre' 
+                  expandedAboutCards.whoWeAre 
                     ? 'max-h-[500px] opacity-100' 
                     : 'max-h-0 opacity-0'
                 }`}
