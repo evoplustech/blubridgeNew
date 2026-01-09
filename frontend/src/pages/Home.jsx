@@ -734,17 +734,17 @@ const Home = () => {
         {/* LAYER 2: Content (Always on top) */}
         <div className="container-custom relative py-24 z-10" >
           <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#2a2520] drop-shadow-sm">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white drop-shadow-lg">
               Beyond the Horizon<br></br>
             </h1>
-            <p className="text-[#3d3530] text-lg font-light leading-relaxed max-w-md">An Independent AI Research Lab.</p>
+            <p className="text-white/90 text-lg font-light leading-relaxed max-w-md drop-shadow-md">An Independent AI Research Lab.</p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact">
                 {/* <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-8 py-3 rounded font-medium text-base">
                   Reserve GPUs
                 </Button> */}
-                <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-4 py-3 rounded font-medium text-base">
+                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-4 py-3 rounded font-medium text-base">
                   Contact Us
                 </Button>
               </Link>
