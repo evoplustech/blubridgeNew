@@ -145,8 +145,8 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 bg-[#efede5] shadow-sm border-b border-[#D6DEC3]" style={{ zIndex: 1000 }}>
       {/* Top banner */}
       <div className="bg-[#0B1F3B] text-white py-2 px-6 text-center text-sm">
-        <span>BluBridge contracts approximately 200,000 NVIDIA GB300 GPUs with Microsoft</span>
-        <Link to="/news" className="ml-2 underline hover:no-underline">See More →</Link>
+        <span>BluBridge is currently focusing on developing a state-of-the-art 70B parameter Large Language Model</span>
+        <Link to="/contact" className="ml-2 underline hover:no-underline">See More →</Link>
       </div>
 
       <div className="container-custom">
@@ -197,12 +197,10 @@ const Header = () => {
             {/* Products Dropdown */}
             <div 
               className="relative"
-              ref={activeDropdown === 'products' ? dropdownRef : null}
+              onMouseEnter={() => { setActiveDropdown('products'); setTimeout(() => setDropdownVisible(true), 10); }}
+              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
             >
-              <button 
-                onClick={() => toggleDropdown('products')}
-                className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors"
-              >
+              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
                 <span>Products</span>
                 <ChevronDown 
                   className="w-4 h-4 transition-transform duration-250" 
