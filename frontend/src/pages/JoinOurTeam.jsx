@@ -15,6 +15,12 @@ const JoinOurTeam = ({ scrollRef }) => {
         margin: '0 auto', 
         padding: '0 20px'
       }}>
+        {/* Research Team Container */}
+        <div style={{
+          backgroundColor: '#fffdf7',
+          borderRadius: '12px',
+          padding: '40px 50px'
+        }}>
         {/* Main Title */}
         <h1 
           ref={scrollRef}
