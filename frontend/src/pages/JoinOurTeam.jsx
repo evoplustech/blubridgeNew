@@ -35,7 +35,7 @@ const JoinOurTeam = ({ scrollRef }) => {
             marginBottom: '10px',
             scrollMarginTop: '150px',
             lineHeight: '1.3',
-            paddingTop:'70px'
+            paddingTop:'0'
           }}
         >
           Join our Deep Learning Research Team
