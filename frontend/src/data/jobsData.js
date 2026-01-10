@@ -244,7 +244,7 @@ export const jobsData = [
     education: 'MBA (Operations / Business Analytics / Systems) or BBA / BBM (Operations)',
     employmentType: 'Internship',
     postedDate: '2 days ago',
-    naukriLink: 'https://www.naukri.com/job-listings-process-operations-intern-blubridge-chennai-0-to-1-years-070126022639',
+    naukriLink: 'https://blubridge.com/hiring/process-operation-registration-form/',
     description: 'Support the organization-wide process setup initiative. Observe real operations, design enforceable workflows, and standardise how work is executed across departments.',
     responsibilities: [
       'Observe, analyse, and document end-to-end operational processes across security, housekeeping, IT, infrastructure, administration, HR, accounts, and employee lifecycle',
