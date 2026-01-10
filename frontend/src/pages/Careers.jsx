@@ -47,14 +47,6 @@ const jobListings = [
   },
   {
     id: 4,
-    title: 'Marketing & Growth Lead',
-    department: 'Marketing',
-    team: 'Growth',
-    location: 'Chennai',
-    slug: 'marketing-growth-lead'
-  },
-  {
-    id: 5,
     title: 'Process & Operations Intern',
     department: 'Operations',
     team: 'Internship',
@@ -62,7 +54,7 @@ const jobListings = [
     slug: 'process-operations-intern'
   },
   {
-    id: 6,
+    id: 5,
     title: 'Office Administration – Male',
     department: 'Operations',
     team: 'Admin',
@@ -70,20 +62,12 @@ const jobListings = [
     slug: 'office-administration'
   },
   {
-    id: 7,
+    id: 6,
     title: 'Accountant (Male)',
     department: 'Finance',
     team: 'Accounting',
     location: 'Chennai',
     slug: 'accountant'
-  },
-  {
-    id: 8,
-    title: 'Senior Administration Officer',
-    department: 'Operations',
-    team: 'Admin',
-    location: 'Chennai',
-    slug: 'senior-administration-officer'
   }
 ];
 
@@ -201,7 +185,7 @@ const Careers = () => {
               margin: 0,
               lineHeight: '1.4'
             }}>
-              Interested in building the future of AI with us?
+              Interested in pushing the boundaries of machine intelligence?
             </h3>
             <button
               onClick={toggleJobListings}
