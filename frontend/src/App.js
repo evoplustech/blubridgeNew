@@ -108,6 +108,7 @@ function App() {
             <Route path="/joinourteam" element={<JoinOurTeam />} />
             <Route path="/media-kit" element={<MediaKit />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/careers/job/:slug" element={<JobDetail />} />
             <Route path="/research" element={<Research />} />
             <Route path="/Research/Blu-Werp" element={<BluWerp />} />
             
