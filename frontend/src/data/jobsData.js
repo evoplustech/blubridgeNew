@@ -139,7 +139,7 @@ export const jobsData = [
     education: 'Mass Communication / Journalism / Media / Visual Communication or related fields',
     employmentType: 'Full Time, Permanent',
     postedDate: '1 day ago',
-    naukriLink: 'https://www.naukri.com/job-listings-branding-communications-lead-blubridge-chennai-0-to-0-years-090126023084',
+    naukriLink: 'https://blubridge.com/hiring/brandcomm-registration-form/',
     description: 'Strengthen BluBridge\'s brand presence, external communication, and outreach across global AI and technology ecosystems. Focus on brand communication, media, storytelling, and content coordination.',
     responsibilities: [
       'Support the execution of branding and communication strategies to improve BluBridge\'s visibility across AI, technology, and startup ecosystems',
