@@ -54,6 +54,9 @@ import ScrollToTop from './components/ScrollToTop';
 import ContactSales from './pages/contact/Sales';
 import GeneralEnquiry from './pages/contact/GeneralEnquiry';
 
+// Job Detail Page
+import JobDetail from './pages/JobDetail';
+
 // Policy Pages
 import TransparencyHumanRights from './pages/policies/TransparencyHumanRights';
 import PrivacyPolicy from './pages/policies/PrivacyPolicy';
