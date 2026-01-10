@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { MapPin, Briefcase, Clock, Users, GraduationCap, IndianRupee, Calendar, ArrowLeft, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { MapPin, Briefcase, Clock, Users, GraduationCap, IndianRupee, Calendar, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { getJobBySlug } from '../data/jobsData';
+import JobApplicationForm from '../components/JobApplicationForm';
 
 const JobDetail = () => {
   const { slug } = useParams();
   const job = getJobBySlug(slug);
+  const [showApplicationForm, setShowApplicationForm] = useState(false);
+  const formRef = useRef(null);
 
   useDocumentTitle(job ? `${job.title} | Careers | BluBridge` : 'Job Not Found | BluBridge');
+
+  // Handle Apply Now click - show form and scroll to it
+  const handleApplyClick = () => {
+    setShowApplicationForm(true);
+    // Wait for form to render, then scroll to it
+    setTimeout(() => {
+      if (formRef.current) {
+        formRef.current.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    }, 100);
+  };
 
   if (!job) {
     return <Navigate to="/careers" replace />;
@@ -123,11 +140,10 @@ const JobDetail = () => {
                 </div>
               </div>
 
-              {/* Apply Button */}
-              <a
-                href={job.naukriLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Apply Button - Header */}
+              <button
+                data-testid="apply-now-header-btn"
+                onClick={handleApplyClick}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -140,13 +156,14 @@ const JobDetail = () => {
                   fontWeight: '600',
                   textDecoration: 'none',
                   transition: 'all 200ms ease-out',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                  border: 'none',
+                  cursor: 'pointer'
                 }}
                 className="apply-btn"
               >
                 Apply Now
-                <ExternalLink size={16} />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -524,10 +541,9 @@ const JobDetail = () => {
               }}>
                 Apply now and be part of BluBridge's mission to build the future of AI.
               </p>
-              <a
-                href={job.naukriLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                data-testid="apply-now-bottom-btn"
+                onClick={handleApplyClick}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -539,16 +555,25 @@ const JobDetail = () => {
                   fontSize: '16px',
                   fontWeight: '600',
                   textDecoration: 'none',
-                  transition: 'all 200ms ease-out'
+                  transition: 'all 200ms ease-out',
+                  border: 'none',
+                  cursor: 'pointer'
                 }}
                 className="apply-btn-bottom"
               >
                 Apply Now
-                <ExternalLink size={18} />
-              </a>
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Application Form - Appears at the end of page */}
+        <JobApplicationForm 
+          ref={formRef}
+          jobTitle={job.title}
+          isVisible={showApplicationForm}
+          onClose={() => setShowApplicationForm(false)}
+        />
       </div>
 
       {/* Hover Styles */}
