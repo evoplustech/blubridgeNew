@@ -17,79 +17,55 @@ const XIcon = ({ size = 24, color = "currentColor", ...props }) => (
   </svg>
 );
 
-// Job listings data
+// Job listings data - minimal format
 const jobListings = [
   {
     id: 1,
     title: 'AI Systems Engineer',
-    company: 'BluBridge',
-    experience: '0-2 Yrs',
-    salary: '₹3-6 Lacs PA',
+    department: 'Engineering',
+    team: 'AI Research',
     location: 'Chennai',
-    type: 'Full Time',
-    category: 'Fresher',
-    skills: 'Deep Learning, PyTorch, Python, C++, CUDA, Linux',
-    postedTime: '2 days ago'
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   },
   {
     id: 2,
     title: 'AI & ML Engineer – C++ / Java',
-    company: 'BluBridge',
-    experience: '0-3 Yrs',
-    salary: '₹4-8 Lacs PA',
+    department: 'Engineering',
+    team: 'Core ML',
     location: 'Chennai',
-    type: 'Full Time',
-    category: 'Fresher',
-    skills: 'C++, Java, Machine Learning, Data Structures, Algorithms',
-    postedTime: '3 days ago'
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   },
   {
     id: 3,
     title: 'Branding & Communications Lead',
-    company: 'BluBridge',
-    experience: '2-5 Yrs',
-    salary: '₹6-12 Lacs PA',
+    department: 'Marketing',
+    team: 'Brand',
     location: 'Chennai',
-    type: 'Full Time',
-    category: 'Mid-Level',
-    skills: 'Brand Strategy, Content Marketing, Communications, PR',
-    postedTime: '5 days ago'
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   },
   {
     id: 4,
     title: 'Marketing & Growth Lead',
-    company: 'BluBridge',
-    experience: '2-4 Yrs',
-    salary: '₹5-10 Lacs PA',
+    department: 'Marketing',
+    team: 'Growth',
     location: 'Chennai',
-    type: 'Full Time',
-    category: 'Mid-Level',
-    skills: 'Digital Marketing, Growth Hacking, SEO, Analytics',
-    postedTime: '1 week ago'
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   },
   {
     id: 5,
     title: 'Research Intern – Deep Learning',
-    company: 'BluBridge',
-    experience: '0 Yrs',
-    salary: '₹15-25K/month',
+    department: 'Research',
+    team: 'AI Research',
     location: 'Chennai',
-    type: 'Internship',
-    category: 'Intern',
-    skills: 'Python, Deep Learning, Mathematics, Research',
-    postedTime: '4 days ago'
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   },
   {
     id: 6,
     title: 'Operations & Admin Executive',
-    company: 'BluBridge',
-    experience: '1-3 Yrs',
-    salary: '₹3-5 Lacs PA',
+    department: 'Operations',
+    team: 'Admin',
     location: 'Chennai',
-    type: 'Full Time',
-    category: 'Entry-Level',
-    skills: 'Operations, Administration, MS Office, Communication',
-    postedTime: '6 days ago'
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   }
 ];
 
