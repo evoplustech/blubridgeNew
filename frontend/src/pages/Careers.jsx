@@ -190,11 +190,14 @@ const Careers = () => {
               background: '#f3f1e9',
               borderRadius: '14px',
               padding: '28px 36px',
-              marginBottom: '45px',
+              marginBottom: showJobListings ? '0' : '45px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              border: '1px solid #e8e6e0'
+              border: '1px solid #e8e6e0',
+              borderBottomLeftRadius: showJobListings ? '0' : '14px',
+              borderBottomRightRadius: showJobListings ? '0' : '14px',
+              transition: 'all 250ms ease-out'
             }}
           >
             <h3 style={{
@@ -206,10 +209,8 @@ const Careers = () => {
             }}>
               Interested in building the future of AI with us?
             </h3>
-            <a
-              href="https://www.naukri.com/blubridge-technologies-jobs-careers"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={toggleJobListings}
               data-testid="see-open-roles-btn"
               className="careers-cta-button"
               style={{
@@ -219,14 +220,191 @@ const Careers = () => {
                 borderRadius: '8px',
                 fontSize: '15px',
                 fontWeight: '500',
-                textDecoration: 'none',
+                border: 'none',
+                cursor: 'pointer',
                 whiteSpace: 'nowrap',
                 transition: 'all 200ms ease-out',
                 boxShadow: '0 2px 4px rgba(11, 31, 59, 0.1)'
               }}
             >
-              See open roles
-            </a>
+              {showJobListings ? 'Hide roles' : 'See open roles'}
+            </button>
+          </div>
+
+          {/* ======================================== */}
+          {/* INLINE JOB LISTINGS SECTION */}
+          {/* ======================================== */}
+          <div 
+            data-testid="job-listings-section"
+            style={{
+              maxHeight: showJobListings ? '2000px' : '0',
+              opacity: showJobListings ? 1 : 0,
+              overflow: 'hidden',
+              transition: 'max-height 300ms ease-out, opacity 250ms ease-out',
+              marginBottom: showJobListings ? '45px' : '0'
+            }}
+          >
+            <div style={{
+              background: '#f3f1e9',
+              borderRadius: '0 0 14px 14px',
+              padding: showJobListings ? '0 36px 36px 36px' : '0 36px',
+              border: '1px solid #e8e6e0',
+              borderTop: 'none'
+            }}>
+              {/* Section Header */}
+              <h4 style={{
+                fontSize: '18px',
+                fontWeight: '600',
+                color: '#1a1a1a',
+                marginBottom: '24px',
+                paddingTop: '8px'
+              }}>
+                Current Open Roles
+              </h4>
+
+              {/* Job Cards */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {jobListings.map((job) => (
+                  <div 
+                    key={job.id}
+                    className="job-card"
+                    data-testid={`job-card-${job.id}`}
+                    style={{
+                      backgroundColor: '#ffffff',
+                      borderRadius: '12px',
+                      padding: '24px',
+                      border: '1px solid #e8e6e0',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                      transition: 'all 200ms ease-out',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {/* Job Title & Company */}
+                    <div style={{ marginBottom: '12px' }}>
+                      <h5 style={{
+                        fontSize: '17px',
+                        fontWeight: '600',
+                        color: '#0B1F3B',
+                        marginBottom: '4px',
+                        lineHeight: '1.3'
+                      }}>
+                        {job.title}
+                      </h5>
+                      <p style={{
+                        fontSize: '14px',
+                        color: '#5a6573',
+                        fontWeight: '400'
+                      }}>
+                        {job.company}
+                      </p>
+                    </div>
+
+                    {/* Metadata Row */}
+                    <div style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '16px',
+                      marginBottom: '12px'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <Briefcase size={15} color="#6b7280" />
+                        <span style={{ fontSize: '13px', color: '#4a5568' }}>{job.experience}</span>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <IndianRupee size={15} color="#6b7280" />
+                        <span style={{ fontSize: '13px', color: '#4a5568' }}>{job.salary}</span>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <MapPin size={15} color="#6b7280" />
+                        <span style={{ fontSize: '13px', color: '#4a5568' }}>{job.location}</span>
+                      </div>
+                    </div>
+
+                    {/* Tags Row */}
+                    <div style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '8px',
+                      marginBottom: '12px'
+                    }}>
+                      <span style={{
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        color: '#0B1F3B',
+                        backgroundColor: '#e8f4f8',
+                        padding: '4px 10px',
+                        borderRadius: '20px'
+                      }}>
+                        {job.type}
+                      </span>
+                      <span style={{
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        color: '#166534',
+                        backgroundColor: '#dcfce7',
+                        padding: '4px 10px',
+                        borderRadius: '20px'
+                      }}>
+                        {job.category}
+                      </span>
+                    </div>
+
+                    {/* Skills */}
+                    <p style={{
+                      fontSize: '13px',
+                      color: '#6b7280',
+                      marginBottom: '16px',
+                      lineHeight: '1.5'
+                    }}>
+                      {job.skills}
+                    </p>
+
+                    {/* Footer Row */}
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      paddingTop: '12px',
+                      borderTop: '1px solid #f0f0f0'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <Clock size={14} color="#9ca3af" />
+                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{job.postedTime}</span>
+                      </div>
+                      <Bookmark size={18} color="#9ca3af" style={{ cursor: 'pointer' }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* View All Link */}
+              <div style={{ 
+                textAlign: 'center', 
+                marginTop: '28px',
+                paddingTop: '20px',
+                borderTop: '1px solid #e0ded8'
+              }}>
+                <a
+                  href="https://www.naukri.com/blubridge-technologies-jobs-careers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#0B1F3B',
+                    textDecoration: 'none',
+                    transition: 'color 150ms ease-out'
+                  }}
+                  className="view-all-link"
+                >
+                  View all roles on Naukri
+                  <ExternalLink size={16} />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* ======================================== */}
