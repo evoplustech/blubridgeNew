@@ -144,7 +144,7 @@ const JobDetail = () => {
                 }}
                 className="apply-btn"
               >
-                Apply on Naukri
+                Apply Now
                 <ExternalLink size={16} />
               </a>
             </div>
