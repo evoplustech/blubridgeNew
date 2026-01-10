@@ -389,7 +389,7 @@ export const jobsData = [
     education: 'Bachelor\'s degree in any discipline',
     employmentType: 'Full Time, Permanent',
     postedDate: '3+ weeks ago',
-    naukriLink: 'https://www.naukri.com/job-listings-senior-administration-officer-blubridge-chennai-2-to-4-years-031225035399',
+    naukriLink: 'https://blubridge.com/hiring/administration-registration-form/',
     description: 'Oversee and manage end-to-end administrative operations of the company, ensuring seamless coordination across all departments.',
     responsibilities: [
       'Oversee and manage end-to-end administrative operations of the company',
