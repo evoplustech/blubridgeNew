@@ -17,12 +17,30 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 ## Tech Stack
 - **Frontend**: React + TailwindCSS + Shadcn/UI + Framer Motion
 - **Backend**: FastAPI (Python)
-- **Database**: MongoDB (minimal usage - mostly static content)
+- **Database**: MongoDB
 - **Key Libraries**: @radix-ui/react-accordion, embla-carousel-react, lucide-react, framer-motion
 
 ---
 
 ## What's Been Implemented
+
+### January 10, 2025
+- **Inline Job Application Form System**: Replaced external Naukri links with full inline application system
+  - "Apply Now" buttons (header and bottom CTA) now trigger inline form instead of external redirect
+  - Form appears at end of job detail page with smooth slide-in animation
+  - Page auto-scrolls to form when Apply Now is clicked
+  - Form Fields: First Name*, Last Name*, Email*, Phone*, Location*, Resume/CV* (file upload), LinkedIn Profile (optional)
+  - Real-time validation on all fields with error messages
+  - Submit button disabled until all validations pass
+  - File upload: PDF, DOC, DOCX (max 5MB)
+  - Backend API: POST /api/job-applications/submit (multipart form data)
+  - GET /api/job-applications - retrieve all applications
+  - GET /api/job-applications/{id} - retrieve single application
+  - PATCH /api/job-applications/{id}/status - update application status
+  - MongoDB collection: job_applications
+  - Files stored in /app/backend/uploads/resumes/
+  - Email notification via Brevo on submission
+  - **Test Coverage**: 93% backend tests passed, 100% frontend tests passed
 
 ### January 9, 2025
 - **Careers Page "Join Us" Section Premium Redesign**: Complete overhaul with research-focused layout
