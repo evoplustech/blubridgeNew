@@ -798,6 +798,16 @@ const Careers = () => {
           background-color: #162B4D;
         }
         
+        .job-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          border-color: #d0cec8;
+        }
+        
+        .view-all-link:hover {
+          color: #328CC1;
+        }
+        
         @media (max-width: 768px) {
           .location-card {
             max-width: 100%;
