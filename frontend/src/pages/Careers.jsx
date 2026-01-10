@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import JoinOurTeam from './JoinOurTeam';
-import { MapPin, Phone, Mail, Linkedin, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, ChevronRight, CheckCircle2, Briefcase, Clock, IndianRupee, Bookmark, ExternalLink } from 'lucide-react';
 
 // Custom X (Twitter) Icon Component
 const XIcon = ({ size = 24, color = "currentColor", ...props }) => (
@@ -17,15 +17,96 @@ const XIcon = ({ size = 24, color = "currentColor", ...props }) => (
   </svg>
 );
 
+// Job listings data
+const jobListings = [
+  {
+    id: 1,
+    title: 'AI Systems Engineer',
+    company: 'BluBridge',
+    experience: '0-2 Yrs',
+    salary: '₹3-6 Lacs PA',
+    location: 'Chennai',
+    type: 'Full Time',
+    category: 'Fresher',
+    skills: 'Deep Learning, PyTorch, Python, C++, CUDA, Linux',
+    postedTime: '2 days ago'
+  },
+  {
+    id: 2,
+    title: 'AI & ML Engineer – C++ / Java',
+    company: 'BluBridge',
+    experience: '0-3 Yrs',
+    salary: '₹4-8 Lacs PA',
+    location: 'Chennai',
+    type: 'Full Time',
+    category: 'Fresher',
+    skills: 'C++, Java, Machine Learning, Data Structures, Algorithms',
+    postedTime: '3 days ago'
+  },
+  {
+    id: 3,
+    title: 'Branding & Communications Lead',
+    company: 'BluBridge',
+    experience: '2-5 Yrs',
+    salary: '₹6-12 Lacs PA',
+    location: 'Chennai',
+    type: 'Full Time',
+    category: 'Mid-Level',
+    skills: 'Brand Strategy, Content Marketing, Communications, PR',
+    postedTime: '5 days ago'
+  },
+  {
+    id: 4,
+    title: 'Marketing & Growth Lead',
+    company: 'BluBridge',
+    experience: '2-4 Yrs',
+    salary: '₹5-10 Lacs PA',
+    location: 'Chennai',
+    type: 'Full Time',
+    category: 'Mid-Level',
+    skills: 'Digital Marketing, Growth Hacking, SEO, Analytics',
+    postedTime: '1 week ago'
+  },
+  {
+    id: 5,
+    title: 'Research Intern – Deep Learning',
+    company: 'BluBridge',
+    experience: '0 Yrs',
+    salary: '₹15-25K/month',
+    location: 'Chennai',
+    type: 'Internship',
+    category: 'Intern',
+    skills: 'Python, Deep Learning, Mathematics, Research',
+    postedTime: '4 days ago'
+  },
+  {
+    id: 6,
+    title: 'Operations & Admin Executive',
+    company: 'BluBridge',
+    experience: '1-3 Yrs',
+    salary: '₹3-5 Lacs PA',
+    location: 'Chennai',
+    type: 'Full Time',
+    category: 'Entry-Level',
+    skills: 'Operations, Administration, MS Office, Communication',
+    postedTime: '6 days ago'
+  }
+];
+
 const Careers = () => {
   useDocumentTitle('Careers | BluBridge');
   const joinOurTeamRef = useRef(null);
+  const [showJobListings, setShowJobListings] = useState(false);
   
   const handleScrollToJoin = () => {
     joinOurTeamRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
+  };
+
+  const toggleJobListings = () => {
+    setShowJobListings(!showJobListings);
   };
 
   const officeLocations = [
