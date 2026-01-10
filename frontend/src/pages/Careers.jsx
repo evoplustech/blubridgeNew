@@ -128,7 +128,7 @@ const Careers = () => {
                   data-testid={`location-card-${location.id}`}
                   style={{
                     display: 'block',
-                    backgroundColor: '#f8f7f3',
+                    backgroundColor: '#f3f1e9',
                     borderRadius: '12px',
                     overflow: 'hidden',
                     border: '1px solid #e8e6e0',
@@ -357,7 +357,7 @@ const Careers = () => {
           {/* ======================================== */}
           <section data-testid="contact-section">
             <div style={{
-              backgroundColor: '#f8f7f3',
+              backgroundColor: '#f3f1e9',
               borderRadius: '12px',
               padding: '28px 32px',
               border: '1px solid #e8e6e0'

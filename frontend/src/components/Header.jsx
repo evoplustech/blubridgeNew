@@ -180,7 +180,7 @@ const Header = () => {
       {/* Top banner */}
       <div className="bg-[#0B1F3B] text-white py-2 px-6 text-center text-sm">
         <span>BluBridge is currently focusing on developing a state-of-the-art 70B parameter Large Language Model</span>
-        <Link to="/contact" className="ml-2 underline hover:no-underline">See More →</Link>
+        {/* <Link to="/contact" className="ml-2 underline hover:no-underline">See More →</Link> */}
       </div>
 
       <div className="container-custom">
@@ -337,7 +337,7 @@ const Header = () => {
               
               {activeDropdown === 'company' && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[250px]">
-                  <div className="bg-white rounded-lg shadow-xl border border-[#D6DEC3] p-6">
+                  <div className="bg-[#fffdf7] rounded-lg shadow-xl border border-[#D6DEC3] p-6">
                     <div className="space-y-2">
                       {company.map((item, i) => (
                         <Link

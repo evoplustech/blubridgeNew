@@ -896,7 +896,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Card - Who We Are? */}
             <div 
-              className="bg-[#f3f1e9] rounded-2xl shadow-sm border border-[#e8eaed] overflow-hidden transition-all duration-400"
+              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
               data-testid="who-we-are-card"
             >
               {/* Clickable Header */}
@@ -905,10 +905,10 @@ const Home = () => {
                 className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
                 data-testid="who-we-are-trigger"
               >
-                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#1e40af] transition-colors duration-300">
+                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
                   <span className="relative">
                     Who We Are?
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#1e40af] group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
                   </span>
                   <span 
                     className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
@@ -926,7 +926,7 @@ const Home = () => {
               <div 
                 className={`overflow-hidden transition-all duration-400 ease-out ${
                   expandedAboutCards.whoWeAre 
-                    ? 'max-h-[500px] opacity-100' 
+                    ? 'min-h-[200px] opacity-100' 
                     : 'max-h-0 opacity-0'
                 }`}
                 data-testid="who-we-are-content"
@@ -941,7 +941,7 @@ const Home = () => {
             
             {/* Right Card - What We Aim to Do? */}
             <div 
-              className="bg-[#f3f1e9] rounded-2xl shadow-sm border border-[#e8eaed] overflow-hidden transition-all duration-400"
+              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
               data-testid="what-we-aim-card"
             >
               {/* Clickable Header */}
@@ -950,10 +950,10 @@ const Home = () => {
                 className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
                 data-testid="what-we-aim-trigger"
               >
-                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#1e40af] transition-colors duration-300">
+                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
                   <span className="relative">
                     What We Aim to Do?
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#1e40af] group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
                   </span>
                   <span 
                     className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
@@ -971,7 +971,7 @@ const Home = () => {
               <div 
                 className={`overflow-hidden transition-all duration-400 ease-out ${
                   expandedAboutCards.whatWeAim 
-                    ? 'max-h-[500px] opacity-100' 
+                    ? 'min-h-[204px] opacity-100' 
                     : 'max-h-0 opacity-0'
                 }`}
                 data-testid="what-we-aim-content"
@@ -1347,7 +1347,7 @@ const Home = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/research">
               <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
-                Research
+                Explore
               </Button>
             </Link>
             {/* <Link to="/contact">

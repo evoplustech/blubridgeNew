@@ -187,7 +187,6 @@ const AboutUs = () => {
               color: '#333333', 
               textAlign: 'center', 
               marginBottom: '48px',
-              maxWidth: '900px',
               margin: '0 auto 48px auto'
             }}>
             We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
@@ -198,7 +197,7 @@ const AboutUs = () => {
             {/* Container 1 - Research with Purpose */}
             <div 
               style={{ 
-                backgroundColor: '#FFFFFF', 
+                backgroundColor: '#fffdf7', 
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
@@ -233,7 +232,7 @@ const AboutUs = () => {
             {/* Container 2 - From Insight to Implementation */}
             <div 
               style={{ 
-                backgroundColor: '#FFFFFF', 
+                backgroundColor: '#fffdf7', 
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
@@ -268,7 +267,7 @@ const AboutUs = () => {
             {/* Container 3 - Build Responsibly, Grow Confidently */}
             <div 
               style={{ 
-                backgroundColor: '#FFFFFF', 
+                backgroundColor: '#fffdf7', 
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
@@ -303,7 +302,7 @@ const AboutUs = () => {
             {/* Container 4 - Own the Impact */}
             <div 
               style={{ 
-                backgroundColor: '#FFFFFF', 
+                backgroundColor: '#fffdf7', 
                 padding: '24px',
                 borderRadius: '12px',
                 border: '1px solid #e5e5e5',
@@ -514,7 +513,7 @@ const AboutUs = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/research">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-4 py-3 rounded font-medium">
-                Research
+                Explore
               </Button>
             </Link>
             {/* <Link to="/contact">

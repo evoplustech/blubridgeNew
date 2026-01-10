@@ -51,14 +51,14 @@ const Contact = () => {
     <div 
       data-testid="contact-page"
       style={{
-        minHeight: '100vh',
-        paddingTop: '100px',
+
+        paddingTop: '60px',
         paddingBottom: '60px',
         backgroundColor: 'rgb(255, 253, 247)'
       }}
     >
       <div style={{
-        maxWidth: '1180px',
+        maxWidth: '1261px',
         margin: '0 auto',
         padding: '0 24px'
       }}>
@@ -91,7 +91,7 @@ const Contact = () => {
             
             {/* Office Card 1 */}
             <div style={{
-              backgroundColor: '#ffffff',
+              backgroundColor: '#fffdf7',
               border: '1px solid #e0ded8',
               borderLeft: '3px solid #0b1f3b',
               borderRadius: '12px',
@@ -147,7 +147,7 @@ const Contact = () => {
 
             {/* Office Card 2 */}
             <div style={{
-              backgroundColor: '#ffffff',
+              backgroundColor: '#fffdf7',
               border: '1px solid #e0ded8',
               borderLeft: '3px solid #0b1f3b',
               borderRadius: '12px',
@@ -206,7 +206,7 @@ const Contact = () => {
               {/* Contact Number Box */}
               <div style={{
                 flex: 1,
-                backgroundColor: '#ffffff',
+                backgroundColor: '#fffdf7',
                 borderRadius: '10px',
                 border: '1px solid #e0ded8',
                 display: 'flex',
@@ -256,7 +256,7 @@ const Contact = () => {
               {/* Email Box */}
               <div style={{
                 flex: 1,
-                backgroundColor: '#ffffff',
+                backgroundColor: '#fffdf7',
                 borderRadius: '10px',
                 border: '1px solid #e0ded8',
                 display: 'flex',
@@ -349,7 +349,7 @@ const Contact = () => {
                       padding: '12px 16px',
                       border: '1px solid #d4d4d4',
                       borderRadius: '8px',
-                      backgroundColor: '#ffffff',
+                      backgroundColor: '#fffdf7',
                       fontSize: '14px',
                       outline: 'none',
                       boxSizing: 'border-box'
@@ -377,7 +377,7 @@ const Contact = () => {
                       padding: '12px 16px',
                       border: '1px solid #d4d4d4',
                       borderRadius: '8px',
-                      backgroundColor: '#ffffff',
+                      backgroundColor: '#fffdf7',
                       fontSize: '14px',
                       outline: 'none',
                       boxSizing: 'border-box'
@@ -409,7 +409,7 @@ const Contact = () => {
                       padding: '12px 16px',
                       border: '1px solid #d4d4d4',
                       borderRadius: '8px',
-                      backgroundColor: '#ffffff',
+                      backgroundColor: '#fffdf7',
                       fontSize: '14px',
                       outline: 'none'
                     }}
@@ -424,8 +424,8 @@ const Contact = () => {
                       fontWeight: '500',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
-                      backgroundColor: emailVerified ? '#16a34a' : '#ffffff',
-                      color: emailVerified ? '#ffffff' : '#0B1F3B',
+                      backgroundColor: emailVerified ? '#16a34a' : '#fffdf7',
+                      color: emailVerified ? '#fffdf7' : '#0B1F3B',
                       border: emailVerified ? 'none' : '1px solid #0B1F3B'
                     }}
                   >
@@ -490,7 +490,7 @@ const Contact = () => {
                         padding: '12px 16px',
                         border: '1px solid #d4d4d4',
                         borderRadius: '0 8px 8px 0',
-                        backgroundColor: '#ffffff',
+                        backgroundColor: '#fffdf7',
                         fontSize: '14px',
                         outline: 'none'
                       }}
@@ -517,7 +517,7 @@ const Contact = () => {
                       padding: '12px 16px',
                       border: '1px solid #d4d4d4',
                       borderRadius: '8px',
-                      backgroundColor: '#ffffff',
+                      backgroundColor: '#fffdf7',
                       fontSize: '14px',
                       color: formData.inquiryType ? '#0B1F3B' : '#9ca3af',
                       outline: 'none',
@@ -557,7 +557,7 @@ const Contact = () => {
                     padding: '12px 16px',
                     border: '1px solid #d4d4d4',
                     borderRadius: '8px',
-                    backgroundColor: '#ffffff',
+                    backgroundColor: '#fffdf7',
                     fontSize: '14px',
                     outline: 'none',
                     resize: 'none',

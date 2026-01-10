@@ -114,21 +114,21 @@ const Footer = () => {
                 placeholder="First name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
+                className="bg-[#fffdf7] border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
               />
               <Input
                 type="text"
                 placeholder="Last name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
+                className="bg-[#fffdf7] border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
               />
               <Input
                 type="email"
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
+                className="bg-[#fffdf7] border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
                 required
               />
               <Input
@@ -136,7 +136,7 @@ const Footer = () => {
                 placeholder="Message (optional)"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="bg-white border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
+                className="bg-[#fffdf7] border-[#D6DEC3] text-[#0B1F3B] placeholder:text-[#7C8A96] focus:border-[#328CC1]"
               />
               <Button 
                 type="submit" 
@@ -160,7 +160,7 @@ const Footer = () => {
             </div>
             <p className="text-[#5B6B7A] text-sm">©2026 BluBridge Technologies Private Limited. All rights reserved</p>
             <div className="flex space-x-6 text-sm">
-              <Link to="policies/transparency-and-human-rights" className="text-[#243447] hover:text-[#328CC1] transition-colors">Transparency & Human Rights</Link>
+              {/* <Link to="policies/transparency-and-human-rights" className="text-[#243447] hover:text-[#328CC1] transition-colors">Transparency & Human Rights</Link> */}
               <Link to="/policies/privacy-policy" className="text-[#243447] hover:text-[#328CC1] transition-colors">Privacy Policy</Link>
               <Link to="/policies/terms-conditions" className="text-[#243447] hover:text-[#328CC1] transition-colors">Terms & Conditions</Link>
             </div>
