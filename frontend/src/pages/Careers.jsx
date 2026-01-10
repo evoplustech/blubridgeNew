@@ -242,124 +242,95 @@ const Careers = () => {
                 fontSize: '18px',
                 fontWeight: '600',
                 color: '#1a1a1a',
-                marginBottom: '24px',
+                marginBottom: '20px',
                 paddingTop: '8px'
               }}>
                 Current Open Roles
               </h4>
 
-              {/* Job Cards */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {jobListings.map((job) => (
-                  <div 
+              {/* Job Rows - Minimal Horizontal List */}
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {jobListings.map((job, index) => (
+                  <a 
                     key={job.id}
-                    className="job-card"
-                    data-testid={`job-card-${job.id}`}
+                    href={job.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="job-row"
+                    data-testid={`job-row-${job.id}`}
                     style={{
-                      backgroundColor: '#ffffff',
-                      borderRadius: '12px',
-                      padding: '24px',
-                      border: '1px solid #e8e6e0',
-                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-                      transition: 'all 200ms ease-out',
-                      cursor: 'pointer'
+                      display: 'grid',
+                      gridTemplateColumns: '2fr 1fr 1fr 1fr 40px',
+                      alignItems: 'center',
+                      padding: '18px 0',
+                      borderTop: index === 0 ? '1px solid #e0ded8' : 'none',
+                      borderBottom: '1px solid #e0ded8',
+                      textDecoration: 'none',
+                      cursor: 'pointer',
+                      transition: 'background-color 150ms ease-out'
                     }}
                   >
-                    {/* Job Title & Company */}
-                    <div style={{ marginBottom: '12px' }}>
-                      <h5 style={{
-                        fontSize: '17px',
-                        fontWeight: '600',
-                        color: '#0B1F3B',
-                        marginBottom: '4px',
-                        lineHeight: '1.3'
-                      }}>
-                        {job.title}
-                      </h5>
-                      <p style={{
-                        fontSize: '14px',
-                        color: '#5a6573',
-                        fontWeight: '400'
-                      }}>
-                        {job.company}
-                      </p>
-                    </div>
-
-                    {/* Metadata Row */}
-                    <div style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '16px',
-                      marginBottom: '12px'
+                    {/* Job Title */}
+                    <span style={{
+                      fontSize: '15px',
+                      fontWeight: '600',
+                      color: '#0B1F3B',
+                      lineHeight: '1.4'
                     }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <Briefcase size={15} color="#6b7280" />
-                        <span style={{ fontSize: '13px', color: '#4a5568' }}>{job.experience}</span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <IndianRupee size={15} color="#6b7280" />
-                        <span style={{ fontSize: '13px', color: '#4a5568' }}>{job.salary}</span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <MapPin size={15} color="#6b7280" />
-                        <span style={{ fontSize: '13px', color: '#4a5568' }}>{job.location}</span>
-                      </div>
-                    </div>
+                      {job.title}
+                    </span>
 
-                    {/* Tags Row */}
-                    <div style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '8px',
-                      marginBottom: '12px'
+                    {/* Department */}
+                    <span style={{
+                      fontSize: '14px',
+                      fontWeight: '400',
+                      color: '#6b7280'
                     }}>
-                      <span style={{
-                        fontSize: '12px',
-                        fontWeight: '500',
-                        color: '#0B1F3B',
-                        backgroundColor: '#e8f4f8',
-                        padding: '4px 10px',
-                        borderRadius: '20px'
-                      }}>
-                        {job.type}
-                      </span>
-                      <span style={{
-                        fontSize: '12px',
-                        fontWeight: '500',
-                        color: '#166534',
-                        backgroundColor: '#dcfce7',
-                        padding: '4px 10px',
-                        borderRadius: '20px'
-                      }}>
-                        {job.category}
-                      </span>
-                    </div>
+                      {job.department}
+                    </span>
 
-                    {/* Skills */}
-                    <p style={{
-                      fontSize: '13px',
-                      color: '#6b7280',
-                      marginBottom: '16px',
-                      lineHeight: '1.5'
+                    {/* Team */}
+                    <span style={{
+                      fontSize: '14px',
+                      fontWeight: '400',
+                      color: '#6b7280'
                     }}>
-                      {job.skills}
-                    </p>
+                      {job.team}
+                    </span>
 
-                    {/* Footer Row */}
-                    <div style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      paddingTop: '12px',
-                      borderTop: '1px solid #f0f0f0'
+                    {/* Location */}
+                    <span style={{
+                      fontSize: '14px',
+                      fontWeight: '400',
+                      color: '#6b7280'
                     }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <Clock size={14} color="#9ca3af" />
-                        <span style={{ fontSize: '12px', color: '#9ca3af' }}>{job.postedTime}</span>
-                      </div>
-                      <Bookmark size={18} color="#9ca3af" style={{ cursor: 'pointer' }} />
-                    </div>
-                  </div>
+                      {job.location}
+                    </span>
+
+                    {/* Arrow */}
+                    <span 
+                      className="job-arrow"
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        color: '#9ca3af',
+                        transition: 'transform 150ms ease-out, color 150ms ease-out'
+                      }}
+                    >
+                      <svg 
+                        width="18" 
+                        height="18" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </span>
+                  </a>
                 ))}
               </div>
 
@@ -367,8 +338,7 @@ const Careers = () => {
               <div style={{ 
                 textAlign: 'center', 
                 marginTop: '28px',
-                paddingTop: '20px',
-                borderTop: '1px solid #e0ded8'
+                paddingTop: '20px'
               }}>
                 <a
                   href="https://www.naukri.com/blubridge-technologies-jobs-careers"
