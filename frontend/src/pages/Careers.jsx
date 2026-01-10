@@ -754,10 +754,13 @@ const Careers = () => {
           background-color: #162B4D;
         }
         
-        .job-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-          border-color: #d0cec8;
+        .job-row:hover {
+          background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .job-row:hover .job-arrow {
+          transform: translateX(4px);
+          color: #0B1F3B;
         }
         
         .view-all-link:hover {
@@ -767,6 +770,10 @@ const Careers = () => {
         @media (max-width: 768px) {
           .location-card {
             max-width: 100%;
+          }
+          .job-row {
+            grid-template-columns: 1fr !important;
+            gap: 8px;
           }
         }
       `}</style>
