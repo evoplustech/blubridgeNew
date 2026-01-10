@@ -27,10 +27,13 @@ const faqData = [
     question: 'Am I eligible to apply?',
     content: (
       <div className="pl-1">
+         <p className="text-base text-gray-700 leading-relaxed mb-3">
+          Ask yourself the following:
+        </p>
         <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
-          <li>Aptitude and Logical reasoning</li>
-          <li>Linear algebra, Calculus, Probability & Statistics</li>
-          <li>Strong Programming Foundations in C++ or Java</li>
+          <li>Do I truly understand the depth of <strong>Deep Learning research?</strong></li>
+          <li>Am I aware this is a pragmatic, mathematics-driven science, not just a language task?</li>
+          <li>Am I ready to work with first principles of Machine Learning, not frameworks alone?</li>
         </ul>
       </div>
     )
@@ -143,10 +146,10 @@ const JoinOurTeam = ({ scrollRef }) => {
             data-testid="join-team-heading"
             style={{ 
               textAlign: 'center', 
-              fontSize: '24px', 
+              fontSize: '36px', 
               fontWeight: 'bold', 
               color: '#1A1A1A',
-              textDecoration: 'underline',
+              
               textDecorationThickness: '1px',
               textUnderlineOffset: '4px',
               marginBottom: '10px',

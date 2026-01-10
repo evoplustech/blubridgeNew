@@ -512,9 +512,9 @@ const AboutUs = () => {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
+            <Link to="/research">
               <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-4 py-3 rounded font-medium">
-                Contact Us
+                Research
               </Button>
             </Link>
             {/* <Link to="/contact">
