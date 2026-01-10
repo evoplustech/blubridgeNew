@@ -345,33 +345,6 @@ const Careers = () => {
                   </a>
                 ))}
               </div>
-
-              {/* View All Link */}
-              <div style={{ 
-                textAlign: 'center', 
-                marginTop: '28px',
-                paddingTop: '20px'
-              }}>
-                <a
-                  href="https://www.naukri.com/blubridge-technologies-jobs-careers"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    color: '#0B1F3B',
-                    textDecoration: 'none',
-                    transition: 'color 150ms ease-out'
-                  }}
-                  className="view-all-link"
-                >
-                  View all roles on Naukri
-                  <ExternalLink size={16} />
-                </a>
-              </div>
             </div>
           </div>
 
