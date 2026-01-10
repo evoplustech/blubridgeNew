@@ -5,182 +5,462 @@ const PrivacyPolicy = () => {
   useDocumentTitle('Privacy Policy | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Content Section */}
-      <section className="py-16">
-        <div className="container-custom">
-          <div className="max-w-4xl">
-            {/* Page Title */}
-            <h1 className="text-4xl md:text-5xl font-light text-[#0B1F3B] mb-12">Privacy Policy</h1>
+    <div 
+      style={{
+        minHeight: '100vh',
+        backgroundColor: '#f8f7f3',
+        paddingTop: '100px',
+        paddingBottom: '80px'
+      }}
+    >
+      <div style={{
+        maxWidth: '800px',
+        margin: '0 auto',
+        padding: '0 24px'
+      }}>
+        {/* Main Card */}
+        <div style={{
+          backgroundColor: '#ffffff',
+          borderRadius: '20px',
+          padding: '60px',
+          boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)'
+        }}>
+          {/* Page Title */}
+          <h1 style={{
+            fontSize: '36px',
+            fontWeight: '600',
+            color: '#0B1F3B',
+            marginBottom: '12px',
+            letterSpacing: '-0.02em'
+          }}>
+            Privacy Policy
+          </h1>
 
-            {/* Last Updated */}
-            <p className="text-[#243447] text-sm mb-12">Last updated: December 2024</p>
+          {/* Last Updated */}
+          <p style={{
+            fontSize: '14px',
+            color: '#6b7280',
+            marginBottom: '32px'
+          }}>
+            Last updated: December 2024
+          </p>
 
-            {/* Introduction */}
-            <div className="space-y-6 mb-12">
-              <p className="text-[#243447] text-base leading-relaxed">
-                At BluBridge ("we", "us", or "our"), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
-              </p>
-            </div>
+          {/* Introduction */}
+          <p style={{
+            fontSize: '16px',
+            color: '#4a5568',
+            lineHeight: '1.8',
+            marginBottom: '40px'
+          }}>
+            At BluBridge ("we", "us", or "our"), we are committed to protecting your privacy and safeguarding the personal information you share with us in the course of our AI research, publications, collaborations, and academic or industry engagements. This Privacy Policy explains how we collect, use, disclose, and protect your information when you interact with our research platforms, websites, events, and communications.
+          </p>
 
-            {/* Section 1 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">1. Information We Collect</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We may collect the following types of information:
-                </p>
-                <h3 className="text-lg font-medium text-[#0B1F3B] mt-6 mb-3">Personal Information</h3>
-                <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
-                  <li>Name and contact information (email address, phone number, postal address)</li>
-                  <li>Account credentials and authentication data</li>
-                  <li>Payment and billing information</li>
-                  <li>Professional information (company name, job title)</li>
-                </ul>
-                <h3 className="text-lg font-medium text-[#0B1F3B] mt-6 mb-3">Technical Information</h3>
-                <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
-                  <li>IP address and device identifiers</li>
-                  <li>Browser type and operating system</li>
-                  <li>Usage data and interaction with our services</li>
-                  <li>Cookies and similar tracking technologies</li>
-                </ul>
-              </div>
-            </div>
+          {/* Section 1 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              1. Information We Collect
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8',
+              marginBottom: '16px'
+            }}>
+              We may collect the following categories of information in connection with our research activities:
+            </p>
+            
+            {/* Personal Information */}
+            <h3 style={{
+              fontSize: '16px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '12px',
+              marginTop: '20px'
+            }}>
+              Personal Information
+            </h3>
+            <ul style={{
+              paddingLeft: '24px',
+              marginBottom: '20px'
+            }}>
+              {[
+                'Name and contact details (such as email address, phone number, or professional address)',
+                'Professional and academic information (organization, role, field of expertise, research interests)',
+                'Account credentials for accessing research portals or collaboration platforms',
+                'Information you provide when submitting research inquiries, papers, or applications'
+              ].map((item, index) => (
+                <li key={index} style={{
+                  fontSize: '15px',
+                  color: '#4a5568',
+                  lineHeight: '1.8',
+                  marginBottom: '8px',
+                  listStyleType: 'disc'
+                }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
 
-            {/* Section 2 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">2. How We Use Your Information</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We use the information we collect for the following purposes:
-                </p>
-                <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
-                  <li>To provide, maintain, and improve our services</li>
-                  <li>To process transactions and send related information</li>
-                  <li>To send promotional communications (with your consent)</li>
-                  <li>To respond to your inquiries and provide customer support</li>
-                  <li>To detect, prevent, and address technical issues and security threats</li>
-                  <li>To comply with legal obligations</li>
-                </ul>
-              </div>
-            </div>
+            {/* Technical Information */}
+            <h3 style={{
+              fontSize: '16px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '12px'
+            }}>
+              Technical Information
+            </h3>
+            <ul style={{
+              paddingLeft: '24px'
+            }}>
+              {[
+                'IP address and device identifiers',
+                'Browser type, operating system, and basic device information',
+                'Usage data related to your interaction with our research platforms',
+                'Cookies and similar tracking technologies'
+              ].map((item, index) => (
+                <li key={index} style={{
+                  fontSize: '15px',
+                  color: '#4a5568',
+                  lineHeight: '1.8',
+                  marginBottom: '8px',
+                  listStyleType: 'disc'
+                }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
 
-            {/* Section 3 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">3. Legal Basis for Processing</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We process your personal data based on one or more of the following legal grounds:
-                </p>
-                <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
-                  <li><strong className="text-[#0B1F3B]">Contract:</strong> Processing necessary for the performance of a contract with you</li>
-                  <li><strong className="text-[#0B1F3B]">Consent:</strong> Where you have given explicit consent to the processing</li>
-                  <li><strong className="text-[#0B1F3B]">Legitimate Interests:</strong> Processing necessary for our legitimate business interests</li>
-                  <li><strong className="text-[#0B1F3B]">Legal Obligation:</strong> Processing necessary to comply with applicable laws</li>
-                </ul>
-              </div>
-            </div>
+          {/* Section 2 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              2. How We Use Your Information
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8',
+              marginBottom: '16px'
+            }}>
+              We use the information we collect for purposes related to our research mission, including:
+            </p>
+            <ul style={{
+              paddingLeft: '24px',
+              marginBottom: '16px'
+            }}>
+              {[
+                'To facilitate AI research collaboration and communication',
+                'To manage access to research portals, publications, and internal tools',
+                'To respond to research inquiries and provide academic or technical support',
+                'To administer events, workshops, and research programs',
+                'To improve our research platforms, tools, and documentation',
+                'To maintain the security and integrity of our systems',
+                'To comply with legal and regulatory obligations'
+              ].map((item, index) => (
+                <li key={index} style={{
+                  fontSize: '15px',
+                  color: '#4a5568',
+                  lineHeight: '1.8',
+                  marginBottom: '8px',
+                  listStyleType: 'disc'
+                }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              We do not use your data for unrelated commercial advertising or resale.
+            </p>
+          </section>
 
-            {/* Section 4 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">4. Data Sharing and Disclosure</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We may share your information with:
-                </p>
-                <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
-                  <li><strong className="text-[#0B1F3B]">Service Providers:</strong> Third-party vendors who assist in providing our services</li>
-                  <li><strong className="text-[#0B1F3B]">Business Partners:</strong> Partners with whom we jointly offer products or services</li>
-                  <li><strong className="text-[#0B1F3B]">Legal Authorities:</strong> When required by law or to protect our rights</li>
-                  <li><strong className="text-[#0B1F3B]">Corporate Transactions:</strong> In connection with mergers, acquisitions, or asset sales</li>
-                </ul>
-                <p className="text-[#243447] text-base leading-relaxed mt-4">
-                  We do not sell your personal information to third parties.
-                </p>
-              </div>
-            </div>
+          {/* Section 3 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              3. Legal Basis for Processing
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8',
+              marginBottom: '16px'
+            }}>
+              We process personal data under one or more of the following legal grounds:
+            </p>
+            <ul style={{
+              paddingLeft: '24px'
+            }}>
+              {[
+                { title: 'Consent', desc: 'where you have explicitly agreed to participate in research activities or communications' },
+                { title: 'Contract', desc: 'where processing is necessary for research collaboration or platform access' },
+                { title: 'Legitimate Interests', desc: 'for advancing our research objectives, improving systems, and ensuring security' },
+                { title: 'Legal Obligation', desc: 'to comply with applicable laws and regulations' }
+              ].map((item, index) => (
+                <li key={index} style={{
+                  fontSize: '15px',
+                  color: '#4a5568',
+                  lineHeight: '1.8',
+                  marginBottom: '8px',
+                  listStyleType: 'disc'
+                }}>
+                  <strong style={{ color: '#0B1F3B' }}>{item.title}</strong> – {item.desc}
+                </li>
+              ))}
+            </ul>
+          </section>
 
-            {/* Section 5 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">5. Data Retention</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We retain your personal information for as long as necessary to fulfill the purposes for which it was collected, including to satisfy legal, accounting, or reporting requirements. The retention period may vary depending on the context of the processing and our legal obligations.
-                </p>
-              </div>
-            </div>
+          {/* Section 4 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              4. Data Sharing and Disclosure
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8',
+              marginBottom: '16px'
+            }}>
+              We may share information in limited circumstances, including:
+            </p>
+            <ul style={{
+              paddingLeft: '24px',
+              marginBottom: '16px'
+            }}>
+              {[
+                { title: 'Research Partners and Collaborators', desc: 'institutions or individuals involved in joint research initiatives' },
+                { title: 'Service Providers', desc: 'trusted third parties that support hosting, security, or research infrastructure' },
+                { title: 'Legal Authorities', desc: 'when required by law or to protect rights, safety, or integrity' },
+                { title: 'Organizational Changes', desc: 'in connection with mergers, restructuring, or similar events' }
+              ].map((item, index) => (
+                <li key={index} style={{
+                  fontSize: '15px',
+                  color: '#4a5568',
+                  lineHeight: '1.8',
+                  marginBottom: '8px',
+                  listStyleType: 'disc'
+                }}>
+                  <strong style={{ color: '#0B1F3B' }}>{item.title}</strong> – {item.desc}
+                </li>
+              ))}
+            </ul>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              We do not sell personal data or share it for unrelated commercial purposes.
+            </p>
+          </section>
 
-            {/* Section 6 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">6. Your Rights</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  Depending on your location, you may have the following rights regarding your personal data:
-                </p>
-                <ul className="list-disc list-inside text-[#243447] text-base leading-relaxed space-y-2 ml-4">
-                  <li><strong className="text-[#0B1F3B]">Access:</strong> Request access to your personal data</li>
-                  <li><strong className="text-[#0B1F3B]">Rectification:</strong> Request correction of inaccurate data</li>
-                  <li><strong className="text-[#0B1F3B]">Erasure:</strong> Request deletion of your personal data</li>
-                  <li><strong className="text-[#0B1F3B]">Portability:</strong> Request transfer of your data to another service</li>
-                  <li><strong className="text-[#0B1F3B]">Objection:</strong> Object to certain processing of your data</li>
-                  <li><strong className="text-[#0B1F3B]">Restriction:</strong> Request restriction of processing</li>
-                </ul>
-                <p className="text-[#243447] text-base leading-relaxed mt-4">
-                  To exercise these rights, please contact us using the information provided below.
-                </p>
-              </div>
-            </div>
+          {/* Section 5 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              5. Data Retention
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              We retain personal information only for as long as necessary to support research objectives, maintain records of collaboration, or meet legal and compliance requirements. Retention periods vary depending on the nature of the data and the context in which it was collected.
+            </p>
+          </section>
 
-            {/* Section 7 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">7. Data Security</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure.
-                </p>
-              </div>
-            </div>
+          {/* Section 6 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              6. Your Rights
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8',
+              marginBottom: '16px'
+            }}>
+              Depending on your jurisdiction, you may have the right to:
+            </p>
+            <ul style={{
+              paddingLeft: '24px',
+              marginBottom: '16px'
+            }}>
+              {[
+                'Access your personal data',
+                'Request correction of inaccurate or incomplete data',
+                'Request deletion of your data',
+                'Request portability of your data',
+                'Object to certain types of processing',
+                'Request restriction of processing'
+              ].map((item, index) => (
+                <li key={index} style={{
+                  fontSize: '15px',
+                  color: '#4a5568',
+                  lineHeight: '1.8',
+                  marginBottom: '8px',
+                  listStyleType: 'disc'
+                }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              To exercise these rights, please contact us using the details provided below.
+            </p>
+          </section>
 
-            {/* Section 8 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">8. International Transfers</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place to protect your data in accordance with applicable data protection laws.
-                </p>
-              </div>
-            </div>
+          {/* Section 7 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              7. Data Security
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              We employ appropriate technical and organizational safeguards to protect personal information from unauthorized access, loss, misuse, or disclosure. While we strive to use commercially and academically accepted security practices, no digital system can be guaranteed to be completely secure.
+            </p>
+          </section>
 
-            {/* Section 9 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">9. Cookies and Tracking</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We use cookies and similar tracking technologies to collect information about your browsing activities. You can control cookie preferences through your browser settings. For more information, please see our Cookie Policy.
-                </p>
-              </div>
-            </div>
+          {/* Section 8 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              8. International Transfers
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              Your information may be processed in countries other than your own, particularly in the context of global research collaboration. We ensure that appropriate legal and technical safeguards are in place to protect your data in accordance with applicable data protection laws.
+            </p>
+          </section>
 
-            {/* Section 10 */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-[#0B1F3B] mb-6">10. Changes to This Policy</h2>
-              <div className="space-y-4">
-                <p className="text-[#243447] text-base leading-relaxed">
-                  We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the "Last updated" date. Your continued use of our services after such changes constitutes acceptance of the updated policy.
-                </p>
-              </div>
-            </div>
+          {/* Section 9 */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              9. Cookies and Tracking
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              Our platforms use cookies and similar technologies to understand usage patterns and improve the research experience. You may manage cookie preferences through your browser settings. Additional details are available in our Cookie Policy.
+            </p>
+          </section>
 
-            {/* Contact */}
-            <div className="mt-16 pt-8 border-t border-[#D6DEC3]">
-              <h2 className="text-xl font-medium text-[#0B1F3B] mb-4">Contact Us</h2>
-              <p className="text-[#243447] text-base leading-relaxed">
-                If you have any questions about this Privacy Policy or our data practices, please contact us at{' '}
-                <a href="mailto:privacy@BluBridge.com" className="text-[#328CC1] hover:text-blue-300 transition-colors">privacy@BluBridge.com</a>
-              </p>
-            </div>
-          </div>
+          {/* Section 10 */}
+          <section style={{ marginBottom: '40px' }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              10. Changes to This Policy
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              We may revise this Privacy Policy to reflect changes in our research practices or legal requirements. Updates will be posted on this page with a revised "Last updated" date. Continued interaction with our platforms after such changes indicates acceptance of the updated policy.
+            </p>
+          </section>
+
+          {/* Contact Section */}
+          <section style={{
+            marginTop: '48px',
+            paddingTop: '32px',
+            borderTop: '1px solid #e8e6e0'
+          }}>
+            <h2 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#0B1F3B',
+              marginBottom: '16px'
+            }}>
+              Contact Us
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              color: '#4a5568',
+              lineHeight: '1.8'
+            }}>
+              If you have questions about this Privacy Policy or our data practices in the context of AI research, please contact us at:
+            </p>
+            <a 
+              href="mailto:privacy@blubridge.com"
+              style={{
+                display: 'inline-block',
+                marginTop: '12px',
+                fontSize: '15px',
+                color: '#0B1F3B',
+                fontWeight: '500',
+                textDecoration: 'none',
+                borderBottom: '1px solid #0B1F3B',
+                paddingBottom: '2px',
+                transition: 'color 150ms ease-out'
+              }}
+            >
+              privacy@blubridge.com
+            </a>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
