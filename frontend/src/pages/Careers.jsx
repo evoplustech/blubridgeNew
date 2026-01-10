@@ -86,20 +86,6 @@ const jobListings = [
     slug: 'senior-administration-officer'
   }
 ];
-    department: 'Operations',
-    team: 'Admin',
-    location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
-  },
-  {
-    id: 9,
-    title: 'AI & ML Engineer – Research (Freshers)',
-    department: 'Engineering',
-    team: 'AI Research',
-    location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
-  }
-];
 
 const Careers = () => {
   useDocumentTitle('Careers | BluBridge');
