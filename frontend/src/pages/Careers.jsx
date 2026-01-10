@@ -257,11 +257,9 @@ const Careers = () => {
               {/* Job Rows - Minimal Horizontal List */}
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {jobListings.map((job, index) => (
-                  <a 
+                  <Link 
                     key={job.id}
-                    href={job.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to={`/careers/job/${job.slug}`}
                     className="job-row"
                     data-testid={`job-row-${job.id}`}
                     style={{
