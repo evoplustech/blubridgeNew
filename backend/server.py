@@ -138,7 +138,8 @@ async def send_email_notification(form_type: str, form_data: dict):
         type_labels = {
             "contact_sales": "Contact Sales",
             "general_enquiry": "General Enquiry", 
-            "contact_us": "Contact Us"
+            "contact_us": "Contact Us",
+            "job_application": "Job Application"
         }
         form_type_label = type_labels.get(form_type, form_type)
         
