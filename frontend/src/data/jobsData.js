@@ -290,7 +290,7 @@ export const jobsData = [
     education: 'Bachelor\'s degree in any discipline',
     employmentType: 'Full Time, Permanent',
     postedDate: '3 weeks ago',
-    naukriLink: 'https://www.naukri.com/job-listings-office-administration-male-blubridge-chennai-0-to-3-years-181225036174',
+    naukriLink: 'https://blubridge.com/hiring/administration-executive-registration-form/',
     description: 'Manage and coordinate daily office activities and administrative operations. Handle vendor relationships, security management, and office utilities.',
     responsibilities: [
       'Manage and coordinate daily office activities and administrative operations',
