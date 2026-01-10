@@ -92,13 +92,61 @@ const Careers = () => {
               fontSize: '36px', 
               fontWeight: '600', 
               color: '#1A1A1A',
-              marginBottom: '45px',
+              marginBottom: '30px',
               lineHeight: '1.2',
               letterSpacing: '-0.02em'
             }}
           >
             Join Us
           </h1>
+
+          {/* ======================================== */}
+          {/* CAREERS CTA STRIP */}
+          {/* ======================================== */}
+          <div 
+            data-testid="careers-cta-strip"
+            style={{
+              background: 'linear-gradient(135deg, #f8f7f3 0%, #f0efe9 100%)',
+              borderRadius: '14px',
+              padding: '28px 36px',
+              marginBottom: '45px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              border: '1px solid #e8e6e0'
+            }}
+          >
+            <h3 style={{
+              fontSize: '20px',
+              fontWeight: '600',
+              color: '#1a1a1a',
+              margin: 0,
+              lineHeight: '1.4'
+            }}>
+              Interested in building the future of AI with us?
+            </h3>
+            <a
+              href="https://www.naukri.com/blubridge-technologies-jobs-careers"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="see-open-roles-btn"
+              className="careers-cta-button"
+              style={{
+                backgroundColor: '#0B1F3B',
+                color: '#ffffff',
+                padding: '14px 28px',
+                borderRadius: '8px',
+                fontSize: '15px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                transition: 'all 200ms ease-out',
+                boxShadow: '0 2px 4px rgba(11, 31, 59, 0.1)'
+              }}
+            >
+              See open roles
+            </a>
+          </div>
 
           {/* ======================================== */}
           {/* 1. OFFICE LOCATIONS - Visual Grid */}
