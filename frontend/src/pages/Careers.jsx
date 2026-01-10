@@ -533,6 +533,12 @@ const Careers = () => {
           transform: translateY(-1px);
         }
         
+        .careers-cta-button:hover {
+          transform: translateY(-2px) scale(1.02);
+          box-shadow: 0 6px 16px rgba(11, 31, 59, 0.2);
+          background-color: #162B4D;
+        }
+        
         @media (max-width: 768px) {
           .location-card {
             max-width: 100%;
