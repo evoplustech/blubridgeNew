@@ -40,11 +40,11 @@ const faqData = [
   },
   {
     id: 'must',
-    question: 'What skills should I have ?',
+    question: 'What are the primary skills I should have ?',
     content: (
       <div className="pl-1">
         <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
-          <li>You should be able to solve <strong>Aptitude and Logical Reasoning</strong> questions</li>
+          <li>You should possess strong <strong>Aptitude and Logical Reasoning</strong></li>
           <li>You should be proficient in <strong>Linear Algebra, Calculus, Probability & Statistics</strong></li>
           <li>You should have strong Programming Foundations in <strong>C++ or Java</strong></li>
         </ul>
