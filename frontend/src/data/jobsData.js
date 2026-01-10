@@ -93,7 +93,7 @@ export const jobsData = [
     education: "Bachelor's or Master's in Computer Science, AI, Data Science, ML, Mathematics, or Statistics",
     employmentType: 'Full Time, Permanent',
     postedDate: '4 days ago',
-    naukriLink: 'https://www.naukri.com/job-listings-ai-ml-engineer-c-java-developer-blubridge-chennai-0-to-0-years-031225022756',
+    naukriLink: 'https://blubridge.com/hiring/ai-and-ml-registration-form/',
     description: 'Design and develop compiler frameworks that optimize AI model execution. Build end-to-end AI pipelines including graph optimizations, memory scheduling, and compute distribution.',
     responsibilities: [
       'Design and develop compiler frameworks that optimize AI model execution at the kernel, graph, and operator levels',
