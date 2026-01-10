@@ -44,9 +44,9 @@ const faqData = [
     content: (
       <div className="pl-1">
         <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
-          <li>Aptitude and Logical Reasoning</li>
-          <li>Proficient in Linear Algebra, Calculus, Probability & Statistics</li>
-          <li>Strong Programming Foundations in C++ or Java</li>
+          <li>You should be able to solve <strong>Aptitude and Logical Reasoning</strong> questions</li>
+          <li>You should be proficient in <strong>Linear Algebra, Calculus, Probability & Statistics</strong></li>
+          <li>You should have strong Programming Foundations in <strong>C++ or Java</strong></li>
         </ul>
       </div>
     )

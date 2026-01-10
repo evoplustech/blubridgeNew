@@ -106,7 +106,7 @@ const Careers = () => {
           <div 
             data-testid="careers-cta-strip"
             style={{
-              background: 'linear-gradient(135deg, #f8f7f3 0%, #f0efe9 100%)',
+              background: '#f3f1e9',
               borderRadius: '14px',
               padding: '28px 36px',
               marginBottom: '45px',
