@@ -14,7 +14,7 @@ export const jobsData = [
     education: "Bachelor's / Diploma in EEE, ECE, EIE or related field",
     employmentType: 'Full Time, Permanent',
     postedDate: '1 day ago',
-    naukriLink: 'https://www.naukri.com/job-listings-ai-systems-engineer-blubridge-chennai-0-to-0-years-090126027230',
+    naukriLink: 'https://blubridge.com/hiring/ai-se-reg-form/',
     description: 'Design, build, and operate interconnects for AI compute workload servers. This role focuses on systems architecture for high-performance AI infrastructure.',
     responsibilities: [
       'Design, build, and operate interconnects for AI compute workload servers',
