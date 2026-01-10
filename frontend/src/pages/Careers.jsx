@@ -742,6 +742,10 @@ const Careers = () => {
           background-color: #162B4D;
         }
         
+        .see-roles-link:hover {
+          color: #328CC1;
+        }
+        
         .job-row:hover {
           background-color: rgba(0, 0, 0, 0.02);
         }
