@@ -905,13 +905,13 @@ const Home = () => {
                 className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
                 data-testid="who-we-are-trigger"
               >
-                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#1e40af] transition-colors duration-300">
+                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
                   <span className="relative">
                     Who We Are?
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#1e40af] group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
                   </span>
                   <span 
-                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
+                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#0b1f3b] ${
                       expandedAboutCards.whoWeAre ? 'rotate-180' : ''
                     }`}
                   >
