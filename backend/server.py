@@ -443,6 +443,212 @@ async def get_blog_post_by_slug(slug: str):
     
     return BlogPost(**post)
 
+
+# ==================== JOB APPLICATIONS ====================
+
+# Create uploads directory if it doesn't exist
+UPLOADS_DIR = ROOT_DIR / "uploads" / "resumes"
+UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+
+# Allowed file extensions and max file size
+ALLOWED_EXTENSIONS = {'.pdf', '.doc', '.docx'}
+MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
+
+def validate_file(filename: str, file_size: int) -> tuple[bool, str]:
+    """Validate uploaded file"""
+    # Check file extension
+    ext = Path(filename).suffix.lower()
+    if ext not in ALLOWED_EXTENSIONS:
+        return False, f"Invalid file type. Allowed types: PDF, DOC, DOCX"
+    
+    # Check file size
+    if file_size > MAX_FILE_SIZE:
+        return False, f"File too large. Maximum size: 5MB"
+    
+    return True, ""
+
+def validate_email(email: str) -> bool:
+    """Validate email format"""
+    pattern = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
+    return bool(re.match(pattern, email))
+
+def validate_phone(phone: str) -> bool:
+    """Validate phone number (10-15 digits)"""
+    digits = re.sub(r'\D', '', phone)
+    return 10 <= len(digits) <= 15
+
+
+@api_router.post("/job-applications/submit")
+async def submit_job_application(
+    firstName: str = Form(...),
+    lastName: str = Form(...),
+    email: str = Form(...),
+    phone: str = Form(...),
+    location: str = Form(...),
+    jobTitle: str = Form(...),
+    linkedInProfile: Optional[str] = Form(None),
+    resume: UploadFile = File(...)
+):
+    """Submit a job application with resume upload"""
+    try:
+        # Validation
+        errors = {}
+        
+        # First Name validation
+        if not firstName or len(firstName.strip()) < 2:
+            errors['firstName'] = 'First name must be at least 2 characters'
+        
+        # Last Name validation
+        if not lastName or len(lastName.strip()) < 2:
+            errors['lastName'] = 'Last name must be at least 2 characters'
+        
+        # Email validation
+        if not email or not validate_email(email):
+            errors['email'] = 'Please enter a valid email address'
+        
+        # Phone validation
+        if not phone or not validate_phone(phone):
+            errors['phone'] = 'Please enter a valid phone number (10-15 digits)'
+        
+        # Location validation
+        if not location or len(location.strip()) < 1:
+            errors['location'] = 'Location is required'
+        
+        # Job Title validation
+        if not jobTitle or len(jobTitle.strip()) < 1:
+            errors['jobTitle'] = 'Job title is required'
+        
+        # Resume validation
+        if not resume or not resume.filename:
+            errors['resume'] = 'Resume is required'
+        else:
+            # Read file content to check size
+            file_content = await resume.read()
+            file_size = len(file_content)
+            await resume.seek(0)  # Reset file pointer
+            
+            is_valid, error_msg = validate_file(resume.filename, file_size)
+            if not is_valid:
+                errors['resume'] = error_msg
+        
+        # If there are validation errors, return them
+        if errors:
+            return JSONResponse(
+                status_code=400,
+                content={"success": False, "errors": errors}
+            )
+        
+        # Generate unique filename
+        file_ext = Path(resume.filename).suffix.lower()
+        unique_filename = f"{uuid.uuid4()}{file_ext}"
+        file_path = UPLOADS_DIR / unique_filename
+        
+        # Save the file
+        file_content = await resume.read()
+        with open(file_path, 'wb') as f:
+            f.write(file_content)
+        
+        # Create application document
+        application_id = str(uuid.uuid4())
+        application_doc = {
+            "id": application_id,
+            "firstName": firstName.strip(),
+            "lastName": lastName.strip(),
+            "email": email.strip().lower(),
+            "phone": phone.strip(),
+            "location": location.strip(),
+            "resumeCV": str(file_path),
+            "resumeFilename": resume.filename,
+            "linkedInProfile": linkedInProfile.strip() if linkedInProfile else None,
+            "jobTitle": jobTitle.strip(),
+            "appliedAt": datetime.now(timezone.utc).isoformat(),
+            "status": "pending"
+        }
+        
+        # Save to MongoDB
+        await db.job_applications.insert_one(application_doc)
+        
+        # Send email notification (non-blocking)
+        email_data = {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "phone": phone,
+            "location": location,
+            "jobTitle": jobTitle,
+            "linkedInProfile": linkedInProfile,
+            "resumeFilename": resume.filename,
+            "appliedAt": application_doc["appliedAt"]
+        }
+        await send_email_notification("job_application", email_data)
+        
+        logging.info(f"Job application submitted: {application_id} for {jobTitle}")
+        
+        return {
+            "success": True,
+            "message": "Application submitted successfully!",
+            "id": application_id
+        }
+        
+    except Exception as e:
+        logging.error(f"Error submitting job application: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit application. Please try again.")
+
+
+@api_router.get("/job-applications")
+async def get_job_applications(status: Optional[str] = None, limit: int = 100):
+    """Get all job applications, optionally filtered by status"""
+    try:
+        query = {}
+        if status:
+            query["status"] = status
+        
+        applications = await db.job_applications.find(query, {"_id": 0}).sort("appliedAt", -1).to_list(limit)
+        return applications
+    except Exception as e:
+        logging.error(f"Error fetching job applications: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch applications")
+
+
+@api_router.get("/job-applications/{application_id}")
+async def get_job_application(application_id: str):
+    """Get a single job application by ID"""
+    try:
+        application = await db.job_applications.find_one({"id": application_id}, {"_id": 0})
+        if not application:
+            raise HTTPException(status_code=404, detail="Application not found")
+        return application
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error fetching job application: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch application")
+
+
+@api_router.patch("/job-applications/{application_id}/status")
+async def update_application_status(application_id: str, status: str):
+    """Update the status of a job application"""
+    valid_statuses = ["pending", "reviewed", "shortlisted", "rejected", "hired"]
+    if status not in valid_statuses:
+        raise HTTPException(status_code=400, detail=f"Invalid status. Must be one of: {valid_statuses}")
+    
+    try:
+        result = await db.job_applications.update_one(
+            {"id": application_id},
+            {"$set": {"status": status, "updatedAt": datetime.now(timezone.utc).isoformat()}}
+        )
+        
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Application not found")
+        
+        return {"success": True, "message": f"Application status updated to {status}"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error updating application status: {e}")
+        raise HTTPException(status_code=500, detail="Failed to update status")
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
