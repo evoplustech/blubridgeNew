@@ -224,10 +224,20 @@ const Careers = () => {
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
                 transition: 'all 200ms ease-out',
-                boxShadow: '0 2px 4px rgba(11, 31, 59, 0.1)'
+                boxShadow: '0 2px 4px rgba(11, 31, 59, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
               }}
             >
               {showJobListings ? 'Hide roles' : 'See open roles'}
+              <ChevronDown 
+                size={18} 
+                style={{
+                  transition: 'transform 300ms ease-out',
+                  transform: showJobListings ? 'rotate(180deg)' : 'rotate(0deg)'
+                }}
+              />
             </button>
           </div>
 
