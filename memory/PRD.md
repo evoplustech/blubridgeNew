@@ -75,7 +75,7 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 ## Prioritized Backlog
 
 ### P0 - Immediate
-- [PENDING USER VERIFICATION] Two-tone gradient shimmer effect on dropdown "Coming Soon" text
+- ✅ DONE: Inline Job Application Form (replaces external Naukri links)
 
 ### P1 - High Priority
 - Apply 3-Grid color to About Page
