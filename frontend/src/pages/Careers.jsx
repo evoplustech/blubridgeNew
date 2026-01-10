@@ -188,22 +188,19 @@ const Careers = () => {
             <button
               onClick={toggleJobListings}
               data-testid="see-open-roles-btn"
-              className="careers-cta-button"
+              className="see-roles-link"
               style={{
-                backgroundColor: '#0B1F3B',
-                color: '#ffffff',
-                padding: '14px 28px',
-                borderRadius: '8px',
-                fontSize: '15px',
-                fontWeight: '500',
+                background: 'none',
                 border: 'none',
+                padding: 0,
                 cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                transition: 'all 200ms ease-out',
-                boxShadow: '0 2px 4px rgba(11, 31, 59, 0.1)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px'
+                gap: '8px',
+                fontSize: '15px',
+                fontWeight: '500',
+                color: '#0B1F3B',
+                transition: 'color 150ms ease-out'
               }}
             >
               {showJobListings ? 'Hide roles' : 'See open roles'}
@@ -237,16 +234,7 @@ const Careers = () => {
               border: '1px solid #e8e6e0',
               borderTop: 'none'
             }}>
-              {/* Section Header */}
-              <h4 style={{
-                fontSize: '18px',
-                fontWeight: '600',
-                color: '#1a1a1a',
-                marginBottom: '20px',
-                paddingTop: '8px'
-              }}>
-                Current Open Roles
-              </h4>
+              {/* Job Rows - Minimal Horizontal List (No Header) */}
 
               {/* Job Rows - Minimal Horizontal List */}
               <div style={{ display: 'flex', flexDirection: 'column' }}>
