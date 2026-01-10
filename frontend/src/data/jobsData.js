@@ -338,7 +338,7 @@ export const jobsData = [
     education: 'B.Com / M.Com (Commerce background)',
     employmentType: 'Full Time, Permanent',
     postedDate: '3 weeks ago',
-    naukriLink: 'https://www.naukri.com/job-listings-accountant-male-blubridge-chennai-0-to-3-years-101225034858',
+    naukriLink: 'https://blubridge.com/hiring/accountant-registration/',
     description: 'Detail-oriented accounting role with hands-on exposure to financial accounting, statutory compliance, and audit coordination within a fast-paced, research-driven organization.',
     responsibilities: [
       'Summarize financial status and transaction reports, including bookkeeping, profit and loss statements',
