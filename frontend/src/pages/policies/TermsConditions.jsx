@@ -9,18 +9,18 @@ const TermsConditions = () => {
       style={{
         minHeight: '100vh',
         backgroundColor: '#f8f7f3',
-        paddingTop: '100px',
+        paddingTop: '80px',
         paddingBottom: '80px'
       }}
     >
       <div style={{
-        maxWidth: '800px',
+        maxWidth: '896px',
         margin: '0 auto',
         padding: '0 24px'
       }}>
         {/* Main Card */}
         <div style={{
-          backgroundColor: '#ffffff',
+          backgroundColor: '#fffdf7',
           borderRadius: '20px',
           padding: '60px',
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)'
