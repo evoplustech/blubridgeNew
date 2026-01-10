@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import JoinOurTeam from './JoinOurTeam';
-import { MapPin, Phone, Mail, Linkedin, ChevronRight, CheckCircle2, ChevronDown, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
 
 // Custom X (Twitter) Icon Component
 const XIcon = ({ size = 24, color = "currentColor", ...props }) => (
