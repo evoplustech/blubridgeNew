@@ -17,7 +17,7 @@ const XIcon = ({ size = 24, color = "currentColor", ...props }) => (
   </svg>
 );
 
-// Job listings data - minimal format
+// Job listings data - minimal format (9 jobs from Naukri)
 const jobListings = [
   {
     id: 1,
@@ -29,7 +29,7 @@ const jobListings = [
   },
   {
     id: 2,
-    title: 'AI & ML Engineer – C++ / Java',
+    title: 'AI & ML Engineer – C++ / Java Developer',
     department: 'Engineering',
     team: 'Core ML',
     location: 'Chennai',
@@ -53,17 +53,41 @@ const jobListings = [
   },
   {
     id: 5,
-    title: 'Research Intern – Deep Learning',
-    department: 'Research',
-    team: 'AI Research',
+    title: 'Process & Operations Intern',
+    department: 'Operations',
+    team: 'Internship',
     location: 'Chennai',
     link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   },
   {
     id: 6,
-    title: 'Operations & Admin Executive',
+    title: 'Office Administration – Male',
     department: 'Operations',
     team: 'Admin',
+    location: 'Chennai',
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+  },
+  {
+    id: 7,
+    title: 'Accountant (Male)',
+    department: 'Finance',
+    team: 'Accounting',
+    location: 'Chennai',
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+  },
+  {
+    id: 8,
+    title: 'Senior Administration Officer',
+    department: 'Operations',
+    team: 'Admin',
+    location: 'Chennai',
+    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+  },
+  {
+    id: 9,
+    title: 'AI & ML Engineer – Research (Freshers)',
+    department: 'Engineering',
+    team: 'AI Research',
     location: 'Chennai',
     link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
   }
