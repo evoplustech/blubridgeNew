@@ -156,7 +156,11 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-[#D6DEC3]">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2">
-              <img src="https://blubridge-frontend-1.preview.emergentagent.com/images/blubridge-wordmark.png" alt="BluBridge" className="object-contain" />
+              <img 
+                src="/images/blubridge-wordmark.png" 
+                alt="BluBridge" 
+                style={{ height: '23px', width: 'auto', objectFit: 'contain' }}
+              />
             </div>
             <p className="text-[#5B6B7A] text-sm">©2026 BluBridge Technologies Private Limited. All rights reserved</p>
             <div className="flex space-x-6 text-sm">
