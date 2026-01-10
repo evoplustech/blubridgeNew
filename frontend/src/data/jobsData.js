@@ -192,7 +192,7 @@ export const jobsData = [
     education: 'Any Bachelor\'s degree',
     employmentType: 'Full Time, Permanent',
     postedDate: '2 days ago',
-    naukriLink: 'https://www.naukri.com/job-listings-marketing-growth-lead-blubridge-chennai-0-to-0-years-070126042497',
+    naukriLink: 'https://blubridge.com/hiring/marketing-growth-registration-form/',
     description: 'Take full ownership of BluBridge\'s marketing and growth execution. Drive visibility, inbound traction, and market presence through disciplined execution across organic growth, paid campaigns, PPC, and digital channels.',
     responsibilities: [
       'Own and execute BluBridge\'s entire marketing function, covering organic growth, paid campaigns, PPC, and digital visibility',
