@@ -96,6 +96,10 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 ---
 
 ## Key Files Reference
+- `/app/frontend/src/pages/JobDetail.jsx` - Job detail page with inline application form trigger
+- `/app/frontend/src/components/JobApplicationForm.jsx` - NEW: Inline job application form component
+- `/app/frontend/src/data/jobsData.js` - Job listings data
+- `/app/backend/server.py` - API endpoints including job-applications
 - `/app/frontend/src/components/Header.jsx` - Navigation with dropdown logic
 - `/app/frontend/src/pages/Home.jsx` - Hero section, research teams
 - `/app/frontend/src/pages/Careers.jsx` - Career page structure
@@ -108,3 +112,12 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 - Embla Carousel React - Carousel functionality
 - Lucide React - Icons
 - Framer Motion - Animations
+
+## API Endpoints (Job Applications)
+- `POST /api/job-applications/submit` - Submit job application with resume upload
+- `GET /api/job-applications` - Get all applications (optional filters: status, limit)
+- `GET /api/job-applications/{id}` - Get single application
+- `PATCH /api/job-applications/{id}/status` - Update application status
+
+## MongoDB Collections
+- `job_applications` - Stores job application submissions with resume paths
