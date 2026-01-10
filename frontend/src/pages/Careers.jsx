@@ -17,7 +17,9 @@ const XIcon = ({ size = 24, color = "currentColor", ...props }) => (
   </svg>
 );
 
-// Job listings data - minimal format (9 jobs from Naukri)
+// Job listings data - minimal format (8 jobs from Naukri)
+import { Link } from 'react-router-dom';
+
 const jobListings = [
   {
     id: 1,
@@ -25,7 +27,7 @@ const jobListings = [
     department: 'Engineering',
     team: 'AI Research',
     location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+    slug: 'ai-systems-engineer'
   },
   {
     id: 2,
@@ -33,7 +35,7 @@ const jobListings = [
     department: 'Engineering',
     team: 'Core ML',
     location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+    slug: 'ai-ml-engineer-cpp-java'
   },
   {
     id: 3,
@@ -41,7 +43,7 @@ const jobListings = [
     department: 'Marketing',
     team: 'Brand',
     location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+    slug: 'branding-communications-lead'
   },
   {
     id: 4,
@@ -49,7 +51,7 @@ const jobListings = [
     department: 'Marketing',
     team: 'Growth',
     location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+    slug: 'marketing-growth-lead'
   },
   {
     id: 5,
@@ -57,7 +59,7 @@ const jobListings = [
     department: 'Operations',
     team: 'Internship',
     location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+    slug: 'process-operations-intern'
   },
   {
     id: 6,
@@ -65,7 +67,7 @@ const jobListings = [
     department: 'Operations',
     team: 'Admin',
     location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+    slug: 'office-administration'
   },
   {
     id: 7,
@@ -73,11 +75,17 @@ const jobListings = [
     department: 'Finance',
     team: 'Accounting',
     location: 'Chennai',
-    link: 'https://www.naukri.com/blubridge-technologies-jobs-careers'
+    slug: 'accountant'
   },
   {
     id: 8,
     title: 'Senior Administration Officer',
+    department: 'Operations',
+    team: 'Admin',
+    location: 'Chennai',
+    slug: 'senior-administration-officer'
+  }
+];
     department: 'Operations',
     team: 'Admin',
     location: 'Chennai',
