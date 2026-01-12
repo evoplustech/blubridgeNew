@@ -128,6 +128,94 @@ const Careers = () => {
         paddingTop: '50px'
       }}
     >
+      {/* Responsive Styles */}
+      <style>{`
+        .careers-cta-strip {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          align-items: flex-start;
+        }
+        @media (min-width: 640px) {
+          .careers-cta-strip {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+        .job-row-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 8px;
+          padding: 18px 0;
+        }
+        @media (min-width: 768px) {
+          .job-row-grid {
+            grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+            gap: 0;
+          }
+        }
+        .job-row-mobile-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        @media (min-width: 768px) {
+          .job-row-mobile-meta {
+            display: contents;
+          }
+        }
+        .job-arrow-desktop {
+          display: none;
+        }
+        @media (min-width: 768px) {
+          .job-arrow-desktop {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+        .offices-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        @media (min-width: 768px) {
+          .offices-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        .contact-grid-4col {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        @media (min-width: 480px) {
+          .contact-grid-4col {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        @media (min-width: 900px) {
+          .contact-grid-4col {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+        .join-us-container {
+          padding: 30px 20px;
+        }
+        @media (min-width: 640px) {
+          .join-us-container {
+            padding: 50px;
+          }
+        }
+        .join-us-title {
+          font-size: 28px;
+        }
+        @media (min-width: 640px) {
+          .join-us-title {
+            font-size: 36px;
+          }
+        }
+      `}</style>
       <div style={{ 
         maxWidth: '1261px',
         margin: '0 auto', 
