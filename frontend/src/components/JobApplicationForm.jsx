@@ -274,13 +274,34 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
       style={{
         backgroundColor: '#ffffff',
         borderRadius: '20px',
-        padding: '48px',
         marginTop: '40px',
         boxShadow: '0 4px 24px rgba(0, 0, 0, 0.08)',
         animation: 'slideInUp 0.5s ease-out',
         border: '1px solid #e5e7eb'
       }}
     >
+      {/* Responsive Styles */}
+      <style>{`
+        .job-application-form-container {
+          padding: 24px;
+        }
+        @media (min-width: 640px) {
+          .job-application-form-container {
+            padding: 48px;
+          }
+        }
+        .form-row-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        @media (min-width: 480px) {
+          .form-row-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      `}</style>
+      
       {/* Form Header */}
       <div style={{ 
         marginBottom: '32px',
@@ -288,7 +309,7 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
         paddingBottom: '20px'
       }}>
         <h2 style={{
-          fontSize: '24px',
+          fontSize: '22px',
           fontWeight: '700',
           color: '#0B1F3B',
           marginBottom: '8px'
@@ -296,7 +317,7 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
           Apply for {jobTitle}
         </h2>
         <p style={{
-          fontSize: '15px',
+          fontSize: '14px',
           color: '#6b7280'
         }}>
           Fill out the form below to submit your application. Fields marked with <span style={{ color: '#ef4444' }}>*</span> are required.
