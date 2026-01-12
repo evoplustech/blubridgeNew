@@ -331,13 +331,9 @@ const Careers = () => {
                   <Link 
                     key={job.id}
                     to={`/careers/job/${job.slug}`}
-                    className="job-row"
+                    className="job-row job-row-grid"
                     data-testid={`job-row-${job.id}`}
                     style={{
-                      display: 'grid',
-                      gridTemplateColumns: '2fr 1fr 1fr 1fr 40px',
-                      alignItems: 'center',
-                      padding: '18px 0',
                       borderTop: index === 0 ? '1px solid #e0ded8' : 'none',
                       borderBottom: '1px solid #e0ded8',
                       textDecoration: 'none',
@@ -355,39 +351,40 @@ const Careers = () => {
                       {job.title}
                     </span>
 
-                    {/* Department */}
-                    <span style={{
-                      fontSize: '14px',
-                      fontWeight: '400',
-                      color: '#6b7280'
-                    }}>
-                      {job.department}
-                    </span>
+                    {/* Meta info container for mobile stacking */}
+                    <div className="job-row-mobile-meta">
+                      {/* Department */}
+                      <span style={{
+                        fontSize: '14px',
+                        fontWeight: '400',
+                        color: '#6b7280'
+                      }}>
+                        {job.department}
+                      </span>
 
-                    {/* Team */}
-                    <span style={{
-                      fontSize: '14px',
-                      fontWeight: '400',
-                      color: '#6b7280'
-                    }}>
-                      {job.team}
-                    </span>
+                      {/* Team */}
+                      <span style={{
+                        fontSize: '14px',
+                        fontWeight: '400',
+                        color: '#6b7280'
+                      }}>
+                        {job.team}
+                      </span>
 
-                    {/* Location */}
-                    <span style={{
-                      fontSize: '14px',
-                      fontWeight: '400',
-                      color: '#6b7280'
-                    }}>
-                      {job.location}
-                    </span>
+                      {/* Location */}
+                      <span style={{
+                        fontSize: '14px',
+                        fontWeight: '400',
+                        color: '#6b7280'
+                      }}>
+                        {job.location}
+                      </span>
+                    </div>
 
-                    {/* Arrow */}
+                    {/* Arrow - Desktop only */}
                     <span 
-                      className="job-arrow"
+                      className="job-arrow job-arrow-desktop"
                       style={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
                         color: '#9ca3af',
                         transition: 'transform 150ms ease-out, color 150ms ease-out'
                       }}
