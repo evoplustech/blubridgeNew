@@ -458,12 +458,7 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
         </div>
 
         {/* Email and Phone Row */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '20px',
-          marginBottom: '20px'
-        }}>
+        <div className="form-row-grid" style={{ marginBottom: '20px' }}>
           {/* Email */}
           <div>
             <label 
