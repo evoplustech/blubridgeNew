@@ -366,7 +366,7 @@ const Contact = () => {
             
             <form onSubmit={handleSubmit}>
               {/* First Name & Last Name */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+              <div className="contact-form-row" style={{ marginBottom: '20px' }}>
                 <div>
                   <label style={{
                     display: 'block',
@@ -436,7 +436,7 @@ const Contact = () => {
                 }}>
                   Email<span style={{ color: '#ef4444' }}>*</span>
                 </label>
-                <div style={{ display: 'flex', gap: '12px' }}>
+                <div className="email-row">
                   <input
                     type="email"
                     name="email"
@@ -474,7 +474,7 @@ const Contact = () => {
               </div>
 
               {/* Phone Number & Inquiry Type */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+              <div className="contact-form-row" style={{ marginBottom: '20px' }}>
                 <div>
                   <label style={{
                     display: 'block',
