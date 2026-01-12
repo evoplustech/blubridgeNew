@@ -171,13 +171,15 @@ const JobDetail = () => {
                 </span>
 
                 {/* Job Title */}
-                <h1 style={{
-                  fontSize: '32px',
-                  fontWeight: '700',
-                  marginBottom: '20px',
-                  lineHeight: '1.2',
-                  letterSpacing: '-0.02em'
-                }}>
+                <h1 
+                  className="job-title-mobile"
+                  style={{
+                    fontWeight: '700',
+                    marginBottom: '20px',
+                    lineHeight: '1.2',
+                    letterSpacing: '-0.02em'
+                  }}
+                >
                   {job.title}
                 </h1>
 
