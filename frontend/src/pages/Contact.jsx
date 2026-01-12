@@ -50,23 +50,62 @@ const Contact = () => {
   return (
     <div 
       data-testid="contact-page"
+      className="contact-page-container"
       style={{
-
         paddingTop: '60px',
         paddingBottom: '60px',
         backgroundColor: 'rgb(255, 253, 247)'
       }}
     >
+      <style>{`
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        @media (min-width: 900px) {
+          .contact-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        .contact-form-row {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        @media (min-width: 640px) {
+          .contact-form-row {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        .email-row {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        @media (min-width: 480px) {
+          .email-row {
+            flex-direction: row;
+          }
+        }
+        .email-row input {
+          flex: 1;
+        }
+        .email-row button {
+          width: 100%;
+        }
+        @media (min-width: 480px) {
+          .email-row button {
+            width: auto;
+          }
+        }
+      `}</style>
       <div style={{
         maxWidth: '1261px',
         margin: '0 auto',
         padding: '0 24px'
       }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '24px'
-        }}>
+        <div className="contact-grid">
           
           {/* Left Column - Our Offices */}
           <div 
