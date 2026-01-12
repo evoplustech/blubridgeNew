@@ -24,7 +24,7 @@ const jobListings = [
   {
     id: 1,
     title: 'AI Systems Engineer',
-    department: 'Engineering',
+    department: 'AI Research',
     team: 'AI Research',
     location: 'Chennai',
     slug: 'ai-systems-engineer'
@@ -32,7 +32,7 @@ const jobListings = [
   {
     id: 2,
     title: 'AI & ML Engineer – C++ / Java Developer',
-    department: 'Engineering',
+    department: 'AI Research',
     team: 'Core ML',
     location: 'Chennai',
     slug: 'ai-ml-engineer-cpp-java'
@@ -40,13 +40,21 @@ const jobListings = [
   {
     id: 3,
     title: 'Branding & Communications Lead',
-    department: 'Marketing',
+    department: 'Branding',
     team: 'Brand',
     location: 'Chennai',
     slug: 'branding-communications-lead'
   },
   {
     id: 4,
+    title: 'Marketing & Growth Lead',
+    department: 'Marketing',
+    team: 'Growth',
+    location: 'Chennai',
+    slug: 'marketing-growth-lead'
+  },
+  {
+    id: 5,
     title: 'Process & Operations Intern',
     department: 'Operations',
     team: 'Internship',
@@ -54,7 +62,7 @@ const jobListings = [
     slug: 'process-operations-intern'
   },
   {
-    id: 5,
+    id: 6,
     title: 'Office Administration – Male',
     department: 'Operations',
     team: 'Admin',
@@ -62,7 +70,7 @@ const jobListings = [
     slug: 'office-administration'
   },
   {
-    id: 6,
+    id: 7,
     title: 'Accountant (Male)',
     department: 'Finance',
     team: 'Accounting',
