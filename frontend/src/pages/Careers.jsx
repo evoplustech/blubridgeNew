@@ -158,11 +158,12 @@ const Careers = () => {
           >
             Join Us
           </h1>
-
+           
           {/* ======================================== */}
           {/* CAREERS CTA STRIP */}
           {/* ======================================== */}
-          <div 
+         
+           <div 
             data-testid="careers-cta-strip"
             style={{
               background: '#f3f1e9',
@@ -185,7 +186,7 @@ const Careers = () => {
               margin: 0,
               lineHeight: '1.4'
             }}>
-              Interested in pushing the boundaries of machine intelligence?
+              Join the Mission to Scale Intelligence
             </h3>
             <button
               onClick={toggleJobListings}
@@ -214,7 +215,7 @@ const Careers = () => {
                 }}
               />
             </button>
-          </div>
+          </div> 
 
           {/* ======================================== */}
           {/* INLINE JOB LISTINGS SECTION */}
