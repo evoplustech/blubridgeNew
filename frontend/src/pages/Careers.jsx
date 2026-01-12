@@ -274,32 +274,33 @@ const Careers = () => {
             }}>
               Join the Mission to Scale Intelligence
             </h3>
-            <button
+           <button
               onClick={toggleJobListings}
               data-testid="see-open-roles-btn"
               className="see-roles-link"
               style={{
-                background: 'none',
+                background: '#0B1F3B',
                 border: 'none',
-                padding: 0,
+                padding: '12px 24px',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
                 fontSize: '15px',
                 fontWeight: '500',
-                color: '#0B1F3B',
-                transition: 'color 150ms ease-out'
+                color: '#eeeeeeff',
+                transition: 'color 150ms ease-out',
+                borderRadius: '8px'
               }}
             >
               {showJobListings ? 'Hide roles' : 'See open roles'}
-              <ChevronDown 
+              {/* <ChevronDown 
                 size={18} 
                 style={{
                   transition: 'transform 300ms ease-out',
                   transform: showJobListings ? 'rotate(180deg)' : 'rotate(0deg)'
                 }}
-              />
+              /> */}
             </button>
           </div> 
 
