@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const Contact = () => {
