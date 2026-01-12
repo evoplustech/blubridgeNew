@@ -139,19 +139,21 @@ const JobDetail = () => {
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)'
         }}>
           {/* Header Section */}
-          <div style={{
-            background: 'linear-gradient(135deg, #0B1F3B 0%, #1a3a5c 100%)',
-            padding: '48px 48px 40px',
-            color: '#ffffff'
-          }}>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              flexWrap: 'wrap',
-              gap: '24px'
-            }}>
-              <div style={{ flex: 1, minWidth: '300px' }}>
+          <div 
+            className="job-header-section"
+            style={{
+              background: 'linear-gradient(135deg, #0B1F3B 0%, #1a3a5c 100%)',
+              color: '#ffffff'
+            }}
+          >
+            <div 
+              className="job-header-flex"
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap'
+              }}
+            >
+              <div style={{ flex: 1, minWidth: '250px' }}>
                 {/* Department Badge */}
                 <span style={{
                   display: 'inline-block',
