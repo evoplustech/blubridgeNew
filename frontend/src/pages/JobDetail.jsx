@@ -202,10 +202,6 @@ const JobDetail = () => {
                     <IndianRupee size={16} />
                     <span style={{ fontSize: '14px' }}>{job.salary}</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Clock size={16} />
-                    <span style={{ fontSize: '14px' }}>{job.postedDate}</span>
-                  </div>
                 </div>
               </div>
 

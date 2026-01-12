@@ -8,7 +8,7 @@ const TermsConditions = () => {
     <div 
       style={{
         minHeight: '100vh',
-        backgroundColor: '#f8f7f3',
+        backgroundColor: 'rgb(243, 241, 233)',
         paddingTop: '80px',
         paddingBottom: '80px'
       }}
