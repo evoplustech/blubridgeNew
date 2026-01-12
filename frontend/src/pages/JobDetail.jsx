@@ -41,11 +41,76 @@ const JobDetail = () => {
         paddingBottom: '80px'
       }}
     >
-      <div style={{
-        maxWidth: '1000px',
-        margin: '0 auto',
-        padding: '0 24px'
-      }}>
+      {/* Responsive Styles */}
+      <style>{`
+        .job-detail-container {
+          padding: 0 16px;
+        }
+        @media (min-width: 640px) {
+          .job-detail-container {
+            padding: 0 24px;
+          }
+        }
+        .job-header-section {
+          padding: 32px 24px 28px;
+        }
+        @media (min-width: 640px) {
+          .job-header-section {
+            padding: 48px 48px 40px;
+          }
+        }
+        .job-content-section {
+          padding: 30px 24px;
+        }
+        @media (min-width: 640px) {
+          .job-content-section {
+            padding: 40px 48px;
+          }
+        }
+        .job-info-cards {
+          padding: 24px;
+        }
+        @media (min-width: 640px) {
+          .job-info-cards {
+            padding: 32px 48px;
+          }
+        }
+        .job-header-flex {
+          flex-direction: column;
+          gap: 20px;
+        }
+        @media (min-width: 640px) {
+          .job-header-flex {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+          }
+        }
+        .job-title-mobile {
+          font-size: 24px;
+        }
+        @media (min-width: 640px) {
+          .job-title-mobile {
+            font-size: 32px;
+          }
+        }
+        .apply-btn-header {
+          width: 100%;
+          justify-content: center;
+        }
+        @media (min-width: 640px) {
+          .apply-btn-header {
+            width: auto;
+          }
+        }
+      `}</style>
+      <div 
+        className="job-detail-container"
+        style={{
+          maxWidth: '1000px',
+          margin: '0 auto'
+        }}
+      >
         {/* Back Link */}
         <Link 
           to="/careers"
