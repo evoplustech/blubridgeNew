@@ -237,13 +237,15 @@ const JobDetail = () => {
           </div>
 
           {/* Quick Info Cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '16px',
-            padding: '32px 48px',
-            borderBottom: '1px solid #f0efe9'
-          }}>
+          <div 
+            className="job-info-cards"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+              gap: '16px',
+              borderBottom: '1px solid #f0efe9'
+            }}
+          >
             <div style={{
               backgroundColor: '#f8f7f3',
               borderRadius: '12px',
