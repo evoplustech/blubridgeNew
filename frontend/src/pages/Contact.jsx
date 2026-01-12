@@ -301,7 +301,8 @@ const Contact = () => {
                 display: 'flex',
                 alignItems: 'center',
                 overflow: 'hidden',
-                paddingLeft:'7px'
+                paddingLeft:'7px',
+                marginBottom:'15px'
               }}>
                 <div style={{
                   width: '56px',
@@ -337,6 +338,57 @@ const Contact = () => {
                     }}
                   >
                     info.1@blubridge.com
+                  </a>
+                </div>
+              </div>
+
+              {/* LinkedIn Box */}
+              <div style={{
+                flex: 1,
+                backgroundColor: '#fffdf7',
+                borderRadius: '10px',
+                border: '1px solid #e0ded8',
+                display: 'flex',
+                alignItems: 'center',
+                overflow: 'hidden',
+                paddingLeft:'7px'
+              }}>
+                <div style={{
+                  width: '56px',
+                  height: '56px',
+                  backgroundColor: '#f0efe9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  borderRadius: '10px'
+                }}>
+                  <Linkedin size={22} color="#5a5a5a" />
+                </div>
+                <div style={{ padding: '12px 10px' }}>
+                  <p style={{ 
+                    fontSize: '11px', 
+                    fontWeight: '600', 
+                    color: '#888888',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                    margin: 0,
+                    marginBottom: '2px'
+                  }}>
+                    LinkedIn
+                  </p>
+                  <a 
+                    href="https://www.linkedin.com/company/blubridge/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ 
+                      fontSize: '14px', 
+                      color: '#3b82f6',
+                      textDecoration: 'none',
+                      fontWeight: '500'
+                    }}
+                  >
+                    linkedin.com/company/blubridge
                   </a>
                 </div>
               </div>
