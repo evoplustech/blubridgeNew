@@ -224,10 +224,10 @@ const Careers = () => {
         {/* Join Us Container - Premium Redesign */}
         <div 
           data-testid="join-us-section"
+          className="join-us-container"
           style={{
             backgroundColor: '#fffdf7',
             borderRadius: '12px',
-            padding: '50px',
             marginBottom: '30px',
             borderBottom: '3px solid rgb(211, 205, 185)'
           }}
@@ -235,8 +235,8 @@ const Careers = () => {
           {/* Title */}
           <h1 
             data-testid="join-us-title"
+            className="join-us-title"
             style={{ 
-              fontSize: '36px', 
               fontWeight: '600', 
               color: '#1A1A1A',
               marginBottom: '30px',
@@ -253,14 +253,12 @@ const Careers = () => {
          
            <div 
             data-testid="careers-cta-strip"
+            className="careers-cta-strip"
             style={{
               background: '#f3f1e9',
               borderRadius: '14px',
-              padding: '28px 36px',
+              padding: '28px 24px',
               marginBottom: showJobListings ? '0' : '45px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
               border: '1px solid #e8e6e0',
               borderBottomLeftRadius: showJobListings ? '0' : '14px',
               borderBottomRightRadius: showJobListings ? '0' : '14px',
