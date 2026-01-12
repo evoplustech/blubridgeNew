@@ -293,7 +293,7 @@ const JobDetail = () => {
           </div>
 
           {/* Content Sections */}
-          <div style={{ padding: '40px 48px' }}>
+          <div className="job-content-section">
             {/* About the Role */}
             <section style={{ marginBottom: '40px' }}>
               <h2 style={{
