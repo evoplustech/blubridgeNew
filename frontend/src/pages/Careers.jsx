@@ -151,7 +151,7 @@ const Careers = () => {
         }
         @media (min-width: 768px) {
           .job-row-grid {
-            grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+            grid-template-columns: 2fr 1fr 1fr 40px;
             gap: 0;
           }
         }
@@ -360,15 +360,6 @@ const Careers = () => {
                         color: '#6b7280'
                       }}>
                         {job.department}
-                      </span>
-
-                      {/* Team */}
-                      <span style={{
-                        fontSize: '14px',
-                        fontWeight: '400',
-                        color: '#6b7280'
-                      }}>
-                        {job.team}
                       </span>
 
                       {/* Location */}
