@@ -208,7 +208,7 @@ const AboutUs = () => {
                   width: '8px', 
                   height: '8px', 
                   borderRadius: '50%', 
-                  backgroundColor: '#328CC1', 
+                  backgroundColor: '#0b1f3b', 
                   marginTop: '8px',
                   flexShrink: 0
                 }} />
@@ -243,7 +243,7 @@ const AboutUs = () => {
                   width: '8px', 
                   height: '8px', 
                   borderRadius: '50%', 
-                  backgroundColor: '#328CC1', 
+                  backgroundColor: '#0b1f3b', 
                   marginTop: '8px',
                   flexShrink: 0
                 }} />
@@ -278,7 +278,7 @@ const AboutUs = () => {
                   width: '8px', 
                   height: '8px', 
                   borderRadius: '50%', 
-                  backgroundColor: '#328CC1', 
+                  backgroundColor: '#0b1f3b', 
                   marginTop: '8px',
                   flexShrink: 0
                 }} />
@@ -313,7 +313,7 @@ const AboutUs = () => {
                   width: '8px', 
                   height: '8px', 
                   borderRadius: '50%', 
-                  backgroundColor: '#328CC1', 
+                  backgroundColor: '#0b1f3b', 
                   marginTop: '8px',
                   flexShrink: 0
                 }} />
