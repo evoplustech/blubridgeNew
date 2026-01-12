@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { MapPin, Briefcase, Clock, Users, GraduationCap, IndianRupee, Calendar, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { MapPin, Briefcase, Users, GraduationCap, IndianRupee, Calendar, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { getJobBySlug } from '../data/jobsData';
 import JobApplicationForm from '../components/JobApplicationForm';
