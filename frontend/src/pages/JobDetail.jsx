@@ -213,6 +213,7 @@ const JobDetail = () => {
               <button
                 data-testid="apply-now-header-btn"
                 onClick={handleApplyClick}
+                className="apply-btn apply-btn-header"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -229,7 +230,6 @@ const JobDetail = () => {
                   border: 'none',
                   cursor: 'pointer'
                 }}
-                className="apply-btn"
               >
                 Apply Now
               </button>
