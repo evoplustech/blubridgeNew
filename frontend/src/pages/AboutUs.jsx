@@ -564,71 +564,210 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-      {/* Testimonials Section - Section 3 with Carousel */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12" data-testid="testimonials-title">Testimonials</h2>
+      {/* Ultra-Premium Testimonials Section */}
+      <section className="py-24 relative overflow-hidden" data-testid="testimonials-section">
+        {/* Premium Background with layered gradients and subtle texture */}
+        <div className="absolute inset-0 bg-[#fffdf7]" />
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `
+              radial-gradient(ellipse at 20% 20%, rgba(11, 31, 59, 0.03) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(201, 165, 126, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 70%)
+            `,
+          }}
+        />
+        {/* Subtle noise texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          }}
+        />
+        
+        {/* Abstract decorative shapes */}
+        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-gradient-to-br from-[#0B1F3B]/5 to-transparent blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-gradient-to-tl from-[#c9a57e]/10 to-transparent blur-3xl" />
+        
+        {/* Thin accent lines */}
+        <div className="absolute top-1/3 left-0 w-32 h-px bg-gradient-to-r from-transparent via-[#0B1F3B]/10 to-transparent" />
+        <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-transparent via-[#c9a57e]/20 to-transparent" />
+        
+        <style>{`
+          @keyframes testimonialSlide {
+            0% { opacity: 0; transform: translateX(60px) scale(0.95); }
+            100% { opacity: 1; transform: translateX(0) scale(1); }
+          }
+          @keyframes testimonialFadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes floatGlow {
+            0%, 100% { box-shadow: 0 20px 60px -15px rgba(11, 31, 59, 0.15), 0 10px 30px -10px rgba(0,0,0,0.08); }
+            50% { box-shadow: 0 25px 70px -15px rgba(11, 31, 59, 0.2), 0 15px 40px -10px rgba(0,0,0,0.1); }
+          }
+          @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(11, 31, 59, 0.1); }
+            50% { box-shadow: 0 0 20px 5px rgba(11, 31, 59, 0.15); }
+          }
+          .testimonial-card-premium {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .testimonial-card-premium:hover {
+            transform: translateY(-8px) scale(1.02);
+          }
+          .testimonial-card-active {
+            animation: floatGlow 3s ease-in-out infinite;
+          }
+          .nav-btn-premium {
+            transition: all 0.3s ease;
+          }
+          .nav-btn-premium:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(11, 31, 59, 0.3);
+          }
+          .capsule-indicator {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .capsule-indicator.active {
+            animation: pulseGlow 2s ease-in-out infinite;
+          }
+        `}</style>
+        
+        <div className="container-custom relative z-10">
+          {/* Center-aligned Premium Title */}
+          <div className="text-center mb-16">
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-[#0B1F3B] tracking-tight"
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                letterSpacing: '-0.02em',
+              }}
+              data-testid="testimonials-title"
+            >
+              Testimonials
+            </h2>
+            <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#0B1F3B] via-[#c9a57e] to-[#0B1F3B] rounded-full opacity-60" />
+          </div>
           
-          {/* Carousel Container */}
-          <div className="relative" data-testid="testimonials-carousel">
-            {/* Navigation Buttons */}
+          {/* Premium Carousel Container */}
+          <div className="relative px-4 md:px-16" data-testid="testimonials-carousel">
+            {/* Floating Navigation - Previous */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-10 h-10 rounded-full bg-[#0B1F3B] text-white flex items-center justify-center hover:bg-[#0B1F3B]/80 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="nav-btn-premium absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#0B1F3B]/10 text-[#0B1F3B] flex items-center justify-center shadow-lg hover:bg-[#0B1F3B] hover:text-white hover:border-[#0B1F3B]"
               aria-label="Previous testimonials"
               data-testid="testimonial-prev-btn"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
             
+            {/* Floating Navigation - Next */}
             <button
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-10 h-10 rounded-full bg-[#0B1F3B] text-white flex items-center justify-center hover:bg-[#0B1F3B]/80 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="nav-btn-premium absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#0B1F3B]/10 text-[#0B1F3B] flex items-center justify-center shadow-lg hover:bg-[#0B1F3B] hover:text-white hover:border-[#0B1F3B]"
               aria-label="Next testimonials"
               data-testid="testimonial-next-btn"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-6 h-6" />
             </button>
             
-            {/* Testimonials Slider */}
-            <div className="overflow-hidden mx-4 md:mx-8">
+            {/* Premium Testimonials Display */}
+            <div className="overflow-hidden mx-8 md:mx-12">
               <div 
-                className="flex transition-transform duration-500 ease-out"
+                className="flex transition-all duration-700 ease-out"
                 style={{ 
                   transform: `translateX(-${currentTestimonialIndex * (100 / visibleCount)}%)`,
                 }}
               >
-                {testimonials.map((testimonial, index) => (
-                  <div 
-                    key={index} 
-                    className={`flex-shrink-0 px-2 md:px-4 ${visibleCount === 1 ? 'w-full' : 'w-1/2'}`}
-                    data-testid={`testimonial-card-${index}`}
-                  >
-                    <div className="bg-[#efede5] rounded-2xl p-6 border border-[#D6DEC3] h-full flex flex-col">
-                      <p className="text-[#2F3A4A] text-sm leading-relaxed mb-6 italic flex-grow">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
-                      <div>
-                        <p className="text-[#0B1F3B] font-semibold text-sm">{testimonial.author}</p>
-                        <p className="text-[#6B7280] text-xs">{testimonial.title}</p>
-                        <p className="text-[#6B7280] text-xs">{testimonial.company}</p>
+                {testimonials.map((testimonial, index) => {
+                  const isActive = index === currentTestimonialIndex || index === currentTestimonialIndex + 1;
+                  return (
+                    <div 
+                      key={index} 
+                      className={`flex-shrink-0 px-3 md:px-5 ${visibleCount === 1 ? 'w-full' : 'w-1/2'}`}
+                      style={{
+                        opacity: isActive ? 1 : 0.5,
+                        transform: isActive ? 'scale(1)' : 'scale(0.95)',
+                        filter: isActive ? 'blur(0)' : 'blur(1px)',
+                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                      }}
+                      data-testid={`testimonial-card-${index}`}
+                    >
+                      {/* Premium Testimonial Card */}
+                      <div 
+                        className={`testimonial-card-premium relative bg-white rounded-3xl p-8 md:p-10 h-full flex flex-col ${isActive ? 'testimonial-card-active' : ''}`}
+                        style={{
+                          boxShadow: isActive 
+                            ? '0 25px 60px -15px rgba(11, 31, 59, 0.15), 0 10px 30px -10px rgba(0,0,0,0.08)' 
+                            : '0 10px 30px -10px rgba(0,0,0,0.05)',
+                          border: '1px solid rgba(11, 31, 59, 0.06)',
+                        }}
+                      >
+                        {/* Large Quotation Mark Background */}
+                        <div 
+                          className="absolute top-6 left-6 text-[120px] md:text-[150px] leading-none font-serif text-[#0B1F3B]/[0.04] select-none pointer-events-none"
+                          style={{ fontFamily: 'Georgia, serif' }}
+                        >
+                          &ldquo;
+                        </div>
+                        
+                        {/* Quote Content */}
+                        <div className="relative z-10 flex-grow">
+                          <p 
+                            className="text-[#2F3A4A] leading-relaxed mb-8"
+                            style={{
+                              fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
+                              fontStyle: 'italic',
+                              lineHeight: 1.8,
+                              fontFamily: "'DM Sans', sans-serif",
+                            }}
+                          >
+                            &ldquo;{testimonial.quote}&rdquo;
+                          </p>
+                        </div>
+                        
+                        {/* Author Info */}
+                        <div className="relative z-10 pt-6 border-t border-[#0B1F3B]/10">
+                          <p 
+                            className="text-[#0B1F3B] font-bold text-base md:text-lg mb-1"
+                            style={{ letterSpacing: '-0.01em' }}
+                          >
+                            {testimonial.author}
+                          </p>
+                          <p className="text-[#6B7280] text-sm font-medium">
+                            {testimonial.title}
+                          </p>
+                          <p className="text-[#9CA3AF] text-xs mt-1 uppercase tracking-wider">
+                            {testimonial.company}
+                          </p>
+                        </div>
+                        
+                        {/* Subtle accent corner */}
+                        <div 
+                          className="absolute bottom-0 right-0 w-24 h-24 rounded-tl-full opacity-50"
+                          style={{
+                            background: 'linear-gradient(135deg, transparent 50%, rgba(201, 165, 126, 0.08) 100%)',
+                          }}
+                        />
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
             
-            {/* Dot Indicators */}
-            <div className="flex justify-center gap-2 mt-8" data-testid="testimonial-dots">
+            {/* Premium Capsule Pagination Indicators */}
+            <div className="flex justify-center items-center gap-3 mt-12" data-testid="testimonial-dots">
               {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonialIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  className={`capsule-indicator h-2 rounded-full transition-all duration-500 ${
                     currentTestimonialIndex === index 
-                      ? 'bg-[#0B1F3B] w-6' 
-                      : 'bg-[#D6DEC3] hover:bg-[#0B1F3B]/50'
+                      ? 'w-10 bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5c] active' 
+                      : 'w-2 bg-[#D6DEC3] hover:bg-[#0B1F3B]/30'
                   }`}
                   aria-label={`Go to testimonial set ${index + 1}`}
                   data-testid={`testimonial-dot-${index}`}
