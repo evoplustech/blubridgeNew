@@ -512,7 +512,7 @@ const Home = () => {
           aria-hidden="true"
         >
           <img 
-            src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/ofoxitwk_B.png"
+            src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/epqcwubc_b44.png"
             alt=""
             style={{
               height: '90vh',
