@@ -24,6 +24,29 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 
 ## What's Been Implemented
 
+### December 2025
+- **About Us Page Three-Part Enhancement**: Complete overhaul of the About Us page with:
+  - **Task 1 - Hero Section "We are BluBridge" with Animated Logo**: 
+    - Removed all existing hero text content
+    - Added centered "We are BluBridge" text with animated "B" logo
+    - Logo has entrance animation (scale + rotate) and subtle pulse effect
+    - Text has coordinated fade-in reveal animation (1-2 seconds)
+    - Responsive: stacks on mobile (We are / BluBridge)
+    - Background image and overlay preserved
+  - **Task 2 - "Who We Are" Section Scroll Animations**:
+    - All four content containers have scroll-triggered entrance animations
+    - Staggered animation (0.15s delay between each)
+    - Left containers slide from left, right containers slide from right
+    - Animations play once when containers enter viewport (IntersectionObserver)
+  - **Task 3 - Testimonials Carousel Implementation**:
+    - Expanded testimonials from 3 to 5 items (scalable to 8+)
+    - Carousel shows 2 testimonials at a time on desktop, 1 on mobile
+    - Navigation: left/right arrow buttons + dot indicators
+    - Smooth slide transition (500ms ease-out)
+    - Circular navigation (loops back to start)
+    - Touch/swipe support on mobile
+    - Responsive with viewport-based visible count
+
 ### January 10, 2025
 - **Inline Job Application Form System**: Replaced external Naukri links with full inline application system
   - "Apply Now" buttons (header and bottom CTA) now trigger inline form instead of external redirect
