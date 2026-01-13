@@ -673,8 +673,8 @@ const AboutUs = () => {
               <ChevronRight className="w-6 h-6" />
             </button>
             
-            {/* Premium Testimonials Display */}
-            <div className="overflow-visible mx-8 md:mx-12 py-8">
+            {/* Premium Testimonials Display - wrapper for clipping */}
+            <div className="mx-8 md:mx-12 overflow-x-clip overflow-y-visible py-6">
               <div 
                 className="flex transition-all duration-700 ease-out"
                 style={{ 
