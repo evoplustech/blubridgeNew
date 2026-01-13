@@ -97,7 +97,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link to="/about" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">About Us</Link></li>
              
-              <li><a href="https://jobapp-system.preview.emergentagent.com/careers" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Careers</a></li>
+              <li><a href="https://blubridge-polish.preview.emergentagent.com/careers" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Careers</a></li>
               <li><Link to="/contact" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Contact</Link></li>
               <li><a href="https://www.linkedin.com/company/blubridge/" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">LinkedIn</a></li>
               <li><a href="https://x.com/BlubridgeAI" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">X (Twitter)</a></li>
