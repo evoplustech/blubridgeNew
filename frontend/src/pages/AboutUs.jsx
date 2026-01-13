@@ -588,48 +588,41 @@ const AboutUs = () => {
         <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-transparent via-[#c9a57e]/20 to-transparent" />
         
         <style>{`
-          @keyframes testimonialSlide {
-            0% { opacity: 0; transform: translateX(60px) scale(0.95); }
-            100% { opacity: 1; transform: translateX(0) scale(1); }
+          @keyframes slideFromRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
           }
-          @keyframes testimonialFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+          @keyframes slideFromLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
           }
-          @keyframes floatGlow {
-            0%, 100% { box-shadow: 0 20px 60px -15px rgba(11, 31, 59, 0.15), 0 10px 30px -10px rgba(0,0,0,0.08); }
-            50% { box-shadow: 0 25px 70px -15px rgba(11, 31, 59, 0.2), 0 15px 40px -10px rgba(0,0,0,0.1); }
+          @keyframes slideToLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-100%); opacity: 0; }
           }
-          @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(11, 31, 59, 0.1); }
-            50% { box-shadow: 0 0 20px 5px rgba(11, 31, 59, 0.15); }
+          @keyframes slideToRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
           }
-          .testimonial-card-premium {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          .slide-enter-next {
+            animation: slideFromRight 0.6s ease-out forwards;
           }
-          .testimonial-card-premium:hover {
-            transform: translateY(-8px) scale(1.02);
+          .slide-enter-prev {
+            animation: slideFromLeft 0.6s ease-out forwards;
           }
-          .testimonial-card-active {
-            animation: floatGlow 3s ease-in-out infinite;
+          .research-nav-arrow {
+            transition: color 0.2s ease;
           }
-          .nav-btn-premium {
-            transition: all 0.3s ease;
-          }
-          .nav-btn-premium:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(11, 31, 59, 0.3);
+          .research-nav-arrow:hover {
+            color: #0B1F3B;
           }
           .capsule-indicator {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           }
-          .capsule-indicator.active {
-            animation: pulseGlow 2s ease-in-out infinite;
-          }
         `}</style>
         
         <div className="container-custom relative z-10">
-          {/* Center-aligned Premium Title */}
+          {/* Center-aligned Title */}
           <div className="text-center mb-16">
             <h2 
               className="text-4xl md:text-5xl font-bold text-[#0B1F3B] tracking-tight"
@@ -639,92 +632,67 @@ const AboutUs = () => {
               }}
               data-testid="research-areas-title"
             >
-              Our Research Areas
+              Current Research Teams
             </h2>
             <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#0B1F3B] via-[#c9a57e] to-[#0B1F3B] rounded-full opacity-60" />
           </div>
           
-          {/* Premium Carousel Container */}
+          {/* Carousel Container */}
           <div className="relative px-4 md:px-16" data-testid="research-carousel">
-            {/* Floating Navigation - Previous */}
+            {/* Simple Navigation - Previous */}
             <button
               onClick={prevTestimonial}
-              className="nav-btn-premium absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#0B1F3B]/10 text-[#0B1F3B] flex items-center justify-center shadow-lg hover:bg-[#0B1F3B] hover:text-white hover:border-[#0B1F3B]"
-              aria-label="Previous"
+              className="research-nav-arrow absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 text-[#0B1F3B]/60 flex items-center justify-center"
+              aria-label="Previous slide"
               data-testid="research-prev-btn"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-8 h-8" strokeWidth={1.5} />
             </button>
             
-            {/* Floating Navigation - Next */}
+            {/* Simple Navigation - Next */}
             <button
               onClick={nextTestimonial}
-              className="nav-btn-premium absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#0B1F3B]/10 text-[#0B1F3B] flex items-center justify-center shadow-lg hover:bg-[#0B1F3B] hover:text-white hover:border-[#0B1F3B]"
-              aria-label="Next"
+              className="research-nav-arrow absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 text-[#0B1F3B]/60 flex items-center justify-center"
+              aria-label="Next slide"
               data-testid="research-next-btn"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-8 h-8" strokeWidth={1.5} />
             </button>
             
-            {/* Premium Research Areas Display */}
-            <div className="mx-4 md:mx-24 lg:mx-32 py-4">
-              <div 
-                className="flex transition-all duration-700 ease-out"
-                style={{ 
-                  transform: `translateX(-${currentTestimonialIndex * 100}%)`,
-                }}
-              >
+            {/* Research Areas Display - No containers */}
+            <div className="mx-8 md:mx-24 lg:mx-32 py-4 overflow-hidden">
+              <div className="relative min-h-[200px]">
                 {researchAreas.map((area, index) => {
                   const isActive = index === currentTestimonialIndex;
+                  if (!isActive) return null;
+                  
                   return (
                     <div 
-                      key={index} 
-                      className="flex-shrink-0 w-full px-4 md:px-8"
-                      style={{
-                        opacity: isActive ? 1 : 0.4,
-                        transform: isActive ? 'scale(1)' : 'scale(0.95)',
-                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-                      }}
+                      key={`${index}-${currentTestimonialIndex}`}
+                      className={`w-full px-4 md:px-8 ${slideDirection === 'next' ? 'slide-enter-next' : 'slide-enter-prev'}`}
                       data-testid={`research-card-${index}`}
                     >
-                      {/* Premium Research Area Card - Clean border, no shadow */}
-                      <div 
-                        className="relative bg-white rounded-2xl p-8 md:p-12 flex flex-col max-w-3xl mx-auto"
-                        style={{
-                          border: '1px solid rgba(11, 31, 59, 0.12)',
-                        }}
-                      >
+                      {/* Content without container - directly on background */}
+                      <div className="flex flex-col max-w-3xl mx-auto text-center">
                         {/* Title */}
-                        <div className="relative z-10 mb-6">
-                          <h3 
-                            className="text-2xl md:text-3xl font-bold text-[#0B1F3B] text-center"
-                            style={{ letterSpacing: '-0.02em' }}
-                          >
-                            {area.title}
-                          </h3>
-                        </div>
+                        <h3 
+                          className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6"
+                          style={{ letterSpacing: '-0.02em' }}
+                        >
+                          {area.title}
+                        </h3>
                         
                         {/* Description */}
-                        <div className="relative z-10 flex-grow">
-                          <p 
-                            className="text-[#2F3A4A] leading-relaxed text-center"
-                            style={{
-                              fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
-                              lineHeight: 1.9,
-                              fontFamily: "'DM Sans', sans-serif",
-                            }}
-                          >
-                            {area.description}
-                          </p>
-                        </div>
-                        
-                        {/* Subtle accent corner */}
-                        <div 
-                          className="absolute bottom-0 right-0 w-24 h-24 rounded-tl-full opacity-50"
+                        <p 
+                          className="text-[#2F3A4A] leading-relaxed"
                           style={{
-                            background: 'linear-gradient(135deg, transparent 50%, rgba(201, 165, 126, 0.08) 100%)',
+                            fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                            lineHeight: 1.9,
+                            fontFamily: "'DM Sans', sans-serif",
                           }}
-                        />
+                        >
+                          {area.description}
+                        </p>
                       </div>
                     </div>
                   );
@@ -732,18 +700,21 @@ const AboutUs = () => {
               </div>
             </div>
             
-            {/* Premium Capsule Pagination Indicators */}
+            {/* Capsule Pagination Indicators */}
             <div className="flex justify-center items-center gap-3 mt-12" data-testid="research-dots">
-              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              {researchAreas.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentTestimonialIndex(index)}
+                  onClick={() => {
+                    setSlideDirection(index > currentTestimonialIndex ? 'next' : 'prev');
+                    setCurrentTestimonialIndex(index);
+                  }}
                   className={`capsule-indicator h-2 rounded-full transition-all duration-500 ${
                     currentTestimonialIndex === index 
-                      ? 'w-10 bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5c] active' 
+                      ? 'w-10 bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5c]' 
                       : 'w-2 bg-[#D6DEC3] hover:bg-[#0B1F3B]/30'
                   }`}
-                  aria-label={`Go to research area ${index + 1}`}
+                  aria-label={`Go to slide ${index + 1}`}
                   data-testid={`research-dot-${index}`}
                 />
               ))}
