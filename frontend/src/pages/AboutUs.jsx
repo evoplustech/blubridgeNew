@@ -84,6 +84,10 @@ const AboutUs = () => {
   
   // Testimonials carousel state
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  
+  // Track slide direction for animation
+  const [slideDirection, setSlideDirection] = useState('next');
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Parallax effect for hero
   useEffect(() => {
