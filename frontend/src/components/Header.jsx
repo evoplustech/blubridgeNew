@@ -388,8 +388,8 @@ const Header = () => {
     {/* Mobile Menu Overlay - Rendered outside header for proper z-index */}
     {mobileMenuOpen && (
       <div 
-        className="fixed inset-0 bg-black/20 lg:hidden"
-        style={{ zIndex: 1100, top: '104px' }}
+        className="fixed inset-0 bg-black/30 lg:hidden"
+        style={{ zIndex: 9998, top: '104px' }}
         onClick={() => setMobileMenuOpen(false)}
       />
     )}
