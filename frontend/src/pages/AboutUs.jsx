@@ -210,10 +210,6 @@ const AboutUs = () => {
   const visibleCount = 1;
   const totalSlides = researchAreas.length;
   
-  // Track slide direction for animation
-  const [slideDirection, setSlideDirection] = useState('next');
-  const [isAnimating, setIsAnimating] = useState(false);
-  
   const nextTestimonial = () => {
     if (isAnimating) return;
     setIsAnimating(true);
