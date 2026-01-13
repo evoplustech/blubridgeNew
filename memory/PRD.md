@@ -120,6 +120,7 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 ---
 
 ## Key Files Reference
+- `/app/frontend/src/pages/AboutUs.jsx` - About page with animated hero, scroll animations, testimonials carousel
 - `/app/frontend/src/pages/JobDetail.jsx` - Job detail page with inline application form trigger
 - `/app/frontend/src/components/JobApplicationForm.jsx` - NEW: Inline job application form component
 - `/app/frontend/src/data/jobsData.js` - Job listings data
