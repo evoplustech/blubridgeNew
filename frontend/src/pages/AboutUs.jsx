@@ -272,62 +272,29 @@ const AboutUs = () => {
             50% { transform: translateX(100%); }
           }
           
-          /* "We are" text animation - fade in + slide up */
-          @keyframes heroWeAreEntrance {
+          /* Hero image entrance animation - Kissflow style */
+          @keyframes heroImageEntrance {
             0% { 
               opacity: 0; 
-              transform: translateY(25px); 
+              transform: scale(0.9) translateY(20px); 
+            }
+            60% {
+              opacity: 1;
+              transform: scale(1.02) translateY(-5px);
             }
             100% { 
               opacity: 1; 
-              transform: translateY(0); 
+              transform: scale(1) translateY(0); 
             }
           }
           
-          /* Logo B animation - scale in with slight bounce */
-          @keyframes heroLogoEntrance {
-            0% { 
-              opacity: 0; 
-              transform: scale(0.8); 
-            }
-            60% { 
-              opacity: 1; 
-              transform: scale(1.05); 
-            }
-            100% { 
-              opacity: 1; 
-              transform: scale(1); 
-            }
-          }
-          
-          /* "BluBridge" text animation - fade in + slide from left */
-          @keyframes heroBluBridgeEntrance {
-            0% { 
-              opacity: 0; 
-              transform: translateX(-35px); 
-            }
-            100% { 
-              opacity: 1; 
-              transform: translateX(0); 
-            }
-          }
-          
-          /* Optional subtle logo pulse after entrance */
-          @keyframes heroLogoPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-          }
-          
-          .hero-logo-animation:hover {
-            transform: scale(1.05) !important;
-            transition: transform 0.3s ease;
+          .hero-image-animated {
+            animation: heroImageEntrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
           }
           
           /* Reduced motion preference */
           @media (prefers-reduced-motion: reduce) {
-            .hero-we-are-text,
-            .hero-logo-animation,
-            .hero-blubridge-text {
+            .hero-image-animated {
               animation: none !important;
               opacity: 1 !important;
               transform: none !important;
@@ -336,44 +303,24 @@ const AboutUs = () => {
         `}</style>
         
         <div className="container-custom relative z-10 flex items-center justify-center w-full">
-          <div className="text-center">
-            {/* Line 1: "We are" */}
-            <p 
-              className="hero-we-are-text text-white font-medium mb-2 md:mb-4"
+          <div 
+            className="text-center hero-image-animated"
+            style={{
+              opacity: 0,
+              transform: 'scale(0.9) translateY(20px)',
+            }}
+            data-testid="hero-title"
+          >
+            <img 
+              src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/pcxf7v7n_We-Are-BluBrdige.png"
+              alt="We are BluBridge"
+              className="max-w-full h-auto"
               style={{
-                fontSize: 'clamp(2rem, 5vw, 3rem)',
-                lineHeight: 1.2,
-                letterSpacing: '-0.01em',
-                opacity: 0,
-                transform: 'translateY(25px)',
-                animation: heroAnimated ? 'heroWeAreEntrance 0.8s ease-out 0.3s forwards' : 'none',
+                width: 'clamp(280px, 60vw, 600px)',
+                height: 'auto',
               }}
-              data-testid="hero-we-are-text"
-            >
-              We are
-            </p>
-            
-            {/* Line 2: Logo + "BluBridge" */}
-            <div 
-              className="flex items-center justify-center"
-              data-testid="hero-title"
-            >
-              <AnimatedHeroLogo isAnimated={heroAnimated} />
-              <span 
-                className="hero-blubridge-text text-white font-bold"
-                style={{
-                  fontSize: 'clamp(2.5rem, 7vw, 3.5rem)',
-                  lineHeight: 1.1,
-                  letterSpacing: '-0.02em',
-                  opacity: 0,
-                  transform: 'translateX(-35px)',
-                  animation: heroAnimated ? 'heroBluBridgeEntrance 0.8s ease-out 1.2s forwards' : 'none',
-                }}
-                data-testid="hero-blubridge-text"
-              >
-                BluBridge
-              </span>
-            </div>
+              data-testid="hero-we-are-blubridge-image"
+            />
           </div>
         </div>
       </section>
