@@ -34,19 +34,19 @@ const NeuralBackground = () => {
     hoverRadius: 150,
     hoverConnectCount: 3,
     
-    // Colors - Darker for visibility on light background
-    nodeColor: { r: 60, g: 80, b: 110 },          // Dark neutral blue
-    lineColor: { r: 80, g: 100, b: 130 },         // Darker line color
-    highlightNodeColor: { r: 11, g: 31, b: 59 },  // Brand dark blue
-    highlightLineColor: { r: 11, g: 31, b: 59 },  // Brand dark blue
-    cursorNodeColor: { r: 11, g: 31, b: 59 },     // Brand dark blue
+    // Colors - 50% lighter nodes for subtle appearance
+    nodeColor: { r: 140, g: 155, b: 175 },        // Lighter neutral blue
+    lineColor: { r: 150, g: 165, b: 185 },        // Lighter line color
+    highlightNodeColor: { r: 80, g: 100, b: 130 }, // Darker on hover
+    highlightLineColor: { r: 80, g: 100, b: 130 }, // Darker on hover
+    cursorNodeColor: { r: 60, g: 80, b: 110 },     // Dark cursor node
     
-    // Appearance - Increased opacity for visibility
-    nodeBaseOpacity: 0.7,
-    lineBaseOpacity: 0.25,
-    nodeBaseRadius: 2.8,
-    highlightNodeOpacity: 1.0,
-    highlightLineOpacity: 0.7,
+    // Appearance - Reduced opacity for lighter look
+    nodeBaseOpacity: 0.5,
+    lineBaseOpacity: 0.18,
+    nodeBaseRadius: 2.5,
+    highlightNodeOpacity: 0.9,
+    highlightLineOpacity: 0.6,
     cursorNodeOpacity: 1.0,
     cursorNodeGlow: 10,
     
@@ -62,8 +62,8 @@ const NeuralBackground = () => {
     highlightFadeInSpeed: 0.08,
     highlightFadeOutSpeed: 0.05,
     
-    // Grid - more subtle on light background
-    gridOpacity: 0.04,
+    // Grid - disabled
+    gridOpacity: 0,
     gridSize: 60,
   }), []);
 
