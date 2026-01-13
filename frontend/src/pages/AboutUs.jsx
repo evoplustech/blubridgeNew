@@ -81,9 +81,20 @@ const AboutUs = () => {
   const heroRef = useRef(null);
   const researchTeamsRef = useRef(null);
   const location = useLocation();
+  const hasHandledTeamParam = useRef(false);
+  
+  // Get initial slide from URL param
+  const getInitialSlide = () => {
+    const params = new URLSearchParams(location.search);
+    const teamParam = params.get('team');
+    if (teamParam && teamSlugToIndex[teamParam] !== undefined) {
+      return teamSlugToIndex[teamParam];
+    }
+    return 0;
+  };
   
   // Testimonials carousel state
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(getInitialSlide);
   
   // Track slide direction for animation
   const [slideDirection, setSlideDirection] = useState('next');
@@ -104,15 +115,13 @@ const AboutUs = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Handle URL parameter for team routing
+  // Handle URL parameter for team routing - scroll to section
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const teamParam = params.get('team');
     
-    if (teamParam && teamSlugToIndex[teamParam] !== undefined) {
-      // Set the carousel to the correct slide
-      setCurrentTestimonialIndex(teamSlugToIndex[teamParam]);
-      setSlideDirection('next');
+    if (teamParam && teamSlugToIndex[teamParam] !== undefined && !hasHandledTeamParam.current) {
+      hasHandledTeamParam.current = true;
       
       // Scroll to the research teams section after a short delay
       setTimeout(() => {
