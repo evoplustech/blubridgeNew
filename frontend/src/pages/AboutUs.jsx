@@ -1,8 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+
+// Team slug to index mapping
+const teamSlugToIndex = {
+  'data': 0,
+  'tokenizer': 1,
+  'tensor-operations': 2,
+  'computational-graph': 3,
+  'auto-differentiation': 4,
+  'compiler': 5,
+  'quantization': 6,
+  'distributed-training': 7
+};
 
 // Scroll-triggered animation hook
 const useScrollAnimation = (options = {}) => {
