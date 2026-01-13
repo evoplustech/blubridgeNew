@@ -567,24 +567,77 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-      {/* Testimonials Section - Section 3 */}
+      {/* Testimonials Section - Section 3 with Carousel */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Testimonials</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12" data-testid="testimonials-title">Testimonials</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-[#efede5] rounded-2xl p-6 border border-[#D6DEC3]">
-                <p className="text-[#2F3A4A] text-sm leading-relaxed mb-6 italic">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div>
-                  <p className="text-[#0B1F3B] font-semibold text-sm">{testimonial.author}</p>
-                  <p className="text-[#6B7280] text-xs">{testimonial.title}</p>
-                  <p className="text-[#6B7280] text-xs">{testimonial.company}</p>
-                </div>
+          {/* Carousel Container */}
+          <div className="relative" data-testid="testimonials-carousel">
+            {/* Navigation Buttons */}
+            <button
+              onClick={prevTestimonial}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-10 h-10 rounded-full bg-[#0B1F3B] text-white flex items-center justify-center hover:bg-[#0B1F3B]/80 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Previous testimonials"
+              data-testid="testimonial-prev-btn"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-10 h-10 rounded-full bg-[#0B1F3B] text-white flex items-center justify-center hover:bg-[#0B1F3B]/80 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Next testimonials"
+              data-testid="testimonial-next-btn"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+            
+            {/* Testimonials Slider */}
+            <div className="overflow-hidden mx-4 md:mx-8">
+              <div 
+                className="flex transition-transform duration-500 ease-out"
+                style={{ 
+                  transform: `translateX(-${currentTestimonialIndex * (100 / visibleCount)}%)`,
+                }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <div 
+                    key={index} 
+                    className={`flex-shrink-0 px-2 md:px-4 ${visibleCount === 1 ? 'w-full' : 'w-1/2'}`}
+                    data-testid={`testimonial-card-${index}`}
+                  >
+                    <div className="bg-[#efede5] rounded-2xl p-6 border border-[#D6DEC3] h-full flex flex-col">
+                      <p className="text-[#2F3A4A] text-sm leading-relaxed mb-6 italic flex-grow">
+                        &ldquo;{testimonial.quote}&rdquo;
+                      </p>
+                      <div>
+                        <p className="text-[#0B1F3B] font-semibold text-sm">{testimonial.author}</p>
+                        <p className="text-[#6B7280] text-xs">{testimonial.title}</p>
+                        <p className="text-[#6B7280] text-xs">{testimonial.company}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            
+            {/* Dot Indicators */}
+            <div className="flex justify-center gap-2 mt-8" data-testid="testimonial-dots">
+              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonialIndex(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    currentTestimonialIndex === index 
+                      ? 'bg-[#0B1F3B] w-6' 
+                      : 'bg-[#D6DEC3] hover:bg-[#0B1F3B]/50'
+                  }`}
+                  aria-label={`Go to testimonial set ${index + 1}`}
+                  data-testid={`testimonial-dot-${index}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
