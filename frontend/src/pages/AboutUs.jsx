@@ -79,6 +79,8 @@ const AboutUs = () => {
   const [scrollY, setScrollY] = useState(0);
   const [heroAnimated, setHeroAnimated] = useState(false);
   const heroRef = useRef(null);
+  const researchTeamsRef = useRef(null);
+  const location = useLocation();
   
   // Testimonials carousel state
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
@@ -97,6 +99,32 @@ const AboutUs = () => {
     const timer = setTimeout(() => setHeroAnimated(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  // Handle URL parameter for team routing
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const teamParam = params.get('team');
+    
+    if (teamParam && teamSlugToIndex[teamParam] !== undefined) {
+      // Set the carousel to the correct slide
+      setCurrentTestimonialIndex(teamSlugToIndex[teamParam]);
+      setSlideDirection('next');
+      
+      // Scroll to the research teams section after a short delay
+      setTimeout(() => {
+        if (researchTeamsRef.current) {
+          const headerOffset = 100; // Account for fixed header
+          const elementPosition = researchTeamsRef.current.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 300);
+    }
+  }, [location.search]);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
