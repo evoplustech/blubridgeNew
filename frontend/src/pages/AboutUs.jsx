@@ -674,7 +674,7 @@ const AboutUs = () => {
             </button>
             
             {/* Premium Testimonials Display */}
-            <div className="overflow-hidden mx-8 md:mx-12">
+            <div className="overflow-visible mx-8 md:mx-12 py-8">
               <div 
                 className="flex transition-all duration-700 ease-out"
                 style={{ 
@@ -686,11 +686,11 @@ const AboutUs = () => {
                   return (
                     <div 
                       key={index} 
-                      className={`flex-shrink-0 px-3 md:px-5 ${visibleCount === 1 ? 'w-full' : 'w-1/2'}`}
+                      className={`flex-shrink-0 px-4 md:px-6 ${visibleCount === 1 ? 'w-full' : 'w-1/2'}`}
                       style={{
-                        opacity: isActive ? 1 : 0.5,
-                        transform: isActive ? 'scale(1)' : 'scale(0.95)',
-                        filter: isActive ? 'blur(0)' : 'blur(1px)',
+                        opacity: isActive ? 1 : 0.6,
+                        transform: isActive ? 'scale(1)' : 'scale(0.96)',
+                        filter: isActive ? 'blur(0)' : 'blur(0.5px)',
                         transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                       }}
                       data-testid={`testimonial-card-${index}`}
@@ -699,10 +699,8 @@ const AboutUs = () => {
                       <div 
                         className={`testimonial-card-premium relative bg-white rounded-3xl p-8 md:p-10 h-full flex flex-col ${isActive ? 'testimonial-card-active' : ''}`}
                         style={{
-                          boxShadow: isActive 
-                            ? '0 25px 60px -15px rgba(11, 31, 59, 0.15), 0 10px 30px -10px rgba(0,0,0,0.08)' 
-                            : '0 10px 30px -10px rgba(0,0,0,0.05)',
-                          border: '1px solid rgba(11, 31, 59, 0.06)',
+                          boxShadow: '0 8px 32px -8px rgba(11, 31, 59, 0.12), 0 4px 16px -4px rgba(0,0,0,0.06)',
+                          border: '1px solid rgba(11, 31, 59, 0.08)',
                         }}
                       >
                         {/* Large Quotation Mark Background */}
