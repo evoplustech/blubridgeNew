@@ -273,8 +273,8 @@ const NeuralBackground = () => {
     const easeInOut = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
     const drawGrid = () => {
-      ctx.strokeStyle = `rgba(100, 130, 170, ${config.gridOpacity})`;
-      ctx.lineWidth = 0.4;
+      ctx.strokeStyle = `rgba(11, 31, 59, ${config.gridOpacity})`;
+      ctx.lineWidth = 0.5;
       
       for (let x = 0; x < width; x += config.gridSize) {
         ctx.beginPath();
