@@ -34,21 +34,21 @@ const NeuralBackground = () => {
     hoverRadius: 150,
     hoverConnectCount: 3,
     
-    // Colors
-    nodeColor: { r: 175, g: 195, b: 220 },
-    lineColor: { r: 140, g: 165, b: 195 },
-    highlightNodeColor: { r: 225, g: 240, b: 255 },
-    highlightLineColor: { r: 200, g: 225, b: 255 },
-    cursorNodeColor: { r: 255, g: 255, b: 255 },
+    // Colors - Darker for visibility on light background
+    nodeColor: { r: 60, g: 80, b: 110 },          // Dark neutral blue
+    lineColor: { r: 80, g: 100, b: 130 },         // Darker line color
+    highlightNodeColor: { r: 11, g: 31, b: 59 },  // Brand dark blue
+    highlightLineColor: { r: 11, g: 31, b: 59 },  // Brand dark blue
+    cursorNodeColor: { r: 11, g: 31, b: 59 },     // Brand dark blue
     
-    // Appearance
-    nodeBaseOpacity: 0.55,
-    lineBaseOpacity: 0.18,
-    nodeBaseRadius: 2.2,
-    highlightNodeOpacity: 0.95,
-    highlightLineOpacity: 0.6,
+    // Appearance - Increased opacity for visibility
+    nodeBaseOpacity: 0.7,
+    lineBaseOpacity: 0.25,
+    nodeBaseRadius: 2.8,
+    highlightNodeOpacity: 1.0,
+    highlightLineOpacity: 0.7,
     cursorNodeOpacity: 1.0,
-    cursorNodeGlow: 8,
+    cursorNodeGlow: 10,
     
     // Motion
     driftSpeed: 0.012,
@@ -62,8 +62,8 @@ const NeuralBackground = () => {
     highlightFadeInSpeed: 0.08,
     highlightFadeOutSpeed: 0.05,
     
-    // Grid
-    gridOpacity: 0.02,
+    // Grid - more subtle on light background
+    gridOpacity: 0.04,
     gridSize: 60,
   }), []);
 
