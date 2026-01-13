@@ -1,11 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap,Scale,Server,SlidersHorizontal } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap,Scale,Server,SlidersHorizontal,Repeat} from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useEmblaCarousel from 'embla-carousel-react';
 import NodeConnections2 from './NodeConnections2';
-import NeuralBackground from '../components/NeuralBackground';
 
 // Testimonials Carousel Component
 const TestimonialsCarousel = () => {
@@ -195,8 +194,8 @@ const AIExpertiseOrbit = () => {
 
   const atoms = [
     // INNER ring: 2 features + 1 dummy
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Tokenizer' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Data' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: CheckCircle, label: 'Tokenizer' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: Database, label: 'Data' },
     { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
     // MIDDLE ring: 2 features + 1 dummy
@@ -205,8 +204,8 @@ const AIExpertiseOrbit = () => {
     { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
 
     // OUTER ring: 4 features + 2 dummies
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Terminal, label:(<>Auto <br />Differentiation</>)},
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Network, label: 'Compiler' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Repeat, label:(<>Auto <br />Differentiation</>)},
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Terminal, label: 'Compiler' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: SlidersHorizontal, label: 'Quantization' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Server, label: (<>Distributed<br />Training</>) },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
@@ -369,6 +368,17 @@ const AIExpertiseOrbit = () => {
 const Home = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [activeInfraTab, setActiveInfraTab] = useState(0);
+  const [expandedAboutCards, setExpandedAboutCards] = useState({
+    whoWeAre: false,
+    whatWeAim: false
+  });
+
+  const toggleAboutCard = (cardId) => {
+    setExpandedAboutCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
+  };
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -482,50 +492,367 @@ const Home = () => {
 
   useDocumentTitle('Beyond the Horizon | BluBridge');
 
+  // BluBridge Neural Intelligence Background - Fully Connected Network
+  // Reference: BluBridge.ai hero background - warm gradient with connected neural nodes
+  useEffect(() => {
+    const canvas = document.getElementById('neural-network-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    const section = canvas.parentElement;
+    
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = section.offsetWidth;
+      canvas.height = section.offsetHeight;
+      initializeNetwork();
+    };
+    
+    // ==============================================
+    // NEURAL NETWORK CONFIGURATION
+    // ==============================================
+    const nodeCount = 55; // Enough nodes for full coverage
+    const connectionDistance = 220; // Max distance for connections
+    const minConnections = 2; // Every node must have at least 2 connections
+    
+    // Node appearance
+    const nodeColor = { r: 140, g: 115, b: 85 }; // Warm brown-gold tone
+    const lineColor = { r: 160, g: 130, b: 95 }; // Slightly lighter warm tone
+    
+    // Animation speeds (varied for organic feel)
+    const baseSpeed = 0.35; // Noticeable but calm movement
+    
+    let nodes = [];
+    let connections = [];
+    
+    // Mouse tracking
+    let mouseX = -1000;
+    let mouseY = -1000;
+    const hoverRadius = 180;
+    
+    // ==============================================
+    // INITIALIZE FULLY CONNECTED NETWORK
+    // ==============================================
+    const initializeNetwork = () => {
+      nodes = [];
+      connections = [];
+      
+      const w = canvas.width;
+      const h = canvas.height;
+      const padding = 50;
+      
+      // Create nodes with unique sizes and organic placement
+      for (let i = 0; i < nodeCount; i++) {
+        // Organic distribution - avoid grid patterns
+        const angle = Math.random() * Math.PI * 2;
+        const radiusFromCenter = Math.random() * Math.min(w, h) * 0.45;
+        const centerX = w / 2 + (Math.random() - 0.5) * w * 0.3;
+        const centerY = h / 2 + (Math.random() - 0.5) * h * 0.2;
+        
+        let x = centerX + Math.cos(angle) * radiusFromCenter + (Math.random() - 0.5) * 150;
+        let y = centerY + Math.sin(angle) * radiusFromCenter + (Math.random() - 0.5) * 100;
+        
+        // Keep within bounds
+        x = Math.max(padding, Math.min(w - padding, x));
+        y = Math.max(padding, Math.min(h - padding, y));
+        
+        // Unique node sizes (small, medium, few larger)
+        let radius;
+        const sizeRand = Math.random();
+        if (sizeRand < 0.5) radius = 1.8 + Math.random() * 0.8; // Small (1.8-2.6)
+        else if (sizeRand < 0.85) radius = 2.8 + Math.random() * 1.2; // Medium (2.8-4.0)
+        else radius = 4.2 + Math.random() * 1.5; // Larger (4.2-5.7)
+        
+        // Varied movement directions and speeds
+        const moveAngle = Math.random() * Math.PI * 2;
+        const speed = baseSpeed * (0.6 + Math.random() * 0.8); // 60%-140% of base
+        
+        nodes.push({
+          x, y,
+          radius,
+          baseRadius: radius,
+          // Movement
+          vx: Math.cos(moveAngle) * speed,
+          vy: Math.sin(moveAngle) * speed,
+          // Opacity
+          baseOpacity: 0.35 + Math.random() * 0.15,
+          currentOpacity: 0.35,
+          targetOpacity: 0.35,
+          // For organic motion variation
+          phaseX: Math.random() * Math.PI * 2,
+          phaseY: Math.random() * Math.PI * 2,
+          driftSpeed: 0.005 + Math.random() * 0.01
+        });
+      }
+      
+      // ==============================================
+      // BUILD FULLY CONNECTED NETWORK - NO ISOLATED NODES
+      // ==============================================
+      buildConnections();
+    };
+    
+    const buildConnections = () => {
+      connections = [];
+      const nodeConnCount = new Array(nodes.length).fill(0);
+      
+      // First pass: Connect nearby nodes
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < connectionDistance) {
+            connections.push({ i, j, dist, baseOpacity: 0.15 + (1 - dist / connectionDistance) * 0.12 });
+            nodeConnCount[i]++;
+            nodeConnCount[j]++;
+          }
+        }
+      }
+      
+      // Second pass: Ensure EVERY node has at least minConnections
+      for (let i = 0; i < nodes.length; i++) {
+        while (nodeConnCount[i] < minConnections) {
+          // Find nearest unconnected node
+          let nearestIdx = -1;
+          let nearestDist = Infinity;
+          
+          for (let j = 0; j < nodes.length; j++) {
+            if (i === j) continue;
+            
+            // Check if already connected
+            const alreadyConnected = connections.some(
+              c => (c.i === i && c.j === j) || (c.i === j && c.j === i)
+            );
+            if (alreadyConnected) continue;
+            
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < nearestDist) {
+              nearestDist = dist;
+              nearestIdx = j;
+            }
+          }
+          
+          if (nearestIdx !== -1) {
+            const minI = Math.min(i, nearestIdx);
+            const maxI = Math.max(i, nearestIdx);
+            connections.push({ 
+              i: minI, 
+              j: maxI, 
+              dist: nearestDist,
+              baseOpacity: Math.max(0.08, 0.2 - nearestDist / 800)
+            });
+            nodeConnCount[i]++;
+            nodeConnCount[nearestIdx]++;
+          } else {
+            break; // No more nodes to connect
+          }
+        }
+      }
+    };
+    
+    // ==============================================
+    // ANIMATION LOOP - CINEMATIC MOTION
+    // ==============================================
+    let animationId;
+    let frameCount = 0;
+    
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      frameCount++;
+      
+      // Update node positions - continuous drift with organic variation
+      nodes.forEach((node, idx) => {
+        // Add subtle sine wave drift for organic feel
+        node.phaseX += node.driftSpeed;
+        node.phaseY += node.driftSpeed * 1.3;
+        
+        const driftX = Math.sin(node.phaseX) * 0.15;
+        const driftY = Math.cos(node.phaseY) * 0.12;
+        
+        node.x += node.vx + driftX;
+        node.y += node.vy + driftY;
+        
+        // Smooth edge wrapping (no harsh bounces)
+        const margin = 30;
+        if (node.x < -margin) node.x = canvas.width + margin;
+        if (node.x > canvas.width + margin) node.x = -margin;
+        if (node.y < -margin) node.y = canvas.height + margin;
+        if (node.y > canvas.height + margin) node.y = -margin;
+        
+        // Smooth opacity transition
+        const opacityDiff = node.targetOpacity - node.currentOpacity;
+        node.currentOpacity += opacityDiff * 0.08;
+      });
+      
+      // Rebuild connections periodically (every ~3 seconds) as nodes move
+      if (frameCount % 180 === 0) {
+        buildConnections();
+      }
+      
+      // ==============================================
+      // DRAW CONNECTIONS - All nodes must be connected
+      // ==============================================
+      ctx.lineCap = 'round';
+      
+      connections.forEach(conn => {
+        const n1 = nodes[conn.i];
+        const n2 = nodes[conn.j];
+        
+        // Calculate current distance for dynamic opacity
+        const dx = n1.x - n2.x;
+        const dy = n1.y - n2.y;
+        const currentDist = Math.sqrt(dx * dx + dy * dy);
+        
+        // Check if either node is being hovered
+        const d1 = Math.sqrt((n1.x - mouseX) ** 2 + (n1.y - mouseY) ** 2);
+        const d2 = Math.sqrt((n2.x - mouseX) ** 2 + (n2.y - mouseY) ** 2);
+        const isHovered = (d1 < hoverRadius || d2 < hoverRadius) && mouseX > 0;
+        
+        // Line opacity and color - DARKEN when hovered
+        let lineOpacity = conn.baseOpacity * (1 - currentDist / 400);
+        lineOpacity = Math.max(0.06, Math.min(0.28, lineOpacity));
+        
+        // Darker lines on hover
+        let lineR = lineColor.r;
+        let lineG = lineColor.g;
+        let lineB = lineColor.b;
+        
+        if (isHovered) {
+          lineOpacity = Math.min(0.55, lineOpacity * 2.5);
+          // Darken line color
+          lineR = Math.max(50, lineColor.r - 70);
+          lineG = Math.max(40, lineColor.g - 60);
+          lineB = Math.max(35, lineColor.b - 50);
+        }
+        
+        ctx.strokeStyle = `rgba(${lineR}, ${lineG}, ${lineB}, ${lineOpacity})`;
+        ctx.lineWidth = isHovered ? 1.4 : 0.8;
+        ctx.beginPath();
+        ctx.moveTo(n1.x, n1.y);
+        ctx.lineTo(n2.x, n2.y);
+        ctx.stroke();
+      });
+      
+      // ==============================================
+      // HOVER INTERACTION - Local DARKENING
+      // ==============================================
+      nodes.forEach(node => {
+        const dx = node.x - mouseX;
+        const dy = node.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < hoverRadius && mouseX > 0) {
+          const proximity = 1 - dist / hoverRadius;
+          // DARKEN on hover - increase opacity significantly for darker appearance
+          node.targetOpacity = Math.min(0.85, node.baseOpacity + proximity * 0.5);
+          // Also slightly increase node size on hover for emphasis
+          node.hoverScale = 1 + proximity * 0.15;
+        } else {
+          node.targetOpacity = node.baseOpacity;
+          node.hoverScale = 1;
+        }
+      });
+      
+      // ==============================================
+      // DRAW NODES - Warm, blended with background (DARKEN on hover)
+      // ==============================================
+      nodes.forEach(node => {
+        // Subtle size pulse for life
+        const pulse = 1 + Math.sin(frameCount * 0.02 + node.phaseX) * 0.05;
+        const hoverScale = node.hoverScale || 1;
+        const displayRadius = node.baseRadius * pulse * hoverScale;
+        
+        // Use darker color when hovered (lower RGB values = darker)
+        const isHovered = node.currentOpacity > node.baseOpacity + 0.1;
+        const r = isHovered ? Math.max(40, nodeColor.r - 60) : nodeColor.r;
+        const g = isHovered ? Math.max(35, nodeColor.g - 50) : nodeColor.g;
+        const b = isHovered ? Math.max(30, nodeColor.b - 40) : nodeColor.b;
+        
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${node.currentOpacity})`;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, displayRadius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      
+      animationId = requestAnimationFrame(animate);
+    };
+    
+    // Initialize and start
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    animate();
+    
+    // Mouse event handlers
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    };
+    
+    const handleMouseLeave = () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    };
+    
+    // Desktop only - no hover on touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (!isTouchDevice) {
+      canvas.addEventListener('mousemove', handleMouseMove);
+      canvas.addEventListener('mouseleave', handleMouseLeave);
+    }
+    
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Neural Network Background */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section" data-testid="hero-section" style={{ zIndex: 100 }}>
-        {/* LAYER 0: Neural Network Animation Background */}
-        <NeuralBackground />
-        
-        {/* LAYER 0.5: Large "B" Background Letter - Right Side (Provided PNG) */}
+      {/* Hero Section - Section 1 (ODD) - Banner Image Background */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section ">
+        {/* LAYER 0: Banner Image Background */}
         <div 
-          className="absolute pointer-events-none select-none"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            right: '5%',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 1,
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_blubridge-polish/artifacts/w5tt5yuc_Image2.png')`
           }}
-          aria-hidden="true"
-        >
-          <img 
-            src="https://customer-assets.emergentagent.com/job_iterative-dev-3/artifacts/rsu0e1sr_B-right.png"
-            alt=""
-            style={{
-              height: '85vh',
-              width: 'auto',
-              maxWidth: 'none',
-            }}
-            draggable="false"
-          />
-        </div>
+        />
         
-        {/* LAYER 1: Content (Always on top) */}
-        <div className="container-custom relative my-24 z-10">
+        {/* LAYER 1: Dark overlay for text readability */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.5)'
+          }}
+        />
+        
+        {/* LAYER 2: Content (Always on top) */}
+        <div className="container-custom relative py-24 z-10" >
           <div className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white drop-shadow-lg">
-              Beyond the Horizon
+              Beyond the Horizon<br></br>
             </h1>
             <p className="text-white/90 text-lg font-light leading-relaxed max-w-md drop-shadow-md">An Independent AI Research Lab.</p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-4 py-3 rounded font-medium text-base" data-testid="hero-contact-btn">
-                  Contact Us
+              <Link to="/careers">
+                {/* <Button className="bg-[#2a2520] text-white hover:bg-[#3d3530] px-8 py-3 rounded font-medium text-base">
+                  Reserve GPUs
+                </Button> */}
+                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-4 py-3 rounded font-medium text-base">
+                  Join Us
                 </Button>
               </Link>
+              {/* <Link to="/contact" className="flex items-center gap-2 text-[#2a2520] hover:text-[#5a4a40] transition-colors font-medium">
+                Start Building <ArrowRight className="w-4 h-4" />
+              </Link> */}
             </div>
           </div>
         </div>
@@ -563,40 +890,98 @@ const Home = () => {
           }
         `}</style>
      
-      {/* Who We Are & What We Aim To Do Section - NEW */}
+      {/* Who We Are & What We Aim To Do Section - Interactive Collapsible */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Card - Who We Are? */}
-            <div className="bg-[#f3f1e9] rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
-              {/* Lightbulb Icon */}
-             
+            <div 
+              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
+              data-testid="who-we-are-card"
+            >
+              {/* Clickable Header */}
+              <button
+                onClick={() => toggleAboutCard('whoWeAre')}
+                className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
+                data-testid="who-we-are-trigger"
+              >
+                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
+                  <span className="relative">
+                    Who We Are?
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
+                  </span>
+                  <span 
+                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
+                      expandedAboutCards.whoWeAre ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </h3>
+              </button>
               
-              {/* Heading */}
-              <h3 className="text-2xl text-[#0f172a] mb-5 font-['Inter']">
-                Who We Are?
-              </h3>
-              
-              {/* Body Text */}
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                BluBridge is an early-stage AI research company focused on advancing probabilistic and predictive modeling—building next-generation Artificial Intelligence from the ground up. We are assembling a team of passionate, driven researchers and engineers committed to pushing the boundaries of machine learning.
-              </p>
+              {/* Collapsible Content */}
+              <div 
+                className={`overflow-hidden transition-all duration-400 ease-out ${
+                  expandedAboutCards.whoWeAre 
+                    ? 'min-h-[200px] opacity-100' 
+                    : 'max-h-0 opacity-0'
+                }`}
+                data-testid="who-we-are-content"
+              >
+                <div className="px-12 pb-12 transform transition-all duration-400">
+                  <p className="text-[#4b5563] leading-relaxed text-base">
+                    BluBridge is an early-stage AI research company focused on advancing probabilistic and predictive modeling—building next-generation Artificial Intelligence from the ground up. We are assembling a team of passionate, driven researchers and engineers committed to pushing the boundaries of machine learning.
+                  </p>
+                </div>
+              </div>
             </div>
             
             {/* Right Card - What We Aim to Do? */}
-            <div className="bg-[#f3f1e9] rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
-              {/* Microscope/Telescope Icon */}
-             
+            <div 
+              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
+              data-testid="what-we-aim-card"
+            >
+              {/* Clickable Header */}
+              <button
+                onClick={() => toggleAboutCard('whatWeAim')}
+                className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
+                data-testid="what-we-aim-trigger"
+              >
+                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
+                  <span className="relative">
+                    What We Aim to Do?
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
+                  </span>
+                  <span 
+                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
+                      expandedAboutCards.whatWeAim ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </h3>
+              </button>
               
-              {/* Heading */}
-              <h3 className="text-2xl text-[#0f172a] mb-5 font-['Inter']">
-                What We Aim to Do?
-              </h3>
-              
-              {/* Body Text */}
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                Our immediate goal is to develop a state-of-the-art 70-billion-parameter (dense) Large Language Model, establishing a strong foundation for future innovations in AI systems, its applications, and research.
-              </p>
+              {/* Collapsible Content */}
+              <div 
+                className={`overflow-hidden transition-all duration-400 ease-out ${
+                  expandedAboutCards.whatWeAim 
+                    ? 'min-h-[204px] opacity-100' 
+                    : 'max-h-0 opacity-0'
+                }`}
+                data-testid="what-we-aim-content"
+              >
+                <div className="px-12 pb-12 transform transition-all duration-400">
+                  <p className="text-[#4b5563] leading-relaxed text-base">
+                    Our immediate goal is to develop a state-of-the-art 70-billion-parameter (dense) Large Language Model, establishing a strong foundation for future innovations in AI systems, its applications, and research.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -648,15 +1033,15 @@ const Home = () => {
             
             {/* Right - Research Teams Grid (6 tabs, static, no links) */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our Research Teams</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Current Research Teams</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Database, title: "Data" },
                   { icon: CheckCircle, title: "Tokenizer" },
                   { icon: Layers, title: "Tensor & Operations" },
                   { icon: GitBranch, title: "Computational Graph" },
-                  { icon: Terminal, title: "Auto Differentiation" },
-                  { icon: Network, title: "Compiler" },
+                  { icon: Repeat, title: "Auto Differentiation" },
+                  { icon: Terminal, title: "Compiler" },
                    { icon: SlidersHorizontal, title: "Quantization" },
                   { icon: Server, title: "Distributed Training" }
                 ].map((service, index) => {
@@ -677,7 +1062,7 @@ const Home = () => {
       </section>
 
       {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
-      <section className="py-20 bg-[#fffdf7]">
+       {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">Our Primary Areas of Research and Engineering</h2>
@@ -718,16 +1103,16 @@ const Home = () => {
             ))}
           </div>
           
-          {/* CTA Button */}
-          {/* <div className="text-center">
+           CTA Button 
+           <div className="text-center">
             <Link to="/contact">
               <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-6 py-4 text-base font-medium rounded-lg">
                 Talk To Us
               </Button>
             </Link>
-          </div> */}
+          </div> 
         </div>
-      </section>
+      </section>  */}
 
       {/* BluBridge Infrastructure Section - Section 4 (EVEN) */}
       {/* <section className="py-20 relative overflow-hidden bg-[#f3f1e9]">
@@ -876,24 +1261,24 @@ const Home = () => {
       </section> */}
 
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
-      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">
                 BluBridge is now an NVIDIA Inception Partner
               </h2>
-              <p className="text-[#243447] mb-6">
-                {/* Access thousands of GPUs tailored to your requirements. */}
+              {/*<p className="text-[#243447] mb-6">
+                 Access thousands of GPUs tailored to your requirements. 
                 Know more about our Research
-              </p>
-              <div className="flex gap-4">
+              </p>*/}
+             {/* <div className="flex gap-4">
                 <Link to="/contact">
                   <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-4 py-3">
                     Contact Us
                   </Button>
                 </Link>
-                {/* <Link to="/contact">
+                 <Link to="/contact">
                   <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3">
                     Reserve GPUs
                   </Button>
@@ -902,8 +1287,8 @@ const Home = () => {
                   <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3">
                     Contact
                   </Button>
-                </Link> */}
-              </div>
+                </Link> 
+              </div>*/}
             </div>
             <div className="flex items-center justify-center lg:justify-end gap-8">
               <span className="text-5xl font-bold text-[#0B1F3B]/20 tracking-tight">NVIDIA</span>
@@ -960,9 +1345,9 @@ const Home = () => {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
+            <Link to="/research">
               <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
-                Contact Us
+                Explore
               </Button>
             </Link>
             {/* <Link to="/contact">
