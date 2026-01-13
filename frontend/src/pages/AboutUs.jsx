@@ -4,15 +4,24 @@ import { Button } from '../components/ui/button';
 import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
-// Animated B Logo Component
-const AnimatedBLogo = () => {
+// Animated B Logo Component for Hero
+const AnimatedHeroLogo = ({ isAnimated }) => {
   return (
-    <span className="inline-flex items-center justify-center w-[0.85em] h-[0.85em] mr-1 relative animate-logo-entrance">
+    <span 
+      className="inline-flex items-center justify-center hero-logo-animation"
+      style={{
+        width: 'clamp(40px, 8vw, 70px)',
+        height: 'clamp(40px, 8vw, 70px)',
+        marginRight: 'clamp(8px, 2vw, 16px)',
+        opacity: 0,
+        transform: 'scale(0.8)',
+        animation: isAnimated ? 'heroLogoEntrance 0.7s ease-out 0.8s forwards' : 'none',
+      }}
+    >
       <img 
-        src="/images/logo.png" 
-        alt="B" 
-        className="w-full h-full object-contain animate-logo-pulse"
-        style={{ filter: 'brightness(0) invert(1)' }}
+        src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/ohnmqwqp_image.png" 
+        alt="BluBridge Logo"
+        className="w-full h-full object-contain"
       />
     </span>
   );
