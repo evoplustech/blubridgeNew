@@ -716,29 +716,32 @@ const Home = () => {
               <AIExpertiseOrbit />    
             </div>
             
-            {/* Right - Research Teams Grid (6 tabs, static, no links) */}
+            {/* Right - Research Teams Grid (8 tabs, clickable with routing) */}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our Research Teams</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Database, title: "Data" },
-                  { icon: CheckCircle, title: "Tokenizer" },
-                  { icon: Layers, title: "Tensor & Operations" },
-                  { icon: GitBranch, title: "Computational Graph" },
-                  { icon: Terminal, title: "Auto Differentiation" },
-                  { icon: Network, title: "Compiler" },
-                   { icon: SlidersHorizontal, title: "Quantization" },
-                  { icon: Server, title: "Distributed Training" }
+                  { icon: Database, title: "Data", slug: "data" },
+                  { icon: CheckCircle, title: "Tokenizer", slug: "tokenizer" },
+                  { icon: Layers, title: "Tensor & Operations", slug: "tensor-operations" },
+                  { icon: GitBranch, title: "Computational Graph", slug: "computational-graph" },
+                  { icon: Terminal, title: "Auto Differentiation", slug: "auto-differentiation" },
+                  { icon: Network, title: "Compiler", slug: "compiler" },
+                  { icon: SlidersHorizontal, title: "Quantization", slug: "quantization" },
+                  { icon: Server, title: "Distributed Training", slug: "distributed-training" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
-                  <div 
+                  <Link 
                     key={index}
-                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-md transition-all"
+                    to={`/about?team=${service.slug}`}
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg hover:scale-[1.02] transition-all duration-200 cursor-pointer group"
+                    aria-label={`View ${service.title} research team`}
+                    data-testid={`research-team-${service.slug}`}
                   >
-                    <IconComponent className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
-                    <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
-                  </div>
+                    <IconComponent className="w-6 h-6 text-[#0B1F3B] group-hover:text-[#328CC1] transition-colors" strokeWidth={1.5} />
+                    <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1] transition-colors">{service.title}</span>
+                  </Link>
                 )})}
               </div>
             </div>
