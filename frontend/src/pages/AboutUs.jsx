@@ -316,7 +316,7 @@ const AboutUs = () => {
               }}
             >
               <img 
-                src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/pcxf7v7n_We-Are-BluBrdige.png"
+                src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/l24jebov_We-Are-BluBridge-Logo.png"
                 alt="BluBridge"
                 style={{
                   width: 'clamp(250px, 50vw, 550px)',
