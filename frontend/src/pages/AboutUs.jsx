@@ -1,13 +1,89 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, Plus, Minus, Linkedin ,Zap,Cpu,LayoutGrid} from 'lucide-react';
+import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+
+// Animated B Logo Component
+const AnimatedBLogo = () => {
+  return (
+    <span className="inline-flex items-center justify-center w-[0.85em] h-[0.85em] mr-1 relative animate-logo-entrance">
+      <img 
+        src="/images/logo.png" 
+        alt="B" 
+        className="w-full h-full object-contain animate-logo-pulse"
+        style={{ filter: 'brightness(0) invert(1)' }}
+      />
+    </span>
+  );
+};
+
+// Scroll-triggered animation hook
+const useScrollAnimation = (options = {}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.15, ...options }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [options]);
+
+  return [ref, isVisible];
+};
+
+// Animated Container Component for "Who We Are" section
+const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
+  const [ref, isVisible] = useScrollAnimation();
+  
+  const getInitialTransform = () => {
+    switch (direction) {
+      case 'left': return 'translateX(-40px)';
+      case 'right': return 'translateX(40px)';
+      case 'up':
+      default: return 'translateY(40px)';
+    }
+  };
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translate(0)' : getInitialTransform(),
+        transition: `opacity 0.7s ease-out ${delay}s, transform 0.7s ease-out ${delay}s`,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const AboutUs = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [scrollY, setScrollY] = useState(0);
+  const [heroAnimated, setHeroAnimated] = useState(false);
   const heroRef = useRef(null);
+  
+  // Testimonials carousel state
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   // Parallax effect for hero
   useEffect(() => {
@@ -16,6 +92,12 @@ const AboutUs = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Trigger hero animation on mount
+  useEffect(() => {
+    const timer = setTimeout(() => setHeroAnimated(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleFaq = (index) => {
