@@ -288,13 +288,13 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="container-custom relative z-10 flex items-center justify-center w-full">
+        <div className="container-custom relative z-10 w-full pt-16 md:pt-20 lg:pt-24">
           <div className="text-center flex flex-col items-center" data-testid="hero-title">
             {/* Line 1: "We are" */}
             <p 
-              className="hero-we-are-text text-white font-normal mb-2 md:mb-3"
+              className="hero-we-are-text text-white font-normal mb-1 md:mb-2"
               style={{
-                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+                fontSize: 'clamp(1.25rem, 3vw, 2rem)',
                 lineHeight: 1.2,
                 letterSpacing: '0.02em',
                 opacity: 0,
@@ -319,7 +319,7 @@ const AboutUs = () => {
                 src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/l24jebov_We-Are-BluBridge-Logo.png"
                 alt="BluBridge"
                 style={{
-                  width: 'clamp(250px, 50vw, 550px)',
+                  width: 'clamp(200px, 40vw, 450px)',
                   height: 'auto',
                 }}
                 data-testid="hero-blubridge-logo"
