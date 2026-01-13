@@ -526,14 +526,14 @@ const Home = () => {
         {/* LAYER 1: Content (Always on top) */}
         <div className="container-custom relative my-24 z-10">
           <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-white drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#0B1F3B]">
               Beyond the Horizon
             </h1>
-            <p className="text-white/90 text-lg font-light leading-relaxed max-w-md drop-shadow-md">An Independent AI Research Lab.</p>
+            <p className="text-[#0B1F3B]/80 text-lg font-light leading-relaxed max-w-md">An Independent AI Research Lab.</p>
             
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-4 py-3 rounded font-medium text-base" data-testid="hero-contact-btn">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-4 py-3 rounded font-medium text-base" data-testid="hero-contact-btn">
                   Contact Us
                 </Button>
               </Link>
