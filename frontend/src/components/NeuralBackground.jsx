@@ -292,25 +292,51 @@ const NeuralBackground = () => {
     };
 
     const animate = () => {
-      // Background gradient
-      const gradient = ctx.createLinearGradient(0, 0, width, height * 1.2);
-      gradient.addColorStop(0, '#0b1f3b');
-      gradient.addColorStop(0.3, '#081628');
-      gradient.addColorStop(0.6, '#040d18');
-      gradient.addColorStop(1, '#000000');
+      // Premium light gradient background using specified colors
+      const gradient = ctx.createLinearGradient(0, 0, width * 0.5, height);
+      gradient.addColorStop(0, '#f3f1e9');     // Lightest cream
+      gradient.addColorStop(0.4, '#e6e2d4');   // Mid cream
+      gradient.addColorStop(0.7, '#dbd6c4');   // Warm beige
+      gradient.addColorStop(1, '#e6e2d4');     // Back to mid
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
       
-      // Glossy overlay
-      const glossGradient = ctx.createRadialGradient(
-        width * 0.25, height * 0.2, 0,
-        width * 0.25, height * 0.2, width * 0.5
+      // Soft radial lighting effect - top left
+      const radialLight1 = ctx.createRadialGradient(
+        width * 0.2, height * 0.15, 0,
+        width * 0.2, height * 0.15, width * 0.6
       );
-      glossGradient.addColorStop(0, 'rgba(11, 31, 59, 0.4)');
-      glossGradient.addColorStop(0.5, 'rgba(11, 31, 59, 0.15)');
-      glossGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = glossGradient;
+      radialLight1.addColorStop(0, 'rgba(255, 255, 255, 0.25)');
+      radialLight1.addColorStop(0.5, 'rgba(255, 255, 255, 0.08)');
+      radialLight1.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = radialLight1;
       ctx.fillRect(0, 0, width, height);
+      
+      // Soft radial lighting effect - center right
+      const radialLight2 = ctx.createRadialGradient(
+        width * 0.8, height * 0.5, 0,
+        width * 0.8, height * 0.5, width * 0.5
+      );
+      radialLight2.addColorStop(0, 'rgba(243, 241, 233, 0.4)');
+      radialLight2.addColorStop(0.5, 'rgba(230, 226, 212, 0.15)');
+      radialLight2.addColorStop(1, 'rgba(219, 214, 196, 0)');
+      ctx.fillStyle = radialLight2;
+      ctx.fillRect(0, 0, width, height);
+      
+      // Gentle depth shading at bottom
+      const depthShade = ctx.createLinearGradient(0, height * 0.6, 0, height);
+      depthShade.addColorStop(0, 'rgba(0, 0, 0, 0)');
+      depthShade.addColorStop(1, 'rgba(11, 31, 59, 0.06)');
+      ctx.fillStyle = depthShade;
+      ctx.fillRect(0, 0, width, height);
+      
+      // Very light noise texture simulation
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.008)';
+      for (let i = 0; i < 80; i++) {
+        const x = Math.random() * width;
+        const y = Math.random() * height;
+        ctx.fillRect(x, y, 1, 1);
+      }
       
       drawGrid();
       
