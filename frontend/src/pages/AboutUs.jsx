@@ -221,18 +221,18 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
       {/* Hero Section with Motion */}
-      <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[600px] flex items-start overflow-hidden">
         {/* Background Image with Parallax */}
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
           style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_f1ae1432-e69e-4452-8bf4-7695fb1baeb9/artifacts/jfdn1ooz_DSC09568%20%282%29.JPG')`,
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/jmlst77u_image.png')`,
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
         
-        {/* Dark Overlay with Gradient */}
-        <div className="absolute inset-0 bg-black/70" />
+        {/* Subtle overlay for better text readability - much lighter than before */}
+        <div className="absolute inset-0 bg-black/20" />
         
         {/* Animated Light Sweep */}
         <div 
