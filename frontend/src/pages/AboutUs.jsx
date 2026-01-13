@@ -659,8 +659,8 @@ const AboutUs = () => {
               <ChevronRight className="w-6 h-6" />
             </button>
             
-            {/* Premium Research Areas Display - wrapper for clipping */}
-            <div className="mx-4 md:mx-24 lg:mx-32 overflow-x-clip overflow-y-visible py-6">
+            {/* Premium Research Areas Display */}
+            <div className="mx-4 md:mx-24 lg:mx-32 py-4">
               <div 
                 className="flex transition-all duration-700 ease-out"
                 style={{ 
@@ -680,12 +680,11 @@ const AboutUs = () => {
                       }}
                       data-testid={`research-card-${index}`}
                     >
-                      {/* Premium Research Area Card */}
+                      {/* Premium Research Area Card - Clean border, no shadow */}
                       <div 
-                        className={`testimonial-card-premium relative bg-white rounded-3xl p-8 md:p-12 flex flex-col max-w-3xl mx-auto ${isActive ? 'testimonial-card-active' : ''}`}
+                        className="relative bg-white rounded-2xl p-8 md:p-12 flex flex-col max-w-3xl mx-auto"
                         style={{
-                          boxShadow: '0 8px 32px -8px rgba(11, 31, 59, 0.12), 0 4px 16px -4px rgba(0,0,0,0.06)',
-                          border: '1px solid rgba(11, 31, 59, 0.08)',
+                          border: '1px solid rgba(11, 31, 59, 0.12)',
                         }}
                       >
                         {/* Title */}
