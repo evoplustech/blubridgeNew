@@ -301,17 +301,17 @@ const AboutUs = () => {
             }}
           >
             <h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white flex items-center justify-center"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0"
               data-testid="hero-title"
             >
               <span 
-                className="mr-3 animate-text-reveal"
+                className="animate-text-reveal"
                 style={{ animationDelay: '0.2s', opacity: heroAnimated ? 1 : 0 }}
               >
                 We are
               </span>
               <span 
-                className="flex items-center animate-text-reveal"
+                className="flex items-center animate-text-reveal sm:ml-3"
                 style={{ animationDelay: '0.5s', opacity: heroAnimated ? 1 : 0 }}
               >
                 <AnimatedBLogo />
