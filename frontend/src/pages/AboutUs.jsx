@@ -4,29 +4,6 @@ import { Button } from '../components/ui/button';
 import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
-// Animated B Logo Component for Hero
-const AnimatedHeroLogo = ({ isAnimated }) => {
-  return (
-    <span 
-      className="inline-flex items-center justify-center hero-logo-animation"
-      style={{
-        width: 'clamp(40px, 8vw, 70px)',
-        height: 'clamp(40px, 8vw, 70px)',
-        marginRight: 'clamp(8px, 2vw, 16px)',
-        opacity: 0,
-        transform: 'scale(0.8)',
-        animation: isAnimated ? 'heroLogoEntrance 0.7s ease-out 0.8s forwards' : 'none',
-      }}
-    >
-      <img 
-        src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/ohnmqwqp_image.png" 
-        alt="BluBridge Logo"
-        className="w-full h-full object-contain"
-      />
-    </span>
-  );
-};
-
 // Scroll-triggered animation hook
 const useScrollAnimation = (options = {}) => {
   const [isVisible, setIsVisible] = useState(false);
