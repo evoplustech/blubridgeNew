@@ -396,12 +396,21 @@ const Header = () => {
 
     {/* Mobile Menu Panel - Rendered outside header for proper z-index */}
     <div 
-      className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-white lg:hidden shadow-xl border-l border-[#D6DEC3] transition-transform duration-300 ease-in-out overflow-y-auto ${
+      className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-[#fffdf7] lg:hidden shadow-xl border-l border-[#D6DEC3] transition-transform duration-300 ease-in-out overflow-y-auto ${
         mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`} 
-      style={{ zIndex: 1200 }}
+      style={{ zIndex: 9999 }}
     >
         <div className="p-6 space-y-6">
+          {/* Research Link */}
+          <Link 
+            to="/research" 
+            className="block text-[#0B1F3B] text-lg font-medium hover:text-[#328CC1]"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Research
+          </Link>
+
           {/* Products */}
           <div>
             <button
@@ -421,6 +430,7 @@ const Header = () => {
                         key={i}
                         to={item.link}
                         className="block text-[#5B6B7A] hover:text-[#328CC1] py-1 text-sm"
+                        onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.name}
                       </Link>
@@ -449,6 +459,7 @@ const Header = () => {
                       key={i}
                       to={item.link}
                       className="block text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
@@ -461,6 +472,7 @@ const Header = () => {
                       key={i}
                       to={item.link}
                       className="block text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
@@ -486,6 +498,7 @@ const Header = () => {
                     key={i}
                     to={item.link}
                     className="block text-[#5B6B7A] hover:text-[#328CC1] py-1 text-sm"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
@@ -494,23 +507,14 @@ const Header = () => {
             )}
           </div>
 
-          {/* Direct Links */}
-          <Link to="/contact" className="block text-[#0B1F3B] text-lg font-medium">Contact</Link>
-          <Link to="/docs" className="block text-[#0B1F3B] text-lg font-medium">Docs</Link>
-
           {/* Mobile CTA Buttons */}
           <div className="space-y-3 pt-4 border-t border-[#D6DEC3]">
             <Link 
               to="/contact" 
               className="block w-full px-6 py-3 bg-[#0B1F3B] text-white rounded-md font-medium text-center hover:bg-[#162B4D]"
+              onClick={() => setMobileMenuOpen(false)}
             >
               Contact
-            </Link>
-            <Link 
-              to="/login" 
-              className="block w-full px-6 py-3 border border-[#0B1F3B] text-[#0B1F3B] rounded-md font-medium text-center hover:bg-[#f3f1e9]"
-            >
-              Login →
             </Link>
           </div>
         </div>
