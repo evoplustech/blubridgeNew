@@ -383,7 +383,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     style={{ 
                       fontSize: '14px', 
-                      color: '#3b82f6',
+                      color: '#333333',
                       textDecoration: 'none',
                       fontWeight: '500'
                     }}

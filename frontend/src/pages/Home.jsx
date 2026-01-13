@@ -821,7 +821,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_jobapp-system/artifacts/ecrylxdq_Ban_New.jpg')`
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_jobapp-system/artifacts/z0d976gm_image1.png')`
           }}
         />
         
