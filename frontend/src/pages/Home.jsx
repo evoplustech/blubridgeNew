@@ -502,9 +502,9 @@ const Home = () => {
         
         {/* LAYER 0.5: Large "B" Background Letter - Right Side (Provided PNG) */}
         <div 
-          className="absolute pointer-events-none select-none"
+          className="absolute pointer-events-none select-none flex items-center justify-center"
           style={{
-            right: '0',
+            right: '5%',
             top: '50%',
             transform: 'translateY(-50%)',
             zIndex: 1,
@@ -515,7 +515,7 @@ const Home = () => {
             src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/epqcwubc_b44.png"
             alt=""
             style={{
-              height: '90vh',
+              height: '67.5vh',
               width: 'auto',
               maxWidth: 'none',
             }}
