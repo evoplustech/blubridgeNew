@@ -500,9 +500,9 @@ const Home = () => {
         {/* LAYER 0: Neural Network Animation Background */}
         <NeuralBackground />
         
-        {/* LAYER 0.5: Large "B" Background Letter - Right Side (Provided PNG) */}
+        {/* LAYER 0.5: Large "B" Background Letter - Right Side (Hidden on mobile) */}
         <div 
-          className="absolute pointer-events-none select-none flex items-center justify-center"
+          className="absolute pointer-events-none select-none hidden md:flex items-center justify-center"
           style={{
             right: '5%',
             top: '50%',
