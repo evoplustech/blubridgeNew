@@ -288,7 +288,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="container-custom relative z-10 w-full pt-16 md:pt-20 lg:pt-24">
+        <div className="container-custom relative z-10 w-full pt-6 md:pt-10 lg:pt-12">
           <div className="text-center flex flex-col items-center" data-testid="hero-title">
             {/* Line 1: "We are" */}
             <p 
