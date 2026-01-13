@@ -159,8 +159,53 @@ const AboutUs = () => {
       author: "James Chen",
       title: "VP of Engineering",
       company: "TechForward Inc"
+    },
+    {
+      quote: "The level of reliability we've experienced with BluBridge has been outstanding. Their infrastructure has enabled us to run continuous training workloads without any unexpected downtime.",
+      author: "Sarah Mitchell",
+      title: "Director of ML Ops",
+      company: "DataScale Systems"
+    },
+    {
+      quote: "BluBridge's commitment to sustainable computing aligned perfectly with our corporate values. We're not just getting powerful AI infrastructure – we're doing it responsibly.",
+      author: "Erik Johansen",
+      title: "Head of Innovation",
+      company: "GreenTech Nordic"
     }
   ];
+  
+  // Carousel navigation functions
+  const getVisibleCount = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? 1 : 2;
+    }
+    return 2;
+  }, []);
+  
+  const [visibleCount, setVisibleCount] = useState(2);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(getVisibleCount());
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [getVisibleCount]);
+  
+  const maxIndex = Math.max(0, testimonials.length - visibleCount);
+  
+  const nextTestimonial = () => {
+    setCurrentTestimonialIndex(prev => 
+      prev >= maxIndex ? 0 : prev + 1
+    );
+  };
+  
+  const prevTestimonial = () => {
+    setCurrentTestimonialIndex(prev => 
+      prev <= 0 ? maxIndex : prev - 1
+    );
+  };
 
   const faqs = [
     {
