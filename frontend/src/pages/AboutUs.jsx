@@ -598,7 +598,12 @@ const AboutUs = () => {
       </section> */}
 
       {/* Ultra-Premium Testimonials Section */}
-      <section className="py-24 relative overflow-hidden" data-testid="testimonials-section">
+      <section 
+        ref={researchTeamsRef}
+        id="current-research-teams"
+        className="py-24 relative overflow-hidden" 
+        data-testid="testimonials-section"
+      >
         {/* Premium Background with layered gradients and subtle texture */}
         <div className="absolute inset-0 bg-[#fffdf7]" />
         <div 
