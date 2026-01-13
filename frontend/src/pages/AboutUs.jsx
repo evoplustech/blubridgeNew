@@ -221,7 +221,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
       {/* Hero Section with Motion */}
-      <section ref={heroRef} className="relative min-h-[600px] flex items-start overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-start overflow-hidden">
         {/* Background Image with Parallax */}
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
