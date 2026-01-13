@@ -99,6 +99,7 @@ Building the BluBridge corporate website - a static full-stack React/FastAPI app
 
 ### P0 - Immediate
 - ✅ DONE: Inline Job Application Form (replaces external Naukri links)
+- ✅ DONE: About Us Page Three-Part Enhancement (Hero animation, Who We Are scroll animations, Testimonials carousel)
 
 ### P1 - High Priority
 - Apply 3-Grid color to About Page
