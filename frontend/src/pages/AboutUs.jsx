@@ -160,26 +160,10 @@ const AboutUs = () => {
     }
   ];
   
-  // Carousel navigation functions
-  const getVisibleCount = useCallback(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth < 768 ? 1 : 2;
-    }
-    return 2;
-  }, []);
+  // Carousel navigation functions - always show 1 testimonial at a time
+  const visibleCount = 1;
   
-  const [visibleCount, setVisibleCount] = useState(2);
-  
-  useEffect(() => {
-    const handleResize = () => {
-      setVisibleCount(getVisibleCount());
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [getVisibleCount]);
-  
-  const maxIndex = Math.max(0, testimonials.length - visibleCount);
+  const maxIndex = testimonials.length - 1;
   
   const nextTestimonial = () => {
     setCurrentTestimonialIndex(prev => 
