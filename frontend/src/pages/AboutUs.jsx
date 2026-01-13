@@ -658,30 +658,29 @@ const AboutUs = () => {
             </button>
             
             {/* Premium Testimonials Display - wrapper for clipping */}
-            <div className="mx-8 md:mx-12 overflow-x-clip overflow-y-visible py-6">
+            <div className="mx-4 md:mx-24 lg:mx-32 overflow-x-clip overflow-y-visible py-6">
               <div 
                 className="flex transition-all duration-700 ease-out"
                 style={{ 
-                  transform: `translateX(-${currentTestimonialIndex * (100 / visibleCount)}%)`,
+                  transform: `translateX(-${currentTestimonialIndex * 100}%)`,
                 }}
               >
                 {testimonials.map((testimonial, index) => {
-                  const isActive = index === currentTestimonialIndex || index === currentTestimonialIndex + 1;
+                  const isActive = index === currentTestimonialIndex;
                   return (
                     <div 
                       key={index} 
-                      className={`flex-shrink-0 px-4 md:px-6 ${visibleCount === 1 ? 'w-full' : 'w-1/2'}`}
+                      className="flex-shrink-0 w-full px-4 md:px-8"
                       style={{
-                        opacity: isActive ? 1 : 0.6,
-                        transform: isActive ? 'scale(1)' : 'scale(0.96)',
-                        filter: isActive ? 'blur(0)' : 'blur(0.5px)',
+                        opacity: isActive ? 1 : 0.4,
+                        transform: isActive ? 'scale(1)' : 'scale(0.95)',
                         transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                       }}
                       data-testid={`testimonial-card-${index}`}
                     >
                       {/* Premium Testimonial Card */}
                       <div 
-                        className={`testimonial-card-premium relative bg-white rounded-3xl p-8 md:p-10 h-full flex flex-col ${isActive ? 'testimonial-card-active' : ''}`}
+                        className={`testimonial-card-premium relative bg-white rounded-3xl p-8 md:p-12 flex flex-col max-w-3xl mx-auto ${isActive ? 'testimonial-card-active' : ''}`}
                         style={{
                           boxShadow: '0 8px 32px -8px rgba(11, 31, 59, 0.12), 0 4px 16px -4px rgba(0,0,0,0.06)',
                           border: '1px solid rgba(11, 31, 59, 0.08)',
@@ -698,9 +697,9 @@ const AboutUs = () => {
                         {/* Quote Content */}
                         <div className="relative z-10 flex-grow">
                           <p 
-                            className="text-[#2F3A4A] leading-relaxed mb-8"
+                            className="text-[#2F3A4A] leading-relaxed mb-8 text-center"
                             style={{
-                              fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
+                              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
                               fontStyle: 'italic',
                               lineHeight: 1.8,
                               fontFamily: "'DM Sans', sans-serif",
@@ -711,7 +710,7 @@ const AboutUs = () => {
                         </div>
                         
                         {/* Author Info */}
-                        <div className="relative z-10 pt-6 border-t border-[#0B1F3B]/10">
+                        <div className="relative z-10 pt-6 border-t border-[#0B1F3B]/10 text-center">
                           <p 
                             className="text-[#0B1F3B] font-bold text-base md:text-lg mb-1"
                             style={{ letterSpacing: '-0.01em' }}
