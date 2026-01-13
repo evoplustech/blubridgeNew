@@ -249,29 +249,38 @@ const AboutUs = () => {
             50% { transform: translateX(100%); }
           }
           
-          /* Hero image entrance animation - Kissflow style */
-          @keyframes heroImageEntrance {
+          /* "We are" text animation - fade in + slide up */
+          @keyframes heroWeAreEntrance {
             0% { 
               opacity: 0; 
-              transform: scale(0.9) translateY(20px); 
-            }
-            60% {
-              opacity: 1;
-              transform: scale(1.02) translateY(-5px);
+              transform: translateY(20px); 
             }
             100% { 
               opacity: 1; 
-              transform: scale(1) translateY(0); 
+              transform: translateY(0); 
             }
           }
           
-          .hero-image-animated {
-            animation: heroImageEntrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+          /* Logo animation - scale in with bounce */
+          @keyframes heroLogoEntrance {
+            0% { 
+              opacity: 0; 
+              transform: scale(0.85); 
+            }
+            60% {
+              opacity: 1;
+              transform: scale(1.03);
+            }
+            100% { 
+              opacity: 1; 
+              transform: scale(1); 
+            }
           }
           
           /* Reduced motion preference */
           @media (prefers-reduced-motion: reduce) {
-            .hero-image-animated {
+            .hero-we-are-text,
+            .hero-logo-image {
               animation: none !important;
               opacity: 1 !important;
               transform: none !important;
@@ -280,24 +289,42 @@ const AboutUs = () => {
         `}</style>
         
         <div className="container-custom relative z-10 flex items-center justify-center w-full">
-          <div 
-            className="text-center hero-image-animated"
-            style={{
-              opacity: 0,
-              transform: 'scale(0.9) translateY(20px)',
-            }}
-            data-testid="hero-title"
-          >
-            <img 
-              src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/pcxf7v7n_We-Are-BluBrdige.png"
-              alt="We are BluBridge"
-              className="max-w-full h-auto"
+          <div className="text-center flex flex-col items-center" data-testid="hero-title">
+            {/* Line 1: "We are" */}
+            <p 
+              className="hero-we-are-text text-white font-normal mb-2 md:mb-3"
               style={{
-                width: 'clamp(280px, 60vw, 600px)',
-                height: 'auto',
+                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+                lineHeight: 1.2,
+                letterSpacing: '0.02em',
+                opacity: 0,
+                transform: 'translateY(20px)',
+                animation: 'heroWeAreEntrance 0.8s ease-out 0.3s forwards',
               }}
-              data-testid="hero-we-are-blubridge-image"
-            />
+              data-testid="hero-we-are-text"
+            >
+              We are
+            </p>
+            
+            {/* Line 2: BLUBRIDGE Logo Image */}
+            <div 
+              className="hero-logo-image"
+              style={{
+                opacity: 0,
+                transform: 'scale(0.85)',
+                animation: 'heroLogoEntrance 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards',
+              }}
+            >
+              <img 
+                src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/pcxf7v7n_We-Are-BluBrdige.png"
+                alt="BluBridge"
+                style={{
+                  width: 'clamp(250px, 50vw, 550px)',
+                  height: 'auto',
+                }}
+                data-testid="hero-blubridge-logo"
+              />
+            </div>
           </div>
         </div>
       </section>
