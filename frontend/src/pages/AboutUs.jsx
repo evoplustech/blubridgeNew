@@ -249,27 +249,19 @@ const AboutUs = () => {
             50% { transform: translateX(100%); }
           }
           
-          /* "We are" text animation - fade in + slide up */
-          @keyframes heroWeAreEntrance {
+          /* Natural zoom-in animation from 0% to 100% */
+          @keyframes heroZoomIn {
             0% { 
               opacity: 0; 
-              transform: translateY(20px); 
+              transform: scale(0); 
             }
-            100% { 
-              opacity: 1; 
-              transform: translateY(0); 
+            50% {
+              opacity: 0.8;
+              transform: scale(0.6);
             }
-          }
-          
-          /* Logo animation - scale in with bounce */
-          @keyframes heroLogoEntrance {
-            0% { 
-              opacity: 0; 
-              transform: scale(0.85); 
-            }
-            60% {
+            80% {
               opacity: 1;
-              transform: scale(1.03);
+              transform: scale(1.02);
             }
             100% { 
               opacity: 1; 
@@ -279,8 +271,7 @@ const AboutUs = () => {
           
           /* Reduced motion preference */
           @media (prefers-reduced-motion: reduce) {
-            .hero-we-are-text,
-            .hero-logo-image {
+            .hero-content-animated {
               animation: none !important;
               opacity: 1 !important;
               transform: none !important;
@@ -289,17 +280,23 @@ const AboutUs = () => {
         `}</style>
         
         <div className="container-custom relative z-10 w-full pt-6 md:pt-10 lg:pt-12">
-          <div className="text-center flex flex-col items-center" data-testid="hero-title">
+          {/* Unified container for "We are" + BLUBRIDGE logo with single zoom animation */}
+          <div 
+            className="text-center flex flex-col items-center hero-content-animated"
+            style={{
+              opacity: 0,
+              transform: 'scale(0)',
+              animation: 'heroZoomIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards',
+            }}
+            data-testid="hero-title"
+          >
             {/* Line 1: "We are" */}
             <p 
-              className="hero-we-are-text text-white font-normal mb-1 md:mb-2"
+              className="text-white font-normal mb-1 md:mb-2"
               style={{
                 fontSize: 'clamp(1.25rem, 3vw, 2rem)',
                 lineHeight: 1.2,
                 letterSpacing: '0.02em',
-                opacity: 0,
-                transform: 'translateY(20px)',
-                animation: 'heroWeAreEntrance 0.8s ease-out 0.3s forwards',
               }}
               data-testid="hero-we-are-text"
             >
@@ -307,14 +304,7 @@ const AboutUs = () => {
             </p>
             
             {/* Line 2: BLUBRIDGE Logo Image */}
-            <div 
-              className="hero-logo-image"
-              style={{
-                opacity: 0,
-                transform: 'scale(0.85)',
-                animation: 'heroLogoEntrance 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards',
-              }}
-            >
+            <div>
               <img 
                 src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/l24jebov_We-Are-BluBridge-Logo.png"
                 alt="BluBridge"
