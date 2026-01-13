@@ -504,7 +504,7 @@ const Home = () => {
         <div 
           className="absolute pointer-events-none select-none"
           style={{
-            right: '5%',
+            right: '0',
             top: '50%',
             transform: 'translateY(-50%)',
             zIndex: 1,
@@ -512,10 +512,10 @@ const Home = () => {
           aria-hidden="true"
         >
           <img 
-            src="https://customer-assets.emergentagent.com/job_iterative-dev-3/artifacts/rsu0e1sr_B-right.png"
+            src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/ofoxitwk_B.png"
             alt=""
             style={{
-              height: '85vh',
+              height: '90vh',
               width: 'auto',
               maxWidth: 'none',
             }}
