@@ -564,39 +564,98 @@ const Home = () => {
         `}</style>
      
       {/* Who We Are & What We Aim To Do Section - NEW */}
+{/* Who We Are & What We Aim To Do Section - Interactive Collapsible */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Card - Who We Are? */}
-            <div className="bg-[#f3f1e9] rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
-              {/* Lightbulb Icon */}
-             
+            <div 
+              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
+              data-testid="who-we-are-card"
+            >
+              {/* Clickable Header */}
+              <button
+                onClick={() => toggleAboutCard('whoWeAre')}
+                className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
+                data-testid="who-we-are-trigger"
+              >
+                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
+                  <span className="relative">
+                    Who We Are?
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
+                  </span>
+                  <span 
+                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
+                      expandedAboutCards.whoWeAre ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </h3>
+              </button>
               
-              {/* Heading */}
-              <h3 className="text-2xl text-[#0f172a] mb-5 font-['Inter']">
-                Who We Are?
-              </h3>
-              
-              {/* Body Text */}
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                BluBridge is an early-stage AI research company focused on advancing probabilistic and predictive modeling—building next-generation Artificial Intelligence from the ground up. We are assembling a team of passionate, driven researchers and engineers committed to pushing the boundaries of machine learning.
-              </p>
+              {/* Collapsible Content */}
+              <div 
+                className={`overflow-hidden transition-all duration-400 ease-out ${
+                  expandedAboutCards.whoWeAre 
+                    ? 'min-h-[200px] opacity-100' 
+                    : 'max-h-0 opacity-0'
+                }`}
+                data-testid="who-we-are-content"
+              >
+                <div className="px-12 pb-12 transform transition-all duration-400">
+                  <p className="text-[#4b5563] leading-relaxed text-base">
+                    BluBridge is an early-stage AI research company focused on advancing probabilistic and predictive modeling—building next-generation Artificial Intelligence from the ground up. We are assembling a team of passionate, driven researchers and engineers committed to pushing the boundaries of machine learning.
+                  </p>
+                </div>
+              </div>
             </div>
             
             {/* Right Card - What We Aim to Do? */}
-            <div className="bg-[#f3f1e9] rounded-2xl p-12 shadow-sm border border-[#e8eaed]">
-              {/* Microscope/Telescope Icon */}
-             
+            <div 
+              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
+              data-testid="what-we-aim-card"
+            >
+              {/* Clickable Header */}
+              <button
+                onClick={() => toggleAboutCard('whatWeAim')}
+                className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
+                data-testid="what-we-aim-trigger"
+              >
+                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
+                  <span className="relative">
+                    What We Aim to Do?
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
+                  </span>
+                  <span 
+                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
+                      expandedAboutCards.whatWeAim ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </h3>
+              </button>
               
-              {/* Heading */}
-              <h3 className="text-2xl text-[#0f172a] mb-5 font-['Inter']">
-                What We Aim to Do?
-              </h3>
-              
-              {/* Body Text */}
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                Our immediate goal is to develop a state-of-the-art 70-billion-parameter (dense) Large Language Model, establishing a strong foundation for future innovations in AI systems, its applications, and research.
-              </p>
+              {/* Collapsible Content */}
+              <div 
+                className={`overflow-hidden transition-all duration-400 ease-out ${
+                  expandedAboutCards.whatWeAim 
+                    ? 'min-h-[204px] opacity-100' 
+                    : 'max-h-0 opacity-0'
+                }`}
+                data-testid="what-we-aim-content"
+              >
+                <div className="px-12 pb-12 transform transition-all duration-400">
+                  <p className="text-[#4b5563] leading-relaxed text-base">
+                    Our immediate goal is to develop a state-of-the-art 70-billion-parameter (dense) Large Language Model, establishing a strong foundation for future innovations in AI systems, its applications, and research.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
