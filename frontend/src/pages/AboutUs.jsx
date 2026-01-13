@@ -164,19 +164,26 @@ const AboutUs = () => {
   
   // Carousel navigation functions - always show 1 slide at a time
   const visibleCount = 1;
+  const totalSlides = researchAreas.length;
   
-  const maxIndex = researchAreas.length - 1;
+  // Track slide direction for animation
+  const [slideDirection, setSlideDirection] = useState('next');
+  const [isAnimating, setIsAnimating] = useState(false);
   
   const nextTestimonial = () => {
-    setCurrentTestimonialIndex(prev => 
-      prev >= maxIndex ? 0 : prev + 1
-    );
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setSlideDirection('next');
+    setCurrentTestimonialIndex(prev => (prev + 1) % totalSlides);
+    setTimeout(() => setIsAnimating(false), 600);
   };
   
   const prevTestimonial = () => {
-    setCurrentTestimonialIndex(prev => 
-      prev <= 0 ? maxIndex : prev - 1
-    );
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setSlideDirection('prev');
+    setCurrentTestimonialIndex(prev => (prev - 1 + totalSlides) % totalSlides);
+    setTimeout(() => setIsAnimating(false), 600);
   };
 
   const faqs = [
