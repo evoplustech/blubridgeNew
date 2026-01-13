@@ -266,28 +266,58 @@ const AboutUs = () => {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
           }
+          @keyframes logoEntrance {
+            0% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+            50% { opacity: 1; transform: scale(1.1) rotate(5deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+          }
+          @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+          }
+          @keyframes textReveal {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+          .animate-logo-entrance {
+            animation: logoEntrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+          }
+          .animate-logo-pulse {
+            animation: logoPulse 3s ease-in-out infinite;
+            animation-delay: 1.2s;
+          }
+          .animate-text-reveal {
+            animation: textReveal 0.8s ease-out forwards;
+          }
         `}</style>
         
-        <div className="container-custom relative z-10">
-          <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-white/60 text-sm font-medium tracking-wider uppercase">ABOUT US</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
-              Building the Next Frontier<br />for AI
+        <div className="container-custom relative z-10 flex items-center justify-center w-full">
+          <div 
+            className="text-center"
+            style={{ 
+              opacity: heroAnimated ? 1 : 0,
+              transform: heroAnimated ? 'translateY(0)' : 'translateY(40px)',
+              transition: 'all 0.8s ease-out'
+            }}
+          >
+            <h1 
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white flex items-center justify-center"
+              data-testid="hero-title"
+            >
+              <span 
+                className="mr-3 animate-text-reveal"
+                style={{ animationDelay: '0.2s', opacity: heroAnimated ? 1 : 0 }}
+              >
+                We are
+              </span>
+              <span 
+                className="flex items-center animate-text-reveal"
+                style={{ animationDelay: '0.5s', opacity: heroAnimated ? 1 : 0 }}
+              >
+                <AnimatedBLogo />
+                <span>luBridge</span>
+              </span>
             </h1>
-            
-            <p className="text-white/90 text-lg max-w-2xl leading-relaxed mb-8">
-              We are an AI research and consulting company focused on turning intelligence into real-world impact.
-              Our work bridges deep research with practical execution, helping organisations move from ideas to deployed AI systems. By combining scientific rigor with hands-on consulting, we enable businesses to build, scale, and trust AI that delivers measurable outcomes.
-            </p>
-            
-            <Link to="/contact">
-              <Button className="bg-white text-black hover:bg-gray-100 px-6 py-3 rounded font-medium">
-                Get in touch
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
