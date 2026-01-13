@@ -127,43 +127,45 @@ const AboutUs = () => {
     { name: 'T', logo: null }
   ];
 
-  const testimonials = [
+  const researchAreas = [
     {
-      quote: "BluBridge provides secure and reliable cloud computing services, essential for AI and machine learning operations. The infrastructure allows for efficient processing and storage of sensitive data while ensuring robust security and compliance measures.",
-      author: "Richard Beckman",
-      title: "CEO & Founder",
-      company: "Hyperon"
+      title: "Data",
+      description: "We architect and curate high-quality multilingual and multimodal datasets that power cutting-edge deep learning research. Our team specializes in large-scale data processing, quality filtering and evaluation metrics across text, image, and vision-language domains. From raw data to production-ready training datasets, we build the foundational infrastructure that enables breakthrough AI research."
     },
     {
-      quote: "The team at BluBridge has been instrumental in helping us scale our AI research capabilities. Their GPU infrastructure is world-class and their support team truly understands the unique challenges of running large-scale machine learning workloads.",
-      author: "Maria Santos",
-      title: "Chief Technology Officer",
-      company: "AI Research Labs"
+      title: "Tokenizer",
+      description: "Our team designs how raw text is broken into machine-understandable units that an LLM can learn from. Our work directly impacts model accuracy, language coverage, and training efficiency. A well-crafted tokenizer ensures the model understands nuance, rare words, and diverse scripts with minimal waste."
     },
     {
-      quote: "We've been able to accelerate our model training by 10x since partnering with BluBridge. The combination of cutting-edge hardware and intuitive platform tools has transformed how we approach AI development.",
-      author: "James Chen",
-      title: "VP of Engineering",
-      company: "TechForward Inc"
+      title: "Tensor & Operations",
+      description: "Creating a efficient tensor library that acts as the core of our Deep Learning framework and model training. Allowing training in multiple GPUs and various Datatypes. Core Storage class that manages memory utilization."
     },
     {
-      quote: "The level of reliability we've experienced with BluBridge has been outstanding. Their infrastructure has enabled us to run continuous training workloads without any unexpected downtime.",
-      author: "Sarah Mitchell",
-      title: "Director of ML Ops",
-      company: "DataScale Systems"
+      title: "Computational Graph",
+      description: "Our team focuses on graph capture, intermediate representation (IR), and graph-level optimizations like fusion and scheduling to maximize hardware utilization. We bridge the gap between flexible eager execution and efficient compiled deployment, ensuring models run at peak performance across diverse accelerators."
     },
     {
-      quote: "BluBridge's commitment to sustainable computing aligned perfectly with our corporate values. We're not just getting powerful AI infrastructure – we're doing it responsibly.",
-      author: "Erik Johansen",
-      title: "Head of Innovation",
-      company: "GreenTech Nordic"
+      title: "Auto Differentiation",
+      description: "We build the mathematical engine that powers model training, delivering a robust and efficient automatic differentiation system. Our team implements precise reverse-mode and forward-mode autodiff mechanisms, ensuring numerical stability and support for complex, dynamic control flows. By abstracting the complexities of gradient computation, we enable researchers to experiment with architectures and loss functions seamlessly."
+    },
+    {
+      title: "Compiler",
+      description: "An MLIR-based compiler and runtime that lowers Machine Learning (ML) models to a unified IR. The compiler transforms high-level operations into executable code for both CPU and GPU targets through a multi-stage lowering and optimization pipeline."
+    },
+    {
+      title: "Quantization",
+      description: "The Quantization team focuses on making large models faster, lighter, and more deployable without sacrificing quality. They compress model weights and activations so LLMs can run efficiently on real-world hardware. Their work enables high-performance inference at lower cost, power, and latency."
+    },
+    {
+      title: "Distributed Training",
+      description: "We are building a distributed training framework to train models across multiple nodes by applying different parallelism techniques. We aim to maximize the GPU utilization and speedup model training."
     }
   ];
   
-  // Carousel navigation functions - always show 1 testimonial at a time
+  // Carousel navigation functions - always show 1 slide at a time
   const visibleCount = 1;
   
-  const maxIndex = testimonials.length - 1;
+  const maxIndex = researchAreas.length - 1;
   
   const nextTestimonial = () => {
     setCurrentTestimonialIndex(prev => 
