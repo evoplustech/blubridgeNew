@@ -630,21 +630,21 @@ const AboutUs = () => {
                 fontFamily: "'DM Sans', sans-serif",
                 letterSpacing: '-0.02em',
               }}
-              data-testid="testimonials-title"
+              data-testid="research-areas-title"
             >
-              Testimonials
+              Our Research Areas
             </h2>
             <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#0B1F3B] via-[#c9a57e] to-[#0B1F3B] rounded-full opacity-60" />
           </div>
           
           {/* Premium Carousel Container */}
-          <div className="relative px-4 md:px-16" data-testid="testimonials-carousel">
+          <div className="relative px-4 md:px-16" data-testid="research-carousel">
             {/* Floating Navigation - Previous */}
             <button
               onClick={prevTestimonial}
               className="nav-btn-premium absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#0B1F3B]/10 text-[#0B1F3B] flex items-center justify-center shadow-lg hover:bg-[#0B1F3B] hover:text-white hover:border-[#0B1F3B]"
-              aria-label="Previous testimonials"
-              data-testid="testimonial-prev-btn"
+              aria-label="Previous"
+              data-testid="research-prev-btn"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -653,13 +653,13 @@ const AboutUs = () => {
             <button
               onClick={nextTestimonial}
               className="nav-btn-premium absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#0B1F3B]/10 text-[#0B1F3B] flex items-center justify-center shadow-lg hover:bg-[#0B1F3B] hover:text-white hover:border-[#0B1F3B]"
-              aria-label="Next testimonials"
-              data-testid="testimonial-next-btn"
+              aria-label="Next"
+              data-testid="research-next-btn"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
             
-            {/* Premium Testimonials Display - wrapper for clipping */}
+            {/* Premium Research Areas Display - wrapper for clipping */}
             <div className="mx-4 md:mx-24 lg:mx-32 overflow-x-clip overflow-y-visible py-6">
               <div 
                 className="flex transition-all duration-700 ease-out"
@@ -667,7 +667,7 @@ const AboutUs = () => {
                   transform: `translateX(-${currentTestimonialIndex * 100}%)`,
                 }}
               >
-                {testimonials.map((testimonial, index) => {
+                {researchAreas.map((area, index) => {
                   const isActive = index === currentTestimonialIndex;
                   return (
                     <div 
@@ -678,9 +678,9 @@ const AboutUs = () => {
                         transform: isActive ? 'scale(1)' : 'scale(0.95)',
                         transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                       }}
-                      data-testid={`testimonial-card-${index}`}
+                      data-testid={`research-card-${index}`}
                     >
-                      {/* Premium Testimonial Card */}
+                      {/* Premium Research Area Card */}
                       <div 
                         className={`testimonial-card-premium relative bg-white rounded-3xl p-8 md:p-12 flex flex-col max-w-3xl mx-auto ${isActive ? 'testimonial-card-active' : ''}`}
                         style={{
@@ -688,42 +688,27 @@ const AboutUs = () => {
                           border: '1px solid rgba(11, 31, 59, 0.08)',
                         }}
                       >
-                        {/* Large Quotation Mark Background */}
-                        <div 
-                          className="absolute top-6 left-6 text-[120px] md:text-[150px] leading-none font-serif text-[#0B1F3B]/[0.04] select-none pointer-events-none"
-                          style={{ fontFamily: 'Georgia, serif' }}
-                        >
-                          &ldquo;
+                        {/* Title */}
+                        <div className="relative z-10 mb-6">
+                          <h3 
+                            className="text-2xl md:text-3xl font-bold text-[#0B1F3B] text-center"
+                            style={{ letterSpacing: '-0.02em' }}
+                          >
+                            {area.title}
+                          </h3>
                         </div>
                         
-                        {/* Quote Content */}
+                        {/* Description */}
                         <div className="relative z-10 flex-grow">
                           <p 
-                            className="text-[#2F3A4A] leading-relaxed mb-8 text-center"
+                            className="text-[#2F3A4A] leading-relaxed text-center"
                             style={{
-                              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
-                              fontStyle: 'italic',
-                              lineHeight: 1.8,
+                              fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                              lineHeight: 1.9,
                               fontFamily: "'DM Sans', sans-serif",
                             }}
                           >
-                            &ldquo;{testimonial.quote}&rdquo;
-                          </p>
-                        </div>
-                        
-                        {/* Author Info */}
-                        <div className="relative z-10 pt-6 border-t border-[#0B1F3B]/10 text-center">
-                          <p 
-                            className="text-[#0B1F3B] font-bold text-base md:text-lg mb-1"
-                            style={{ letterSpacing: '-0.01em' }}
-                          >
-                            {testimonial.author}
-                          </p>
-                          <p className="text-[#6B7280] text-sm font-medium">
-                            {testimonial.title}
-                          </p>
-                          <p className="text-[#9CA3AF] text-xs mt-1 uppercase tracking-wider">
-                            {testimonial.company}
+                            {area.description}
                           </p>
                         </div>
                         
@@ -742,7 +727,7 @@ const AboutUs = () => {
             </div>
             
             {/* Premium Capsule Pagination Indicators */}
-            <div className="flex justify-center items-center gap-3 mt-12" data-testid="testimonial-dots">
+            <div className="flex justify-center items-center gap-3 mt-12" data-testid="research-dots">
               {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                 <button
                   key={index}
@@ -752,8 +737,8 @@ const AboutUs = () => {
                       ? 'w-10 bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5c] active' 
                       : 'w-2 bg-[#D6DEC3] hover:bg-[#0B1F3B]/30'
                   }`}
-                  aria-label={`Go to testimonial set ${index + 1}`}
-                  data-testid={`testimonial-dot-${index}`}
+                  aria-label={`Go to research area ${index + 1}`}
+                  data-testid={`research-dot-${index}`}
                 />
               ))}
             </div>
