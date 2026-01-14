@@ -566,11 +566,12 @@ const Home = () => {
                   src="https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/g6niy0el_Beyond-B.jpg" 
                   alt="B" 
                   style={{ 
-                  
+                  position:'relative',
                     width: 'auto', 
                     display: 'inline-block',
                     verticalAlign: 'baseline',
-                    marginRight: '-0.05em',
+                    marginRight: '0em',
+                    top:'6px'
                   }} 
                 />
               </span>
