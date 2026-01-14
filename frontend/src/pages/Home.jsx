@@ -559,9 +559,21 @@ const Home = () => {
         {/* LAYER 1: Content (Always on top) */}
         <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
           <div className="space-y-6 text-center">
-            <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
+            <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B] flex items-baseline justify-center" style={{ fontSize: '4.5rem' }}>
               {/* "Beyond the Horizon" - Letter by letter zoom animation */}
-              <span className="hero-letter" style={{ animationDelay: '0ms', color:'#fff', backgroundColor:'#000', padding:'0px 7px 0px 5px', height:'74px' }}>B</span>
+              <span className="hero-letter" style={{ animationDelay: '0ms' }}>
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/g6niy0el_Beyond-B.jpg" 
+                  alt="B" 
+                  style={{ 
+                    height: '1em', 
+                    width: 'auto', 
+                    display: 'inline-block',
+                    verticalAlign: 'baseline',
+                    marginRight: '-0.05em',
+                  }} 
+                />
+              </span>
               <span className="hero-letter" style={{ animationDelay: '120ms' }}>e</span>
               <span className="hero-letter" style={{ animationDelay: '240ms' }}>y</span>
               <span className="hero-letter" style={{ animationDelay: '360ms' }}>o</span>
