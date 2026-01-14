@@ -529,6 +529,31 @@ const Home = () => {
             display: inline-block;
             width: 0.3em;
           }
+          
+          /* Collapsed-to-Rejoin animation for subheading */
+          @keyframes subheadingExpand {
+            0% {
+              opacity: 0;
+              letter-spacing: -0.4em;
+              transform: scaleX(0.7);
+            }
+            30% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 1;
+              letter-spacing: 0.02em;
+              transform: scaleX(1);
+            }
+          }
+          
+          .hero-subheading {
+            opacity: 0;
+            display: inline-block;
+            animation: subheadingExpand 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 2.2s;
+            animation-iteration-count: 1;
+          }
         `}</style>
         
         {/* LAYER 1: Content (Always on top) */}
@@ -555,7 +580,9 @@ const Home = () => {
               <span className="hero-letter" style={{ animationDelay: '1800ms' }}>o</span>
               <span className="hero-letter" style={{ animationDelay: '1920ms' }}>n</span>
             </h1>
-            <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>An Independent AI Research Lab.</p>
+            <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>
+              <span className="hero-subheading">An Independent AI Research Lab.</span>
+            </p>
             
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <Link to="/contact">
