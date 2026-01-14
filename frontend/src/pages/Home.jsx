@@ -524,14 +524,14 @@ const Home = () => {
         </div>
         
         {/* LAYER 1: Content (Always on top) */}
-        <div className="container-custom relative my-24 z-10">
-          <div className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#0B1F3B]">
+        <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
+          <div className="space-y-6 text-center">
+            <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
               Beyond the Horizon
             </h1>
-            <p className="text-[#0B1F3B]/80 text-lg font-light leading-relaxed max-w-md">An Independent AI Research Lab.</p>
+            <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>An Independent AI Research Lab.</p>
             
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <Link to="/contact">
                 <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-4 py-3 rounded font-medium text-base" data-testid="hero-contact-btn">
                   Contact Us
