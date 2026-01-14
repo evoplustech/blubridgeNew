@@ -500,38 +500,57 @@ const Home = () => {
         {/* LAYER 0: Neural Network Animation Background */}
         <NeuralBackground />
         
-        {/* One-time word-by-word zoom animation styles */}
+        {/* Luxury letter-by-letter animation styles */}
         <style>{`
-          @keyframes heroWordZoomIn {
+          @keyframes heroLetterReveal {
             0% {
               opacity: 0;
-              transform: scale(0.85);
+              transform: scale(0.7);
+              filter: blur(8px);
             }
             100% {
               opacity: 1;
               transform: scale(1);
+              filter: blur(0);
             }
           }
           
-          .hero-word {
+          .hero-letter {
             display: inline-block;
             opacity: 0;
-            animation: heroWordZoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation: heroLetterReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             animation-iteration-count: 1;
           }
           
-          .hero-word-1 { animation-delay: 0s; }
-          .hero-word-2 { animation-delay: 0.4s; }
-          .hero-word-3 { animation-delay: 0.8s; }
+          .hero-space {
+            display: inline-block;
+            width: 0.3em;
+          }
         `}</style>
         
         {/* LAYER 1: Content (Always on top) */}
         <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
           <div className="space-y-6 text-center">
             <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
-              <span className="hero-word hero-word-1">Beyond</span>{' '}
-              <span className="hero-word hero-word-2">the</span>{' '}
-              <span className="hero-word hero-word-3">Horizon</span>
+              {/* "Beyond the Horizon" - Letter by letter animation */}
+              <span className="hero-letter" style={{ animationDelay: '0ms' }}>B</span>
+              <span className="hero-letter" style={{ animationDelay: '50ms' }}>e</span>
+              <span className="hero-letter" style={{ animationDelay: '100ms' }}>y</span>
+              <span className="hero-letter" style={{ animationDelay: '150ms' }}>o</span>
+              <span className="hero-letter" style={{ animationDelay: '200ms' }}>n</span>
+              <span className="hero-letter" style={{ animationDelay: '250ms' }}>d</span>
+              <span className="hero-space"></span>
+              <span className="hero-letter" style={{ animationDelay: '350ms' }}>t</span>
+              <span className="hero-letter" style={{ animationDelay: '400ms' }}>h</span>
+              <span className="hero-letter" style={{ animationDelay: '450ms' }}>e</span>
+              <span className="hero-space"></span>
+              <span className="hero-letter" style={{ animationDelay: '550ms' }}>H</span>
+              <span className="hero-letter" style={{ animationDelay: '600ms' }}>o</span>
+              <span className="hero-letter" style={{ animationDelay: '650ms' }}>r</span>
+              <span className="hero-letter" style={{ animationDelay: '700ms' }}>i</span>
+              <span className="hero-letter" style={{ animationDelay: '750ms' }}>z</span>
+              <span className="hero-letter" style={{ animationDelay: '800ms' }}>o</span>
+              <span className="hero-letter" style={{ animationDelay: '850ms' }}>n</span>
             </h1>
             <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>An Independent AI Research Lab.</p>
             
