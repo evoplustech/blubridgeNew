@@ -500,31 +500,38 @@ const Home = () => {
         {/* LAYER 0: Neural Network Animation Background */}
         <NeuralBackground />
         
-        {/* One-time intro animation styles */}
+        {/* One-time word-by-word zoom animation styles */}
         <style>{`
-          @keyframes heroHeadingFadeIn {
+          @keyframes heroWordZoomIn {
             0% {
               opacity: 0;
-              transform: translateY(20px);
+              transform: scale(0.85);
             }
             100% {
               opacity: 1;
-              transform: translateY(0);
+              transform: scale(1);
             }
           }
           
-          .hero-heading-intro {
-            animation: heroHeadingFadeIn 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-            animation-iteration-count: 1;
+          .hero-word {
+            display: inline-block;
             opacity: 0;
+            animation: heroWordZoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-iteration-count: 1;
           }
+          
+          .hero-word-1 { animation-delay: 0s; }
+          .hero-word-2 { animation-delay: 0.4s; }
+          .hero-word-3 { animation-delay: 0.8s; }
         `}</style>
         
         {/* LAYER 1: Content (Always on top) */}
         <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
           <div className="space-y-6 text-center">
-            <h1 className="hero-heading-intro font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
-              Beyond the Horizon
+            <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
+              <span className="hero-word hero-word-1">Beyond</span>{' '}
+              <span className="hero-word hero-word-2">the</span>{' '}
+              <span className="hero-word hero-word-3">Horizon</span>
             </h1>
             <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>An Independent AI Research Lab.</p>
             
