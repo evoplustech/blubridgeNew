@@ -561,7 +561,7 @@ const Home = () => {
           <div className="space-y-6 text-center">
             <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
               {/* "Beyond the Horizon" - Letter by letter zoom animation */}
-              <span className="hero-letter" style={{ animationDelay: '0ms' }}>B</span>
+              <span className="hero-letter" style={{ animationDelay: '0ms', color:'#fff', backgroundColor:'#000', padding:'0px 7px 0px 5px', height:'74px' }}>B</span>
               <span className="hero-letter" style={{ animationDelay: '120ms' }}>e</span>
               <span className="hero-letter" style={{ animationDelay: '240ms' }}>y</span>
               <span className="hero-letter" style={{ animationDelay: '360ms' }}>o</span>
