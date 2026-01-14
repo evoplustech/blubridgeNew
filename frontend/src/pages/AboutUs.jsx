@@ -263,8 +263,8 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
       {/* Hero Section with Motion */}
-      <section ref={heroRef} className="relative min-h-screen flex items-start overflow-hidden pt-[120px] sm:pt-[100px] md:pt-[90px]">
-        {/* Background Image with Parallax */}
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
           style={{
@@ -273,93 +273,69 @@ const AboutUs = () => {
           }}
         />
         
-        {/* Subtle overlay for better text readability - very light */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }} />
-        
-        {/* Animated Light Sweep */}
+        {/* Dark gradient overlay for text readability - stronger on left side */}
         <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: `linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, transparent 50%)`,
-            animation: 'lightSweep 8s ease-in-out infinite',
-          }}
+          className="absolute inset-0" 
+          style={{ 
+            background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.3) 100%)',
+          }} 
         />
         
-        <style>{`
-          @keyframes lightSweep {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-          }
-          
-          /* Natural zoom-in animation from 0% to 100% */
-          @keyframes heroZoomIn {
-            0% { 
-              opacity: 0; 
-              transform: scale(0); 
-            }
-            50% {
-              opacity: 0.8;
-              transform: scale(0.6);
-            }
-            80% {
-              opacity: 1;
-              transform: scale(1.02);
-            }
-            100% { 
-              opacity: 1; 
-              transform: scale(1); 
-            }
-          }
-          
-          /* Reduced motion preference */
-          @media (prefers-reduced-motion: reduce) {
-            .hero-content-animated {
-              animation: none !important;
-              opacity: 1 !important;
-              transform: none !important;
-            }
-          }
-        `}</style>
-        
-        <div className="container-custom relative z-10 w-full">
-          {/* Unified container for "We are" + BLUBRIDGE logo with single zoom animation */}
+        <div className="container-custom relative z-10 w-full py-20">
+          {/* Left-aligned content */}
           <div 
-            className="text-center flex flex-col items-center hero-content-animated"
-            style={{
-              opacity: 0,
-              transform: 'scale(0)',
-              animation: 'heroZoomIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards',
-            }}
+            className="flex flex-col items-start max-w-2xl"
             data-testid="hero-title"
           >
-            {/* Line 1: "We are" */}
+            {/* "ABOUT US" label */}
             <p 
-              className="font-normal mb-1 md:mb-2"
+              className="text-[#c9a57e] uppercase tracking-widest mb-6 font-medium"
               style={{
-                color: 'rgb(239, 237, 229)',
-                fontSize: 'clamp(1.1rem, 3vw, 2rem)',
-                lineHeight: 1.2,
-                letterSpacing: '0.02em',
-                textShadow: '0 1px 3px rgba(0,0,0,0.3)',
+                fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)',
+                letterSpacing: '0.2em',
               }}
-              data-testid="hero-we-are-text"
             >
-              We are
+              About Us
             </p>
             
-            {/* Line 2: BLUBRIDGE Logo Image */}
-            <div>
-              <img 
-                src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/oy0aec34_Blu-Logo.png"
-                alt="BluBridge"
-                className="h-auto"
+            {/* Main Heading */}
+            <h1 
+              className="text-white font-bold mb-8"
+              style={{
+                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+              data-testid="hero-heading"
+            >
+              Building the Next Frontier for AI
+            </h1>
+            
+            {/* Description */}
+            <p 
+              className="text-white/90 mb-10 leading-relaxed"
+              style={{
+                fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
+                lineHeight: 1.8,
+                maxWidth: '600px',
+              }}
+            >
+              We are an AI research and consulting company focused on turning intelligence into real-world impact. Our work bridges deep research with practical execution, helping organisations move from ideas to deployed AI systems. By combining scientific rigor with hands-on consulting, we enable businesses to build, scale, and trust AI that delivers measurable outcomes.
+            </p>
+            
+            {/* Get in touch button */}
+            <Link to="/contact">
+              <button 
+                className="bg-white text-[#0B1F3B] px-8 py-4 rounded font-medium text-base hover:bg-gray-100 transition-colors duration-300"
                 style={{
-                  width: 'clamp(160px, 35vw, 450px)',
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                  fontFamily: "'DM Sans', sans-serif",
                 }}
-                data-testid="hero-blubridge-logo"
-              />
-            </div>
+                data-testid="hero-cta-btn"
+              >
+                Get in touch
+              </button>
+            </Link>
           </div>
         </div>
       </section>
