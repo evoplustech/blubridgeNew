@@ -348,7 +348,7 @@ const AboutUs = () => {
             {/* Line 2: BLUBRIDGE Logo Image */}
             <div>
               <img 
-                src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/l24jebov_We-Are-BluBridge-Logo.png"
+                src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/oy0aec34_Blu-Logo.png"
                 alt="BluBridge"
                 style={{
                   width: 'clamp(200px, 40vw, 450px)',
