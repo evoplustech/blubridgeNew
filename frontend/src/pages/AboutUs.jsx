@@ -321,7 +321,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="container-custom relative z-10 w-full pt-6 md:pt-10 lg:pt-12">
+        <div className="container-custom relative z-10 w-full pt-20 sm:pt-16 md:pt-10 lg:pt-12">
           {/* Unified container for "We are" + BLUBRIDGE logo with single zoom animation */}
           <div 
             className="text-center flex flex-col items-center hero-content-animated"
@@ -337,9 +337,10 @@ const AboutUs = () => {
               className="font-normal mb-1 md:mb-2"
               style={{
                 color: 'rgb(239, 237, 229)',
-                fontSize: 'clamp(1.25rem, 3vw, 2rem)',
+                fontSize: 'clamp(1.1rem, 4vw, 2rem)',
                 lineHeight: 1.2,
                 letterSpacing: '0.02em',
+                textShadow: '0 1px 3px rgba(0,0,0,0.3)',
               }}
               data-testid="hero-we-are-text"
             >
@@ -351,9 +352,9 @@ const AboutUs = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/oy0aec34_Blu-Logo.png"
                 alt="BluBridge"
+                className="w-[160px] sm:w-[220px] md:w-[320px] lg:w-[450px] h-auto"
                 style={{
-                  width: 'clamp(200px, 40vw, 450px)',
-                  height: 'auto',
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
                 }}
                 data-testid="hero-blubridge-logo"
               />
