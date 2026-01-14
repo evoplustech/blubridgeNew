@@ -500,30 +500,29 @@ const Home = () => {
         {/* LAYER 0: Neural Network Animation Background */}
         <NeuralBackground />
         
-        {/* Luxury letter-by-letter zoom animation - no blur, slow & refined */}
+        {/* Luxury letter-by-letter zoom animation - no blur, slow & refined, no layout shift */}
         <style>{`
           @keyframes heroLetterZoom {
             0% {
               opacity: 0;
-              font-size: 4.5rem;
+              transform: scale(1);
             }
             20% {
               opacity: 1;
-              font-size: 5.5rem;
+              transform: scale(1.22);
             }
             100% {
               opacity: 1;
-              font-size: 4.5rem;
+              transform: scale(1);
             }
           }
           
           .hero-letter {
             display: inline-block;
             opacity: 0;
-            font-size: 4.5rem;
+            transform-origin: center bottom;
             animation: heroLetterZoom 0.9s cubic-bezier(0.33, 1, 0.68, 1) forwards;
             animation-iteration-count: 1;
-            vertical-align: baseline;
           }
           
           .hero-space {
@@ -560,7 +559,7 @@ const Home = () => {
             
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <Link to="/contact">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-4 py-3 rounded font-medium text-base" data-testid="hero-contact-btn">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-8 py-4 rounded font-medium text-lg" data-testid="hero-contact-btn">
                   Contact Us
                 </Button>
               </Link>
