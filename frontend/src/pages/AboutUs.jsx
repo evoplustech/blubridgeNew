@@ -273,8 +273,8 @@ const AboutUs = () => {
           }}
         />
         
-        {/* Subtle overlay for better text readability - much lighter than before */}
-        <div className="absolute inset-0 bg-black/20" />
+        {/* Subtle overlay for better text readability - very light */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }} />
         
         {/* Animated Light Sweep */}
         <div 
