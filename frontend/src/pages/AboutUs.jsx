@@ -334,8 +334,9 @@ const AboutUs = () => {
           >
             {/* Line 1: "We are" */}
             <p 
-              className="text-white font-normal mb-1 md:mb-2"
+              className="font-normal mb-1 md:mb-2"
               style={{
+                color: 'rgb(239, 237, 229)',
                 fontSize: 'clamp(1.25rem, 3vw, 2rem)',
                 lineHeight: 1.2,
                 letterSpacing: '0.02em',
