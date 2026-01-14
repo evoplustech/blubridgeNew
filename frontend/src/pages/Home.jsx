@@ -500,26 +500,30 @@ const Home = () => {
         {/* LAYER 0: Neural Network Animation Background */}
         <NeuralBackground />
         
-        {/* Luxury letter-by-letter animation styles */}
+        {/* Luxury letter-by-letter zoom animation - no blur, slow & refined */}
         <style>{`
-          @keyframes heroLetterReveal {
+          @keyframes heroLetterZoom {
             0% {
               opacity: 0;
-              transform: scale(0.7);
-              filter: blur(8px);
+              font-size: 4.5rem;
+            }
+            20% {
+              opacity: 1;
+              font-size: 5.5rem;
             }
             100% {
               opacity: 1;
-              transform: scale(1);
-              filter: blur(0);
+              font-size: 4.5rem;
             }
           }
           
           .hero-letter {
             display: inline-block;
             opacity: 0;
-            animation: heroLetterReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            font-size: 4.5rem;
+            animation: heroLetterZoom 0.9s cubic-bezier(0.33, 1, 0.68, 1) forwards;
             animation-iteration-count: 1;
+            vertical-align: baseline;
           }
           
           .hero-space {
@@ -532,25 +536,25 @@ const Home = () => {
         <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
           <div className="space-y-6 text-center">
             <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
-              {/* "Beyond the Horizon" - Letter by letter animation */}
+              {/* "Beyond the Horizon" - Letter by letter zoom animation */}
               <span className="hero-letter" style={{ animationDelay: '0ms' }}>B</span>
-              <span className="hero-letter" style={{ animationDelay: '50ms' }}>e</span>
-              <span className="hero-letter" style={{ animationDelay: '100ms' }}>y</span>
-              <span className="hero-letter" style={{ animationDelay: '150ms' }}>o</span>
-              <span className="hero-letter" style={{ animationDelay: '200ms' }}>n</span>
-              <span className="hero-letter" style={{ animationDelay: '250ms' }}>d</span>
+              <span className="hero-letter" style={{ animationDelay: '120ms' }}>e</span>
+              <span className="hero-letter" style={{ animationDelay: '240ms' }}>y</span>
+              <span className="hero-letter" style={{ animationDelay: '360ms' }}>o</span>
+              <span className="hero-letter" style={{ animationDelay: '480ms' }}>n</span>
+              <span className="hero-letter" style={{ animationDelay: '600ms' }}>d</span>
               <span className="hero-space"></span>
-              <span className="hero-letter" style={{ animationDelay: '350ms' }}>t</span>
-              <span className="hero-letter" style={{ animationDelay: '400ms' }}>h</span>
-              <span className="hero-letter" style={{ animationDelay: '450ms' }}>e</span>
+              <span className="hero-letter" style={{ animationDelay: '780ms' }}>t</span>
+              <span className="hero-letter" style={{ animationDelay: '900ms' }}>h</span>
+              <span className="hero-letter" style={{ animationDelay: '1020ms' }}>e</span>
               <span className="hero-space"></span>
-              <span className="hero-letter" style={{ animationDelay: '550ms' }}>H</span>
-              <span className="hero-letter" style={{ animationDelay: '600ms' }}>o</span>
-              <span className="hero-letter" style={{ animationDelay: '650ms' }}>r</span>
-              <span className="hero-letter" style={{ animationDelay: '700ms' }}>i</span>
-              <span className="hero-letter" style={{ animationDelay: '750ms' }}>z</span>
-              <span className="hero-letter" style={{ animationDelay: '800ms' }}>o</span>
-              <span className="hero-letter" style={{ animationDelay: '850ms' }}>n</span>
+              <span className="hero-letter" style={{ animationDelay: '1200ms' }}>H</span>
+              <span className="hero-letter" style={{ animationDelay: '1320ms' }}>o</span>
+              <span className="hero-letter" style={{ animationDelay: '1440ms' }}>r</span>
+              <span className="hero-letter" style={{ animationDelay: '1560ms' }}>i</span>
+              <span className="hero-letter" style={{ animationDelay: '1680ms' }}>z</span>
+              <span className="hero-letter" style={{ animationDelay: '1800ms' }}>o</span>
+              <span className="hero-letter" style={{ animationDelay: '1920ms' }}>n</span>
             </h1>
             <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>An Independent AI Research Lab.</p>
             
