@@ -263,7 +263,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
       {/* Hero Section with Motion */}
-      <section ref={heroRef} className="relative min-h-screen flex items-start overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-start overflow-hidden pt-[120px] sm:pt-[100px] md:pt-[90px]">
         {/* Background Image with Parallax */}
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
@@ -321,7 +321,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="container-custom relative z-10 w-full pt-4">
+        <div className="container-custom relative z-10 w-full">
           {/* Unified container for "We are" + BLUBRIDGE logo with single zoom animation */}
           <div 
             className="text-center flex flex-col items-center hero-content-animated"
