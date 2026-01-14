@@ -264,17 +264,24 @@ const AboutUs = () => {
     <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
       {/* Hero Section with Motion */}
       <section ref={heroRef} className="relative min-h-screen flex items-start overflow-hidden">
-        {/* Background Image with Parallax */}
+        {/* Background Image with Parallax - positioned to show faces */}
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
+          className="absolute inset-0 bg-cover transition-transform duration-100"
           style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/65bq15uf_HomePage-Banner.png')`,
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/7l1im9nk_Sa1.jpg')`,
+            backgroundPosition: 'center 60%',
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
         
-        {/* Subtle overlay for better text readability - very light */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }} />
+        {/* Gradient overlay at top for text readability - doesn't cover faces */}
+        <div 
+          className="absolute inset-x-0 top-0 pointer-events-none"
+          style={{ 
+            height: '35%',
+            background: 'linear-gradient(to bottom, rgba(11, 31, 59, 0.85) 0%, rgba(11, 31, 59, 0.6) 50%, transparent 100%)',
+          }} 
+        />
         
         {/* Animated Light Sweep */}
         <div 
@@ -321,8 +328,8 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="container-custom relative z-10 w-full pt-6 md:pt-10 lg:pt-12">
-          {/* Unified container for "We are" + BLUBRIDGE logo with single zoom animation */}
+        <div className="container-custom relative z-10 w-full pt-24 md:pt-28 lg:pt-32">
+          {/* "We Are BluBridge" text at top */}
           <div 
             className="text-center flex flex-col items-center hero-content-animated"
             style={{
@@ -332,18 +339,19 @@ const AboutUs = () => {
             }}
             data-testid="hero-title"
           >
-            {/* Line 1: "We are" */}
+            {/* Line 1: "We Are" */}
             <p 
-              className="font-normal mb-1 md:mb-2"
+              className="font-light mb-2 md:mb-3"
               style={{
-                color: 'rgb(239, 237, 229)',
-                fontSize: 'clamp(1.25rem, 3vw, 2rem)',
+                color: '#ffffff',
+                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
                 lineHeight: 1.2,
-                letterSpacing: '0.02em',
+                letterSpacing: '0.05em',
+                textShadow: '0 2px 10px rgba(0,0,0,0.3)',
               }}
               data-testid="hero-we-are-text"
             >
-              We are
+              We Are
             </p>
             
             {/* Line 2: BLUBRIDGE Logo Image */}
@@ -352,8 +360,9 @@ const AboutUs = () => {
                 src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/oy0aec34_Blu-Logo.png"
                 alt="BluBridge"
                 style={{
-                  width: 'clamp(200px, 40vw, 450px)',
+                  width: 'clamp(220px, 45vw, 500px)',
                   height: 'auto',
+                  filter: 'brightness(0) invert(1)',
                 }}
                 data-testid="hero-blubridge-logo"
               />
