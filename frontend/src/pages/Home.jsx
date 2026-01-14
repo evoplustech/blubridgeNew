@@ -559,7 +559,7 @@ const Home = () => {
             
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <Link to="/contact">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-8 py-4 rounded font-medium text-lg" data-testid="hero-contact-btn">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-8 rounded font-medium text-lg" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }} data-testid="hero-contact-btn">
                   Contact Us
                 </Button>
               </Link>
