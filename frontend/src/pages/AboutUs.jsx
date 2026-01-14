@@ -268,7 +268,7 @@ const AboutUs = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
           style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/jmlst77u_image.png')`,
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/65bq15uf_HomePage-Banner.png')`,
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
