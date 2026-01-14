@@ -500,33 +500,30 @@ const Home = () => {
         {/* LAYER 0: Neural Network Animation Background */}
         <NeuralBackground />
         
-        {/* LAYER 0.5: Large "B" Background Letter - Right Side (Hidden on mobile) */}
-        <div 
-          className="absolute pointer-events-none select-none hidden md:flex items-center justify-center"
-          style={{
-            right: '5%',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 1,
-          }}
-          aria-hidden="true"
-        >
-          <img 
-            src="https://customer-assets.emergentagent.com/job_ui-polish-project-4/artifacts/epqcwubc_b44.png"
-            alt=""
-            style={{
-              height: '67.5vh',
-              width: 'auto',
-              maxWidth: 'none',
-            }}
-            draggable="false"
-          />
-        </div>
+        {/* One-time intro animation styles */}
+        <style>{`
+          @keyframes heroHeadingFadeIn {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          .hero-heading-intro {
+            animation: heroHeadingFadeIn 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-iteration-count: 1;
+            opacity: 0;
+          }
+        `}</style>
         
         {/* LAYER 1: Content (Always on top) */}
         <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
           <div className="space-y-6 text-center">
-            <h1 className="font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
+            <h1 className="hero-heading-intro font-light leading-[1.08] tracking-tight text-[#0B1F3B]" style={{ fontSize: '4.5rem' }}>
               Beyond the Horizon
             </h1>
             <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>An Independent AI Research Lab.</p>
