@@ -277,7 +277,7 @@ const AboutUs = () => {
         <div 
           className="absolute inset-0" 
           style={{ 
-            background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.3) 100%)',
+            background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.7) 100%)',
           }} 
         />
         
