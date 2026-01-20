@@ -773,6 +773,120 @@ const AboutUs = () => {
               ))}
             </div>
           </div>
+          
+          {/* Twitter (X) Profiles - Appended Content */}
+          <div className="text-center mt-20">
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-[#0B1F3B] tracking-tight"
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Twitter (X) Profiles
+            </h2>
+            <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#0B1F3B] via-[#c9a57e] to-[#0B1F3B] rounded-full opacity-60" />
+          </div>
+          
+          <div className="mt-12 max-w-3xl mx-auto text-center">
+            <div className="space-y-6">
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Computational Graph</span><br />
+                <a href="https://x.com/CGautodiff" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/CGautodiff</a>
+              </p>
+              
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Automatic Differentiation</span><br />
+                <a href="https://x.com/CGautodiff" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/CGautodiff</a>
+              </p>
+              
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Tensors & Operations</span><br />
+                <a href="https://x.com/Tensorandops" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/Tensorandops</a>
+              </p>
+              
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Tokenization</span><br />
+                <a href="https://x.com/Tokenizer89" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/Tokenizer89</a>
+              </p>
+              
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Distributed Training</span><br />
+                <a href="https://x.com/Parallelism89" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/Parallelism89</a>
+              </p>
+              
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Data Systems</span><br />
+                <a href="https://x.com/Data_team89" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/Data_team89</a>
+              </p>
+              
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Quantization</span><br />
+                <a href="https://x.com/Quantization89" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/Quantization89</a>
+              </p>
+              
+              <p 
+                className="text-[#2F3A4A] leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+                  lineHeight: 1.9,
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                <span className="font-bold text-[#0B1F3B]">Compiler Systems</span><br />
+                <a href="https://x.com/Compiler_team" target="_blank" rel="noopener noreferrer" className="text-[#328CC1]">https://x.com/Compiler_team</a>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
