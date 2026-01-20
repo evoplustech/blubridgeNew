@@ -738,10 +738,10 @@ const AboutUs = () => {
                         {/* X (Twitter) Logo Link - Inside each card */}
                         <div className="flex justify-center mt-8">
                           <a
-                            href="https://x.com/BlubridgeAI"
+                            href={area.xProfile}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Visit BluBridge AI on X"
+                            aria-label={`Visit ${area.title} team on X`}
                             className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/80 transition-all duration-300 hover:scale-110"
                             data-testid={`research-x-link-${index}`}
                           >
