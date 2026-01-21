@@ -406,19 +406,20 @@ const AboutUs = () => {
               </Link>
             </div>
             
-            {/* Right - Bird Illustration */}
+            {/* Right - Eagle Illustration */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <img 
-                src="https://static.prod-images.emergentagent.com/jobs/d48a1dae-4c36-4318-b28c-bedd073aa6d3/images/41a408cc13c113a05900c1ffd653c35cc73b2b84f1a63c531868d46e7e3fe6e2.png" 
-                alt="Colorful bird in flight"
+                src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/gvv2xzd8_toolfk_a_majestic_eagle_in_.jpg" 
+                alt="Digital technology eagle representing AI innovation"
                 style={{
-                  maxWidth: '450px',
+                  maxWidth: '500px',
                   width: '100%',
                   height: 'auto',
-                  objectFit: 'contain'
+                  objectFit: 'contain',
+                  borderRadius: '12px'
                 }}
                 className="hidden sm:block"
-                data-testid="our-mission-bird-image"
+                data-testid="our-mission-eagle-image"
               />
             </div>
           </div>

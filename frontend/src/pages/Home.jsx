@@ -821,11 +821,9 @@ const Home = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              Our Solutions
+              By Solutions
             </h2>
-            <p className="text-[#4b5563] max-w-2xl mx-auto leading-relaxed">
-              End-to-end AI solutions designed to transform your business with purpose-built intelligence.
-            </p>
+           
           </div>
           
           {/* 3 Solution Cards */}
@@ -878,7 +876,16 @@ const Home = () => {
               </p>
             </div>
           </div>
+          
         </div>
+         {/* Talk To Us Button */}
+          <div className="text-center">
+            <Link to="/contact">
+              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 my-20 text-base font-medium rounded-lg" data-testid="support-talk-to-us-btn">
+                Talk To Us
+              </Button>
+            </Link>
+          </div>
       </section>
 
       {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
@@ -1080,65 +1087,6 @@ const Home = () => {
         </div>
       </section> */}
 
-      {/* How We Support You Section */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              By Solutions
-            </h2>
-           
-          </div>
-          
-          {/* 6 Service Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {/* Card 1: AI Consulting */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-ai-consulting">
-              <div className="w-14 h-14 rounded-xl bg-[#FEF9E7] flex items-center justify-center mb-6">
-                <Lightbulb className="w-7 h-7 text-[#F59E0B]" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>AI consulting</h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed">
-                Have a project idea and need support bringing it to life? We're here to guide you with expert consultation and shared insights, helping you steer clear of unnecessary challenges along the way.
-              </p>
-            </div>
-            
-            {/* Card 2: PoC of AI Solutions */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-poc-ai">
-              <div className="w-14 h-14 rounded-xl bg-[#F3F4F6] flex items-center justify-center mb-6">
-                <FlaskConical className="w-7 h-7 text-[#6B7280]" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>PoC of AI Solutions</h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed">
-                A proof of concept is a critical step before implementing any AI solution. If you have a project idea, our data science consultants will assess its feasibility and validate its potential.
-              </p>
-            </div>
-            
-            {/* Card 3: AI Product */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-ai-product">
-              <div className="w-14 h-14 rounded-xl bg-[#FEF2F2] flex items-center justify-center mb-6">
-                <Rocket className="w-7 h-7 text-[#EF4444]" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>AI Product</h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed">
-                Looking to build a breakthrough AI product? We can kick things off with a lean, feature-focused version designed to engage early users and gather valuable feedback to guide future development.
-              </p>
-            </div>
-            
-          
-          </div>
-          
-          {/* Talk To Us Button */}
-          <div className="text-center">
-            <Link to="/contact">
-              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 text-base font-medium rounded-lg" data-testid="support-talk-to-us-btn">
-                Talk To Us
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* BluBridge's Infrastructure Section - Arctic Background */}
       <section className="py-20 relative overflow-hidden min-h-[700px]" data-testid="infrastructure-section">
