@@ -111,6 +111,14 @@ const Careers = () => {
       city: 'Chennai, Tamil Nadu – 600028',
       mapUrl: 'https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z',
       mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=13.0280416,80.2681674&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C13.0280416,80.2681674&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
+    },
+    {
+      id: 'randolph-nj',
+      address: '44 Center Grove Rd,',
+      area: 'Randolph,',
+      city: 'New Jersey – 07869',
+      mapUrl: 'https://www.google.com/maps/place/44+Center+Grove+Rd,+Randolph,+NJ+07869/@40.8486,-74.5779,17z',
+      mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=40.8486,-74.5779&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C40.8486,-74.5779&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
     }
   ];
 
