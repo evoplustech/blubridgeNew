@@ -442,8 +442,8 @@ const Deployment = () => {
                   </div>
                 </button>
                 {openFaq === i && (
-                  <div className="pb-6">
-                    <p className="text-[#6B7280] text-sm leading-relaxed">{faq.answer}</p>
+                  <div className="pb-6 text-[#4B5563] leading-relaxed pr-12">
+                    {faq.answer}
                   </div>
                 )}
               </div>
