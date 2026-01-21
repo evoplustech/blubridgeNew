@@ -1144,7 +1144,7 @@ const Home = () => {
           </div>
           
           {/* Tab Content Card */}
-          <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-lg max-w-4xl" data-testid="infra-content-card">
+          <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-lg max-w-5xl" data-testid="infra-content-card">
             <h3 className="text-2xl font-medium mb-4 text-[#0B1F3B]">{infraTabs[activeInfraTab].title}</h3>
             <p className="text-[#243447] mb-6 leading-relaxed">{infraTabs[activeInfraTab].description}</p>
             <div className="grid grid-cols-2 gap-4 mb-6">
