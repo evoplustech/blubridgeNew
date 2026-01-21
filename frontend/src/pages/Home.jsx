@@ -438,20 +438,6 @@ const Home = () => {
       description: "Robust Kubernetes infrastructure for deploying, managing, and scaling containerized AI workloads efficiently.",
       features: ["Bare metal performance", "Auto-scale to 1000s GPUs", "Fully managed", "Native GPU support"],
       link : '/products/training'
-    },
-    {
-      name: "Security",
-      title: "Enterprise-grade security",
-      description: "Comprehensive security framework protecting your AI workloads with industry-leading standards and compliance certifications.",
-      features: ["SOC 2 compliant", "End-to-end encryption", "Zero-trust architecture", "GDPR ready"],
-      link : '/products/sovereign-cloud'
-    },
-    {
-      name: "Support",
-      title: "24/7 dedicated support",
-      description: "Expert technical support and dedicated account management ensuring your AI infrastructure runs smoothly around the clock.",
-      features: ["24/7 availability", "Dedicated engineers", "SLA guarantees", "Proactive monitoring"],
-      link : '/contact'
     }
   ];
 
@@ -790,7 +776,9 @@ const Home = () => {
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
+          <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">Our Frontier AI Expertise</h2></div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
+              
             {/* Left - Circular Diagram */}
             <div className="relative flex items-center justify-center">
               <AIExpertiseOrbit />    
@@ -798,7 +786,7 @@ const Home = () => {
             
             {/* Right - AI Expertise Grid (8 tabs) */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our Frontier AI Expertise</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8 text-center">By Industry</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Radio, title: "Telco" },
@@ -1032,11 +1020,9 @@ const Home = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              How we support you
+              By Solutions
             </h2>
-            <p className="text-[#4b5563] max-w-3xl mx-auto leading-relaxed">
-              We're always open to collaborating with diverse teams on projects of any scale or complexity. Through close partnership, we help create innovative systems, solutions, and products that set you apart from the competition.
-            </p>
+           
           </div>
           
           {/* 6 Service Cards Grid */}
@@ -1074,38 +1060,7 @@ const Home = () => {
               </p>
             </div>
             
-            {/* Card 4: Custom Model Development */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-custom-model">
-              <div className="w-14 h-14 rounded-xl bg-[#FEF9E7] flex items-center justify-center mb-6">
-                <Zap className="w-7 h-7 text-[#F59E0B]" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>Custom Model Development</h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed">
-                We can design and train custom models tailored to your business requirements, or fine-tune your existing models, both open-source and proprietary, which is to improve performance, efficiency, and scalability.
-              </p>
-            </div>
-            
-            {/* Card 5: Software Development */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-software-dev">
-              <div className="w-14 h-14 rounded-xl bg-[#F3F4F6] flex items-center justify-center mb-6">
-                <Laptop className="w-7 h-7 text-[#6B7280]" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>Software Development</h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed">
-                Whether you're building an innovative web application from the ground up or enhancing an existing one with AI capabilities, our experts are here to support you.
-              </p>
-            </div>
-            
-            {/* Card 6: AI based Application Development */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-ai-app-dev">
-              <div className="w-14 h-14 rounded-xl bg-[#EFF6FF] flex items-center justify-center mb-6">
-                <Smartphone className="w-7 h-7 text-[#3B82F6]" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>AI based Application Development</h3>
-              <p className="text-[#6b7280] text-sm leading-relaxed">
-                Our specialists can help you create an innovative mobile app from the ground up and enhance it with AI features your users will truly appreciate.
-              </p>
-            </div>
+          
           </div>
           
           {/* Talk To Us Button */}
