@@ -295,7 +295,7 @@ const Header = () => {
                 <div 
                   className="absolute pt-3" 
                   style={{ 
-                    width: '500px', 
+                    width: '320px', 
                     left: '50%', 
                     transform: 'translateX(-50%)', 
                     top: '100%', 
@@ -303,19 +303,50 @@ const Header = () => {
                   }}
                 >
                   <div 
-                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] relative overflow-hidden"
+                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] overflow-hidden p-4"
                     style={{ 
-                      height: '200px',
                       opacity: dropdownVisible ? 1 : 0,
                       transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
                       transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
-                    {/* Coming Soon Text - Letter by Letter Animation */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-3xl font-medium text-[#0B1F3B]">
-                        <AnimatedText text="Coming Soon" isVisible={dropdownVisible} />
-                      </span>
+                    <div className="space-y-1">
+                      <Link
+                        to="/products/model-customization"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+                      >
+                        <div className="w-8 h-8 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center">
+                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" />
+                        </div>
+                        <div>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Model Customization</span>
+                          <span className="block text-[#6B7280] text-xs">Adapt models to your domain</span>
+                        </div>
+                      </Link>
+                      <Link
+                        to="/solutions/ai-development"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+                      >
+                        <div className="w-8 h-8 rounded-md bg-[#328CC1]/10 flex items-center justify-center">
+                          <Sparkles className="w-4 h-4 text-[#328CC1]" />
+                        </div>
+                        <div>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">AI Development</span>
+                          <span className="block text-[#6B7280] text-xs">End-to-end AI solutions</span>
+                        </div>
+                      </Link>
+                      <Link
+                        to="/products/training"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+                      >
+                        <div className="w-8 h-8 rounded-md bg-[#10B981]/10 flex items-center justify-center">
+                          <Server className="w-4 h-4 text-[#10B981]" />
+                        </div>
+                        <div>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Training Infrastructure</span>
+                          <span className="block text-[#6B7280] text-xs">GPU clusters for AI workloads</span>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
