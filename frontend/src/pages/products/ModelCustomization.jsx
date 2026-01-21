@@ -284,26 +284,26 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 4: Customization Stack */}
-      <section className="py-20 bg-[#0B1F3B]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Customization Stack
           </h2>
-          <p className="text-gray-400 mb-12 max-w-2xl">
+          <p className="text-[#4B5563] mb-12 max-w-2xl">
             Our comprehensive customization stack provides everything you need from hardware to application, with full flexibility to customize at every layer.
           </p>
           
           {/* Stack Layers */}
           <div className="space-y-4">
             {/* MARKETPLACE Layer */}
-            <div className="bg-[#162B4D] rounded-lg p-5">
+            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
               <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#328CC1] text-white text-xs font-bold px-3 py-1 rounded">MARKETPLACE</span>
+                <span className="bg-[#6B7280] text-white text-xs font-bold px-3 py-1 rounded">MARKETPLACE</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['Instruction Datasets', 'Alignment Packs', 'Domain Corpora', 'Evaluation Sets', 'Adapters', 'Plugins'].map((item, i) => (
-                  <span key={i} className="bg-[#1a3a5f] text-gray-300 text-sm px-3 py-1.5 rounded flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#328CC1] rounded-full" />
+                  <span key={i} className="bg-white text-[#4B5563] text-sm px-3 py-1.5 rounded border border-[#E5E7EB] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#6B7280] rounded-full" />
                     {item}
                   </span>
                 ))}
@@ -311,14 +311,14 @@ const ModelCustomization = () => {
             </div>
             
             {/* PLATFORM Layer */}
-            <div className="bg-[#162B4D] rounded-lg p-5">
+            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
               <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#328CC1] text-white text-xs font-bold px-3 py-1 rounded">PLATFORM</span>
+                <span className="bg-[#6B7280] text-white text-xs font-bold px-3 py-1 rounded">PLATFORM</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['Experiment Manager', 'Version Control', 'Training Pipelines', 'Model Registry'].map((item, i) => (
-                  <span key={i} className="bg-[#1a3a5f] text-gray-300 text-sm px-3 py-1.5 rounded flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#328CC1] rounded-full" />
+                  <span key={i} className="bg-white text-[#4B5563] text-sm px-3 py-1.5 rounded border border-[#E5E7EB] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#6B7280] rounded-full" />
                     {item}
                   </span>
                 ))}
@@ -326,14 +326,14 @@ const ModelCustomization = () => {
             </div>
             
             {/* INFRASTRUCTURE Layer */}
-            <div className="bg-[#162B4D] rounded-lg p-5">
+            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
               <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#328CC1] text-white text-xs font-bold px-3 py-1 rounded">INFRASTRUCTURE</span>
+                <span className="bg-[#6B7280] text-white text-xs font-bold px-3 py-1 rounded">INFRASTRUCTURE</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['GPU Orchestration', 'Distributed Training', 'Secure Storage', 'High-Speed Networking'].map((item, i) => (
-                  <span key={i} className="bg-[#1a3a5f] text-gray-300 text-sm px-3 py-1.5 rounded flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#328CC1] rounded-full" />
+                  <span key={i} className="bg-white text-[#4B5563] text-sm px-3 py-1.5 rounded border border-[#E5E7EB] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#6B7280] rounded-full" />
                     {item}
                   </span>
                 ))}
@@ -341,7 +341,7 @@ const ModelCustomization = () => {
             </div>
 
             {/* HARDWARE Layer */}
-            <div className="bg-[#162B4D] rounded-lg p-5">
+            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
               <div className="flex items-center gap-4 mb-3">
                 <span className="bg-[#1e5a3d] text-white text-xs font-bold px-3 py-1 rounded">HARDWARE</span>
               </div>
@@ -358,7 +358,7 @@ const ModelCustomization = () => {
           
           {/* Bottom Info Cards */}
           <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="bg-[#fffdf7] rounded-xl p-6">
+            <div className="bg-white rounded-xl p-6 border border-[#E5E7EB]">
               <h4 className="font-semibold text-[#0B1F3B] mb-3">USER EXPERIENCE</h4>
               <ul className="space-y-2 text-sm text-[#4B5563]">
                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> Web Console</li>
@@ -366,7 +366,7 @@ const ModelCustomization = () => {
                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> CLI</li>
               </ul>
             </div>
-            <div className="bg-[#fffdf7] rounded-xl p-6">
+            <div className="bg-white rounded-xl p-6 border border-[#E5E7EB]">
               <h4 className="font-semibold text-[#0B1F3B] mb-3">DATA CENTRE</h4>
               <ul className="space-y-2 text-sm text-[#4B5563]">
                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> Renewable Energy</li>
