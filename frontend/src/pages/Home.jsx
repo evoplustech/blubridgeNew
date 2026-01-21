@@ -1012,6 +1012,99 @@ const Home = () => {
         </div>
       </section> */}
 
+      {/* How We Support You Section */}
+      <section className="py-20 bg-[#fffdf7]">
+        <div className="container-custom">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              How we support you
+            </h2>
+            <p className="text-[#4b5563] max-w-3xl mx-auto leading-relaxed">
+              We're always open to collaborating with diverse teams on projects of any scale or complexity. Through close partnership, we help create innovative systems, solutions, and products that set you apart from the competition.
+            </p>
+          </div>
+          
+          {/* 6 Service Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {/* Card 1: AI Consulting */}
+            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-ai-consulting">
+              <div className="w-14 h-14 rounded-xl bg-[#FEF9E7] flex items-center justify-center mb-6">
+                <Lightbulb className="w-7 h-7 text-[#F59E0B]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>AI consulting</h3>
+              <p className="text-[#6b7280] text-sm leading-relaxed">
+                Have a project idea and need support bringing it to life? We're here to guide you with expert consultation and shared insights, helping you steer clear of unnecessary challenges along the way.
+              </p>
+            </div>
+            
+            {/* Card 2: PoC of AI Solutions */}
+            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-poc-ai">
+              <div className="w-14 h-14 rounded-xl bg-[#F3F4F6] flex items-center justify-center mb-6">
+                <FlaskConical className="w-7 h-7 text-[#6B7280]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>PoC of AI Solutions</h3>
+              <p className="text-[#6b7280] text-sm leading-relaxed">
+                A proof of concept is a critical step before implementing any AI solution. If you have a project idea, our data science consultants will assess its feasibility and validate its potential.
+              </p>
+            </div>
+            
+            {/* Card 3: AI Product */}
+            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-ai-product">
+              <div className="w-14 h-14 rounded-xl bg-[#FEF2F2] flex items-center justify-center mb-6">
+                <Rocket className="w-7 h-7 text-[#EF4444]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>AI Product</h3>
+              <p className="text-[#6b7280] text-sm leading-relaxed">
+                Looking to build a breakthrough AI product? We can kick things off with a lean, feature-focused version designed to engage early users and gather valuable feedback to guide future development.
+              </p>
+            </div>
+            
+            {/* Card 4: Custom Model Development */}
+            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-custom-model">
+              <div className="w-14 h-14 rounded-xl bg-[#FEF9E7] flex items-center justify-center mb-6">
+                <Zap className="w-7 h-7 text-[#F59E0B]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>Custom Model Development</h3>
+              <p className="text-[#6b7280] text-sm leading-relaxed">
+                We can design and train custom models tailored to your business requirements, or fine-tune your existing models, both open-source and proprietary, which is to improve performance, efficiency, and scalability.
+              </p>
+            </div>
+            
+            {/* Card 5: Software Development */}
+            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-software-dev">
+              <div className="w-14 h-14 rounded-xl bg-[#F3F4F6] flex items-center justify-center mb-6">
+                <Laptop className="w-7 h-7 text-[#6B7280]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>Software Development</h3>
+              <p className="text-[#6b7280] text-sm leading-relaxed">
+                Whether you're building an innovative web application from the ground up or enhancing an existing one with AI capabilities, our experts are here to support you.
+              </p>
+            </div>
+            
+            {/* Card 6: AI based Application Development */}
+            <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-sm hover:shadow-md transition-shadow" data-testid="support-ai-app-dev">
+              <div className="w-14 h-14 rounded-xl bg-[#EFF6FF] flex items-center justify-center mb-6">
+                <Smartphone className="w-7 h-7 text-[#3B82F6]" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-[#0B1F3B] mb-3" style={{ fontFamily: 'DM Sans, sans-serif' }}>AI based Application Development</h3>
+              <p className="text-[#6b7280] text-sm leading-relaxed">
+                Our specialists can help you create an innovative mobile app from the ground up and enhance it with AI features your users will truly appreciate.
+              </p>
+            </div>
+          </div>
+          
+          {/* Talk To Us Button */}
+          <div className="text-center">
+            <Link to="/contact">
+              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 text-base font-medium rounded-lg" data-testid="support-talk-to-us-btn">
+                Talk To Us
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
       <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
