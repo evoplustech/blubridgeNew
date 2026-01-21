@@ -8,7 +8,7 @@ const ModelCustomization = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const canvasRef = useRef(null);
 
-  // Animated abstract visual for hero - theme colors
+  // Animated abstract visual for hero - new shining design
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -23,94 +23,104 @@ const ModelCustomization = () => {
     };
 
     const drawAbstractVisual = () => {
-      time += 0.006;
+      time += 0.008;
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
       const centerX = width * 0.5;
       const centerY = height * 0.5;
 
-      // Draw layered hexagonal/geometric shapes with theme colors
-      for (let layer = 0; layer < 4; layer++) {
-        const offsetY = Math.sin(time + layer * 0.4) * 8;
-        const scale = 1 - layer * 0.15;
+      // Draw layered 3D cube/block structures
+      for (let layer = 0; layer < 5; layer++) {
+        const offsetY = Math.sin(time * 0.8 + layer * 0.3) * 12;
+        const offsetX = Math.cos(time * 0.6 + layer * 0.4) * 8;
+        const layerScale = 1 - layer * 0.12;
         
         ctx.save();
-        ctx.translate(centerX, centerY + offsetY - layer * 20);
-        ctx.scale(scale, scale);
-        ctx.rotate(time * 0.1 + layer * 0.2);
+        ctx.translate(centerX + offsetX, centerY + offsetY - layer * 30);
+        ctx.scale(layerScale, layerScale);
         
-        // Draw hexagon
-        const radius = 100;
+        // Draw 3D isometric cube face
+        const size = 80;
+        
+        // Top face
         ctx.beginPath();
-        for (let i = 0; i < 6; i++) {
-          const angle = (i / 6) * Math.PI * 2 - Math.PI / 2;
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
+        ctx.moveTo(0, -size * 0.5);
+        ctx.lineTo(size * 0.8, -size * 0.2);
+        ctx.lineTo(0, size * 0.1);
+        ctx.lineTo(-size * 0.8, -size * 0.2);
         ctx.closePath();
         
-        // Theme gradient fill (navy to teal)
-        const gradient = ctx.createLinearGradient(-radius, -radius, radius, radius);
-        const alpha = 0.4 - layer * 0.08;
+        const alpha = 0.5 - layer * 0.08;
+        const gradient = ctx.createLinearGradient(-size, -size, size, size);
         gradient.addColorStop(0, `rgba(11, 31, 59, ${alpha})`);
-        gradient.addColorStop(0.5, `rgba(50, 140, 193, ${alpha * 0.8})`);
-        gradient.addColorStop(1, `rgba(11, 31, 59, ${alpha * 0.6})`);
+        gradient.addColorStop(0.5, `rgba(50, 140, 193, ${alpha * 0.7})`);
+        gradient.addColorStop(1, `rgba(11, 31, 59, ${alpha * 0.5})`);
         ctx.fillStyle = gradient;
         ctx.fill();
+        ctx.strokeStyle = `rgba(50, 140, 193, ${alpha * 0.6})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
         
-        ctx.strokeStyle = `rgba(50, 140, 193, ${alpha * 0.8})`;
-        ctx.lineWidth = 2;
+        // Left face
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.8, -size * 0.2);
+        ctx.lineTo(0, size * 0.1);
+        ctx.lineTo(0, size * 0.7);
+        ctx.lineTo(-size * 0.8, size * 0.4);
+        ctx.closePath();
+        ctx.fillStyle = `rgba(11, 31, 59, ${alpha * 0.8})`;
+        ctx.fill();
+        ctx.stroke();
+        
+        // Right face
+        ctx.beginPath();
+        ctx.moveTo(size * 0.8, -size * 0.2);
+        ctx.lineTo(0, size * 0.1);
+        ctx.lineTo(0, size * 0.7);
+        ctx.lineTo(size * 0.8, size * 0.4);
+        ctx.closePath();
+        ctx.fillStyle = `rgba(50, 140, 193, ${alpha * 0.4})`;
+        ctx.fill();
         ctx.stroke();
         
         ctx.restore();
       }
 
-      // Inner grid pattern
-      ctx.save();
-      ctx.translate(centerX, centerY);
-      for (let i = -2; i <= 2; i++) {
-        for (let j = -2; j <= 2; j++) {
-          const x = i * 30;
-          const y = j * 30;
-          const pulse = Math.sin(time * 2 + i + j) * 0.3 + 0.7;
-          
-          ctx.beginPath();
-          ctx.arc(x, y, 3, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(50, 140, 193, ${0.3 * pulse})`;
-          ctx.fill();
-        }
-      }
-      ctx.restore();
-
-      // Floating particles
-      for (let i = 0; i < 16; i++) {
-        const angle = time * 0.4 + i * (Math.PI * 2 / 16);
-        const dist = 130 + Math.sin(time * 1.5 + i) * 20;
+      // Shining particles around
+      for (let i = 0; i < 20; i++) {
+        const angle = time * 0.5 + i * (Math.PI * 2 / 20);
+        const dist = 120 + Math.sin(time * 1.2 + i * 0.5) * 40;
         const x = centerX + Math.cos(angle) * dist;
-        const y = centerY + Math.sin(angle) * dist * 0.7;
-        const size = 2 + Math.sin(time + i) * 1;
+        const y = centerY + Math.sin(angle) * dist * 0.6;
+        const size = 2 + Math.sin(time * 2 + i) * 1.5;
+        const brightness = 0.4 + Math.sin(time * 3 + i) * 0.3;
         
         ctx.beginPath();
         ctx.arc(x, y, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(50, 140, 193, ${0.5 + Math.sin(time + i) * 0.2})`;
+        ctx.fillStyle = `rgba(50, 140, 193, ${brightness})`;
+        ctx.fill();
+        
+        // Glow effect
+        ctx.beginPath();
+        ctx.arc(x, y, size * 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(50, 140, 193, ${brightness * 0.2})`;
         ctx.fill();
       }
 
-      // Connecting lines
-      ctx.strokeStyle = 'rgba(50, 140, 193, 0.15)';
+      // Connecting lines with shimmer
       ctx.lineWidth = 1;
-      for (let i = 0; i < 6; i++) {
-        const angle1 = time * 0.2 + i * (Math.PI / 3);
-        const angle2 = angle1 + Math.PI / 4;
-        const r1 = 50 + Math.sin(time + i) * 15;
-        const r2 = 100 + Math.cos(time + i) * 20;
+      for (let i = 0; i < 8; i++) {
+        const angle1 = time * 0.3 + i * (Math.PI / 4);
+        const angle2 = angle1 + Math.PI / 5;
+        const r1 = 60 + Math.sin(time + i) * 20;
+        const r2 = 110 + Math.cos(time + i) * 25;
+        const shimmer = 0.1 + Math.sin(time * 2 + i) * 0.08;
         
+        ctx.strokeStyle = `rgba(50, 140, 193, ${shimmer})`;
         ctx.beginPath();
-        ctx.moveTo(centerX + Math.cos(angle1) * r1, centerY + Math.sin(angle1) * r1 * 0.7);
-        ctx.lineTo(centerX + Math.cos(angle2) * r2, centerY + Math.sin(angle2) * r2 * 0.7);
+        ctx.moveTo(centerX + Math.cos(angle1) * r1, centerY + Math.sin(angle1) * r1 * 0.6);
+        ctx.lineTo(centerX + Math.cos(angle2) * r2, centerY + Math.sin(angle2) * r2 * 0.6);
         ctx.stroke();
       }
 
