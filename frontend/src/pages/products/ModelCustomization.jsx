@@ -307,7 +307,7 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 4: Customization Stack */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#F8F7F5]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Customization Stack
@@ -320,14 +320,14 @@ const ModelCustomization = () => {
             {/* Left Column - Stack Layers */}
             <div className="lg:col-span-2 space-y-4">
               {/* MARKETPLACE Layer */}
-              <div className="bg-[#0a1628] rounded-xl p-6">
+              <div className="bg-[#1A2940] rounded-xl p-6">
                 <div className="mb-4">
-                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">MARKETPLACE</span>
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MARKETPLACE</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Instruction Datasets', 'Evaluation Tools', 'Adapters', 'Plugins'].map((item, i) => (
-                    <span key={i} className="bg-[#1a2d47] text-white/90 text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                  {['Instruction Datasets', 'Alignment Packs', 'Domain Corpora', 'Evaluation Sets', 'Adapters', 'Plugins'].map((item, i) => (
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
                       {item}
                     </span>
                   ))}
@@ -335,14 +335,14 @@ const ModelCustomization = () => {
               </div>
               
               {/* PLATFORM Layer */}
-              <div className="bg-[#0a1628] rounded-xl p-6">
+              <div className="bg-[#1A2940] rounded-xl p-6">
                 <div className="mb-4">
-                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">PLATFORM</span>
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">PLATFORM</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Experiment Manager', 'Version Control', 'Pipelines', 'Model Registry'].map((item, i) => (
-                    <span key={i} className="bg-[#1a2d47] text-white/90 text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                  {['Experiment Manager', 'Version Control', 'Training Pipelines', 'Model Registry'].map((item, i) => (
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
                       {item}
                     </span>
                   ))}
@@ -350,14 +350,14 @@ const ModelCustomization = () => {
               </div>
               
               {/* INFRASTRUCTURE Layer */}
-              <div className="bg-[#0a1628] rounded-xl p-6">
+              <div className="bg-[#1A2940] rounded-xl p-6">
                 <div className="mb-4">
-                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFRASTRUCTURE</span>
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFRASTRUCTURE</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['GPU Orchestration', 'Distributed Training', 'Networking', 'Storage'].map((item, i) => (
-                    <span key={i} className="bg-[#1a2d47] text-white/90 text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                  {['GPU Orchestration', 'Distributed Training', 'Secure Storage', 'High-Speed Networking'].map((item, i) => (
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
                       {item}
                     </span>
                   ))}
@@ -365,14 +365,14 @@ const ModelCustomization = () => {
               </div>
 
               {/* HARDWARE Layer */}
-              <div className="bg-[#0a1628] rounded-xl p-6">
+              <div className="bg-[#1A2940] rounded-xl p-6">
                 <div className="mb-4">
-                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">HARDWARE</span>
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">HARDWARE</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['NVIDIA A100', 'NVIDIA H100', 'AMD MI300X', 'NVIDIA DGX'].map((item, i) => (
-                    <span key={i} className="bg-[#c8e6c9] text-[#1a2d47] text-sm px-4 py-2 rounded-lg flex items-center gap-2 font-medium">
-                      <span className="w-1.5 h-1.5 bg-[#2e7d32] rounded-full" />
+                  {['A100 80GB', 'H100 SXM5', 'NVIDIA DGX', 'NVIDIA HGX', 'NVIDIA A100', 'NVIDIA A800'].map((item, i) => (
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
                       {item}
                     </span>
                   ))}
@@ -383,15 +383,15 @@ const ModelCustomization = () => {
             {/* Right Column - User Experience & Data Centre */}
             <div className="space-y-4">
               {/* USER EXPERIENCE Card */}
-              <div className="bg-[#0a1628] rounded-xl p-6 h-[calc(50%-8px)]">
+              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
                 <div className="mb-4">
-                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">USER EXPERIENCE</span>
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">USER EXPERIENCE</span>
                 </div>
                 <div className="space-y-3">
                   {['Web Console', 'API', 'CLI'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-                      <span className="text-white/90 text-sm">{item}</span>
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
+                      <span className="text-[#E0E0E0] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
