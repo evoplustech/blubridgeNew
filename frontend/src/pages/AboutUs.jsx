@@ -460,75 +460,13 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-      {/* Ultra-Premium Testimonials Section */}
+      {/* Research Teams Grid Section */}
       <section 
         ref={researchTeamsRef}
         id="current-research-teams"
-        className="py-24 relative overflow-hidden" 
-        data-testid="testimonials-section"
+        className="py-24 bg-[#f3f1e9]" 
+        data-testid="research-teams-section"
       >
-        {/* Premium Background with layered gradients and subtle texture */}
-        <div className="absolute inset-0 bg-[#fffdf7]" />
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            background: `
-              radial-gradient(ellipse at 20% 20%, rgba(11, 31, 59, 0.03) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 80%, rgba(201, 165, 126, 0.05) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 70%)
-            `,
-          }}
-        />
-        {/* Subtle noise texture overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          }}
-        />
-        
-        {/* Abstract decorative shapes */}
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-gradient-to-br from-[#0B1F3B]/5 to-transparent blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-gradient-to-tl from-[#c9a57e]/10 to-transparent blur-3xl" />
-        
-        {/* Thin accent lines */}
-        <div className="absolute top-1/3 left-0 w-32 h-px bg-gradient-to-r from-transparent via-[#0B1F3B]/10 to-transparent" />
-        <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-transparent via-[#c9a57e]/20 to-transparent" />
-        
-        <style>{`
-          @keyframes slideFromRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-          }
-          @keyframes slideFromLeft {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-          }
-          @keyframes slideToLeft {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(-100%); opacity: 0; }
-          }
-          @keyframes slideToRight {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-          }
-          .slide-enter-next {
-            animation: slideFromRight 0.6s ease-out forwards;
-          }
-          .slide-enter-prev {
-            animation: slideFromLeft 0.6s ease-out forwards;
-          }
-          .research-nav-arrow {
-            transition: color 0.2s ease;
-          }
-          .research-nav-arrow:hover {
-            color: #0B1F3B;
-          }
-          .capsule-indicator {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-        `}</style>
-        
         <div className="container-custom relative z-10">
           {/* Center-aligned Title */}
           <div className="text-center mb-16">
@@ -542,110 +480,117 @@ const AboutUs = () => {
             >
               Current Research Teams
             </h2>
-            <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#0B1F3B] via-[#c9a57e] to-[#0B1F3B] rounded-full opacity-60" />
+            <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#0B1F3B] via-[#FF6B35] to-[#0B1F3B] rounded-full opacity-60" />
           </div>
           
-          {/* Carousel Container */}
-          <div className="relative px-4 md:px-16" data-testid="research-carousel">
-            {/* Simple Navigation - Previous */}
-            <button
-              onClick={prevTestimonial}
-              className="research-nav-arrow absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 text-[#0B1F3B]/60 flex items-center justify-center"
-              aria-label="Previous slide"
-              data-testid="research-prev-btn"
+          {/* 4-Container Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Container 1: Data Engineering */}
+            <div 
+              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+              data-testid="research-card-data-engineering"
             >
-              <ChevronLeft className="w-8 h-8" strokeWidth={1.5} />
-            </button>
-            
-            {/* Simple Navigation - Next */}
-            <button
-              onClick={nextTestimonial}
-              className="research-nav-arrow absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 text-[#0B1F3B]/60 flex items-center justify-center"
-              aria-label="Next slide"
-              data-testid="research-next-btn"
-            >
-              <ChevronRight className="w-8 h-8" strokeWidth={1.5} />
-            </button>
-            
-            {/* Research Areas Display - No containers */}
-            <div className="mx-8 md:mx-24 lg:mx-32 py-4 overflow-hidden">
-              <div className="relative min-h-[200px]">
-                {researchAreas.map((area, index) => {
-                  const isActive = index === currentTestimonialIndex;
-                  if (!isActive) return null;
-                  
-                  return (
-                    <div 
-                      key={`${index}-${currentTestimonialIndex}`}
-                      className={`w-full px-4 md:px-8 ${slideDirection === 'next' ? 'slide-enter-next' : 'slide-enter-prev'}`}
-                      data-testid={`research-card-${index}`}
-                    >
-                      {/* Content without container - directly on background */}
-                      <div className="flex flex-col max-w-3xl mx-auto text-center">
-                        {/* Title */}
-                        <h3 
-                          className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6"
-                          style={{ letterSpacing: '-0.02em' }}
-                        >
-                          {area.title}
-                        </h3>
-                        
-                        {/* Description */}
-                        <p 
-                          className="text-[#2F3A4A] leading-relaxed"
-                          style={{
-                            fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
-                            lineHeight: 1.9,
-                            fontFamily: "'DM Sans', sans-serif",
-                          }}
-                        >
-                          {area.description}
-                        </p>
-                        
-                        {/* X (Twitter) Logo Link - Inside each card */}
-                        <div className="flex justify-center mt-8">
-                          <a
-                            href={area.xProfile}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`Visit ${area.title} team on X`}
-                            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/80 transition-all duration-300 hover:scale-110"
-                            data-testid={`research-x-link-${index}`}
-                          >
-                            <svg 
-                              viewBox="0 0 24 24" 
-                              className="w-5 h-5 fill-current"
-                              aria-hidden="true"
-                            >
-                              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+              {/* Top accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] to-[#60A5FA]" />
+              
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3B82F6] to-[#60A5FA] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Database className="w-8 h-8 text-white" strokeWidth={1.5} />
               </div>
+              
+              {/* Title */}
+              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Data Engineering
+              </h3>
+              
+              {/* Divider */}
+              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
+              
+              {/* Description */}
+              <p className="text-[#64748B] leading-relaxed text-base">
+                We architect and curate high-quality multilingual and multimodal datasets that power cutting-edge deep learning research. Our team specializes in large-scale data processing and quality filtering across multiple domains.
+              </p>
             </div>
-            
-            {/* Capsule Pagination Indicators */}
-            <div className="flex justify-center items-center gap-3 mt-12" data-testid="research-dots">
-              {researchAreas.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setSlideDirection(index > currentTestimonialIndex ? 'next' : 'prev');
-                    setCurrentTestimonialIndex(index);
-                  }}
-                  className={`capsule-indicator h-2 rounded-full transition-all duration-500 ${
-                    currentTestimonialIndex === index 
-                      ? 'w-10 bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5c]' 
-                      : 'w-2 bg-[#D6DEC3] hover:bg-[#0B1F3B]/30'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                  data-testid={`research-dot-${index}`}
-                />
-              ))}
+
+            {/* Container 2: Machine Learning */}
+            <div 
+              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+              data-testid="research-card-machine-learning"
+            >
+              {/* Top accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#06B6D4] to-[#22D3EE]" />
+              
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#06B6D4] to-[#22D3EE] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Brain className="w-8 h-8 text-white" strokeWidth={1.5} />
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Machine Learning
+              </h3>
+              
+              {/* Divider */}
+              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
+              
+              {/* Description */}
+              <p className="text-[#64748B] leading-relaxed text-base">
+                We develop state-of-the-art machine learning models and algorithms that push the boundaries of AI capabilities. Our research focuses on efficient architectures, training methodologies, and model optimization techniques.
+              </p>
+            </div>
+
+            {/* Container 3: AI Safety & Ethics */}
+            <div 
+              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+              data-testid="research-card-ai-safety"
+            >
+              {/* Top accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF6B35] to-[#FF8C5A]" />
+              
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF6B35] to-[#FF8C5A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-8 h-8 text-white" strokeWidth={1.5} />
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                AI Safety & Ethics
+              </h3>
+              
+              {/* Divider */}
+              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
+              
+              {/* Description */}
+              <p className="text-[#64748B] leading-relaxed text-base">
+                We prioritize responsible AI development through rigorous safety protocols and ethical frameworks. Our team ensures models are transparent, explainable, and aligned with human values while minimizing potential risks.
+              </p>
+            </div>
+
+            {/* Container 4: Applied Research */}
+            <div 
+              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+              data-testid="research-card-applied-research"
+            >
+              {/* Top accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FBBF24] to-[#FCD34D]" />
+              
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FBBF24] to-[#FCD34D] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Lightbulb className="w-8 h-8 text-white" strokeWidth={1.5} />
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Applied Research
+              </h3>
+              
+              {/* Divider */}
+              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
+              
+              {/* Description */}
+              <p className="text-[#64748B] leading-relaxed text-base">
+                We transform research insights into production-ready AI systems that solve real-world problems. Our consulting practice guides clients from strategy and design through deployment and optimization of AI solutions.
+              </p>
             </div>
           </div>
         </div>
