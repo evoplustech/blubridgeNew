@@ -1105,6 +1105,66 @@ const Home = () => {
         </div>
       </section>
 
+      {/* BluBridge's Infrastructure Section - Arctic Background */}
+      <section className="py-20 relative overflow-hidden min-h-[700px]" data-testid="infrastructure-section">
+        {/* Arctic Mountain Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80')`,
+          }}
+        />
+        {/* Light overlay to soften the background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/20 to-white/40" />
+        
+        <div className="container-custom relative z-10">
+          {/* Section Title & Description */}
+          <div className="mb-10">
+            <h2 className="text-4xl md:text-5xl font-light mb-6 text-[#0B1F3B]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              BluBridge's Infrastructure
+            </h2>
+            <p className="text-[#243447] max-w-4xl leading-relaxed text-lg">
+              BluBridge manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
+            </p>
+          </div>
+          
+          {/* Infrastructure Tabs */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {infraTabs.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveInfraTab(index)}
+                className={`px-5 py-3 rounded-lg text-sm font-medium transition-all ${
+                  activeInfraTab === index 
+                    ? 'bg-[#0B1F3B] text-white shadow-lg' 
+                    : 'bg-white/90 text-[#243447] border border-[#D6DEC3] hover:bg-white hover:shadow-md'
+                }`}
+                data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </div>
+          
+          {/* Tab Content Card */}
+          <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-lg max-w-4xl" data-testid="infra-content-card">
+            <h3 className="text-2xl font-medium mb-4 text-[#0B1F3B]">{infraTabs[activeInfraTab].title}</h3>
+            <p className="text-[#243447] mb-6 leading-relaxed">{infraTabs[activeInfraTab].description}</p>
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              {infraTabs[activeInfraTab].features.map((feature, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <Check className="w-5 h-5 text-[#328CC1] flex-shrink-0" />
+                  <span className="text-[#243447]">{feature}</span>
+                </div>
+              ))}
+            </div>
+            <Link to={`${infraTabs[activeInfraTab].link}`} className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] font-medium transition-colors">
+              See More <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
       <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
