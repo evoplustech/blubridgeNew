@@ -302,9 +302,9 @@ const Deployment = () => {
               },
               { 
                 metric: '7.2X', 
-                label: 'FASTER INFERENCE', 
+                label: 'Faster Inference', 
                 sublabel: 'Accelerate time to insights',
-                desc: 'Experience marked improvements in throughput and responsiveness thanks to GPU tuning and system-level optimisation.',
+                desc: 'Optimized GPU infrastructure delivers higher throughput and lower latency.',
                 link: 'Blog Post',
                 linkTo: '/blog'
               }
