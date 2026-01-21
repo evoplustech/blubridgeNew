@@ -366,7 +366,6 @@ const Careers = () => {
                   transform: showJobListings ? 'rotate(180deg)' : 'rotate(0deg)'
                 }}
               />
-              /> */}
             </button>
           </div> 
 
