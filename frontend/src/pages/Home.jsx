@@ -815,6 +815,72 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Solutions Section - Model Customization, Value Realization, Deployment */}
+      <section className="py-20 bg-[#fffdf7]">
+        <div className="container-custom">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              Our Solutions
+            </h2>
+            <p className="text-[#4b5563] max-w-2xl mx-auto leading-relaxed">
+              End-to-end AI solutions designed to transform your business with purpose-built intelligence.
+            </p>
+          </div>
+          
+          {/* 3 Solution Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Model Customization */}
+            <div 
+              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
+              data-testid="solution-model-customization"
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
+                <SlidersHorizontal className="w-7 h-7 text-white" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Model Customization
+              </h3>
+              <p className="text-[#4b5563] leading-relaxed text-base">
+                We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence for real-world use.
+              </p>
+            </div>
+
+            {/* Card 2: Value Realization */}
+            <div 
+              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
+              data-testid="solution-value-realization"
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
+                <TrendingUp className="w-7 h-7 text-white" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Value Realization
+              </h3>
+              <p className="text-[#4b5563] leading-relaxed text-base">
+                We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment is focused on driving efficiency, impact, and long-term value across your organization.
+              </p>
+            </div>
+
+            {/* Card 3: Deployment */}
+            <div 
+              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
+              data-testid="solution-deployment"
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
+                <Rocket className="w-7 h-7 text-white" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Deployment
+              </h3>
+              <p className="text-[#4b5563] leading-relaxed text-base">
+                We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model is engineered to run reliably in real environments, ensuring seamless integration and sustained impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
        {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
