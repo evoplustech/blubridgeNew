@@ -782,32 +782,30 @@ const Home = () => {
               <AIExpertiseOrbit />    
             </div>
             
-            {/* Right - AI Expertise Grid (8 tabs, clickable with routing) */}
+            {/* Right - AI Expertise Grid (8 tabs) */}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Radio, title: "Telco", slug: "telco" },
-                  { icon: ShieldCheck, title: "Finance & Insurance", slug: "finance" },
-                  { icon: GraduationCap, title: "Education", slug: "education" },
-                  { icon: Scale, title: "Legal", slug: "legal" },
-                  { icon: Code2, title: "Software & Technology", slug: "software" },
-                  { icon: Factory, title: "Manufacturing", slug: "manufacturing" },
-                  { icon: Landmark, title: "Government", slug: "government" },
-                  { icon: HeartPulse, title: "Healthcare", slug: "healthcare" }
+                  { icon: Radio, title: "Telco" },
+                  { icon: ShieldCheck, title: "Finance & Insurance" },
+                  { icon: GraduationCap, title: "Education" },
+                  { icon: Scale, title: "Legal" },
+                  { icon: Code2, title: "Software & Technology" },
+                  { icon: Factory, title: "Manufacturing" },
+                  { icon: Landmark, title: "Government" },
+                  { icon: HeartPulse, title: "Healthcare" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
-                  <Link 
+                  <div 
                     key={index}
-                    to={`/about?team=${service.slug}`}
-                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg hover:scale-[1.02] transition-all duration-200 cursor-pointer group"
-                    aria-label={`View ${service.title} research team`}
-                    data-testid={`research-team-${service.slug}`}
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#E8E4D9] shadow-sm"
+                    data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                   >
-                    <IconComponent className="w-6 h-6 text-[#0B1F3B] group-hover:text-[#328CC1] transition-colors" strokeWidth={1.5} />
-                    <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1] transition-colors">{service.title}</span>
-                  </Link>
+                    <IconComponent className="w-6 h-6 text-[#328CC1]" strokeWidth={1.5} />
+                    <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
+                  </div>
                 )})}
               </div>
             </div>
