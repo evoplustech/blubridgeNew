@@ -195,20 +195,20 @@ const AIExpertiseOrbit = () => {
 
   const atoms = [
     // INNER ring: 2 features + 1 dummy
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Tokenizer' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Data' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Legal' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Education' },
     { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
     // MIDDLE ring: 2 features + 1 dummy
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: Layers, label: (<>Tensor & <br />Operations</>)},
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: GitBranch, label: (<>Computational <br />Graph</>)},
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: Layers, label: (<>Software &  <br />Technology</>)},
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: GitBranch, label: 'Telco'},
     { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
 
     // OUTER ring: 4 features + 2 dummies
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Terminal, label:(<>Auto <br />Differentiation</>)},
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Network, label: 'Compiler' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: SlidersHorizontal, label: 'Quantization' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Server, label: (<>Distributed<br />Training</>) },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Terminal, label:(<>Finance & <br />Insurance</>)},
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Network, label: 'Government' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: SlidersHorizontal, label: 'Manufacturing' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Server, label: 'Healthcare' },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
     { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
   ];
@@ -787,14 +787,14 @@ const Home = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Database, title: "Data", slug: "data" },
-                  { icon: CheckCircle, title: "Tokenizer", slug: "tokenizer" },
-                  { icon: Layers, title: "Tensor & Operations", slug: "tensor-operations" },
-                  { icon: GitBranch, title: "Computational Graph", slug: "computational-graph" },
-                  { icon: Terminal, title: "Auto Differentiation", slug: "auto-differentiation" },
-                  { icon: Network, title: "Compiler", slug: "compiler" },
-                  { icon: SlidersHorizontal, title: "Quantization", slug: "quantization" },
-                  { icon: Server, title: "Distributed Training", slug: "distributed-training" }
+                  { icon: Database, title: "Telco", slug: "data" },
+                  { icon: CheckCircle, title: "Finance & Insurance", slug: "tokenizer" },
+                  { icon: Layers, title: "Education", slug: "tensor-operations" },
+                  { icon: GitBranch, title: "Legal", slug: "computational-graph" },
+                  { icon: Terminal, title: "Software & Technology", slug: "auto-differentiation" },
+                  { icon: Network, title: "Manufacturing", slug: "compiler" },
+                  { icon: SlidersHorizontal, title: "Government", slug: "quantization" },
+                  { icon: Server, title: "Healthcare", slug: "distributed-training" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
