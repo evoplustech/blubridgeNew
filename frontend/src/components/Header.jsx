@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory } from 'lucide-react';
+import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory,TrendingUp,Rocket } from 'lucide-react';
 
 // Animated Letter Component for "Coming Soon" text with shimmer effect
 const AnimatedText = ({ text, isVisible }) => {
@@ -316,11 +316,12 @@ const Header = () => {
                         className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
                       >
                         <div className="w-8 h-8 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center">
-                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" />
+                          {/* <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" /> */}
+                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" strokeWidth={1.5} />
                         </div>
                         <div>
                           <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Model Customization</span>
-                          <span className="block text-[#6B7280] text-xs">Adapt models to your domain</span>
+                          {/* <span className="block text-[#6B7280] text-xs">Adapt models to your domain</span> */}
                         </div>
                       </Link>
                       <Link
@@ -328,11 +329,12 @@ const Header = () => {
                         className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
                       >
                         <div className="w-8 h-8 rounded-md bg-[#328CC1]/10 flex items-center justify-center">
-                          <Sparkles className="w-4 h-4 text-[#328CC1]" />
+                          {/* <Sparkles className="w-4 h-4 text-[#328CC1]" /> */}
+                          <TrendingUp className="w-4 h-4 text-[#328CC1]" strokeWidth={1.5} />
                         </div>
                         <div>
-                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">AI Development</span>
-                          <span className="block text-[#6B7280] text-xs">End-to-end AI solutions</span>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Value Realization</span>
+                          {/* <span className="block text-[#6B7280] text-xs">End-to-end AI solutions</span> */}
                         </div>
                       </Link>
                       <Link
@@ -340,11 +342,12 @@ const Header = () => {
                         className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
                       >
                         <div className="w-8 h-8 rounded-md bg-[#10B981]/10 flex items-center justify-center">
-                          <Server className="w-4 h-4 text-[#10B981]" />
+                          {/* <Server className="w-4 h-4 text-[#10B981]" /> */}
+                          <Rocket className="w-4 h-4 text-[#10B981]" />
                         </div>
                         <div>
-                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Training Infrastructure</span>
-                          <span className="block text-[#6B7280] text-xs">GPU clusters for AI workloads</span>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Deployment</span>
+                          {/* <span className="block text-[#6B7280] text-xs">GPU clusters for AI workloads</span> */}
                         </div>
                       </Link>
                     </div>

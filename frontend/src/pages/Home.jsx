@@ -17,21 +17,21 @@ const VerticalTabsSection = () => {
       title: "Enterprise Agents",
       content: {
         heading: "Automate tasks with AI agents connected to your apps and workflows.",
-        description: "Our enterprise AI solutions seamlessly integrate with your existing infrastructure, enabling intelligent automation across departments. From data processing to decision support, we build custom AI agents that understand your business context and deliver measurable results."
+        description: "Build intelligent workflows with AI agents that connect directly to your tools, platforms, and data. We design adaptive systems that work within your existing ecosystem, automating complex tasks while understanding your operational context to drive real, scalable impact."
       }
     },
     {
       title: "AI-Powered search",
       content: {
         heading: "Deep research capabilities powered by advanced language models.",
-        description: "Leverage our cutting-edge research infrastructure to analyze complex datasets, extract insights, and generate comprehensive reports. Our AI research tools help teams move faster from hypothesis to validated conclusions with unprecedented accuracy."
+        description: "Safely link your organization’s proprietary knowledge into one intelligent layer and surface insights you can trust. Our AI agents retrieve the most accurate, context-aware answers, ensuring every response is relevant, reliable, and aligned with your enterprise data."
       }
     },
     {
       title: "Deep Research",
       content: {
         heading: "Build and deploy purpose-built AI models for your specific needs.",
-        description: "We specialize in developing custom machine learning models tailored to your industry and use case. From fine-tuning foundation models to building specialized architectures, we deliver production-ready AI that scales with your business requirements."
+        description: "Access insights that are thoroughly researched and distilled from rich, wide-ranging sources. Our AI agents synthesize complex information into clear, actionable summaries, giving you depth, accuracy, and clarity in every result."
       }
     }
   ];
@@ -41,7 +41,7 @@ const VerticalTabsSection = () => {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-16">
-          What BluBridge Can Do
+          What we can do for you
         </h2>
         
         {/* Two Column Layout */}
@@ -72,10 +72,10 @@ const VerticalTabsSection = () => {
           {/* Right Column - Content Panel */}
           <div className="flex-1 flex items-start" data-testid="vertical-tab-content">
             <div className="min-h-[200px]">
-              <h3 className="text-2xl md:text-3xl font-medium text-[#0B1F3B] mb-6 leading-snug">
+              {/* <h3 className="text-2xl md:text-3xl font-medium text-[#0B1F3B] mb-6 leading-snug">
                 {tabs[activeTab].content.heading}
-              </h3>
-              <p className="text-[#4B5563] text-lg leading-relaxed">
+              </h3> */}
+              <p className="text-[#4B5563] text-lg leading-relaxed mt-10">
                 {tabs[activeTab].content.description}
               </p>
             </div>
