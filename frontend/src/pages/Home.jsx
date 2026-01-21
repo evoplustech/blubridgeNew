@@ -784,7 +784,7 @@ const Home = () => {
             
             {/* Right - AI Expertise Grid (8 tabs) */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our Frontier AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Radio, title: "Telco" },
@@ -1107,9 +1107,9 @@ const Home = () => {
 
       {/* BluBridge's Infrastructure Section - Arctic Background */}
       <section className="py-20 relative overflow-hidden min-h-[700px]" data-testid="infrastructure-section">
-        {/* Arctic Mountain Background Image with 0.5 opacity */}
+        {/* Arctic Mountain Background Image with 0.3 opacity */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80')`,
           }}
