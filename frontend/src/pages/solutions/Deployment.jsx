@@ -47,7 +47,7 @@ const Deployment = () => {
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
                 Contact Us <ArrowRight className="w-4 h-4" />
 </Link>
             </div>
