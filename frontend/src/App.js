@@ -31,6 +31,7 @@ import ModelCustomization from './pages/products/ModelCustomization';
 import SolutionTraining from './pages/solutions/Training';
 import SolutionInference from './pages/solutions/Inference';
 import SolutionFineTuning from './pages/solutions/FineTuning';
+import SolutionDeployment from './pages/solutions/Deployment';
 import AIDevelopment from './pages/solutions/AIDevelopment';
 
 // Company Pages
@@ -90,6 +91,7 @@ function App() {
             <Route path="/solutions/training" element={<SolutionTraining />} />
             <Route path="/solutions/inference" element={<SolutionInference />} />
             <Route path="/solutions/fine-tuning" element={<SolutionFineTuning />} />
+            <Route path="/solutions/deployment" element={<SolutionDeployment />} />
             <Route path="/solutions/ai-development" element={<AIDevelopment />} />
             
             {/* Solution Routes - Industry */}
