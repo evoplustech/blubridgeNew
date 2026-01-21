@@ -217,7 +217,7 @@ const Deployment = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
+                  {['GPU Orchestration', 'Load Balancing', 'Secure Networking','Auto-Scaling'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
                       <div className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
                       {item}
@@ -230,7 +230,7 @@ const Deployment = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">HARDWARE</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['AMD MI300X', 'AMD MI250X', 'NVDA GB200', 'H100', '...'].map((item, i) => (
+                  {['High-Memory GPUs', 'Multi-Node Clusters', ' Low-Latency Interconnects'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
                       <div className="w-1.5 h-1.5 bg-green-400 rounded-full" />
                       {item}
@@ -245,7 +245,7 @@ const Deployment = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">USER EXPERIENCE</h3>
                 <div className="space-y-3">
-                  {['Web Console', 'API', 'CLI'].map((item, i) => (
+                  {['Web Console', 'CLI', 'API Access'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
                       <span className="text-[#2F3A4A] text-sm">{item}</span>
@@ -257,7 +257,7 @@ const Deployment = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">DATA CENTRE</h3>
                 <div className="space-y-3">
-                  {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
+                  {['Renewable Energy', 'Low-Latency Fibre'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                       <span className="text-[#2F3A4A] text-sm">{item}</span>
@@ -278,25 +278,25 @@ const Deployment = () => {
             {[
               { 
                 metric: '30%', 
-                label: 'FASTER INSIGHTS', 
+                label: 'FASTER Rollouts', 
                 sublabel: 'Accelerate Time to Value',
-                desc: 'Accelerate the time to actionable results with an AI stack optimised for rapid experimentation and tuning.',
+                desc: 'Reduce deployment cycles with automated pipelines.',
                 link: 'Learn More',
                 linkTo: '/about'
               },
               { 
                 metric: '80%', 
-                label: 'LOWER COST', 
+                label: 'Lower Operating Cost', 
                 sublabel: 'More performance for less.',
-                desc: ' Reduce costly cloud compute expenses while maintaining powerful performance.',
+                desc: 'Run inference workloads at a fraction of hyperscaler pricing.',
                 link: 'Our Data Centres',
                 linkTo: '/products/glomfjord'
               },
               { 
                 metric: '40%', 
-                label: 'MORE EFFICIENT', 
+                label: 'More Stable Systems', 
                 sublabel: 'Improved Resource Utilisation',
-                desc: ' Increase the effectiveness of compute resources with improved hardware utilisation.',
+                desc: ' Improve uptime and consistency across production environments.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
               },
