@@ -349,71 +349,59 @@ const AboutUs = () => {
       </section>
 
       {/* Our Mission Section - Section 2 */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-24 bg-[#f3f1e9]">
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="order-2 lg:order-1">
-              {/* Heading with "Our" in black and "Mission" in orange */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
+            {/* Left Content - Takes 3 of 5 columns (~60%) */}
+            <div className="order-2 lg:order-1 lg:col-span-3">
+              {/* Heading "Our Mission" */}
               <h2 
+                className="text-[#0B1F3B]"
                 style={{ 
-                  fontSize: '42px', 
+                  fontSize: 'clamp(32px, 5vw, 42px)', 
                   fontWeight: '700', 
                   marginBottom: '24px',
                   letterSpacing: '-0.5px',
-                  lineHeight: '1.2'
+                  lineHeight: '1.15',
+                  fontFamily: "'DM Sans', sans-serif"
                 }}
                 data-testid="our-mission-title"
               >
-                <span style={{ color: '#0B1F3B' }}>Our </span>
-                <span style={{ color: '#0B1F3B' }}>Mission</span>
+                Our Mission
               </h2>
               
               {/* Description Paragraph */}
               <p 
                 style={{ 
-                  fontSize: '18px', 
-                  lineHeight: '1.8', 
-                  color: '#333333', 
+                  fontSize: '17px', 
+                  lineHeight: '1.75', 
+                  color: '#4B5563', 
                   marginBottom: '32px',
-                  maxWidth: '90%'
+                  fontFamily: "'DM Sans', sans-serif"
                 }}
                 data-testid="our-mission-description"
               >
                 We are on a mission to push AI forward, to serve the open community and our enterprise customers. We are committed to driving the AI revolution by developing open-weight models that are on par with proprietary solutions. Stay tuned as we continue to advance in the field of AI.
               </p>
               
-              {/* Read More Button - Orange border, transparent bg */}
+              {/* Read More Button - Dark navy background */}
               <Link 
                 to="/research" 
-                // style={{ 
-                //   display: 'inline-block',
-                //   backgroundColor: 'transparent', 
-                //   color: '#FF6B35', 
-                //   padding: '12px 32px', 
-                //   borderRadius: '4px',
-                //   fontSize: '16px',
-                //   fontWeight: '500',
-                //   textDecoration: 'none',
-                //   letterSpacing: '0.5px',
-                //   border: '2px solid #FF6B35',
-                //   transition: 'all 0.3s ease'
-                // }}
-                className="px-6 py-2.5 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors"
-                // className="hover:bg-[#FF6B35] hover:text-white"
+                className="inline-block px-8 py-3 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors text-base"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
                 data-testid="our-mission-read-more-btn"
               >
                 Read more
               </Link>
             </div>
             
-            {/* Right - Eagle Illustration */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            {/* Right - Eagle Illustration - Takes 2 of 5 columns (~40%) */}
+            <div className="order-1 lg:order-2 lg:col-span-2 flex justify-center lg:justify-end">
               <img 
                 src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/llrlfhzt_toolfk_a_majestic_eagle_in_.png" 
                 alt="Digital technology eagle representing AI innovation"
                 style={{
-                  maxWidth: '550px',
+                  maxWidth: '420px',
                   width: '100%',
                   height: 'auto',
                   objectFit: 'contain'
