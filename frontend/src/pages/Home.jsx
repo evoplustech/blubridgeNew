@@ -1094,6 +1094,20 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Curious About BluBridge Section */}
+      <section className="py-16 bg-[#fffdf7]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#0B1F3B]">Curious About BluBridge?</h2>
+            <Link to="/contact">
+              <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
+                Contact
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
       {/* <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
