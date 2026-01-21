@@ -747,8 +747,8 @@ const Home = () => {
               className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
               data-testid="solution-model-customization"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
-                <SlidersHorizontal className="w-7 h-7 text-white" strokeWidth={1.5} />
+              <div className="w-14 h-14 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center mb-6">
+                <SlidersHorizontal className="w-7 h-7 text-[#8B5CF6]" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Model Customization
@@ -763,8 +763,8 @@ const Home = () => {
               className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
               data-testid="solution-value-realization"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
-                <TrendingUp className="w-7 h-7 text-white" strokeWidth={1.5} />
+              <div className="w-14 h-14 rounded-xl bg-[#328CC1]/10 flex items-center justify-center mb-6">
+                <TrendingUp className="w-7 h-7 text-[#328CC1]" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Value Realization
@@ -779,8 +779,8 @@ const Home = () => {
               className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
               data-testid="solution-deployment"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
-                <Rocket className="w-7 h-7 text-white" strokeWidth={1.5} />
+              <div className="w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center mb-6">
+                <Rocket className="w-7 h-7 text-[#10B981]" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Deployment
@@ -1020,9 +1020,9 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-light mb-6 text-[#0B1F3B]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
               Blubridge Infrastructure for custom AI deployment Solutions
             </h2>
-            <p className="text-[#243447] max-w-4xl leading-relaxed text-lg">
+            {/* <p className="text-[#243447] max-w-4xl leading-relaxed text-lg">
               Blubridge provides a secure, scalable foundation to run bespoke AI systems in real-world environments. It bridges research and production by delivering performance-optimized, sovereign, and enterprise-ready AI infrastructure.
-            </p>
+            </p> */}
           </div>
           
           {/* Infrastructure Tabs */}
