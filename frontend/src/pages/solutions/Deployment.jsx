@@ -30,7 +30,7 @@ const Deployment = () => {
           />
         </div>
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0  pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/90 via-[#000000]/50 to-transparent pointer-events-none" />
 
         {/* Hero content - left aligned */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
