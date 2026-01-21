@@ -433,7 +433,7 @@ const Deployment = () => {
                   className="w-full flex items-center justify-between py-6 text-left hover:text-emerald-400 transition-colors"
                 >
                   <span className="text-base font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                  <div className="`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaq === i ? 'bg-[#0B1F3B] text-white' : 'bg-[#0B1F3B]/10 text-[#0B1F3B]'}`">
                     {openFaq === i ? (
                       <ChevronUp className="w-4 h-4 text-emerald-400" />
                     ) : (
