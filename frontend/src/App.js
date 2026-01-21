@@ -93,6 +93,7 @@ function App() {
             <Route path="/solutions/inference" element={<SolutionInference />} />
             <Route path="/solutions/fine-tuning" element={<SolutionFineTuning />} />
             <Route path="/solutions/deployment" element={<SolutionDeployment />} />
+            <Route path="/solutions/value-realization" element={<ValueRealization />} />
             <Route path="/solutions/ai-development" element={<AIDevelopment />} />
             
             {/* Solution Routes - Industry */}
