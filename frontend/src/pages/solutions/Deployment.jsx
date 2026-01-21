@@ -85,13 +85,13 @@ const Deployment = () => {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
+              <p className="text-[#4B5563] leading-relaxed">
                 Move from experimentation to live systems faster with pre-configured pipelines and automated rollout workflows.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
+              <p className="text-[#4B5563] leading-relaxed">
                 Scale inference dynamically with predictable pricing and resource-aware orchestration across GPU clusters.
               </p>
             </div>
