@@ -1066,13 +1066,13 @@ const Home = () => {
       <VerticalTabsSection />
 
       {/* Work with BluBridge Section */}
-      <section className="py-20 bg-[#0B1F3B]">
+      <section className="py-20 bg-[#efede5]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left - Text Content */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6">Work with BluBridge</h2>
-              <p className="text-gray-300 text-base leading-relaxed mb-8">
+              <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">Work with BluBridge</h2>
+              <p className="text-black leading-relaxed mb-8">
                 We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
               </p>
               <Link to="/careers">
