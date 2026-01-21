@@ -25,6 +25,7 @@ import Glomfjord from './pages/products/Glomfjord';
 import Narvik from './pages/products/Narvik';
 import GPUNodes from './pages/products/GPUNodes';
 import Marketplace from './pages/products/Marketplace';
+import ModelCustomization from './pages/products/ModelCustomization';
 
 // Solution Pages - Cases
 import SolutionTraining from './pages/solutions/Training';
