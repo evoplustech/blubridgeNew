@@ -204,7 +204,7 @@ const Deployment = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">PLATFORM</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['Model Registry', 'Versioning','Traffic Routing'].map((item, i) => (
+                  {['Model Registry', 'Versioning','Traffic Routing','Rollback Management'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
                       <div className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
                       {item}

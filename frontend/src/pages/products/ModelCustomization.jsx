@@ -208,7 +208,7 @@ const ModelCustomization = () => {
               </h1>
               
               <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
-                BluBridge Model Customization enables you to adapt, refine, and specialize foundation models for your exact use cases. From domain alignment to behavioral tuning, our platform gives you full control over how your models think, respond, and perform—without the overhead of managing complex infrastructure.
+                BluBridge Model Customization enables you to adapt, refine, and specialize foundation models for your exact use cases. From domain alignment to behavioral tuning, our platform gives you full control over how your models think, respond, and perform - without the overhead of managing complex infrastructure.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
@@ -276,7 +276,7 @@ const ModelCustomization = () => {
                 Accelerated Model<br />Customization
               </h2>
               <p className="text-[#2F3A4A] mb-5 leading-relaxed">
-                Model customization requires more than fine-tuning—it demands precision, repeatability, and control. BluBridge provides a unified environment for adapting models at scale, enabling teams to shape behavior, tone, and reasoning patterns with confidence.
+                Model customization requires more than fine-tuning - it demands precision, repeatability, and control. BluBridge provides a unified environment for adapting models at scale, enabling teams to shape behavior, tone, and reasoning patterns with confidence.
               </p>
               <p className="text-[#2F3A4A] mb-5 leading-relaxed">
                 Our platform supports parameter-efficient tuning, instruction alignment, and domain-specific adaptation across distributed GPU clusters. Built-in orchestration ensures experiments are reproducible, scalable, and easy to transition into production.
@@ -481,7 +481,7 @@ const ModelCustomization = () => {
               </div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">AI Marketplace</h3>
               <p className="text-[#4B5563] leading-relaxed">
-                Access adapters, datasets, and tools that support application development and deployment—compatible with both BluBridge offerings and popular APIs.
+                Access adapters, datasets, and tools that support application development and deployment - compatible with both BluBridge offerings and popular APIs.
               </p>
             </div>
           </div>
