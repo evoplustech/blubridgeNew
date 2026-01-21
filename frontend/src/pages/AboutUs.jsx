@@ -349,7 +349,7 @@ const AboutUs = () => {
       </section>
 
       {/* Our Mission Section - Section 2 */}
-      <section className="py-24 bg-[#f3f1e9]">
+      <section className="py-24 bg-[#fffdf7]">
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             {/* Left Content - Fixed width 940px */}
