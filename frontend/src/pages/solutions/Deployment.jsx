@@ -109,13 +109,10 @@ const Deployment = () => {
               <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-6 leading-tight">
                 Fast, reliable Deployment
               </h2>
-              <p className="text-base text-white/65 leading-relaxed mb-10">
+              <p className="text-base  leading-relaxed mb-10">
                 Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.
- 
-Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.
- 
-From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.
-
+                Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.
+                From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.
               </p>
 
               {/* <div className="space-y-8">
