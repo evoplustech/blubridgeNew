@@ -1107,15 +1107,15 @@ const Home = () => {
 
       {/* BluBridge's Infrastructure Section - Arctic Background */}
       <section className="py-20 relative overflow-hidden min-h-[700px]" data-testid="infrastructure-section">
-        {/* Arctic Mountain Background Image */}
+        {/* Arctic Mountain Background Image with 0.5 opacity */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80')`,
           }}
         />
-        {/* Light overlay to soften the background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/20 to-white/40" />
+        {/* Base background color visible through the semi-transparent image */}
+        <div className="absolute inset-0 bg-[#fffdf7] -z-10" />
         
         <div className="container-custom relative z-10">
           {/* Section Title & Description */}
