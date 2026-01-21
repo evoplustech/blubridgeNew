@@ -782,9 +782,9 @@ const Home = () => {
               <AIExpertiseOrbit />    
             </div>
             
-            {/* Right - Research Teams Grid (8 tabs, clickable with routing) */}
+            {/* Right - AI Expertise Grid (8 tabs, clickable with routing) */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our Research Teams</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Database, title: "Data", slug: "data" },
