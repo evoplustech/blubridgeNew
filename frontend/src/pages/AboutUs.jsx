@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight, SlidersHorizontal, TrendingUp, Rocket, Database, Brain, Shield, Lightbulb } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 // Team slug to index mapping
