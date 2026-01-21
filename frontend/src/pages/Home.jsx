@@ -124,6 +124,7 @@ const FeaturesCardsSection = () => {
       </div>
     </section>
   );
+};
 
 const AIExpertiseOrbit = () => {
   const rings = [
