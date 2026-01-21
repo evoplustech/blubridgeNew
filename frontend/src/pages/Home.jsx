@@ -208,7 +208,7 @@ const AIExpertiseOrbit = () => {
     // OUTER ring: 3 features + 2 dummies
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 270, Icon: Radio, label: 'Telco' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 315, Icon: HeartPulse, label: 'Healthcare' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 225, Icon: Factory, label: 'Manufacturing' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 430, Icon: Factory, label: 'Manufacturing' },
     { ring: 3, type: 'dummy', angle: 180, dummyClass: 'dummy-orange' },
     { ring: 3, type: 'dummy', angle: 350, dummyClass: 'dummy-orange' }
   ];
@@ -642,15 +642,15 @@ const Home = () => {
      
       {/* Who We Are & What We Aim To Do Section - NEW */}
 {/* Who We Are & What We Aim To Do Section - Interactive Collapsible */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left Card - Who We Are? */}
+          
             <div 
               className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
               data-testid="who-we-are-card"
             >
-              {/* Clickable Header */}
+              
               <button
                 onClick={() => toggleAboutCard('whoWeAre')}
                 className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
@@ -673,7 +673,7 @@ const Home = () => {
                 </h3>
               </button>
               
-              {/* Collapsible Content */}
+              
               <div 
                 className={`overflow-hidden transition-all duration-400 ease-out ${
                   expandedAboutCards.whoWeAre 
@@ -690,12 +690,12 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Right Card - What We Aim to Do? */}
+           
             <div 
               className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
               data-testid="what-we-aim-card"
             >
-              {/* Clickable Header */}
+             
               <button
                 onClick={() => toggleAboutCard('whatWeAim')}
                 className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
@@ -718,7 +718,7 @@ const Home = () => {
                 </h3>
               </button>
               
-              {/* Collapsible Content */}
+              
               <div 
                 className={`overflow-hidden transition-all duration-400 ease-out ${
                   expandedAboutCards.whatWeAim 
@@ -736,7 +736,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* News/Updates Strip (commented out)
         <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
