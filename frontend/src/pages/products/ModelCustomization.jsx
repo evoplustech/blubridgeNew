@@ -398,15 +398,15 @@ const ModelCustomization = () => {
               </div>
 
               {/* DATA CENTRE Card */}
-              <div className="bg-[#0a1628] rounded-xl p-6 h-[calc(50%-8px)]">
+              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
                 <div className="mb-4">
-                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA CENTRE</span>
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA CENTRE</span>
                 </div>
                 <div className="space-y-3">
                   {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                      <span className="text-white/90 text-sm">{item}</span>
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
+                      <span className="text-[#E0E0E0] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>

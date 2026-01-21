@@ -110,7 +110,12 @@ const Deployment = () => {
                 Fast, reliable Deployment
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
-                Our platform leverages the latest in GPU technology to provide exceptional performance, efficiency, and scalability. This ensures your AI models are fine-tuned to deliver strong value while meeting the demands of real-world use cases.
+                Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.
+ 
+Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.
+ 
+From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.
+
               </p>
 
               {/* <div className="space-y-8">
