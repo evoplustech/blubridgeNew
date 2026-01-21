@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight, SlidersHorizontal, TrendingUp, Rocket } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 // Team slug to index mapping
@@ -420,61 +420,6 @@ const AboutUs = () => {
                 className="hidden sm:block"
                 data-testid="our-mission-bird-image"
               />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Cards Section - Model Customization, Value Realization, Deployment */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1: Model Customization */}
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
-              data-testid="service-model-customization"
-            >
-              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
-                <SlidersHorizontal className="w-7 h-7 text-white" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Model Customization
-              </h3>
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence for real-world use.
-              </p>
-            </div>
-
-            {/* Card 2: Value Realization */}
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
-              data-testid="service-value-realization"
-            >
-              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
-                <TrendingUp className="w-7 h-7 text-white" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Value Realization
-              </h3>
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment is focused on driving efficiency, impact, and long-term value across your organization.
-              </p>
-            </div>
-
-            {/* Card 3: Deployment */}
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
-              data-testid="service-deployment"
-            >
-              <div className="w-14 h-14 rounded-xl bg-[#0B1F3B] flex items-center justify-center mb-6">
-                <Rocket className="w-7 h-7 text-white" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Deployment
-              </h3>
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model is engineered to run reliably in real environments, ensuring seamless integration and sustained impact.
-              </p>
             </div>
           </div>
         </div>
