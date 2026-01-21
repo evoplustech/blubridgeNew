@@ -79,7 +79,7 @@ const Deployment = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
+              <p className="text-[#4B5563] leading-relaxed">
                 Deploy models in environments engineered for reliability, consistency, and real-time performance.
               </p>
             </div>
