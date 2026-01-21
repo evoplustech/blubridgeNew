@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus, Check } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Check, Sparkles, Layers, Settings, Zap, Database, Server, Network, Shield, Box, Terminal, Cpu, BarChart3, Rocket, Users, Building2 } from 'lucide-react';
 
 const ModelCustomization = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const canvasRef = useRef(null);
 
-  // Animated abstract visual for hero
+  // Animated abstract visual for hero - improved design
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -23,89 +23,78 @@ const ModelCustomization = () => {
     };
 
     const drawAbstractVisual = () => {
-      time += 0.006;
+      time += 0.008;
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
       const centerX = width * 0.5;
       const centerY = height * 0.5;
 
-      ctx.save();
-      ctx.translate(centerX, centerY);
-
-      // Modular flowing layers
-      for (let layer = 0; layer < 6; layer++) {
-        const layerTime = time + layer * 0.25;
-        const scale = 1 - layer * 0.12;
-        const rotation = layerTime * (layer % 2 === 0 ? 0.15 : -0.1);
-        const alpha = 0.5 - layer * 0.07;
+      // Draw layered 3D-like surfaces with purple gradient
+      for (let layer = 0; layer < 5; layer++) {
+        const offsetY = Math.sin(time + layer * 0.5) * 10;
+        const offsetX = Math.cos(time * 0.7 + layer * 0.3) * 5;
         
         ctx.save();
-        ctx.rotate(rotation);
-        ctx.scale(scale, scale);
-
-        // Draw flowing curved shape
-        const radius = Math.min(width, height) * 0.32;
-        const wave = Math.sin(time * 1.2 + layer) * 15;
-
+        ctx.translate(centerX + offsetX, centerY + offsetY - layer * 25);
+        
+        // Create 3D parallelogram shape
+        const w = 180 - layer * 15;
+        const h = 100 - layer * 8;
+        const skew = 0.4;
+        
         ctx.beginPath();
-        for (let i = 0; i <= 60; i++) {
-          const angle = (i / 60) * Math.PI * 2;
-          const wobble = Math.sin(angle * 3 + time * 2 + layer) * 12;
-          const r = radius + wave + wobble;
-          const x = Math.cos(angle) * r;
-          const y = Math.sin(angle) * r * 0.85;
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
+        ctx.moveTo(-w/2 + h * skew, -h/2);
+        ctx.lineTo(w/2 + h * skew, -h/2);
+        ctx.lineTo(w/2 - h * skew, h/2);
+        ctx.lineTo(-w/2 - h * skew, h/2);
         ctx.closePath();
-
-        // Gradient fill with purple/violet tones
-        const gradient = ctx.createLinearGradient(-radius, -radius, radius, radius);
-        gradient.addColorStop(0, `rgba(139, 92, 246, ${alpha * 0.35})`);
-        gradient.addColorStop(0.5, `rgba(167, 139, 250, ${alpha * 0.5})`);
-        gradient.addColorStop(1, `rgba(124, 58, 237, ${alpha * 0.25})`);
+        
+        // Gradient fill
+        const gradient = ctx.createLinearGradient(-w/2, 0, w/2, 0);
+        const alpha = 0.6 - layer * 0.08;
+        gradient.addColorStop(0, `rgba(88, 28, 135, ${alpha})`);
+        gradient.addColorStop(0.5, `rgba(139, 92, 246, ${alpha})`);
+        gradient.addColorStop(1, `rgba(167, 139, 250, ${alpha * 0.8})`);
         ctx.fillStyle = gradient;
         ctx.fill();
-
-        // Edge glow
-        ctx.strokeStyle = `rgba(167, 139, 250, ${alpha * 0.6})`;
-        ctx.lineWidth = 1.5;
+        
+        // Edge highlight
+        ctx.strokeStyle = `rgba(196, 181, 253, ${alpha * 0.5})`;
+        ctx.lineWidth = 1;
         ctx.stroke();
-
+        
         ctx.restore();
       }
 
-      // Inner modular grid pattern
-      for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-          const gridX = (i - 1.5) * 35;
-          const gridY = (j - 1.5) * 35;
-          const pulse = Math.sin(time * 2 + i + j) * 0.3 + 0.7;
-          
-          ctx.beginPath();
-          ctx.rect(gridX - 8, gridY - 8, 16, 16);
-          ctx.strokeStyle = `rgba(167, 139, 250, ${0.2 * pulse})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      }
-
-      // Floating particles
-      for (let i = 0; i < 12; i++) {
-        const angle = time * 0.5 + i * (Math.PI * 2 / 12);
-        const dist = 70 + Math.sin(time * 1.5 + i) * 25;
-        const px = Math.cos(angle) * dist;
-        const py = Math.sin(angle) * dist;
-        const size = 2.5 + Math.sin(time + i) * 1;
+      // Floating data particles
+      for (let i = 0; i < 20; i++) {
+        const angle = time * 0.5 + i * (Math.PI * 2 / 20);
+        const radius = 100 + Math.sin(time + i) * 30;
+        const x = centerX + Math.cos(angle) * radius;
+        const y = centerY + Math.sin(angle) * radius * 0.6;
+        const size = 2 + Math.sin(time * 2 + i) * 1;
         
         ctx.beginPath();
-        ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(167, 139, 250, ${0.5 + Math.sin(time + i) * 0.2})`;
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(167, 139, 250, ${0.4 + Math.sin(time + i) * 0.2})`;
         ctx.fill();
       }
 
-      ctx.restore();
+      // Connecting lines
+      ctx.strokeStyle = 'rgba(139, 92, 246, 0.15)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 8; i++) {
+        const angle1 = time * 0.3 + i * (Math.PI / 4);
+        const angle2 = angle1 + Math.PI / 6;
+        const r1 = 60 + Math.sin(time + i) * 20;
+        const r2 = 120 + Math.cos(time + i) * 30;
+        
+        ctx.beginPath();
+        ctx.moveTo(centerX + Math.cos(angle1) * r1, centerY + Math.sin(angle1) * r1 * 0.6);
+        ctx.lineTo(centerX + Math.cos(angle2) * r2, centerY + Math.sin(angle2) * r2 * 0.6);
+        ctx.stroke();
+      }
 
       animationFrame = requestAnimationFrame(drawAbstractVisual);
     };
@@ -124,107 +113,23 @@ const ModelCustomization = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  // Performance metrics
-  const performanceMetrics = [
-    {
-      metric: '+35%',
-      label: 'ACCURACY',
-      title: 'Domain-specific precision',
-      description: 'Average accuracy improvements after model customization for specialized tasks.'
-    },
-    {
-      metric: '4.5X',
-      label: 'FASTER',
-      title: 'Iteration cycles',
-      description: 'Reduced time from concept to production-ready custom models.'
-    },
-    {
-      metric: '60%',
-      label: 'LOWER COST',
-      title: 'Inference optimization',
-      description: 'Reduced inference costs through targeted architecture refinement.'
-    },
-    {
-      metric: '99.2%',
-      label: 'STABILITY',
-      title: 'Production reliability',
-      description: 'Consistent performance across diverse production environments.'
-    }
-  ];
-
-  // Customization dimensions
-  const customizationDimensions = [
-    {
-      title: 'Data & Domain Adaptation',
-      description: 'Align model behavior with your specific data distributions, domain terminology, and contextual requirements.'
-    },
-    {
-      title: 'Model Architecture Refinement',
-      description: 'Optimize model structure, layer configurations, and parameter distributions for your use case.'
-    },
-    {
-      title: 'Training Strategy Design',
-      description: 'Custom training regimens, curriculum learning, and optimization schedules tailored to objectives.'
-    },
-    {
-      title: 'Inference & Deployment Optimization',
-      description: 'Performance tuning for latency, throughput, and resource efficiency in production environments.'
-    }
-  ];
-
-  // Workflow stages
-  const workflowStages = [
-    {
-      stage: '01',
-      title: 'Problem Understanding',
-      description: 'Deep analysis of your domain, data characteristics, and performance requirements.'
-    },
-    {
-      stage: '02',
-      title: 'Model Adaptation',
-      description: 'Architecture selection, parameter optimization, and domain-specific training strategies.'
-    },
-    {
-      stage: '03',
-      title: 'Evaluation & Validation',
-      description: 'Rigorous testing against benchmarks, edge cases, and production-realistic scenarios.'
-    },
-    {
-      stage: '04',
-      title: 'Production Deployment',
-      description: 'Seamless integration with monitoring, scaling, and continuous improvement pipelines.'
-    }
-  ];
-
-  // Target audiences
-  const audiences = [
-    { title: 'Enterprises', description: 'Organizations requiring AI systems aligned with proprietary data and processes.' },
-    { title: 'Research Teams', description: 'Academic and industrial researchers pushing model boundaries.' },
-    { title: 'Product Teams', description: 'Builders creating AI-powered products for specific markets.' },
-    { title: 'AI-Native Companies', description: 'Teams scaling from prototype to production-grade AI systems.' }
-  ];
-
   // FAQ data
   const faqs = [
     {
-      question: "What is model customization?",
-      answer: "Model customization is the process of adapting foundation models to specific domains, data distributions, and performance objectives. Unlike generic fine-tuning, it involves comprehensive architectural, training, and deployment optimizations tailored to your exact requirements."
+      question: "What makes BluBridge's Model Customization different from others?",
+      answer: "BluBridge provides a unified environment for adapting models at scale with full control over behavior, tone, and reasoning patterns. Our platform supports parameter-efficient tuning, instruction alignment, and domain-specific adaptation with built-in orchestration for reproducible, scalable experiments."
     },
     {
-      question: "How is this different from fine-tuning?",
-      answer: "Fine-tuning typically involves training a pre-existing model on new data with minimal architectural changes. Model customization goes further—it includes architecture modifications, training strategy design, inference optimization, and deployment configuration to achieve optimal performance for your specific use case."
+      question: "What types of customization does BluBridge support?",
+      answer: "We support instruction fine-tuning, domain adaptation, behavioral alignment, parameter-efficient methods (LoRA, QLoRA), and full fine-tuning across distributed GPU clusters. Our platform handles everything from lightweight adapters to full model retraining."
     },
     {
-      question: "Can existing models be customized?",
-      answer: "Yes, we work with both open-weight foundation models and proprietary architectures. Our team assesses your current models and determines the most effective customization approach based on your performance targets and constraints."
+      question: "How does BluBridge ensure customization quality?",
+      answer: "Our platform includes built-in evaluation frameworks, A/B testing capabilities, and continuous monitoring. Every customization experiment is versioned, reproducible, and can be rolled back if needed. We also provide alignment packs and domain-specific evaluation sets."
     },
     {
-      question: "How long does customization take?",
-      answer: "Timelines vary based on complexity. Initial assessments typically complete within 2-3 weeks. Full customization projects range from 4-12 weeks depending on scope, data requirements, and target performance levels."
-    },
-    {
-      question: "What data is required for customization?",
-      answer: "Requirements depend on your objectives. We work with your existing datasets, help curate new training data, and implement data augmentation strategies. All data handling follows strict security and privacy protocols."
+      question: "How does BluBridge accelerate AI development?",
+      answer: "BluBridge reduces customization cycles from weeks to days through streamlined pipelines, pre-configured environments, and distributed training infrastructure. Our experiment manager tracks all iterations, making it easy to identify winning configurations quickly."
     }
   ];
 
@@ -233,39 +138,47 @@ const ModelCustomization = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
       
-      {/* SECTION 1: Hero Section */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#fffdf7]">
-        <div className="container-custom relative z-10">
+      {/* SECTION 1: Hero Section - Purple Gradient Background */}
+      <section className="relative min-h-[550px] overflow-hidden">
+        {/* Purple gradient background */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4c1d95 60%, #581c87 100%)'
+          }}
+        />
+        {/* Subtle overlay pattern */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+        
+        <div className="container-custom relative z-10 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div className="space-y-6" style={{ animation: 'fadeInUp 1s ease-out' }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#8B5CF6]/10 rounded-full border border-[#8B5CF6]/30">
-                <span className="w-2 h-2 bg-[#8B5CF6] rounded-full animate-pulse" />
-                <span className="text-[#8B5CF6] text-sm font-medium uppercase tracking-wider">MODEL CUSTOMIZATION</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B1F3B]" style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
-                Adapt models to<br />your data, domain,<br />and objectives
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight text-white tracking-tight">
+                MODEL CUSTOMIZATION
               </h1>
               
-              <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed" style={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
-                Transform generic AI systems into purpose-built solutions. We refine architecture, training strategies, and deployment configurations to deliver models that perform precisely for your requirements.
+              <p className="text-white/80 text-lg max-w-xl leading-relaxed">
+                BluBridge Model Customization enables you to adapt, refine, and specialize foundation models for your exact use cases. From domain alignment to behavioral tuning, our platform gives you full control over how your models think, respond, and perform—without the overhead of managing complex infrastructure.
               </p>
               
-              <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
+              <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact">
-                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
-                    Start Customization
+                  <Button className="bg-white text-[#4c1d95] hover:bg-white/90 px-6 py-3 rounded font-medium">
+                    Start Customizing
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 border border-[#0B1F3B] text-[#0B1F3B] rounded hover:bg-[#f3f1e9] transition-colors font-medium">
-                  Schedule Consultation <ArrowRight className="w-4 h-4" />
+                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-white hover:text-white/80 transition-colors font-medium">
+                  Contact Us <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
             
             {/* Right - Abstract Visual */}
-            <div className="relative h-[400px] lg:h-[450px]" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
+            <div className="relative h-[350px] lg:h-[400px]">
               <canvas 
                 ref={canvasRef}
                 className="w-full h-full"
@@ -274,151 +187,306 @@ const ModelCustomization = () => {
             </div>
           </div>
         </div>
-
-        <style>{`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-          }
-        `}</style>
       </section>
 
-      {/* SECTION 2: Performance Metrics */}
-      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
+      {/* SECTION 2: Value Highlights - 3 Cards */}
+      <section className="py-16 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0B1F3B]">Performance & Impact</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {performanceMetrics.map((item, i) => (
-              <div key={i} className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-1">
-                  {item.metric} <span className="text-lg font-medium text-[#0B1F3B]">{item.label}</span>
-                </div>
-                <p className="text-[#0B1F3B] font-medium mb-1">{item.title}</p>
-                <p className="text-[#4B5563] text-sm">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: Customization Capabilities */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
-                Deep customization<br />across every layer
-              </h2>
-              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
-                Our approach goes beyond surface-level adjustments. We analyze your data characteristics, domain requirements, and performance objectives to implement targeted modifications at every level of the model stack.
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Domain-Aligned Models</h3>
+              <p className="text-[#4B5563] leading-relaxed">
+                Tailor models to your industry, data, and workflows, ensuring outputs reflect your domain knowledge and business context.
               </p>
-              <p className="text-[#2F3A4A] mb-8 leading-relaxed">
-                From architecture selection to inference optimization, each decision is guided by your specific constraints and goals—delivering models that perform precisely where generic solutions fall short.
-              </p>
-              <Link to="/contact">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3 rounded font-medium">
-                  Discuss Your Requirements <ArrowRight className="w-4 h-4 ml-2 inline" />
-                </Button>
-              </Link>
             </div>
             
-            {/* Capability Cards */}
-            <div className="space-y-4">
-              {[
-                { title: 'Data Alignment', desc: 'Match model behavior to your data distributions and domain vocabulary.' },
-                { title: 'Architecture Tuning', desc: 'Optimize layer configurations, attention mechanisms, and parameter efficiency.' },
-                { title: 'Objective Optimization', desc: 'Custom loss functions and training objectives aligned with business metrics.' },
-                { title: 'Deployment Constraints', desc: 'Latency, memory, and throughput optimization for production requirements.' }
-              ].map((item, i) => (
-                <div key={i} className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
-                  <h4 className="font-semibold text-[#0B1F3B] mb-2">{item.title}</h4>
-                  <p className="text-[#4B5563] text-sm">{item.desc}</p>
-                </div>
-              ))}
+            {/* Card 2 */}
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Faster Adaptation Cycles</h3>
+              <p className="text-[#4B5563] leading-relaxed">
+                Iterate rapidly with streamlined fine-tuning pipelines that reduce experimentation time and accelerate deployment.
+              </p>
+            </div>
+            
+            {/* Card 3 */}
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Production-Ready Outputs</h3>
+              <p className="text-[#4B5563] leading-relaxed">
+                Deliver models that are optimized for real-world usage, with consistent behavior, reliability, and performance.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: Customization Dimensions */}
+      {/* SECTION 3: Accelerated Model Customization */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">Customization Dimensions</h2>
-          <p className="text-[#4B5563] mb-12 max-w-2xl">
-            Every customization project addresses multiple dimensions to ensure comprehensive alignment with your requirements.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {customizationDimensions.map((item, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 border border-[#E5E7EB] shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 bg-[#8B5CF6]/10 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-[#8B5CF6] font-bold">{String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 className="font-semibold text-[#0B1F3B] mb-3">{item.title}</h3>
-                <p className="text-[#4B5563] text-sm leading-relaxed">{item.description}</p>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left Content */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]" style={{ fontFamily: 'serif' }}>
+                Accelerated Model<br />Customization
+              </h2>
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
+                Model customization requires more than fine-tuning—it demands precision, repeatability, and control. BluBridge provides a unified environment for adapting models at scale, enabling teams to shape behavior, tone, and reasoning patterns with confidence.
+              </p>
+              <p className="text-[#2F3A4A] mb-6 leading-relaxed">
+                Our platform supports parameter-efficient tuning, instruction alignment, and domain-specific adaptation across distributed GPU clusters. Built-in orchestration ensures experiments are reproducible, scalable, and easy to transition into production.
+              </p>
+              <p className="text-[#2F3A4A] leading-relaxed">
+                From enterprise workflows to specialized research models, BluBridge transforms customization into a fast, predictable process.
+              </p>
+            </div>
+            
+            {/* Right - Feature Cards */}
+            <div className="space-y-4">
+              {/* Pre-configured Card */}
+              <div className="bg-gradient-to-r from-[#4c1d95] to-[#7c3aed] rounded-xl p-6 text-white">
+                <p className="text-white/70 text-sm mb-1">Ready-to-use Environments</p>
+                <h3 className="text-2xl font-semibold mb-2">Pre-configured</h3>
+                <p className="text-white/80 text-sm">Fine-tuning and alignment environments ready for immediate use</p>
               </div>
-            ))}
+              
+              {/* Scalable Card */}
+              <div className="bg-gradient-to-r from-[#6d28d9] to-[#8b5cf6] rounded-xl p-6 text-white">
+                <p className="text-white/70 text-sm mb-1">Distributed GPU Clusters</p>
+                <h3 className="text-2xl font-semibold mb-2">Scalable</h3>
+                <p className="text-white/80 text-sm">Large-scale adaptation across high-performance infrastructure</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: Customization Workflow */}
+      {/* SECTION 4: Customization Stack */}
+      <section className="py-20 bg-[#1a1a2e]">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" style={{ fontFamily: 'serif' }}>
+            Customization Stack
+          </h2>
+          <p className="text-gray-400 mb-12 max-w-2xl">
+            Our comprehensive customization stack provides everything you need from hardware to application, with full flexibility to customize at every layer.
+          </p>
+          
+          {/* Stack Layers */}
+          <div className="space-y-4">
+            {/* MARKETPLACE Layer */}
+            <div className="bg-[#2d2d44] rounded-lg p-4">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="bg-[#4c1d95] text-white text-xs font-bold px-3 py-1 rounded">MARKETPLACE</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['Instruction Datasets', 'Alignment Packs', 'Domain Corpora', 'Evaluation Sets', 'Adapters', 'Plugins'].map((item, i) => (
+                  <span key={i} className="bg-[#3d3d5c] text-gray-300 text-sm px-3 py-1.5 rounded flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            {/* PLATFORM Layer */}
+            <div className="bg-[#2d2d44] rounded-lg p-4">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="bg-[#4c1d95] text-white text-xs font-bold px-3 py-1 rounded">PLATFORM</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['Experiment Manager', 'Version Control', 'Training Pipelines', 'Model Registry'].map((item, i) => (
+                  <span key={i} className="bg-[#3d3d5c] text-gray-300 text-sm px-3 py-1.5 rounded flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            {/* INFRASTRUCTURE Layer */}
+            <div className="bg-[#2d2d44] rounded-lg p-4">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="bg-[#4c1d95] text-white text-xs font-bold px-3 py-1 rounded">INFRASTRUCTURE</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['GPU Orchestration', 'Distributed Training', 'Secure Storage', 'High-Speed Networking'].map((item, i) => (
+                  <span key={i} className="bg-[#3d3d5c] text-gray-300 text-sm px-3 py-1.5 rounded flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* HARDWARE Layer */}
+            <div className="bg-[#2d2d44] rounded-lg p-4">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="bg-[#7c3aed] text-white text-xs font-bold px-3 py-1 rounded">HARDWARE</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['A100 80GB', 'H100 SXM5', 'NVIDIA DGX', 'NVIDIA HGX', 'NVIDIA A100', 'NVIDIA A800'].map((item, i) => (
+                  <span key={i} className="bg-[#4c1d95] text-white text-sm px-3 py-1.5 rounded flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-purple-300 rounded-full" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Bottom Info Cards */}
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
+            <div className="bg-[#fffdf7] rounded-xl p-6">
+              <h4 className="font-semibold text-[#0B1F3B] mb-3">USER EXPERIENCE</h4>
+              <ul className="space-y-2 text-sm text-[#4B5563]">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> Web Console</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> API</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> CLI</li>
+              </ul>
+            </div>
+            <div className="bg-[#fffdf7] rounded-xl p-6">
+              <h4 className="font-semibold text-[#0B1F3B] mb-3">DATA CENTRE</h4>
+              <ul className="space-y-2 text-sm text-[#4B5563]">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> Renewable Energy</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> Low-latency Fabric</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: Performance Metrics */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">Customization Workflow</h2>
-          <p className="text-[#4B5563] mb-12 max-w-2xl">
-            A structured approach that moves efficiently from understanding to deployment.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {workflowStages.map((item, i) => (
-              <div key={i} className="relative">
-                <div className="text-5xl font-bold text-[#E5E7EB] mb-4">{item.stage}</div>
-                <h3 className="font-semibold text-[#0B1F3B] mb-2 text-lg">{item.title}</h3>
-                <p className="text-[#4B5563] text-sm leading-relaxed">{item.description}</p>
-              </div>
-            ))}
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#0B1F3B]" style={{ fontFamily: 'serif' }}>
+            Performance
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Metric 1 */}
+            <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
+              <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">30%</div>
+              <div className="text-sm font-semibold text-[#4c1d95] uppercase tracking-wider mb-2">Faster Iterations</div>
+              <p className="text-[#4B5563] text-sm">Shorter development feedback loops with streamlined training pipelines.</p>
+            </div>
+            
+            {/* Metric 2 */}
+            <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
+              <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">80%</div>
+              <div className="text-sm font-semibold text-[#4c1d95] uppercase tracking-wider mb-2">Lower Cost</div>
+              <p className="text-[#4B5563] text-sm">Reduce training costs while maintaining high performance standards.</p>
+            </div>
+            
+            {/* Metric 3 */}
+            <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
+              <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">40%</div>
+              <div className="text-sm font-semibold text-[#4c1d95] uppercase tracking-wider mb-2">More Efficient</div>
+              <p className="text-[#4B5563] text-sm">Improved utilization and training workload optimization.</p>
+            </div>
+            
+            {/* Metric 4 */}
+            <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
+              <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">UP TO</div>
+              <div className="text-sm font-semibold text-[#4c1d95] uppercase tracking-wider mb-2">7X Faster Inference</div>
+              <p className="text-[#4B5563] text-sm">Optimized infrastructure deployment and inference throughput.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 6: Who It's Built For */}
+      {/* SECTION 6: Key Services */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">Who It's Built For</h2>
-          <p className="text-[#4B5563] mb-12 max-w-2xl">
-            Model customization serves teams that require AI systems aligned precisely with their context.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {audiences.map((item, i) => (
-              <div key={i} className="bg-white rounded-lg p-6 border border-[#E5E7EB]">
-                <h3 className="font-semibold text-[#0B1F3B] mb-2">{item.title}</h3>
-                <p className="text-[#4B5563] text-sm">{item.description}</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0B1F3B]" style={{ fontFamily: 'serif' }}>
+            Key Services
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Service 1 */}
+            <div className="bg-white rounded-xl p-8 border border-[#E5E7EB]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#4c1d95]/10 rounded-full mb-4">
+                <Cpu className="w-4 h-4 text-[#4c1d95]" />
+                <span className="text-[#4c1d95] text-sm font-medium">GPU</span>
               </div>
-            ))}
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">AI Compute</h3>
+              <p className="text-[#4B5563] leading-relaxed">
+                A powerful and comprehensive compute layer designed for model training, fine-tuning, and large-scale experiment orchestration.
+              </p>
+            </div>
+            
+            {/* Service 2 */}
+            <div className="bg-white rounded-xl p-8 border border-[#E5E7EB]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#dc2626]/10 rounded-full mb-4">
+                <Box className="w-4 h-4 text-[#dc2626]" />
+                <span className="text-[#dc2626] text-sm font-medium">API</span>
+              </div>
+              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">AI Marketplace</h3>
+              <p className="text-[#4B5563] leading-relaxed">
+                Access adapters, datasets, and tools that support application development and deployment—compatible with both BluBridge offerings and popular APIs.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 7: FAQs */}
+      {/* SECTION 7: More Solutions */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0B1F3B]">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]" style={{ fontFamily: 'serif' }}>
+            More Solutions
+          </h2>
+          <p className="text-[#4B5563] mb-12 max-w-2xl">
+            BluBridge accelerates the journey from development to deployment, delivering faster time to production for your AI initiatives.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Solution 1 */}
+            <Link to="/products/inference" className="group relative h-[200px] rounded-xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#0B1F3B]" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <div className="absolute bottom-0 left-0 p-6">
+                <h3 className="text-white text-xl font-semibold">INFERENCE</h3>
+              </div>
+            </Link>
+            
+            {/* Solution 2 */}
+            <Link to="/solutions/ai-development" className="group relative h-[200px] rounded-xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4c1d95] to-[#2d1b69]" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <div className="absolute bottom-0 left-0 p-6">
+                <h3 className="text-white text-xl font-semibold">AI DEVELOPMENT</h3>
+              </div>
+            </Link>
+            
+            {/* Solution 3 */}
+            <Link to="/products/fine-tuning" className="group relative h-[200px] rounded-xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#065f46] to-[#064e3b]" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <div className="absolute bottom-0 left-0 p-6">
+                <h3 className="text-white text-xl font-semibold">FINE-TUNING</h3>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8: FAQs */}
+      <section className="py-20 bg-[#f3f1e9]">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0B1F3B]" style={{ fontFamily: 'serif' }}>
+            FAQs
+          </h2>
           <div className="max-w-3xl">
             {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-[#E5E7EB]">
+              <div key={i} className="border-b border-[#D6DEC3]">
                 <button
                   onClick={() => toggleFaq(i)}
-                  className="w-full py-6 flex items-center justify-between text-left hover:text-[#8B5CF6] transition-colors"
+                  className="w-full py-6 flex items-center justify-between text-left"
                 >
                   <span className="font-medium text-[#0B1F3B] text-lg pr-8">{faq.question}</span>
-                  {openFaq === i ? (
-                    <Minus className="w-5 h-5 text-[#8B5CF6] flex-shrink-0" />
-                  ) : (
-                    <Plus className="w-5 h-5 text-[#4B5563] flex-shrink-0" />
-                  )}
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaq === i ? 'bg-[#4c1d95] text-white' : 'bg-[#4c1d95]/10 text-[#4c1d95]'}`}>
+                    {openFaq === i ? (
+                      <Minus className="w-4 h-4" />
+                    ) : (
+                      <Plus className="w-4 h-4" />
+                    )}
+                  </div>
                 </button>
                 {openFaq === i && (
                   <div className="pb-6 text-[#4B5563] leading-relaxed pr-12">
@@ -431,23 +499,20 @@ const ModelCustomization = () => {
         </div>
       </section>
 
-      {/* SECTION 8: Final CTA */}
-      <section className="py-20 bg-[#0B1F3B]">
+      {/* SECTION 9: Final CTA */}
+      <section className="py-20 bg-gradient-to-r from-[#4c1d95] to-[#7c3aed]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to build models that perform<br />precisely for your requirements?
+            Access thousands of GPUs tailored to your<br />requirements.
           </h2>
-          <p className="text-[#94A3B8] mb-8 max-w-2xl mx-auto">
-            Our team is ready to understand your domain, analyze your data, and deliver customized models that exceed generic alternatives.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
-                Start Your Project
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <Link to="/products/gpu-nodes">
+              <Button className="bg-white text-[#4c1d95] hover:bg-white/90 px-8 py-3 rounded font-medium">
+                Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded hover:bg-white/10 transition-colors font-medium">
-              Schedule a Call <ArrowRight className="w-4 h-4" />
+            <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-white hover:text-white/80 transition-colors font-medium">
+              Contact Us <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
