@@ -143,7 +143,7 @@ const Deployment = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-semibold">AI Marketplace</h4>
-                    <p className="text-[#6B7280] text-sm">Pre-built fine-tuning templates</p>
+                    <p className="text-[#6B7280] text-sm">Pre-built deployment templates and services</p>
                   </div>
                 </div>
               </div>
@@ -154,7 +154,7 @@ const Deployment = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-semibold">Training Compute</h4>
-                    <p className="text-[#6B7280] text-sm">Scalable GPU clusters</p>
+                    <p className="text-[#6B7280] text-sm">Seamless transition from training to production</p>
                   </div>
                 </div>
               </div>

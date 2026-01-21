@@ -455,13 +455,13 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 6: Key Services */}
-      <section className="py-20 bg-[#f3f1e9]">
+      {/* <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0B1F3B]">
             Key Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Service 1 */}
+           
             <div className="bg-white rounded-xl p-8 border border-[#E5E7EB]">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#328CC1]/10 rounded-full mb-4">
                 <Cpu className="w-4 h-4 text-[#328CC1]" />
@@ -473,7 +473,7 @@ const ModelCustomization = () => {
               </p>
             </div>
             
-            {/* Service 2 */}
+            
             <div className="bg-white rounded-xl p-8 border border-[#E5E7EB]">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#dc2626]/10 rounded-full mb-4">
                 <Box className="w-4 h-4 text-[#dc2626]" />
@@ -486,7 +486,7 @@ const ModelCustomization = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 7: More Solutions */}
       {/* <section className="py-20 bg-[#fffdf7]">
