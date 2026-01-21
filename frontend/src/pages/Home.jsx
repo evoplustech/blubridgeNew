@@ -1118,10 +1118,10 @@ const Home = () => {
           {/* Section Title & Description */}
           <div className="mb-10">
             <h2 className="text-4xl md:text-5xl font-light mb-6 text-[#0B1F3B]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              BluBridge's Infrastructure
+              BluBridge's AI Pipeline
             </h2>
             <p className="text-[#243447] max-w-4xl leading-relaxed text-lg">
-              BluBridge manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
+              We manage the complete AI development lifecycle, from data preparation and model training to deployment and scaling. Every stage is designed to deliver production-ready AI systems that perform at scale.
             </p>
           </div>
           
