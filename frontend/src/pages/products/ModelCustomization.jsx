@@ -316,85 +316,101 @@ const ModelCustomization = () => {
             Our comprehensive customization stack provides everything you need from hardware to application, with full flexibility to customize at every layer.
           </p>
           
-          {/* Stack Layers */}
-          <div className="space-y-4">
-            {/* MARKETPLACE Layer */}
-            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
-              <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#6B7280] text-white text-xs font-bold px-3 py-1 rounded">MARKETPLACE</span>
+          <div className="grid lg:grid-cols-3 gap-4">
+            {/* Left Column - Stack Layers */}
+            <div className="lg:col-span-2 space-y-4">
+              {/* MARKETPLACE Layer */}
+              <div className="bg-[#0a1628] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">MARKETPLACE</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['Instruction Datasets', 'Evaluation Tools', 'Adapters', 'Plugins'].map((item, i) => (
+                    <span key={i} className="bg-[#1a2d47] text-white/90 text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['Instruction Datasets', 'Alignment Packs', 'Domain Corpora', 'Evaluation Sets', 'Adapters', 'Plugins'].map((item, i) => (
-                  <span key={i} className="bg-white text-[#4B5563] text-sm px-3 py-1.5 rounded border border-[#E5E7EB] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#6B7280] rounded-full" />
-                    {item}
-                  </span>
-                ))}
+              
+              {/* PLATFORM Layer */}
+              <div className="bg-[#0a1628] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">PLATFORM</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['Experiment Manager', 'Version Control', 'Pipelines', 'Model Registry'].map((item, i) => (
+                    <span key={i} className="bg-[#1a2d47] text-white/90 text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-            
-            {/* PLATFORM Layer */}
-            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
-              <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#6B7280] text-white text-xs font-bold px-3 py-1 rounded">PLATFORM</span>
+              
+              {/* INFRASTRUCTURE Layer */}
+              <div className="bg-[#0a1628] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFRASTRUCTURE</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['GPU Orchestration', 'Distributed Training', 'Networking', 'Storage'].map((item, i) => (
+                    <span key={i} className="bg-[#1a2d47] text-white/90 text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['Experiment Manager', 'Version Control', 'Training Pipelines', 'Model Registry'].map((item, i) => (
-                  <span key={i} className="bg-white text-[#4B5563] text-sm px-3 py-1.5 rounded border border-[#E5E7EB] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#6B7280] rounded-full" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-            
-            {/* INFRASTRUCTURE Layer */}
-            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
-              <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#6B7280] text-white text-xs font-bold px-3 py-1 rounded">INFRASTRUCTURE</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {['GPU Orchestration', 'Distributed Training', 'Secure Storage', 'High-Speed Networking'].map((item, i) => (
-                  <span key={i} className="bg-white text-[#4B5563] text-sm px-3 py-1.5 rounded border border-[#E5E7EB] flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#6B7280] rounded-full" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
 
-            {/* HARDWARE Layer */}
-            <div className="bg-[#f3f1e9] rounded-lg p-5 border border-[#E5E7EB]">
-              <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#1e5a3d] text-white text-xs font-bold px-3 py-1 rounded">HARDWARE</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {['A100 80GB', 'H100 SXM5', 'NVIDIA DGX', 'NVIDIA HGX', 'NVIDIA A100', 'NVIDIA A800'].map((item, i) => (
-                  <span key={i} className="bg-[#1e5a3d] text-white text-sm px-3 py-1.5 rounded flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-green-300 rounded-full" />
-                    {item}
-                  </span>
-                ))}
+              {/* HARDWARE Layer */}
+              <div className="bg-[#0a1628] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">HARDWARE</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['NVIDIA A100', 'NVIDIA H100', 'AMD MI300X', 'NVIDIA DGX'].map((item, i) => (
+                    <span key={i} className="bg-[#c8e6c9] text-[#1a2d47] text-sm px-4 py-2 rounded-lg flex items-center gap-2 font-medium">
+                      <span className="w-1.5 h-1.5 bg-[#2e7d32] rounded-full" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-          
-          {/* Bottom Info Cards */}
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="bg-white rounded-xl p-6 border border-[#E5E7EB]">
-              <h4 className="font-semibold text-[#0B1F3B] mb-3">USER EXPERIENCE</h4>
-              <ul className="space-y-2 text-sm text-[#4B5563]">
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> Web Console</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> API</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> CLI</li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-[#E5E7EB]">
-              <h4 className="font-semibold text-[#0B1F3B] mb-3">DATA CENTRE</h4>
-              <ul className="space-y-2 text-sm text-[#4B5563]">
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> Renewable Energy</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#328CC1]" /> Low-latency Fabric</li>
-              </ul>
+            
+            {/* Right Column - User Experience & Data Centre */}
+            <div className="space-y-4">
+              {/* USER EXPERIENCE Card */}
+              <div className="bg-[#0a1628] rounded-xl p-6 h-[calc(50%-8px)]">
+                <div className="mb-4">
+                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">USER EXPERIENCE</span>
+                </div>
+                <div className="space-y-3">
+                  {['Web Console', 'API', 'CLI'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                      <span className="text-white/90 text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* DATA CENTRE Card */}
+              <div className="bg-[#0a1628] rounded-xl p-6 h-[calc(50%-8px)]">
+                <div className="mb-4">
+                  <span className="bg-[#1a2d47] text-white text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA CENTRE</span>
+                </div>
+                <div className="space-y-3">
+                  {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
+                      <span className="text-white/90 text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

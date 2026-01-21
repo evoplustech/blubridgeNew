@@ -93,7 +93,7 @@ const Deployment = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Easily grow your AI operations without excessive costs. BluBridge's GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
+                Scale inference dynamically with predictable pricing and resource-aware orchestration across GPU clusters.
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ const Deployment = () => {
             <div>
               <p className="text-emerald-500 text-sm font-medium mb-3 uppercase tracking-wider">LEVERAGE ADVANCED GPU CLOUD INFRASTRUCTURE</p>
               <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-6 leading-tight">
-                Fast, efficient model fine-tuning
+                Fast, reliable Deployment
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
                 Our platform leverages the latest in GPU technology to provide exceptional performance, efficiency, and scalability. This ensures your AI models are fine-tuned to deliver strong value while meeting the demands of real-world use cases.
