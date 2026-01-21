@@ -1025,6 +1025,7 @@ const Home = () => {
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
+          <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4" style="font-family: DM Sans, sans-serif;">How we support you</h2><p class="text-[#4b5563] max-w-3xl mx-auto leading-relaxed">We're always open to collaborating with diverse teams on projects of any scale or complexity. Through close partnership, we help create innovative systems, solutions, and products that set you apart from the competition.</p></div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Circular Diagram */}
             <div className="relative flex items-center justify-center">
