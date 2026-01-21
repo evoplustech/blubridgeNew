@@ -9,16 +9,6 @@ import NeuralBackground from '../components/NeuralBackground';
 
 // Testimonials Carousel Component
 const TestimonialsCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true, 
-    align: 'center',
-    skipSnaps: false,
-    slidesToScroll: 1,
-    containScroll: false,
-    dragFree: false
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
   const clientTestimonials = [
     {
       name: "Brent McCarthy",
@@ -43,6 +33,20 @@ const TestimonialsCarousel = () => {
     }
   ];
 
+  // Create extended array for seamless infinite loop (duplicate testimonials)
+  const extendedTestimonials = [...clientTestimonials, ...clientTestimonials, ...clientTestimonials];
+  
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: 'start',
+    skipSnaps: false,
+    slidesToScroll: 1,
+    containScroll: false,
+    dragFree: false,
+    startIndex: 3 // Start at the first "real" set
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
@@ -52,13 +56,14 @@ const TestimonialsCarousel = () => {
   }, [emblaApi]);
 
   const scrollTo = useCallback((index) => {
-    if (emblaApi) emblaApi.scrollTo(index);
+    if (emblaApi) emblaApi.scrollTo(index + 3); // Offset for extended array
   }, [emblaApi]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
-    // Get the real index (accounting for loop clones)
-    const realIndex = emblaApi.selectedScrollSnap() % clientTestimonials.length;
+    // Get the real index (accounting for loop and duplicates)
+    const rawIndex = emblaApi.selectedScrollSnap();
+    const realIndex = rawIndex % clientTestimonials.length;
     setSelectedIndex(realIndex);
   }, [emblaApi, clientTestimonials.length]);
 
@@ -102,54 +107,59 @@ const TestimonialsCarousel = () => {
         
           <div className="overflow-hidden mx-12" ref={emblaRef}>
             <div className="flex">
-              {clientTestimonials.map((testimonial, index) => (
-                <div 
-                  key={index} 
-                  className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_40%] px-4"
-                >
+              {extendedTestimonials.map((testimonial, index) => {
+                const realIndex = index % clientTestimonials.length;
+                const isActive = selectedIndex === realIndex;
+                
+                return (
                   <div 
-                    className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-all duration-300 h-full ${
-                      selectedIndex === index ? 'scale-100 opacity-100' : 'scale-95 opacity-60'
-                    }`}
+                    key={index} 
+                    className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-3"
                   >
-                  
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-center gap-4">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="w-14 h-14 rounded-full object-cover"
-                        />
-                        <div>
-                          <h4 className="font-semibold text-[#0B1F3B] text-lg">{testimonial.name}</h4>
-                          <p className="text-gray-500 text-sm">{testimonial.title}, {testimonial.company}</p>
+                    <div 
+                      className={`bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 transition-all duration-300 h-full ${
+                        isActive ? 'scale-100 opacity-100 shadow-xl' : 'scale-[0.97] opacity-80'
+                      }`}
+                    >
+                    
+                      <div className="flex items-start justify-between mb-6">
+                        <div className="flex items-center gap-4">
+                          <img 
+                            src={testimonial.image} 
+                            alt={testimonial.name}
+                            className="w-12 h-12 lg:w-14 lg:h-14 rounded-full object-cover"
+                          />
+                          <div>
+                            <h4 className="font-semibold text-[#0B1F3B] text-base lg:text-lg">{testimonial.name}</h4>
+                            <p className="text-gray-500 text-xs lg:text-sm">{testimonial.title}, {testimonial.company}</p>
+                          </div>
+                        </div>
+                        
+                      
+                        <div className="text-right flex-shrink-0">
+                          <p className="text-[9px] lg:text-[10px] text-gray-400 uppercase tracking-wider mb-1">Reviewed on</p>
+                          <p className="font-bold text-[#0B1F3B] text-lg lg:text-xl tracking-tight" style={{ fontFamily: 'serif' }}>Clutch</p>
+                          <div className="flex gap-0.5 justify-end mt-1">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="w-3 h-3 lg:w-3.5 lg:h-3.5 fill-[#FF5A36] text-[#FF5A36]" />
+                            ))}
+                          </div>
                         </div>
                       </div>
                       
-                    
-                      <div className="text-right flex-shrink-0">
-                        <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Reviewed on</p>
-                        <p className="font-bold text-[#0B1F3B] text-xl tracking-tight" style={{ fontFamily: 'serif' }}>Clutch</p>
-                        <div className="flex gap-0.5 justify-end mt-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-3.5 h-3.5 fill-[#FF5A36] text-[#FF5A36]" />
-                          ))}
-                        </div>
+                     
+                      <p className="text-gray-600 leading-relaxed text-sm lg:text-[15px]">
+                        {testimonial.text}
+                      </p>
+                      
+                      
+                      <div className="flex justify-end mt-6">
+                        <span className="text-5xl lg:text-6xl text-gray-200 font-serif leading-none">"</span>
                       </div>
                     </div>
-                    
-                   
-                    <p className="text-gray-600 leading-relaxed text-[15px]">
-                      {testimonial.text}
-                    </p>
-                    
-                    
-                    <div className="flex justify-end mt-6">
-                      <span className="text-6xl text-gray-200 font-serif leading-none">"</span>
-                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
