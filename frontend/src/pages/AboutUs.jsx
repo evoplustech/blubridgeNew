@@ -409,14 +409,13 @@ const AboutUs = () => {
             {/* Right - Eagle Illustration */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <img 
-                src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/gvv2xzd8_toolfk_a_majestic_eagle_in_.jpg" 
+                src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/llrlfhzt_toolfk_a_majestic_eagle_in_.png" 
                 alt="Digital technology eagle representing AI innovation"
                 style={{
-                  maxWidth: '500px',
+                  maxWidth: '550px',
                   width: '100%',
                   height: 'auto',
-                  objectFit: 'contain',
-                  borderRadius: '12px'
+                  objectFit: 'contain'
                 }}
                 className="hidden sm:block"
                 data-testid="our-mission-eagle-image"
