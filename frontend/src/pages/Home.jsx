@@ -1065,6 +1065,36 @@ const Home = () => {
       {/* Vertical Tabs Section (Mistral-style) */}
       <VerticalTabsSection />
 
+      {/* Work with BluBridge Section */}
+      <section className="py-20 bg-[#0B1F3B]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Work with BluBridge Card */}
+            <div className="bg-[#162B4D] rounded-2xl p-10">
+              <h3 className="text-2xl font-semibold text-white mb-6">Work with BluBridge</h3>
+              <p className="text-gray-300 text-base leading-relaxed mb-8">
+                We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
+              </p>
+              <Link to="/careers">
+                <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-6 py-3 rounded-md font-medium">
+                  Join us
+                </Button>
+              </Link>
+            </div>
+            
+            {/* Curious About BluBridge Card */}
+            <div className="bg-[#162B4D] rounded-2xl p-10 flex flex-col justify-between">
+              <h3 className="text-2xl font-semibold text-white mb-6">Curious About BluBridge?</h3>
+              <Link to="/contact">
+                <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-6 py-3 rounded-md font-medium">
+                  Contact
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
       {/* <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
