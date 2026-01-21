@@ -187,69 +187,92 @@ const TestimonialsCarousel = () => {
 };
 
 const AIExpertiseOrbit = () => {
-  // Industry nodes positioned around the orbital circle
-  const industryNodes = [
-    { Icon: Landmark, label: 'Government', angle: 0 },
-    { Icon: GraduationCap, label: 'Education', angle: 45 },
-    { Icon: ShieldCheck, label: 'Finance', angle: 90 },
-    { Icon: Scale, label: 'Legal', angle: 135 },
-    { Icon: Factory, label: 'Manufacturing', angle: 180 },
-    { Icon: Radio, label: 'Telco', angle: 225 },
-    { Icon: HeartPulse, label: 'Healthcare', angle: 270 },
-    { Icon: Code2, label: 'Software', angle: 315 },
+  const rings = [
+    { key: 1, className: 'orbit-1', radius: '105px' },
+    { key: 2, className: 'orbit-2', radius: '155px' },
+    { key: 3, className: 'orbit-3', radius: '212px' }
+  ];
+
+  const atoms = [
+    // INNER ring: 2 features + 1 dummy
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Tokenizer' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Data' },
+    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
+
+    // MIDDLE ring: 2 features + 1 dummy
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: Layers, label: (<>Tensor & <br />Operations</>)},
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: GitBranch, label: (<>Computational <br />Graph</>)},
+    { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
+
+    // OUTER ring: 4 features + 2 dummies
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Terminal, label:(<>Auto <br />Differentiation</>)},
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Network, label: 'Compiler' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: SlidersHorizontal, label: 'Quantization' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Server, label: (<>Distributed<br />Training</>) },
+    { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
+    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
   ];
 
   return (
-    <div className="relative w-[420px] h-[420px] mx-auto">
-      {/* SVG for orbital rings */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 420 420" aria-hidden="true">
-        {/* Three concentric rings */}
-        <circle cx="210" cy="210" r="80" fill="none" stroke="#D6DEC3" strokeWidth="1" />
-        <circle cx="210" cy="210" r="120" fill="none" stroke="#D6DEC3" strokeWidth="1" />
-        <circle cx="210" cy="210" r="160" fill="none" stroke="#D6DEC3" strokeWidth="1" />
-        
-        {/* Colored dots on rings */}
-        <circle cx="290" cy="210" r="5" fill="#328CC1" /> {/* Blue dot on middle ring - right */}
-        <circle cx="130" cy="210" r="5" fill="#328CC1" /> {/* Blue dot on middle ring - left */}
-        <circle cx="210" cy="50" r="5" fill="#c9a57e" /> {/* Gold dot on outer ring - top */}
-        <circle cx="210" cy="370" r="5" fill="#c9a57e" /> {/* Gold dot on outer ring - bottom */}
-        <circle cx="260" cy="160" r="4" fill="#328CC1" /> {/* Small blue dot */}
-        <circle cx="160" cy="260" r="4" fill="#c9a57e" /> {/* Small gold dot */}
+    <div className="orbit-container relative w-[520px] h-[520px]">
+      {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
+        <circle className="track" cx="260" cy="260" r="105" />
+        <circle className="track" cx="260" cy="260" r="155" />
+        <circle className="track" cx="260" cy="260" r="212" />
       </svg>
 
-      {/* Center "B" circle */}
-      <div 
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full flex items-center justify-center z-20"
-        style={{ backgroundColor: '#DBD6C4' }}
-      >
-        <span className="text-white text-3xl font-bold" style={{ fontFamily: "'DM Sans', sans-serif" }}>B</span>
+      {/* Center badge */}
+      <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#DBD6C4]">
+        <span className="text-white text-xs font-medium text-center leading-tight">
+        <img width="30px" src="/images/b-center.png"/>
+        </span>
       </div>
 
-      {/* Industry nodes around the circle */}
-      {industryNodes.map((node, index) => {
-        const radius = 185; // Distance from center
-        const angleRad = (node.angle - 90) * (Math.PI / 180); // Offset by -90 to start from top
-        const x = 210 + radius * Math.cos(angleRad);
-        const y = 210 + radius * Math.sin(angleRad);
-        const Icon = node.Icon;
-        
-        return (
-          <div
-            key={index}
-            className="absolute flex flex-col items-center"
-            style={{
-              left: `${x}px`,
-              top: `${y}px`,
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            <div className="w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center mb-1">
-              <Icon className="w-6 h-6 text-[#328CC1]" strokeWidth={1.5} />
-            </div>
-            <span className="text-xs text-[#0B1F3B] font-medium text-center whitespace-nowrap">{node.label}</span>
-          </div>
-        );
-      })}
+      {/* Rings + atoms */}
+      {rings.map((ring) => (
+        <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
+          {atoms
+            .filter((a) => a.ring === ring.key)
+            .map((a, idx) => {
+              const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
+
+              if (a.type === 'dummy') {
+                return (
+                  <div
+                    key={idx}
+                    className={`atom dummy ${a.dummyClass}`}
+                    style={styleVars}
+                    aria-hidden="true"
+                  >
+                    <div className="atom-anchor">
+                      <div className="dummy-dot" />
+                    </div>
+                  </div>
+                );
+              }
+
+              const Icon = a.Icon;
+              return (
+                <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
+                  <div className="atom-anchor">
+                    <div className="atom-angle-fix">
+                      {/* This inner node counter-rotates via CSS so labels stay upright */}
+                      <div className="atom-spin-fix">
+                        <div className="atom-content">
+                          <div className="atom-icon">
+                            <Icon className="atom-icon-svg" strokeWidth={1.5} />
+                          </div>
+                          <div className="atom-label">{a.label}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+      ))}
     </div>
   );
 };
