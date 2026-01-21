@@ -416,10 +416,10 @@ const Deployment = () => {
             {[
               {
                 question: "What makes BluBridge’s deployment platform different?",
-                answer: "BluBridge owns and operates the entire infrastructure stack, from physical data centres to orchestration software, allowing the company to tune every layer for performance, efficiency, and scalability. This integrated approach delivers superior compute power and expert support for complex AI workloads."
+                answer: "It is built specifically for AI production workloads, combining infrastructure, orchestration, and observability in a single environment."
               },
               {
-                question: "What types of GPUs does BluBridge offer?",
+                question: "What types of deployments are supported?",
                 answer: "A range of high-performance NVIDIA GPUs are available to support different fine-tuning workloads, giving you flexibility in choosing the right hardware for your model size and performance needs."
               },
               {
