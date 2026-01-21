@@ -175,7 +175,7 @@ const Deployment = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Deployment Stack</h2>
-            <p className="text-base text-[#6B7280] max-w-2xl">
+            <p className="text-base text-[#4B5563] max-w-2xl">
               BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
             </p>
           </div>
