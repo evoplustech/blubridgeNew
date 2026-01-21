@@ -405,39 +405,53 @@ const Home = () => {
 
   const infraTabs = [
     {
-      name: "Datacenters",
-      title: "Purpose-built for AI",
-      description: "BluBridge's Arctic data centers are engineered specifically for the intensive energy demands of GPU-based AI computing, utilizing 100% renewable hydroelectric power.",
-      features: ["100% Renewable Energy", "Arctic cooling advantage", "Scalable infrastructure", "Sovereign data hosting"],
-      link : '/products/glomfjord'
+      name: "Data",
+      title: "Data",
+      description: "We prepare and structure data to fuel accurate, scalable AI systems across research and production.",
+      features: ["Secure data pipelines", "AI-ready data refinement", "Scalable storage layers", "Privacy-first governance"],
+      link : '/research'
     },
     {
-      name: "GPU Nodes",
-      title: "High-performance compute",
-      description: "Access the latest NVIDIA GPUs including H100, H200, and GB200 NVL72, optimized for AI training and inference workloads.",
-      features: ["NVIDIA Grace Blackwell", "On-demand access", "Optimized for AI/HPC", "Bare-metal performance"],
-      link : '/products/gpu-nodes'
+      name: "Pre-training",
+      title: "Pre-training",
+      description: "We build strong model foundations by training on large-scale, high-quality datasets designed for deep learning performance.",
+      features: ["Large-scale dataset curation", "Optimized training pipelines", "Foundation model development", "Compute-efficient workflows"],
+      link : '/research'
     },
     {
-      name: "Networking",
-      title: "GPU fabric optimized for AI",
-      description: "High-bandwidth, low-latency networking built for distributed AI training and inference at scale.",
-      features: ["RoCE enabled", "Non-blocking design", "400Gbps InfiniBand", "Built for AI scale"],
-      link : '/products/gpu-nodes'
+      name: "Mid-training",
+      title: "Mid-training",
+      description: "We refine model behavior during training, improving alignment, stability, and domain understanding at scale.",
+      features: ["Curriculum-based refinement", "Domain-specific tuning", "Stability and bias control", "Performance shaping"],
+      link : '/research'
     },
     {
-      name: "Storage",
-      title: "Fast storage for AI workloads",
-      description: "High-performance parallel filesystems ensure GPUs are kept busy and fully utilized during training and inference.",
-      features: ["RDMA enabled", "Parallel filesystems", "AI storage platform", "Fast checkpointing"],
-      link : '/products/gpu-nodes'
+      name: "Post-training",
+      title: "Post-training",
+      description: "We enhance model readiness through targeted refinement, evaluation, and optimization for real-world performance.",
+      features: ["Fine-tuning for accuracy", "Safety and quality checks", "Inference optimization", "Production readiness"],
+      link : '/research'
     },
     {
-      name: "Kubernetes",
-      title: "Container orchestration at scale",
-      description: "Robust Kubernetes infrastructure for deploying, managing, and scaling containerized AI workloads efficiently.",
-      features: ["Bare metal performance", "Auto-scale to 1000s GPUs", "Fully managed", "Native GPU support"],
-      link : '/products/training'
+      name: "Agent Build",
+      title: "Agent Build",
+      description: "We design intelligent agents that reason, act, and adapt across real workflows, turning models into autonomous systems.",
+      features: ["Task-aware agent design", "Tool and API integration", "Multi-step reasoning flows", "Production-grade orchestration"],
+      link : '/research'
+    },
+    {
+      name: "Inference Optimization",
+      title: "Inference Optimization",
+      description: "We optimize models for fast, reliable, and cost-efficient execution in real-world environments.",
+      features: ["Low-latency execution", "Memory-efficient serving", "Hardware-level tuning", "Scalable inference pipelines"],
+      link : '/research'
+    },
+    {
+      name: "Infrastructure Scaling",
+      title: "Infrastructure Scaling",
+      description: "We expand AI systems seamlessly, ensuring performance remains consistent as demand and complexity grow.",
+      features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"],
+      link : '/research'
     }
   ];
 
