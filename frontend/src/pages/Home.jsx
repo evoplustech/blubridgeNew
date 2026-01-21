@@ -39,20 +39,6 @@ const TestimonialsCarousel = () => {
       company: "CloudNova Systems",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
       text: "We partnered with them for a high-performance AI workload deployment, and the results exceeded expectations. The solution was stable, secure, and future-proof. Their team communicates clearly and delivers without delays."
-    },
-    {
-      name: "Priya Mehta",
-      title: "Product Lead",
-      company: "DataSpring Labs",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-      text: "What impressed us most was their ability to understand our business problem and translate it into a reliable AI solution. The final output was not only technically sound but also aligned perfectly with our product roadmap."
-    },
-    {
-      name: "Daniel Foster",
-      title: "VP of Innovation",
-      company: "NexaCore Solutions",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
-      text: "The team brought structure, scalability, and performance to our AI initiatives. Their approach to deployment and optimization helped us launch faster while maintaining enterprise-grade reliability."
     }
   ];
 
