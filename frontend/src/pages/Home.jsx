@@ -1061,9 +1061,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <Link to={`${infraTabs[activeInfraTab].link}`} className="inline-flex items-center gap-2 text-[#328CC1] hover:text-[#0B3C5D] font-medium transition-colors">
-              See More <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
