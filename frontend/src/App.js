@@ -83,6 +83,7 @@ function App() {
             <Route path="/products/narvik" element={<Narvik />} />
             <Route path="/products/gpu-nodes" element={<GPUNodes />} />
             <Route path="/products/marketplace" element={<Marketplace />} />
+            <Route path="/products/model-customization" element={<ModelCustomization />} />
             <Route path="/products/*" element={<Products />} />
             
             {/* Solution Routes - Cases */}
