@@ -153,7 +153,7 @@ const TestimonialsCarousel = () => {
 
           
           <div className="flex justify-center gap-2 mt-10">
-            {scrollSnaps.map((_, index) => (
+            {clientTestimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
