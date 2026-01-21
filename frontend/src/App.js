@@ -32,6 +32,7 @@ import SolutionTraining from './pages/solutions/Training';
 import SolutionInference from './pages/solutions/Inference';
 import SolutionFineTuning from './pages/solutions/FineTuning';
 import SolutionDeployment from './pages/solutions/Deployment';
+import ValueRealization from './pages/solutions/ValueRealization';
 import AIDevelopment from './pages/solutions/AIDevelopment';
 
 // Company Pages
