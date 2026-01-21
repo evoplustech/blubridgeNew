@@ -381,7 +381,7 @@ const AboutUs = () => {
                 }}
                 data-testid="our-mission-description"
               >
-                We are on a mission to push AI forward, to serve the open community and our enterprise customers. We are committed to driving the AI revolution by developing open-weight models that are on par with proprietary solutions. Stay tuned as we continue to advance in the field of AI.
+                We are driven to move AI ahead for both the open ecosystem and enterprise users. Our focus is on building open-weight models that match the performance of closed, proprietary systems. As we continue shaping the future of AI, there is much more innovation on the way.
               </p>
               
               {/* Read More Button - Dark navy background */}
@@ -463,7 +463,7 @@ const AboutUs = () => {
               letterSpacing: '-0.5px'
             }}
             data-testid="who-we-are-title"
-          >Who we are</h2>
+          >Our Way of Working</h2>
           
           {/* Two Column Grid with White Containers - Animated */}
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>

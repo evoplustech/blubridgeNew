@@ -179,7 +179,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 bg-[#efede5] shadow-sm border-b border-[#D6DEC3]" style={{ zIndex: 1000 }}>
       {/* Top banner */}
       <div className="bg-[#0B1F3B] text-white py-2 px-6 text-center text-sm">
-        <span>BluBridge is currently focusing on developing a state-of-the-art 70B parameter Large Language Model</span>
+        <span>Building Frontier AI Intelligence capabilities tailored for you</span>
         {/* <Link to="/contact" className="ml-2 underline hover:no-underline">See More →</Link> */}
       </div>
 
