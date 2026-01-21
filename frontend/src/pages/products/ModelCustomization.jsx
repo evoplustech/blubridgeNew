@@ -166,45 +166,58 @@ const ModelCustomization = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7]">
       
-      {/* SECTION 1: Hero Section - Theme Colors */}
+      {/* SECTION 1: Hero Section - Theme Color #c0bba5 with shining effect */}
       <section className="relative min-h-[580px] overflow-hidden">
-        {/* Navy gradient background */}
+        {/* Background color with shine effect */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, #0B1F3B 0%, #0d2847 40%, #1a3a5f 70%, #0B1F3B 100%)'
+            background: 'linear-gradient(135deg, #c0bba5 0%, #d4cfbc 30%, #c0bba5 60%, #b8b39e 100%)'
           }}
         />
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }} />
+        {/* Shining overlay effect */}
+        <div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: 'radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.5) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.3) 0%, transparent 40%)'
+          }}
+        />
+        {/* Subtle shimmer animation */}
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: 'linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%)',
+            backgroundSize: '200% 200%',
+            animation: 'shimmer 3s ease-in-out infinite'
+          }}
+        />
+        
+        <style>{`
+          @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+          }
+        `}</style>
         
         <div className="container-custom relative z-10 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 rounded-full border border-white/20">
-                <span className="w-2 h-2 bg-[#328CC1] rounded-full animate-pulse" />
-                <span className="text-[#328CC1] text-sm font-medium tracking-wide">MODEL CUSTOMIZATION</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-[52px] font-bold leading-tight text-white tracking-tight">
-                Adapt models to your<br />data, domain, and<br />objectives
+              <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight text-[#0B1F3B] tracking-tight">
+                Model Customization
               </h1>
               
-              <p className="text-white/75 text-lg max-w-xl leading-relaxed">
+              <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
                 BluBridge Model Customization enables you to adapt, refine, and specialize foundation models for your exact use cases. From domain alignment to behavioral tuning, our platform gives you full control over how your models think, respond, and perform—without the overhead of managing complex infrastructure.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact">
-                  <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-7 py-3 rounded-md font-medium text-base">
+                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-7 py-3 rounded-md font-medium text-base">
                     Start Customizing
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-white hover:text-[#328CC1] transition-colors font-medium">
+                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
                   Contact Us <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
