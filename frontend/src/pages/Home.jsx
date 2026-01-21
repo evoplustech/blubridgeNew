@@ -1103,6 +1103,9 @@ const Home = () => {
       {/* Vertical Tabs Section (Mistral-style) */}
       <VerticalTabsSection />
 
+      {/* Services Cards Section */}
+      <ServicesCardsSection />
+
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
       {/* <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
