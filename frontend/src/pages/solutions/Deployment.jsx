@@ -470,7 +470,7 @@ const Deployment = () => {
               </Button>
             </Link>
             <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
-              Contact <ArrowRight className="w-4 h-4" />
+              Contact Us <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
