@@ -37,10 +37,10 @@ const Deployment = () => {
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
-              MODEL<br />FINE-TUNING
+             Deployment
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we offer GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support ensure that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
+              At BluBridge, we provide production-grade deployment infrastructure built for real-world AI systems. Launch, scale, and operate your models with confidence using high-performance GPU clusters, low-latency networking, and enterprise-ready orchestration, designed to move your models from lab to live environments seamlessly.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact">
@@ -49,7 +49,7 @@ const Deployment = () => {
                 </Button>
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
-                Contact <ArrowRight className="w-4 h-4" />
+                Contact Us <ArrowRight className="w-4 h-4" />
 </Link>
             </div>
           </div>
@@ -81,13 +81,13 @@ const Deployment = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Unlock the full potential of your AI models and fine-tune to achieve peak performance on your specific datasets and tasks.
+                Deploy models in environments engineered for reliability, consistency, and real-time performance.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Reduce the time it takes to prepare and deploy your AI solutions. With streamlined fine-tuning processes, you can iterate and refine your models more quickly, allowing innovations to reach users sooner.
+                Move from experimentation to live systems faster with pre-configured pipelines and automated rollout workflows.
               </p>
             </div>
             <div>
@@ -321,11 +321,11 @@ const Deployment = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Training Card */}
+            
             <Link className="" to="/products/training">
             <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
               <div className="mb-6">
@@ -340,7 +340,7 @@ const Deployment = () => {
               </p>
             </div>
             </Link> 
-            {/* Marketplace Card */}
+           
             <Link className="" to="/products/marketplace">
             <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
               <div className="mb-6">
@@ -357,10 +357,10 @@ const Deployment = () => {
             </Link> 
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* More Solutions */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -370,7 +370,7 @@ const Deployment = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-5">
-            {/* Model Training Card - Purple Wave */}
+            
             <Link to="/solutions/training">
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
@@ -380,7 +380,7 @@ const Deployment = () => {
               </div>
             </Link>
 
-            {/* AI & ML Inference Card - Blue Angular */}
+            
             <Link to="/solutions/inference">
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
@@ -390,7 +390,7 @@ const Deployment = () => {
               </div>
             </Link>
 
-            {/* AI Development Card - Orange/Bronze Wave */}
+            
             <Link to="/solutions/ai-development">
               <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
@@ -404,7 +404,7 @@ const Deployment = () => {
             
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQs */}
       <section className="py-24 bg-[#fffdf7]">
