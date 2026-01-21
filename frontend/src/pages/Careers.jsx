@@ -159,6 +159,68 @@ const Careers = () => {
             justify-content: space-between;
           }
         }
+        
+        /* See Open Roles Button Styles */
+        .see-roles-btn {
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(135deg, #0B1F3B 0%, #1a3a5c 100%);
+          border: none;
+          padding: 14px 28px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 15px;
+          font-weight: 600;
+          color: #ffffff;
+          border-radius: 10px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 15px rgba(11, 31, 59, 0.3);
+        }
+        
+        .see-roles-btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        .see-roles-btn:hover {
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 8px 25px rgba(11, 31, 59, 0.4), 0 0 20px rgba(50, 140, 193, 0.3);
+          background: linear-gradient(135deg, #1a3a5c 0%, #328CC1 100%);
+        }
+        
+        .see-roles-btn:hover::before {
+          left: 100%;
+        }
+        
+        .see-roles-btn:active {
+          transform: translateY(-1px) scale(1.01);
+          box-shadow: 0 4px 15px rgba(11, 31, 59, 0.3);
+        }
+        
+        .see-roles-btn .btn-icon {
+          transition: transform 0.3s ease;
+        }
+        
+        .see-roles-btn:hover .btn-icon {
+          transform: translateX(4px);
+        }
+        
+        .see-roles-btn.active {
+          background: linear-gradient(135deg, #1a3a5c 0%, #0B1F3B 100%);
+        }
+        
+        .see-roles-btn.active:hover .btn-icon {
+          transform: rotate(180deg);
+        }
+        
         .job-row-grid {
           display: grid;
           grid-template-columns: 1fr;
