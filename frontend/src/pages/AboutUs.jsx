@@ -348,213 +348,79 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Who We Are Section - Section 2 */}
+      {/* Our Mission Section - Section 2 */}
       <section className="py-20 bg-[#f3f1e9]">
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
-          {/* Heading */}
-          <h2 
-            style={{ 
-              fontSize: '36px', 
-              fontWeight: '700', 
-              color: '#1A1A1A', 
-              textAlign: 'center', 
-              marginBottom: '32px',
-              letterSpacing: '-0.5px'
-            }}
-            data-testid="who-we-are-title"
-          >Who we are</h2>
-          
-          {/* Introductory Paragraph */}
-          <p 
-            style={{ 
-              fontSize: '18px', 
-              lineHeight: '1.7', 
-              color: '#333333', 
-              textAlign: 'center', 
-              marginBottom: '48px',
-              margin: '0 auto 48px auto'
-            }}>
-            We are researchers, engineers, and strategists working at the intersection of AI innovation and business application. Our approach blends original research with real-world problem solving. We explore new possibilities in artificial intelligence while partnering closely with organisations to apply those insights responsibly and effectively.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="order-2 lg:order-1">
+              {/* Heading with "Our" in black and "Mission" in orange */}
+              <h2 
+                style={{ 
+                  fontSize: '42px', 
+                  fontWeight: '700', 
+                  marginBottom: '24px',
+                  letterSpacing: '-0.5px',
+                  lineHeight: '1.2'
+                }}
+                data-testid="our-mission-title"
+              >
+                <span style={{ color: '#1A1A1A' }}>Our </span>
+                <span style={{ color: '#FF6B35' }}>Mission</span>
+              </h2>
               
-          {/* Two Column Grid with White Containers - Animated */}
-          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>
-            {/* Container 1 - Research with Purpose */}
-            <AnimatedContainer delay={0} direction="left">
-              <div 
-                data-testid="who-we-are-container-1"
+              {/* Description Paragraph */}
+              <p 
                 style={{ 
-                  backgroundColor: '#fffdf7', 
-                  padding: '24px',
-                  borderRadius: '12px',
-                  border: '1px solid #e5e5e5',
-                  borderLeft: '4px solid rgb(11, 31, 59)',
-                  height: '100%'
-                }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                  <div style={{ 
-                    width: '8px', 
-                    height: '8px', 
-                    borderRadius: '50%', 
-                    backgroundColor: '#0b1f3b', 
-                    marginTop: '8px',
-                    flexShrink: 0
-                  }} />
-                  <div>
-                    <p style={{ 
-                      fontSize: '18px', 
-                      fontWeight: '600', 
-                      color: '#1A1A1A', 
-                      marginBottom: '8px',
-                      lineHeight: '1.3'
-                    }}>Research with Purpose</p>
-                    <p style={{ 
-                      fontSize: '16px', 
-                      lineHeight: '1.6', 
-                      color: '#333333'
-                    }}>We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedContainer>
+                  fontSize: '18px', 
+                  lineHeight: '1.8', 
+                  color: '#333333', 
+                  marginBottom: '32px',
+                  maxWidth: '90%'
+                }}
+                data-testid="our-mission-description"
+              >
+                We are on a mission to push AI forward, to serve the open community and our enterprise customers. We are committed to driving the AI revolution by developing open-weight models that are on par with proprietary solutions. Stay tuned as we continue to advance in the field of AI.
+              </p>
+              
+              {/* Read More Button - Orange border, transparent bg */}
+              <Link 
+                to="/research" 
+                style={{ 
+                  display: 'inline-block',
+                  backgroundColor: 'transparent', 
+                  color: '#FF6B35', 
+                  padding: '12px 32px', 
+                  borderRadius: '4px',
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  textDecoration: 'none',
+                  letterSpacing: '0.5px',
+                  border: '2px solid #FF6B35',
+                  transition: 'all 0.3s ease'
+                }}
+                className="hover:bg-[#FF6B35] hover:text-white"
+                data-testid="our-mission-read-more-btn"
+              >
+                Read more
+              </Link>
+            </div>
             
-            {/* Container 2 - From Insight to Implementation */}
-            <AnimatedContainer delay={0.15} direction="right">
-              <div 
-                data-testid="who-we-are-container-2"
-                style={{ 
-                  backgroundColor: '#fffdf7', 
-                  padding: '24px',
-                  borderRadius: '12px',
-                  border: '1px solid #e5e5e5',
-                  borderLeft: '4px solid rgb(11, 31, 59)',
-                  height: '100%'
-                }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                  <div style={{ 
-                    width: '8px', 
-                    height: '8px', 
-                    borderRadius: '50%', 
-                    backgroundColor: '#0b1f3b', 
-                    marginTop: '8px',
-                    flexShrink: 0
-                  }} />
-                  <div>
-                    <p style={{ 
-                      fontSize: '18px', 
-                      fontWeight: '600', 
-                      color: '#1A1A1A', 
-                      marginBottom: '8px',
-                      lineHeight: '1.3'
-                    }}>From Insight to Implementation</p>
-                    <p style={{ 
-                      fontSize: '16px', 
-                      lineHeight: '1.6', 
-                      color: '#333333'
-                    }}>We don&apos;t stop at theory. Our consulting practice transforms research outcomes into production-ready AI systems, guiding clients from strategy and design to deployment and optimisation.</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedContainer>
-            
-            {/* Container 3 - Build Responsibly, Grow Confidently */}
-            <AnimatedContainer delay={0.3} direction="left">
-              <div 
-                data-testid="who-we-are-container-3"
-                style={{ 
-                  backgroundColor: '#fffdf7', 
-                  padding: '24px',
-                  borderRadius: '12px',
-                  border: '1px solid #e5e5e5',
-                  borderLeft: '4px solid rgb(11, 31, 59)',
-                  height: '100%'
-                }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                  <div style={{ 
-                    width: '8px', 
-                    height: '8px', 
-                    borderRadius: '50%', 
-                    backgroundColor: '#0b1f3b', 
-                    marginTop: '8px',
-                    flexShrink: 0
-                  }} />
-                  <div>
-                    <p style={{ 
-                      fontSize: '18px', 
-                      fontWeight: '600', 
-                      color: '#1A1A1A', 
-                      marginBottom: '8px',
-                      lineHeight: '1.3'
-                    }}>Build Responsibly, Grow Confidently</p>
-                    <p style={{ 
-                      fontSize: '16px', 
-                      lineHeight: '1.6', 
-                      color: '#333333'
-                    }}>We prioritise robustness, transparency, and ethical use of AI. Every system we design is built to be reliable, explainable, and scalable in real operational environments.</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedContainer>
-            
-            {/* Container 4 - Own the Impact */}
-            <AnimatedContainer delay={0.45} direction="right">
-              <div 
-                data-testid="who-we-are-container-4"
-                style={{ 
-                  backgroundColor: '#fffdf7', 
-                  padding: '24px',
-                  borderRadius: '12px',
-                  border: '1px solid #e5e5e5',
-                  borderLeft: '4px solid rgb(11, 31, 59)',
-                  height: '100%'
-                }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                  <div style={{ 
-                    width: '8px', 
-                    height: '8px', 
-                    borderRadius: '50%', 
-                    backgroundColor: '#0b1f3b', 
-                    marginTop: '8px',
-                    flexShrink: 0
-                  }} />
-                  <div>
-                    <p style={{ 
-                      fontSize: '18px', 
-                      fontWeight: '600', 
-                      color: '#1A1A1A', 
-                      marginBottom: '8px',
-                      lineHeight: '1.3'
-                    }}>Own the Impact</p>
-                    <p style={{ 
-                      fontSize: '16px', 
-                      lineHeight: '1.6', 
-                      color: '#333333'
-                    }}>We take responsibility for outcomes, not just deliverables. By working as an extension of our clients&apos; teams, we ensure that AI initiatives create lasting value, not experimental dead ends.</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedContainer>
-          </div>
-          
-          {/* Join Us Button - Centered */}
-          <div 
-            style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link 
-              to="/careers" 
-              style={{ 
-                display: 'inline-block',
-                backgroundColor: '#0B1F3B', 
-                color: '#FFFFFF', 
-                padding: '14px 32px', 
-                borderRadius: '4px',
-                fontSize: '16px',
-                fontWeight: '500',
-                textDecoration: 'none',
-                letterSpacing: '0.5px'
-              }}
-            >
-              Join Us
-            </Link>
+            {/* Right - Bird Illustration */}
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+              <img 
+                src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=500&q=80" 
+                alt="Colorful bird in flight"
+                style={{
+                  maxWidth: '450px',
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'contain'
+                }}
+                className="hidden sm:block"
+                data-testid="our-mission-bird-image"
+              />
+            </div>
           </div>
         </div>
       </section>
