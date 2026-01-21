@@ -137,8 +137,8 @@ const ValueRealization = () => {
             </div>
 
             {/* Right side - Grid Labels */}
-            <div className="flex items-start justify-end lg:pt-16">
-              <div className="grid grid-cols-3 gap-4 w-full max-w-lg">
+            <div className="flex items-start justify-center lg:pt-8">
+              <div className="grid grid-cols-3 gap-5 w-full">
                 {['Use Case', 'Workflow', 'Decision', 'Insight', 'Impact', 'Outcome', 'Metric', 'ROI', 'Value'].map((label, i) => {
                   const colors = [
                     'bg-purple-100 text-purple-700',
@@ -154,7 +154,7 @@ const ValueRealization = () => {
                   return (
                     <div 
                       key={i} 
-                      className={`${colors[i]} rounded-xl px-6 py-4 text-center font-semibold text-base shadow-sm`}
+                      className={`${colors[i]} rounded-xl px-6 py-5 text-center font-semibold text-base shadow-sm`}
                     >
                       {label}
                     </div>
@@ -340,7 +340,7 @@ const ValueRealization = () => {
       </section>
 
       {/* SECTION 7: More Solutions */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -381,7 +381,7 @@ const ValueRealization = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 8: FAQs */}
       <section className="py-24 bg-[#fffdf7]">
