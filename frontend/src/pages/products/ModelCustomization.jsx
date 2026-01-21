@@ -166,58 +166,39 @@ const ModelCustomization = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7]">
       
-      {/* SECTION 1: Hero Section - Theme Color #c0bba5 with shining effect */}
+      {/* SECTION 1: Hero Section - Black background */}
       <section className="relative min-h-[580px] overflow-hidden">
-        {/* Background color with shine effect */}
+        {/* Black background */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 bg-black"
+        />
+        {/* Subtle gradient overlay for depth */}
+        <div 
+          className="absolute inset-0 opacity-30"
           style={{
-            background: 'linear-gradient(135deg, #c0bba5 0%, #d4cfbc 30%, #c0bba5 60%, #b8b39e 100%)'
+            background: 'radial-gradient(ellipse at 30% 20%, rgba(50,140,193,0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(50,140,193,0.1) 0%, transparent 40%)'
           }}
         />
-        {/* Shining overlay effect */}
-        <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            background: 'radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.5) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.3) 0%, transparent 40%)'
-          }}
-        />
-        {/* Subtle shimmer animation */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            background: 'linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%)',
-            backgroundSize: '200% 200%',
-            animation: 'shimmer 3s ease-in-out infinite'
-          }}
-        />
-        
-        <style>{`
-          @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-          }
-        `}</style>
         
         <div className="container-custom relative z-10 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight text-[#0B1F3B] tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight text-white tracking-tight">
                 Model Customization
               </h1>
               
-              <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
+              <p className="text-white/70 text-lg max-w-xl leading-relaxed">
                 BluBridge Model Customization enables you to adapt, refine, and specialize foundation models for your exact use cases. From domain alignment to behavioral tuning, our platform gives you full control over how your models think, respond, and perform—without the overhead of managing complex infrastructure.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact">
-                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-7 py-3 rounded-md font-medium text-base">
+                  <Button className="bg-white text-black hover:bg-white/90 px-7 py-3 rounded-md font-medium text-base">
                     Start Customizing
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
+                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-white hover:text-[#328CC1] transition-colors font-medium">
                   Contact Us <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -287,7 +268,7 @@ const ModelCustomization = () => {
             </div>
             
             {/* Right - Feature Cards */}
-            <div className="space-y-5">
+            <div className="space-y-5 my-20">
               {/* Pre-configured Card */}
               <div className="bg-[#0B1F3B] rounded-xl p-6 text-white">
                 <p className="text-white/60 text-sm mb-1">Ready-to-use Environments</p>
