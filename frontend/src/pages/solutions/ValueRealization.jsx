@@ -80,19 +80,19 @@ const ValueRealization = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Business Impact</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
+              <p className="text-[#4B5563] text-sm leading-relaxed">
                 Align models with real-world goals, ensuring every deployment drives operational or revenue outcomes.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Execution</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
+              <p className="text-[#4B5563] text-sm leading-relaxed">
                 Streamline the journey from proof-of-concept to production with guided workflows and built-in best practices.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
+              <p className="text-[#4B5563] text-sm leading-relaxed">
                 Apply AI across teams, products, and industries using a flexible foundation that adapts to evolving needs.
               </p>
             </div>
