@@ -8,175 +8,77 @@ import NodeConnections2 from './NodeConnections2';
 import NeuralBackground from '../components/NeuralBackground';
 
 // Testimonials Carousel Component
-const TestimonialsCarousel = () => {
-  const clientTestimonials = [
+// Mistral-style Vertical Tabs Section
+const VerticalTabsSection = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const tabs = [
     {
-      name: "Brent McCarthy",
-      title: "CEO & Co-Founder",
-      company: "Myka LLC",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-      text: "Not only is the team fully capable of delivering exactly what we needed, but they also execute with impressive speed. They resolved critical issues left by previous vendors and implemented a custom AI-driven solution that transformed our product into a scalable, market-ready platform within months."
+      title: "Enterprise AI Solutions",
+      content: {
+        heading: "Automate tasks with AI agents connected to your apps and workflows.",
+        description: "Our enterprise AI solutions seamlessly integrate with your existing infrastructure, enabling intelligent automation across departments. From data processing to decision support, we build custom AI agents that understand your business context and deliver measurable results."
+      }
     },
     {
-      name: "Ananya Rao",
-      title: "Head of Digital Transformation",
-      company: "FinAxis Technologies",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-      text: "Their technical depth and clarity in execution stood out from day one. From architecture decisions to final deployment, everything was handled with precision. The AI infrastructure they built significantly reduced our processing time and operational costs."
+      title: "AI-powered Research",
+      content: {
+        heading: "Deep research capabilities powered by advanced language models.",
+        description: "Leverage our cutting-edge research infrastructure to analyze complex datasets, extract insights, and generate comprehensive reports. Our AI research tools help teams move faster from hypothesis to validated conclusions with unprecedented accuracy."
+      }
     },
     {
-      name: "Michael Turner",
-      title: "Director of Engineering",
-      company: "CloudNova Systems",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-      text: "We partnered with them for a high-performance AI workload deployment, and the results exceeded expectations. The solution was stable, secure, and future-proof. Their team communicates clearly and delivers without delays."
+      title: "Custom Model Development",
+      content: {
+        heading: "Build and deploy purpose-built AI models for your specific needs.",
+        description: "We specialize in developing custom machine learning models tailored to your industry and use case. From fine-tuning foundation models to building specialized architectures, we deliver production-ready AI that scales with your business requirements."
+      }
     }
   ];
 
-  // Create extended array for seamless infinite loop (duplicate testimonials)
-  const extendedTestimonials = [...clientTestimonials, ...clientTestimonials, ...clientTestimonials];
-  
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true, 
-    align: 'start',
-    skipSnaps: false,
-    slidesToScroll: 1,
-    containScroll: false,
-    dragFree: false,
-    startIndex: 3 // Start at the first "real" set
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const scrollTo = useCallback((index) => {
-    if (emblaApi) emblaApi.scrollTo(index + 3); // Offset for extended array
-  }, [emblaApi]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    // Get the real index (accounting for loop and duplicates)
-    const rawIndex = emblaApi.selectedScrollSnap();
-    const realIndex = rawIndex % clientTestimonials.length;
-    setSelectedIndex(realIndex);
-  }, [emblaApi, clientTestimonials.length]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
-    return () => {
-      emblaApi.off('select', onSelect);
-      emblaApi.off('reInit', onSelect);
-    };
-  }, [emblaApi, onSelect]);
-
   return (
-    
-    <section className="py-20 overflow-hidden bg-[#fffdf7]">
+    <section className="py-20 bg-[#fffdf7]">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-16">
-          Let Our Clients Do the Talking
+          What BluBridge Can Do
         </h2>
         
-        <div className="relative">
-        
-          <button 
-            onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-8 h-8" />
-          </button>
-          
-          <button 
-            onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-8 h-8" />
-          </button>
-
-        
-          <div className="overflow-hidden mx-12" ref={emblaRef}>
-            <div className="flex">
-              {extendedTestimonials.map((testimonial, index) => {
-                const realIndex = index % clientTestimonials.length;
-                const isActive = selectedIndex === realIndex;
-                
-                return (
-                  <div 
-                    key={index} 
-                    className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-3"
-                  >
-                    <div 
-                      className={`bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 transition-all duration-300 h-full ${
-                        isActive ? 'scale-100 opacity-100 shadow-xl' : 'scale-[0.97] opacity-80'
-                      }`}
-                    >
-                    
-                      <div className="flex items-start justify-between mb-6">
-                        <div className="flex items-center gap-4">
-                          <img 
-                            src={testimonial.image} 
-                            alt={testimonial.name}
-                            className="w-12 h-12 lg:w-14 lg:h-14 rounded-full object-cover"
-                          />
-                          <div>
-                            <h4 className="font-semibold text-[#0B1F3B] text-base lg:text-lg">{testimonial.name}</h4>
-                            <p className="text-gray-500 text-xs lg:text-sm">{testimonial.title}, {testimonial.company}</p>
-                          </div>
-                        </div>
-                        
-                      
-                        <div className="text-right flex-shrink-0">
-                          <p className="text-[9px] lg:text-[10px] text-gray-400 uppercase tracking-wider mb-1">Reviewed on</p>
-                          <p className="font-bold text-[#0B1F3B] text-lg lg:text-xl tracking-tight" style={{ fontFamily: 'serif' }}>Clutch</p>
-                          <div className="flex gap-0.5 justify-end mt-1">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 lg:w-3.5 lg:h-3.5 fill-[#FF5A36] text-[#FF5A36]" />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      
-                     
-                      <p className="text-gray-600 leading-relaxed text-sm lg:text-[15px]">
-                        {testimonial.text}
-                      </p>
-                      
-                      
-                      <div className="flex justify-end mt-6">
-                        <span className="text-5xl lg:text-6xl text-gray-200 font-serif leading-none">"</span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+        {/* Two Column Layout */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+          {/* Left Column - Vertical Tabs */}
+          <div className="lg:w-[340px] flex-shrink-0">
+            <div className="border border-[#E5E7EB] rounded-lg overflow-hidden">
+              {tabs.map((tab, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTab(index)}
+                  className={`w-full text-left px-6 py-5 flex items-center justify-between border-b border-[#E5E7EB] last:border-b-0 transition-all duration-200 ${
+                    activeTab === index 
+                      ? 'bg-[#0B1F3B] text-white' 
+                      : 'bg-white text-[#1A1A1A] hover:bg-gray-50'
+                  }`}
+                  data-testid={`vertical-tab-${index}`}
+                >
+                  <span className="font-medium text-base">{tab.title}</span>
+                  {activeTab === index && (
+                    <ArrowRight className="w-5 h-5 text-[#FF6B35]" />
+                  )}
+                </button>
+              ))}
             </div>
           </div>
-
           
-          <div className="flex justify-center gap-2 mt-10">
-            {clientTestimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollTo(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  selectedIndex === index 
-                    ? 'bg-[#328CC1] w-6' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+          {/* Right Column - Content Panel */}
+          <div className="flex-1 flex items-start" data-testid="vertical-tab-content">
+            <div className="min-h-[200px]">
+              <h3 className="text-2xl md:text-3xl font-medium text-[#0B1F3B] mb-6 leading-snug">
+                {tabs[activeTab].content.heading}
+              </h3>
+              <p className="text-[#4B5563] text-lg leading-relaxed">
+                {tabs[activeTab].content.description}
+              </p>
+            </div>
           </div>
         </div>
       </div>
