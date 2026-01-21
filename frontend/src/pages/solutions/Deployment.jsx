@@ -420,11 +420,15 @@ const Deployment = () => {
               },
               {
                 question: "What types of deployments are supported?",
-                answer: "A range of high-performance NVIDIA GPUs are available to support different fine-tuning workloads, giving you flexibility in choosing the right hardware for your model size and performance needs."
+                answer: "Real-time APIs, batch inference, internal tools, and customer-facing AI services."
               },
               {
-                question: "What industries can benefit from Fine-Tuning?",
-                answer: "Fine-tuning is valuable across multiple sectors, including:Artificial intelligence and machine learning research and development,Gaming and entertainment for graphics and interactive applications,Healthcare for clinical analysis and advanced imaging,Finance for modelling and predictive analytics,Automotive industries for autonomous and simulation tasks,Aerospace and engineering for simulation and design optimisation"
+                question: "Can I manage multiple model versions in production?",
+                answer: "Yes. The platform supports versioning, traffic splitting, and instant rollback."
+              },
+              {
+                question: "How quickly can I go live?",
+                answer: "Models can be promoted directly from training or fine-tuning into production within minutes."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">
