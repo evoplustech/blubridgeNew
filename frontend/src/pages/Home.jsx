@@ -28,7 +28,7 @@ const VerticalTabsSection = () => {
       }
     },
     {
-      title: "Custom Model Development",
+      title: "Deep Research",
       content: {
         heading: "Build and deploy purpose-built AI models for your specific needs.",
         description: "We specialize in developing custom machine learning models tailored to your industry and use case. From fine-tuning foundation models to building specialized architectures, we deliver production-ready AI that scales with your business requirements."
