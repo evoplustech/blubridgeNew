@@ -787,14 +787,14 @@ const Home = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Database, title: "Telco", slug: "data" },
-                  { icon: CheckCircle, title: "Finance & Insurance", slug: "tokenizer" },
-                  { icon: Layers, title: "Education", slug: "tensor-operations" },
-                  { icon: GitBranch, title: "Legal", slug: "computational-graph" },
-                  { icon: Terminal, title: "Software & Technology", slug: "auto-differentiation" },
-                  { icon: Network, title: "Manufacturing", slug: "compiler" },
-                  { icon: SlidersHorizontal, title: "Government", slug: "quantization" },
-                  { icon: Server, title: "Healthcare", slug: "distributed-training" }
+                  { icon: Radio, title: "Telco", slug: "telco" },
+                  { icon: ShieldCheck, title: "Finance & Insurance", slug: "finance" },
+                  { icon: GraduationCap, title: "Education", slug: "education" },
+                  { icon: Scale, title: "Legal", slug: "legal" },
+                  { icon: Code2, title: "Software & Technology", slug: "software" },
+                  { icon: Factory, title: "Manufacturing", slug: "manufacturing" },
+                  { icon: Landmark, title: "Government", slug: "government" },
+                  { icon: HeartPulse, title: "Healthcare", slug: "healthcare" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
