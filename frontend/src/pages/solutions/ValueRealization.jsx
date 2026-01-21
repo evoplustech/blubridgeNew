@@ -56,7 +56,7 @@ const ValueRealization = () => {
         </div>
 
         {/* CSS Animation Keyframes */}
-        <style>{`
+        {/* <style>{`
           @keyframes heroWaveValueRealization {
             0%, 100% {
               transform: translate(0, 0) scale(1.05);
@@ -71,7 +71,7 @@ const ValueRealization = () => {
               transform: translate(0.8%, 0.4%) scale(1.05);
             }
           }
-        `}</style>
+        `}</style> */}
       </section>
 
       {/* SECTION 2: Value Highlights - 3 Column Strip */}
