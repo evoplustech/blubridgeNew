@@ -355,29 +355,17 @@ const Careers = () => {
            <button
               onClick={toggleJobListings}
               data-testid="see-open-roles-btn"
-              className="see-roles-link"
-              style={{
-                background: '#0B1F3B',
-                border: 'none',
-                padding: '12px 24px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontSize: '15px',
-                fontWeight: '500',
-                color: '#eeeeeeff',
-                transition: 'color 150ms ease-out',
-                borderRadius: '8px'
-              }}
+              className={`see-roles-btn ${showJobListings ? 'active' : ''}`}
             >
               {showJobListings ? 'Hide roles' : 'See open roles'}
-              {/* <ChevronDown 
+              <ChevronDown 
                 size={18} 
+                className="btn-icon"
                 style={{
                   transition: 'transform 300ms ease-out',
                   transform: showJobListings ? 'rotate(180deg)' : 'rotate(0deg)'
                 }}
+              />
               /> */}
             </button>
           </div> 
