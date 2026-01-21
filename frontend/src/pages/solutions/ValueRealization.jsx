@@ -18,8 +18,8 @@ const ValueRealization = () => {
       {/* SECTION 1: Hero Section */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div 
+        <div className="absolute inset-0 bg-[#d0cbb9] overflow-hidden">
+          {/* <div 
             className="absolute w-[120%] h-[120%] -top-[10%] -left-[10%]"
             style={{
               backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/n0x6s7r0_MODEL%20FINE-TUNING.jpg')`,
@@ -27,28 +27,28 @@ const ValueRealization = () => {
               backgroundPosition: 'center',
               animation: 'heroWaveValueRealization 14s ease-in-out infinite'
             }}
-          />
+          /> */}
         </div>
 
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/90 via-[#000000]/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0  pointer-events-none" />
 
         {/* Hero content - left aligned */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
               VALUE<br />REALIZATION
             </h1>
-            <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed max-w-2xl">
               Turn AI investments into measurable business impact. BluBridge helps you convert experimentation into outcomes, accelerating adoption, reducing friction, and ensuring every model delivers tangible value across operations, products, and decision-making.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#003820] px-10 py-6 text-base font-medium rounded-md">
+                <Button size="lg" className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-7 py-3 rounded-md font-medium text-base">
                   Get Started
                 </Button>
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-white hover:text-blue-300 transition-colors font-medium">
+              <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
                 Contact Us <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
