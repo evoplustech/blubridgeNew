@@ -29,9 +29,8 @@ const Deployment = () => {
             }}
           />
         </div>
-
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/90 via-[#000000]/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0  pointer-events-none" />
 
         {/* Hero content - left aligned */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
@@ -109,12 +108,9 @@ const Deployment = () => {
               <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-6 leading-tight">
                 Fast, reliable Deployment
               </h2>
-              <p className="text-base  leading-relaxed mb-10">
-                Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.
-                Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.
-                From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.
-              </p>
-
+                <p className="mb-2">Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.</p>
+                <p className="mb-2">Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.</p>
+                <p className="mb-2">From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.</p>
               {/* <div className="space-y-8">
                 <div className="border-l-2 border-emerald-500 pl-5">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-2">30% Faster Time to Value for Your AI Projects</h3>
