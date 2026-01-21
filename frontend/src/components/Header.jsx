@@ -325,7 +325,7 @@ const Header = () => {
                         </div>
                       </Link>
                       <Link
-                        to="/solutions/ai-development"
+                        to="/solutions/value-realization"
                         className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
                       >
                         <div className="w-8 h-8 rounded-md bg-[#328CC1]/10 flex items-center justify-center">
