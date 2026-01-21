@@ -365,8 +365,8 @@ const AboutUs = () => {
                 }}
                 data-testid="our-mission-title"
               >
-                <span style={{ color: '#1A1A1A' }}>Our </span>
-                <span style={{ color: '#FF6B35' }}>Mission</span>
+                <span style={{ color: '#0B1F3B' }}>Our </span>
+                <span style={{ color: '#0B1F3B' }}>Mission</span>
               </h2>
               
               {/* Description Paragraph */}
@@ -386,20 +386,21 @@ const AboutUs = () => {
               {/* Read More Button - Orange border, transparent bg */}
               <Link 
                 to="/research" 
-                style={{ 
-                  display: 'inline-block',
-                  backgroundColor: 'transparent', 
-                  color: '#FF6B35', 
-                  padding: '12px 32px', 
-                  borderRadius: '4px',
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  textDecoration: 'none',
-                  letterSpacing: '0.5px',
-                  border: '2px solid #FF6B35',
-                  transition: 'all 0.3s ease'
-                }}
-                className="hover:bg-[#FF6B35] hover:text-white"
+                // style={{ 
+                //   display: 'inline-block',
+                //   backgroundColor: 'transparent', 
+                //   color: '#FF6B35', 
+                //   padding: '12px 32px', 
+                //   borderRadius: '4px',
+                //   fontSize: '16px',
+                //   fontWeight: '500',
+                //   textDecoration: 'none',
+                //   letterSpacing: '0.5px',
+                //   border: '2px solid #FF6B35',
+                //   transition: 'all 0.3s ease'
+                // }}
+                className="px-6 py-2.5 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors"
+                // className="hover:bg-[#FF6B35] hover:text-white"
                 data-testid="our-mission-read-more-btn"
               >
                 Read more
