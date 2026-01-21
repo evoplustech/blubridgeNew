@@ -450,7 +450,7 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 7: More Solutions */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             More Solutions
@@ -459,7 +459,7 @@ const ModelCustomization = () => {
             BluBridge accelerates the journey from development to deployment, delivering faster time to production for your AI initiatives.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Solution 1 */}
+           
             <Link to="/products/inference" className="group relative h-[200px] rounded-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#0B1F3B]" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
@@ -468,7 +468,7 @@ const ModelCustomization = () => {
               </div>
             </Link>
             
-            {/* Solution 2 */}
+           
             <Link to="/solutions/ai-development" className="group relative h-[200px] rounded-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#328CC1] to-[#1e5f8a]" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
@@ -477,7 +477,7 @@ const ModelCustomization = () => {
               </div>
             </Link>
             
-            {/* Solution 3 */}
+          
             <Link to="/products/fine-tuning" className="group relative h-[200px] rounded-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#065f46] to-[#064e3b]" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
@@ -487,7 +487,7 @@ const ModelCustomization = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 8: FAQs */}
       <section className="py-20 bg-[#f3f1e9]">
