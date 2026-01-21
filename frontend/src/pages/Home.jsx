@@ -13,10 +13,11 @@ const TestimonialsCarousel = () => {
     loop: true, 
     align: 'center',
     skipSnaps: false,
-    containScroll: false
+    slidesToScroll: 1,
+    containScroll: false,
+    dragFree: false
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState([]);
 
   const clientTestimonials = [
     {
@@ -56,13 +57,14 @@ const TestimonialsCarousel = () => {
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
+    // Get the real index (accounting for loop clones)
+    const realIndex = emblaApi.selectedScrollSnap() % clientTestimonials.length;
+    setSelectedIndex(realIndex);
+  }, [emblaApi, clientTestimonials.length]);
 
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
-    setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
     return () => {
