@@ -351,9 +351,9 @@ const AboutUs = () => {
       {/* Our Mission Section - Section 2 */}
       <section className="py-24 bg-[#f3f1e9]">
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
-            {/* Left Content - Takes 3 of 5 columns (~60%) */}
-            <div className="order-2 lg:order-1 lg:col-span-3">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+            {/* Left Content - Fixed width 940px */}
+            <div className="order-2 lg:order-1" style={{ width: '940px', maxWidth: '100%' }}>
               {/* Heading "Our Mission" */}
               <h2 
                 className="text-[#0B1F3B]"
@@ -395,13 +395,13 @@ const AboutUs = () => {
               </Link>
             </div>
             
-            {/* Right - Eagle Illustration - Takes 2 of 5 columns (~40%) */}
-            <div className="order-1 lg:order-2 lg:col-span-2 flex justify-center lg:justify-end">
+            {/* Right - Eagle Illustration - max-width 250px */}
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end" style={{ maxWidth: '250px', width: '100%' }}>
               <img 
                 src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/llrlfhzt_toolfk_a_majestic_eagle_in_.png" 
                 alt="Digital technology eagle representing AI innovation"
                 style={{
-                  maxWidth: '420px',
+                  maxWidth: '250px',
                   width: '100%',
                   height: 'auto',
                   objectFit: 'contain'
