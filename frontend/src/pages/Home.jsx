@@ -14,14 +14,14 @@ const VerticalTabsSection = () => {
 
   const tabs = [
     {
-      title: "Enterprise AI Solutions",
+      title: "Enterprise Agents",
       content: {
         heading: "Automate tasks with AI agents connected to your apps and workflows.",
         description: "Our enterprise AI solutions seamlessly integrate with your existing infrastructure, enabling intelligent automation across departments. From data processing to decision support, we build custom AI agents that understand your business context and deliver measurable results."
       }
     },
     {
-      title: "AI-powered Research",
+      title: "AI-Powered search",
       content: {
         heading: "Deep research capabilities powered by advanced language models.",
         description: "Leverage our cutting-edge research infrastructure to analyze complex datasets, extract insights, and generate comprehensive reports. Our AI research tools help teams move faster from hypothesis to validated conclusions with unprecedented accuracy."
