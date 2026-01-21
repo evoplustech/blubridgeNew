@@ -461,137 +461,203 @@ const AboutUs = () => {
       </section> */}
 
       {/* Research Teams Grid Section */}
-      <section 
-        ref={researchTeamsRef}
-        id="current-research-teams"
-        className="py-24 bg-[#f3f1e9]" 
-        data-testid="research-teams-section"
-      >
-        <div className="container-custom relative z-10">
-          {/* Center-aligned Title */}
-          <div className="text-center mb-16">
-            <h2 
-              className="text-4xl md:text-5xl font-bold text-[#0B1F3B] tracking-tight"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                letterSpacing: '-0.02em',
-              }}
-              data-testid="research-areas-title"
-            >
-              Current Research Teams
-            </h2>
-            <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#0B1F3B] via-[#FF6B35] to-[#0B1F3B] rounded-full opacity-60" />
+           {/* Who We Are Section - Section 2 */}
+      <section className="py-20 bg-[#f3f1e9]">
+        <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
+          {/* Heading */}
+          <h2 
+            style={{ 
+              fontSize: '36px', 
+              fontWeight: '700', 
+              color: '#1A1A1A', 
+              textAlign: 'center', 
+              marginBottom: '32px',
+              letterSpacing: '-0.5px'
+            }}
+            data-testid="who-we-are-title"
+          >Who we are</h2>
+          
+          {/* Introductory Paragraph */}
+          
+              
+          {/* Two Column Grid with White Containers - Animated */}
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>
+            {/* Container 1 - Research with Purpose */}
+            <AnimatedContainer delay={0} direction="left">
+              <div 
+                data-testid="who-we-are-container-1"
+                style={{ 
+                  backgroundColor: '#fffdf7', 
+                  padding: '24px',
+                  borderRadius: '12px',
+                  border: '1px solid #e5e5e5',
+                  borderLeft: '4px solid rgb(11, 31, 59)',
+                  height: '100%'
+                }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <div style={{ 
+                    width: '8px', 
+                    height: '8px', 
+                    borderRadius: '50%', 
+                    backgroundColor: '#0b1f3b', 
+                    marginTop: '8px',
+                    flexShrink: 0
+                  }} />
+                  <div>
+                    <p style={{ 
+                      fontSize: '18px', 
+                      fontWeight: '600', 
+                      color: '#1A1A1A', 
+                      marginBottom: '8px',
+                      lineHeight: '1.3'
+                    }}>Research with Purpose</p>
+                    <p style={{ 
+                      fontSize: '16px', 
+                      lineHeight: '1.6', 
+                      color: '#333333'
+                    }}>We conduct applied and foundational AI research aimed at solving meaningful problems. Our work advances models, systems, and methodologies that can be translated into real, deployable solutions.</p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedContainer>
+            
+            {/* Container 2 - From Insight to Implementation */}
+            <AnimatedContainer delay={0.15} direction="right">
+              <div 
+                data-testid="who-we-are-container-2"
+                style={{ 
+                  backgroundColor: '#fffdf7', 
+                  padding: '24px',
+                  borderRadius: '12px',
+                  border: '1px solid #e5e5e5',
+                  borderLeft: '4px solid rgb(11, 31, 59)',
+                  height: '100%'
+                }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <div style={{ 
+                    width: '8px', 
+                    height: '8px', 
+                    borderRadius: '50%', 
+                    backgroundColor: '#0b1f3b', 
+                    marginTop: '8px',
+                    flexShrink: 0
+                  }} />
+                  <div>
+                    <p style={{ 
+                      fontSize: '18px', 
+                      fontWeight: '600', 
+                      color: '#1A1A1A', 
+                      marginBottom: '8px',
+                      lineHeight: '1.3'
+                    }}>From Insight to Implementation</p>
+                    <p style={{ 
+                      fontSize: '16px', 
+                      lineHeight: '1.6', 
+                      color: '#333333'
+                    }}>We don&apos;t stop at theory. Our consulting practice transforms research outcomes into production-ready AI systems, guiding clients from strategy and design to deployment and optimisation.</p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedContainer>
+            
+            {/* Container 3 - Build Responsibly, Grow Confidently */}
+            <AnimatedContainer delay={0.3} direction="left">
+              <div 
+                data-testid="who-we-are-container-3"
+                style={{ 
+                  backgroundColor: '#fffdf7', 
+                  padding: '24px',
+                  borderRadius: '12px',
+                  border: '1px solid #e5e5e5',
+                  borderLeft: '4px solid rgb(11, 31, 59)',
+                  height: '100%'
+                }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <div style={{ 
+                    width: '8px', 
+                    height: '8px', 
+                    borderRadius: '50%', 
+                    backgroundColor: '#0b1f3b', 
+                    marginTop: '8px',
+                    flexShrink: 0
+                  }} />
+                  <div>
+                    <p style={{ 
+                      fontSize: '18px', 
+                      fontWeight: '600', 
+                      color: '#1A1A1A', 
+                      marginBottom: '8px',
+                      lineHeight: '1.3'
+                    }}>Build Responsibly, Grow Confidently</p>
+                    <p style={{ 
+                      fontSize: '16px', 
+                      lineHeight: '1.6', 
+                      color: '#333333'
+                    }}>We prioritise robustness, transparency, and ethical use of AI. Every system we design is built to be reliable, explainable, and scalable in real operational environments.</p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedContainer>
+            
+            {/* Container 4 - Own the Impact */}
+            <AnimatedContainer delay={0.45} direction="right">
+              <div 
+                data-testid="who-we-are-container-4"
+                style={{ 
+                  backgroundColor: '#fffdf7', 
+                  padding: '24px',
+                  borderRadius: '12px',
+                  border: '1px solid #e5e5e5',
+                  borderLeft: '4px solid rgb(11, 31, 59)',
+                  height: '100%'
+                }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <div style={{ 
+                    width: '8px', 
+                    height: '8px', 
+                    borderRadius: '50%', 
+                    backgroundColor: '#0b1f3b', 
+                    marginTop: '8px',
+                    flexShrink: 0
+                  }} />
+                  <div>
+                    <p style={{ 
+                      fontSize: '18px', 
+                      fontWeight: '600', 
+                      color: '#1A1A1A', 
+                      marginBottom: '8px',
+                      lineHeight: '1.3'
+                    }}>Own the Impact</p>
+                    <p style={{ 
+                      fontSize: '16px', 
+                      lineHeight: '1.6', 
+                      color: '#333333'
+                    }}>We take responsibility for outcomes, not just deliverables. By working as an extension of our clients&apos; teams, we ensure that AI initiatives create lasting value, not experimental dead ends.</p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedContainer>
           </div>
           
-          {/* 4-Container Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Container 1: Data Engineering */}
-            <div 
-              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
-              data-testid="research-card-data-engineering"
+          {/* Join Us Button - Centered */}
+          <div 
+            style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link 
+              to="/careers" 
+              style={{ 
+                display: 'inline-block',
+                backgroundColor: '#0B1F3B', 
+                color: '#FFFFFF', 
+                padding: '14px 32px', 
+                borderRadius: '4px',
+                fontSize: '16px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                letterSpacing: '0.5px'
+              }}
             >
-              {/* Top accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] to-[#60A5FA]" />
-              
-              {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3B82F6] to-[#60A5FA] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Database className="w-8 h-8 text-white" strokeWidth={1.5} />
-              </div>
-              
-              {/* Title */}
-              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Data Engineering
-              </h3>
-              
-              {/* Divider */}
-              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
-              
-              {/* Description */}
-              <p className="text-[#64748B] leading-relaxed text-base">
-                We architect and curate high-quality multilingual and multimodal datasets that power cutting-edge deep learning research. Our team specializes in large-scale data processing and quality filtering across multiple domains.
-              </p>
-            </div>
-
-            {/* Container 2: Machine Learning */}
-            <div 
-              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
-              data-testid="research-card-machine-learning"
-            >
-              {/* Top accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#06B6D4] to-[#22D3EE]" />
-              
-              {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#06B6D4] to-[#22D3EE] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Brain className="w-8 h-8 text-white" strokeWidth={1.5} />
-              </div>
-              
-              {/* Title */}
-              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Machine Learning
-              </h3>
-              
-              {/* Divider */}
-              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
-              
-              {/* Description */}
-              <p className="text-[#64748B] leading-relaxed text-base">
-                We develop state-of-the-art machine learning models and algorithms that push the boundaries of AI capabilities. Our research focuses on efficient architectures, training methodologies, and model optimization techniques.
-              </p>
-            </div>
-
-            {/* Container 3: AI Safety & Ethics */}
-            <div 
-              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
-              data-testid="research-card-ai-safety"
-            >
-              {/* Top accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF6B35] to-[#FF8C5A]" />
-              
-              {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF6B35] to-[#FF8C5A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-8 h-8 text-white" strokeWidth={1.5} />
-              </div>
-              
-              {/* Title */}
-              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                AI Safety & Ethics
-              </h3>
-              
-              {/* Divider */}
-              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
-              
-              {/* Description */}
-              <p className="text-[#64748B] leading-relaxed text-base">
-                We prioritize responsible AI development through rigorous safety protocols and ethical frameworks. Our team ensures models are transparent, explainable, and aligned with human values while minimizing potential risks.
-              </p>
-            </div>
-
-            {/* Container 4: Applied Research */}
-            <div 
-              className="group bg-white rounded-2xl p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
-              data-testid="research-card-applied-research"
-            >
-              {/* Top accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FBBF24] to-[#FCD34D]" />
-              
-              {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FBBF24] to-[#FCD34D] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Lightbulb className="w-8 h-8 text-white" strokeWidth={1.5} />
-              </div>
-              
-              {/* Title */}
-              <h3 className="text-xl font-bold text-[#1E293B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Applied Research
-              </h3>
-              
-              {/* Divider */}
-              <div className="w-12 h-0.5 bg-[#E5E7EB] mb-4" />
-              
-              {/* Description */}
-              <p className="text-[#64748B] leading-relaxed text-base">
-                We transform research insights into production-ready AI systems that solve real-world problems. Our consulting practice guides clients from strategy and design through deployment and optimization of AI solutions.
-              </p>
-            </div>
+              Join Us
+            </Link>
           </div>
         </div>
       </section>

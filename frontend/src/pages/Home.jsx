@@ -1117,11 +1117,11 @@ const Home = () => {
         <div className="container-custom relative z-10">
           {/* Section Title & Description */}
           <div className="mb-10">
-            <h2 className="text-4xl md:text-5xl font-light mb-6 text-[#0B1F3B]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              BluBridge's AI Pipeline
+            <h2 className="text-3xl md:text-4xl font-light mb-6 text-[#0B1F3B]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              Blubridge Infrastructure for custom AI deployment Solutions
             </h2>
             <p className="text-[#243447] max-w-4xl leading-relaxed text-lg">
-              We manage the complete AI development lifecycle, from data preparation and model training to deployment and scaling. Every stage is designed to deliver production-ready AI systems that perform at scale.
+              Blubridge provides a secure, scalable foundation to run bespoke AI systems in real-world environments. It bridges research and production by delivering performance-optimized, sovereign, and enterprise-ready AI infrastructure.
             </p>
           </div>
           
