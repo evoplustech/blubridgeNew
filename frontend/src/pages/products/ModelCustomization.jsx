@@ -546,18 +546,21 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 9: Final CTA */}
-      <section className="py-20 bg-[#0B1F3B]">
+      <section className="py-20 bg-[#c0bba5]">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Access thousands of GPUs tailored to your<br />requirements.
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
+            Ready to customize your AI models?
           </h2>
-          <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/products/gpu-nodes">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-white/90 px-8 py-3 rounded-md font-medium">
-                Reserve GPUs
+          <p className="text-[#2F3A4A] mb-8 max-w-2xl mx-auto">
+            Get started with BluBridge Model Customization and transform generic models into purpose-built solutions for your specific needs.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link to="/contact">
+              <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
+                Start Customizing
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-white hover:text-[#328CC1] transition-colors font-medium">
+            <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium border border-[#0B1F3B] rounded-md">
               Contact Us <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
