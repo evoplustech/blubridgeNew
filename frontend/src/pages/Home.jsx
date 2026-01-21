@@ -86,6 +86,44 @@ const VerticalTabsSection = () => {
   );
 };
 
+// Services Cards Section - Consulting, Research, Implementation
+const ServicesCardsSection = () => {
+  return (
+    <section className="py-20 bg-[#0B1F3B]">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Consulting Card */}
+          <div className="bg-[#162B4D] rounded-2xl p-8 hover:bg-[#1a3259] transition-colors">
+            <div className="text-4xl mb-6">💡</div>
+            <h3 className="text-xl font-semibold text-white mb-4">Consulting</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Expert guidance to define your AI strategy, identify high-impact use cases, and build a roadmap that aligns with your business goals.
+            </p>
+          </div>
+          
+          {/* Research Card */}
+          <div className="bg-[#162B4D] rounded-2xl p-8 hover:bg-[#1a3259] transition-colors">
+            <div className="text-4xl mb-6">🔬</div>
+            <h3 className="text-xl font-semibold text-white mb-4">Research</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Cutting-edge AI research capabilities that push the boundaries of what's possible, delivering breakthroughs tailored to your industry.
+            </p>
+          </div>
+          
+          {/* Implementation Card */}
+          <div className="bg-[#162B4D] rounded-2xl p-8 hover:bg-[#1a3259] transition-colors">
+            <div className="text-4xl mb-6">⚙️</div>
+            <h3 className="text-xl font-semibold text-white mb-4">Implementation</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              End-to-end deployment of AI solutions, from model development to production integration, ensuring seamless adoption across your organization.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const AIExpertiseOrbit = () => {
   const rings = [
     { key: 1, className: 'orbit-1', radius: '105px' },
