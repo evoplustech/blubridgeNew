@@ -165,7 +165,7 @@ const Deployment = () => {
                   </div>
                   <div>
                     <h4 className="text-[#0B1F3B] font-semibold">Inference & Deployment</h4>
-                    <p className="text-[#6B7280] text-sm">One-click model serving</p>
+                    <p className="text-[#6B7280] text-sm">One-click model rollout and scaling</p>
                   </div>
                 </div>
               </div>
@@ -178,7 +178,7 @@ const Deployment = () => {
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Fine-Tuning Stack</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Deployment Stack</h2>
             <p className="text-base text-[#6B7280] max-w-2xl">
               BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
             </p>
@@ -191,7 +191,7 @@ const Deployment = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['Jupyter Notebook', 'TensorFlow', 'PyTorch'].map((item, i) => (
+                  {['Deployment Templates', 'Inference Services', 'Monitoring Tools','Security Modules'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
                       <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
                       {item}
@@ -204,7 +204,7 @@ const Deployment = () => {
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">PLATFORM</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
+                  {['Model Registry', 'Versioning','Traffic Routing'].map((item, i) => (
                     <span key={i} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
                       <div className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
                       {item}
