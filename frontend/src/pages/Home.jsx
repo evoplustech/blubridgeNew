@@ -438,6 +438,20 @@ const Home = () => {
       description: "Robust Kubernetes infrastructure for deploying, managing, and scaling containerized AI workloads efficiently.",
       features: ["Bare metal performance", "Auto-scale to 1000s GPUs", "Fully managed", "Native GPU support"],
       link : '/products/training'
+    },
+    {
+      name: "Security",
+      title: "Enterprise-grade security",
+      description: "Comprehensive security framework protecting your AI workloads with industry-leading standards and compliance certifications.",
+      features: ["SOC 2 compliant", "End-to-end encryption", "Zero-trust architecture", "GDPR ready"],
+      link : '/products/sovereign-cloud'
+    },
+    {
+      name: "Support",
+      title: "24/7 dedicated support",
+      description: "Expert technical support and dedicated account management ensuring your AI infrastructure runs smoothly around the clock.",
+      features: ["24/7 availability", "Dedicated engineers", "SLA guarantees", "Proactive monitoring"],
+      link : '/contact'
     }
   ];
 
