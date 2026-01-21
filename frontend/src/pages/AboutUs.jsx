@@ -664,15 +664,16 @@ const AboutUs = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left - Text Content */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">Work with BluBridge</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">Our Way of Working</h2>
               <p className="text-black leading-relaxed mb-8">
-                We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
+                We started Blubridge to make powerful generative models accessible to developers and enterprises everywhere. We move quickly and work with intensity, balancing individual ownership with a strong sense of teamwork. Transparency is central to how we operate, because we believe open collaboration drives real efficiency. We stay disciplined in our approach, knowing that excellence in technology comes from rigor. At the same time, we remain inventive, recognizing that building outstanding models depends on discovering new paths to efficiency. Everything we create is guided by real-world use, ensuring our models deliver meaningful value in practical applications.
+We are proud to be a diverse team, bringing together people from many backgrounds and perspectives, united by a broad and deep range of expertise across the AI landscape.
               </p>
-              <Link to="/careers">
+              {/* <Link to="/careers">
                 <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded-md font-medium">
                   Join us
                 </Button>
-              </Link>
+              </Link> */}
             </div>
             
             {/* Right - Team Image */}
