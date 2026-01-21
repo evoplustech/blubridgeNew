@@ -415,7 +415,7 @@ const Deployment = () => {
           <div className="max-w-4xl space-y-3">
             {[
               {
-                question: "What makes BluBridge's GPU Cloud different from others?",
+                question: "What makes BluBridge’s deployment platform different?",
                 answer: "BluBridge owns and operates the entire infrastructure stack, from physical data centres to orchestration software, allowing the company to tune every layer for performance, efficiency, and scalability. This integrated approach delivers superior compute power and expert support for complex AI workloads."
               },
               {
