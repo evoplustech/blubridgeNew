@@ -409,7 +409,7 @@ const AboutUs = () => {
             {/* Right - Bird Illustration */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <img 
-                src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=500&q=80" 
+                src="https://static.prod-images.emergentagent.com/jobs/d48a1dae-4c36-4318-b28c-bedd073aa6d3/images/41a408cc13c113a05900c1ffd653c35cc73b2b84f1a63c531868d46e7e3fe6e2.png" 
                 alt="Colorful bird in flight"
                 style={{
                   maxWidth: '450px',
