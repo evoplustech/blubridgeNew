@@ -280,7 +280,7 @@ const Careers = () => {
               margin: 0,
               lineHeight: '1.4'
             }}>
-              Join the Mission to Scale Intelligence
+              We Build Intelligence from First Principles
             </h3>
            <button
               onClick={toggleJobListings}
