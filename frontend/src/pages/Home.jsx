@@ -1066,18 +1066,18 @@ const Home = () => {
       <VerticalTabsSection />
 
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
-      <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
+      {/* <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">
                 BluBridge is now an NVIDIA Inception Partner
               </h2>
-              {/*<p className="text-[#243447] mb-6">
+              <p className="text-[#243447] mb-6">
                  Access thousands of GPUs tailored to your requirements. 
                 Know more about our Research
-              </p>*/}
-             {/* <div className="flex gap-4">
+              </p>
+             <div className="flex gap-4">
                 <Link to="/contact">
                   <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-4 py-3">
                     Contact Us
@@ -1093,7 +1093,7 @@ const Home = () => {
                     Contact
                   </Button>
                 </Link> 
-              </div>*/}
+              </div>
             </div>
             <div className="flex items-center justify-center lg:justify-end gap-8">
               <span className="text-5xl font-bold text-[#0B1F3B]/20 tracking-tight">NVIDIA</span>
@@ -1101,7 +1101,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       {/* <section className="py-20 bg-[#fffdf7]">
