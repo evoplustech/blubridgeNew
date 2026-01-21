@@ -754,37 +754,35 @@ const Home = () => {
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Circular Diagram */}
+            {/* Left - Circular Orbital Diagram */}
             <div className="relative flex items-center justify-center">
               <AIExpertiseOrbit />    
             </div>
             
-            {/* Right - AI Expertise Grid (8 tabs, clickable with routing) */}
+            {/* Right - Industry Expertise Grid */}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8">Our AI Expertise</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Database, title: "Data", slug: "data" },
-                  { icon: CheckCircle, title: "Tokenizer", slug: "tokenizer" },
-                  { icon: Layers, title: "Tensor & Operations", slug: "tensor-operations" },
-                  { icon: GitBranch, title: "Computational Graph", slug: "computational-graph" },
-                  { icon: Terminal, title: "Auto Differentiation", slug: "auto-differentiation" },
-                  { icon: Network, title: "Compiler", slug: "compiler" },
-                  { icon: SlidersHorizontal, title: "Quantization", slug: "quantization" },
-                  { icon: Server, title: "Distributed Training", slug: "distributed-training" }
+                  { icon: Radio, title: "Telco" },
+                  { icon: ShieldCheck, title: "Finance & Insurance" },
+                  { icon: GraduationCap, title: "Education" },
+                  { icon: Scale, title: "Legal" },
+                  { icon: Code2, title: "Software & Technology" },
+                  { icon: Factory, title: "Manufacturing" },
+                  { icon: Landmark, title: "Government" },
+                  { icon: HeartPulse, title: "Healthcare" }
                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
-                  <Link 
+                  <div 
                     key={index}
-                    to={`/about?team=${service.slug}`}
-                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg hover:scale-[1.02] transition-all duration-200 cursor-pointer group"
-                    aria-label={`View ${service.title} research team`}
-                    data-testid={`research-team-${service.slug}`}
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#E8E4D9] shadow-sm"
+                    data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                   >
-                    <IconComponent className="w-6 h-6 text-[#0B1F3B] group-hover:text-[#328CC1] transition-colors" strokeWidth={1.5} />
-                    <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1] transition-colors">{service.title}</span>
-                  </Link>
+                    <IconComponent className="w-6 h-6 text-[#328CC1]" strokeWidth={1.5} />
+                    <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
+                  </div>
                 )})}
               </div>
             </div>
