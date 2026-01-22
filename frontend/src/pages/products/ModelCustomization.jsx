@@ -383,44 +383,135 @@ const ModelCustomization = () => {
         </div>
       </section>
 
-      {/* SECTION 3: Accelerated Model Customization */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-14 items-start">
+      {/* SECTION 3: Accelerated Model Customization - Redesigned */}
+      <section className="py-24 bg-gradient-to-br from-[#0B1F3B] via-[#132B4F] to-[#0B1F3B] relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Gradient orbs */}
+          <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+          {/* Grid pattern */}
+          <div 
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+              backgroundSize: '50px 50px'
+            }}
+          />
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
-                Accelerated Model<br />Customization
-              </h2>
-              <p className="text-[#2F3A4A] mb-5 leading-relaxed">
-                Model customization requires more than fine-tuning - it demands precision, repeatability, and control. BluBridge provides a unified environment for adapting models at scale, enabling teams to shape behavior, tone, and reasoning patterns with confidence.
-              </p>
-              <p className="text-[#2F3A4A] mb-5 leading-relaxed">
-                Our platform supports parameter-efficient tuning, instruction alignment, and domain-specific adaptation across distributed GPU clusters. Built-in orchestration ensures experiments are reproducible, scalable, and easy to transition into production.
-              </p>
-              <p className="text-[#2F3A4A] leading-relaxed">
-                From enterprise workflows to specialized research models, BluBridge transforms customization into a fast, predictable process.
-              </p>
-            </div>
-            
-            {/* Right - Feature Cards */}
-            <div className="space-y-5 my-20">
-              {/* Pre-configured Card */}
-              <div className="bg-[#0B1F3B] rounded-xl p-6 text-white">
-                <p className="text-white/60 text-sm mb-1">Ready-to-use Environments</p>
-                <h3 className="text-2xl font-semibold mb-2">Pre-configured</h3>
-                <p className="text-white/70 text-sm">Fine-tuning and alignment environments ready for immediate use</p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-6">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <span className="text-white/80 text-sm font-medium">Enterprise Ready</span>
               </div>
               
-              {/* Scalable Card */}
-              <div className="bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5f] rounded-xl p-6 text-white">
-                <p className="text-white/60 text-sm mb-1">Distributed GPU Clusters</p>
-                <h3 className="text-2xl font-semibold mb-2">Scalable</h3>
-                <p className="text-white/70 text-sm">Large-scale adaptation across high-performance infrastructure</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight">
+                Accelerated Model
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                  Customization
+                </span>
+              </h2>
+              
+              <p className="text-white/70 mb-6 leading-relaxed text-lg">
+                Model customization requires more than fine-tuning - it demands precision, repeatability, and control. BluBridge provides a unified environment for adapting models at scale.
+              </p>
+              
+              <p className="text-white/60 mb-8 leading-relaxed">
+                Our platform supports parameter-efficient tuning, instruction alignment, and domain-specific adaptation across distributed GPU clusters. Built-in orchestration ensures experiments are reproducible, scalable, and easy to transition into production.
+              </p>
+              
+              {/* Stats row */}
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/10">
+                <div>
+                  <div className="text-3xl font-bold text-white mb-1">10x</div>
+                  <div className="text-white/50 text-sm">Faster Training</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-white mb-1">99.9%</div>
+                  <div className="text-white/50 text-sm">Uptime SLA</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-white mb-1">24/7</div>
+                  <div className="text-white/50 text-sm">Expert Support</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right - Feature Cards Stack */}
+            <div className="relative">
+              {/* Decorative rings */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 border border-white/10 rounded-full" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-white/10 rounded-full" />
+              
+              <div className="space-y-5">
+                {/* Pre-configured Card */}
+                <div 
+                  className="relative bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 group hover:border-blue-400/50 transition-all duration-300"
+                  style={{ animation: 'cardFloat1 6s ease-in-out infinite' }}
+                >
+                  <div className="absolute top-6 right-6 w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                  <p className="text-blue-400 text-sm font-semibold mb-2 uppercase tracking-wider">Ready-to-use Environments</p>
+                  <h3 className="text-3xl font-bold text-white mb-3">Pre-configured</h3>
+                  <p className="text-white/60">Fine-tuning and alignment environments ready for immediate use with zero setup time.</p>
+                </div>
+                
+                {/* Scalable Card */}
+                <div 
+                  className="relative bg-gradient-to-r from-purple-500/20 to-blue-500/10 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 group hover:border-purple-400/50 transition-all duration-300"
+                  style={{ animation: 'cardFloat2 5s ease-in-out infinite' }}
+                >
+                  <div className="absolute top-6 right-6 w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                  </div>
+                  <p className="text-purple-400 text-sm font-semibold mb-2 uppercase tracking-wider">Distributed GPU Clusters</p>
+                  <h3 className="text-3xl font-bold text-white mb-3">Scalable</h3>
+                  <p className="text-white/60">Large-scale adaptation across high-performance infrastructure with automatic scaling.</p>
+                </div>
+                
+                {/* Secure Card */}
+                <div 
+                  className="relative bg-gradient-to-r from-teal-500/20 to-green-500/10 backdrop-blur-sm rounded-2xl p-8 border border-teal-500/20 group hover:border-teal-400/50 transition-all duration-300"
+                  style={{ animation: 'cardFloat3 7s ease-in-out infinite' }}
+                >
+                  <div className="absolute top-6 right-6 w-12 h-12 bg-teal-500/20 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <p className="text-teal-400 text-sm font-semibold mb-2 uppercase tracking-wider">Enterprise Security</p>
+                  <h3 className="text-3xl font-bold text-white mb-3">Secure</h3>
+                  <p className="text-white/60">SOC 2 compliant with end-to-end encryption and isolated training environments.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Animation styles */}
+        <style>{`
+          @keyframes cardFloat1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          @keyframes cardFloat2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+          }
+          @keyframes cardFloat3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+        `}</style>
       </section>
 
       {/* SECTION 4: Customization Stack - Table Format */}
