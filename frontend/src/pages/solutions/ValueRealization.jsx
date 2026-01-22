@@ -159,7 +159,7 @@ const ValueRealization = () => {
         </div>
       </section>
 
-      {/* SECTION 4: Value Realization - 4 Column Layout */}
+      {/* SECTION 4: Value Stack - Table Format */}
       <section className="py-20 bg-[#efede5]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
@@ -169,91 +169,48 @@ const ValueRealization = () => {
             BluBridge provides a complete technology stack for delivering measurable AI value across your organization.
           </p>
           
-          {/* 4-Column Grid Layout */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {/* OBSERVABILITY Column */}
-            <div className="bg-[#1A2940] rounded-xl p-6">
-              <div className="mb-6">
-                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">OBSERVABILITY</span>
+          {/* Table Format Layout - 4 Columns */}
+          <div className="rounded-xl overflow-hidden border border-[#E5E7EB]">
+            {/* Header Row - Dark Background */}
+            <div className="bg-[#0B1F3B] grid grid-cols-4">
+              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                OBSERVABILITY
               </div>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Training Metrics',
-                  'Evaluation Metrics',
-                  'Logs & Traces',
-                  'Dashboard Analytics',
-                  'Data Lineage'
-                ].map((item, i) => (
-                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
+              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                MONITORING
+              </div>
+              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                DEPLOYMENT INSIGHTS
+              </div>
+              <div className="px-5 py-4 text-white text-[10px] font-bold uppercase tracking-wider">
+                INFERENCE ANALYTICS & AUTOMATION
               </div>
             </div>
             
-            {/* MONITORING Column */}
-            <div className="bg-[#1A2940] rounded-xl p-6">
-              <div className="mb-6">
-                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MONITORING</span>
-              </div>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Model Performance',
-                  'Drift Detection',
-                  'Error Analysis',
-                  'A/B Testing',
-                  'Bias & Fairness Tracking'
-                ].map((item, i) => (
-                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
-                    {item}
-                  </span>
+            {/* Data Rows - White Background */}
+            {[
+              ['Training Metrics', 'Model Performance', 'Model Serving Metrics', 'Data Feedback Loops'],
+              ['Evaluation Metrics', 'Drift Detection', 'Inference Latency Tracking', 'Cost Monitoring'],
+              ['Logs & Traces', 'Error Analysis', 'Throughput Analytics', 'Performance Dashboards'],
+              ['Dashboard Analytics', 'A/B Testing', 'Resource Utilization', 'Alerts & Auto-Remediation'],
+              ['Data Lineage', 'Bias & Fairness Tracking', 'SLA Monitoring', 'Continuous Improvement Pipelines']
+            ].map((row, rowIndex) => (
+              <div key={rowIndex} className="grid grid-cols-4 bg-white border-b border-[#E5E7EB] last:border-b-0">
+                {row.map((cell, cellIndex) => (
+                  <div 
+                    key={cellIndex} 
+                    className={`px-5 py-3 text-[#212529] text-sm ${cellIndex < 3 ? 'border-r border-[#E5E7EB]' : ''}`}
+                  >
+                    {cell && (
+                      <div className="flex items-center gap-3">
+                        <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                        <span className="text-xs">{cell}</span>
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
-            </div>
-            
-            {/* DEPLOYMENT INSIGHTS Column */}
-            <div className="bg-[#1A2940] rounded-xl p-6">
-              <div className="mb-6">
-                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DEPLOYMENT INSIGHTS</span>
-              </div>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Model Serving Metrics',
-                  'Inference Latency Tracking',
-                  'Throughput Analytics',
-                  'Resource Utilization',
-                  'SLA Monitoring'
-                ].map((item, i) => (
-                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-            
-            {/* INFERENCE ANALYTICS & AUTOMATION Column */}
-            <div className="bg-[#1A2940] rounded-xl p-6">
-              <div className="mb-6">
-                <span className="bg-[#5A6B83] text-[#E0E0E0] text-[10px] font-bold px-3 py-1.5 rounded tracking-wider leading-tight">INFERENCE ANALYTICS & AUTOMATION</span>
-              </div>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Data Feedback Loops',
-                  'Cost Monitoring',
-                  'Performance Dashboards',
-                  'Alerts & Auto-Remediation',
-                  'Continuous Improvement Pipelines'
-                ].map((item, i) => (
-                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
