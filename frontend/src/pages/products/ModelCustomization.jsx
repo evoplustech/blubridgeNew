@@ -263,17 +263,21 @@ const ModelCustomization = () => {
                   </div>
                 </div>
                 
-                {/* Floating particles */}
+                {/* Floating particles with motion */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  {[...Array(12)].map((_, i) => (
+                  {[...Array(20)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-40"
+                      className="absolute rounded-full"
                       style={{
-                        left: `${15 + (i * 7)}%`,
-                        top: `${20 + ((i % 4) * 20)}%`,
-                        animation: `particle ${3 + (i % 3)}s ease-in-out infinite`,
-                        animationDelay: `${i * 0.3}s`
+                        width: `${3 + (i % 4)}px`,
+                        height: `${3 + (i % 4)}px`,
+                        background: i % 3 === 0 ? '#3B82F6' : i % 3 === 1 ? '#8B5CF6' : '#14B8A6',
+                        left: `${10 + (i * 4.5)}%`,
+                        top: `${15 + ((i % 5) * 18)}%`,
+                        opacity: 0.5,
+                        animation: `particleMove${i % 4} ${4 + (i % 3)}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.2}s`
                       }}
                     />
                   ))}
@@ -318,9 +322,30 @@ const ModelCustomization = () => {
                   0%, 100% { transform: translateY(-50%); }
                   50% { transform: translateY(calc(-50% + 8px)); }
                 }
-                @keyframes particle {
-                  0%, 100% { opacity: 0.2; transform: scale(1); }
-                  50% { opacity: 0.6; transform: scale(1.5); }
+                @keyframes particleMove0 {
+                  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+                  25% { transform: translate(20px, -30px) scale(1.2); opacity: 0.7; }
+                  50% { transform: translate(40px, 0) scale(1); opacity: 0.5; }
+                  75% { transform: translate(20px, 30px) scale(0.8); opacity: 0.6; }
+                  100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+                }
+                @keyframes particleMove1 {
+                  0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+                  25% { transform: translate(-25px, 20px) scale(0.9); opacity: 0.6; }
+                  50% { transform: translate(-50px, 0) scale(1.1); opacity: 0.8; }
+                  75% { transform: translate(-25px, -20px) scale(1); opacity: 0.5; }
+                  100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+                }
+                @keyframes particleMove2 {
+                  0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+                  33% { transform: translate(30px, 25px) scale(1.3); opacity: 0.7; }
+                  66% { transform: translate(-20px, 40px) scale(0.9); opacity: 0.4; }
+                  100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+                }
+                @keyframes particleMove3 {
+                  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+                  50% { transform: translate(-35px, -35px) scale(1.2); opacity: 0.8; }
+                  100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
                 }
               `}</style>
             </div>
