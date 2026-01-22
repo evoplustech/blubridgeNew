@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
@@ -6,7 +6,6 @@ import { ArrowRight, Plus, Minus, Check, Cpu, Box } from 'lucide-react';
 
 const ModelCustomization = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const canvasRef = useRef(null);
 
   // Animated abstract visual for hero - new shining design
   useEffect(() => {
