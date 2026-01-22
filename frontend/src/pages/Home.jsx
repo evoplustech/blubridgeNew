@@ -1099,7 +1099,7 @@ const Home = () => {
             {/* Right - Team Image */}
             <div className="rounded-2xl overflow-hidden">
               <img 
-                src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/h3z2nkmb_img-right.png" 
+                src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/jxccru4d_about.png" 
                 alt="BluBridge Team" 
                 className="w-full h-auto object-cover rounded-2xl"
               />
