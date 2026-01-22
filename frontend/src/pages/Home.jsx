@@ -40,11 +40,11 @@ const VerticalTabsSection = () => {
     <section className="py-20 bg-[#fffdf7] relative">
       {/* Grid Background */}
       <div 
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-60"
         style={{
-          backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/rye8l8ob_image.png')`,
+          backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/ddqne8xx_grid.png')`,
           backgroundRepeat: 'repeat',
-          backgroundSize: '20px 20px'
+          backgroundSize: '50px 50px'
         }}
       />
       <div className="max-w-7xl mx-auto px-4 relative z-10">
