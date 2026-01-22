@@ -74,153 +74,253 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - AI Model Network Visual */}
-            <div className="relative h-[420px] lg:h-[480px] flex items-center justify-center">
-              {/* SVG Network Visualization */}
-              <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px]" style={{ animation: 'networkFloat 6s ease-in-out infinite' }}>
-                {/* Definitions for gradients and filters */}
-                <defs>
-                  {/* Glow filter */}
-                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                  
-                  {/* Node gradients */}
-                  <radialGradient id="purpleGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#A855F7" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#0D9488" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="orangeGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#F97316" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#EA580C" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="pinkGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#EC4899" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#DB2777" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#22C55E" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#16A34A" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="yellowGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#EAB308" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#CA8A04" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#0891B2" stopOpacity="0.6"/>
-                  </radialGradient>
-                </defs>
+            {/* Right - Model Customization Network - Unique Design */}
+            <div className="relative h-[420px] lg:h-[500px] flex items-center justify-center">
+              <div className="relative w-full max-w-[520px] h-full">
+                {/* Background Glow Effect */}
+                <div 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full opacity-20"
+                  style={{
+                    background: 'radial-gradient(circle, #3B82F6 0%, transparent 70%)',
+                    filter: 'blur(40px)'
+                  }}
+                />
                 
-                {/* Connection lines with animation */}
-                <g className="connection-lines" opacity="0.4">
-                  <line x1="250" y1="250" x2="120" y2="120" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
-                  </line>
-                  <line x1="250" y1="250" x2="380" y2="100" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.5s" repeatCount="indefinite"/>
-                  </line>
-                  <line x1="250" y1="250" x2="420" y2="250" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
-                  </line>
-                  <line x1="250" y1="250" x2="380" y2="400" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.5s" repeatCount="indefinite"/>
-                  </line>
-                  <line x1="250" y1="250" x2="120" y2="380" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.8s" repeatCount="indefinite"/>
-                  </line>
-                  <line x1="250" y1="250" x2="80" y2="250" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3.2s" repeatCount="indefinite"/>
-                  </line>
-                  <line x1="250" y1="250" x2="180" y2="60" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.2s" repeatCount="indefinite"/>
-                  </line>
-                  <line x1="250" y1="250" x2="320" y2="440" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.8s" repeatCount="indefinite"/>
-                  </line>
-                </g>
+                {/* Central Data Hub */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div 
+                    className="relative w-28 h-28 rounded-full flex items-center justify-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)',
+                      boxShadow: '0 0 40px rgba(59, 130, 246, 0.5), 0 0 80px rgba(59, 130, 246, 0.3), inset 0 2px 10px rgba(255,255,255,0.2)'
+                    }}
+                  >
+                    <span className="text-white text-xl font-bold tracking-wide">Data</span>
+                    {/* Rotating ring */}
+                    <div 
+                      className="absolute inset-[-8px] rounded-full border-2 border-dashed border-blue-300/30"
+                      style={{ animation: 'spin 20s linear infinite' }}
+                    />
+                  </div>
+                </div>
                 
-                {/* Central hub node */}
-                <g filter="url(#glow)">
-                  <circle cx="250" cy="250" r="50" fill="url(#blueGlow)">
-                    <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="14" fontWeight="600">Data</text>
-                </g>
+                {/* Orbital Rings */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 500">
+                  {/* Outer orbit ring */}
+                  <ellipse cx="260" cy="250" rx="200" ry="180" fill="none" stroke="url(#orbitGradient)" strokeWidth="1" opacity="0.3"/>
+                  {/* Inner orbit ring */}
+                  <ellipse cx="260" cy="250" rx="140" ry="120" fill="none" stroke="url(#orbitGradient)" strokeWidth="1" opacity="0.2"/>
+                  
+                  {/* Gradient definition */}
+                  <defs>
+                    <linearGradient id="orbitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.5"/>
+                      <stop offset="50%" stopColor="#8B5CF6" stopOpacity="0.3"/>
+                      <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.5"/>
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Connection lines with gradient */}
+                  <line x1="260" y1="250" x2="85" y2="130" stroke="url(#lineGradient1)" strokeWidth="1.5" opacity="0.4"/>
+                  <line x1="260" y1="250" x2="260" y2="45" stroke="url(#lineGradient2)" strokeWidth="1.5" opacity="0.4"/>
+                  <line x1="260" y1="250" x2="435" y2="130" stroke="url(#lineGradient1)" strokeWidth="1.5" opacity="0.4"/>
+                  <line x1="260" y1="250" x2="475" y2="250" stroke="url(#lineGradient2)" strokeWidth="1.5" opacity="0.4"/>
+                  <line x1="260" y1="250" x2="435" y2="370" stroke="url(#lineGradient1)" strokeWidth="1.5" opacity="0.4"/>
+                  <line x1="260" y1="250" x2="260" y2="455" stroke="url(#lineGradient2)" strokeWidth="1.5" opacity="0.4"/>
+                  <line x1="260" y1="250" x2="85" y2="370" stroke="url(#lineGradient1)" strokeWidth="1.5" opacity="0.4"/>
+                  <line x1="260" y1="250" x2="45" y2="250" stroke="url(#lineGradient2)" strokeWidth="1.5" opacity="0.4"/>
+                  
+                  <defs>
+                    <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3B82F6" stopOpacity="0"/>
+                      <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.8"/>
+                    </linearGradient>
+                    <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#3B82F6" stopOpacity="0"/>
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.8"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
                 
-                {/* Outer concept nodes */}
-                <g filter="url(#glow)">
-                  {/* Adapters - Top left */}
-                  <circle cx="120" cy="120" r="35" fill="url(#tealGlow)">
-                    <animate attributeName="r" values="33;37;33" dur="4s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Adapters</text>
-                  
-                  {/* Tuning - Top right */}
-                  <circle cx="380" cy="100" r="38" fill="url(#purpleGlow)">
-                    <animate attributeName="r" values="36;40;36" dur="3.5s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="380" y="105" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Tuning</text>
-                  
-                  {/* Prompts - Right */}
-                  <circle cx="420" cy="250" r="32" fill="url(#orangeGlow)">
-                    <animate attributeName="r" values="30;34;30" dur="4.5s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="420" y="255" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Prompts</text>
-                  
-                  {/* Embeddings - Bottom right */}
-                  <circle cx="380" cy="400" r="36" fill="url(#pinkGlow)">
-                    <animate attributeName="r" values="34;38;34" dur="3.8s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="380" y="405" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Embeddings</text>
-                  
-                  {/* Alignment - Bottom left */}
-                  <circle cx="120" cy="380" r="34" fill="url(#greenGlow)">
-                    <animate attributeName="r" values="32;36;32" dur="4.2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="120" y="385" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Alignment</text>
-                  
-                  {/* Evaluation - Left */}
-                  <circle cx="80" cy="250" r="30" fill="url(#yellowGlow)">
-                    <animate attributeName="r" values="28;32;28" dur="3.2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="80" y="255" textAnchor="middle" fill="white" fontSize="8" fontWeight="500">Evaluation</text>
-                  
-                  {/* Compression - Top */}
-                  <circle cx="180" cy="60" r="28" fill="url(#cyanGlow)">
-                    <animate attributeName="r" values="26;30;26" dur="3.6s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="180" y="65" textAnchor="middle" fill="white" fontSize="7" fontWeight="500">Compression</text>
-                  
-                  {/* Behavior - Bottom */}
-                  <circle cx="320" cy="440" r="30" fill="url(#tealGlow)">
-                    <animate attributeName="r" values="28;32;28" dur="4s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="320" y="445" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Behavior</text>
-                </g>
-              </svg>
+                {/* Concept Nodes - Positioned around the center */}
+                {/* Adapters - Top Left */}
+                <div className="absolute top-[8%] left-[8%]" style={{ animation: 'float1 6s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)',
+                        boxShadow: '0 4px 20px rgba(20, 184, 166, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[10px] font-semibold">Adapters</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Tuning - Top Center */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ animation: 'float2 5s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #A855F7 0%, #7C3AED 100%)',
+                        boxShadow: '0 4px 20px rgba(168, 85, 247, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[10px] font-semibold">Tuning</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Prompts - Top Right */}
+                <div className="absolute top-[8%] right-[8%]" style={{ animation: 'float3 7s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #F97316 0%, #EA580C 100%)',
+                        boxShadow: '0 4px 20px rgba(249, 115, 22, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[10px] font-semibold">Prompts</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Embeddings - Right */}
+                <div className="absolute top-1/2 -translate-y-1/2 right-0" style={{ animation: 'float4 6.5s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #EC4899 0%, #DB2777 100%)',
+                        boxShadow: '0 4px 20px rgba(236, 72, 153, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[8px] font-semibold">Embeddings</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Alignment - Bottom Right */}
+                <div className="absolute bottom-[8%] right-[8%]" style={{ animation: 'float5 5.5s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #22C55E 0%, #16A34A 100%)',
+                        boxShadow: '0 4px 20px rgba(34, 197, 94, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[9px] font-semibold">Alignment</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Behavior - Bottom Center */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2" style={{ animation: 'float6 6s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #06B6D4 0%, #0891B2 100%)',
+                        boxShadow: '0 4px 20px rgba(6, 182, 212, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[10px] font-semibold">Behavior</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Compression - Bottom Left */}
+                <div className="absolute bottom-[8%] left-[8%]" style={{ animation: 'float7 7s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                        boxShadow: '0 4px 20px rgba(139, 92, 246, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[8px] font-semibold">Compression</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Evaluation - Left */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0" style={{ animation: 'float8 5s ease-in-out infinite' }}>
+                  <div className="relative group">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: 'linear-gradient(135deg, #EAB308 0%, #CA8A04 100%)',
+                        boxShadow: '0 4px 20px rgba(234, 179, 8, 0.4)'
+                      }}
+                    >
+                      <span className="text-white text-[9px] font-semibold">Evaluation</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating particles */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  {[...Array(12)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-40"
+                      style={{
+                        left: `${15 + (i * 7)}%`,
+                        top: `${20 + ((i % 4) * 20)}%`,
+                        animation: `particle ${3 + (i % 3)}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.3}s`
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
               
               {/* Animation keyframes */}
               <style>{`
-                @keyframes networkFloat {
-                  0%, 100% {
-                    transform: translateY(0px);
-                  }
-                  50% {
-                    transform: translateY(-10px);
-                  }
+                @keyframes spin {
+                  from { transform: rotate(0deg); }
+                  to { transform: rotate(360deg); }
+                }
+                @keyframes float1 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(5px, -8px); }
+                }
+                @keyframes float2 {
+                  0%, 100% { transform: translateX(-50%); }
+                  50% { transform: translateX(-50%) translateY(-6px); }
+                }
+                @keyframes float3 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(-5px, -8px); }
+                }
+                @keyframes float4 {
+                  0%, 100% { transform: translateY(-50%); }
+                  50% { transform: translateY(calc(-50% - 8px)); }
+                }
+                @keyframes float5 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(-5px, 8px); }
+                }
+                @keyframes float6 {
+                  0%, 100% { transform: translateX(-50%); }
+                  50% { transform: translateX(-50%) translateY(6px); }
+                }
+                @keyframes float7 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(5px, 8px); }
+                }
+                @keyframes float8 {
+                  0%, 100% { transform: translateY(-50%); }
+                  50% { transform: translateY(calc(-50% + 8px)); }
+                }
+                @keyframes particle {
+                  0%, 100% { opacity: 0.2; transform: scale(1); }
+                  50% { opacity: 0.6; transform: scale(1.5); }
                 }
               `}</style>
             </div>
