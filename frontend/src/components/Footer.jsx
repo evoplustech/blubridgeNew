@@ -79,15 +79,15 @@ const Footer = () => {
           </div>
 
           {/* Solutions Links */}
-<div>
-  <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B] px-4">
+            <div>
+  <h3 className="font-semibold text-lg mb-2 text-[#0B1F3B] px-4">
     SOLUTIONS
   </h3>
 
   <div className="space-y-1">
     <Link
       to="/products/model-customization"
-      className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+      className="flex items-center gap-2 px-0 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
     >
       <div className="w-6 h-6 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center flex-shrink-0">
         <SlidersHorizontal className="w-3.5 h-3.5 text-[#8B5CF6]" strokeWidth={1.5} />
@@ -99,7 +99,7 @@ const Footer = () => {
 
     <Link
       to="/solutions/value-realization"
-      className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+      className="flex items-center gap-2 px-0 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
     >
       <div className="w-6 h-6 rounded-md bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0">
         <TrendingUp className="w-3.5 h-3.5 text-[#328CC1]" strokeWidth={1.5} />
@@ -111,7 +111,7 @@ const Footer = () => {
 
     <Link
       to="/solutions/deployment"
-      className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+      className="flex items-center gap-2 px-0 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
     >
       <div className="w-6 h-6 rounded-md bg-[#10B981]/10 flex items-center justify-center flex-shrink-0">
         <Rocket className="w-3.5 h-3.5 text-[#10B981]" strokeWidth={1.5} />
