@@ -904,7 +904,7 @@ async def delete_submission(submission_id: str, form_type: str, authorization: O
 
 
 @api_router.get("/admin/resume/{application_id}")
-async def download_resume(application_id: str, authorization: Optional[str] = None):
+async def download_resume(application_id: str, authorization: Optional[str] = Header(None)):
     """Download resume file for a job application"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
