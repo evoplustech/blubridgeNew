@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -14,6 +16,7 @@ const Contact = () => {
   });
   const [emailVerified, setEmailVerified] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useDocumentTitle('Contact | BluBridge');
 
@@ -31,20 +34,47 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      alert('Thank you for your inquiry. We will get back to you soon!');
-      setIsSubmitting(false);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneCode: '+91',
-        phoneNumber: '',
-        inquiryType: '',
-        message: ''
+    setSubmitError('');
+
+    try {
+      const response = await fetch(`${API_URL}/api/contacts/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'contact_us',
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: `${formData.phoneCode} ${formData.phoneNumber}`,
+          enquiryCategory: formData.inquiryType,
+          message: formData.message
+        }),
       });
-      setEmailVerified(false);
-    }, 1000);
+
+      if (response.ok) {
+        alert('Thank you for your inquiry. We will get back to you soon!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phoneCode: '+91',
+          phoneNumber: '',
+          inquiryType: '',
+          message: ''
+        });
+        setEmailVerified(false);
+      } else {
+        const errorData = await response.json();
+        setSubmitError(errorData.detail || 'Failed to submit form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
