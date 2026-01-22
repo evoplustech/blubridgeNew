@@ -189,7 +189,7 @@ const ModelCustomization = () => {
         </div>
       </section>
 
-      {/* SECTION 4: Customization Stack - 3 Column Layout */}
+      {/* SECTION 4: Customization Stack - Table Format */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
@@ -199,83 +199,46 @@ const ModelCustomization = () => {
             Our comprehensive customization stack provides everything you need from hardware to application, with full flexibility to customize at every layer.
           </p>
           
-          {/* 3-Column Grid Layout - Dark cards with white text inside */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* DATA Column */}
-            <div className="relative">
-              {/* Header Tab */}
-              <div className="absolute -top-3 left-6 z-10">
-                <span className="bg-[#0B1F3B] text-white text-xs font-bold px-4 py-2 rounded tracking-wider uppercase">DATA</span>
+          {/* Table Format Layout */}
+          <div className="rounded-xl overflow-hidden border border-[#E5E7EB]">
+            {/* Header Row - Dark Background */}
+            <div className="bg-[#0B1F3B] grid grid-cols-3">
+              <div className="px-6 py-4 text-white text-sm font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                DATA
               </div>
-              {/* Card Body */}
-              <div className="bg-[#0B1F3B] rounded-xl pt-8 pb-6 px-6">
-                <div className="flex flex-col gap-4">
-                  {[
-                    'Instruction Datasets',
-                    'Domain Corpora',
-                    'Prompt Templates',
-                    'Alignment Packs',
-                    'Fine-Tuning Kits',
-                    'Evaluation Sets'
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
-                      <span className="text-white text-sm font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="px-6 py-4 text-white text-sm font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                PLATFORM
+              </div>
+              <div className="px-6 py-4 text-white text-sm font-bold uppercase tracking-wider">
+                INFRASTRUCTURE & HARDWARE
               </div>
             </div>
             
-            {/* PLATFORM Column */}
-            <div className="relative">
-              {/* Header Tab */}
-              <div className="absolute -top-3 left-6 z-10">
-                <span className="bg-[#0B1F3B] text-white text-xs font-bold px-4 py-2 rounded tracking-wider uppercase">PLATFORM</span>
+            {/* Data Rows - White Background */}
+            {[
+              ['Instruction Datasets', 'Training Pipelines', 'Distributed Training'],
+              ['Domain Corpora', 'Experiment Manager', 'GPU Orchestration'],
+              ['Prompt Templates', 'Hyperparameter Tuning', 'NVIDIA H100 / A100'],
+              ['Alignment Packs', 'Model Versioning', 'High-Speed Storage'],
+              ['Fine-Tuning Kits', 'Adapter Management', 'High-Speed Networking'],
+              ['Evaluation Sets', '', '']
+            ].map((row, rowIndex) => (
+              <div key={rowIndex} className="grid grid-cols-3 bg-white border-b border-[#E5E7EB] last:border-b-0">
+                {row.map((cell, cellIndex) => (
+                  <div 
+                    key={cellIndex} 
+                    className={`px-6 py-3 text-[#212529] text-sm ${cellIndex < 2 ? 'border-r border-[#E5E7EB]' : ''}`}
+                  >
+                    {cell && (
+                      <div className="flex items-center gap-3">
+                        <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                        <span>{cell}</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
-              {/* Card Body */}
-              <div className="bg-[#0B1F3B] rounded-xl pt-8 pb-6 px-6">
-                <div className="flex flex-col gap-4">
-                  {[
-                    'Training Pipelines',
-                    'Experiment Manager',
-                    'Hyperparameter Tuning',
-                    'Model Versioning',
-                    'Adapter Management'
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
-                      <span className="text-white text-sm font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            {/* INFRASTRUCTURE & HARDWARE Column */}
-            <div className="relative">
-              {/* Header Tab */}
-              <div className="absolute -top-3 left-6 z-10">
-                <span className="bg-[#0B1F3B] text-white text-xs font-bold px-4 py-2 rounded tracking-wider uppercase">INFRASTRUCTURE & HARDWARE</span>
-              </div>
-              {/* Card Body */}
-              <div className="bg-[#0B1F3B] rounded-xl pt-8 pb-6 px-6">
-                <div className="flex flex-col gap-4">
-                  {[
-                    'Distributed Training',
-                    'GPU Orchestration',
-                    'NVIDIA H100 / A100',
-                    'High-Speed Storage',
-                    'High-Speed Networking'
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
-                      <span className="text-white text-sm font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
