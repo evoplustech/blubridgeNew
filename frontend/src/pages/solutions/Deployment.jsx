@@ -106,7 +106,7 @@ const Deployment = () => {
             {/* Left Content */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
-                Leverage Ada GPU CLOUD INFRASTRUCTURE Fast, reliable Deployment
+                Leverage Advanced GPU Cloud INFRASTRUCTURE Fast, reliable Deployment
               </h2>
               <p className="text-[#2F3A4A] mb-5 leading-relaxed">
                 Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.
