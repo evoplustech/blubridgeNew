@@ -1101,7 +1101,7 @@ const Home = () => {
       </section>
 
       {/* Curious About BluBridge Section */}
-      <section className="pb-16 pt-2 bg-[#efede5]">
+      {/* <section className="pb-16 pt-2 bg-[#efede5]">
         <div className="max-w-xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <h2 className="text-2xl md:text-3xl font-semibold text-[#0B1F3B]">Curious About BluBridge?</h2>
@@ -1112,7 +1112,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
       {/* <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
