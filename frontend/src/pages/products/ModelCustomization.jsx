@@ -25,15 +25,15 @@ const ModelCustomization = () => {
     };
 
     const models = [
-      { name: 'LLaMA', x: 0.2, y: 0.2, color: '#3b82f6' },
-      { name: 'GPT', x: 0.5, y: 0.15, color: '#8b5cf6' },
-      { name: 'Claude', x: 0.8, y: 0.25, color: '#ec4899' },
-      { name: 'Mistral', x: 0.15, y: 0.5, color: '#06b6d4' },
-      { name: 'Flux', x: 0.4, y: 0.45, color: '#f97316' },
-      { name: 'SDXL', x: 0.65, y: 0.4, color: '#22c55e' },
-      { name: 'Whisper', x: 0.85, y: 0.55, color: '#eab308' },
-      { name: 'CLIP', x: 0.25, y: 0.75, color: '#ef4444' },
-      { name: 'Qwen', x: 0.55, y: 0.7, color: '#a855f7' },
+      { name: 'Data', x: 0.2, y: 0.2, color: '#3b82f6' },
+      { name: 'Adapters', x: 0.5, y: 0.15, color: '#8b5cf6' },
+      { name: 'Tuning', x: 0.8, y: 0.25, color: '#ec4899' },
+      { name: 'Prompts', x: 0.15, y: 0.5, color: '#06b6d4' },
+      { name: 'Embeddings', x: 0.4, y: 0.45, color: '#f97316' },
+      { name: 'Alignment', x: 0.65, y: 0.4, color: '#22c55e' },
+      { name: 'Evaluation', x: 0.85, y: 0.55, color: '#eab308' },
+      { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' },
+      { name: 'Behavior', x: 0.55, y: 0.7, color: '#a855f7' },
       { name: 'Gemma', x: 0.75, y: 0.8, color: '#14b8a6' }
     ];
 
