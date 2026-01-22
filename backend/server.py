@@ -784,13 +784,13 @@ async def get_footer_submissions(authorization: Optional[str] = Header(None), li
 
 @api_router.get("/admin/submissions/contact")
 async def get_contact_submissions_admin(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None):
-    """Get contact form submissions (sales & general enquiry)"""
+    """Get contact form submissions (contact page, sales & general enquiry)"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     try:
-        query = {"type": {"$in": ["contact_sales", "general_enquiry"]}}
+        query = {"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}
         if search:
             query["$or"] = [
                 {"firstName": {"$regex": search, "$options": "i"}},
