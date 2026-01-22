@@ -157,58 +157,58 @@ const ModelCustomization = () => {
                   <circle cx="250" cy="250" r="50" fill="url(#blueGlow)">
                     <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="12" fontWeight="600">Data</text>
+                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="14" fontWeight="600">Data</text>
                 </g>
                 
-                {/* Outer model nodes */}
+                {/* Outer concept nodes */}
                 <g filter="url(#glow)">
-                  {/* LLaMA - Top left */}
+                  {/* Adapters - Top left */}
                   <circle cx="120" cy="120" r="35" fill="url(#tealGlow)">
                     <animate attributeName="r" values="33;37;33" dur="4s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">Adapters</text>
+                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Adapters</text>
                   
-                  {/* GPT - Top right */}
+                  {/* Tuning - Top right */}
                   <circle cx="380" cy="100" r="38" fill="url(#purpleGlow)">
                     <animate attributeName="r" values="36;40;36" dur="3.5s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="380" y="105" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">GPT</text>
+                  <text x="380" y="105" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Tuning</text>
                   
-                  {/* Mistral - Right */}
+                  {/* Prompts - Right */}
                   <circle cx="420" cy="250" r="32" fill="url(#orangeGlow)">
                     <animate attributeName="r" values="30;34;30" dur="4.5s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="420" y="255" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Mistral</text>
+                  <text x="420" y="255" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Prompts</text>
                   
-                  {/* Claude - Bottom right */}
+                  {/* Embeddings - Bottom right */}
                   <circle cx="380" cy="400" r="36" fill="url(#pinkGlow)">
                     <animate attributeName="r" values="34;38;34" dur="3.8s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="380" y="405" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">Claude</text>
+                  <text x="380" y="405" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Embeddings</text>
                   
-                  {/* Gemini - Bottom left */}
+                  {/* Alignment - Bottom left */}
                   <circle cx="120" cy="380" r="34" fill="url(#greenGlow)">
                     <animate attributeName="r" values="32;36;32" dur="4.2s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="120" y="385" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Gemini</text>
+                  <text x="120" y="385" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Alignment</text>
                   
-                  {/* Whisper - Left */}
+                  {/* Evaluation - Left */}
                   <circle cx="80" cy="250" r="30" fill="url(#yellowGlow)">
                     <animate attributeName="r" values="28;32;28" dur="3.2s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="80" y="255" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Whisper</text>
+                  <text x="80" y="255" textAnchor="middle" fill="white" fontSize="8" fontWeight="500">Evaluation</text>
                   
-                  {/* Qwen - Top */}
+                  {/* Compression - Top */}
                   <circle cx="180" cy="60" r="28" fill="url(#cyanGlow)">
                     <animate attributeName="r" values="26;30;26" dur="3.6s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="180" y="65" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Qwen</text>
+                  <text x="180" y="65" textAnchor="middle" fill="white" fontSize="7" fontWeight="500">Compression</text>
                   
-                  {/* SDXL - Bottom */}
+                  {/* Behavior - Bottom */}
                   <circle cx="320" cy="440" r="30" fill="url(#tealGlow)">
                     <animate attributeName="r" values="28;32;28" dur="4s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="320" y="445" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">SDXL</text>
+                  <text x="320" y="445" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Behavior</text>
                 </g>
               </svg>
               
