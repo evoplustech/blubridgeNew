@@ -25,8 +25,8 @@ const ValueRealization = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content */}
             <div className="max-w-xl">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
-                VALUE<br />REALIZATION
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+                Value Realization
               </h1>
               <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
                 Turn AI investments into measurable business impact. BluBridge helps you convert experimentation into outcomes, accelerating adoption, reducing friction, and ensuring every model delivers tangible value across operations, products, and decision-making.
