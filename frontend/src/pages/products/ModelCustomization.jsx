@@ -223,12 +223,12 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - Abstract Visual */}
-            <div className="relative h-[380px] lg:h-[420px]">
-              <canvas 
-                ref={canvasRef}
-                className="w-full h-full"
-                style={{ maxWidth: '100%' }}
+            {/* Right - Neural Network Visual */}
+            <div className="relative h-[380px] lg:h-[420px] flex items-center justify-center">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/wce9vmtc_Gemini_Generated_Image_pskdz5pskdz5pskd-Photoroom%281%29.png" 
+                alt="Neural Network Visualization" 
+                className="w-full h-full object-contain max-w-[500px]"
               />
             </div>
           </div>
