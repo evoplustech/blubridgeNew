@@ -1089,11 +1089,28 @@ const Home = () => {
             </div>
             
             {/* Right - Team Image */}
-            <div className="rounded-2xl overflow-hidden">
+            <div className="relative rounded-2xl overflow-hidden">
+              {/* Gradient overlay for blending */}
+              <div 
+                className="absolute inset-0 pointer-events-none z-10"
+                style={{
+                  background: `
+                    linear-gradient(to right, rgba(239, 237, 229, 0.3) 0%, transparent 15%),
+                    linear-gradient(to left, rgba(239, 237, 229, 0.3) 0%, transparent 15%),
+                    linear-gradient(to bottom, rgba(239, 237, 229, 0.25) 0%, transparent 12%),
+                    linear-gradient(to top, rgba(239, 237, 229, 0.25) 0%, transparent 12%)
+                  `,
+                  borderRadius: '1rem'
+                }}
+              />
               <img 
                 src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/jxccru4d_about.png" 
                 alt="BluBridge Team" 
                 className="w-full h-auto object-cover rounded-2xl"
+                style={{
+                  filter: 'saturate(0.92) contrast(0.96)',
+                  mixBlendMode: 'normal'
+                }}
               />
             </div>
           </div>
