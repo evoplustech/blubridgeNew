@@ -199,69 +199,81 @@ const ModelCustomization = () => {
             Our comprehensive customization stack provides everything you need from hardware to application, with full flexibility to customize at every layer.
           </p>
           
-          {/* 3-Column Grid Layout */}
+          {/* 3-Column Grid Layout - Dark cards with white text inside */}
           <div className="grid md:grid-cols-3 gap-6">
             {/* DATA Column */}
-            <div className="bg-[#1A2940] rounded-xl p-6">
-              <div className="mb-6">
-                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA</span>
+            <div className="relative">
+              {/* Header Tab */}
+              <div className="absolute -top-3 left-6 z-10">
+                <span className="bg-[#0B1F3B] text-white text-xs font-bold px-4 py-2 rounded tracking-wider uppercase">DATA</span>
               </div>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Instruction Datasets',
-                  'Domain Corpora',
-                  'Prompt Templates',
-                  'Alignment Packs',
-                  'Fine-Tuning Kits',
-                  'Evaluation Sets'
-                ].map((item, i) => (
-                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
+              {/* Card Body */}
+              <div className="bg-[#0B1F3B] rounded-xl pt-8 pb-6 px-6">
+                <div className="flex flex-col gap-4">
+                  {[
+                    'Instruction Datasets',
+                    'Domain Corpora',
+                    'Prompt Templates',
+                    'Alignment Packs',
+                    'Fine-Tuning Kits',
+                    'Evaluation Sets'
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                      <span className="text-white text-sm font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             
             {/* PLATFORM Column */}
-            <div className="bg-[#1A2940] rounded-xl p-6">
-              <div className="mb-6">
-                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">PLATFORM</span>
+            <div className="relative">
+              {/* Header Tab */}
+              <div className="absolute -top-3 left-6 z-10">
+                <span className="bg-[#0B1F3B] text-white text-xs font-bold px-4 py-2 rounded tracking-wider uppercase">PLATFORM</span>
               </div>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Training Pipelines',
-                  'Experiment Manager',
-                  'Hyperparameter Tuning',
-                  'Model Versioning',
-                  'Adapter Management'
-                ].map((item, i) => (
-                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
+              {/* Card Body */}
+              <div className="bg-[#0B1F3B] rounded-xl pt-8 pb-6 px-6">
+                <div className="flex flex-col gap-4">
+                  {[
+                    'Training Pipelines',
+                    'Experiment Manager',
+                    'Hyperparameter Tuning',
+                    'Model Versioning',
+                    'Adapter Management'
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                      <span className="text-white text-sm font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             
             {/* INFRASTRUCTURE & HARDWARE Column */}
-            <div className="bg-[#1A2940] rounded-xl p-6">
-              <div className="mb-6">
-                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFRASTRUCTURE & HARDWARE</span>
+            <div className="relative">
+              {/* Header Tab */}
+              <div className="absolute -top-3 left-6 z-10">
+                <span className="bg-[#0B1F3B] text-white text-xs font-bold px-4 py-2 rounded tracking-wider uppercase">INFRASTRUCTURE & HARDWARE</span>
               </div>
-              <div className="flex flex-col gap-3">
-                {[
-                  'Distributed Training',
-                  'GPU Orchestration',
-                  'NVIDIA H100 / A100',
-                  'High-Speed Storage',
-                  'High-Speed Networking'
-                ].map((item, i) => (
-                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
-                    {item}
-                  </span>
-                ))}
+              {/* Card Body */}
+              <div className="bg-[#0B1F3B] rounded-xl pt-8 pb-6 px-6">
+                <div className="flex flex-col gap-4">
+                  {[
+                    'Distributed Training',
+                    'GPU Orchestration',
+                    'NVIDIA H100 / A100',
+                    'High-Speed Storage',
+                    'High-Speed Networking'
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                      <span className="text-white text-sm font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
