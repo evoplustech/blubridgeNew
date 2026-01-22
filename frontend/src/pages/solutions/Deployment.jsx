@@ -57,7 +57,7 @@ const Deployment = () => {
                 
                 {/* Main image with floating animation */}
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/fs0fq8js_third-new.png" 
+                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/bhd9eito_third.png" 
                   alt="Global Deployment Infrastructure" 
                   className="w-full max-w-[600px] h-auto object-contain relative z-10"
                   style={{
