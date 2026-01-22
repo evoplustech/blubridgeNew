@@ -221,7 +221,6 @@ const ModelCustomization = () => {
               ['Prompt Templates', 'Hyperparameter Tuning', 'NVIDIA H100 / A100'],
               ['Alignment Packs', 'Model Versioning', 'High-Speed Storage'],
               ['Fine-Tuning Kits', 'Adapter Management', 'High-Speed Networking'],
-              ['Evaluation Sets', '', '']
             ].map((row, rowIndex) => (
               <div key={rowIndex} className="grid grid-cols-3 bg-white border-b border-[#E5E7EB] last:border-b-0">
                 {row.map((cell, cellIndex) => (
