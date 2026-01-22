@@ -36,38 +36,22 @@ const ModelCustomization = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7]">
       
-      {/* SECTION 1: Hero Section - Theme Color #c0bba5 with shining effect */}
+      {/* SECTION 1: Hero Section - Light cream background like reference */}
       <section className="relative min-h-[580px] overflow-hidden">
-        {/* Background color with shine effect */}
+        {/* Background - Light cream/off-white */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, #c0bba5 0%, #d4cfbc 30%, #c0bba5 60%, #b8b39e 100%)'
+            background: '#F9F9F7'
           }}
         />
-        {/* Shining overlay effect */}
+        {/* Subtle gradient overlay */}
         <div 
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-60"
           style={{
-            background: 'radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.5) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.3) 0%, transparent 40%)'
+            background: 'radial-gradient(ellipse at 70% 50%, rgba(200, 220, 255, 0.15) 0%, transparent 60%)'
           }}
         />
-        {/* Subtle shimmer animation */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            background: 'linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%)',
-            backgroundSize: '200% 200%',
-            animation: 'shimmer 3s ease-in-out infinite'
-          }}
-        />
-        
-        <style>{`
-          @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-          }
-        `}</style>
         
         <div className="container-custom relative z-10 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -87,30 +71,179 @@ const ModelCustomization = () => {
                     Start Customizing
                   </Button>
                 </Link>
-                {/* <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
-                  Contact Us <ArrowRight className="w-4 h-4" />
-                </Link> */}
               </div>
             </div>
             
-            {/* Right - Neural Network Visual */}
-            <div className="relative h-[380px] lg:h-[420px] flex items-center justify-center">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/wce9vmtc_Gemini_Generated_Image_pskdz5pskdz5pskd-Photoroom%281%29.png" 
-                alt="Neural Network Visualization" 
-                className="w-full h-full object-contain max-w-[500px]"
-                style={{
-                  animation: 'modelFloat 6s ease-in-out infinite'
-                }}
-              />
+            {/* Right - AI Model Network Visual */}
+            <div className="relative h-[420px] lg:h-[480px] flex items-center justify-center">
+              {/* SVG Network Visualization */}
+              <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px]">
+                {/* Definitions for gradients and filters */}
+                <defs>
+                  {/* Glow filter */}
+                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  
+                  {/* Node gradients */}
+                  <radialGradient id="purpleGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#A855F7" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#0D9488" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="orangeGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#F97316" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#EA580C" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="pinkGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#EC4899" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#DB2777" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#22C55E" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#16A34A" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="yellowGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#EAB308" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#CA8A04" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#0891B2" stopOpacity="0.6"/>
+                  </radialGradient>
+                </defs>
+                
+                {/* Connection lines with animation */}
+                <g className="connection-lines" opacity="0.4">
+                  <line x1="250" y1="250" x2="120" y2="120" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="380" y2="100" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.5s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="420" y2="250" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="380" y2="400" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.5s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="120" y2="380" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.8s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="80" y2="250" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3.2s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="180" y2="60" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.2s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="320" y2="440" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.8s" repeatCount="indefinite"/>
+                  </line>
+                </g>
+                
+                {/* Central hub node */}
+                <g filter="url(#glow)">
+                  <circle cx="250" cy="250" r="50" fill="url(#blueGlow)">
+                    <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="12" fontWeight="600">BluBridge</text>
+                </g>
+                
+                {/* Outer model nodes */}
+                <g filter="url(#glow)">
+                  {/* LLaMA - Top left */}
+                  <circle cx="120" cy="120" r="35" fill="url(#tealGlow)">
+                    <animate attributeName="r" values="33;37;33" dur="4s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">LLaMA</text>
+                  
+                  {/* GPT - Top right */}
+                  <circle cx="380" cy="100" r="38" fill="url(#purpleGlow)">
+                    <animate attributeName="r" values="36;40;36" dur="3.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="380" y="105" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">GPT</text>
+                  
+                  {/* Mistral - Right */}
+                  <circle cx="420" cy="250" r="32" fill="url(#orangeGlow)">
+                    <animate attributeName="r" values="30;34;30" dur="4.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="420" y="255" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Mistral</text>
+                  
+                  {/* Claude - Bottom right */}
+                  <circle cx="380" cy="400" r="36" fill="url(#pinkGlow)">
+                    <animate attributeName="r" values="34;38;34" dur="3.8s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="380" y="405" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">Claude</text>
+                  
+                  {/* Gemini - Bottom left */}
+                  <circle cx="120" cy="380" r="34" fill="url(#greenGlow)">
+                    <animate attributeName="r" values="32;36;32" dur="4.2s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="120" y="385" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Gemini</text>
+                  
+                  {/* Whisper - Left */}
+                  <circle cx="80" cy="250" r="30" fill="url(#yellowGlow)">
+                    <animate attributeName="r" values="28;32;28" dur="3.2s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="80" y="255" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Whisper</text>
+                  
+                  {/* Qwen - Top */}
+                  <circle cx="180" cy="60" r="28" fill="url(#cyanGlow)">
+                    <animate attributeName="r" values="26;30;26" dur="3.6s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="180" y="65" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Qwen</text>
+                  
+                  {/* SDXL - Bottom */}
+                  <circle cx="320" cy="440" r="30" fill="url(#tealGlow)">
+                    <animate attributeName="r" values="28;32;28" dur="4s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="320" y="445" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">SDXL</text>
+                </g>
+                
+                {/* Floating particles */}
+                <g opacity="0.3">
+                  {[...Array(20)].map((_, i) => (
+                    <circle 
+                      key={i}
+                      cx={50 + Math.random() * 400} 
+                      cy={50 + Math.random() * 400} 
+                      r="2" 
+                      fill="#94A3B8"
+                    >
+                      <animate 
+                        attributeName="opacity" 
+                        values="0.2;0.6;0.2" 
+                        dur={`${2 + Math.random() * 3}s`} 
+                        repeatCount="indefinite"
+                      />
+                    </circle>
+                  ))}
+                </g>
+              </svg>
+              
+              {/* Additional floating animation for the entire SVG */}
               <style>{`
-                @keyframes modelFloat {
+                @keyframes networkFloat {
                   0%, 100% {
                     transform: translateY(0px);
                   }
                   50% {
-                    transform: translateY(-12px);
+                    transform: translateY(-10px);
                   }
+                }
+                svg {
+                  animation: networkFloat 6s ease-in-out infinite;
                 }
               `}</style>
             </div>

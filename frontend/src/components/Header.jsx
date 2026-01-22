@@ -284,10 +284,14 @@ const Header = () => {
                         to="/solutions/value-realization"
                         className="mb-1"
                       >
-                        <div className="bg-[#f3f1e9] hover:bg-[#e8e6de] hover:text-[#328CC1] transition-colors rounded-lg px-2 py-2 mb-2">
+                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
                           <div className="font-medium flex items-center py-2 gap-1">
                             <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                            <div className="text-xs  ml-6"><span className="block text-[#0B1F3B] font-medium text-sm">Value Realization</span></div>
+                            <div className="ml-6">
+                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
+                                Value Realization
+                              </span>
+                            </div>
                           </div>
                         </div>
                         {/* <div className="w-8 h-8 rounded-md bg-[#F4C430]/10 flex items-center justify-center">
@@ -304,6 +308,16 @@ const Header = () => {
                         to="/solutions/deployment"
                         
                       >
+                      <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
+                          <div className="font-medium flex items-center py-2 gap-1">
+                            <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                            <div className="ml-6">
+                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
+                                Deployment
+                              </span>
+                            </div>
+                          </div>
+                        </div>
                         <div className="bg-[#f3f1e9] hover:bg-[#e8e6de]  rounded-lg px-2 py-2 mb-2">
                           <div className="font-medium flex items-center py-2 gap-1">
                             <Rocket className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
