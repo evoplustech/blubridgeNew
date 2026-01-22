@@ -57,9 +57,9 @@ const Deployment = () => {
                 
                 {/* Main image with floating animation */}
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/w4a2dhey_Gemini_Generated_Image_3yy76j3yy76j3yy7-Photoroom%281%29.png" 
+                  src="https://static.prod-images.emergentagent.com/jobs/1a8f75e5-39ed-408a-8479-13c7c56ae517/images/682a8e3504bf414bf817d3f4be1aa2e41896234139e28b377aa2b3167dd273d7.png" 
                   alt="Global Deployment Infrastructure" 
-                  className="w-full max-w-[600px] h-auto object-contain relative z-10"
+                  className="w-full max-w-[600px] h-auto object-contain relative z-10 rounded-2xl"
                   style={{
                     animation: 'deployFloat 6s ease-in-out infinite'
                   }}
