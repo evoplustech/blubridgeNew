@@ -157,7 +157,7 @@ const ModelCustomization = () => {
                   <circle cx="250" cy="250" r="50" fill="url(#blueGlow)">
                     <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="12" fontWeight="600">BluBridge</text>
+                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="12" fontWeight="600">Data</text>
                 </g>
                 
                 {/* Outer model nodes */}
@@ -166,7 +166,7 @@ const ModelCustomization = () => {
                   <circle cx="120" cy="120" r="35" fill="url(#tealGlow)">
                     <animate attributeName="r" values="33;37;33" dur="4s" repeatCount="indefinite"/>
                   </circle>
-                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">LLaMA</text>
+                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">Adapters</text>
                   
                   {/* GPT - Top right */}
                   <circle cx="380" cy="100" r="38" fill="url(#purpleGlow)">
