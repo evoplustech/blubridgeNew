@@ -320,14 +320,14 @@ const ModelCustomization = () => {
                 metric: '7.2X', 
                 label: 'Faster Inference', 
                 sublabel: 'Accelerate time to insights',
-                desc: 'Optimized GPU infrastructure delivers higher throughput and lower latency.',
+                desc: 'Optimized infrastructure deployment and inference throughput.',
                 link: 'Blog Post',
                 linkTo: '/blog'
               }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
-                <div className="text-[#000000] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
+                <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
                 <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
@@ -339,34 +339,34 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 5: Performance Metrics */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#0B1F3B]">
             Performance
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
-            {/* Metric 1 */}
+           
             <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
               <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">30%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Faster Iterations</div>
               <p className="text-[#4B5563] text-sm">Shorter development feedback loops with streamlined training pipelines.</p>
             </div>
             
-            {/* Metric 2 */}
+            
             <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
               <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">80%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Lower Cost</div>
               <p className="text-[#4B5563] text-sm">Reduce training costs while maintaining high performance standards.</p>
             </div>
             
-            {/* Metric 3 */}
+            
             <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
               <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">40%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">More Efficient</div>
               <p className="text-[#4B5563] text-sm">Improved utilization and training workload optimization.</p>
             </div>
             
-            {/* Metric 4 */}
+            
             <div className="text-center p-6 border border-[#E5E7EB] rounded-xl bg-white">
               <div className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-2">UP TO</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">7X Faster Inference</div>
@@ -374,7 +374,7 @@ const ModelCustomization = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 6: Key Services */}
       {/* <section className="py-20 bg-[#f3f1e9]">

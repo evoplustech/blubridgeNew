@@ -46,57 +46,15 @@ const Deployment = () => {
             {/* Right - Deployment Infrastructure Visual */}
             <div className="relative flex items-center justify-center lg:justify-end">
               <div className="relative">
-                {/* Animated glow effect behind image */}
-                <div 
-                  className="absolute inset-0 rounded-full blur-3xl opacity-30"
-                  style={{
-                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 40%, transparent 70%)',
-                    animation: 'deployPulseGlow 4s ease-in-out infinite'
-                  }}
-                />
-                
                 {/* Main image with floating animation */}
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/bhd9eito_third.png" 
+                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/zkojwq0x_thirdd.png" 
                   alt="Global Deployment Infrastructure" 
                   className="w-full max-w-[600px] h-auto object-contain relative z-10"
                   style={{
                     animation: 'deployFloat 6s ease-in-out infinite'
                   }}
                 />
-                
-                {/* Scanning line effect */}
-                <div 
-                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 pointer-events-none z-20"
-                  style={{
-                    animation: 'deployScanLine 3s ease-in-out infinite'
-                  }}
-                />
-                
-                {/* Rotating outer ring */}
-                <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-white/20 pointer-events-none"
-                  style={{
-                    animation: 'deployRotateRing 25s linear infinite'
-                  }}
-                />
-                
-                {/* Network pulse particles */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1.5 h-1.5 bg-white rounded-full"
-                      style={{
-                        left: `${15 + i * 14}%`,
-                        top: `${25 + (i % 2) * 50}%`,
-                        animation: `deployParticle ${2.5 + i * 0.4}s ease-in-out infinite`,
-                        animationDelay: `${i * 0.5}s`,
-                        boxShadow: '0 0 8px 2px rgba(255, 255, 255, 0.6)'
-                      }}
-                    />
-                  ))}
-                </div>
               </div>
               
               {/* Animation keyframes */}
@@ -107,54 +65,6 @@ const Deployment = () => {
                   }
                   50% {
                     transform: translateY(-12px);
-                  }
-                }
-                
-                @keyframes deployPulseGlow {
-                  0%, 100% {
-                    opacity: 0.25;
-                    transform: scale(1);
-                  }
-                  50% {
-                    opacity: 0.45;
-                    transform: scale(1.08);
-                  }
-                }
-                
-                @keyframes deployScanLine {
-                  0% {
-                    top: 0%;
-                    opacity: 0;
-                  }
-                  10% {
-                    opacity: 0.6;
-                  }
-                  90% {
-                    opacity: 0.6;
-                  }
-                  100% {
-                    top: 100%;
-                    opacity: 0;
-                  }
-                }
-                
-                @keyframes deployRotateRing {
-                  0% {
-                    transform: translate(-50%, -50%) rotate(0deg);
-                  }
-                  100% {
-                    transform: translate(-50%, -50%) rotate(360deg);
-                  }
-                }
-                
-                @keyframes deployParticle {
-                  0%, 100% {
-                    transform: scale(1);
-                    opacity: 0.5;
-                  }
-                  50% {
-                    transform: scale(1.8);
-                    opacity: 1;
                   }
                 }
               `}</style>
@@ -189,8 +99,58 @@ const Deployment = () => {
         </div>
       </section>
 
+            {/* SECTION 3: Accelerated Model Customization */}
+      <section className="py-20 bg-[#f3f1e9]">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-14 items-start">
+            {/* Left Content */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
+                LEVERAGE ADVANCED GPU CLOUD INFRASTRUCTURE<br />Fast, reliable Deployment
+              </h2>
+              <p className="text-[#2F3A4A] mb-5 leading-relaxed">
+                Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.
+              </p>
+              <p className="text-[#2F3A4A] mb-5 leading-relaxed">
+               Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.
+              </p>
+              <p className="text-[#2F3A4A] leading-relaxed">
+                From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.
+              </p>
+            </div>
+            
+            {/* Right - Feature Cards */}
+            <div className="space-y-5 my-20">
+              {/* Pre-configured Card */}
+              <div className=" border border-[#D6DEC3] rounded-xl p-6 bg-[#0B1F3B]  text-white">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-rose-400/20 to-slate-900/10 rounded-xl flex items-center justify-center">
+                    <LayoutGrid className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold">Training Compute</h4>
+                    <p className="text-white text-sm">Seamless transition from training to production</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[#0B1F3B]  text-white border border-[#D6DEC3] rounded-xl p-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/30 to-violet-600/20 rounded-xl flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold">Inference & Deployment</h4>
+                    <p className="text-white text-sm">One-click model rollout and scaling</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Fast, Efficient Model Fine-tuning Section */}
-      <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -201,7 +161,7 @@ const Deployment = () => {
                 <p className="mb-2">Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.</p>
                 <p className="mb-2">Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.</p>
                 <p className="mb-2">From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.</p>
-              {/* <div className="space-y-8">
+              <div className="space-y-8">
                 <div className="border-l-2 border-emerald-500 pl-5">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-2">30% Faster Time to Value for Your AI Projects</h3>
                   <p className="text-[#6B7280] text-xs font-medium mb-2">Accelerate the time to actionable results with an AI stack optimised for rapid experimentation and tuning.</p>
@@ -217,10 +177,10 @@ const Deployment = () => {
                     Increase the effectiveness of compute resources with improved hardware utilisation.
                   </p>
                 </div>
-              </div> */}
+              </div>
             </div>
 
-            {/* Right side - Stacked system cards */}
+            
             <div className="space-y-4">
               <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
                 <div className="flex items-center gap-4">
@@ -233,32 +193,32 @@ const Deployment = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className=" border border-[#D6DEC3] rounded-xl p-6 bg-[#0B1F3B]  text-white">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                    <LayoutGrid className="w-6 h-6 text-[#328CC1]" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-rose-400/20 to-slate-900/10 rounded-xl flex items-center justify-center">
+                    <LayoutGrid className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-[#0B1F3B] font-semibold">Training Compute</h4>
-                    <p className="text-[#6B7280] text-sm">Seamless transition from training to production</p>
+                    <h4 className="text-white font-semibold">Training Compute</h4>
+                    <p className="text-white text-sm">Seamless transition from training to production</p>
                   </div>
                 </div>
               </div>
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-[#0B1F3B]  text-white border border-[#D6DEC3] rounded-xl p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500/30 to-violet-600/20 rounded-xl flex items-center justify-center">
                     <Zap className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h4 className="text-[#0B1F3B] font-semibold">Inference & Deployment</h4>
-                    <p className="text-[#6B7280] text-sm">One-click model rollout and scaling</p>
+                    <h4 className="text-white font-semibold">Inference & Deployment</h4>
+                    <p className="text-white text-sm">One-click model rollout and scaling</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Fine-Tuning Stack - Two column layout */}
       <section className="py-24 bg-[#fffdf7]">
@@ -397,7 +357,7 @@ const Deployment = () => {
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
-                <div className="text-[#000000] text-sm font-semibold mb-2 uppercase tracking-wide">{item.label}</div>
+                <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
                 <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
                 {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
