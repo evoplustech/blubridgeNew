@@ -46,16 +46,7 @@ const ValueRealization = () => {
             {/* Right - Value Realization Flow Diagram */}
             <div className="relative flex items-center justify-center lg:justify-end">
               <div className="relative">
-                {/* Animated glow effect behind image */}
-                <div 
-                  className="absolute inset-0 rounded-full blur-3xl opacity-30"
-                  style={{
-                    background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(30, 58, 138, 0.2) 50%, transparent 70%)',
-                    animation: 'pulseGlow 4s ease-in-out infinite'
-                  }}
-                />
-                
-                {/* Main image with animations */}
+                {/* Main image with floating animation */}
                 <img 
                   src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/mqgt2jvy_Gemini_Generated_Image_zeuxebzeuxebzeux-Photoroom.png" 
                   alt="Value Realization Flow Diagram" 
@@ -64,38 +55,6 @@ const ValueRealization = () => {
                     animation: 'floatImage 6s ease-in-out infinite'
                   }}
                 />
-                
-                {/* Rotating ring effect */}
-                <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-cyan-400/20 pointer-events-none"
-                  style={{
-                    animation: 'rotateRing 20s linear infinite'
-                  }}
-                />
-                
-                {/* Second rotating ring (opposite direction) */}
-                <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-cyan-400/10 pointer-events-none"
-                  style={{
-                    animation: 'rotateRingReverse 25s linear infinite'
-                  }}
-                />
-                
-                {/* Particle dots animation */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                  {[...Array(8)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-2 h-2 bg-cyan-400 rounded-full opacity-60"
-                      style={{
-                        left: `${20 + i * 10}%`,
-                        top: `${30 + (i % 3) * 20}%`,
-                        animation: `particleFloat ${3 + i * 0.5}s ease-in-out infinite`,
-                        animationDelay: `${i * 0.3}s`
-                      }}
-                    />
-                  ))}
-                </div>
               </div>
               
               {/* Animation keyframes */}
@@ -106,54 +65,6 @@ const ValueRealization = () => {
                   }
                   50% {
                     transform: translateY(-15px);
-                  }
-                }
-                
-                @keyframes pulseGlow {
-                  0%, 100% {
-                    opacity: 0.2;
-                    transform: scale(1);
-                  }
-                  50% {
-                    opacity: 0.4;
-                    transform: scale(1.05);
-                  }
-                }
-                
-                @keyframes rotateRing {
-                  0% {
-                    transform: translate(-50%, -50%) rotate(0deg);
-                  }
-                  100% {
-                    transform: translate(-50%, -50%) rotate(360deg);
-                  }
-                }
-                
-                @keyframes rotateRingReverse {
-                  0% {
-                    transform: translate(-50%, -50%) rotate(360deg);
-                  }
-                  100% {
-                    transform: translate(-50%, -50%) rotate(0deg);
-                  }
-                }
-                
-                @keyframes particleFloat {
-                  0%, 100% {
-                    transform: translate(0, 0) scale(1);
-                    opacity: 0.6;
-                  }
-                  25% {
-                    transform: translate(10px, -20px) scale(1.2);
-                    opacity: 0.8;
-                  }
-                  50% {
-                    transform: translate(20px, 0) scale(1);
-                    opacity: 0.4;
-                  }
-                  75% {
-                    transform: translate(10px, 20px) scale(0.8);
-                    opacity: 0.6;
                   }
                 }
               `}</style>
