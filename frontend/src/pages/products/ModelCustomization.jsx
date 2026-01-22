@@ -37,7 +37,7 @@ const ModelCustomization = () => {
     <div className="min-h-screen bg-[#fffdf7]">
       
       {/* SECTION 1: Hero Section - Light cream background with Neural Network Visual */}
-      <section className="relative overflow-hidden">
+      <section className="relative min-h-[580px] overflow-hidden">
         {/* Background - Light beige/cream */}
         <div 
           className="absolute inset-0"
