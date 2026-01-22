@@ -180,7 +180,7 @@ const ValueRealization = () => {
             BluBridge provides a complete technology stack for delivering measurable AI value across your organization.
           </p>
           
-          <div className="grid lg:grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols gap-4">
             {/* Left Column - Stack Layers */}
             <div className="lg:col-span-2 space-y-4">
               {/* MARKETPLACE Layer */}
