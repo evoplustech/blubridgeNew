@@ -49,7 +49,7 @@ const ModelCustomization = () => {
         <div 
           className="absolute inset-0 opacity-60"
           style={{
-            background: 'radial-gradient(ellipse at 70% 50%, rgba(200, 220, 255, 0.15) 0%, transparent 60%)'
+            background: '#fffdf7'
           }}
         />
         
@@ -228,7 +228,7 @@ const ModelCustomization = () => {
         </div>
       </section>
       {/* SECTION 2: Value Highlights - 3 Cards */}
-      <section className="py-16 bg-[#f3f1e9] border-b border-[#f3f1e9]">
+      <section className="py-16 bg-[#f3f1e9] border-b border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10">
             {/* Card 1 */}
