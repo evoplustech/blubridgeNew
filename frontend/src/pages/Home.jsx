@@ -1009,7 +1009,7 @@ const Home = () => {
 
 
       {/* BluBridge's Infrastructure Section - Arctic Background */}
-      <section className="py-20 relative overflow-hidden min-h-[700px]" data-testid="infrastructure-section">
+      <section className="py-20 relative overflow-hidden" data-testid="infrastructure-section">
         {/* Arctic Mountain Background Image with 0.3 opacity */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
