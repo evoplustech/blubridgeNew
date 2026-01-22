@@ -42,7 +42,7 @@ const ModelCustomization = () => {
         <div 
           className="absolute inset-0"
           style={{
-            background: '#fffdf7'
+            background: 'linear-gradient(135deg, #d4cfbc 0%, #c8c3b0 50%, #d0cbb9 100%)'
           }}
         />
         
