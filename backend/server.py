@@ -731,7 +731,7 @@ async def verify_admin(authorization: Optional[str] = Header(None)):
 
 
 @api_router.get("/admin/dashboard/stats")
-async def get_admin_stats(authorization: Optional[str] = None):
+async def get_admin_stats(authorization: Optional[str] = Header(None)):
     """Get dashboard statistics"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
