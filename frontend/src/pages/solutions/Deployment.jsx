@@ -220,81 +220,143 @@ const Deployment = () => {
         </div>
       </section> */}
 
-            {/* SECTION 4: Customization Stack */}
+            {/* SECTION 4: Deployment - 6 Column Layout (2 rows x 3 cols) */}
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
-            Deployment Stack
+            Deployment
           </h2>
           <p className="text-[#4B5563] mb-12 max-w-6xl">
             BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
           </p>
           
-          <div className="grid lg:grid-cols gap-4">
-            {/* Left Column - Stack Layers */}
-            <div className="lg:col-span-2 space-y-4">
-              {/* MARKETPLACE Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MARKETPLACE</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Deployment Templates', 'Inference Services', 'Monitoring Tools', 'Security Modules'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
+          {/* 6-Column Grid Layout (2 rows x 3 cols) */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* MODEL SERVING Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MODEL SERVING</span>
               </div>
-              
-              {/* PLATFORM Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">PLATFORM</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Model Registry', 'Versioning', 'Traffic Routing', 'Rollback Management'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              {/* INFRASTRUCTURE Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFRASTRUCTURE</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['GPU Orchestration','Load Balancing','Secure Networking','Auto-Scaling'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* HARDWARE Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">HARDWARE</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['High-Memory GPUs', 'Multi-Node Clusters', ' Low-Latency Interconnects'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'REST API Endpoints',
+                  'Real-Time Inference',
+                  'Batch Inference Jobs',
+                  'Load Balancing',
+                  'Secure Access Controls'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
             
+            {/* RELEASE MANAGEMENT Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">RELEASE MANAGEMENT</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Version Control & Rollbacks',
+                  'Canary Deployments',
+                  'Shadow Deployments',
+                  'Staged Rollouts',
+                  'Environment Promotion'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
             
+            {/* CONTINUOUS DELIVERY Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">CONTINUOUS DELIVERY</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Automated CI/CD Pipelines',
+                  'Blue-Green Deployments',
+                  'Model Validation Tests',
+                  'Containerization',
+                  'Infrastructure as Code'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            {/* AUTO-SCALING Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">AUTO-SCALING</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Dynamic Resource Scaling',
+                  'Load-Based Auto-Scaling',
+                  'Horizontal & Vertical Scaling',
+                  'Metrics-Driven Policies',
+                  'On-Demand Node Provisioning'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            {/* MULTI-CLOUD SUPPORT Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MULTI-CLOUD SUPPORT</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Deploy on AWS, Azure, GCP',
+                  'Hybrid Cloud Strategies',
+                  'Cross-Cloud Load Balancing',
+                  'Failover & Redundancy',
+                  'Cost Optimization Across Clouds'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            {/* INFERENCE OPTIMIZATION Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFERENCE OPTIMIZATION</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Quantization & Pruning',
+                  'Distillation & Compiling',
+                  'Model Acceleration (TensorRT, ONNX)',
+                  'Automated Hardware Selection',
+                  'Optimized Runtime Environments'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>    
