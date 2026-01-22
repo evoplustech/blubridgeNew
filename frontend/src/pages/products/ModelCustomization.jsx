@@ -90,12 +90,15 @@ const ModelCustomization = () => {
                     {/* Inner network dots */}
                     {[...Array(40)].map((_, i) => {
                       const angle = (i / 40) * Math.PI * 2;
-                      const radius = 20 + Math.random() * 40;
+                      const radius = 20 + (i % 3) * 15; // Use deterministic values
                       const cx = 100 + Math.cos(angle) * radius;
                       const cy = 100 + Math.sin(angle) * radius;
+                      const dotRadius = 1 + (i % 3);
+                      const opacity = 0.5 + (i % 4) * 0.1;
+                      const animDur = 2 + (i % 3);
                       return (
-                        <circle key={i} cx={cx} cy={cy} r={1 + Math.random() * 2} fill="white" opacity={0.5 + Math.random() * 0.5}>
-                          <animate attributeName="opacity" values={`${0.3 + Math.random() * 0.3};${0.7 + Math.random() * 0.3};${0.3 + Math.random() * 0.3}`} dur={`${2 + Math.random() * 2}s`} repeatCount="indefinite"/>
+                        <circle key={i} cx={cx} cy={cy} r={dotRadius} fill="white" opacity={opacity}>
+                          <animate attributeName="opacity" values={`${0.3};${0.7};${0.3}`} dur={`${animDur}s`} repeatCount="indefinite"/>
                         </circle>
                       );
                     })}
