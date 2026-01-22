@@ -783,7 +783,7 @@ async def get_footer_submissions(authorization: Optional[str] = Header(None), li
 
 
 @api_router.get("/admin/submissions/contact")
-async def get_contact_submissions_admin(authorization: Optional[str] = None, limit: int = 100, search: Optional[str] = None):
+async def get_contact_submissions_admin(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None):
     """Get contact form submissions (sales & general enquiry)"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
