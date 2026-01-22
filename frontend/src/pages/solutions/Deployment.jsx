@@ -55,15 +55,26 @@ const Deployment = () => {
                   }}
                 />
                 
-                {/* Main image with floating animation */}
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/w4a2dhey_Gemini_Generated_Image_3yy76j3yy76j3yy7-Photoroom%281%29.png" 
-                  alt="Global Deployment Infrastructure" 
-                  className="w-full max-w-[600px] h-auto object-contain relative z-10"
-                  style={{
-                    animation: 'deployFloat 6s ease-in-out infinite'
-                  }}
-                />
+                {/* Main image with floating animation and color tint */}
+                <div className="relative">
+                  <img 
+                    src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/w4a2dhey_Gemini_Generated_Image_3yy76j3yy76j3yy7-Photoroom%281%29.png" 
+                    alt="Global Deployment Infrastructure" 
+                    className="w-full max-w-[600px] h-auto object-contain relative z-10"
+                    style={{
+                      animation: 'deployFloat 6s ease-in-out infinite',
+                      filter: 'brightness(0.9) sepia(1) hue-rotate(180deg) saturate(3) brightness(0.6)'
+                    }}
+                  />
+                  {/* Color overlay tint #0b1f3b */}
+                  <div 
+                    className="absolute inset-0 z-10 pointer-events-none mix-blend-overlay"
+                    style={{
+                      backgroundColor: '#0b1f3b',
+                      opacity: 0.7
+                    }}
+                  />
+                </div>
                 
                 {/* Scanning line effect */}
                 <div 
