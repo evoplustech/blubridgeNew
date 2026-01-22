@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronUp, Zap, LayoutGrid ,Plus, Minus} from 'lucide-react';
 
 const Deployment = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -497,11 +497,11 @@ const Deployment = () => {
                   className="w-full flex items-center justify-between py-6 text-left hover:text-emerald-400 transition-colors"
                 >
                   <span className="text-base font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaq === i ? 'bg-[#0B1F3B] text-white' : 'bg-[#0B1F3B]/10 text-[#0B1F3B]'}`}>
                     {openFaq === i ? (
-                      <ChevronUp className="w-4 h-4 text-emerald-400" />
+                      <Minus className="w-4 h-4" />
                     ) : (
-                      <ChevronDown className="w-4 h-4 text-emerald-400" />
+                      <Plus className="w-4 h-4" />
                     )}
                   </div>
                 </button>
@@ -516,16 +516,28 @@ const Deployment = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-[#0A2240]">
+      <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
-            Know more about our Research
+            {/* Access thousands of GPUs tailored to your requirements. */}
+            Know more about our Research 
           </h2>
-          <Link to="/research">
-            <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-md font-medium">
-              Explore
-            </Button>
-          </Link>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/research">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+                Explore
+              </Button>
+            </Link>
+            {/* <Link to="/contact">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+                Reserve GPUs
+              </Button>
+            </Link>
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
+              Contact <ArrowRight className="w-4 h-4" />
+            </Link> */}
+          </div>
         </div>
       </section>
 

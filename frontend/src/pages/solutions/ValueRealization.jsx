@@ -123,21 +123,7 @@ const ValueRealization = () => {
                 From first pilot to enterprise rollout, BluBridge transforms AI into a dependable growth engine.
               </p>
 
-              <div className="space-y-6">
-                <div className="border-l-4 border-[#328CC1] pl-5">
-                  <h3 className="text-lg font-semibold text-[#328CC1] mb-2">AI & ML Tools</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">
-                    Pre-built pipelines, evaluation frameworks, and integration layers for real-world adoption.
-                  </p>
-                </div>
-
-                <div className="border-l-4 border-[#328CC1] pl-5">
-                  <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Simplified Orchestration and Management</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">
-                    Unified controls to coordinate teams, models, and environments.
-                  </p>
-                </div>
-              </div>
+              
             </div>
 
             {/* Right side - Grid Labels */}
@@ -274,44 +260,6 @@ const ValueRealization = () => {
         </div>
       </section>
 
-      {/* SECTION 6: Key Services */}
-      <section className="py-24 bg-[#fffdf7]">
-        <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* AI Compute Card */}
-            <Link className="" to="/products/training">
-              <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
-                <div className="mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-emerald-500/30 to-green-600/20 rounded-xl flex items-center justify-center">
-                    <Zap className="w-7 h-7 text-emerald-400" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Compute</h3>
-                <p className="text-emerald-400 text-sm mb-4">Value Optimization</p>
-                <p className="text-[#6B7280] text-sm leading-relaxed">
-                  Dedicated GPU compute optimized for delivering business outcomes, reducing waste while maximizing inference efficiency at scale.
-                </p>
-              </div>
-            </Link>
-            {/* AI Marketplace Card */}
-            <Link className="" to="/products/marketplace">
-              <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
-                <div className="mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
-                    <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">AI Marketplace</h3>
-                <p className="text-[#328CC1] text-sm mb-4">Marketplace</p>
-                <p className="text-[#6B7280] text-sm leading-relaxed">
-                  A collection of tools and services that support the development, deployment, and scaling of inference pipelines using both BluBridge and popular AI frameworks.
-                </p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 7: More Solutions */}
       {/* <section className="py-20 bg-[#fffdf7]">
@@ -358,7 +306,7 @@ const ValueRealization = () => {
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#efede5]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
@@ -386,11 +334,11 @@ const ValueRealization = () => {
                   className="w-full flex items-center justify-between py-6 text-left hover:text-emerald-400 transition-colors"
                 >
                   <span className="text-base font-medium text-[#0B1F3B] pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-500/20 flex items-center justify-center">
                     {openFaq === i ? (
-                      <Minus className="w-4 h-4 text-emerald-400" />
+                      <Minus className="w-4 h-4 text-gray-700" />
                     ) : (
-                      <Plus className="w-4 h-4 text-emerald-400" />
+                      <Plus className="w-4 h-4 text-gray-700" />
                     )}
                   </div>
                 </button>
@@ -406,21 +354,27 @@ const ValueRealization = () => {
       </section>
 
       {/* SECTION 9: Bottom CTA */}
-      <section className="py-20 bg-[#0B1F3B]">
+      <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-            Access thousands of GPUs tailored to your<br />requirements.
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
+            {/* Access thousands of GPUs tailored to your requirements. */}
+            Know more about our Research 
           </h2>
           
-          <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded font-medium">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/research">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+                Explore
+              </Button>
+            </Link>
+            {/* <Link to="/contact">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-blue-200 transition-colors font-medium">
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
               Contact <ArrowRight className="w-4 h-4" />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

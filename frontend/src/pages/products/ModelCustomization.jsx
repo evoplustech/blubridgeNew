@@ -190,16 +190,16 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 4: Customization Stack */}
-      <section className="py-20 bg-[#F8F7F5]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Customization Stack
           </h2>
-          <p className="text-[#4B5563] mb-12 max-w-2xl">
+          <p className="text-[#4B5563] mb-12 max-w-6xl">
             Our comprehensive customization stack provides everything you need from hardware to application, with full flexibility to customize at every layer.
           </p>
           
-          <div className="grid lg:grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols gap-4">
             {/* Left Column - Stack Layers */}
             <div className="lg:col-span-2 space-y-4">
               {/* MARKETPLACE Layer */}
@@ -263,44 +263,13 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right Column - User Experience & Data Centre */}
-            <div className="space-y-4">
-              {/* USER EXPERIENCE Card */}
-              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">USER EXPERIENCE</span>
-                </div>
-                <div className="space-y-3">
-                  {['Web Console', 'API', 'CLI'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      <span className="text-[#E0E0E0] text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* DATA CENTRE Card */}
-              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA CENTRE</span>
-                </div>
-                <div className="space-y-3">
-                  {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      <span className="text-[#E0E0E0] text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+           
           </div>
         </div>
       </section>
 
             {/* Performance Metrics - 4 Column */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -464,9 +433,9 @@ const ModelCustomization = () => {
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#f3f1e9]">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0B1F3B]">
+      <section className="py-20 bg-[#fffdf7]">
+        <div className="container-custom max-w-4xl">
+          <h2 className="text-3xl md:text-4xl  font-bold mb-12 text-[#0B1F3B]">
             FAQs
           </h2>
           <div className="max-w-3xl">
@@ -497,16 +466,28 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 9: Final CTA */}
-      <section className="py-24 bg-[#0A2240]">
+    <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
-            Know more about our Research
+            {/* Access thousands of GPUs tailored to your requirements. */}
+            Know more about our Research 
           </h2>
-          <Link to="/research">
-            <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-md font-medium">
-              Explore
-            </Button>
-          </Link>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/research">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+                Explore
+              </Button>
+            </Link>
+            {/* <Link to="/contact">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+                Reserve GPUs
+              </Button>
+            </Link>
+            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
+              Contact <ArrowRight className="w-4 h-4" />
+            </Link> */}
+          </div>
         </div>
       </section>
     </div>
