@@ -65,6 +65,14 @@ import TransparencyHumanRights from './pages/policies/TransparencyHumanRights';
 import PrivacyPolicy from './pages/policies/PrivacyPolicy';
 import TermsConditions from './pages/policies/TermsConditions';
 import JoinOurTeam from './pages/JoinOurTeam';
+
+// Admin Pages
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import FooterForms from './pages/admin/FooterForms';
+import ContactForms from './pages/admin/ContactForms';
+import CareerApplications from './pages/admin/CareerApplications';
+
 function App() {
   return (
     <div className="App">
