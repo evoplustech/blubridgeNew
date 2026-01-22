@@ -16,12 +16,12 @@ const ValueRealization = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7]">
       {/* SECTION 1: Hero Section */}
-      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+      <section className="relative flex flex-col overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-[#c9c4b8] overflow-hidden" />
 
         {/* Hero content - Two column layout */}
-        <div className="container-custom relative z-10 flex-1 flex items-center py-24">
+        <div className="container-custom relative z-10 flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content */}
             <div className="max-w-xl">
@@ -37,9 +37,9 @@ const ValueRealization = () => {
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
+                {/* <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
                   Contact Us <ArrowRight className="w-4 h-4" />
-                </Link>
+                </Link> */}
               </div>
             </div>
             
@@ -74,7 +74,7 @@ const ValueRealization = () => {
       </section>
 
       {/* SECTION 2: Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#fffdf7] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -136,7 +136,7 @@ const ValueRealization = () => {
             </div>
 
             {/* Right side - Grid Labels */}
-            <div className="flex items-start justify-center lg:pt-8">
+            <div className="flex items-start justify-center lg:pt-12">
               <div className="grid grid-cols-3 gap-4 w-full">
                 {['Use Case', 'Workflow', 'Decision', 'Insight', 'Impact', 'Outcome', 'Metric', 'ROI', 'Value'].map((label, i) => {
                   const colors = [
@@ -153,7 +153,7 @@ const ValueRealization = () => {
                   return (
                     <div 
                       key={i} 
-                      className={`${colors[i]} rounded-lg px-4 py-3 text-center font-semibold text-sm`}
+                      className={`${colors[i]} rounded-lg px-4 py-10 text-center font-semibold text-sm`}
                     >
                       {label}
                     </div>
@@ -166,12 +166,12 @@ const ValueRealization = () => {
       </section>
 
       {/* SECTION 4: Value Stack */}
-      <section className="py-20 bg-[#F8F7F5]">
+      <section className="py-20 bg-[#efede5]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Value Stack
           </h2>
-          <p className="text-[#4B5563] mb-12 max-w-2xl">
+          <p className="text-[#4B5563] mb-12 max-w-5xl">
             BluBridge provides a complete technology stack for delivering measurable AI value across your organization.
           </p>
           
@@ -240,37 +240,7 @@ const ValueRealization = () => {
             </div>
             
             {/* Right Column - User Experience & Data Centre */}
-            <div className="space-y-4">
-              {/* USER EXPERIENCE Card */}
-              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">USER EXPERIENCE</span>
-                </div>
-                <div className="space-y-3">
-                  {['Web Console', 'CLI', 'API Access'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      <span className="text-[#E0E0E0] text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* DATA CENTRES Card */}
-              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA CENTRES</span>
-                </div>
-                <div className="space-y-3">
-                  {['Renewable Energy', 'Low-Latency Fibre'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      <span className="text-[#E0E0E0] text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>

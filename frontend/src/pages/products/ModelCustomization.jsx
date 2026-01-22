@@ -87,9 +87,9 @@ const ModelCustomization = () => {
                     Start Customizing
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
+                {/* <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
                   Contact Us <ArrowRight className="w-4 h-4" />
-                </Link>
+                </Link> */}
               </div>
             </div>
             

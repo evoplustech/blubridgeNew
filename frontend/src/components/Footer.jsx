@@ -89,9 +89,9 @@ const Footer = () => {
       to="/products/model-customization"
       className="flex items-center gap-2 px-0 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
     >
-      <div className="w-6 h-6 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center flex-shrink-0">
+      {/* <div className="w-6 h-6 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center flex-shrink-0">
         <SlidersHorizontal className="w-3.5 h-3.5 text-[#8B5CF6]" strokeWidth={1.5} />
-      </div>
+      </div> */}
       <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">
         Model Customization
       </span>
@@ -101,9 +101,9 @@ const Footer = () => {
       to="/solutions/value-realization"
       className="flex items-center gap-2 px-0 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
     >
-      <div className="w-6 h-6 rounded-md bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0">
+      {/* <div className="w-6 h-6 rounded-md bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0">
         <TrendingUp className="w-3.5 h-3.5 text-[#328CC1]" strokeWidth={1.5} />
-      </div>
+      </div> */}
       <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">
         Value Realization
       </span>
@@ -113,9 +113,9 @@ const Footer = () => {
       to="/solutions/deployment"
       className="flex items-center gap-2 px-0 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
     >
-      <div className="w-6 h-6 rounded-md bg-[#10B981]/10 flex items-center justify-center flex-shrink-0">
+      {/* <div className="w-6 h-6 rounded-md bg-[#10B981]/10 flex items-center justify-center flex-shrink-0">
         <Rocket className="w-3.5 h-3.5 text-[#10B981]" strokeWidth={1.5} />
-      </div>
+      </div> */}
       <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">
         Deployment
       </span>

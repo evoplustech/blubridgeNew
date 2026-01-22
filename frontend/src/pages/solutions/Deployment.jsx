@@ -16,16 +16,16 @@ const Deployment = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero Section - Deployment */}
-      <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
+      <section className="relative flex flex-col overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-[#d0cbb9] overflow-hidden" />
 
         {/* Hero content - Two column layout */}
-        <div className="container-custom relative z-10 flex-1 flex items-center py-24">
+        <div className="container-custom relative z-10 flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content */}
             <div className="max-w-xl">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
                 Deployment
               </h1>
               <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
@@ -37,9 +37,9 @@ const Deployment = () => {
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
+                {/* <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
                   Contact Us <ArrowRight className="w-4 h-4" />
-                </Link>
+                </Link> */}
               </div>
             </div>
             
@@ -220,93 +220,107 @@ const Deployment = () => {
         </div>
       </section> */}
 
-      {/* Fine-Tuning Stack - Two column layout */}
-      <section className="py-24 bg-[#fffdf7]">
+            {/* SECTION 4: Customization Stack */}
+      <section className="py-20 bg-[#F8F7F5]">
         <div className="container-custom">
-          <div className="mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Deployment Stack</h2>
-            <p className="text-base text-[#4B5563] max-w-2xl">
-              BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Left Column - Stacked categories */}
-            <div className="space-y-4">
-              {/* Marketplace */}
-              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">MARKETPLACE</h3>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
+            Deployment Stack
+          </h2>
+          <p className="text-[#4B5563] mb-12 max-w-2xl">
+            BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
+          </p>
+          
+          <div className="grid lg:grid-cols-3 gap-4">
+            {/* Left Column - Stack Layers */}
+            <div className="lg:col-span-2 space-y-4">
+              {/* MARKETPLACE Layer */}
+              <div className="bg-[#1A2940] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MARKETPLACE</span>
+                </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Deployment Templates', 'Inference Services', 'Monitoring Tools','Security Modules'].map((item, i) => (
-                    <span key={i} className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
-                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                  {['Deployment Templates', 'Inference Services', 'Monitoring Tools', 'Security Modules'].map((item, i) => (
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* PLATFORM Layer */}
+              <div className="bg-[#1A2940] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">PLATFORM</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['Model Registry', 'Versioning', 'Traffic Routing', 'Rollback Management'].map((item, i) => (
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* INFRASTRUCTURE Layer */}
+              <div className="bg-[#1A2940] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFRASTRUCTURE</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['GPU Orchestration','Load Balancing','Secure Networking','Auto-Scaling'].map((item, i) => (
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
                       {item}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Platform */}
-              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">PLATFORM</h3>
-                <div className="flex flex-wrap gap-2">
-                  {['Model Registry', 'Versioning','Traffic Routing','Rollback Management'].map((item, i) => (
-                    <span key={i} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
-                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
-                      {item}
-                    </span>
-                  ))}
+              {/* HARDWARE Layer */}
+              <div className="bg-[#1A2940] rounded-xl p-6">
+                <div className="mb-4">
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">HARDWARE</span>
                 </div>
-              </div>
-
-              {/* Infrastructure */}
-              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">INFRASTRUCTURE</h3>
-                <div className="flex flex-wrap gap-2">
-                  {['GPU Orchestration', 'Load Balancing', 'Secure Networking','Auto-Scaling'].map((item, i) => (
-                    <span key={i} className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
-                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Hardware */}
-              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
-                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">HARDWARE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['High-Memory GPUs', 'Multi-Node Clusters', ' Low-Latency Interconnects'].map((item, i) => (
-                    <span key={i} className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1.5 text-[#0B1F3B] text-xs">
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
                       {item}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-
+            
             {/* Right Column - User Experience & Data Centre */}
             <div className="space-y-4">
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
-                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">USER EXPERIENCE</h3>
+              {/* USER EXPERIENCE Card */}
+              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
+                <div className="mb-4">
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">USER EXPERIENCE</span>
+                </div>
                 <div className="space-y-3">
-                  {['Web Console', 'CLI', 'API Access'].map((item, i) => (
+                  {['Web Console', 'API', 'CLI'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-                      <span className="text-[#2F3A4A] text-sm">{item}</span>
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
+                      <span className="text-[#E0E0E0] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6 h-[calc(50%-8px)]">
-                <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">DATA CENTRE</h3>
+              {/* DATA CENTRE Card */}
+              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
+                <div className="mb-4">
+                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA CENTRE</span>
+                </div>
                 <div className="space-y-3">
-                  {['Renewable Energy', 'Low-Latency Fibre'].map((item, i) => (
+                  {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                      <span className="text-[#2F3A4A] text-sm">{item}</span>
+                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
+                      <span className="text-[#E0E0E0] text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -314,7 +328,7 @@ const Deployment = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>    
 
       {/* Performance Metrics - 4 Column */}
       <section className="py-24 bg-[#fffdf7]">
