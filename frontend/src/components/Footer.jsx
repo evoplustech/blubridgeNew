@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useToast } from '../hooks/use-toast';
+import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory,TrendingUp,Rocket } from 'lucide-react';
 import axios from 'axios';
 
 
@@ -78,18 +79,50 @@ const Footer = () => {
           </div>
 
           {/* Solutions Links */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">SOLUTIONS</h3>
-            {/* <ul className="space-y-3">
-              <li><Link to="/solutions/training" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Model Training</Link></li>
-              <li><Link to="/solutions/fine-tuning" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Model Fine-Tuning</Link></li>
-              <li><Link to="/solutions/inference" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">AI & ML Inference</Link></li>
-              <li><Link to="/solutions/ai-development" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">AI Development</Link></li>
-            </ul> */}
-             <ul className="space-y-3">
-              <li>Coming Soon</li>
-             </ul>
-          </div>
+<div>
+  <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B] px-4">
+    SOLUTIONS
+  </h3>
+
+  <div className="space-y-1">
+    <Link
+      to="/products/model-customization"
+      className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+    >
+      <div className="w-6 h-6 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center flex-shrink-0">
+        <SlidersHorizontal className="w-3.5 h-3.5 text-[#8B5CF6]" strokeWidth={1.5} />
+      </div>
+      <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">
+        Model Customization
+      </span>
+    </Link>
+
+    <Link
+      to="/solutions/value-realization"
+      className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+    >
+      <div className="w-6 h-6 rounded-md bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0">
+        <TrendingUp className="w-3.5 h-3.5 text-[#328CC1]" strokeWidth={1.5} />
+      </div>
+      <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">
+        Value Realization
+      </span>
+    </Link>
+
+    <Link
+      to="/solutions/deployment"
+      className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+    >
+      <div className="w-6 h-6 rounded-md bg-[#10B981]/10 flex items-center justify-center flex-shrink-0">
+        <Rocket className="w-3.5 h-3.5 text-[#10B981]" strokeWidth={1.5} />
+      </div>
+      <span className="text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">
+        Deployment
+      </span>
+    </Link>
+  </div>
+</div>
+
 
           {/* Company Links */}
           <div>

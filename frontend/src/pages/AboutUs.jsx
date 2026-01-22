@@ -665,10 +665,8 @@ const AboutUs = () => {
             {/* Left - Text Content */}
             <div>
               <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">Our Way of Working</h2>
-              <p className="text-black leading-relaxed mb-8">
-                We started Blubridge to make powerful generative models accessible to developers and enterprises everywhere. We move quickly and work with intensity, balancing individual ownership with a strong sense of teamwork. Transparency is central to how we operate, because we believe open collaboration drives real efficiency. We stay disciplined in our approach, knowing that excellence in technology comes from rigor. At the same time, we remain inventive, recognizing that building outstanding models depends on discovering new paths to efficiency. Everything we create is guided by real-world use, ensuring our models deliver meaningful value in practical applications.
-We are proud to be a diverse team, bringing together people from many backgrounds and perspectives, united by a broad and deep range of expertise across the AI landscape.
-              </p>
+              <p className="text-black leading-relaxed mb-8">We started Blubridge to make powerful generative models accessible to developers and enterprises everywhere. We move quickly and work with intensity, balancing individual ownership with a strong sense of teamwork. Transparency is central to how we operate, because we believe open collaboration drives real efficiency. We stay disciplined in our approach, knowing that excellence in technology comes from rigor. At the same time, we remain inventive, recognizing that building outstanding models depends on discovering new paths to efficiency. Everything we create is guided by real-world use, ensuring our models deliver meaningful value in practical applications.</p>
+              <p className="text-black leading-relaxed mb-8">We are proud to be a diverse team, bringing together people from many backgrounds and perspectives, united by a broad and deep range of expertise across the AI landscape.</p>
               {/* <Link to="/careers">
                 <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded-md font-medium">
                   Join us

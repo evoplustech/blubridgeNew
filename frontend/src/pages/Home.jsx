@@ -44,9 +44,20 @@ const VerticalTabsSection = () => {
         style={{
           backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/ddqne8xx_grid.png')`,
           backgroundRepeat: 'repeat',
-          backgroundSize: '50px 50px'
+          backgroundSize: '50px 50px',
+          opacity : 2
+         
         }}
       />
+      {/* <div 
+  className="absolute inset-0 opacity-60"
+  style={{
+    backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/ddqne8xx_grid.png')`,
+    backgroundRepeat: 'repeat',
+    backgroundSize: '50px 50px',
+    filter: 'brightness(5) contrast(1.3)'  // Increases visibility
+  }}
+/> */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-16">
@@ -1079,7 +1090,7 @@ const Home = () => {
                 We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
               </p>
               <Link to="/careers">
-                <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded-md font-medium">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
                   Join us
                 </Button>
               </Link>

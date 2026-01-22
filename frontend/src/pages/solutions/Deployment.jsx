@@ -57,7 +57,7 @@ const Deployment = () => {
                 
                 {/* Main image with floating animation */}
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/w4a2dhey_Gemini_Generated_Image_3yy76j3yy76j3yy7-Photoroom%281%29.png" 
+                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/bhd9eito_third.png" 
                   alt="Global Deployment Infrastructure" 
                   className="w-full max-w-[600px] h-auto object-contain relative z-10"
                   style={{
@@ -542,8 +542,21 @@ const Deployment = () => {
         </div>
       </section>
 
+      <section className="py-24 bg-[#0A2240]">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
+            Know more about our Research
+          </h2>
+          <Link to="/research">
+            <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-md font-medium">
+              Explore
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Bottom CTA */}
-      <section className="py-20 bg-[#0B1F3B] from-blue-600 via-blue-700 to-indigo-800">
+      {/* <section className="py-20 bg-[#0B1F3B] from-blue-600 via-blue-700 to-indigo-800">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Access thousands of GPUs tailored to your<br />requirements.
@@ -560,7 +573,7 @@ const Deployment = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

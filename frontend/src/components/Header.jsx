@@ -226,58 +226,8 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            
-             {/* Research Link */}
-            <Link to="/research" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-              Research
-            </Link>
 
-            {/* Products Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => { setActiveDropdown('products'); setTimeout(() => setDropdownVisible(true), 10); }}
-              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
-            >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-                <span>Products</span>
-                <ChevronDown 
-                  className="w-4 h-4 transition-transform duration-250" 
-                  style={{ transform: activeDropdown === 'products' ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                />
-              </button>
-              
-              {activeDropdown === 'products' && (
-                <div 
-                  className="absolute pt-3" 
-                  style={{ 
-                    width: '500px', 
-                    left: '50%', 
-                    transform: 'translateX(-50%)', 
-                    top: '100%', 
-                    zIndex: 1000 
-                  }}
-                >
-                  <div 
-                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] relative overflow-hidden"
-                    style={{ 
-                      height: '200px',
-                      opacity: dropdownVisible ? 1 : 0,
-                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
-                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
-                    }}
-                  >
-                    {/* Coming Soon Text - Letter by Letter Animation */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-3xl font-medium text-[#0B1F3B]">
-                        <AnimatedText text="Coming Soon" isVisible={dropdownVisible} />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Solutions Dropdown */}
+             {/* Solutions Dropdown */}
             <div 
               className="relative"
               onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
@@ -355,6 +305,58 @@ const Header = () => {
                 </div>
               )}
             </div>
+            
+             
+
+            {/* Products Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => { setActiveDropdown('products'); setTimeout(() => setDropdownVisible(true), 10); }}
+              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
+            >
+              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+                <span>Products</span>
+                <ChevronDown 
+                  className="w-4 h-4 transition-transform duration-250" 
+                  style={{ transform: activeDropdown === 'products' ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                />
+              </button>
+              
+              {activeDropdown === 'products' && (
+                <div 
+                  className="absolute pt-3" 
+                  style={{ 
+                    width: '500px', 
+                    left: '50%', 
+                    transform: 'translateX(-50%)', 
+                    top: '100%', 
+                    zIndex: 1000 
+                  }}
+                >
+                  <div 
+                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] relative overflow-hidden"
+                    style={{ 
+                      height: '200px',
+                      opacity: dropdownVisible ? 1 : 0,
+                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
+                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                  >
+                    {/* Coming Soon Text - Letter by Letter Animation */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-3xl font-medium text-[#0B1F3B]">
+                        <AnimatedText text="Coming Soon" isVisible={dropdownVisible} />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Research Link */}
+            <Link to="/research" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+              Research
+            </Link>
 
            
 
