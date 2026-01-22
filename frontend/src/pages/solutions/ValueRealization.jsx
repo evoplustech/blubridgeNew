@@ -17,61 +17,42 @@ const ValueRealization = () => {
     <div className="min-h-screen bg-[#fffdf7]">
       {/* SECTION 1: Hero Section */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Animated Background Image */}
-        <div className="absolute inset-0 bg-[#d0cbb9] overflow-hidden">
-          {/* <div 
-            className="absolute w-[120%] h-[120%] -top-[10%] -left-[10%]"
-            style={{
-              backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/n0x6s7r0_MODEL%20FINE-TUNING.jpg')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              animation: 'heroWaveValueRealization 14s ease-in-out infinite'
-            }}
-          /> */}
-        </div>
+        {/* Background */}
+        <div className="absolute inset-0 bg-[#c9c4b8] overflow-hidden" />
 
-        {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0  pointer-events-none" />
-
-        {/* Hero content - left aligned */}
+        {/* Hero content - Two column layout */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
-              VALUE<br />REALIZATION
-            </h1>
-            <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed max-w-2xl">
-              Turn AI investments into measurable business impact. BluBridge helps you convert experimentation into outcomes, accelerating adoption, reducing friction, and ensuring every model delivers tangible value across operations, products, and decision-making.
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-7 py-3 rounded-md font-medium text-base">
-                  Get Started
-                </Button>
-              </Link>
-              <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
-                Contact Us <ArrowRight className="w-4 h-4" />
-              </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+            {/* Left Content */}
+            <div className="max-w-xl">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+                VALUE<br />REALIZATION
+              </h1>
+              <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
+                Turn AI investments into measurable business impact. BluBridge helps you convert experimentation into outcomes, accelerating adoption, reducing friction, and ensuring every model delivers tangible value across operations, products, and decision-making.
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link to="/contact">
+                  <Button size="lg" className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-7 py-3 rounded-md font-medium text-base">
+                    Get Started
+                  </Button>
+                </Link>
+                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
+                  Contact Us <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right - Value Realization Flow Diagram */}
+            <div className="relative flex items-center justify-center lg:justify-end">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/mqgt2jvy_Gemini_Generated_Image_zeuxebzeuxebzeux-Photoroom.png" 
+                alt="Value Realization Flow Diagram" 
+                className="w-full max-w-[700px] h-auto object-contain"
+              />
             </div>
           </div>
         </div>
-
-        {/* CSS Animation Keyframes */}
-        {/* <style>{`
-          @keyframes heroWaveValueRealization {
-            0%, 100% {
-              transform: translate(0, 0) scale(1.05);
-            }
-            25% {
-              transform: translate(-1.2%, 0.8%) scale(1.05);
-            }
-            50% {
-              transform: translate(-0.4%, -0.8%) scale(1.05);
-            }
-            75% {
-              transform: translate(0.8%, 0.4%) scale(1.05);
-            }
-          }
-        `}</style> */}
       </section>
 
       {/* SECTION 2: Value Highlights - 3 Column Strip */}
