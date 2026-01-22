@@ -42,7 +42,7 @@ const ModelCustomization = () => {
         <div 
           className="absolute inset-0"
           style={{
-            background: '#fff'
+            background: '#fffdf7'
           }}
         />
         
