@@ -17,8 +17,13 @@ const ValueRealization = () => {
     <div className="min-h-screen bg-[#fffdf7]">
       {/* SECTION 1: Hero Section */}
       <section className="relative flex flex-col overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-[#c9c4b8] overflow-hidden" />
+        {/* Background - Horizontal Gradient */}
+        <div 
+          className="absolute inset-0 overflow-hidden" 
+          style={{
+            background: 'linear-gradient(to right, #ccc7b3, #c1bca6)'
+          }}
+        />
 
         {/* Hero content - Two column layout */}
         <div className="container-custom relative z-10 flex-1 flex items-center">
@@ -100,7 +105,7 @@ const ValueRealization = () => {
       </section>
 
       {/* SECTION 3: Speed up time-to-value Section */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="bg-[#fffdf7] py-24">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
