@@ -760,7 +760,7 @@ async def get_admin_stats(authorization: Optional[str] = Header(None)):
 
 
 @api_router.get("/admin/submissions/footer")
-async def get_footer_submissions(authorization: Optional[str] = None, limit: int = 100, search: Optional[str] = None):
+async def get_footer_submissions(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None):
     """Get footer form submissions"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
