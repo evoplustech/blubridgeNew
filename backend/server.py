@@ -653,6 +653,285 @@ async def update_application_status(application_id: str, status: str):
         raise HTTPException(status_code=500, detail="Failed to update status")
 
 
+# ==================== ADMIN PANEL APIs ====================
+
+# Admin credentials (In production, use environment variables and proper hashing)
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "admin"
+
+# Simple token store (In production, use Redis or database)
+admin_tokens = {}
+
+class AdminLogin(BaseModel):
+    username: str
+    password: str
+
+class AdminTokenResponse(BaseModel):
+    token: str
+    message: str
+
+def generate_admin_token():
+    """Generate a secure admin token"""
+    return secrets.token_urlsafe(32)
+
+def verify_admin_token(token: str) -> bool:
+    """Verify if admin token is valid"""
+    return token in admin_tokens
+
+async def get_admin_token(authorization: Optional[str] = None):
+    """Dependency to verify admin authentication"""
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Authorization header required")
+    
+    # Extract token from "Bearer <token>" format
+    if authorization.startswith("Bearer "):
+        token = authorization[7:]
+    else:
+        token = authorization
+    
+    if not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    
+    return token
+
+
+@api_router.post("/admin/login")
+async def admin_login(credentials: AdminLogin):
+    """Admin login endpoint"""
+    if credentials.username == ADMIN_USERNAME and credentials.password == ADMIN_PASSWORD:
+        token = generate_admin_token()
+        admin_tokens[token] = {
+            "username": credentials.username,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+        return {"token": token, "message": "Login successful"}
+    raise HTTPException(status_code=401, detail="Invalid credentials")
+
+
+@api_router.post("/admin/logout")
+async def admin_logout(authorization: Optional[str] = None):
+    """Admin logout endpoint"""
+    if authorization:
+        token = authorization[7:] if authorization.startswith("Bearer ") else authorization
+        if token in admin_tokens:
+            del admin_tokens[token]
+    return {"message": "Logged out successfully"}
+
+
+@api_router.get("/admin/verify")
+async def verify_admin(authorization: Optional[str] = None):
+    """Verify if admin token is valid"""
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    token = authorization[7:] if authorization.startswith("Bearer ") else authorization
+    if verify_admin_token(token):
+        return {"valid": True, "message": "Token is valid"}
+    raise HTTPException(status_code=401, detail="Invalid token")
+
+
+@api_router.get("/admin/dashboard/stats")
+async def get_admin_stats(authorization: Optional[str] = None):
+    """Get dashboard statistics"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        # Get counts for each form type
+        footer_count = await db.contacts.count_documents({"type": "contact_us"})
+        contact_count = await db.contacts.count_documents({"type": {"$in": ["contact_sales", "general_enquiry"]}})
+        careers_count = await db.job_applications.count_documents({})
+        
+        # Get new (unviewed) counts
+        footer_new = await db.contacts.count_documents({"type": "contact_us", "status": {"$ne": "viewed"}})
+        contact_new = await db.contacts.count_documents({"type": {"$in": ["contact_sales", "general_enquiry"]}, "status": {"$ne": "viewed"}})
+        careers_new = await db.job_applications.count_documents({"status": "pending"})
+        
+        return {
+            "footer_forms": {"total": footer_count, "new": footer_new},
+            "contact_forms": {"total": contact_count, "new": contact_new},
+            "career_applications": {"total": careers_count, "new": careers_new},
+            "total_submissions": footer_count + contact_count + careers_count
+        }
+    except Exception as e:
+        logging.error(f"Error fetching admin stats: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch stats")
+
+
+@api_router.get("/admin/submissions/footer")
+async def get_footer_submissions(authorization: Optional[str] = None, limit: int = 100, search: Optional[str] = None):
+    """Get footer form submissions"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        query = {"type": "contact_us"}
+        if search:
+            query["$or"] = [
+                {"firstName": {"$regex": search, "$options": "i"}},
+                {"lastName": {"$regex": search, "$options": "i"}},
+                {"email": {"$regex": search, "$options": "i"}}
+            ]
+        
+        submissions = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).to_list(limit)
+        return submissions
+    except Exception as e:
+        logging.error(f"Error fetching footer submissions: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch submissions")
+
+
+@api_router.get("/admin/submissions/contact")
+async def get_contact_submissions_admin(authorization: Optional[str] = None, limit: int = 100, search: Optional[str] = None):
+    """Get contact form submissions (sales & general enquiry)"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        query = {"type": {"$in": ["contact_sales", "general_enquiry"]}}
+        if search:
+            query["$or"] = [
+                {"firstName": {"$regex": search, "$options": "i"}},
+                {"lastName": {"$regex": search, "$options": "i"}},
+                {"email": {"$regex": search, "$options": "i"}},
+                {"company": {"$regex": search, "$options": "i"}}
+            ]
+        
+        submissions = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).to_list(limit)
+        return submissions
+    except Exception as e:
+        logging.error(f"Error fetching contact submissions: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch submissions")
+
+
+@api_router.get("/admin/submissions/careers")
+async def get_career_applications_admin(authorization: Optional[str] = None, limit: int = 100, search: Optional[str] = None, status: Optional[str] = None):
+    """Get career applications"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        query = {}
+        if status:
+            query["status"] = status
+        if search:
+            query["$or"] = [
+                {"firstName": {"$regex": search, "$options": "i"}},
+                {"lastName": {"$regex": search, "$options": "i"}},
+                {"email": {"$regex": search, "$options": "i"}},
+                {"jobTitle": {"$regex": search, "$options": "i"}}
+            ]
+        
+        applications = await db.job_applications.find(query, {"_id": 0}).sort("appliedAt", -1).to_list(limit)
+        return applications
+    except Exception as e:
+        logging.error(f"Error fetching career applications: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch applications")
+
+
+@api_router.get("/admin/submission/{submission_id}")
+async def get_submission_detail(submission_id: str, form_type: str, authorization: Optional[str] = None):
+    """Get a single submission detail and mark as viewed"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        if form_type == "careers":
+            # Get from job_applications
+            submission = await db.job_applications.find_one({"id": submission_id}, {"_id": 0})
+            if submission:
+                # Mark as viewed (change status from pending to reviewed if still pending)
+                if submission.get("status") == "pending":
+                    await db.job_applications.update_one(
+                        {"id": submission_id},
+                        {"$set": {"status": "reviewed", "viewedAt": datetime.now(timezone.utc).isoformat()}}
+                    )
+                    submission["status"] = "reviewed"
+        else:
+            # Get from contacts
+            submission = await db.contacts.find_one({"id": submission_id}, {"_id": 0})
+            if submission:
+                # Mark as viewed
+                await db.contacts.update_one(
+                    {"id": submission_id},
+                    {"$set": {"status": "viewed", "viewedAt": datetime.now(timezone.utc).isoformat()}}
+                )
+                submission["status"] = "viewed"
+        
+        if not submission:
+            raise HTTPException(status_code=404, detail="Submission not found")
+        
+        return submission
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error fetching submission detail: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch submission")
+
+
+@api_router.delete("/admin/submission/{submission_id}")
+async def delete_submission(submission_id: str, form_type: str, authorization: Optional[str] = None):
+    """Delete a submission"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        if form_type == "careers":
+            # Delete from job_applications and remove resume file
+            application = await db.job_applications.find_one({"id": submission_id})
+            if application and application.get("resumeCV"):
+                resume_path = Path(application["resumeCV"])
+                if resume_path.exists():
+                    resume_path.unlink()
+            result = await db.job_applications.delete_one({"id": submission_id})
+        else:
+            result = await db.contacts.delete_one({"id": submission_id})
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Submission not found")
+        
+        return {"success": True, "message": "Submission deleted successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error deleting submission: {e}")
+        raise HTTPException(status_code=500, detail="Failed to delete submission")
+
+
+@api_router.get("/admin/resume/{application_id}")
+async def download_resume(application_id: str, authorization: Optional[str] = None):
+    """Download resume file for a job application"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        application = await db.job_applications.find_one({"id": application_id}, {"_id": 0})
+        if not application:
+            raise HTTPException(status_code=404, detail="Application not found")
+        
+        resume_path = Path(application.get("resumeCV", ""))
+        if not resume_path.exists():
+            raise HTTPException(status_code=404, detail="Resume file not found")
+        
+        filename = application.get("resumeFilename", "resume.pdf")
+        return FileResponse(
+            path=str(resume_path),
+            filename=filename,
+            media_type="application/octet-stream"
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error downloading resume: {e}")
+        raise HTTPException(status_code=500, detail="Failed to download resume")
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
