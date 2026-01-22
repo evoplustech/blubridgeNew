@@ -15,62 +15,152 @@ const Deployment = () => {
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
-      {/* Hero Section - Model Fine-Tuning Background with Wave Animation */}
+      {/* Hero Section - Deployment */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
-        {/* Animated Background Image */}
-        <div className="absolute inset-0 bg-[#d0cbb9] overflow-hidden">
-          {/* <div 
-            className="absolute w-[120%] h-[120%] -top-[10%] -left-[10%]"
-            style={{
-              backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/n0x6s7r0_MODEL%20FINE-TUNING.jpg')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              animation: 'heroWaveFineTuning 14s ease-in-out infinite'
-            }}
-          /> */}
-        </div>
-        {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0  pointer-events-none" />
+        {/* Background */}
+        <div className="absolute inset-0 bg-[#d0cbb9] overflow-hidden" />
 
-        {/* Hero content - left aligned */}
+        {/* Hero content - Two column layout */}
         <div className="container-custom relative z-10 flex-1 flex items-center py-24">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
-             Deployment
-            </h1>
-            <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we provide production-grade deployment infrastructure built for real-world AI systems. Launch, scale, and operate your models with confidence using high-performance GPU clusters, low-latency networking, and enterprise-ready orchestration, designed to move your models from lab to live environments seamlessly.
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link to="/contact">
-                <Button size="lg" className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-7 py-3 rounded-md font-medium text-base">
-                  Get Started
-                </Button>
-              </Link>
-              <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
-                Contact Us <ArrowRight className="w-4 h-4" />
-</Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+            {/* Left Content */}
+            <div className="max-w-xl">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0B1F3B] mb-8 leading-tight tracking-tight">
+                Deployment
+              </h1>
+              <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
+                At BluBridge, we provide production-grade deployment infrastructure built for real-world AI systems. Launch, scale, and operate your models with confidence using high-performance GPU clusters, low-latency networking, and enterprise-ready orchestration, designed to move your models from lab to live environments seamlessly.
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link to="/contact">
+                  <Button size="lg" className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-7 py-3 rounded-md font-medium text-base">
+                    Get Started
+                  </Button>
+                </Link>
+                <Link to="/contact" className="flex items-center gap-2 px-6 py-3 text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium">
+                  Contact Us <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right - Deployment Infrastructure Visual */}
+            <div className="relative flex items-center justify-center lg:justify-end">
+              <div className="relative">
+                {/* Animated glow effect behind image */}
+                <div 
+                  className="absolute inset-0 rounded-full blur-3xl opacity-30"
+                  style={{
+                    background: 'radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, rgba(6, 182, 212, 0.2) 40%, transparent 70%)',
+                    animation: 'deployPulseGlow 4s ease-in-out infinite'
+                  }}
+                />
+                
+                {/* Main image with floating animation */}
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/w4a2dhey_Gemini_Generated_Image_3yy76j3yy76j3yy7-Photoroom%281%29.png" 
+                  alt="Global Deployment Infrastructure" 
+                  className="w-full max-w-[600px] h-auto object-contain relative z-10"
+                  style={{
+                    animation: 'deployFloat 6s ease-in-out infinite'
+                  }}
+                />
+                
+                {/* Scanning line effect */}
+                <div 
+                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60 pointer-events-none z-20"
+                  style={{
+                    animation: 'deployScanLine 3s ease-in-out infinite'
+                  }}
+                />
+                
+                {/* Rotating outer ring */}
+                <div 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-cyan-400/20 pointer-events-none"
+                  style={{
+                    animation: 'deployRotateRing 25s linear infinite'
+                  }}
+                />
+                
+                {/* Network pulse particles */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  {[...Array(6)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1.5 h-1.5 bg-cyan-400 rounded-full"
+                      style={{
+                        left: `${15 + i * 14}%`,
+                        top: `${25 + (i % 2) * 50}%`,
+                        animation: `deployParticle ${2.5 + i * 0.4}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.5}s`,
+                        boxShadow: '0 0 8px 2px rgba(6, 182, 212, 0.6)'
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+              
+              {/* Animation keyframes */}
+              <style>{`
+                @keyframes deployFloat {
+                  0%, 100% {
+                    transform: translateY(0px);
+                  }
+                  50% {
+                    transform: translateY(-12px);
+                  }
+                }
+                
+                @keyframes deployPulseGlow {
+                  0%, 100% {
+                    opacity: 0.25;
+                    transform: scale(1);
+                  }
+                  50% {
+                    opacity: 0.45;
+                    transform: scale(1.08);
+                  }
+                }
+                
+                @keyframes deployScanLine {
+                  0% {
+                    top: 0%;
+                    opacity: 0;
+                  }
+                  10% {
+                    opacity: 0.6;
+                  }
+                  90% {
+                    opacity: 0.6;
+                  }
+                  100% {
+                    top: 100%;
+                    opacity: 0;
+                  }
+                }
+                
+                @keyframes deployRotateRing {
+                  0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                  }
+                  100% {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                  }
+                }
+                
+                @keyframes deployParticle {
+                  0%, 100% {
+                    transform: scale(1);
+                    opacity: 0.5;
+                  }
+                  50% {
+                    transform: scale(1.8);
+                    opacity: 1;
+                  }
+                }
+              `}</style>
             </div>
           </div>
         </div>
-
-        {/* CSS Animation Keyframes */}
-        {/* <style>{`
-          @keyframes heroWaveFineTuning {
-            0%, 100% {
-              transform: translate(0, 0) scale(1.05);
-            }
-            25% {
-              transform: translate(-1.2%, 0.8%) scale(1.05);
-            }
-            50% {
-              transform: translate(-0.4%, -0.8%) scale(1.05);
-            }
-            75% {
-              transform: translate(0.8%, 0.4%) scale(1.05);
-            }
-          }
-        `}</style> */}
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
