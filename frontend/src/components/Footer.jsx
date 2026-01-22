@@ -32,7 +32,7 @@ const Footer = () => {
     setLoading(true);
     try {
       await axios.post(`${API}/contacts/submit`, {
-        type: 'contact_us',
+        type: 'footer_form',
         email,
         firstName: firstName || undefined,
         lastName: lastName || undefined,
