@@ -106,7 +106,7 @@ const Deployment = () => {
             {/* Left Content */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
-                Leverage Advanced GPU Cloud INFRASTRUCTURE Fast, reliable Deployment
+                Leverage Advanced GPU Cloud Infrastructure Fast, Reliable Deployment
               </h2>
               <p className="text-[#2F3A4A] mb-5 leading-relaxed">
                 Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.
@@ -221,16 +221,16 @@ const Deployment = () => {
       </section> */}
 
             {/* SECTION 4: Customization Stack */}
-      <section className="py-20 bg-[#F8F7F5]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Deployment Stack
           </h2>
-          <p className="text-[#4B5563] mb-12 max-w-2xl">
+          <p className="text-[#4B5563] mb-12 max-w-6xl">
             BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
           </p>
           
-          <div className="grid lg:grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols gap-4">
             {/* Left Column - Stack Layers */}
             <div className="lg:col-span-2 space-y-4">
               {/* MARKETPLACE Layer */}
@@ -294,44 +294,13 @@ const Deployment = () => {
               </div>
             </div>
             
-            {/* Right Column - User Experience & Data Centre */}
-            <div className="space-y-4">
-              {/* USER EXPERIENCE Card */}
-              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">USER EXPERIENCE</span>
-                </div>
-                <div className="space-y-3">
-                  {['Web Console', 'API', 'CLI'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      <span className="text-[#E0E0E0] text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* DATA CENTRE Card */}
-              <div className="bg-[#1A2940] rounded-xl p-6 h-[calc(50%-8px)]">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DATA CENTRE</span>
-                </div>
-                <div className="space-y-3">
-                  {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      <span className="text-[#E0E0E0] text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>    
 
       {/* Performance Metrics - 4 Column */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#efede5]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -385,13 +385,10 @@ const AboutUs = () => {
               </p>
               
               {/* Read More Button - Dark navy background */}
-              <Link 
-                to="/research" 
-                className="inline-block px-8 py-3 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors text-base"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-                data-testid="our-mission-read-more-btn"
-              >
-                Read more
+              <Link to="/careers">
+                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
+                  Join us
+                </Button>
               </Link>
             </div>
             
