@@ -307,7 +307,7 @@ const Header = () => {
                         <div className="bg-[#f3f1e9] hover:bg-[#e8e6de]  rounded-lg px-2 py-2 mb-2">
                           <div className="font-medium flex items-center py-2 gap-1">
                             <Wrench className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                            <div className="text-xs text-[#5B6B7A] ml-6"><span className="block text-[#0B1F3B] font-medium text-sm">Deployment</span></div>
+                            <div className="text-xs hover:text-[#328CC1] transition-colors text-[#5B6B7A] ml-6"><span className="block text-[#0B1F3B] font-medium text-sm">Deployment</span></div>
                           </div>
                         </div>
                         {/* <div className="w-8 h-8 rounded-md bg-[#64748B]/10 flex items-center justify-center">
