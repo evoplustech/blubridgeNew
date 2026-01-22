@@ -273,7 +273,7 @@ const Deployment = () => {
               </div>
 
               {/* Hardware */}
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">HARDWARE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['High-Memory GPUs', 'Multi-Node Clusters', ' Low-Latency Interconnects'].map((item, i) => (

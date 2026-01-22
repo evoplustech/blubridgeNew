@@ -99,7 +99,20 @@ const ModelCustomization = () => {
                 src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/wce9vmtc_Gemini_Generated_Image_pskdz5pskdz5pskd-Photoroom%281%29.png" 
                 alt="Neural Network Visualization" 
                 className="w-full h-full object-contain max-w-[500px]"
+                style={{
+                  animation: 'modelFloat 6s ease-in-out infinite'
+                }}
               />
+              <style>{`
+                @keyframes modelFloat {
+                  0%, 100% {
+                    transform: translateY(0px);
+                  }
+                  50% {
+                    transform: translateY(-12px);
+                  }
+                }
+              `}</style>
             </div>
           </div>
         </div>
