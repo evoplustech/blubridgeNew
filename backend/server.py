@@ -1,5 +1,6 @@
-from fastapi import FastAPI, APIRouter, HTTPException, UploadFile, File, Form
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, APIRouter, HTTPException, UploadFile, File, Form, Depends, Response
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -14,6 +15,8 @@ import httpx
 import asyncio
 import base64
 import re
+import secrets
+import hashlib
 
 
 ROOT_DIR = Path(__file__).parent
