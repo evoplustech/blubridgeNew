@@ -833,7 +833,7 @@ async def get_career_applications_admin(authorization: Optional[str] = Header(No
 
 
 @api_router.get("/admin/submission/{submission_id}")
-async def get_submission_detail(submission_id: str, form_type: str, authorization: Optional[str] = None):
+async def get_submission_detail(submission_id: str, form_type: str, authorization: Optional[str] = Header(None)):
     """Get a single submission detail and mark as viewed"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
