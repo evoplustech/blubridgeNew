@@ -66,7 +66,7 @@ class ContactForm(BaseModel):
 class ContactSubmission(BaseModel):
     model_config = ConfigDict(extra="allow")  # Allow extra fields for flexibility
     
-    type: Literal["contact_sales", "general_enquiry", "contact_us"]
+    type: Literal["contact_sales", "general_enquiry", "contact_us", "footer_form"]
     firstName: Optional[str] = None
     lastName: Optional[str] = None
     email: EmailStr
