@@ -36,13 +36,20 @@ const ModelCustomization = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7]">
       
-      {/* SECTION 1: Hero Section - Light cream background with Neural Network Visual */}
+      {/* SECTION 1: Hero Section - Light cream background like reference */}
       <section className="relative min-h-[580px] overflow-hidden">
-        {/* Background - Light beige/cream */}
+        {/* Background - Light cream/off-white */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, #d4cfbc 0%, #c8c3b0 50%, #d0cbb9 100%)'
+            background: '#F9F9F7'
+          }}
+        />
+        {/* Subtle gradient overlay */}
+        <div 
+          className="absolute inset-0 opacity-60"
+          style={{
+            background: 'radial-gradient(ellipse at 70% 50%, rgba(200, 220, 255, 0.15) 0%, transparent 60%)'
           }}
         />
         
@@ -67,164 +74,153 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - Neural Network with Functional Icons */}
+            {/* Right - AI Model Network Visual */}
             <div className="relative h-[420px] lg:h-[480px] flex items-center justify-center">
-              <div className="relative w-full max-w-[450px] h-full flex items-center justify-center">
-                {/* Central Neural Network Cluster */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg viewBox="0 0 200 200" className="w-48 h-48 md:w-56 md:h-56" style={{ animation: 'pulse 4s ease-in-out infinite' }}>
-                    <defs>
-                      <radialGradient id="clusterGlow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.9"/>
-                        <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.6"/>
-                        <stop offset="100%" stopColor="#1E40AF" stopOpacity="0.3"/>
-                      </radialGradient>
-                      <filter id="blur">
-                        <feGaussianBlur stdDeviation="2"/>
-                      </filter>
-                    </defs>
-                    {/* Outer glow */}
-                    <circle cx="100" cy="100" r="90" fill="url(#clusterGlow)" filter="url(#blur)" opacity="0.5"/>
-                    {/* Main cluster sphere */}
-                    <circle cx="100" cy="100" r="70" fill="url(#clusterGlow)"/>
-                    {/* Inner network dots */}
-                    {[...Array(40)].map((_, i) => {
-                      const angle = (i / 40) * Math.PI * 2;
-                      const radius = 20 + (i % 3) * 15; // Use deterministic values
-                      const cx = 100 + Math.cos(angle) * radius;
-                      const cy = 100 + Math.sin(angle) * radius;
-                      const dotRadius = 1 + (i % 3);
-                      const opacity = 0.5 + (i % 4) * 0.1;
-                      const animDur = 2 + (i % 3);
-                      return (
-                        <circle key={i} cx={cx} cy={cy} r={dotRadius} fill="white" opacity={opacity}>
-                          <animate attributeName="opacity" values={`${0.3};${0.7};${0.3}`} dur={`${animDur}s`} repeatCount="indefinite"/>
-                        </circle>
-                      );
-                    })}
-                    {/* Central bright core */}
-                    <circle cx="100" cy="100" r="25" fill="white" opacity="0.3"/>
-                    <circle cx="100" cy="100" r="15" fill="white" opacity="0.5"/>
-                  </svg>
-                </div>
+              {/* SVG Network Visualization */}
+              <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px]" style={{ animation: 'networkFloat 6s ease-in-out infinite' }}>
+                {/* Definitions for gradients and filters */}
+                <defs>
+                  {/* Glow filter */}
+                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  
+                  {/* Node gradients */}
+                  <radialGradient id="purpleGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#A855F7" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#0D9488" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="orangeGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#F97316" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#EA580C" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="pinkGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#EC4899" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#DB2777" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#22C55E" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#16A34A" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="yellowGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#EAB308" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#CA8A04" stopOpacity="0.6"/>
+                  </radialGradient>
+                  <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.9"/>
+                    <stop offset="100%" stopColor="#0891B2" stopOpacity="0.6"/>
+                  </radialGradient>
+                </defs>
                 
-                {/* Connecting Lines to Icons */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 450 480">
-                  {/* Lines from center to each icon */}
-                  <line x1="225" y1="240" x2="70" y2="100" stroke="#3B82F6" strokeWidth="1.5" opacity="0.4">
-                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+                {/* Connection lines with animation */}
+                <g className="connection-lines" opacity="0.4">
+                  <line x1="250" y1="250" x2="120" y2="120" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="225" y1="240" x2="380" y2="80" stroke="#3B82F6" strokeWidth="1.5" opacity="0.4">
-                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.5s" repeatCount="indefinite"/>
+                  <line x1="250" y1="250" x2="380" y2="100" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.5s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="225" y1="240" x2="410" y2="240" stroke="#3B82F6" strokeWidth="1.5" opacity="0.4">
-                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.2s" repeatCount="indefinite"/>
+                  <line x1="250" y1="250" x2="420" y2="250" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="225" y1="240" x2="380" y2="400" stroke="#3B82F6" strokeWidth="1.5" opacity="0.4">
-                    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2.8s" repeatCount="indefinite"/>
+                  <line x1="250" y1="250" x2="380" y2="400" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.5s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="225" y1="240" x2="70" y2="380" stroke="#3B82F6" strokeWidth="1.5" opacity="0.4">
-                    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite"/>
+                  <line x1="250" y1="250" x2="120" y2="380" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.8s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="225" y1="240" x2="40" y2="240" stroke="#3B82F6" strokeWidth="1.5" opacity="0.4">
-                    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2.6s" repeatCount="indefinite"/>
+                  <line x1="250" y1="250" x2="80" y2="250" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3.2s" repeatCount="indefinite"/>
                   </line>
-                </svg>
+                  <line x1="250" y1="250" x2="180" y2="60" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.2s" repeatCount="indefinite"/>
+                  </line>
+                  <line x1="250" y1="250" x2="320" y2="440" stroke="#94A3B8" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.8s" repeatCount="indefinite"/>
+                  </line>
+                </g>
                 
-                {/* Floating Icon Modules */}
-                {/* Top Left - Gear/Settings Icon */}
-                <div className="absolute top-8 left-4 w-14 h-14 bg-[#0B1F3B] rounded-lg flex items-center justify-center shadow-lg" style={{ animation: 'floatIcon1 5s ease-in-out infinite' }}>
-                  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="white" strokeWidth="1.5">
-                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/>
-                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
-                  </svg>
-                </div>
+                {/* Central hub node */}
+                <g filter="url(#glow)">
+                  <circle cx="250" cy="250" r="50" fill="url(#blueGlow)">
+                    <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="12" fontWeight="600">BluBridge</text>
+                </g>
                 
-                {/* Top Right - Tree/Network Structure Icon */}
-                <div className="absolute top-4 right-8 w-14 h-14 bg-[#0B1F3B] rounded-lg flex items-center justify-center shadow-lg" style={{ animation: 'floatIcon2 4.5s ease-in-out infinite' }}>
-                  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="white" strokeWidth="1.5">
-                    <path d="M12 3v18"/>
-                    <path d="M12 7l-4-4"/>
-                    <path d="M12 7l4-4"/>
-                    <path d="M12 13l-6-3"/>
-                    <path d="M12 13l6-3"/>
-                    <path d="M12 19l-4 2"/>
-                    <path d="M12 19l4 2"/>
-                  </svg>
-                </div>
-                
-                {/* Right - Layers/Stack Icon */}
-                <div className="absolute top-1/2 -translate-y-1/2 right-0 w-14 h-14 bg-[#0B1F3B] rounded-lg flex items-center justify-center shadow-lg" style={{ animation: 'floatIcon3 5.5s ease-in-out infinite' }}>
-                  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="white" strokeWidth="1.5">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 12l10 5 10-5"/>
-                  </svg>
-                </div>
-                
-                {/* Bottom Right - Brain/AI Icon */}
-                <div className="absolute bottom-12 right-8 w-14 h-14 bg-[#0B1F3B] rounded-lg flex items-center justify-center shadow-lg" style={{ animation: 'floatIcon4 4s ease-in-out infinite' }}>
-                  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="white" strokeWidth="1.5">
-                    <path d="M12 2a4 4 0 014 4v1a4 4 0 01-4 4 4 4 0 01-4-4V6a4 4 0 014-4z"/>
-                    <path d="M6 11a6 6 0 0012 0"/>
-                    <path d="M12 22v-5"/>
-                    <path d="M9 17l3 5 3-5"/>
-                    <circle cx="9" cy="6" r="1"/>
-                    <circle cx="15" cy="6" r="1"/>
-                  </svg>
-                </div>
-                
-                {/* Bottom Left - Analytics/Chart Icon */}
-                <div className="absolute bottom-8 left-4 w-14 h-14 bg-[#0B1F3B] rounded-lg flex items-center justify-center shadow-lg" style={{ animation: 'floatIcon5 5s ease-in-out infinite' }}>
-                  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="white" strokeWidth="1.5">
-                    <path d="M18 20V10"/>
-                    <path d="M12 20V4"/>
-                    <path d="M6 20v-6"/>
-                    <circle cx="12" cy="4" r="2"/>
-                  </svg>
-                </div>
-                
-                {/* Left - Data/User Icon */}
-                <div className="absolute top-1/2 -translate-y-1/2 left-0 w-14 h-14 bg-[#0B1F3B] rounded-lg flex items-center justify-center shadow-lg" style={{ animation: 'floatIcon6 4.8s ease-in-out infinite' }}>
-                  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="white" strokeWidth="1.5">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <path d="M3 9h18"/>
-                    <path d="M3 15h18"/>
-                    <path d="M9 3v18"/>
-                    <path d="M15 3v18"/>
-                  </svg>
-                </div>
-              </div>
+                {/* Outer model nodes */}
+                <g filter="url(#glow)">
+                  {/* LLaMA - Top left */}
+                  <circle cx="120" cy="120" r="35" fill="url(#tealGlow)">
+                    <animate attributeName="r" values="33;37;33" dur="4s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">LLaMA</text>
+                  
+                  {/* GPT - Top right */}
+                  <circle cx="380" cy="100" r="38" fill="url(#purpleGlow)">
+                    <animate attributeName="r" values="36;40;36" dur="3.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="380" y="105" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">GPT</text>
+                  
+                  {/* Mistral - Right */}
+                  <circle cx="420" cy="250" r="32" fill="url(#orangeGlow)">
+                    <animate attributeName="r" values="30;34;30" dur="4.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="420" y="255" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Mistral</text>
+                  
+                  {/* Claude - Bottom right */}
+                  <circle cx="380" cy="400" r="36" fill="url(#pinkGlow)">
+                    <animate attributeName="r" values="34;38;34" dur="3.8s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="380" y="405" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">Claude</text>
+                  
+                  {/* Gemini - Bottom left */}
+                  <circle cx="120" cy="380" r="34" fill="url(#greenGlow)">
+                    <animate attributeName="r" values="32;36;32" dur="4.2s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="120" y="385" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Gemini</text>
+                  
+                  {/* Whisper - Left */}
+                  <circle cx="80" cy="250" r="30" fill="url(#yellowGlow)">
+                    <animate attributeName="r" values="28;32;28" dur="3.2s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="80" y="255" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Whisper</text>
+                  
+                  {/* Qwen - Top */}
+                  <circle cx="180" cy="60" r="28" fill="url(#cyanGlow)">
+                    <animate attributeName="r" values="26;30;26" dur="3.6s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="180" y="65" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Qwen</text>
+                  
+                  {/* SDXL - Bottom */}
+                  <circle cx="320" cy="440" r="30" fill="url(#tealGlow)">
+                    <animate attributeName="r" values="28;32;28" dur="4s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="320" y="445" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">SDXL</text>
+                </g>
+              </svg>
               
               {/* Animation keyframes */}
               <style>{`
-                @keyframes pulse {
-                  0%, 100% { transform: scale(1); }
-                  50% { transform: scale(1.05); }
-                }
-                @keyframes floatIcon1 {
-                  0%, 100% { transform: translate(0, 0); }
-                  50% { transform: translate(5px, -8px); }
-                }
-                @keyframes floatIcon2 {
-                  0%, 100% { transform: translate(0, 0); }
-                  50% { transform: translate(-6px, -6px); }
-                }
-                @keyframes floatIcon3 {
-                  0%, 100% { transform: translateY(-50%); }
-                  50% { transform: translateY(calc(-50% - 10px)); }
-                }
-                @keyframes floatIcon4 {
-                  0%, 100% { transform: translate(0, 0); }
-                  50% { transform: translate(-5px, 8px); }
-                }
-                @keyframes floatIcon5 {
-                  0%, 100% { transform: translate(0, 0); }
-                  50% { transform: translate(6px, 6px); }
-                }
-                @keyframes floatIcon6 {
-                  0%, 100% { transform: translateY(-50%); }
-                  50% { transform: translateY(calc(-50% + 8px)); }
+                @keyframes networkFloat {
+                  0%, 100% {
+                    transform: translateY(0px);
+                  }
+                  50% {
+                    transform: translateY(-10px);
+                  }
                 }
               `}</style>
             </div>

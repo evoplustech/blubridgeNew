@@ -661,7 +661,7 @@ const AboutUs = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left - Text Content */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">Our Way of Working</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">How we like to work</h2>
               <p className="text-black leading-relaxed mb-8">We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs.
 
 Our teams move fast with purpose, combining individual ownership with strong collaboration.
