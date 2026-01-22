@@ -159,82 +159,101 @@ const ValueRealization = () => {
         </div>
       </section>
 
-      {/* SECTION 4: Value Stack */}
+      {/* SECTION 4: Value Realization - 4 Column Layout */}
       <section className="py-20 bg-[#efede5]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
-            Value Stack
+            Value Realization
           </h2>
           <p className="text-[#4B5563] mb-12 max-w-5xl">
             BluBridge provides a complete technology stack for delivering measurable AI value across your organization.
           </p>
           
-          <div className="grid lg:grid-cols gap-4">
-            {/* Left Column - Stack Layers */}
-            <div className="lg:col-span-2 space-y-4">
-              {/* MARKETPLACE Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MARKETPLACE</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Use-Case Blueprints', 'Evaluation Templates', 'Industry Packs'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
+          {/* 4-Column Grid Layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* OBSERVABILITY Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">OBSERVABILITY</span>
               </div>
-              
-              {/* PLATFORM Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">PLATFORM</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Workflow Orchestration', 'Outcome Tracking', 'Experiment Management'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              {/* INFRASTRUCTURE Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">INFRASTRUCTURE</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Scalable Compute', 'Secure Pipelines', 'Data Connectivity'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* HARDWARE Layer */}
-              <div className="bg-[#1A2940] rounded-xl p-6">
-                <div className="mb-4">
-                  <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">HARDWARE</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['High-Performance GPUs', 'Multi-Node Systems'].map((item, i) => (
-                    <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2 rounded-lg flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Training Metrics',
+                  'Evaluation Metrics',
+                  'Logs & Traces',
+                  'Dashboard Analytics',
+                  'Data Lineage'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
             
-            {/* Right Column - User Experience & Data Centre */}
+            {/* MONITORING Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">MONITORING</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Model Performance',
+                  'Drift Detection',
+                  'Error Analysis',
+                  'A/B Testing',
+                  'Bias & Fairness Tracking'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
             
+            {/* DEPLOYMENT INSIGHTS Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-xs font-bold px-3 py-1.5 rounded tracking-wider">DEPLOYMENT INSIGHTS</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Model Serving Metrics',
+                  'Inference Latency Tracking',
+                  'Throughput Analytics',
+                  'Resource Utilization',
+                  'SLA Monitoring'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            {/* INFERENCE ANALYTICS & AUTOMATION Column */}
+            <div className="bg-[#1A2940] rounded-xl p-6">
+              <div className="mb-6">
+                <span className="bg-[#5A6B83] text-[#E0E0E0] text-[10px] font-bold px-3 py-1.5 rounded tracking-wider leading-tight">INFERENCE ANALYTICS & AUTOMATION</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  'Data Feedback Loops',
+                  'Cost Monitoring',
+                  'Performance Dashboards',
+                  'Alerts & Auto-Remediation',
+                  'Continuous Improvement Pipelines'
+                ].map((item, i) => (
+                  <span key={i} className="bg-white text-[#212529] text-sm px-4 py-2.5 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#32CD32] rounded-full flex-shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
