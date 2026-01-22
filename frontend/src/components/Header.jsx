@@ -263,42 +263,62 @@ const Header = () => {
                     <div className="space-y-1">
                       <Link
                         to="/products/model-customization"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
                       >
-                        <div className="w-8 h-8 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center">
-                          {/* <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" /> */}
+                        <div className="bg-[#f3f1e9] hover:bg-[#e8e6de] rounded-lg px-2 py-2 mb-2">
+                          <div className="font-medium flex items-center py-2 gap-1">
+                            <Server className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                            <div className="text-xs text-[#5B6B7A] ml-6"><span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Model Customization</span></div>
+                          </div>
+                        </div>
+                        {/* <div className="w-8 h-8 rounded-md bg-[#1E40AF]/10 flex items-center justify-center">
+                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" />
+                          <Server className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
                           <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" strokeWidth={1.5} />
-                        </div>
-                        <div>
+                        </div> */}
+                        {/* <div>
                           <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Model Customization</span>
-                          {/* <span className="block text-[#6B7280] text-xs">Adapt models to your domain</span> */}
-                        </div>
+                          <span className="block text-[#6B7280] text-xs">Adapt models to your domain</span>
+                        </div> */}
                       </Link>
                       <Link
                         to="/solutions/value-realization"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+                        className="mb-1"
                       >
-                        <div className="w-8 h-8 rounded-md bg-[#328CC1]/10 flex items-center justify-center">
-                          {/* <Sparkles className="w-4 h-4 text-[#328CC1]" /> */}
+                        <div className="bg-[#f3f1e9] hover:bg-[#e8e6de] rounded-lg px-2 py-2 mb-2">
+                          <div className="font-medium flex items-center py-2 gap-1">
+                            <Zap className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                            <div className="text-xs text-[#5B6B7A] ml-6"><span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Value Realization</span></div>
+                          </div>
+                        </div>
+                        {/* <div className="w-8 h-8 rounded-md bg-[#F4C430]/10 flex items-center justify-center">
+                          <Sparkles className="w-4 h-4 text-[#328CC1]" />
+                          <Zap className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
                           <TrendingUp className="w-4 h-4 text-[#328CC1]" strokeWidth={1.5} />
                         </div>
                         <div>
                           <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Value Realization</span>
-                          {/* <span className="block text-[#6B7280] text-xs">End-to-end AI solutions</span> */}
-                        </div>
+                          <span className="block text-[#6B7280] text-xs">End-to-end AI solutions</span>
+                        </div> */}
                       </Link>
                       <Link
                         to="/solutions/deployment"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
+                        
                       >
-                        <div className="w-8 h-8 rounded-md bg-[#10B981]/10 flex items-center justify-center">
-                          {/* <Server className="w-4 h-4 text-[#10B981]" /> */}
+                        <div className="bg-[#f3f1e9] hover:bg-[#e8e6de]  rounded-lg px-2 py-2 mb-2">
+                          <div className="font-medium flex items-center py-2 gap-1">
+                            <Wrench className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                            <div className="text-xs text-[#5B6B7A] ml-6"><span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Deployment</span></div>
+                          </div>
+                        </div>
+                        {/* <div className="w-8 h-8 rounded-md bg-[#64748B]/10 flex items-center justify-center">
+                          <Server className="w-4 h-4 text-[#10B981]" />
+                          <Wrench className="w-4 h-4 text-[#000000]" />
                           <Rocket className="w-4 h-4 text-[#10B981]" />
                         </div>
                         <div>
                           <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Deployment</span>
-                          {/* <span className="block text-[#6B7280] text-xs">GPU clusters for AI workloads</span> */}
-                        </div>
+                          <span className="block text-[#6B7280] text-xs">GPU clusters for AI workloads</span>
+                        </div> */}
                       </Link>
                     </div>
                   </div>
