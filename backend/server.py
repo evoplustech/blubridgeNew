@@ -709,7 +709,7 @@ async def admin_login(credentials: AdminLogin):
 
 
 @api_router.post("/admin/logout")
-async def admin_logout(authorization: Optional[str] = None):
+async def admin_logout(authorization: Optional[str] = Header(None)):
     """Admin logout endpoint"""
     if authorization:
         token = authorization[7:] if authorization.startswith("Bearer ") else authorization
