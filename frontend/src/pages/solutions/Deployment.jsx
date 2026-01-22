@@ -50,7 +50,7 @@ const Deployment = () => {
                 <div 
                   className="absolute inset-0 rounded-full blur-3xl opacity-30"
                   style={{
-                    background: 'radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, rgba(6, 182, 212, 0.2) 40%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 40%, transparent 70%)',
                     animation: 'deployPulseGlow 4s ease-in-out infinite'
                   }}
                 />
@@ -67,7 +67,7 @@ const Deployment = () => {
                 
                 {/* Scanning line effect */}
                 <div 
-                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60 pointer-events-none z-20"
+                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 pointer-events-none z-20"
                   style={{
                     animation: 'deployScanLine 3s ease-in-out infinite'
                   }}
@@ -75,7 +75,7 @@ const Deployment = () => {
                 
                 {/* Rotating outer ring */}
                 <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-cyan-400/20 pointer-events-none"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-white/20 pointer-events-none"
                   style={{
                     animation: 'deployRotateRing 25s linear infinite'
                   }}
@@ -86,13 +86,13 @@ const Deployment = () => {
                   {[...Array(6)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-1.5 h-1.5 bg-cyan-400 rounded-full"
+                      className="absolute w-1.5 h-1.5 bg-white rounded-full"
                       style={{
                         left: `${15 + i * 14}%`,
                         top: `${25 + (i % 2) * 50}%`,
                         animation: `deployParticle ${2.5 + i * 0.4}s ease-in-out infinite`,
                         animationDelay: `${i * 0.5}s`,
-                        boxShadow: '0 0 8px 2px rgba(6, 182, 212, 0.6)'
+                        boxShadow: '0 0 8px 2px rgba(255, 255, 255, 0.6)'
                       }}
                     />
                   ))}
