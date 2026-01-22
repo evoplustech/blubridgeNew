@@ -739,13 +739,16 @@ async def get_admin_stats(authorization: Optional[str] = Header(None)):
     
     try:
         # Get counts for each form type
-        footer_count = await db.contacts.count_documents({"type": "contact_us"})
-        contact_count = await db.contacts.count_documents({"type": {"$in": ["contact_sales", "general_enquiry"]}})
+        # Footer forms: submissions from the website footer
+        footer_count = await db.contacts.count_documents({"type": "footer_form"})
+        # Contact forms: submissions from Contact page, Sales page, General Enquiry page
+        contact_count = await db.contacts.count_documents({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}})
+        # Career applications: job applications
         careers_count = await db.job_applications.count_documents({})
         
         # Get new (unviewed) counts
-        footer_new = await db.contacts.count_documents({"type": "contact_us", "status": {"$ne": "viewed"}})
-        contact_new = await db.contacts.count_documents({"type": {"$in": ["contact_sales", "general_enquiry"]}, "status": {"$ne": "viewed"}})
+        footer_new = await db.contacts.count_documents({"type": "footer_form", "status": {"$ne": "viewed"}})
+        contact_new = await db.contacts.count_documents({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}, "status": {"$ne": "viewed"}})
         careers_new = await db.job_applications.count_documents({"status": "pending"})
         
         return {
