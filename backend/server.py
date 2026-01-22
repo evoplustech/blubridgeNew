@@ -719,7 +719,7 @@ async def admin_logout(authorization: Optional[str] = None):
 
 
 @api_router.get("/admin/verify")
-async def verify_admin(authorization: Optional[str] = None):
+async def verify_admin(authorization: Optional[str] = Header(None)):
     """Verify if admin token is valid"""
     if not authorization:
         raise HTTPException(status_code=401, detail="Not authenticated")
