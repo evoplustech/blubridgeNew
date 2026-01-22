@@ -40,24 +40,13 @@ const VerticalTabsSection = () => {
     <section className="py-20 bg-[#fffdf7] relative">
       {/* Grid Background */}
       <div 
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/ddqne8xx_grid.png')`,
+          backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/rye8l8ob_image.png')`,
           backgroundRepeat: 'repeat',
-          backgroundSize: '50px 50px',
-          opacity : 2
-         
+          backgroundSize: '20px 20px'
         }}
       />
-      {/* <div 
-  className="absolute inset-0 opacity-60"
-  style={{
-    backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/ddqne8xx_grid.png')`,
-    backgroundRepeat: 'repeat',
-    backgroundSize: '50px 50px',
-    filter: 'brightness(5) contrast(1.3)'  // Increases visibility
-  }}
-/> */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-16">
