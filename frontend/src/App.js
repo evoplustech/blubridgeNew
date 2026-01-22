@@ -158,7 +158,7 @@ function App() {
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
-        <Footer />
+        {!isAdminRoute && <Footer />}
         <Toaster />
       </BrowserRouter>
     </div>
