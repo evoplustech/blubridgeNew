@@ -127,9 +127,9 @@ const ValueRealization = () => {
             </div>
 
             {/* Right side - Grid Labels */}
-            <div className="flex items-start justify-center lg:pt-12">
+            <div className="flex items-start justify-center lg:pt-8">
               <div className="grid grid-cols-3 gap-4 w-full">
-                {['Use Case', 'Workflow', 'Decision', 'Insight', 'Impact', 'Outcome', 'Metric', 'ROI', 'Value'].map((label, i) => {
+                {['Use Case', 'Workflow', 'Decision', 'Insight', 'Impact', 'Outcome', 'Metric', 'ROI', 'Value', 'Analytics', 'Strategy', 'Growth'].map((label, i) => {
                   const colors = [
                     'bg-purple-100 text-purple-700',
                     'bg-orange-100 text-orange-700',
@@ -139,12 +139,15 @@ const ValueRealization = () => {
                     'bg-blue-100 text-blue-700',
                     'bg-gray-100 text-gray-700',
                     'bg-green-100 text-green-700',
-                    'bg-indigo-100 text-indigo-700'
+                    'bg-indigo-100 text-indigo-700',
+                    'bg-cyan-100 text-cyan-700',
+                    'bg-rose-100 text-rose-700',
+                    'bg-emerald-100 text-emerald-700'
                   ];
                   return (
                     <div 
                       key={i} 
-                      className={`${colors[i]} rounded-lg px-4 py-10 text-center font-semibold text-sm`}
+                      className={`${colors[i]} rounded-lg px-4 py-6 text-center font-semibold text-sm`}
                     >
                       {label}
                     </div>
