@@ -767,7 +767,7 @@ async def get_footer_submissions(authorization: Optional[str] = Header(None), li
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     try:
-        query = {"type": "contact_us"}
+        query = {"type": "footer_form"}
         if search:
             query["$or"] = [
                 {"firstName": {"$regex": search, "$options": "i"}},
