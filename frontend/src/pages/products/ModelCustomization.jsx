@@ -37,7 +37,7 @@ const ModelCustomization = () => {
     <div className="min-h-screen bg-[#fffdf7]">
       
       {/* SECTION 1: Hero Section - Light cream background with Neural Network Visual */}
-      <section className="relative min-h-[580px] overflow-hidden">
+      <section className="relative overflow-hidden">
         {/* Background - Light beige/cream */}
         <div 
           className="absolute inset-0"
@@ -228,79 +228,6 @@ const ModelCustomization = () => {
           </div>
         </div>
       </section>
-                  <text x="420" y="255" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Mistral</text>
-                  
-                  {/* Claude - Bottom right */}
-                  <circle cx="380" cy="400" r="36" fill="url(#pinkGlow)">
-                    <animate attributeName="r" values="34;38;34" dur="3.8s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="380" y="405" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">Claude</text>
-                  
-                  {/* Gemini - Bottom left */}
-                  <circle cx="120" cy="380" r="34" fill="url(#greenGlow)">
-                    <animate attributeName="r" values="32;36;32" dur="4.2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="120" y="385" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Gemini</text>
-                  
-                  {/* Whisper - Left */}
-                  <circle cx="80" cy="250" r="30" fill="url(#yellowGlow)">
-                    <animate attributeName="r" values="28;32;28" dur="3.2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="80" y="255" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Whisper</text>
-                  
-                  {/* Qwen - Top */}
-                  <circle cx="180" cy="60" r="28" fill="url(#cyanGlow)">
-                    <animate attributeName="r" values="26;30;26" dur="3.6s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="180" y="65" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Qwen</text>
-                  
-                  {/* SDXL - Bottom */}
-                  <circle cx="320" cy="440" r="30" fill="url(#tealGlow)">
-                    <animate attributeName="r" values="28;32;28" dur="4s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="320" y="445" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">SDXL</text>
-                </g>
-                
-                {/* Floating particles */}
-                <g opacity="0.3">
-                  {[...Array(20)].map((_, i) => (
-                    <circle 
-                      key={i}
-                      cx={50 + Math.random() * 400} 
-                      cy={50 + Math.random() * 400} 
-                      r="2" 
-                      fill="#94A3B8"
-                    >
-                      <animate 
-                        attributeName="opacity" 
-                        values="0.2;0.6;0.2" 
-                        dur={`${2 + Math.random() * 3}s`} 
-                        repeatCount="indefinite"
-                      />
-                    </circle>
-                  ))}
-                </g>
-              </svg>
-              
-              {/* Additional floating animation for the entire SVG */}
-              <style>{`
-                @keyframes networkFloat {
-                  0%, 100% {
-                    transform: translateY(0px);
-                  }
-                  50% {
-                    transform: translateY(-10px);
-                  }
-                }
-                svg {
-                  animation: networkFloat 6s ease-in-out infinite;
-                }
-              `}</style>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SECTION 2: Value Highlights - 3 Cards */}
       <section className="py-16 bg-[#f3f1e9] border-b border-[#f3f1e9]">
         <div className="container-custom">
