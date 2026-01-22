@@ -47,7 +47,7 @@ const VerticalTabsSection = () => {
           backgroundSize: '50px 50px'
         }}
       />
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
         {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-16">
           What we can do for you

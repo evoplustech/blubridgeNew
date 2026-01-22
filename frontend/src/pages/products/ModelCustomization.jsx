@@ -74,153 +74,143 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - AI Model Network Visual */}
+            {/* Right - Model Customization Concepts Visual */}
             <div className="relative h-[420px] lg:h-[480px] flex items-center justify-center">
-              {/* SVG Network Visualization */}
-              <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px]" style={{ animation: 'networkFloat 6s ease-in-out infinite' }}>
-                {/* Definitions for gradients and filters */}
-                <defs>
-                  {/* Glow filter */}
-                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                  
-                  {/* Node gradients */}
-                  <radialGradient id="purpleGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#A855F7" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#0D9488" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="orangeGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#F97316" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#EA580C" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="pinkGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#EC4899" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#DB2777" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#2563EB" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#22C55E" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#16A34A" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="yellowGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#EAB308" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#CA8A04" stopOpacity="0.6"/>
-                  </radialGradient>
-                  <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.9"/>
-                    <stop offset="100%" stopColor="#0891B2" stopOpacity="0.6"/>
-                  </radialGradient>
-                </defs>
+              <div className="relative w-full max-w-[480px] h-full flex items-center justify-center">
+                {/* Central "Data" Hub */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div 
+                    className="w-24 h-24 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-xl"
+                    style={{ animation: 'pulseData 3s ease-in-out infinite' }}
+                  >
+                    <span className="text-white text-lg font-semibold">Data</span>
+                  </div>
+                </div>
                 
-                {/* Connection lines with animation */}
-                <g className="connection-lines" opacity="0.4">
-                  <line x1="250" y1="250" x2="120" y2="120" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+                {/* Connecting Lines SVG */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 480 480">
+                  {/* Lines from center to each concept */}
+                  <line x1="240" y1="240" x2="90" y2="100" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="250" y1="250" x2="380" y2="100" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.5s" repeatCount="indefinite"/>
+                  <line x1="240" y1="240" x2="240" y2="50" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.5s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="250" y1="250" x2="420" y2="250" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+                  <line x1="240" y1="240" x2="390" y2="100" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.2s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="250" y1="250" x2="380" y2="400" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.5s" repeatCount="indefinite"/>
+                  <line x1="240" y1="240" x2="430" y2="240" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2.8s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="250" y1="250" x2="120" y2="380" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.8s" repeatCount="indefinite"/>
+                  <line x1="240" y1="240" x2="390" y2="380" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="250" y1="250" x2="80" y2="250" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3.2s" repeatCount="indefinite"/>
+                  <line x1="240" y1="240" x2="240" y2="430" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2.6s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="250" y1="250" x2="180" y2="60" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.2s" repeatCount="indefinite"/>
+                  <line x1="240" y1="240" x2="90" y2="380" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.8s" repeatCount="indefinite"/>
                   </line>
-                  <line x1="250" y1="250" x2="320" y2="440" stroke="#94A3B8" strokeWidth="1">
-                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.8s" repeatCount="indefinite"/>
+                  <line x1="240" y1="240" x2="50" y2="240" stroke="#3B82F6" strokeWidth="1.5" opacity="0.3">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite"/>
                   </line>
-                </g>
+                </svg>
                 
-                {/* Central hub node */}
-                <g filter="url(#glow)">
-                  <circle cx="250" cy="250" r="50" fill="url(#blueGlow)">
-                    <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="250" y="255" textAnchor="middle" fill="white" fontSize="12" fontWeight="600">BluBridge</text>
-                </g>
+                {/* Concept Nodes */}
+                {/* Adapters - Top Left */}
+                <div className="absolute top-8 left-4" style={{ animation: 'floatNode1 5s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-xs font-medium">Adapters</span>
+                  </div>
+                </div>
                 
-                {/* Outer model nodes */}
-                <g filter="url(#glow)">
-                  {/* LLaMA - Top left */}
-                  <circle cx="120" cy="120" r="35" fill="url(#tealGlow)">
-                    <animate attributeName="r" values="33;37;33" dur="4s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="120" y="125" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">LLaMA</text>
-                  
-                  {/* GPT - Top right */}
-                  <circle cx="380" cy="100" r="38" fill="url(#purpleGlow)">
-                    <animate attributeName="r" values="36;40;36" dur="3.5s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="380" y="105" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">GPT</text>
-                  
-                  {/* Mistral - Right */}
-                  <circle cx="420" cy="250" r="32" fill="url(#orangeGlow)">
-                    <animate attributeName="r" values="30;34;30" dur="4.5s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="420" y="255" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Mistral</text>
-                  
-                  {/* Claude - Bottom right */}
-                  <circle cx="380" cy="400" r="36" fill="url(#pinkGlow)">
-                    <animate attributeName="r" values="34;38;34" dur="3.8s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="380" y="405" textAnchor="middle" fill="white" fontSize="11" fontWeight="500">Claude</text>
-                  
-                  {/* Gemini - Bottom left */}
-                  <circle cx="120" cy="380" r="34" fill="url(#greenGlow)">
-                    <animate attributeName="r" values="32;36;32" dur="4.2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="120" y="385" textAnchor="middle" fill="white" fontSize="10" fontWeight="500">Gemini</text>
-                  
-                  {/* Whisper - Left */}
-                  <circle cx="80" cy="250" r="30" fill="url(#yellowGlow)">
-                    <animate attributeName="r" values="28;32;28" dur="3.2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="80" y="255" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Whisper</text>
-                  
-                  {/* Qwen - Top */}
-                  <circle cx="180" cy="60" r="28" fill="url(#cyanGlow)">
-                    <animate attributeName="r" values="26;30;26" dur="3.6s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="180" y="65" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">Qwen</text>
-                  
-                  {/* SDXL - Bottom */}
-                  <circle cx="320" cy="440" r="30" fill="url(#tealGlow)">
-                    <animate attributeName="r" values="28;32;28" dur="4s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="320" y="445" textAnchor="middle" fill="white" fontSize="9" fontWeight="500">SDXL</text>
-                </g>
-              </svg>
+                {/* Tuning - Top Center */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ animation: 'floatNode2 4.5s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-xs font-medium">Tuning</span>
+                  </div>
+                </div>
+                
+                {/* Prompts - Top Right */}
+                <div className="absolute top-8 right-4" style={{ animation: 'floatNode3 5.5s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-xs font-medium">Prompts</span>
+                  </div>
+                </div>
+                
+                {/* Embeddings - Right */}
+                <div className="absolute top-1/2 -translate-y-1/2 right-0" style={{ animation: 'floatNode4 4s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-[10px] font-medium">Embeddings</span>
+                  </div>
+                </div>
+                
+                {/* Alignment - Bottom Right */}
+                <div className="absolute bottom-8 right-4" style={{ animation: 'floatNode5 5s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-xs font-medium">Alignment</span>
+                  </div>
+                </div>
+                
+                {/* Evaluation - Bottom Center */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2" style={{ animation: 'floatNode6 4.8s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-xs font-medium">Evaluation</span>
+                  </div>
+                </div>
+                
+                {/* Compression - Bottom Left */}
+                <div className="absolute bottom-8 left-4" style={{ animation: 'floatNode7 5.2s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-[10px] font-medium">Compression</span>
+                  </div>
+                </div>
+                
+                {/* Behavior - Left */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0" style={{ animation: 'floatNode8 4.2s ease-in-out infinite' }}>
+                  <div className="w-20 h-20 rounded-full bg-[#0B1F3B] flex items-center justify-center shadow-lg">
+                    <span className="text-white text-xs font-medium">Behavior</span>
+                  </div>
+                </div>
+              </div>
               
               {/* Animation keyframes */}
               <style>{`
-                @keyframes networkFloat {
-                  0%, 100% {
-                    transform: translateY(0px);
-                  }
-                  50% {
-                    transform: translateY(-10px);
-                  }
+                @keyframes pulseData {
+                  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+                  50% { transform: translate(-50%, -50%) scale(1.05); }
+                }
+                @keyframes floatNode1 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(3px, -5px); }
+                }
+                @keyframes floatNode2 {
+                  0%, 100% { transform: translateX(-50%); }
+                  50% { transform: translateX(-50%) translateY(-5px); }
+                }
+                @keyframes floatNode3 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(-3px, -5px); }
+                }
+                @keyframes floatNode4 {
+                  0%, 100% { transform: translateY(-50%); }
+                  50% { transform: translateY(calc(-50% - 5px)); }
+                }
+                @keyframes floatNode5 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(-3px, 5px); }
+                }
+                @keyframes floatNode6 {
+                  0%, 100% { transform: translateX(-50%); }
+                  50% { transform: translateX(-50%) translateY(5px); }
+                }
+                @keyframes floatNode7 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(3px, 5px); }
+                }
+                @keyframes floatNode8 {
+                  0%, 100% { transform: translateY(-50%); }
+                  50% { transform: translateY(calc(-50% + 5px)); }
                 }
               `}</style>
             </div>
