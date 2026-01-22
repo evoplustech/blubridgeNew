@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
@@ -7,6 +7,114 @@ import ModelGraphCanvas from './ModelGraphCanvas';
 
 const ModelCustomization = () => {
   const [openFaq, setOpenFaq] = useState(null);
+
+  const canvasRef = useRef(null);
+
+  // Animated model graph visualization for hero
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrame;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    const models = [
+      { name: 'LLaMA', x: 0.2, y: 0.2, color: '#3b82f6' },
+      { name: 'GPT', x: 0.5, y: 0.15, color: '#8b5cf6' },
+      { name: 'Claude', x: 0.8, y: 0.25, color: '#ec4899' },
+      { name: 'Mistral', x: 0.15, y: 0.5, color: '#06b6d4' },
+      { name: 'Flux', x: 0.4, y: 0.45, color: '#f97316' },
+      { name: 'SDXL', x: 0.65, y: 0.4, color: '#22c55e' },
+      { name: 'Whisper', x: 0.85, y: 0.55, color: '#eab308' },
+      { name: 'CLIP', x: 0.25, y: 0.75, color: '#ef4444' },
+      { name: 'Qwen', x: 0.55, y: 0.7, color: '#a855f7' },
+      { name: 'Gemma', x: 0.75, y: 0.8, color: '#14b8a6' }
+    ];
+
+    const drawModelGraph = () => {
+      time += 0.008;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+
+      // Draw connections between models
+      ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)';
+      ctx.lineWidth = 1;
+      models.forEach((model1, i) => {
+        models.forEach((model2, j) => {
+          if (i < j && Math.random() > 0.7) {
+            const x1 = model1.x * width + Math.sin(time + i) * 5;
+            const y1 = model1.y * height + Math.cos(time + i) * 5;
+            const x2 = model2.x * width + Math.sin(time + j) * 5;
+            const y2 = model2.y * height + Math.cos(time + j) * 5;
+            
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+          }
+        });
+      });
+
+      // Draw model nodes
+      models.forEach((model, i) => {
+        const x = model.x * width + Math.sin(time + i * 0.5) * 8;
+        const y = model.y * height + Math.cos(time + i * 0.3) * 8;
+        const pulseSize = 30 + Math.sin(time * 2 + i) * 5;
+
+        // Glow effect
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, pulseSize * 2);
+        gradient.addColorStop(0, model.color + '40');
+        gradient.addColorStop(1, model.color + '00');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, pulseSize * 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Main node
+        ctx.fillStyle = model.color;
+        ctx.beginPath();
+        ctx.arc(x, y, pulseSize * 0.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Node label
+        // ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
+        ctx.font = '11px DM Sans, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(model.name, x, y + pulseSize * 0.7);
+      });
+
+      // Draw floating data particles
+      for (let i = 0; i < 30; i++) {
+        const px = (Math.sin(time * 0.5 + i * 0.4) + 1) * width * 0.5;
+        const py = (Math.cos(time * 0.3 + i * 0.5) + 1) * height * 0.5;
+        const size = 2 + Math.sin(time + i) * 1;
+        
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.2 + Math.sin(time + i) * 0.1})`;
+        ctx.fill();
+      }
+
+      animationFrame = requestAnimationFrame(drawModelGraph);
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+    drawModelGraph();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
