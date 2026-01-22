@@ -224,7 +224,7 @@ const Deployment = () => {
       <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
-            Deployment
+            Deployment Stack
           </h2>
           <p className="text-[#4B5563] mb-12 max-w-6xl">
             BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
