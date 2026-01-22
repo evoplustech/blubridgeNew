@@ -73,14 +73,29 @@ import FooterForms from './pages/admin/FooterForms';
 import ContactForms from './pages/admin/ContactForms';
 import CareerApplications from './pages/admin/CareerApplications';
 
+// Admin Layout Wrapper (no header/footer)
+const AdminWrapper = ({ children }) => (
+  <div className="admin-wrapper">{children}</div>
+);
+
 function App() {
+  // Check if current path is admin route
+  const isAdminRoute = window.location.pathname.startsWith('/admin');
+
   return (
     <div className="App">
       <BrowserRouter>
       <ScrollToTop />
-        <Header />
-        <main className="pt-32" style={{ paddingTop: "7rem" }}>
+        {!isAdminRoute && <Header />}
+        <main className={isAdminRoute ? "" : "pt-32"} style={isAdminRoute ? {} : { paddingTop: "7rem" }}>
           <Routes>
+            {/* Admin Routes - No Header/Footer */}
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/footer-forms" element={<FooterForms />} />
+            <Route path="/admin/contact-forms" element={<ContactForms />} />
+            <Route path="/admin/careers" element={<CareerApplications />} />
+            
             <Route path="/" element={<Home />} />
             
             {/* Product Routes - Each unique */}
