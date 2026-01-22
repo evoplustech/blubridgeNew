@@ -234,7 +234,7 @@ const Deployment = () => {
             {/* Left Column - Stacked categories */}
             <div className="space-y-4">
               {/* Marketplace */}
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Deployment Templates', 'Inference Services', 'Monitoring Tools','Security Modules'].map((item, i) => (
@@ -247,7 +247,7 @@ const Deployment = () => {
               </div>
 
               {/* Platform */}
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">PLATFORM</h3>
                 <div className="flex flex-wrap gap-2">
                   {['Model Registry', 'Versioning','Traffic Routing','Rollback Management'].map((item, i) => (
@@ -260,7 +260,7 @@ const Deployment = () => {
               </div>
 
               {/* Infrastructure */}
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-[#1A2940] border border-[#D6DEC3] rounded-xl p-6">
                 <h3 className="text-sm font-bold text-[#2F3A4A] mb-4 tracking-wider">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-2">
                   {['GPU Orchestration', 'Load Balancing', 'Secure Networking','Auto-Scaling'].map((item, i) => (
