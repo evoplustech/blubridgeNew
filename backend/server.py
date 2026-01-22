@@ -874,7 +874,7 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
 
 
 @api_router.delete("/admin/submission/{submission_id}")
-async def delete_submission(submission_id: str, form_type: str, authorization: Optional[str] = None):
+async def delete_submission(submission_id: str, form_type: str, authorization: Optional[str] = Header(None)):
     """Delete a submission"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
