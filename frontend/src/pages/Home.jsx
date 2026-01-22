@@ -756,9 +756,12 @@ const Home = () => {
               className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
               data-testid="solution-model-customization"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center mb-6">
+              {/* <div className="w-14 h-14 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center mb-6">
                 <SlidersHorizontal className="w-7 h-7 text-[#8B5CF6]" strokeWidth={1.5} />
-              </div>
+              </div> */}
+              {/* <div className="w-14 h-14 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center mb-6">
+                <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+              </div> */}
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Model Customization
               </h3>
@@ -772,9 +775,9 @@ const Home = () => {
               className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
               data-testid="solution-value-realization"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#328CC1]/10 flex items-center justify-center mb-6">
-                <TrendingUp className="w-7 h-7 text-[#328CC1]" strokeWidth={1.5} />
-              </div>
+              {/* <div className="w-14 h-14 rounded-xl bg-[#328CC1]/10 flex items-center justify-center mb-6">
+                <TrendingUp className="w-7 h-7 text-[#000000]" strokeWidth={1.5} />
+              </div> */}
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Value Realization
               </h3>
@@ -788,9 +791,9 @@ const Home = () => {
               className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
               data-testid="solution-deployment"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center mb-6">
-                <Rocket className="w-7 h-7 text-[#10B981]" strokeWidth={1.5} />
-              </div>
+              {/* <div className="w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center mb-6">
+                <Rocket className="w-7 h-7 text-[#000000]" strokeWidth={1.5} />
+              </div> */}
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Deployment
               </h3>

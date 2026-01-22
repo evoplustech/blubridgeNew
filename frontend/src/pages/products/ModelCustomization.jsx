@@ -49,7 +49,7 @@ const ModelCustomization = () => {
         <div 
           className="absolute inset-0 opacity-60"
           style={{
-            background: 'radial-gradient(ellipse at 70% 50%, rgba(200, 220, 255, 0.15) 0%, transparent 60%)'
+            background: '#fffdf7'
           }}
         />
         
@@ -252,7 +252,7 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 2: Value Highlights - 3 Cards */}
-      <section className="py-16 bg-[#fffdf7] border-b border-[#E5E7EB]">
+      <section className="py-16 bg-[#f3f1e9] border-b border-[#f3f1e9]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10">
             {/* Card 1 */}
@@ -283,7 +283,7 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 3: Accelerated Model Customization */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             {/* Left Content */}
@@ -323,7 +323,7 @@ const ModelCustomization = () => {
       </section>
 
       {/* SECTION 4: Customization Stack - Table Format */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Customization Stack
@@ -376,7 +376,7 @@ const ModelCustomization = () => {
       </section>
 
             {/* Performance Metrics - 4 Column */}
-      <section className="py-24 bg-[#f3f1e9]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -540,7 +540,7 @@ const ModelCustomization = () => {
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl  font-bold mb-12 text-[#0B1F3B]">
             FAQs
