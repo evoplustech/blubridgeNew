@@ -76,7 +76,15 @@ const ModelCustomization = () => {
             </div>
             
             {/* Right - Model Customization Network - Unique Design */}
-           <ModelGraphCanvas></ModelGraphCanvas>
+           {/* <ModelGraphCanvas></ModelGraphCanvas> */}
+           {/* Right - Animated Model Graph */}
+            <div className="relative h-[400px] lg:h-[450px]">
+              <canvas 
+                ref={canvasRef} 
+                className="w-full h-full"
+                style={{ background: 'transparent' }}
+              />
+            </div>
           </div>
         </div>
       </section>
