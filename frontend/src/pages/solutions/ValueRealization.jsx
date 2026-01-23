@@ -7,6 +7,123 @@ import { ArrowRight, Plus, Minus, Zap, LayoutGrid } from 'lucide-react';
 const ValueRealization = () => {
   const [openFaq, setOpenFaq] = useState(null);
 
+    // Animated flowing orange 3D background for hero
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrame;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    };
+
+    const drawFlowingBackground = () => {
+      time += 0.006;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+
+      // Create flowing fabric/wave effect with orange tones
+      for (let layer = 0; layer < 6; layer++) {
+        const layerOffset = layer * 0.15;
+        const amplitude = 80 + layer * 20;
+        const frequency = 0.003 + layer * 0.001;
+        
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        
+        for (let x = 0; x <= width; x += 3) {
+          const wave1 = Math.sin(x * frequency + time + layerOffset) * amplitude;
+          const wave2 = Math.sin(x * frequency * 1.5 + time * 0.8 + layerOffset) * (amplitude * 0.5);
+          const wave3 = Math.cos(x * frequency * 0.5 + time * 1.2 + layerOffset) * (amplitude * 0.3);
+          const y = height * 0.4 + wave1 + wave2 + wave3 - layer * 30;
+          
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+
+        // Orange gradient for each layer
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        const alpha = 0.15 - layer * 0.02;
+        gradient.addColorStop(0, `rgba(180, 80, 20, ${alpha})`);
+        gradient.addColorStop(0.3, `rgba(200, 100, 40, ${alpha + 0.05})`);
+        gradient.addColorStop(0.6, `rgba(160, 60, 15, ${alpha})`);
+        gradient.addColorStop(1, `rgba(120, 40, 10, ${alpha - 0.03})`);
+        
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      }
+
+      // Add folded/twisted ribbon shapes
+      for (let i = 0; i < 3; i++) {
+        const ribbonX = width * (0.6 + i * 0.15);
+        const ribbonY = height * 0.3;
+        const ribbonSize = 100 + i * 40;
+        
+        ctx.save();
+        ctx.translate(ribbonX, ribbonY);
+        ctx.rotate(time * 0.2 + i * 0.5);
+        
+        const ribbonGradient = ctx.createLinearGradient(-ribbonSize, -ribbonSize, ribbonSize, ribbonSize);
+        ribbonGradient.addColorStop(0, `rgba(200, 100, 30, ${0.3 - i * 0.08})`);
+        ribbonGradient.addColorStop(0.5, `rgba(220, 120, 50, ${0.4 - i * 0.1})`);
+        ribbonGradient.addColorStop(1, `rgba(150, 60, 20, ${0.2 - i * 0.05})`);
+        
+        ctx.beginPath();
+        ctx.moveTo(-ribbonSize, 0);
+        ctx.bezierCurveTo(
+          -ribbonSize * 0.5, -ribbonSize * (0.8 + Math.sin(time + i) * 0.3),
+          ribbonSize * 0.5, ribbonSize * (0.6 + Math.cos(time + i) * 0.3),
+          ribbonSize, 0
+        );
+        ctx.bezierCurveTo(
+          ribbonSize * 0.5, ribbonSize * (0.4 + Math.sin(time + i) * 0.2),
+          -ribbonSize * 0.5, -ribbonSize * (0.3 + Math.cos(time + i) * 0.2),
+          -ribbonSize, 0
+        );
+        ctx.closePath();
+        ctx.fillStyle = ribbonGradient;
+        ctx.fill();
+        
+        ctx.restore();
+      }
+
+      // Floating particles
+      for (let i = 0; i < 20; i++) {
+        const px = (Math.sin(time * 0.4 + i * 0.6) + 1) * width * 0.3 + width * 0.5;
+        const py = (Math.cos(time * 0.3 + i * 0.7) + 1) * height * 0.4;
+        const size = 2 + Math.sin(time + i) * 1.5;
+        
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 150, 80, ${0.3 + Math.sin(time + i) * 0.15})`;
+        ctx.fill();
+      }
+
+      animationFrame = requestAnimationFrame(drawFlowingBackground);
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+    drawFlowingBackground();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
     // Animated line graph for hero right side
   const GraphVisualization = () => {
     const graphCanvasRef = useRef(null);

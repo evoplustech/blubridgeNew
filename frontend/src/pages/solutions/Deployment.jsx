@@ -357,54 +357,135 @@ const Deployment = () => {
         </div>
       </section>
 
-            {/* SECTION 3: Accelerated Model Customization */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-14 items-start">
+            {/* SECTION 3: Accelerated Deployment - Redesigned */}
+      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Gradient orbs */}
+          <div className="absolute top-20 left-10 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
+          {/* Grid pattern */}
+          <div 
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)',
+              backgroundSize: '50px 50px'
+            }}
+          />
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0B1F3B]">
-                Leverage Advanced GPU Cloud Infrastructure Fast, Reliable Deployment
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B1F3B]/10 rounded-full mb-6">
+                <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" />
+                <span className="text-[#6B7280] text-sm font-medium">Production Ready</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black leading-tight">
+                Leverage Advanced GPU
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0B1F3B] to-[#06B6D4]">
+                  Cloud Infrastructure
+                </span>
               </h2>
-              <p className="text-[#2F3A4A] mb-5 leading-relaxed">
-                Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale, whether for internal tools, customer-facing products, or enterprise workflows.
+              
+              <p className="text-[#4B5563] mb-6 leading-relaxed text-lg">
+                Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale.
               </p>
-              <p className="text-[#2F3A4A] mb-5 leading-relaxed">
-               Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training or fine-tuning into production with full observability and governance.
+              
+              <p className="text-[#6B7280] mb-8 leading-relaxed">
+                Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training into production with full observability and governance.
               </p>
-              <p className="text-[#2F3A4A] leading-relaxed">
-                From pilot environments to global rollouts, BluBridge ensures every deployment is stable, secure, and built for growth.
-              </p>
-            </div>
-            
-            {/* Right - Feature Cards */}
-            <div className="space-y-5 my-20">
-              {/* Pre-configured Card */}
-              <div className=" border border-[#D6DEC3] rounded-xl p-6 bg-[#0B1F3B]  text-white">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-rose-400/20 to-slate-900/10 rounded-xl flex items-center justify-center">
-                    <LayoutGrid className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold">Training Compute</h4>
-                    <p className="text-white text-sm">Seamless transition from training to production</p>
-                  </div>
+              
+              {/* Stats row */}
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#E5E7EB]">
+                <div>
+                  <div className="text-3xl font-bold text-black mb-1">99.9%</div>
+                  <div className="text-[#6B7280] text-sm">Uptime SLA</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-black mb-1">12ms</div>
+                  <div className="text-[#6B7280] text-sm">Avg Latency</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-black mb-1">12+</div>
+                  <div className="text-[#6B7280] text-sm">Global Regions</div>
                 </div>
               </div>
-              <div className="bg-[#0B1F3B]  text-white border border-[#D6DEC3] rounded-xl p-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/30 to-violet-600/20 rounded-xl flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-purple-400" />
+            </div>
+            
+            {/* Right - Feature Cards Stack */}
+            <div className="relative">
+              {/* Decorative rings */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 border border-[#E5E7EB] rounded-full" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-[#E5E7EB] rounded-full" />
+              
+              <div className="space-y-5">
+                {/* Training Compute Card */}
+                <div 
+                  className="relative bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-cyan-400/50 transition-all duration-300"
+                  style={{ animation: 'cardFloatDeploy1 6s ease-in-out infinite' }}
+                >
+                  <div className="absolute top-6 right-6 w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                    </svg>
                   </div>
-                  <div>
-                    <h4 className="text-white font-semibold">Inference & Deployment</h4>
-                    <p className="text-white text-sm">One-click model rollout and scaling</p>
+                  <p className="text-cyan-600 text-sm font-semibold mb-2 uppercase tracking-wider">Seamless Transition</p>
+                  <h3 className="text-3xl font-bold text-black mb-3">Training Compute</h3>
+                  <p className="text-[#6B7280]">Move from training to production seamlessly with optimized compute resources.</p>
+                </div>
+                
+                {/* Inference Card */}
+                <div 
+                  className="relative bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-purple-400/50 transition-all duration-300"
+                  style={{ animation: 'cardFloatDeploy2 5s ease-in-out infinite' }}
+                >
+                  <div className="absolute top-6 right-6 w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
                   </div>
+                  <p className="text-purple-600 text-sm font-semibold mb-2 uppercase tracking-wider">One-Click Rollout</p>
+                  <h3 className="text-3xl font-bold text-black mb-3">Inference & Deploy</h3>
+                  <p className="text-[#6B7280]">Deploy and scale models instantly with automated infrastructure provisioning.</p>
+                </div>
+                
+                {/* Global Scale Card */}
+                <div 
+                  className="relative bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-green-400/50 transition-all duration-300"
+                  style={{ animation: 'cardFloatDeploy3 7s ease-in-out infinite' }}
+                >
+                  <div className="absolute top-6 right-6 w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <p className="text-green-600 text-sm font-semibold mb-2 uppercase tracking-wider">Worldwide Coverage</p>
+                  <h3 className="text-3xl font-bold text-black mb-3">Global Scale</h3>
+                  <p className="text-[#6B7280]">Deploy across 12+ regions with automatic failover and load balancing.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Animation styles */}
+        <style>{`
+          @keyframes cardFloatDeploy1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          @keyframes cardFloatDeploy2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+          }
+          @keyframes cardFloatDeploy3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+        `}</style>
       </section>
 
       {/* Fast, Efficient Model Fine-tuning Section */}
