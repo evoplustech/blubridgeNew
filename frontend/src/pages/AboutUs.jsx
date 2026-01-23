@@ -167,7 +167,7 @@ const PassionTypingText = () => {
   return (
     <div 
       ref={textRef}
-      className="text-right"
+      className="text-left"
       data-testid="passion-typing-text"
     >
       <h2 
