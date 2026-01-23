@@ -210,48 +210,6 @@ const ModelCustomization = () => {
       cancelAnimationFrame(animationFrame);
     };
   }, []);
-        ctx.beginPath();
-        ctx.arc(x, y, glowSize, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Main node (slightly larger for active nodes)
-        const nodeSize = isActive ? pulseSize * 0.5 : pulseSize * 0.4;
-        ctx.fillStyle = model.color;
-        ctx.beginPath();
-        ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Node label
-        ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
-        ctx.font = '11px DM Sans, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(model.name, x, y + pulseSize * 0.7);
-      });
-
-      // Draw subtle floating data particles (reduced)
-      for (let i = 0; i < 15; i++) {
-        const px = (Math.sin(time * 0.3 + i * 0.5) + 1) * width * 0.5;
-        const py = (Math.cos(time * 0.2 + i * 0.6) + 1) * height * 0.5;
-        const size = 1.5 + Math.sin(time + i) * 0.5;
-        
-        ctx.beginPath();
-        ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.15 + Math.sin(time + i) * 0.05})`;
-        ctx.fill();
-      }
-
-      animationFrame = requestAnimationFrame(drawModelGraph);
-    };
-
-    resize();
-    window.addEventListener('resize', resize);
-    drawModelGraph();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrame);
-    };
-  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
