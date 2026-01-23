@@ -1129,10 +1129,10 @@ const AboutUs = () => {
             </div>
             
             {/* Bottom Row - "No hidden catches" on LEFT + "It's Our Passion & Craft." on RIGHT */}
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-              {/* Left Side - No hidden catches */}
-              <div className="md:max-w-sm">
-                <div className="text-left">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-end">
+              {/* Left Side - No hidden catches with gold line */}
+              <div className="flex items-start gap-6">
+                <div className="text-left flex-1">
                   <h3 
                     className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -1143,12 +1143,15 @@ const AboutUs = () => {
                     With dependable products, clear pricing, and straightforward communication, there are no unpleasant surprises. We aim to build trust, not test your tolerance.
                   </p>
                 </div>
+                {/* Gold decorative line */}
+                <div 
+                  className="hidden md:block w-[2px] self-stretch"
+                  style={{ backgroundColor: '#C9A227', minHeight: '100px' }}
+                />
               </div>
               
               {/* Right Side - Typing Animation "It's Our Passion & Craft." */}
-              <div className="flex items-center justify-end">
-                <PassionTypingText />
-              </div>
+              <PassionTypingText />
             </div>
           </div>
         </div>
