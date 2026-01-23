@@ -723,41 +723,41 @@ const Deployment = () => {
       {/* Performance Metrics - 4 Column */}
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Deployment Patterns</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
-                metric: '30%', 
-                label: 'FASTER Rollouts', 
+                metric: '59.0%', 
+                label: 'AI API endpoints', 
                 sublabel: 'Accelerate Time to Value',
                 desc: 'Reduce deployment cycles with automated pipelines.',
                 link: 'Learn More',
                 linkTo: '/about'
               },
               { 
-                metric: '80%', 
-                label: 'Lower Operating Cost', 
+                metric: '49.6%', 
+                label: 'Dedicated Vendor-managed APIs', 
                 sublabel: 'More performance for less.',
                 desc: 'Run inference workloads at a fraction of hyperscaler pricing.',
                 link: 'Our Data Centres',
                 linkTo: '/products/glomfjord'
               },
               { 
-                metric: '40%', 
-                label: 'More Stable Systems', 
+                metric: '43.0%', 
+                label: 'Custom Code and proprietary Model Deployment', 
                 sublabel: 'Improved Resource Utilisation',
                 desc: ' Improve uptime and consistency across production environments.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
-              },
-              { 
-                metric: '7.2X', 
-                label: 'Faster Inference', 
-                sublabel: 'Accelerate time to insights',
-                desc: 'Optimized GPU infrastructure delivers higher throughput and lower latency.',
-                link: 'Blog Post',
-                linkTo: '/blog'
-              }
+              // },
+              // { 
+              //   metric: '7.2X', 
+              //   label: 'Faster Inference', 
+              //   sublabel: 'Accelerate time to insights',
+              //   desc: 'Optimized GPU infrastructure delivers higher throughput and lower latency.',
+              //   link: 'Blog Post',
+              //   linkTo: '/blog'
+              // }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
