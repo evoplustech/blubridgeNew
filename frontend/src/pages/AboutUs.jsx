@@ -92,6 +92,127 @@ const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
   );
 };
 
+// Premium Typing Animation Section Component
+const PassionTypingSection = () => {
+  const [typedText, setTypedText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const sectionRef = useRef(null);
+  
+  const textToType = "Passion & Craft.";
+  
+  // Intersection Observer to trigger animation when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [hasStarted]);
+  
+  // Typing animation effect
+  useEffect(() => {
+    if (!hasStarted) return;
+    
+    let currentIndex = 0;
+    
+    const typeNextChar = () => {
+      if (currentIndex < textToType.length) {
+        setTypedText(textToType.slice(0, currentIndex + 1));
+        currentIndex++;
+        
+        // Variable timing for natural feel (70-130ms)
+        const baseDelay = 85;
+        const variation = Math.random() * 60 - 30; // -30 to +30
+        const delay = baseDelay + variation;
+        
+        setTimeout(typeNextChar, delay);
+      } else {
+        // Typing complete
+        setIsTypingComplete(true);
+        // Hide cursor after a brief pause
+        setTimeout(() => {
+          setShowCursor(false);
+        }, 500);
+      }
+    };
+    
+    // Start typing after a brief initial delay
+    const startTimer = setTimeout(typeNextChar, 300);
+    
+    return () => clearTimeout(startTimer);
+  }, [hasStarted]);
+  
+  // Cursor blink effect
+  useEffect(() => {
+    if (isTypingComplete) return;
+    
+    const blinkInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 530);
+    
+    return () => clearInterval(blinkInterval);
+  }, [isTypingComplete]);
+  
+  // Keep cursor visible while typing
+  useEffect(() => {
+    if (hasStarted && !isTypingComplete) {
+      setShowCursor(true);
+    }
+  }, [typedText, hasStarted, isTypingComplete]);
+  
+  return (
+    <section 
+      ref={sectionRef}
+      className="py-32 md:py-40 bg-[#0B1F3B]"
+      data-testid="passion-typing-section"
+    >
+      <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
+        <div className="text-center">
+          <h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+            style={{ 
+              fontFamily: "'DM Sans', sans-serif",
+              letterSpacing: '-0.02em'
+            }}
+            data-testid="passion-heading"
+          >
+            <span>It's Our </span>
+            <span className="inline">
+              {typedText}
+              {showCursor && !isTypingComplete && (
+                <span 
+                  className="inline-block w-[3px] bg-white ml-[2px]"
+                  style={{ 
+                    height: '1em',
+                    verticalAlign: 'baseline',
+                    marginBottom: '-0.1em',
+                    animation: 'none'
+                  }}
+                />
+              )}
+            </span>
+          </h2>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const AboutUs = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [scrollY, setScrollY] = useState(0);
