@@ -95,8 +95,7 @@ const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
 // Premium Typing Animation Text Component with Looping Backspace Effect
 const PassionTypingText = () => {
   const [displayText, setDisplayText] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
+  const [showCursor, setShowCursor] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const textRef = useRef(null);
   const animationRef = useRef(null);
@@ -137,20 +136,20 @@ const PassionTypingText = () => {
     });
     
     const typeWord = async (word) => {
+      setShowCursor(true); // Show cursor during typing
       for (let i = 0; i <= word.length; i++) {
         if (isCancelled) return;
         setDisplayText(word.slice(0, i));
-        setIsPaused(false);
-        await delay(80 + Math.random() * 40);
+        await delay(75 + Math.random() * 45);
       }
     };
     
     const backspaceWord = async (word) => {
+      setShowCursor(true); // Show cursor during backspace
       for (let i = word.length; i >= 0; i--) {
         if (isCancelled) return;
         setDisplayText(word.slice(0, i));
-        setIsPaused(false);
-        await delay(50 + Math.random() * 25);
+        await delay(45 + Math.random() * 25);
       }
     };
     
@@ -159,28 +158,30 @@ const PassionTypingText = () => {
         // Type "Passion"
         await typeWord(words[0]);
         
-        // Pause after "Passion"
-        setIsPaused(true);
-        await delay(500);
+        // Hold for 2 seconds - hide cursor
+        setShowCursor(false);
+        await delay(2000);
         
         // Backspace "Passion"
         await backspaceWord(words[0]);
         
         // Small pause before typing next word
-        await delay(150);
+        setShowCursor(false);
+        await delay(100);
         
         // Type "Craft"
         await typeWord(words[1]);
         
-        // Pause after "Craft"
-        setIsPaused(true);
-        await delay(700);
+        // Hold for 2 seconds - hide cursor
+        setShowCursor(false);
+        await delay(2000);
         
         // Backspace "Craft"
         await backspaceWord(words[1]);
         
         // Small pause before looping
-        await delay(150);
+        setShowCursor(false);
+        await delay(100);
       }
     };
     
@@ -197,20 +198,6 @@ const PassionTypingText = () => {
       }
     };
   }, [hasStarted]);
-  
-  // Cursor blink effect only during pauses
-  useEffect(() => {
-    if (!isPaused) {
-      setShowCursor(true);
-      return;
-    }
-    
-    const blinkInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 530);
-    
-    return () => clearInterval(blinkInterval);
-  }, [isPaused]);
   
   return (
     <div 
@@ -229,17 +216,17 @@ const PassionTypingText = () => {
         <span>{staticText}</span>
         <span className="inline">
           {displayText}
-          <span 
-            className="inline-block w-[3px] ml-[1px]"
-            style={{ 
-              height: '0.75em',
-              backgroundColor: '#C9A227',
-              verticalAlign: 'middle',
-              marginBottom: '0.05em',
-              opacity: showCursor ? 1 : 0,
-              transition: 'opacity 0.1s'
-            }}
-          />
+          {showCursor && (
+            <span 
+              className="inline-block w-[3px] ml-[1px]"
+              style={{ 
+                height: '0.75em',
+                backgroundColor: '#C9A227',
+                verticalAlign: 'middle',
+                marginBottom: '0.05em'
+              }}
+            />
+          )}
         </span>
       </h2>
     </div>
