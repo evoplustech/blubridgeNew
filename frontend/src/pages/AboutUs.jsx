@@ -1149,12 +1149,12 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
+            
+            {/* Typing Animation - "It's Our Passion & Craft." */}
+            <PassionTypingText />
           </div>
         </div>
       </section>
-
-      {/* Premium Typing Animation Section */}
-      <PassionTypingSection />
 
       {/* Final CTA Strip */}
       <section className="py-16 bg-[#0B1F3B]">

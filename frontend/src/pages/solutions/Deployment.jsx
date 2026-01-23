@@ -762,7 +762,7 @@ const Deployment = () => {
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
                 <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
-                <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
+                {/* <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p> */}
                 {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
