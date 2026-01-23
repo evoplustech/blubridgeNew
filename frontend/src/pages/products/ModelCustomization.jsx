@@ -58,7 +58,7 @@ const ModelCustomization = () => {
       const height = canvas.offsetHeight;
 
       // Calculate which connection is currently active (one at a time, sequential)
-      const cycleDuration = 2.5; // seconds per connection
+      const cycleDuration = 1.0; // seconds per connection
       const totalCycleTime = connectionSequence.length * cycleDuration;
       const currentCycleTime = (time * 0.5) % totalCycleTime;
       const activeConnectionIndex = Math.floor(currentCycleTime / cycleDuration);
@@ -92,8 +92,18 @@ const ModelCustomization = () => {
         const y2 = model2.y * height;
 
         // Animate the line drawing from start to end
-        const animatedX2 = x1 + (x2 - x1) * Math.min(connectionProgress * 1.5, 1);
-        const animatedY2 = y1 + (y2 - y1) * Math.min(connectionProgress * 1.5, 1);
+        // const animatedX2 = x1 + (x2 - x1) * Math.min(connectionProgress * 1.5, 1);
+        // const animatedY2 = y1 + (y2 - y1) * Math.min(connectionProgress * 1.5, 1);
+
+        // Smooth eased progress for faster, cleaner motion
+const easedProgress = Math.min(
+  1,
+  1 - Math.pow(1 - connectionProgress, 3)
+);
+
+// Animate the line drawing from start to end (eased)
+const animatedX2 = x1 + (x2 - x1) * easedProgress;
+const animatedY2 = y1 + (y2 - y1) * easedProgress;
 
         // Gradient for the active connection
         const gradient = ctx.createLinearGradient(x1, y1, animatedX2, animatedY2);
@@ -104,8 +114,11 @@ const ModelCustomization = () => {
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(animatedX2, animatedY2);
+        // ctx.strokeStyle = gradient;
+        // ctx.lineWidth = 2.5;
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 1.5;
+        ctx.globalAlpha = 0.7;
         ctx.lineCap = 'round';
         ctx.stroke();
 
@@ -113,15 +126,22 @@ const ModelCustomization = () => {
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(animatedX2, animatedY2);
-        ctx.strokeStyle = model1.color + '40';
-        ctx.lineWidth = 6;
+        // ctx.strokeStyle = model1.color + '40';
+        // ctx.lineWidth = 6;
+        // ctx.stroke();
+        ctx.strokeStyle = model1.color + '20';
+        ctx.lineWidth = 4;
         ctx.stroke();
+        ctx.globalAlpha = 1;
 
         // Draw a traveling pulse dot along the line
-        if (connectionProgress < 0.8) {
-          const pulseProgress = connectionProgress * 1.25;
-          const pulseX = x1 + (x2 - x1) * pulseProgress;
-          const pulseY = y1 + (y2 - y1) * pulseProgress;
+        // if (connectionProgress < 0.8) {
+        //   const pulseProgress = connectionProgress * 1.25;
+        //   const pulseX = x1 + (x2 - x1) * pulseProgress;
+        //   const pulseY = y1 + (y2 - y1) * pulseProgress;
+        if (connectionProgress < 1) {
+          const pulseX = animatedX2;
+          const pulseY = animatedY2;
           
           // Pulse glow
           const pulseGradient = ctx.createRadialGradient(pulseX, pulseY, 0, pulseX, pulseY, 12);
