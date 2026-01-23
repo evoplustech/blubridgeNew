@@ -699,7 +699,7 @@ const Home = () => {
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
       <section className="py-20 bg-[#f3f1e9]">
         <div className="container-custom">
-          <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">Our Frontier AI Expertise</h2></div>
+          <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4 capitalize">OUR FRONTIER AI EXPERTISE</h2></div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
               
             {/* Left - Circular Diagram */}

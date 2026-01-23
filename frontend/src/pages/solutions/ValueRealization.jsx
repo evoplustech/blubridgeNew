@@ -2,10 +2,13 @@ import React, { useState,useEffect,useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus, Zap, LayoutGrid } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Zap, LayoutGrid, Play } from 'lucide-react';
 
 const ValueRealization = () => {
   const [openFaq, setOpenFaq] = useState(null);
+
+   const canvasRef = useRef(null);
+  const heroRef = useRef(null);
 
     // Animated flowing orange 3D background for hero
   useEffect(() => {
@@ -251,7 +254,7 @@ const ValueRealization = () => {
         />
 
         {/* Hero content - Two column layout */}
-        <div className="container-custom relative z-10 flex-1 flex items-center">
+        <div className="container-custom relative z-10 flex-1 flex items-center mt-6 mb-4 py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
             {/* Left Content */}
             <div className="max-w-xl">
