@@ -12,6 +12,11 @@ module.exports = {
 			caveat: ['Caveat', 'cursive'],
 			patrick: ['Patrick Hand', 'cursive'],
 			kalam: ['Kalam', 'cursive'],
+			greatVibes: ['Great Vibes', 'cursive'],
+			caveat: ['Caveat', 'cursive'],
+			handwritten: ['"Caveat"', 'cursive'],
+			cursiveJoint: ['"Dancing Script"', 'cursive'],
+
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

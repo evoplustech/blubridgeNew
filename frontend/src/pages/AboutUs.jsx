@@ -92,15 +92,17 @@ const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
   );
 };
 
-// Premium Typing Animation Text Component (inline within section)
+// Premium Typing Animation Text Component with Backspace Effect
 const PassionTypingText = () => {
-  const [typedText, setTypedText] = useState('');
+  const [displayText, setDisplayText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const textRef = useRef(null);
   
-  const textToType = "Passion & Craft.";
+  const staticText = "It's Our ";
+  const firstWord = "Passion";
+  const finalWord = "Craft.";
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -124,45 +126,81 @@ const PassionTypingText = () => {
     };
   }, [hasStarted]);
   
-  // Typing animation effect
+  // Main animation sequence
   useEffect(() => {
     if (!hasStarted) return;
     
-    let currentIndex = 0;
+    let timeoutId;
     
-    const typeNextChar = () => {
-      if (currentIndex < textToType.length) {
-        setTypedText(textToType.slice(0, currentIndex + 1));
-        currentIndex++;
-        
-        // Variable timing for natural feel (70-120ms)
-        const baseDelay = 90;
-        const variation = Math.random() * 50 - 25;
-        const delay = baseDelay + variation;
-        
-        setTimeout(typeNextChar, delay);
-      } else {
-        // Typing complete
-        setIsTypingComplete(true);
-        // Hide cursor after a brief pause
-        setTimeout(() => {
-          setShowCursor(false);
-        }, 400);
+    const runAnimation = async () => {
+      // Step 1: Type "Passion" character by character
+      for (let i = 0; i <= firstWord.length; i++) {
+        await new Promise(resolve => {
+          timeoutId = setTimeout(() => {
+            setDisplayText(firstWord.slice(0, i));
+            resolve();
+          }, 80 + Math.random() * 50);
+        });
       }
+      
+      // Step 2: Pause after typing "Passion"
+      await new Promise(resolve => {
+        timeoutId = setTimeout(resolve, 500);
+      });
+      
+      // Step 3: Backspace erase "Passion" letter by letter
+      for (let i = firstWord.length; i >= 0; i--) {
+        await new Promise(resolve => {
+          timeoutId = setTimeout(() => {
+            setDisplayText(firstWord.slice(0, i));
+            resolve();
+          }, 60 + Math.random() * 30);
+        });
+      }
+      
+      // Small pause before retyping
+      await new Promise(resolve => {
+        timeoutId = setTimeout(resolve, 200);
+      });
+      
+      // Step 4: Type "Craft." character by character
+      for (let i = 0; i <= finalWord.length; i++) {
+        await new Promise(resolve => {
+          timeoutId = setTimeout(() => {
+            setDisplayText(finalWord.slice(0, i));
+            resolve();
+          }, 80 + Math.random() * 50);
+        });
+      }
+      
+      // Step 5: Animation complete - hide cursor
+      await new Promise(resolve => {
+        timeoutId = setTimeout(() => {
+          setIsAnimationComplete(true);
+          setShowCursor(false);
+          resolve();
+        }, 400);
+      });
     };
     
-    // Start typing after a brief initial delay
-    const startTimer = setTimeout(typeNextChar, 200);
+    // Start with small delay
+    timeoutId = setTimeout(() => {
+      runAnimation();
+    }, 300);
     
-    return () => clearTimeout(startTimer);
+    return () => clearTimeout(timeoutId);
   }, [hasStarted]);
   
-  // Keep cursor visible while typing
+  // Cursor blink effect during animation
   useEffect(() => {
-    if (hasStarted && !isTypingComplete) {
-      setShowCursor(true);
-    }
-  }, [typedText, hasStarted, isTypingComplete]);
+    if (isAnimationComplete) return;
+    
+    const blinkInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 530);
+    
+    return () => clearInterval(blinkInterval);
+  }, [isAnimationComplete]);
   
   return (
     <div 
@@ -178,17 +216,17 @@ const PassionTypingText = () => {
         }}
         data-testid="passion-heading"
       >
-        <span>It's Our </span>
+        <span>{staticText}</span>
         <span className="inline">
-          {typedText}
-          {showCursor && !isTypingComplete && (
+          {displayText}
+          {showCursor && (
             <span 
-              className="inline-block w-[3px] ml-[2px]"
+              className="inline-block w-[3px] ml-[1px]"
               style={{ 
                 height: '0.75em',
                 backgroundColor: '#C9A227',
                 verticalAlign: 'middle',
-                marginBottom: '0.1em'
+                marginBottom: '0.05em'
               }}
             />
           )}
