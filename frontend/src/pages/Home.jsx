@@ -697,8 +697,19 @@ const Home = () => {
        
       
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
-      <section className="pt-20 pb-5 bg-[#fffdf7]">
-        <div className="container-custom">
+      <section 
+        className="pt-20 pb-5 relative"
+        style={{
+          backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Light overlay for readability */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(255, 253, 247, 0.92)' }} />
+        
+        <div className="container-custom relative z-10">
           <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4 capitalize">OUR FRONTIER AI EXPERTISE</h2></div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
               
