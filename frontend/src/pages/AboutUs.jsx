@@ -820,23 +820,9 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Final CTA Strip with Background Image */}
-      <section 
-        className="py-16 relative overflow-hidden"
-        style={{
-          backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/affy9hvq_bg.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {/* Dark overlay for text readability */}
-        <div 
-          className="absolute inset-0" 
-          style={{ backgroundColor: 'rgba(11, 31, 59, 0.85)' }}
-        />
-        
-        <div className="container-custom text-center relative z-10">
+      {/* Final CTA Strip */}
+      <section className="py-16 bg-[#0B1F3B]">
+        <div className="container-custom text-center">
           <h2 className="text-3xl text-white md:text-4xl lg:text-5xl font-bold mb-8">
             {/* Access thousands of GPUs tailored to your requirements. */}
             Know more about our Research
