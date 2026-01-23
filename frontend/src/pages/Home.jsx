@@ -832,44 +832,20 @@ const Home = () => {
                 {/* Decorative Corner Accent */}
                 <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
                   <div 
-                    className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-bl from-[#8B5CF6]/10 to-transparent rounded-full transition-all duration-500 group-hover:scale-150 group-hover:from-[#8B5CF6]/20"
-                  />
-                </div>
-                
-                {/* Animated Icon Container */}
-                <div className="relative mb-8">
-                  <div 
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#8B5CF6]/15 to-[#8B5CF6]/5 flex items-center justify-center relative overflow-hidden group-hover:from-[#8B5CF6]/25 group-hover:to-[#8B5CF6]/10 transition-all duration-500"
-                    style={{ animation: 'iconPulse 4s ease-in-out infinite' }}
-                  >
-                    {/* Shimmer effect on hover */}
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{
-                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-                        backgroundSize: '200% 100%',
-                        animation: 'shimmer 2s infinite'
-                      }}
-                    />
-                    <SlidersHorizontal className="w-7 h-7 text-[#8B5CF6] relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
-                  </div>
-                  {/* Pulse ring behind icon */}
-                  <div 
-                    className="absolute inset-0 w-16 h-16 rounded-2xl border border-[#8B5CF6]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ animation: 'pulseRing 2s ease-in-out infinite' }}
+                    className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-bl from-[#328CC1]/10 to-transparent rounded-full transition-all duration-500 group-hover:scale-150 group-hover:from-[#328CC1]/20"
                   />
                 </div>
                 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#8B5CF6] transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
                   Model Customization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. 
+                  We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence.
                 </p>
                 
                 {/* Learn More Link */}
-                <div className="flex items-center gap-2 text-[#8B5CF6] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
@@ -889,34 +865,12 @@ const Home = () => {
                   />
                 </div>
                 
-                {/* Animated Icon Container */}
-                <div className="relative mb-8">
-                  <div 
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#328CC1]/15 to-[#328CC1]/5 flex items-center justify-center relative overflow-hidden group-hover:from-[#328CC1]/25 group-hover:to-[#328CC1]/10 transition-all duration-500"
-                    style={{ animation: 'iconPulse 4.5s ease-in-out infinite' }}
-                  >
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{
-                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-                        backgroundSize: '200% 100%',
-                        animation: 'shimmer 2s infinite'
-                      }}
-                    />
-                    <TrendingUp className="w-7 h-7 text-[#328CC1] relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
-                  </div>
-                  <div 
-                    className="absolute inset-0 w-16 h-16 rounded-2xl border border-[#328CC1]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ animation: 'pulseRing 2s ease-in-out infinite' }}
-                  />
-                </div>
-                
                 {/* Content */}
                 <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
                   Value Realization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We translate AI potential into measurable business outcomes by aligning research with real operational goals. 
+                  We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment drives efficiency, impact, and long-term value.
                 </p>
                 
                 {/* Learn More Link */}
@@ -936,42 +890,20 @@ const Home = () => {
                 {/* Decorative Corner Accent */}
                 <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
                   <div 
-                    className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-bl from-[#10B981]/10 to-transparent rounded-full transition-all duration-500 group-hover:scale-150 group-hover:from-[#10B981]/20"
-                  />
-                </div>
-                
-                {/* Animated Icon Container */}
-                <div className="relative mb-8">
-                  <div 
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#10B981]/15 to-[#10B981]/5 flex items-center justify-center relative overflow-hidden group-hover:from-[#10B981]/25 group-hover:to-[#10B981]/10 transition-all duration-500"
-                    style={{ animation: 'iconPulse 5s ease-in-out infinite' }}
-                  >
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{
-                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-                        backgroundSize: '200% 100%',
-                        animation: 'shimmer 2s infinite'
-                      }}
-                    />
-                    <Rocket className="w-7 h-7 text-[#10B981] relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
-                  </div>
-                  <div 
-                    className="absolute inset-0 w-16 h-16 rounded-2xl border border-[#10B981]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ animation: 'pulseRing 2s ease-in-out infinite' }}
+                    className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-bl from-[#328CC1]/10 to-transparent rounded-full transition-all duration-500 group-hover:scale-150 group-hover:from-[#328CC1]/20"
                   />
                 </div>
                 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#10B981] transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
                   Deployment
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We move AI from lab to production with secure, scalable, and performance-optimized deployments. 
+                  We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model runs reliably in real environments with seamless integration.
                 </p>
                 
                 {/* Learn More Link */}
-                <div className="flex items-center gap-2 text-[#10B981] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
