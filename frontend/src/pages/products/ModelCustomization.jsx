@@ -10,7 +10,7 @@ const ModelCustomization = () => {
 
   const canvasRef = useRef(null);
 
-  // Premium circular orbital animation for hero
+  // Animated model graph visualization for hero
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -24,186 +24,176 @@ const ModelCustomization = () => {
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     };
 
-    // Premium color palette
-    const colors = {
-      primary: '#0B1F3B',
-      accent: '#328CC1',
-      highlight: '#64B5F6',
-      glow: '#90CAF9'
-    };
+    // Models in the exact sequential order for the pipeline
+    const models = [
+      { name: 'Data', x: 0.2, y: 0.2, color: '#3b82f6' },           // 0
+      { name: 'Adapters', x: 0.5, y: 0.15, color: '#8b5cf6' },      // 1
+      { name: 'Tuning', x: 0.8, y: 0.25, color: '#ec4899' },        // 2
+      { name: 'Prompts', x: 0.15, y: 0.5, color: '#06b6d4' },       // 3
+      { name: 'Embeddings', x: 0.4, y: 0.45, color: '#f97316' },    // 4
+      { name: 'Alignment', x: 0.65, y: 0.4, color: '#22c55e' },     // 5
+      { name: 'Evaluation', x: 0.85, y: 0.55, color: '#eab308' },   // 6
+      { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' },  // 7
+      { name: 'Behavior', x: 0.55, y: 0.7, color: '#a855f7' },      // 8
+      { name: 'Guardrails', x: 0.75, y: 0.8, color: '#14b8a6' }     // 9
+    ];
 
-    const drawPremiumVisualization = () => {
-      time += 0.006;
+    // Sequential connection order: Data → Adapters → Tuning → Prompts → Embeddings → Alignment → Evaluation → Compression → Behavior → Guardrails
+    const connectionSequence = [
+      [0, 1], // Data → Adapters
+      [1, 2], // Adapters → Tuning
+      [2, 3], // Tuning → Prompts
+      [3, 4], // Prompts → Embeddings
+      [4, 5], // Embeddings → Alignment
+      [5, 6], // Alignment → Evaluation
+      [6, 7], // Evaluation → Compression
+      [7, 8], // Compression → Behavior
+      [8, 9]  // Behavior → Guardrails
+    ];
+
+    const drawModelGraph = () => {
+      time += 0.008;
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
-      const centerX = width * 0.5;
-      const centerY = height * 0.5;
-      
-      // Main orbital radius
-      const mainRadius = Math.min(width, height) * 0.35;
-      
-      // Draw outer subtle ring
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, mainRadius + 20, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(50, 140, 193, 0.08)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      
-      // Draw main orbital ring
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, mainRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(50, 140, 193, 0.15)';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      
-      // Draw inner ring
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, mainRadius * 0.6, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(50, 140, 193, 0.1)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
 
-      // Center hub with glow
-      const hubGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 50);
-      hubGradient.addColorStop(0, 'rgba(50, 140, 193, 0.3)');
-      hubGradient.addColorStop(0.5, 'rgba(50, 140, 193, 0.1)');
-      hubGradient.addColorStop(1, 'rgba(50, 140, 193, 0)');
-      ctx.fillStyle = hubGradient;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, 50, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Center node
-      ctx.fillStyle = colors.accent;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, 12, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Center label
-      ctx.fillStyle = colors.primary;
-      ctx.font = '600 13px DM Sans, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('MODEL', centerX, centerY + 35);
+      // Calculate which connection is currently active (one at a time, sequential)
+      const cycleDuration = 2.5; // seconds per connection
+      const totalCycleTime = connectionSequence.length * cycleDuration;
+      const currentCycleTime = (time * 0.5) % totalCycleTime;
+      const activeConnectionIndex = Math.floor(currentCycleTime / cycleDuration);
+      const connectionProgress = (currentCycleTime % cycleDuration) / cycleDuration;
 
-      // Orbital nodes data
-      const nodes = [
-        { label: 'Data', angle: 0 },
-        { label: 'Adapters', angle: Math.PI * 0.4 },
-        { label: 'Tuning', angle: Math.PI * 0.8 },
-        { label: 'Alignment', angle: Math.PI * 1.2 },
-        { label: 'Evaluation', angle: Math.PI * 1.6 }
-      ];
-
-      // Calculate active node for sequential highlight
-      const cycleDuration = 2;
-      const activeIndex = Math.floor((time * 0.5) % nodes.length);
-      const transitionProgress = ((time * 0.5) % 1);
-
-      // Draw connections from center to nodes
-      nodes.forEach((node, i) => {
-        const angle = node.angle + time * 0.15;
-        const x = centerX + Math.cos(angle) * mainRadius;
-        const y = centerY + Math.sin(angle) * mainRadius;
+      // Draw all static connection paths (very faint)
+      connectionSequence.forEach(([fromIdx, toIdx]) => {
+        const model1 = models[fromIdx];
+        const model2 = models[toIdx];
+        const x1 = model1.x * width;
+        const y1 = model1.y * height;
+        const x2 = model2.x * width;
+        const y2 = model2.y * height;
         
-        const isActive = i === activeIndex;
-        const opacity = isActive ? 0.4 : 0.1;
-        
-        // Connection line
         ctx.beginPath();
-        ctx.moveTo(centerX, centerY);
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = `rgba(50, 140, 193, ${opacity})`;
-        ctx.lineWidth = isActive ? 2 : 1;
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = 'rgba(100, 120, 150, 0.08)';
+        ctx.lineWidth = 1;
         ctx.stroke();
-        
-        // Animated pulse on active connection
-        if (isActive) {
-          const pulsePos = transitionProgress;
-          const pulseX = centerX + (x - centerX) * pulsePos;
-          const pulseY = centerY + (y - centerY) * pulsePos;
+      });
+
+      // Draw the active connection with animated pulse
+      if (activeConnectionIndex < connectionSequence.length) {
+        const [fromIdx, toIdx] = connectionSequence[activeConnectionIndex];
+        const model1 = models[fromIdx];
+        const model2 = models[toIdx];
+        const x1 = model1.x * width;
+        const y1 = model1.y * height;
+        const x2 = model2.x * width;
+        const y2 = model2.y * height;
+
+        // Animate the line drawing from start to end
+        const animatedX2 = x1 + (x2 - x1) * Math.min(connectionProgress * 1.5, 1);
+        const animatedY2 = y1 + (y2 - y1) * Math.min(connectionProgress * 1.5, 1);
+
+        // Gradient for the active connection
+        const gradient = ctx.createLinearGradient(x1, y1, animatedX2, animatedY2);
+        gradient.addColorStop(0, model1.color + 'cc');
+        gradient.addColorStop(1, model2.color + 'cc');
+
+        // Draw glowing active connection
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(animatedX2, animatedY2);
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 2.5;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        // Add subtle glow effect
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(animatedX2, animatedY2);
+        ctx.strokeStyle = model1.color + '40';
+        ctx.lineWidth = 6;
+        ctx.stroke();
+
+        // Draw a traveling pulse dot along the line
+        if (connectionProgress < 0.8) {
+          const pulseProgress = connectionProgress * 1.25;
+          const pulseX = x1 + (x2 - x1) * pulseProgress;
+          const pulseY = y1 + (y2 - y1) * pulseProgress;
           
           // Pulse glow
-          const pulseGlow = ctx.createRadialGradient(pulseX, pulseY, 0, pulseX, pulseY, 15);
-          pulseGlow.addColorStop(0, 'rgba(50, 140, 193, 0.6)');
-          pulseGlow.addColorStop(1, 'rgba(50, 140, 193, 0)');
-          ctx.fillStyle = pulseGlow;
+          const pulseGradient = ctx.createRadialGradient(pulseX, pulseY, 0, pulseX, pulseY, 12);
+          pulseGradient.addColorStop(0, model1.color + '80');
+          pulseGradient.addColorStop(1, model1.color + '00');
+          ctx.fillStyle = pulseGradient;
           ctx.beginPath();
-          ctx.arc(pulseX, pulseY, 15, 0, Math.PI * 2);
+          ctx.arc(pulseX, pulseY, 12, 0, Math.PI * 2);
           ctx.fill();
-          
+
           // Pulse core
           ctx.fillStyle = '#ffffff';
           ctx.beginPath();
           ctx.arc(pulseX, pulseY, 3, 0, Math.PI * 2);
           ctx.fill();
         }
-      });
+      }
 
-      // Draw orbital nodes
-      nodes.forEach((node, i) => {
-        const angle = node.angle + time * 0.15;
-        const x = centerX + Math.cos(angle) * mainRadius;
-        const y = centerY + Math.sin(angle) * mainRadius;
-        
-        const isActive = i === activeIndex;
-        const nodeSize = isActive ? 10 : 8;
-        
-        // Node glow
-        if (isActive) {
-          const nodeGlow = ctx.createRadialGradient(x, y, 0, x, y, 30);
-          nodeGlow.addColorStop(0, 'rgba(50, 140, 193, 0.4)');
-          nodeGlow.addColorStop(1, 'rgba(50, 140, 193, 0)');
-          ctx.fillStyle = nodeGlow;
-          ctx.beginPath();
-          ctx.arc(x, y, 30, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        
-        // Node circle
-        ctx.fillStyle = isActive ? colors.accent : 'rgba(50, 140, 193, 0.6)';
+      // Draw model nodes with subtle floating motion
+      models.forEach((model, i) => {
+        const x = model.x * width + Math.sin(time + i * 0.5) * 4;
+        const y = model.y * height + Math.cos(time + i * 0.3) * 4;
+        const pulseSize = 30 + Math.sin(time * 1.5 + i) * 3;
+
+        // Check if this node is part of the active connection
+        const isActiveFrom = connectionSequence[activeConnectionIndex] && connectionSequence[activeConnectionIndex][0] === i;
+        const isActiveTo = connectionSequence[activeConnectionIndex] && connectionSequence[activeConnectionIndex][1] === i;
+        const isActive = isActiveFrom || isActiveTo;
+
+        // Glow effect (stronger for active nodes)
+        const glowOpacity = isActive ? '60' : '30';
+        const glowSize = isActive ? pulseSize * 2.5 : pulseSize * 1.8;
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, glowSize);
+        gradient.addColorStop(0, model.color + glowOpacity);
+        gradient.addColorStop(1, model.color + '00');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, glowSize, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Main node (slightly larger for active nodes)
+        const nodeSize = isActive ? pulseSize * 0.5 : pulseSize * 0.4;
+        ctx.fillStyle = model.color;
         ctx.beginPath();
         ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
         ctx.fill();
-        
-        // White inner dot
-        ctx.fillStyle = '#ffffff';
-        ctx.beginPath();
-        ctx.arc(x, y, 3, 0, Math.PI * 2);
-        ctx.fill();
-        
+
         // Node label
-        const labelOffset = 25;
-        const labelX = centerX + Math.cos(angle) * (mainRadius + labelOffset);
-        const labelY = centerY + Math.sin(angle) * (mainRadius + labelOffset);
-        
-        ctx.fillStyle = isActive ? colors.primary : 'rgba(11, 31, 59, 0.7)';
-        ctx.font = isActive ? '600 12px DM Sans, sans-serif' : '400 11px DM Sans, sans-serif';
+        ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
+        ctx.font = '11px DM Sans, sans-serif';
         ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(node.label, labelX, labelY);
+        ctx.fillText(model.name, x, y + pulseSize * 0.7);
       });
 
-      // Draw subtle floating particles
-      for (let i = 0; i < 8; i++) {
-        const particleAngle = time * 0.3 + i * (Math.PI * 2 / 8);
-        const particleRadius = mainRadius * (0.7 + Math.sin(time + i) * 0.1);
-        const px = centerX + Math.cos(particleAngle) * particleRadius;
-        const py = centerY + Math.sin(particleAngle) * particleRadius;
-        const size = 2 + Math.sin(time * 2 + i) * 1;
+      // Draw subtle floating data particles (reduced)
+      for (let i = 0; i < 15; i++) {
+        const px = (Math.sin(time * 0.3 + i * 0.5) + 1) * width * 0.5;
+        const py = (Math.cos(time * 0.2 + i * 0.6) + 1) * height * 0.5;
+        const size = 1.5 + Math.sin(time + i) * 0.5;
         
         ctx.beginPath();
         ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(50, 140, 193, ${0.15 + Math.sin(time + i) * 0.1})`;
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.15 + Math.sin(time + i) * 0.05})`;
         ctx.fill();
       }
 
-      animationFrame = requestAnimationFrame(drawPremiumVisualization);
+      animationFrame = requestAnimationFrame(drawModelGraph);
     };
 
     resize();
     window.addEventListener('resize', resize);
-    drawPremiumVisualization();
+    drawModelGraph();
 
     return () => {
       window.removeEventListener('resize', resize);
