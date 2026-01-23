@@ -1234,7 +1234,7 @@ const Home = () => {
                 }}
               />
               <img 
-                src="https://customer-assets.emergentagent.com/job_9c926b32-eb15-4e14-85bc-d1ec8af6b23f/artifacts/5u9wa8ry_home-abot.png" 
+                src="https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/mv9dbu4e_about.png" 
                 alt="BluBridge Team" 
                 className="w-full h-auto object-cover rounded-2xl"
                 style={{
