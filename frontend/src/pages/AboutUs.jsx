@@ -679,8 +679,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1737505599159-5ffc1dcbc08f?w=600&q=80" 
-                alt="AI brain neural network technology"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" 
+                alt="Data analytics and research visualization"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -704,11 +704,7 @@ const AboutUs = () => {
               >
                 Our Purpose
               </h3>
-              <p style={{ 
-                fontSize: '15px', 
-                lineHeight: '1.7', 
-                color: '#1a1a1a'
-              }}>
+              <p className="text-md leading-relaxed text-[#1a1a1a]">
                 We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
               </p>
             </div>
@@ -744,11 +740,7 @@ const AboutUs = () => {
               >
                 How We Work
               </h3>
-              <p style={{ 
-                fontSize: '15px', 
-                lineHeight: '1.7', 
-                color: '#1a1a1a'
-              }}>
+              <p className="text-md leading-relaxed text-[#1a1a1a]">
                 Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
               </p>
             </div>
@@ -784,11 +776,7 @@ const AboutUs = () => {
               >
                 Excellence Through Rigor & Creativity
               </h3>
-              <p style={{ 
-                fontSize: '15px', 
-                lineHeight: '1.7', 
-                color: '#1a1a1a'
-              }}>
+              <p className="text-md leading-relaxed text-[#1a1a1a]">
                 Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
               </p>
             </div>
@@ -799,8 +787,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.unsplash.com/photo-1758873268631-fa944fc5cad2?w=600&q=80" 
-                alt="Diverse team of professionals in office"
+                src="https://images.pexels.com/photos/8386181/pexels-photo-8386181.jpeg?w=600&q=80" 
+                alt="Puzzle pieces representing unity and diversity"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -824,11 +812,7 @@ const AboutUs = () => {
               >
                 Our People
               </h3>
-              <p style={{ 
-                fontSize: '15px', 
-                lineHeight: '1.7', 
-                color: '#1a1a1a'
-              }}>
+              <p className="text-md leading-relaxed text-[#1a1a1a]">
                 We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
               </p>
             </div>
