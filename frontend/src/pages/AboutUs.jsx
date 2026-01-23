@@ -92,17 +92,17 @@ const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
   );
 };
 
-// Premium Typing Animation Section Component
-const PassionTypingSection = () => {
+// Premium Typing Animation Text Component (inline within section)
+const PassionTypingText = () => {
   const [typedText, setTypedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
-  const sectionRef = useRef(null);
+  const textRef = useRef(null);
   
   const textToType = "Passion & Craft.";
   
-  // Intersection Observer to trigger animation when section is in view
+  // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -113,13 +113,13 @@ const PassionTypingSection = () => {
       { threshold: 0.5 }
     );
     
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (textRef.current) {
+      observer.observe(textRef.current);
     }
     
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
       }
     };
   }, [hasStarted]);
@@ -137,7 +137,7 @@ const PassionTypingSection = () => {
         
         // Variable timing for natural feel (70-120ms)
         const baseDelay = 90;
-        const variation = Math.random() * 50 - 25; // -25 to +25
+        const variation = Math.random() * 50 - 25;
         const delay = baseDelay + variation;
         
         setTimeout(typeNextChar, delay);
@@ -157,48 +157,43 @@ const PassionTypingSection = () => {
     return () => clearTimeout(startTimer);
   }, [hasStarted]);
   
-  // Cursor blink effect - only when not actively typing
+  // Keep cursor visible while typing
   useEffect(() => {
-    if (isTypingComplete || !hasStarted) return;
-    
-    // Keep cursor always visible during active typing
-    setShowCursor(true);
+    if (hasStarted && !isTypingComplete) {
+      setShowCursor(true);
+    }
   }, [typedText, hasStarted, isTypingComplete]);
   
   return (
-    <section 
-      ref={sectionRef}
-      className="py-24 md:py-32 bg-white"
-      data-testid="passion-typing-section"
+    <div 
+      ref={textRef}
+      className="mt-16 md:mt-20"
+      data-testid="passion-typing-text"
     >
-      <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
-        <div className="text-left">
-          <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B1F3B] leading-tight"
-            style={{ 
-              fontFamily: "'DM Sans', sans-serif",
-              letterSpacing: '-0.02em'
-            }}
-            data-testid="passion-heading"
-          >
-            <span>It's Our </span>
-            <span className="inline-flex items-baseline">
-              <span>{typedText}</span>
-              {showCursor && !isTypingComplete && (
-                <span 
-                  className="inline-block w-[3px] ml-[1px]"
-                  style={{ 
-                    height: '0.85em',
-                    backgroundColor: '#C9A227',
-                    verticalAlign: 'baseline'
-                  }}
-                />
-              )}
-            </span>
-          </h2>
-        </div>
-      </div>
-    </section>
+      <h2 
+        className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3B] leading-tight text-left"
+        style={{ 
+          fontFamily: "'DM Sans', sans-serif",
+          letterSpacing: '-0.02em'
+        }}
+        data-testid="passion-heading"
+      >
+        <span>It's Our </span>
+        <span className="inline-flex items-baseline">
+          <span>{typedText}</span>
+          {showCursor && !isTypingComplete && (
+            <span 
+              className="inline-block w-[3px] ml-[1px]"
+              style={{ 
+                height: '0.85em',
+                backgroundColor: '#C9A227',
+                verticalAlign: 'baseline'
+              }}
+            />
+          )}
+        </span>
+      </h2>
+    </div>
   );
 };
 
