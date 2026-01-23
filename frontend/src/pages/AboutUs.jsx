@@ -135,9 +135,9 @@ const PassionTypingSection = () => {
         setTypedText(textToType.slice(0, currentIndex + 1));
         currentIndex++;
         
-        // Variable timing for natural feel (70-130ms)
-        const baseDelay = 85;
-        const variation = Math.random() * 60 - 30; // -30 to +30
+        // Variable timing for natural feel (70-120ms)
+        const baseDelay = 90;
+        const variation = Math.random() * 50 - 25; // -25 to +25
         const delay = baseDelay + variation;
         
         setTimeout(typeNextChar, delay);
@@ -147,44 +147,34 @@ const PassionTypingSection = () => {
         // Hide cursor after a brief pause
         setTimeout(() => {
           setShowCursor(false);
-        }, 500);
+        }, 400);
       }
     };
     
     // Start typing after a brief initial delay
-    const startTimer = setTimeout(typeNextChar, 300);
+    const startTimer = setTimeout(typeNextChar, 200);
     
     return () => clearTimeout(startTimer);
   }, [hasStarted]);
   
-  // Cursor blink effect
+  // Cursor blink effect - only when not actively typing
   useEffect(() => {
-    if (isTypingComplete) return;
+    if (isTypingComplete || !hasStarted) return;
     
-    const blinkInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 530);
-    
-    return () => clearInterval(blinkInterval);
-  }, [isTypingComplete]);
-  
-  // Keep cursor visible while typing
-  useEffect(() => {
-    if (hasStarted && !isTypingComplete) {
-      setShowCursor(true);
-    }
+    // Keep cursor always visible during active typing
+    setShowCursor(true);
   }, [typedText, hasStarted, isTypingComplete]);
   
   return (
     <section 
       ref={sectionRef}
-      className="py-32 md:py-40 bg-[#0B1F3B]"
+      className="py-24 md:py-32 bg-white"
       data-testid="passion-typing-section"
     >
       <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
-        <div className="text-center">
+        <div className="text-left">
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B1F3B] leading-tight"
             style={{ 
               fontFamily: "'DM Sans', sans-serif",
               letterSpacing: '-0.02em'
@@ -192,12 +182,25 @@ const PassionTypingSection = () => {
             data-testid="passion-heading"
           >
             <span>It's Our </span>
-            <span className="inline">
-              {typedText}
+            <span className="inline-flex items-baseline">
+              <span>{typedText}</span>
               {showCursor && !isTypingComplete && (
                 <span 
-                  className="inline-block w-[3px] bg-white ml-[2px]"
+                  className="inline-block w-[3px] ml-[1px]"
                   style={{ 
+                    height: '0.85em',
+                    backgroundColor: '#C9A227',
+                    verticalAlign: 'baseline'
+                  }}
+                />
+              )}
+            </span>
+          </h2>
+        </div>
+      </div>
+    </section>
+  );
+}; 
                     height: '1em',
                     verticalAlign: 'baseline',
                     marginBottom: '-0.1em',
