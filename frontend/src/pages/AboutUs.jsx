@@ -656,7 +656,7 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-       {/* Who We Are Section - Light Background */}
+       {/* How We Build, Innovate, and Lead Section */}
       <section className="py-20 bg-[#efede5]">
         <div className="max-w-6xl mx-auto px-4">
           {/* Section Heading */}
@@ -669,26 +669,26 @@ const AboutUs = () => {
               letterSpacing: '-0.5px',
               fontFamily: "'DM Sans', sans-serif"
             }}
-            data-testid="who-we-are-heading"
+            data-testid="how-we-build-heading"
           >
-            Who We Are
+            How We Build, Innovate, and Lead
           </h2>
           
-          {/* Row 1 - Image Left, Text Right */}
+          {/* Row 1 - Our Purpose - Image Left, Text Right */}
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16">
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" 
-                alt="Person working with futuristic display"
+                src="https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?w=600&q=80" 
+                alt="Developer working on AI solutions"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
-                  height: 'auto',
+                  height: '220px',
                   objectFit: 'cover',
                   borderRadius: '16px'
                 }}
-                data-testid="who-we-are-image-1"
+                data-testid="how-we-build-image-1"
               />
             </div>
             {/* Text Content */}
@@ -702,33 +702,33 @@ const AboutUs = () => {
                   fontFamily: "'DM Sans', sans-serif"
                 }}
               >
-                We are versatile
+                Our Purpose
               </h3>
               <p style={{ 
                 fontSize: '15px', 
                 lineHeight: '1.7', 
                 color: '#1a1a1a'
               }}>
-                We can support every aspect of the software and product life cycle, from feasibility analysis, user experience design, and prototyping, to the development of scalable, winning solutions. Our data team goes beyond everyday reporting to mine, segment, and deliver game-changing insights for our clients.
+                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
               </p>
             </div>
           </div>
           
-          {/* Row 2 - Text Left, Image Right */}
+          {/* Row 2 - How We Work - Text Left, Image Right */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 mb-16">
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" 
-                alt="Two people collaborating"
+                src="https://images.unsplash.com/photo-1716703742352-0bbdb45f505b?w=600&q=80" 
+                alt="Team collaboration and discussion"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
-                  height: 'auto',
+                  height: '220px',
                   objectFit: 'cover',
                   borderRadius: '16px'
                 }}
-                data-testid="who-we-are-image-2"
+                data-testid="how-we-build-image-2"
               />
             </div>
             {/* Text Content */}
@@ -742,33 +742,33 @@ const AboutUs = () => {
                   fontFamily: "'DM Sans', sans-serif"
                 }}
               >
-                We are practical
+                How We Work
               </h3>
               <p style={{ 
                 fontSize: '15px', 
                 lineHeight: '1.7', 
                 color: '#1a1a1a'
               }}>
-                Our approach is to keep it simple and do what makes sense for our clients. Even though we enjoy building complex software and web applications, we don't recommend reinventing the wheel. We are all about helping our clients find, customize, and integrate best-in-class solutions that are readily available and affordable.
+                Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
               </p>
             </div>
           </div>
           
-          {/* Row 3 - Image Left, Text Right */}
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+          {/* Row 3 - Excellence Through Rigor & Creativity - Image Left, Text Right */}
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16">
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&q=80" 
-                alt="Futuristic cityscape with technology"
+                src="https://images.pexels.com/photos/7413999/pexels-photo-7413999.jpeg?w=600&q=80" 
+                alt="Professional presenting innovative ideas"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
-                  height: 'auto',
+                  height: '220px',
                   objectFit: 'cover',
                   borderRadius: '16px'
                 }}
-                data-testid="who-we-are-image-3"
+                data-testid="how-we-build-image-3"
               />
             </div>
             {/* Text Content */}
@@ -782,14 +782,54 @@ const AboutUs = () => {
                   fontFamily: "'DM Sans', sans-serif"
                 }}
               >
-                We are iterative
+                Excellence Through Rigor & Creativity
               </h3>
               <p style={{ 
                 fontSize: '15px', 
                 lineHeight: '1.7', 
                 color: '#1a1a1a'
               }}>
-                When it's time to innovate, we like to achieve short-term milestones with your greater vision in mind. This way you can manage your technology investment as we flex to meet your changing needs along the way.
+                Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
+              </p>
+            </div>
+          </div>
+          
+          {/* Row 4 - Our People - Text Left, Image Right */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
+              <img 
+                src="https://images.pexels.com/photos/7580648/pexels-photo-7580648.jpeg?w=600&q=80" 
+                alt="Diverse team of professionals"
+                className="w-full rounded-2xl shadow-lg"
+                style={{ 
+                  maxWidth: '320px',
+                  height: '220px',
+                  objectFit: 'cover',
+                  borderRadius: '16px'
+                }}
+                data-testid="how-we-build-image-4"
+              />
+            </div>
+            {/* Text Content */}
+            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
+              <h3 
+                className="mb-4"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#0B1F3B',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                Our People
+              </h3>
+              <p style={{ 
+                fontSize: '15px', 
+                lineHeight: '1.7', 
+                color: '#1a1a1a'
+              }}>
+                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
               </p>
             </div>
           </div>
