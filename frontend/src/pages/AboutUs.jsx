@@ -95,10 +95,12 @@ const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
 // Premium Typing Animation Text Component with Looping Backspace Effect
 const PassionTypingText = () => {
   const [displayText, setDisplayText] = useState('');
-  const [showCursor, setShowCursor] = useState(false);
+  const [cursorVisible, setCursorVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const textRef = useRef(null);
   const animationRef = useRef(null);
+  const blinkRef = useRef(null);
   
   const staticText = "It's Our ";
   const words = ["Passion.", "Craft."];
@@ -125,6 +127,28 @@ const PassionTypingText = () => {
     };
   }, [hasStarted]);
   
+  // Smooth cursor blink during typing/erasing
+  useEffect(() => {
+    if (!isAnimating) {
+      setCursorVisible(false);
+      return;
+    }
+    
+    // Smooth blinking cursor
+    const blink = () => {
+      setCursorVisible(prev => !prev);
+    };
+    
+    setCursorVisible(true);
+    blinkRef.current = setInterval(blink, 400);
+    
+    return () => {
+      if (blinkRef.current) {
+        clearInterval(blinkRef.current);
+      }
+    };
+  }, [isAnimating]);
+  
   // Main looping animation
   useEffect(() => {
     if (!hasStarted) return;
@@ -136,20 +160,20 @@ const PassionTypingText = () => {
     });
     
     const typeWord = async (word) => {
-      setShowCursor(true); // Show cursor during typing
+      setIsAnimating(true);
       for (let i = 0; i <= word.length; i++) {
         if (isCancelled) return;
         setDisplayText(word.slice(0, i));
-        await delay(75 + Math.random() * 45);
+        await delay(70 + Math.random() * 40);
       }
     };
     
     const backspaceWord = async (word) => {
-      setShowCursor(true); // Show cursor during backspace
+      setIsAnimating(true);
       for (let i = word.length; i >= 0; i--) {
         if (isCancelled) return;
         setDisplayText(word.slice(0, i));
-        await delay(45 + Math.random() * 25);
+        await delay(40 + Math.random() * 25);
       }
     };
     
@@ -159,29 +183,29 @@ const PassionTypingText = () => {
         await typeWord(words[0]);
         
         // Hold for 2 seconds - hide cursor
-        setShowCursor(false);
+        setIsAnimating(false);
         await delay(2000);
         
         // Backspace "Passion"
         await backspaceWord(words[0]);
         
         // Small pause before typing next word
-        setShowCursor(false);
-        await delay(100);
+        setIsAnimating(false);
+        await delay(80);
         
         // Type "Craft"
         await typeWord(words[1]);
         
         // Hold for 2 seconds - hide cursor
-        setShowCursor(false);
+        setIsAnimating(false);
         await delay(2000);
         
         // Backspace "Craft"
         await backspaceWord(words[1]);
         
         // Small pause before looping
-        setShowCursor(false);
-        await delay(100);
+        setIsAnimating(false);
+        await delay(80);
       }
     };
     
@@ -195,6 +219,9 @@ const PassionTypingText = () => {
       clearTimeout(startTimeout);
       if (animationRef.current) {
         clearTimeout(animationRef.current);
+      }
+      if (blinkRef.current) {
+        clearInterval(blinkRef.current);
       }
     };
   }, [hasStarted]);
@@ -216,17 +243,17 @@ const PassionTypingText = () => {
         <span>{staticText}</span>
         <span className="inline">
           {displayText}
-          {showCursor && (
-            <span 
-              className="inline-block w-[3px] ml-[1px]"
-              style={{ 
-                height: '0.75em',
-                backgroundColor: '#C9A227',
-                verticalAlign: 'middle',
-                marginBottom: '0.05em'
-              }}
-            />
-          )}
+          <span 
+            className="inline-block w-[3px] ml-[1px]"
+            style={{ 
+              height: '0.75em',
+              backgroundColor: '#C9A227',
+              verticalAlign: 'middle',
+              marginBottom: '0.05em',
+              opacity: cursorVisible ? 1 : 0,
+              transition: 'opacity 0.15s ease-in-out'
+            }}
+          />
         </span>
       </h2>
     </div>
