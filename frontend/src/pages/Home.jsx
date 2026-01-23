@@ -810,11 +810,11 @@ const Home = () => {
         <div className="container-custom relative z-10">
           {/* Section Header with Decorative Line */}
           <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-4 mb-6">
+            {/* <div className="inline-flex items-center gap-4 mb-6">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#0B1F3B]/30" />
               <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#0B1F3B]/30" />
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3B]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               By Solutions
             </h2>
