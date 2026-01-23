@@ -167,11 +167,10 @@ const PassionTypingText = () => {
   return (
     <div 
       ref={textRef}
-      className="mt-16 md:mt-20"
       data-testid="passion-typing-text"
     >
       <h2 
-        className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3B] leading-tight text-left"
+        className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3B] leading-tight text-right"
         style={{ 
           fontFamily: "'DM Sans', sans-serif",
           letterSpacing: '-0.02em'
