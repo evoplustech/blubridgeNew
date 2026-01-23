@@ -43,29 +43,287 @@ const Deployment = () => {
               </div>
             </div>
             
-            {/* Right - Deployment Infrastructure Visual */}
-            <div className="relative flex items-center justify-center lg:justify-end">
-              <div className="relative">
-                {/* Main image with floating animation */}
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/zkojwq0x_thirdd.png" 
-                  alt="Global Deployment Infrastructure" 
-                  className="w-full max-w-[600px] h-auto object-contain relative z-10"
-                  style={{
-                    animation: 'deployFloat 6s ease-in-out infinite'
-                  }}
-                />
+            {/* Right - Premium Deployment Infrastructure Visual */}
+            <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
+              <div className="relative w-full max-w-[520px] h-full">
+                {/* Background glow effects */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl" />
+                
+                {/* Central Deployment Hub */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div 
+                    className="relative w-32 h-32 rounded-full flex items-center justify-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #0B1F3B 0%, #1a3a5f 100%)',
+                      boxShadow: '0 0 60px rgba(11, 31, 59, 0.4), 0 0 100px rgba(6, 182, 212, 0.2), inset 0 2px 20px rgba(255,255,255,0.1)'
+                    }}
+                  >
+                    <div className="text-center">
+                      <svg className="w-8 h-8 text-cyan-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                      </svg>
+                      <div className="text-white text-sm font-bold">DEPLOY</div>
+                    </div>
+                    {/* Rotating outer ring */}
+                    <div 
+                      className="absolute inset-[-12px] rounded-full border-2 border-dashed border-cyan-400/40"
+                      style={{ animation: 'spinDeploy 25s linear infinite' }}
+                    />
+                    {/* Inner pulse ring */}
+                    <div 
+                      className="absolute inset-[-4px] rounded-full border border-cyan-400/30"
+                      style={{ animation: 'pulseDeploy 2s ease-in-out infinite' }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Orbital path */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520">
+                  <ellipse cx="260" cy="260" rx="180" ry="180" fill="none" stroke="url(#deployOrbit)" strokeWidth="1" strokeDasharray="8 4" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" from="0 260 260" to="360 260 260" dur="60s" repeatCount="indefinite"/>
+                  </ellipse>
+                  <ellipse cx="260" cy="260" rx="130" ry="130" fill="none" stroke="url(#deployOrbit)" strokeWidth="1" opacity="0.2"/>
+                  
+                  <defs>
+                    <linearGradient id="deployOrbit" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.6"/>
+                      <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.4"/>
+                      <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.6"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                
+                {/* Deployment Metric Cards - Positioned around center */}
+                {/* Top - Uptime */}
+                <div className="absolute top-4 left-1/2 -translate-x-1/2" style={{ animation: 'floatDeploy1 5s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Uptime</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">99.99%</div>
+                    <div className="flex items-center gap-1 mt-1">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
+                      <span className="text-xs text-green-500 font-medium">Live</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Right - Latency */}
+                <div className="absolute top-1/2 -translate-y-1/2 right-0" style={{ animation: 'floatDeploy2 6s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Latency</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">12ms</div>
+                    <div className="w-full h-1 bg-[#E5E7EB] rounded-full mt-2 overflow-hidden">
+                      <div className="h-full bg-cyan-500 rounded-full" style={{ width: '15%', animation: 'pulseBar 1.5s ease-in-out infinite' }}/>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Bottom - Instances */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2" style={{ animation: 'floatDeploy3 5.5s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Instances</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">248</div>
+                    <div className="flex gap-1 mt-2">
+                      {[1,2,3,4,5,6].map((i) => (
+                        <div key={i} className="w-4 h-4 rounded bg-blue-500/20 flex items-center justify-center">
+                          <div className={`w-2 h-2 rounded-sm ${i <= 5 ? 'bg-blue-500' : 'bg-[#E5E7EB]'}`}/>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Left - Regions */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0" style={{ animation: 'floatDeploy4 6.5s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Regions</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">12</div>
+                    <div className="text-xs text-purple-500 mt-1">Global Coverage</div>
+                  </div>
+                </div>
+                
+                {/* Corner Cards */}
+                {/* Top Left - Deployments */}
+                <div className="absolute top-16 left-8" style={{ animation: 'floatDeploy5 5s ease-in-out infinite' }}>
+                  <div className="bg-white/90 backdrop-blur rounded-lg p-3 shadow-md border border-[#E5E7EB]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded bg-green-500/10 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-xs text-[#6B7280]">Deploys/Day</div>
+                        <div className="text-sm font-bold text-[#0B1F3B]">847</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Top Right - Success Rate */}
+                <div className="absolute top-16 right-8" style={{ animation: 'floatDeploy6 5.5s ease-in-out infinite' }}>
+                  <div className="bg-white/90 backdrop-blur rounded-lg p-3 shadow-md border border-[#E5E7EB]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded bg-cyan-500/10 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-xs text-[#6B7280]">Success</div>
+                        <div className="text-sm font-bold text-[#0B1F3B]">99.8%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Bottom Left - GPU Utilization */}
+                <div className="absolute bottom-16 left-8" style={{ animation: 'floatDeploy7 6s ease-in-out infinite' }}>
+                  <div className="bg-white/90 backdrop-blur rounded-lg p-3 shadow-md border border-[#E5E7EB]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded bg-orange-500/10 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-xs text-[#6B7280]">GPU Load</div>
+                        <div className="text-sm font-bold text-[#0B1F3B]">78%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Bottom Right - Auto-Scale */}
+                <div className="absolute bottom-16 right-8" style={{ animation: 'floatDeploy8 5.2s ease-in-out infinite' }}>
+                  <div className="bg-white/90 backdrop-blur rounded-lg p-3 shadow-md border border-[#E5E7EB]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded bg-blue-500/10 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-xs text-[#6B7280]">Auto-Scale</div>
+                        <div className="text-sm font-bold text-green-500">Active</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating connection particles */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  {[...Array(18)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute rounded-full"
+                      style={{
+                        width: `${3 + (i % 3)}px`,
+                        height: `${3 + (i % 3)}px`,
+                        background: i % 3 === 0 ? '#06B6D4' : i % 3 === 1 ? '#3B82F6' : '#22C55E',
+                        left: `${12 + (i * 4.5)}%`,
+                        top: `${18 + ((i % 5) * 16)}%`,
+                        opacity: 0.4,
+                        animation: `deployParticle${i % 4} ${4 + (i % 3)}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.12}s`
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
               
               {/* Animation keyframes */}
               <style>{`
-                @keyframes deployFloat {
-                  0%, 100% {
-                    transform: translateY(0px);
-                  }
-                  50% {
-                    transform: translateY(-12px);
-                  }
+                @keyframes spinDeploy {
+                  from { transform: rotate(0deg); }
+                  to { transform: rotate(360deg); }
+                }
+                @keyframes pulseDeploy {
+                  0%, 100% { transform: scale(1); opacity: 0.3; }
+                  50% { transform: scale(1.1); opacity: 0.6; }
+                }
+                @keyframes pulseBar {
+                  0%, 100% { opacity: 1; }
+                  50% { opacity: 0.5; }
+                }
+                @keyframes floatDeploy1 {
+                  0%, 100% { transform: translateX(-50%) translateY(0); }
+                  50% { transform: translateX(-50%) translateY(-8px); }
+                }
+                @keyframes floatDeploy2 {
+                  0%, 100% { transform: translateY(-50%) translateX(0); }
+                  50% { transform: translateY(-50%) translateX(-8px); }
+                }
+                @keyframes floatDeploy3 {
+                  0%, 100% { transform: translateX(-50%) translateY(0); }
+                  50% { transform: translateX(-50%) translateY(8px); }
+                }
+                @keyframes floatDeploy4 {
+                  0%, 100% { transform: translateY(-50%) translateX(0); }
+                  50% { transform: translateY(-50%) translateX(8px); }
+                }
+                @keyframes floatDeploy5 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(5px, -6px); }
+                }
+                @keyframes floatDeploy6 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(-5px, -6px); }
+                }
+                @keyframes floatDeploy7 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(5px, 6px); }
+                }
+                @keyframes floatDeploy8 {
+                  0%, 100% { transform: translate(0, 0); }
+                  50% { transform: translate(-5px, 6px); }
+                }
+                @keyframes deployParticle0 {
+                  0% { transform: translate(0, 0); opacity: 0.3; }
+                  50% { transform: translate(15px, -20px); opacity: 0.6; }
+                  100% { transform: translate(0, 0); opacity: 0.3; }
+                }
+                @keyframes deployParticle1 {
+                  0% { transform: translate(0, 0); opacity: 0.4; }
+                  50% { transform: translate(-20px, 15px); opacity: 0.7; }
+                  100% { transform: translate(0, 0); opacity: 0.4; }
+                }
+                @keyframes deployParticle2 {
+                  0% { transform: translate(0, 0); opacity: 0.3; }
+                  50% { transform: translate(20px, 20px); opacity: 0.5; }
+                  100% { transform: translate(0, 0); opacity: 0.3; }
+                }
+                @keyframes deployParticle3 {
+                  0% { transform: translate(0, 0); opacity: 0.5; }
+                  50% { transform: translate(-15px, -15px); opacity: 0.7; }
+                  100% { transform: translate(0, 0); opacity: 0.5; }
                 }
               `}</style>
             </div>
