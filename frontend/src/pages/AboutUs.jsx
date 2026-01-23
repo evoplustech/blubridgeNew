@@ -656,163 +656,89 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-       {/* How We Build, Innovate, and Lead Section */}
+       {/* How We Build, Innovate, and Lead Section - Simple & Clean */}
       <section className="py-20 bg-[#efede5]">
         <div className="max-w-6xl mx-auto px-4">
           {/* Section Heading */}
           <h2 
-            className="text-center mb-16"
-            style={{ 
-              fontSize: '42px', 
-              fontWeight: '700', 
-              color: '#0B1F3B',
-              letterSpacing: '-0.5px',
-              fontFamily: "'DM Sans', sans-serif"
-            }}
+            className="text-center mb-16 text-4xl md:text-5xl font-bold text-[#0B1F3B]"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
             data-testid="how-we-build-heading"
           >
             How We Build, Innovate, and Lead
           </h2>
           
-          {/* Row 1 - Our Purpose - Image Left, Text Right */}
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16">
-            {/* Image */}
+          {/* Row 1 - Our Purpose */}
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-14">
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" 
-                alt="Data analytics and research visualization"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
+                src="https://images.unsplash.com/photo-1761449779811-33f7c48ed367?w=600&q=80" 
+                alt="Abstract blue shapes"
+                className="w-full rounded-xl shadow-md"
+                style={{ maxWidth: '300px', height: '200px', objectFit: 'cover' }}
                 data-testid="how-we-build-image-1"
               />
             </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Our Purpose
-              </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+            <div className="w-full md:w-3/5">
+              <h3 className="text-2xl font-semibold text-[#0B1F3B] mb-3">Our Purpose</h3>
+              <p className="text-base leading-relaxed text-[#333]">
                 We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
               </p>
             </div>
           </div>
           
-          {/* Row 2 - How We Work - Text Left, Image Right */}
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 mb-16">
-            {/* Image */}
+          {/* Row 2 - How We Work */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 mb-14">
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.pexels.com/photos/6804093/pexels-photo-6804093.jpeg?w=600&q=80" 
-                alt="Agile workflow planning board with sticky notes"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
+                src="https://images.unsplash.com/photo-1505209487757-5114235191e5?w=600&q=80" 
+                alt="Clean minimal workspace"
+                className="w-full rounded-xl shadow-md"
+                style={{ maxWidth: '300px', height: '200px', objectFit: 'cover' }}
                 data-testid="how-we-build-image-2"
               />
             </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                How We Work
-              </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+            <div className="w-full md:w-3/5">
+              <h3 className="text-2xl font-semibold text-[#0B1F3B] mb-3">How We Work</h3>
+              <p className="text-base leading-relaxed text-[#333]">
                 Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
               </p>
             </div>
           </div>
           
-          {/* Row 3 - Excellence Through Rigor & Creativity - Image Left, Text Right */}
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16">
-            {/* Image */}
+          {/* Row 3 - Excellence Through Rigor & Creativity */}
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-14">
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.pexels.com/photos/4792503/pexels-photo-4792503.jpeg?w=600&q=80" 
-                alt="Light bulb representing creativity and innovation"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
+                src="https://images.pexels.com/photos/716398/pexels-photo-716398.jpeg?w=600&q=80" 
+                alt="Light bulb idea"
+                className="w-full rounded-xl shadow-md"
+                style={{ maxWidth: '300px', height: '200px', objectFit: 'cover' }}
                 data-testid="how-we-build-image-3"
               />
             </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Excellence Through Rigor & Creativity
-              </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+            <div className="w-full md:w-3/5">
+              <h3 className="text-2xl font-semibold text-[#0B1F3B] mb-3">Excellence Through Rigor & Creativity</h3>
+              <p className="text-base leading-relaxed text-[#333]">
                 Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
               </p>
             </div>
           </div>
           
-          {/* Row 4 - Our People - Text Left, Image Right */}
+          {/* Row 4 - Our People */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
-            {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.pexels.com/photos/8386181/pexels-photo-8386181.jpeg?w=600&q=80" 
-                alt="Puzzle pieces representing unity and diversity"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
+                src="https://images.pexels.com/photos/6147373/pexels-photo-6147373.jpeg?w=600&q=80" 
+                alt="Hands together unity"
+                className="w-full rounded-xl shadow-md"
+                style={{ maxWidth: '300px', height: '200px', objectFit: 'cover' }}
                 data-testid="how-we-build-image-4"
               />
             </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Our People
-              </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+            <div className="w-full md:w-3/5">
+              <h3 className="text-2xl font-semibold text-[#0B1F3B] mb-3">Our People</h3>
+              <p className="text-base leading-relaxed text-[#333]">
                 We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
               </p>
             </div>
