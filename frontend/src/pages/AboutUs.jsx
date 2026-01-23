@@ -368,6 +368,73 @@ const AboutUs = () => {
 
       {/* Our Mission Section - Section 2 */}
       <section className="py-24 bg-[#fffdf7]">
+        {/* Glowing Bird Animation Styles */}
+        <style>{`
+          @keyframes softGlow {
+            0%, 100% {
+              filter: drop-shadow(0 0 8px rgba(100, 180, 255, 0.3)) 
+                      drop-shadow(0 0 20px rgba(100, 180, 255, 0.15))
+                      drop-shadow(0 0 40px rgba(100, 180, 255, 0.08));
+            }
+            50% {
+              filter: drop-shadow(0 0 12px rgba(100, 180, 255, 0.4)) 
+                      drop-shadow(0 0 28px rgba(100, 180, 255, 0.2))
+                      drop-shadow(0 0 50px rgba(100, 180, 255, 0.1));
+            }
+          }
+          
+          @keyframes glitterFloat {
+            0%, 100% {
+              opacity: 0;
+              transform: translateY(0) scale(0.5);
+            }
+            20% {
+              opacity: 0.8;
+              transform: translateY(-5px) scale(1);
+            }
+            80% {
+              opacity: 0.6;
+              transform: translateY(-15px) scale(0.8);
+            }
+          }
+          
+          @keyframes glitterTwinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 0.9; transform: scale(1.2); }
+          }
+          
+          .bird-glow-container {
+            position: relative;
+            animation: softGlow 4s ease-in-out infinite;
+          }
+          
+          .glitter-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(180,220,255,0.6) 50%, transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(0.5px);
+          }
+          
+          .glitter-1 { top: 15%; left: 20%; animation: glitterTwinkle 3s ease-in-out infinite 0s; }
+          .glitter-2 { top: 25%; left: 60%; animation: glitterTwinkle 2.5s ease-in-out infinite 0.5s; }
+          .glitter-3 { top: 35%; left: 75%; animation: glitterTwinkle 3.5s ease-in-out infinite 1s; }
+          .glitter-4 { top: 45%; left: 30%; animation: glitterTwinkle 2.8s ease-in-out infinite 0.3s; }
+          .glitter-5 { top: 55%; left: 50%; animation: glitterTwinkle 3.2s ease-in-out infinite 0.8s; }
+          .glitter-6 { top: 20%; left: 45%; animation: glitterTwinkle 2.6s ease-in-out infinite 1.2s; }
+          .glitter-7 { top: 60%; left: 70%; animation: glitterTwinkle 3.8s ease-in-out infinite 0.2s; }
+          .glitter-8 { top: 30%; left: 85%; animation: glitterTwinkle 2.4s ease-in-out infinite 0.7s; }
+          .glitter-9 { top: 70%; left: 40%; animation: glitterTwinkle 3.3s ease-in-out infinite 1.5s; }
+          .glitter-10 { top: 40%; left: 15%; animation: glitterTwinkle 2.9s ease-in-out infinite 0.4s; }
+          .glitter-11 { top: 50%; left: 80%; animation: glitterFloat 4s ease-in-out infinite 0.6s; width: 2px; height: 2px; }
+          .glitter-12 { top: 65%; left: 25%; animation: glitterFloat 4.5s ease-in-out infinite 1.1s; width: 2px; height: 2px; }
+          .glitter-13 { top: 10%; left: 55%; animation: glitterFloat 5s ease-in-out infinite 0.9s; width: 2px; height: 2px; }
+          .glitter-14 { top: 75%; left: 60%; animation: glitterTwinkle 3.1s ease-in-out infinite 1.3s; }
+          .glitter-15 { top: 22%; left: 35%; animation: glitterFloat 4.2s ease-in-out infinite 0.1s; width: 2px; height: 2px; }
+        `}</style>
+        
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             {/* Left Content - Fixed width 940px */}
@@ -410,20 +477,40 @@ const AboutUs = () => {
               </Link>
             </div>
             
-            {/* Right - Eagle Illustration - max-width 250px */}
+            {/* Right - Eagle Illustration with Glow & Glitter Effects */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end" style={{ maxWidth: '250px', width: '100%' }}>
-              <img 
-                src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/llrlfhzt_toolfk_a_majestic_eagle_in_.png" 
-                alt="Digital technology eagle representing AI innovation"
-                style={{
-                  maxWidth: '250px',
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'contain'
-                }}
-                className="hidden sm:block"
-                data-testid="our-mission-eagle-image"
-              />
+              <div className="bird-glow-container relative">
+                {/* Glitter Particles - Sparse and Delicate */}
+                <div className="glitter-particle glitter-1" />
+                <div className="glitter-particle glitter-2" />
+                <div className="glitter-particle glitter-3" />
+                <div className="glitter-particle glitter-4" />
+                <div className="glitter-particle glitter-5" />
+                <div className="glitter-particle glitter-6" />
+                <div className="glitter-particle glitter-7" />
+                <div className="glitter-particle glitter-8" />
+                <div className="glitter-particle glitter-9" />
+                <div className="glitter-particle glitter-10" />
+                <div className="glitter-particle glitter-11" />
+                <div className="glitter-particle glitter-12" />
+                <div className="glitter-particle glitter-13" />
+                <div className="glitter-particle glitter-14" />
+                <div className="glitter-particle glitter-15" />
+                
+                {/* Bird Image with Soft Inner Glow */}
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/llrlfhzt_toolfk_a_majestic_eagle_in_.png" 
+                  alt="Digital technology eagle representing AI innovation"
+                  style={{
+                    maxWidth: '250px',
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'contain'
+                  }}
+                  className="hidden sm:block"
+                  data-testid="our-mission-eagle-image"
+                />
+              </div>
             </div>
           </div>
         </div>
