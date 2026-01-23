@@ -47,6 +47,24 @@ const useScrollAnimation = (options = {}) => {
   return [ref, isVisible];
 };
 
+// Scroll-triggered animated item component for How We Build section
+const ScrollAnimatedItem = ({ children, direction = 'left', delay = 0 }) => {
+  const [ref, isVisible] = useScrollAnimation();
+  
+  return (
+    <div
+      ref={ref}
+      className={isVisible ? (direction === 'left' ? 'slide-left-animate' : 'slide-right-animate') : 'scroll-hidden'}
+      style={{ 
+        animationDelay: `${delay}ms`,
+        opacity: isVisible ? undefined : 0
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
 // Animated Container Component for "Who We Are" section
 const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
   const [ref, isVisible] = useScrollAnimation();
