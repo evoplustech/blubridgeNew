@@ -738,80 +738,257 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Solutions Section - Model Customization, Value Realization, Deployment */}
-      <section className="pt-10 pb-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+      {/* Solutions Section - Premium Animated Hexagonal Design */}
+      <section className="pt-10 pb-20 bg-[#fffdf7] relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Floating gradient orbs */}
+          <div 
+            className="absolute w-96 h-96 rounded-full opacity-[0.04] blur-3xl"
+            style={{ 
+              background: 'radial-gradient(circle, #0B1F3B 0%, transparent 70%)',
+              top: '10%',
+              left: '-10%',
+              animation: 'floatOrb1 20s ease-in-out infinite'
+            }}
+          />
+          <div 
+            className="absolute w-80 h-80 rounded-full opacity-[0.03] blur-3xl"
+            style={{ 
+              background: 'radial-gradient(circle, #328CC1 0%, transparent 70%)',
+              bottom: '5%',
+              right: '-5%',
+              animation: 'floatOrb2 25s ease-in-out infinite'
+            }}
+          />
+          {/* Subtle grid pattern */}
+          <div 
+            className="absolute inset-0 opacity-[0.02]"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, #0B1F3B 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}
+          />
+        </div>
+        
+        {/* Animation Keyframes */}
+        <style>{`
+          @keyframes floatOrb1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
+          }
+          @keyframes floatOrb2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40px, -20px) scale(1.05); }
+          }
+          @keyframes solutionCardFloat1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+          }
+          @keyframes solutionCardFloat2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+          @keyframes solutionCardFloat3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+          }
+          @keyframes pulseRing {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.5; }
+          }
+          @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+          }
+          @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+          }
+        `}</style>
+
+        <div className="container-custom relative z-10">
+          {/* Section Header with Decorative Line */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-4 mb-6">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#0B1F3B]/30" />
+              <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#0B1F3B]/30" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3B]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               By Solutions
             </h2>
-           
           </div>
           
-          {/* 3 Solution Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1: Model Customization */}
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
-              data-testid="solution-model-customization"
-            >
-              {/* <div className="w-14 h-14 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center mb-6">
-                <SlidersHorizontal className="w-7 h-7 text-[#8B5CF6]" strokeWidth={1.5} />
-              </div> */}
-              {/* <div className="w-14 h-14 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center mb-6">
-                <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-              </div> */}
-              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Model Customization
-              </h3>
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence for real-world use.
-              </p>
-            </div>
+          {/* Premium 3-Column Animated Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            
+            {/* Card 1: Model Customization - Floating Animation 1 */}
+            <Link to="/products/model-customization" className="group block" style={{ animation: 'solutionCardFloat1 6s ease-in-out infinite' }}>
+              <div 
+                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
+                data-testid="solution-model-customization"
+              >
+                {/* Decorative Corner Accent */}
+                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
+                  <div 
+                    className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-bl from-[#8B5CF6]/10 to-transparent rounded-full transition-all duration-500 group-hover:scale-150 group-hover:from-[#8B5CF6]/20"
+                  />
+                </div>
+                
+                {/* Animated Icon Container */}
+                <div className="relative mb-8">
+                  <div 
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#8B5CF6]/15 to-[#8B5CF6]/5 flex items-center justify-center relative overflow-hidden group-hover:from-[#8B5CF6]/25 group-hover:to-[#8B5CF6]/10 transition-all duration-500"
+                    style={{ animation: 'iconPulse 4s ease-in-out infinite' }}
+                  >
+                    {/* Shimmer effect on hover */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer 2s infinite'
+                      }}
+                    />
+                    <SlidersHorizontal className="w-7 h-7 text-[#8B5CF6] relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                  </div>
+                  {/* Pulse ring behind icon */}
+                  <div 
+                    className="absolute inset-0 w-16 h-16 rounded-2xl border border-[#8B5CF6]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ animation: 'pulseRing 2s ease-in-out infinite' }}
+                  />
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#8B5CF6] transition-colors duration-300">
+                  Model Customization
+                </h3>
+                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
+                  We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence.
+                </p>
+                
+                {/* Learn More Link */}
+                <div className="flex items-center gap-2 text-[#8B5CF6] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
 
-            {/* Card 2: Value Realization */}
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
-              data-testid="solution-value-realization"
-            >
-              {/* <div className="w-14 h-14 rounded-xl bg-[#328CC1]/10 flex items-center justify-center mb-6">
-                <TrendingUp className="w-7 h-7 text-[#000000]" strokeWidth={1.5} />
-              </div> */}
-              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Value Realization
-              </h3>
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment is focused on driving efficiency, impact, and long-term value across your organization.
-              </p>
-            </div>
+            {/* Card 2: Value Realization - Floating Animation 2 */}
+            <Link to="/solutions/value-realization" className="group block" style={{ animation: 'solutionCardFloat2 7s ease-in-out infinite' }}>
+              <div 
+                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
+                data-testid="solution-value-realization"
+              >
+                {/* Decorative Corner Accent */}
+                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
+                  <div 
+                    className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-bl from-[#328CC1]/10 to-transparent rounded-full transition-all duration-500 group-hover:scale-150 group-hover:from-[#328CC1]/20"
+                  />
+                </div>
+                
+                {/* Animated Icon Container */}
+                <div className="relative mb-8">
+                  <div 
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#328CC1]/15 to-[#328CC1]/5 flex items-center justify-center relative overflow-hidden group-hover:from-[#328CC1]/25 group-hover:to-[#328CC1]/10 transition-all duration-500"
+                    style={{ animation: 'iconPulse 4.5s ease-in-out infinite' }}
+                  >
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer 2s infinite'
+                      }}
+                    />
+                    <TrendingUp className="w-7 h-7 text-[#328CC1] relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                  </div>
+                  <div 
+                    className="absolute inset-0 w-16 h-16 rounded-2xl border border-[#328CC1]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ animation: 'pulseRing 2s ease-in-out infinite' }}
+                  />
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
+                  Value Realization
+                </h3>
+                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
+                  We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment drives efficiency, impact, and long-term value.
+                </p>
+                
+                {/* Learn More Link */}
+                <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
 
-            {/* Card 3: Deployment */}
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#E8E4D9] hover:shadow-lg transition-shadow"
-              data-testid="solution-deployment"
-            >
-              {/* <div className="w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center mb-6">
-                <Rocket className="w-7 h-7 text-[#000000]" strokeWidth={1.5} />
-              </div> */}
-              <h3 className="text-xl font-semibold text-[#0B1F3B] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Deployment
-              </h3>
-              <p className="text-[#4b5563] leading-relaxed text-base">
-                We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model is engineered to run reliably in real environments, ensuring seamless integration and sustained impact.
-              </p>
-            </div>
+            {/* Card 3: Deployment - Floating Animation 3 */}
+            <Link to="/solutions/deployment" className="group block" style={{ animation: 'solutionCardFloat3 5.5s ease-in-out infinite' }}>
+              <div 
+                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
+                data-testid="solution-deployment"
+              >
+                {/* Decorative Corner Accent */}
+                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
+                  <div 
+                    className="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-bl from-[#10B981]/10 to-transparent rounded-full transition-all duration-500 group-hover:scale-150 group-hover:from-[#10B981]/20"
+                  />
+                </div>
+                
+                {/* Animated Icon Container */}
+                <div className="relative mb-8">
+                  <div 
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#10B981]/15 to-[#10B981]/5 flex items-center justify-center relative overflow-hidden group-hover:from-[#10B981]/25 group-hover:to-[#10B981]/10 transition-all duration-500"
+                    style={{ animation: 'iconPulse 5s ease-in-out infinite' }}
+                  >
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer 2s infinite'
+                      }}
+                    />
+                    <Rocket className="w-7 h-7 text-[#10B981] relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                  </div>
+                  <div 
+                    className="absolute inset-0 w-16 h-16 rounded-2xl border border-[#10B981]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ animation: 'pulseRing 2s ease-in-out infinite' }}
+                  />
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#10B981] transition-colors duration-300">
+                  Deployment
+                </h3>
+                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
+                  We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model runs reliably in real environments with seamless integration.
+                </p>
+                
+                {/* Learn More Link */}
+                <div className="flex items-center gap-2 text-[#10B981] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
           </div>
           
         </div>
-         {/* Talk To Us Button */}
-          <div className="text-center">
-            <Link to="/contact">
-              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 mt-20 text-base font-medium rounded-lg" data-testid="support-talk-to-us-btn">
-                Talk To Us
-              </Button>
-            </Link>
-          </div>
+        
+        {/* Talk To Us Button */}
+        <div className="text-center relative z-10">
+          <Link to="/contact">
+            <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 mt-20 text-base font-medium rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-105" data-testid="support-talk-to-us-btn">
+              Talk To Us
+            </Button>
+          </Link>
+        </div>
       </section>
 
       {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
