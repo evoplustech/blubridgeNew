@@ -18,7 +18,7 @@ const Deployment = () => {
       {/* Hero Section - Deployment */}
       <section className="relative flex flex-col overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-[#d0cbb9] overflow-hidden" />
+        <div className="absolute inset-0 bg-[#fffdf7] overflow-hidden" />
 
         {/* Hero content - Two column layout */}
         <div className="container-custom relative z-10 flex-1 flex items-center">
@@ -47,7 +47,7 @@ const Deployment = () => {
             <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
               <div className="relative w-full max-w-[520px] h-full">
                 {/* Background glow effects */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl" />
                 
                 {/* Central Deployment Hub */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
@@ -332,7 +332,7 @@ const Deployment = () => {
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#fffdf7] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -358,7 +358,7 @@ const Deployment = () => {
       </section>
 
             {/* SECTION 3: Accelerated Model Customization */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             {/* Left Content */}
@@ -479,7 +479,7 @@ const Deployment = () => {
       </section> */}
 
             {/* SECTION 4: Deployment Stack - Table Format */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#efede5]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Deployment Stack
@@ -573,7 +573,7 @@ const Deployment = () => {
       </section>    
 
       {/* Performance Metrics - 4 Column */}
-      <section className="py-24 bg-[#efede5]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -711,7 +711,7 @@ const Deployment = () => {
       </section> */}
 
       {/* FAQs */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#efede5]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
