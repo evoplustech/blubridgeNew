@@ -862,7 +862,7 @@ const AboutUs = () => {
           .premium-number {
             font-size: 64px;
             font-weight: 800;
-            background: linear-gradient(135deg, rgba(50, 140, 193, 0.15) 0%, rgba(50, 140, 193, 0.05) 100%);
+            background: #e3e0d3;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -874,16 +874,16 @@ const AboutUs = () => {
           {/* Section Header */}
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#328CC1]/40" />
+              {/* <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#328CC1]/40" />
               <span className="text-[#328CC1] text-sm font-semibold uppercase tracking-[0.2em]">Our Philosophy</span>
-              <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#328CC1]/40" />
+              <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#328CC1]/40" /> */}
             </div>
             <h2 
               className="text-4xl md:text-5xl font-bold text-[#0B1F3B] leading-tight"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
               data-testid="how-we-build-heading"
             >
-              How We Build, Innovate,<br className="hidden md:block" /> and Lead
+              How We Build, Innovate and Lead
             </h2>
           </div>
           
@@ -893,7 +893,7 @@ const AboutUs = () => {
             <ScrollAnimatedItem direction="left" delay={0}>
               <div className="premium-card rounded-2xl p-8 h-full">
                 <div className="flex items-start gap-5">
-                  <span className="premium-number">01</span>
+                  <span className="premium-number">1</span>
                   <div className="pt-2">
                     <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       Our Purpose
@@ -910,7 +910,7 @@ const AboutUs = () => {
             <ScrollAnimatedItem direction="right" delay={100}>
               <div className="premium-card rounded-2xl p-8 h-full">
                 <div className="flex items-start gap-5">
-                  <span className="premium-number">02</span>
+                  <span className="premium-number">2</span>
                   <div className="pt-2">
                     <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       How We Work
@@ -927,7 +927,7 @@ const AboutUs = () => {
             <ScrollAnimatedItem direction="left" delay={200}>
               <div className="premium-card rounded-2xl p-8 h-full">
                 <div className="flex items-start gap-5">
-                  <span className="premium-number">03</span>
+                  <span className="premium-number">3</span>
                   <div className="pt-2">
                     <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       Excellence Through Rigor
@@ -944,7 +944,7 @@ const AboutUs = () => {
             <ScrollAnimatedItem direction="right" delay={300}>
               <div className="premium-card rounded-2xl p-8 h-full">
                 <div className="flex items-start gap-5">
-                  <span className="premium-number">04</span>
+                  <span className="premium-number">4</span>
                   <div className="pt-2">
                     <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       Our People
