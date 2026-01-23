@@ -166,7 +166,12 @@ const ValueRealization = () => {
         const points = [];
         for (let i = 0; i <= 20; i++) {
           const x = padding + (width - padding * 2) * (i / 20);
-          const baseY = height - padding - (height - padding * 2) * (0.3 + i * 0.025);
+
+          const startLevel = 0.15;   // lower start (near bottom)
+          const endLevel = 1.25;     // higher end (near top)
+          const progress = i / 20;  // normalize 0 → 1
+          const baseY =  height -  padding - (height - padding * 2) * (startLevel + (endLevel - startLevel) * progress);
+          // const baseY = height - padding - (height - padding * 2) * (0.3 + i * 0.025);
           const wave = Math.sin(time + i * 0.3) * 10;
           const y = baseY + wave;
           points.push({ x, y });

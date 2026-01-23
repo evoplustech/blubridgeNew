@@ -698,7 +698,7 @@ const Home = () => {
       
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
       <section 
-        className="pt-20 pb-5 relative"
+        className="pt-20 pb-0 relative"
         style={{
           backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
           backgroundSize: 'cover',
@@ -707,7 +707,7 @@ const Home = () => {
         }}
       >
         {/* Light overlay for readability */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(255, 253, 247, 0.92)' }} />
+       
         
         <div className="container-custom relative z-10">
           <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4 capitalize">OUR FRONTIER AI EXPERTISE</h2></div>
@@ -719,8 +719,8 @@ const Home = () => {
             </div>
             
             {/* Right - AI Expertise Grid (8 tabs) */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8 text-center">By Industry</h2>
+            <div style={{ position: 'relative', top:'-40px'}}>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8 text-center">By Industry</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Radio, title: "Telco" },
@@ -751,7 +751,7 @@ const Home = () => {
 
       {/* Solutions Section - Premium Animated Hexagonal Design */}
       <section 
-        className="pt-10 pb-20 relative overflow-hidden"
+        className="pt-0 pb-20 relative overflow-hidden"
         style={{
           backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
           backgroundSize: 'cover',
@@ -759,8 +759,7 @@ const Home = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Light overlay for readability */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(255, 253, 247, 0.92)' }} />
+        
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
@@ -831,7 +830,7 @@ const Home = () => {
 
         <div className="container-custom relative z-10">
           {/* Section Header with Decorative Line */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-10">
             {/* <div className="inline-flex items-center gap-4 mb-6">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#0B1F3B]/30" />
               <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
