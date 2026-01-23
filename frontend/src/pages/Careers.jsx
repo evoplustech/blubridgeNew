@@ -478,7 +478,7 @@ const Careers = () => {
               marginBottom: '24px',
               letterSpacing: '-0.01em'
             }}>
-              Our Office Locations
+              Our Office Locations / Partner Office Location
             </h2>
 
             <div style={{

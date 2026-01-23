@@ -371,17 +371,7 @@ const animatedY2 = y1 + (y2 - y1) * easedProgress;
               </p>
               
               {/* Stats row */}
-              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-[#E5E7EB]">
-                <div>
-                  <div className="text-3xl font-bold text-black mb-1">10x</div>
-                  <div className="text-[#6B7280] text-sm">Faster Adaptation</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-black mb-1">99.9%</div>
-                  <div className="text-[#6B7280] text-sm">Platform Uptime</div>
-                </div>
-                
-              </div>
+             
             </div>
             
             {/* Right - Feature Cards Stack */}
@@ -512,36 +502,36 @@ const animatedY2 = y1 + (y2 - y1) * easedProgress;
             {/* Performance Metrics - 4 Column */}
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Customizing brings Efficiency and more</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
-                metric: '30%', 
-                label: 'Faster Iterations', 
+                metric: '50%', 
+                label: 'Improved Efficiency', 
                 sublabel: 'Accelerate Time to Value',
                 desc: 'Shorter development feedback loops with streamlined training pipelines.',
                 link: 'Learn More',
                 linkTo: '/about'
               },
               { 
-                metric: '80%', 
-                label: 'Lower Cost', 
+                metric: '47%', 
+                label: 'Enhanced user satisfaction', 
                 sublabel: 'More performance for less.',
                 desc: 'Reduce training costs while maintaining high performance standards.',
                 link: 'Our Data Centres',
                 linkTo: '/products/glomfjord'
               },
               { 
-                metric: '40%', 
-                label: 'More Efficient', 
+                metric: '42%', 
+                label: 'Innovation and Creativity', 
                 sublabel: 'Improved Resource Utilisation',
                 desc: ' Improved utilization and training workload optimization.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
               },
               { 
-                metric: '7.2X', 
-                label: 'Faster Inference', 
+                metric: '29%', 
+                label: 'Flexibility ', 
                 sublabel: 'Accelerate time to insights',
                 desc: 'Optimized infrastructure deployment and inference throughput.',
                 link: 'Blog Post',
@@ -551,8 +541,8 @@ const animatedY2 = y1 + (y2 - y1) * easedProgress;
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
                 <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
-                <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
-                {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
+                {/*<p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
+                 <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
                   {item.link} <ArrowRight className="w-3 h-3" />
                 </Link> */}
               </div>

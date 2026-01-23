@@ -840,7 +840,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="max-w-6xl mx-auto px-4" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px' }} >
+        <div className="max-w-6xl mx-auto px-4" >
           {/* Section Heading */}
           <h2 
             className="text-center mb-16"
@@ -858,7 +858,7 @@ const AboutUs = () => {
           
           {/* Row 1 - Our Purpose - Slide from Left */}
           <ScrollAnimatedItem direction="left" delay={0}>
-            <div className="mb-12">
+            <div className="mb-12" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px' }} >
               <h3 
                 className="mb-3"
                 style={{ 
@@ -871,14 +871,14 @@ const AboutUs = () => {
                 Our Purpose
               </h3>
               <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. <br></br>Everything we build is application-driven, turning AI innovation into tangible value.
               </p>
             </div>
           </ScrollAnimatedItem>
           
           {/* Row 2 - How We Work - Slide from Right */}
           <ScrollAnimatedItem direction="right" delay={100}>
-            <div className="mb-12" style={{ textAlign:'right'}}>
+            <div className="mb-12" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px',textAlign:'right' }} >
               <h3 
                 className="mb-3"
                 style={{ 
@@ -891,14 +891,14 @@ const AboutUs = () => {
                 How We Work
               </h3>
               <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
+                Our teams move fast with purpose, combining individual ownership with strong collaboration. <br></br>We operate with transparency, believing open exchange is key to building better intelligence.
               </p>
             </div>
           </ScrollAnimatedItem>
           
           {/* Row 3 - Excellence Through Rigor & Creativity - Slide from Left */}
           <ScrollAnimatedItem direction="left" delay={200}>
-            <div className="mb-12">
+            <div className="mb-12" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px' }}>
               <h3 
                 className="mb-3"
                 style={{ 
@@ -911,14 +911,14 @@ const AboutUs = () => {
                 Excellence Through Rigor & Creativity
               </h3>
               <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
+                Rigor defines our research, ensuring every model is grounded in technical excellence.<br></br> Creativity drives us to discover new paths toward efficiency and performance.
               </p>
             </div>
           </ScrollAnimatedItem>
           
           {/* Row 4 - Our People - Slide from Right */}
           <ScrollAnimatedItem direction="right" delay={300}>
-            <div style={{ textAlign:'right'}}>
+            <div style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px',textAlign:'right' }}>
               <h3 
                 className="mb-3"
                 style={{ 
@@ -931,7 +931,7 @@ const AboutUs = () => {
                 Our People
               </h3>
               <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
+                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives.<br></br> We are united by a broad and deep range of expertise across the AI landscape.
               </p>
             </div>
           </ScrollAnimatedItem>
