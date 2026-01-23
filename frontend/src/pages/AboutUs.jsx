@@ -101,7 +101,7 @@ const PassionTypingText = () => {
   const animationRef = useRef(null);
   
   const staticText = "It's Our ";
-  const words = ["Passion", "Craft"];
+  const words = ["Passion.", "Craft."];
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -1166,9 +1166,9 @@ const AboutUs = () => {
             </div>
             
             {/* Bottom Row - "No hidden catches" on LEFT + "It's Our Passion & Craft." on RIGHT */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-end">
+            <div className="grid md:grid-cols-3 gap-14 md:gap-12 items-end">
               {/* Left Side - No hidden catches with gold line */}
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-6 w-sm">
                 <div className="text-left flex-1">
                   <h3 
                     className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
@@ -1181,14 +1181,16 @@ const AboutUs = () => {
                   </p>
                 </div>
                 {/* Gold decorative line */}
-                <div 
+                {/* <div 
                   className="hidden md:block w-[2px] self-stretch"
                   style={{ backgroundColor: '#C9A227', minHeight: '100px' }}
-                />
+                /> */}
               </div>
               
               {/* Right Side - Typing Animation "It's Our Passion & Craft." */}
-              <PassionTypingText />
+              <div className="md:col-span-2">
+                <PassionTypingText />
+              </div>
             </div>
           </div>
         </div>
