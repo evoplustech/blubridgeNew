@@ -679,8 +679,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1760143769985-f868095dbc7d?w=600&q=80" 
-                alt="Abstract modern futuristic design"
+                src="https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/zd00lfph_our%20purpose.png" 
+                alt="Our Purpose"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -776,7 +776,7 @@ const AboutUs = () => {
               >
                 Excellence Through Rigor & Creativity
               </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
                 Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
               </p>
             </div>
@@ -787,8 +787,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.unsplash.com/photo-1738082956213-aa554ba67bda?w=600&q=80" 
-                alt="Connected spheres representing unity"
+                src="https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/3epci5sz_Our%20People.png" 
+                alt="Our People"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -812,7 +812,7 @@ const AboutUs = () => {
               >
                 Our People
               </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
                 We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
               </p>
             </div>
