@@ -679,8 +679,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" 
-                alt="Data analytics and research visualization"
+                src="https://images.unsplash.com/photo-1760143769985-f868095dbc7d?w=600&q=80" 
+                alt="Abstract modern futuristic design"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -787,8 +787,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.pexels.com/photos/8386181/pexels-photo-8386181.jpeg?w=600&q=80" 
-                alt="Puzzle pieces representing unity and diversity"
+                src="https://images.unsplash.com/photo-1738082956213-aa554ba67bda?w=600&q=80" 
+                alt="Connected spheres representing unity"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
