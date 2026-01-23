@@ -9,6 +9,9 @@ module.exports = {
   	extend: {
   		fontFamily: {
   			sans: ['"DM Sans Variable"', '"DM Sans"', 'sans-serif'],
+			caveat: ['Caveat', 'cursive'],
+			patrick: ['Patrick Hand', 'cursive'],
+			kalam: ['Kalam', 'cursive'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

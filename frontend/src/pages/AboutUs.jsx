@@ -110,7 +110,7 @@ const PassionTypingText = () => {
           setHasStarted(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
     
     if (textRef.current) {
@@ -167,10 +167,11 @@ const PassionTypingText = () => {
   return (
     <div 
       ref={textRef}
+      className="text-right"
       data-testid="passion-typing-text"
     >
       <h2 
-        className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1F3B] leading-tight text-right"
+        className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#0B1F3B] leading-tight"
         style={{ 
           fontFamily: "'DM Sans', sans-serif",
           letterSpacing: '-0.02em'
@@ -178,15 +179,16 @@ const PassionTypingText = () => {
         data-testid="passion-heading"
       >
         <span>It's Our </span>
-        <span className="inline-flex items-baseline">
-          <span>{typedText}</span>
+        <span className="inline">
+          {typedText}
           {showCursor && !isTypingComplete && (
             <span 
-              className="inline-block w-[3px] ml-[1px]"
+              className="inline-block w-[3px] ml-[2px]"
               style={{ 
-                height: '0.85em',
+                height: '0.75em',
                 backgroundColor: '#C9A227',
-                verticalAlign: 'baseline'
+                verticalAlign: 'middle',
+                marginBottom: '0.1em'
               }}
             />
           )}
