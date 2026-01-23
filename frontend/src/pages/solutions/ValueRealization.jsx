@@ -48,29 +48,204 @@ const ValueRealization = () => {
               </div>
             </div>
             
-            {/* Right - Value Realization Flow Diagram */}
-            <div className="relative flex items-center justify-center lg:justify-end">
-              <div className="relative">
-                {/* Main image with floating animation */}
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/mqgt2jvy_Gemini_Generated_Image_zeuxebzeuxebzeux-Photoroom.png" 
-                  alt="Value Realization Flow Diagram" 
-                  className="w-full max-w-[850px] h-auto object-contain relative z-10"
-                  style={{
-                    animation: 'floatImage 6s ease-in-out infinite'
-                  }}
-                />
+            {/* Right - Premium Value Realization Visual */}
+            <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
+              <div className="relative w-full max-w-[520px] h-full">
+                {/* Background glow effects */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
+                
+                {/* Central Value Circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div 
+                    className="relative w-32 h-32 rounded-full flex items-center justify-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #0B1F3B 0%, #1a3a5f 100%)',
+                      boxShadow: '0 0 60px rgba(11, 31, 59, 0.4), 0 0 100px rgba(50, 140, 193, 0.2), inset 0 2px 20px rgba(255,255,255,0.1)'
+                    }}
+                  >
+                    <div className="text-center">
+                      <div className="text-white text-2xl font-bold" style={{ animation: 'countUp 2s ease-out forwards' }}>ROI</div>
+                      <div className="text-[#32CD32] text-sm font-semibold">+247%</div>
+                    </div>
+                    {/* Rotating outer ring */}
+                    <div 
+                      className="absolute inset-[-12px] rounded-full border-2 border-dashed border-[#328CC1]/40"
+                      style={{ animation: 'spin 25s linear infinite' }}
+                    />
+                    {/* Inner pulse ring */}
+                    <div 
+                      className="absolute inset-[-4px] rounded-full border border-[#32CD32]/30"
+                      style={{ animation: 'pulse 2s ease-in-out infinite' }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Orbital path */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520">
+                  <ellipse cx="260" cy="260" rx="180" ry="180" fill="none" stroke="url(#valueOrbit)" strokeWidth="1" strokeDasharray="8 4" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" from="0 260 260" to="360 260 260" dur="60s" repeatCount="indefinite"/>
+                  </ellipse>
+                  <ellipse cx="260" cy="260" rx="130" ry="130" fill="none" stroke="url(#valueOrbit)" strokeWidth="1" opacity="0.2"/>
+                  
+                  <defs>
+                    <linearGradient id="valueOrbit" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#328CC1" stopOpacity="0.6"/>
+                      <stop offset="50%" stopColor="#32CD32" stopOpacity="0.4"/>
+                      <stop offset="100%" stopColor="#328CC1" stopOpacity="0.6"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                
+                {/* Value Metric Cards - Positioned around center */}
+                {/* Top - Efficiency */}
+                <div className="absolute top-4 left-1/2 -translate-x-1/2" style={{ animation: 'floatMetric1 5s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Efficiency</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">+42%</div>
+                    <div className="w-full h-1 bg-[#E5E7EB] rounded-full mt-2 overflow-hidden">
+                      <div className="h-full bg-blue-500 rounded-full" style={{ width: '75%', animation: 'growBar 2s ease-out forwards' }}/>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Right - Revenue */}
+                <div className="absolute top-1/2 -translate-y-1/2 right-0" style={{ animation: 'floatMetric2 6s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Revenue</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">$2.4M</div>
+                    <div className="flex items-center gap-1 mt-1">
+                      <svg className="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd"/>
+                      </svg>
+                      <span className="text-xs text-green-500 font-medium">+18%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Bottom - Adoption */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2" style={{ animation: 'floatMetric3 5.5s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Adoption</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">89%</div>
+                    <div className="flex gap-1 mt-2">
+                      {[1,2,3,4,5].map((i) => (
+                        <div key={i} className={`w-6 h-1.5 rounded-full ${i <= 4 ? 'bg-purple-500' : 'bg-[#E5E7EB]'}`} style={{ animation: `fadeIn ${0.2 * i}s ease-out forwards` }}/>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Left - Cost Savings */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0" style={{ animation: 'floatMetric4 6.5s ease-in-out infinite' }}>
+                  <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#6B7280] font-medium">Savings</span>
+                    </div>
+                    <div className="text-xl font-bold text-[#0B1F3B]">$840K</div>
+                    <div className="text-xs text-teal-500 mt-1">Annual Cost Reduction</div>
+                  </div>
+                </div>
+                
+                {/* Floating connection dots */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  {[...Array(15)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute rounded-full"
+                      style={{
+                        width: `${3 + (i % 3)}px`,
+                        height: `${3 + (i % 3)}px`,
+                        background: i % 2 === 0 ? '#328CC1' : '#32CD32',
+                        left: `${15 + (i * 5)}%`,
+                        top: `${20 + ((i % 4) * 18)}%`,
+                        opacity: 0.4,
+                        animation: `particleFloat${i % 4} ${4 + (i % 3)}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.15}s`
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
               
               {/* Animation keyframes */}
               <style>{`
-                @keyframes floatImage {
-                  0%, 100% {
-                    transform: translateY(0px);
-                  }
-                  50% {
-                    transform: translateY(-15px);
-                  }
+                @keyframes spin {
+                  from { transform: rotate(0deg); }
+                  to { transform: rotate(360deg); }
+                }
+                @keyframes pulse {
+                  0%, 100% { transform: scale(1); opacity: 0.3; }
+                  50% { transform: scale(1.1); opacity: 0.6; }
+                }
+                @keyframes floatMetric1 {
+                  0%, 100% { transform: translateX(-50%) translateY(0); }
+                  50% { transform: translateX(-50%) translateY(-8px); }
+                }
+                @keyframes floatMetric2 {
+                  0%, 100% { transform: translateY(-50%) translateX(0); }
+                  50% { transform: translateY(-50%) translateX(-8px); }
+                }
+                @keyframes floatMetric3 {
+                  0%, 100% { transform: translateX(-50%) translateY(0); }
+                  50% { transform: translateX(-50%) translateY(8px); }
+                }
+                @keyframes floatMetric4 {
+                  0%, 100% { transform: translateY(-50%) translateX(0); }
+                  50% { transform: translateY(-50%) translateX(8px); }
+                }
+                @keyframes growBar {
+                  from { width: 0%; }
+                  to { width: 75%; }
+                }
+                @keyframes fadeIn {
+                  from { opacity: 0; }
+                  to { opacity: 1; }
+                }
+                @keyframes particleFloat0 {
+                  0% { transform: translate(0, 0); opacity: 0.3; }
+                  50% { transform: translate(15px, -20px); opacity: 0.6; }
+                  100% { transform: translate(0, 0); opacity: 0.3; }
+                }
+                @keyframes particleFloat1 {
+                  0% { transform: translate(0, 0); opacity: 0.4; }
+                  50% { transform: translate(-20px, 15px); opacity: 0.7; }
+                  100% { transform: translate(0, 0); opacity: 0.4; }
+                }
+                @keyframes particleFloat2 {
+                  0% { transform: translate(0, 0); opacity: 0.3; }
+                  50% { transform: translate(20px, 20px); opacity: 0.5; }
+                  100% { transform: translate(0, 0); opacity: 0.3; }
+                }
+                @keyframes particleFloat3 {
+                  0% { transform: translate(0, 0); opacity: 0.5; }
+                  50% { transform: translate(-15px, -15px); opacity: 0.7; }
+                  100% { transform: translate(0, 0); opacity: 0.5; }
                 }
               `}</style>
             </div>
