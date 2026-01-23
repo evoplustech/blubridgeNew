@@ -750,14 +750,14 @@ const Deployment = () => {
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
               }
-              { 
-                metric: '7.2X', 
-                label: 'Faster Inference', 
-                sublabel: 'Accelerate time to insights',
-                desc: 'Optimized GPU infrastructure delivers higher throughput and lower latency.',
-                link: 'Blog Post',
-                linkTo: '/blog'
-              }
+              // { 
+              //   metric: '7.2X', 
+              //   label: 'Faster Inference', 
+              //   sublabel: 'Accelerate time to insights',
+              //   desc: 'Optimized GPU infrastructure delivers higher throughput and lower latency.',
+              //   link: 'Blog Post',
+              //   linkTo: '/blog'
+              // }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
