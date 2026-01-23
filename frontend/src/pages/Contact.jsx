@@ -765,6 +765,174 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Map Section */}
+      <div style={{
+        maxWidth: '1261px',
+        margin: '0 auto',
+        padding: '40px 24px 0 24px'
+      }}>
+        <div style={{
+          backgroundColor: 'rgb(239, 237, 229)',
+          borderRadius: '16px',
+          padding: '24px',
+          border: '1px solid #e8e6e0'
+        }}>
+          {/* Google Maps Embed */}
+          <div style={{
+            borderRadius: '12px',
+            overflow: 'hidden',
+            marginBottom: '24px'
+          }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5842898396!2d80.26628067507894!3d13.000893987312855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52679f3c4f7a11%3A0x3c3f0e4f3f3f3f3f!2sBesant%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+              width="100%"
+              height="350"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="BluBridge Office Location"
+            />
+          </div>
+
+          {/* Contact Details Below Map */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '20px'
+          }}>
+            {/* Address */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '12px'
+            }}>
+              <div style={{
+                width: '40px',
+                height: '40px',
+                backgroundColor: '#0B1F3B',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <MapPin size={20} color="#ffffff" />
+              </div>
+              <div>
+                <p style={{
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  color: '#888888',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  margin: 0,
+                  marginBottom: '4px'
+                }}>
+                  Address
+                </p>
+                <p style={{
+                  fontSize: '14px',
+                  color: '#333333',
+                  margin: 0,
+                  lineHeight: '1.5'
+                }}>
+                  Plot #E160 Tiger Varadhachari Road,<br />
+                  Kalakshetra Colony, Besant Nagar,<br />
+                  Chennai – 600090, Tamil Nadu, India
+                </p>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '12px'
+            }}>
+              <div style={{
+                width: '40px',
+                height: '40px',
+                backgroundColor: '#0B1F3B',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Mail size={20} color="#ffffff" />
+              </div>
+              <div>
+                <p style={{
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  color: '#888888',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  margin: 0,
+                  marginBottom: '4px'
+                }}>
+                  Email
+                </p>
+                <a 
+                  href="mailto:info@blubridge.ai"
+                  style={{
+                    fontSize: '14px',
+                    color: '#333333',
+                    textDecoration: 'none'
+                  }}
+                >
+                  info@blubridge.ai
+                </a>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '12px'
+            }}>
+              <div style={{
+                width: '40px',
+                height: '40px',
+                backgroundColor: '#0B1F3B',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Phone size={20} color="#ffffff" />
+              </div>
+              <div>
+                <p style={{
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  color: '#888888',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  margin: 0,
+                  marginBottom: '4px'
+                }}>
+                  Phone
+                </p>
+                <a 
+                  href="tel:+918925987250"
+                  style={{
+                    fontSize: '14px',
+                    color: '#333333',
+                    textDecoration: 'none'
+                  }}
+                >
+                  +91 8925987250
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
