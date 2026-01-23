@@ -962,7 +962,7 @@ const AboutUs = () => {
 
       {/* What Sets Us Apart Section - Clean Minimalist Design */}
       <section className="py-24 md:py-32 bg-white" data-testid="what-sets-us-apart-section">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           {/* Header */}
           <div className="text-center mb-20">
             <h2 

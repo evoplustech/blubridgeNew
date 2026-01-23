@@ -137,6 +137,7 @@ const Footer = () => {
               <li><a href="https://www.youtube.com/@blubridge-ai" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">YouTube</a></li>
             </ul>
           </div>
+          <div></div>
 
           {/* Contact Us Form */}
           <div className="lg:col-span-2">
