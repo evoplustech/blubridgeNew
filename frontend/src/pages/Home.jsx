@@ -865,7 +865,7 @@ const Home = () => {
                   Model Customization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence.
+                  We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. 
                 </p>
                 
                 {/* Learn More Link */}
@@ -916,7 +916,7 @@ const Home = () => {
                   Value Realization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment drives efficiency, impact, and long-term value.
+                  We translate AI potential into measurable business outcomes by aligning research with real operational goals. 
                 </p>
                 
                 {/* Learn More Link */}
@@ -967,7 +967,7 @@ const Home = () => {
                   Deployment
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model runs reliably in real environments with seamless integration.
+                  We move AI from lab to production with secure, scalable, and performance-optimized deployments. 
                 </p>
                 
                 {/* Learn More Link */}
