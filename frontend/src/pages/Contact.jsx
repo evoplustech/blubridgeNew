@@ -169,7 +169,7 @@ const Contact = () => {
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
-                  <h3 style={{
+                   {/* <h3 style={{
                     fontWeight: '600',
                     color: '#0B1F3B',
                     fontSize: '16px',
@@ -177,7 +177,7 @@ const Contact = () => {
                     lineHeight: '1.3'
                   }}>
                     BluBridge Technologies (P) Ltd.
-                  </h3>
+                  </h3> */}
                   <p style={{
                     color: '#4a5568',
                     fontSize: '14px',
@@ -225,7 +225,7 @@ const Contact = () => {
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
-                  <h3 style={{
+                  {/* <h3 style={{
                     fontWeight: '600',
                     color: '#0B1F3B',
                     fontSize: '16px',
@@ -233,7 +233,7 @@ const Contact = () => {
                     lineHeight: '1.3'
                   }}>
                     BluBridge Technologies (P) Ltd.
-                  </h3>
+                  </h3> */}
                   <p style={{
                     color: '#4a5568',
                     fontSize: '14px',

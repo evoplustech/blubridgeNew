@@ -11,109 +11,286 @@ const ModelCustomization = () => {
   const canvasRef = useRef(null);
 
   // Animated model graph visualization for hero
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationFrame;
-    let time = 0;
+useEffect(() => {
+  /* ==========================
+     Canvas setup
+  ========================== */
+  const canvas = canvasRef.current;
+  if (!canvas) return;
 
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
+  const ctx = canvas.getContext('2d');
+  let animationFrame;
+  let time = 0;
 
-    const models = [
-      { name: 'Data', x: 0.2, y: 0.2, color: '#3b82f6' },
-      { name: 'Adapters', x: 0.5, y: 0.15, color: '#8b5cf6' },
-      { name: 'Tuning', x: 0.8, y: 0.25, color: '#ec4899' },
-      { name: 'Prompts', x: 0.15, y: 0.5, color: '#06b6d4' },
-      { name: 'Embeddings', x: 0.4, y: 0.45, color: '#f97316' },
-      { name: 'Alignment', x: 0.65, y: 0.4, color: '#22c55e' },
-      { name: 'Evaluation', x: 0.85, y: 0.55, color: '#eab308' },
-      { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' },
-      { name: 'Behavior', x: 0.55, y: 0.7, color: '#a855f7' },
-      { name: 'Guardrails', x: 0.75, y: 0.8, color: '#14b8a6' }
-    ];
+  const resize = () => {
+    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  };
 
-    const drawModelGraph = () => {
-      time += 0.008;
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
+  /* ==========================
+     Models (pipeline order)
+  ========================== */
+  const models = [
+    { name: 'Data',        x: 0.2,  y: 0.2,  color: '#3b82f6' }, // 0
+    { name: 'Adapters',    x: 0.5,  y: 0.15, color: '#8b5cf6' }, // 1
+    { name: 'Tuning',      x: 0.8,  y: 0.25, color: '#ec4899' }, // 2
+    { name: 'Prompts',     x: 0.15, y: 0.5,  color: '#06b6d4' }, // 3
+    { name: 'Embeddings',  x: 0.4,  y: 0.45, color: '#f97316' }, // 4
+    { name: 'Alignment',   x: 0.65, y: 0.4,  color: '#22c55e' }, // 5
+    { name: 'Evaluation',  x: 0.85, y: 0.55, color: '#eab308' }, // 6
+    { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' }, // 7
+    { name: 'Behavior',    x: 0.55, y: 0.7,  color: '#a855f7' }, // 8
+    { name: 'Guardrails',  x: 0.75, y: 0.8,  color: '#14b8a6' }  // 9
+  ];
 
-      // Draw connections between models
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)';
+  /* ==========================
+     Sequential connections
+  ========================== */
+  const connectionSequence = [
+    [0, 1], // Data → Adapters
+    [1, 2], // Adapters → Tuning
+    [2, 3], // Tuning → Prompts
+    [3, 4], // Prompts → Embeddings
+    [4, 5], // Embeddings → Alignment
+    [5, 6], // Alignment → Evaluation
+    [6, 7], // Evaluation → Compression
+    [7, 8], // Compression → Behavior
+    [8, 9]  // Behavior → Guardrails
+  ];
+
+  /* ==========================
+     Main draw loop
+  ========================== */
+  const drawModelGraph = () => {
+    time += 0.008;
+
+    ctx.clearRect(
+      0,
+      0,
+      canvas.offsetWidth,
+      canvas.offsetHeight
+    );
+
+    const width = canvas.offsetWidth;
+    const height = canvas.offsetHeight;
+
+    /* ==========================
+       Active connection timing
+    ========================== */
+    const cycleDuration = 0.4;
+    const totalCycleTime =
+      connectionSequence.length * cycleDuration;
+
+    const currentCycleTime =
+      (time * 0.5) % totalCycleTime;
+
+    const activeConnectionIndex =
+      Math.floor(currentCycleTime / cycleDuration);
+
+    const connectionProgress =
+      (currentCycleTime % cycleDuration) / cycleDuration;
+
+    /* ==========================
+       Draw faint static paths
+    ========================== */
+    connectionSequence.forEach(([fromIdx, toIdx]) => {
+      const model1 = models[fromIdx];
+      const model2 = models[toIdx];
+
+      const x1 = model1.x * width;
+      const y1 = model1.y * height;
+      const x2 = model2.x * width;
+      const y2 = model2.y * height;
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = 'rgba(100, 120, 150, 0.08)';
       ctx.lineWidth = 1;
-      models.forEach((model1, i) => {
-        models.forEach((model2, j) => {
-          if (i < j && Math.random() > 0.7) {
-            const x1 = model1.x * width + Math.sin(time + i) * 5;
-            const y1 = model1.y * height + Math.cos(time + i) * 5;
-            const x2 = model2.x * width + Math.sin(time + j) * 5;
-            const y2 = model2.y * height + Math.cos(time + j) * 5;
-            
-            ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            ctx.stroke();
-          }
-        });
-      });
+      ctx.stroke();
+    });
 
-      // Draw model nodes
-      models.forEach((model, i) => {
-        const x = model.x * width + Math.sin(time + i * 0.5) * 8;
-        const y = model.y * height + Math.cos(time + i * 0.3) * 8;
-        const pulseSize = 30 + Math.sin(time * 2 + i) * 5;
+    /* ==========================
+       Draw active animated path
+    ========================== */
+    if (activeConnectionIndex < connectionSequence.length) {
+      const [fromIdx, toIdx] =
+        connectionSequence[activeConnectionIndex];
 
-        // Glow effect
-        const gradient = ctx.createRadialGradient(x, y, 0, x, y, pulseSize * 2);
-        gradient.addColorStop(0, model.color + '40');
-        gradient.addColorStop(1, model.color + '00');
-        ctx.fillStyle = gradient;
+      const model1 = models[fromIdx];
+      const model2 = models[toIdx];
+
+      const x1 = model1.x * width;
+      const y1 = model1.y * height;
+      const x2 = model2.x * width;
+      const y2 = model2.y * height;
+
+      // 👇 THIS LINE IS PRESERVED EXACTLY
+      // Smooth eased progress for faster, cleaner motion
+        const easedProgress = Math.min(
+          1,
+          1 - Math.pow(1 - connectionProgress, 3)
+        );
+
+        // Animate the line drawing from start to end (eased)
+        const animatedX2 = x1 + (x2 - x1) * easedProgress;
+        const animatedY2 = y1 + (y2 - y1) * easedProgress;
+
+      const gradient =
+        ctx.createLinearGradient(x1, y1, animatedX2, animatedY2);
+
+      gradient.addColorStop(0, model1.color + '99');
+      gradient.addColorStop(1, model2.color + '99');
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(animatedX2, animatedY2);
+     ctx.strokeStyle = gradient;
+      ctx.lineWidth = 1.5;
+      ctx.globalAlpha = 0.7;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(animatedX2, animatedY2);
+      ctx.strokeStyle = model1.color + '20';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+
+      // Draw a traveling pulse dot exactly at the tip of the animated line
+      if (connectionProgress < 1) {
+        const pulseX = animatedX2;
+        const pulseY = animatedY2;
+
+        const pulseGradient =
+          ctx.createRadialGradient(
+            pulseX,
+            pulseY,
+            0,
+            pulseX,
+            pulseY,
+            12
+          );
+
+        pulseGradient.addColorStop(0, model1.color + '80');
+        pulseGradient.addColorStop(1, model1.color + '00');
+
+        ctx.fillStyle = pulseGradient;
         ctx.beginPath();
-        ctx.arc(x, y, pulseSize * 2, 0, Math.PI * 2);
+        ctx.arc(pulseX, pulseY, 12, 0, Math.PI * 2);
         ctx.fill();
 
-        // Main node
-        ctx.fillStyle = model.color;
+        ctx.fillStyle = '#ffffff';
         ctx.beginPath();
-        ctx.arc(x, y, pulseSize * 0.4, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Node label
-        ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
-        ctx.font = '11px DM Sans, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(model.name, x, y + pulseSize * 0.7);
-      });
-
-      // Draw floating data particles
-      for (let i = 0; i < 30; i++) {
-        const px = (Math.sin(time * 0.5 + i * 0.4) + 1) * width * 0.5;
-        const py = (Math.cos(time * 0.3 + i * 0.5) + 1) * height * 0.5;
-        const size = 2 + Math.sin(time + i) * 1;
-        
-        ctx.beginPath();
-        ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.2 + Math.sin(time + i) * 0.1})`;
+        ctx.arc(pulseX, pulseY, 3, 0, Math.PI * 2);
         ctx.fill();
       }
+    }
 
-      animationFrame = requestAnimationFrame(drawModelGraph);
-    };
+    /* ==========================
+       Draw model nodes
+    ========================== */
+    models.forEach((model, i) => {
+      const x =
+        model.x * width +
+        Math.sin(time + i * 0.5) * 4;
 
-    resize();
-    window.addEventListener('resize', resize);
-    drawModelGraph();
+      const y =
+        model.y * height +
+        Math.cos(time + i * 0.3) * 4;
 
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrame);
-    };
-  }, []);
+      const pulseSize =
+        30 + Math.sin(time * 1.5 + i) * 3;
+
+      const isActiveFrom =
+        connectionSequence[activeConnectionIndex] &&
+        connectionSequence[activeConnectionIndex][0] === i;
+
+      const isActiveTo =
+        connectionSequence[activeConnectionIndex] &&
+        connectionSequence[activeConnectionIndex][1] === i;
+
+      const isActive = isActiveFrom || isActiveTo;
+
+      const glowOpacity = isActive ? '60' : '30';
+      const glowSize =
+        isActive ? pulseSize * 2.5 : pulseSize * 1.8;
+
+      const gradient =
+        ctx.createRadialGradient(x, y, 0, x, y, glowSize);
+
+      gradient.addColorStop(0, model.color + glowOpacity);
+      gradient.addColorStop(1, model.color + '00');
+
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(x, y, glowSize, 0, Math.PI * 2);
+      ctx.fill();
+
+      const nodeSize =
+        isActive ? pulseSize * 0.5 : pulseSize * 0.4;
+
+      ctx.fillStyle = model.color;
+      ctx.beginPath();
+      ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
+      ctx.font = '11px DM Sans, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(
+        model.name,
+        x,
+        y + pulseSize * 0.7
+      );
+    });
+
+    /* ==========================
+       Floating particles
+    ========================== */
+    for (let i = 0; i < 15; i++) {
+      const px =
+        (Math.sin(time * 0.3 + i * 0.5) + 1) *
+        width * 0.5;
+
+      const py =
+        (Math.cos(time * 0.2 + i * 0.6) + 1) *
+        height * 0.5;
+
+      const size =
+        1.5 + Math.sin(time + i) * 0.5;
+
+      ctx.beginPath();
+      ctx.arc(px, py, size, 0, Math.PI * 2);
+      ctx.fillStyle =
+        `rgba(59, 130, 246, ${
+          0.15 + Math.sin(time + i) * 0.05
+        })`;
+      ctx.fill();
+    }
+
+    animationFrame =
+      requestAnimationFrame(drawModelGraph);
+  };
+
+  /* ==========================
+     Init & cleanup
+  ========================== */
+  resize();
+  window.addEventListener('resize', resize);
+  drawModelGraph();
+
+  return () => {
+    window.removeEventListener('resize', resize);
+    cancelAnimationFrame(animationFrame);
+  };
+}, []);
+
+
 
   useDocumentTitle('Model Customization | BluBridge');
 
