@@ -47,7 +47,7 @@ const Deployment = () => {
             <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
               <div className="relative w-full max-w-[520px] h-full">
                 {/* Background glow effects */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl" />
                 
                 {/* Central Deployment Hub */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
@@ -334,22 +334,22 @@ const Deployment = () => {
       {/* Value Highlights - 3 Column Strip */}
       <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-10 text-center">
+          <div className="grid md:grid-cols-3 gap-10">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
-              <p className="text-[#4B5563] leading-relaxed">
+              <p className="text-[#4B5563] leading-relaxed text-md">
                 Deploy models in environments engineered for reliability, consistency, and real-time performance.
               </p>
             </div>
-            <div>
+            <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
-              <p className="text-[#4B5563] leading-relaxed">
+              <p className="text-[#4B5563] leading-relaxed text-md">
                 Move from experimentation to live systems faster with pre-configured pipelines and automated rollout workflows.
               </p>
             </div>
-            <div>
+            <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
-              <p className="text-[#4B5563] leading-relaxed">
+              <p className="text-[#4B5563] leading-relaxed text-md">
                 Scale inference dynamically with predictable pricing and resource-aware orchestration across GPU clusters.
               </p>
             </div>

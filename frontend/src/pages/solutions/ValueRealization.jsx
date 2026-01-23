@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
@@ -6,6 +6,114 @@ import { ArrowRight, Plus, Minus, Zap, LayoutGrid } from 'lucide-react';
 
 const ValueRealization = () => {
   const [openFaq, setOpenFaq] = useState(null);
+
+    // Animated line graph for hero right side
+  const GraphVisualization = () => {
+    const graphCanvasRef = useRef(null);
+    
+    useEffect(() => {
+      const canvas = graphCanvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let animationFrame;
+      let time = 0;
+
+      const resize = () => {
+        canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+        canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      };
+
+      const drawGraph = () => {
+        time += 0.02;
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+        const width = canvas.offsetWidth;
+        const height = canvas.offsetHeight;
+        const padding = 40;
+
+        // Background grid
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 5; i++) {
+          const y = padding + (height - padding * 2) * (i / 5);
+          ctx.beginPath();
+          ctx.moveTo(padding, y);
+          ctx.lineTo(width - padding, y);
+          ctx.stroke();
+        }
+
+        // Animated line chart
+        const points = [];
+        for (let i = 0; i <= 20; i++) {
+          const x = padding + (width - padding * 2) * (i / 20);
+          const baseY = height - padding - (height - padding * 2) * (0.3 + i * 0.025);
+          const wave = Math.sin(time + i * 0.3) * 10;
+          const y = baseY + wave;
+          points.push({ x, y });
+        }
+
+        // Fill area under curve
+        const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+        
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, height - padding);
+        points.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.lineTo(points[points.length - 1].x, height - padding);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Draw line
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        points.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.strokeStyle = '#3b82f6';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw points
+        points.forEach((p, i) => {
+          if (i % 4 === 0) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#3b82f6';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#fff';
+            ctx.fill();
+          }
+        });
+
+        animationFrame = requestAnimationFrame(drawGraph);
+      };
+
+      resize();
+      window.addEventListener('resize', resize);
+      drawGraph();
+
+      return () => {
+        window.removeEventListener('resize', resize);
+        cancelAnimationFrame(animationFrame);
+      };
+    }, []);
+
+    return (
+      <div className="relative bg-white rounded-xl border border-[#D6DEC3] p-4 backdrop-blur-sm">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs text-[#2F3A4A]">Training Progress</span>
+          <span className="text-xs text-[#328CC1]">Live</span>
+        </div>
+        <canvas ref={graphCanvasRef} className="w-full h-[200px]" />
+        <div className="flex justify-between mt-2 text-xs text-[#6B7280]">
+          <span>Epoch 1</span>
+          <span>Epoch 10</span>
+        </div>
+      </div>
+    );
+  };
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -47,14 +155,17 @@ const ValueRealization = () => {
                 </Link> */}
               </div>
             </div>
-            
+            {/* Right - Animated Graph Visual */}
+            <div className="relative" style={{ animation: 'fadeInRight 1s ease-out 0.4s both' }}>
+              <GraphVisualization />
+            </div>
             {/* Right - Premium Value Realization Visual */}
-            <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
+            {/* <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
               <div className="relative w-full max-w-[520px] h-full">
-                {/* Background glow effects */}
+                
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl" />
                 
-                {/* Central Value Circle */}
+                
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                   <div 
                     className="relative w-32 h-32 rounded-full flex items-center justify-center"
@@ -67,12 +178,12 @@ const ValueRealization = () => {
                       <div className="text-white text-2xl font-bold" style={{ animation: 'countUp 2s ease-out forwards' }}>ROI</div>
                       <div className="text-[#32CD32] text-sm font-semibold">+247%</div>
                     </div>
-                    {/* Rotating outer ring */}
+                   
                     <div 
                       className="absolute inset-[-12px] rounded-full border-2 border-dashed border-[#328CC1]/40"
                       style={{ animation: 'spin 25s linear infinite' }}
                     />
-                    {/* Inner pulse ring */}
+                    
                     <div 
                       className="absolute inset-[-4px] rounded-full border border-[#32CD32]/30"
                       style={{ animation: 'pulse 2s ease-in-out infinite' }}
@@ -80,7 +191,7 @@ const ValueRealization = () => {
                   </div>
                 </div>
                 
-                {/* Orbital path */}
+               
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520">
                   <ellipse cx="260" cy="260" rx="180" ry="180" fill="none" stroke="url(#valueOrbit)" strokeWidth="1" strokeDasharray="8 4" opacity="0.3">
                     <animateTransform attributeName="transform" type="rotate" from="0 260 260" to="360 260 260" dur="60s" repeatCount="indefinite"/>
@@ -96,8 +207,7 @@ const ValueRealization = () => {
                   </defs>
                 </svg>
                 
-                {/* Value Metric Cards - Positioned around center */}
-                {/* Top - Efficiency */}
+                
                 <div className="absolute top-4 left-1/2 -translate-x-1/2" style={{ animation: 'floatMetric1 5s ease-in-out infinite' }}>
                   <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -115,7 +225,7 @@ const ValueRealization = () => {
                   </div>
                 </div>
                 
-                {/* Right - Revenue */}
+                
                 <div className="absolute top-1/2 -translate-y-1/2 right-0" style={{ animation: 'floatMetric2 6s ease-in-out infinite' }}>
                   <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -136,7 +246,7 @@ const ValueRealization = () => {
                   </div>
                 </div>
                 
-                {/* Bottom - Adoption */}
+                
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2" style={{ animation: 'floatMetric3 5.5s ease-in-out infinite' }}>
                   <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -156,7 +266,7 @@ const ValueRealization = () => {
                   </div>
                 </div>
                 
-                {/* Left - Cost Savings */}
+                
                 <div className="absolute top-1/2 -translate-y-1/2 left-0" style={{ animation: 'floatMetric4 6.5s ease-in-out infinite' }}>
                   <div className="bg-white rounded-xl p-4 shadow-lg border border-[#E5E7EB] min-w-[140px]">
                     <div className="flex items-center gap-2 mb-2">
@@ -172,7 +282,7 @@ const ValueRealization = () => {
                   </div>
                 </div>
                 
-                {/* Floating connection dots */}
+                
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
                   {[...Array(15)].map((_, i) => (
                     <div
@@ -193,7 +303,7 @@ const ValueRealization = () => {
                 </div>
               </div>
               
-              {/* Animation keyframes */}
+              
               <style>{`
                 @keyframes spin {
                   from { transform: rotate(0deg); }
@@ -248,7 +358,7 @@ const ValueRealization = () => {
                   100% { transform: translate(0, 0); opacity: 0.5; }
                 }
               `}</style>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
