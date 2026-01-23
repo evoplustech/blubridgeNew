@@ -1129,24 +1129,28 @@ const AboutUs = () => {
               </div>
             </div>
             
-            {/* Bottom Row - Single Feature (Left aligned like in the image) */}
-            <div className="md:max-w-xs">
-              {/* Feature 4 - No hidden catches */}
-              <div className="text-left">
-                <h3 
-                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  No hidden catches
-                </h3>
-                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  With dependable products, clear pricing, and straightforward communication, there are no unpleasant surprises. We aim to build trust, not test your tolerance.
-                </p>
+            {/* Bottom Row - "No hidden catches" on LEFT + "It's Our Passion & Craft." on RIGHT */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+              {/* Left Side - No hidden catches */}
+              <div className="md:max-w-sm">
+                <div className="text-left">
+                  <h3 
+                    className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
+                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                  >
+                    No hidden catches
+                  </h3>
+                  <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                    With dependable products, clear pricing, and straightforward communication, there are no unpleasant surprises. We aim to build trust, not test your tolerance.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Right Side - Typing Animation "It's Our Passion & Craft." */}
+              <div className="flex items-center justify-end">
+                <PassionTypingText />
               </div>
             </div>
-            
-            {/* Typing Animation - "It's Our Passion & Craft." */}
-            <PassionTypingText />
           </div>
         </div>
       </section>
