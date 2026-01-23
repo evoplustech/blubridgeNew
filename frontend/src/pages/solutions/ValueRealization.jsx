@@ -21,7 +21,7 @@ const ValueRealization = () => {
         <div 
           className="absolute inset-0 overflow-hidden" 
           style={{
-            background: 'linear-gradient(to right, #ccc7b3, #c1bca6)'
+            background: '#fffdf7'
           }}
         />
 

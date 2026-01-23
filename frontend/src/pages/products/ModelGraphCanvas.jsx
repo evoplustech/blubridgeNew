@@ -24,15 +24,15 @@ export default function ModelGraphCanvas() {
 
     // === MODEL NODES (MATCH SCREENSHOT) ===
     const nodes = [
-      { label: "LLaMA", x: 0.22, y: 0.18, c: "#3b82f6" },
-      { label: "GPT", x: 0.55, y: 0.14, c: "#8b5cf6" },
-      { label: "Claude", x: 0.82, y: 0.26, c: "#ec4899" },
-      { label: "Mistral", x: 0.18, y: 0.48, c: "#06b6d4" },
-      { label: "Flux", x: 0.45, y: 0.45, c: "#f97316" },
-      { label: "SDXL", x: 0.68, y: 0.40, c: "#22c55e" },
-      { label: "Whisper", x: 0.86, y: 0.56, c: "#eab308" },
-      { label: "CLIP", x: 0.26, y: 0.75, c: "#ef4444" },
-      { label: "Qwen", x: 0.55, y: 0.72, c: "#a855f7" },
+      { label: "Data", x: 0.22, y: 0.18, c: "#3b82f6" },
+      { label: "Adapters", x: 0.55, y: 0.14, c: "#8b5cf6" },
+      { label: "Tuning", x: 0.82, y: 0.26, c: "#ec4899" },
+      { label: "Prompts", x: 0.18, y: 0.48, c: "#06b6d4" },
+      { label: "Embeddings", x: 0.45, y: 0.45, c: "#f97316" },
+      { label: "Alignment", x: 0.68, y: 0.40, c: "#22c55e" },
+      { label: "Evaluation", x: 0.86, y: 0.56, c: "#eab308" },
+      { label: "Compression", x: 0.26, y: 0.75, c: "#ef4444" },
+      { label: "Behavior", x: 0.55, y: 0.72, c: "#a855f7" },
       { label: "Gemma", x: 0.75, y: 0.82, c: "#14b8a6" }
     ];
 

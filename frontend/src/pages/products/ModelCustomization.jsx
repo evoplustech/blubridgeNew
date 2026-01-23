@@ -34,7 +34,7 @@ const ModelCustomization = () => {
       { name: 'Evaluation', x: 0.85, y: 0.55, color: '#eab308' },
       { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' },
       { name: 'Behavior', x: 0.55, y: 0.7, color: '#a855f7' },
-      { name: 'Gemma', x: 0.75, y: 0.8, color: '#14b8a6' }
+      { name: 'Guardrails', x: 0.75, y: 0.8, color: '#14b8a6' }
     ];
 
     const drawModelGraph = () => {
@@ -209,7 +209,7 @@ const ModelCustomization = () => {
             </div>
             
             {/* Card 2 */}
-            <div>
+            <div className="border-l border-[#D6DEC3] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Faster Adaptation Cycles</h3>
               <p className="text-[#4B5563] leading-relaxed">
                 Iterate rapidly with streamlined fine-tuning pipelines that reduce experimentation time and accelerate deployment.
@@ -217,7 +217,7 @@ const ModelCustomization = () => {
             </div>
             
             {/* Card 3 */}
-            <div>
+            <div className="border-l border-[#D6DEC3] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Production-Ready Outputs</h3>
               <p className="text-[#4B5563] leading-relaxed">
                 Deliver models that are optimized for real-world usage, with consistent behavior, reliability, and performance.
@@ -254,42 +254,35 @@ const ModelCustomization = () => {
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black leading-tight">
-                Accelerated Model
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0B1F3B] to-[#328CC1]">
-                  Customization
-                </span>
+                Accelerated Model Customization
               </h2>
               
-              <p className="text-[#4B5563] mb-6 leading-relaxed text-lg">
-                Model customization requires more than fine-tuning - it demands precision, repeatability, and control. BluBridge provides a unified environment for adapting models at scale.
+              <p className="text-[#4B5563] mb-6 leading-relaxed">
+               Model customization is more than fine-tuning, it is about shaping how a model thinks, responds, and performs in real-world environments. BluBridge provides a unified platform to adapt foundation models with precision, consistency, and full operational control.
               </p>
               
               <p className="text-[#6B7280] mb-8 leading-relaxed">
-                Our platform supports parameter-efficient tuning, instruction alignment, and domain-specific adaptation across distributed GPU clusters. Built-in orchestration ensures experiments are reproducible, scalable, and easy to transition into production.
+                Our stack enables parameter-efficient tuning, instruction alignment, and domain-specific adaptation across distributed GPU clusters. Every experiment is reproducible, every change is measurable, and every customized model is production-ready from day one.
               </p>
               
               {/* Stats row */}
-              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#E5E7EB]">
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-[#E5E7EB]">
                 <div>
                   <div className="text-3xl font-bold text-black mb-1">10x</div>
-                  <div className="text-[#6B7280] text-sm">Faster Training</div>
+                  <div className="text-[#6B7280] text-sm">Faster Adaptation</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-black mb-1">99.9%</div>
-                  <div className="text-[#6B7280] text-sm">Uptime SLA</div>
+                  <div className="text-[#6B7280] text-sm">Platform Uptime</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-black mb-1">24/7</div>
-                  <div className="text-[#6B7280] text-sm">Expert Support</div>
-                </div>
+                
               </div>
             </div>
             
             {/* Right - Feature Cards Stack */}
             <div className="relative">
               {/* Decorative rings */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 border border-[#E5E7EB] rounded-full" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-[#E5E7EB] rounded-full" />
+              
               
               <div className="space-y-5">
                 {/* Pre-configured Card */}
