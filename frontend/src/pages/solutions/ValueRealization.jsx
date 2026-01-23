@@ -144,78 +144,167 @@ const ValueRealization = () => {
         ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
       };
 
-      const drawGraph = () => {
-        // time += 0.02;
-        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-        const width = canvas.offsetWidth;
-        const height = canvas.offsetHeight;
-        const padding = 40;
+      // const drawGraph = () => {
+      //   // time += 0.02;
+      //   ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      //   const width = canvas.offsetWidth;
+      //   const height = canvas.offsetHeight;
+      //   const padding = 40;
 
-        // Background grid
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-        ctx.lineWidth = 1;
-        for (let i = 0; i <= 5; i++) {
-          const y = padding + (height - padding * 2) * (i / 5);
-          ctx.beginPath();
-          ctx.moveTo(padding, y);
-          ctx.lineTo(width - padding, y);
-          ctx.stroke();
-        }
+      //   // Background grid
+      //   ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      //   ctx.lineWidth = 1;
+      //   for (let i = 0; i <= 5; i++) {
+      //     const y = padding + (height - padding * 2) * (i / 5);
+      //     ctx.beginPath();
+      //     ctx.moveTo(padding, y);
+      //     ctx.lineTo(width - padding, y);
+      //     ctx.stroke();
+      //   }
 
-        // Animated line chart
-        const points = [];
-        for (let i = 0; i <= 20; i++) {
-          const x = padding + (width - padding * 2) * (i / 20);
+      //   // Animated line chart
+      //   const points = [];
+      //   for (let i = 0; i <= 20; i++) {
+      //     const x = padding + (width - padding * 2) * (i / 20);
 
-          const startLevel = 0.15;   // lower start (near bottom)
-          const endLevel = 1.25;     // higher end (near top)
-          const progress = i / 20;  // normalize 0 → 1
-          const baseY =  height -  padding - (height - padding * 2) * (startLevel + (endLevel - startLevel) * progress);
-          // const baseY = height - padding - (height - padding * 2) * (0.3 + i * 0.025);
-          // const wave = Math.sin(time + i * 0.3) * 10;
-          const isEdge = i === 0 || i === 20;
-          const wave = isEdge ? 0 : Math.sin(time + i * 0.3) * 10;
-          const y = baseY + wave;
-          points.push({ x, y });
-        }
+      //     const startLevel = 0.15;   // lower start (near bottom)
+      //     const endLevel = 1.25;     // higher end (near top)
+      //     const progress = i / 20;  // normalize 0 → 1
+      //     const baseY =  height -  padding - (height - padding * 2) * (startLevel + (endLevel - startLevel) * progress);
+      //     // const baseY = height - padding - (height - padding * 2) * (0.3 + i * 0.025);
+      //     // const wave = Math.sin(time + i * 0.3) * 10;
+      //     const isEdge = i === 0 || i === 20;
+      //     // const wave = isEdge ? 0 : Math.sin(time + i * 0.3) * 10;
+      //     const wave = 0;
+      //     const y = baseY + wave;
+      //     points.push({ x, y });
+      //   }
 
-        // Fill area under curve
-        const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+      //   // Fill area under curve
+      //   const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+      //   gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
+      //   gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
         
-        ctx.beginPath();
-        ctx.moveTo(points[0].x, height - padding);
-        points.forEach(p => ctx.lineTo(p.x, p.y));
-        ctx.lineTo(points[points.length - 1].x, height - padding);
-        ctx.closePath();
-        ctx.fillStyle = gradient;
-        ctx.fill();
+      //   ctx.beginPath();
+      //   ctx.moveTo(points[0].x, height - padding);
+      //   points.forEach(p => ctx.lineTo(p.x, p.y));
+      //   ctx.lineTo(points[points.length - 1].x, height - padding);
+      //   ctx.closePath();
+      //   ctx.fillStyle = gradient;
+      //   ctx.fill();
 
-        // Draw line
-        ctx.beginPath();
-        ctx.moveTo(points[0].x, points[0].y);
-        points.forEach(p => ctx.lineTo(p.x, p.y));
-        ctx.strokeStyle = '#3b82f6';
-        ctx.lineWidth = 2;
-        ctx.stroke();
+      //   // Draw line
+      //   ctx.beginPath();
+      //   ctx.moveTo(points[0].x, points[0].y);
+      //   points.forEach(p => ctx.lineTo(p.x, p.y));
+      //   ctx.strokeStyle = '#3b82f6';
+      //   ctx.lineWidth = 2;
+      //   ctx.stroke();
 
-        // Draw points
-        points.forEach((p, i) => {
-          if (i % 4 === 0) {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
-            ctx.fillStyle = '#3b82f6';
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-            ctx.fillStyle = '#fff';
-            ctx.fill();
-          }
-        });
+      //   // Draw points
+      //   points.forEach((p, i) => {
+      //     if (i % 4 === 0) {
+      //       ctx.beginPath();
+      //       ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+      //       ctx.fillStyle = '#3b82f6';
+      //       ctx.fill();
+      //       ctx.beginPath();
+      //       ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      //       ctx.fillStyle = '#fff';
+      //       ctx.fill();
+      //     }
+      //   });
 
-        animationFrame = requestAnimationFrame(drawGraph);
-      };
+      //   // animationFrame = requestAnimationFrame(drawGraph);
+      // };
+
+      const drawGraph = () => {
+  ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+
+  const width = canvas.offsetWidth;
+  const height = canvas.offsetHeight;
+  const padding = 40;
+
+  // Background grid
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 5; i++) {
+    const y = padding + (height - padding * 2) * (i / 5);
+    ctx.beginPath();
+    ctx.moveTo(padding, y);
+    ctx.lineTo(width - padding, y);
+    ctx.stroke();
+  }
+
+  // ---------- FIXED CURVY DATA ----------
+  const points = [];
+const totalPoints = 20;
+
+// 🔒 FIXED START & END POSITIONS
+const startY = height - padding - 20;   // VERY LOW (bottom)
+const endY = padding + 20;              // VERY HIGH (top)
+
+for (let i = 0; i <= totalPoints; i++) {
+  const x = padding + (width - padding * 2) * (i / totalPoints);
+
+  const t = i / totalPoints;
+
+  // Smooth curve easing
+  // const eased = t * t * (3 - 2 * t); // smoothstep
+  // const eased = Math.pow(t, 1.5); // faster rise
+const eased = t * t * t; // slow start, strong finish
+  const y = startY - (startY - endY) * eased;
+
+  points.push({ x, y });
+}
+
+  // ---------- FILL AREA ----------
+  const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+  gradient.addColorStop(0, 'rgba(59, 130, 246, 0.25)');
+  gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, height - padding);
+  points.forEach(p => ctx.lineTo(p.x, p.y));
+  ctx.lineTo(points[points.length - 1].x, height - padding);
+  ctx.closePath();
+  ctx.fillStyle = gradient;
+  ctx.fill();
+
+  // ---------- SMOOTH CURVE ----------
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
+
+  for (let i = 1; i < points.length - 1; i++) {
+    const xc = (points[i].x + points[i + 1].x) / 2;
+    const yc = (points[i].y + points[i + 1].y) / 2;
+    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+  }
+
+  // Final segment
+  const last = points.length - 1;
+  ctx.quadraticCurveTo(
+    points[last - 1].x,
+    points[last - 1].y,
+    points[last].x,
+    points[last].y
+  );
+
+  ctx.strokeStyle = '#3b82f6';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // ---------- OPTIONAL DOTS ----------
+  points.forEach((p, i) => {
+    if (i % 5 === 0) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#3b82f6';
+      ctx.fill();
+    }
+  });
+};
+
 
       resize();
       window.addEventListener('resize', resize);
