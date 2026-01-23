@@ -749,7 +749,7 @@ const Deployment = () => {
                 desc: ' Improve uptime and consistency across production environments.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
-              },
+              }
               { 
                 metric: '7.2X', 
                 label: 'Faster Inference', 
