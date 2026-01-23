@@ -719,8 +719,8 @@ const Home = () => {
             </div>
             
             {/* Right - AI Expertise Grid (8 tabs) */}
-            <div style={{ position: 'relative', top:'-40px'}}>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8 text-center">By Industry</h2>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-8 text-center"  style={{ position: 'relative', top:'-40px'}}>By Industry</h2>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Radio, title: "Telco" },
@@ -751,7 +751,7 @@ const Home = () => {
 
       {/* Solutions Section - Premium Animated Hexagonal Design */}
       <section 
-        className="pt-0 pb-20 relative overflow-hidden"
+        className="pt-5 pb-20 relative overflow-hidden"
         style={{
           backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
           backgroundSize: 'cover',
@@ -830,7 +830,7 @@ const Home = () => {
 
         <div className="container-custom relative z-10">
           {/* Section Header with Decorative Line */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-20">
             {/* <div className="inline-flex items-center gap-4 mb-6">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#0B1F3B]/30" />
               <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
@@ -1234,7 +1234,7 @@ const Home = () => {
                 }}
               />
               <img 
-                src="https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/mv9dbu4e_about.png" 
+                src="https://customer-assets.emergentagent.com/job_9c926b32-eb15-4e14-85bc-d1ec8af6b23f/artifacts/5u9wa8ry_home-abot.png" 
                 alt="BluBridge Team" 
                 className="w-full h-auto object-cover rounded-2xl"
                 style={{

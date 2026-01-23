@@ -172,7 +172,9 @@ const ValueRealization = () => {
           const progress = i / 20;  // normalize 0 → 1
           const baseY =  height -  padding - (height - padding * 2) * (startLevel + (endLevel - startLevel) * progress);
           // const baseY = height - padding - (height - padding * 2) * (0.3 + i * 0.025);
-          const wave = Math.sin(time + i * 0.3) * 10;
+          // const wave = Math.sin(time + i * 0.3) * 10;
+          const isEdge = i === 0 || i === 20;
+          const wave = isEdge ? 0 : Math.sin(time + i * 0.3) * 10;
           const y = baseY + wave;
           points.push({ x, y });
         }
