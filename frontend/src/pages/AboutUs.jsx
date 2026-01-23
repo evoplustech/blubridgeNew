@@ -679,8 +679,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?w=600&q=80" 
-                alt="Developer working on AI solutions"
+                src="https://images.unsplash.com/photo-1737505599159-5ffc1dcbc08f?w=600&q=80" 
+                alt="AI brain neural network technology"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -719,8 +719,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.unsplash.com/photo-1716703742352-0bbdb45f505b?w=600&q=80" 
-                alt="Team collaboration and discussion"
+                src="https://images.pexels.com/photos/6804093/pexels-photo-6804093.jpeg?w=600&q=80" 
+                alt="Agile workflow planning board with sticky notes"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -759,8 +759,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://images.pexels.com/photos/7413999/pexels-photo-7413999.jpeg?w=600&q=80" 
-                alt="Professional presenting innovative ideas"
+                src="https://images.pexels.com/photos/4792503/pexels-photo-4792503.jpeg?w=600&q=80" 
+                alt="Light bulb representing creativity and innovation"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
@@ -799,8 +799,8 @@ const AboutUs = () => {
             {/* Image */}
             <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
               <img 
-                src="https://images.pexels.com/photos/7580648/pexels-photo-7580648.jpeg?w=600&q=80" 
-                alt="Diverse team of professionals"
+                src="https://images.unsplash.com/photo-1758873268631-fa944fc5cad2?w=600&q=80" 
+                alt="Diverse team of professionals in office"
                 className="w-full rounded-2xl shadow-lg"
                 style={{ 
                   maxWidth: '320px',
