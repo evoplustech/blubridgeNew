@@ -710,7 +710,7 @@ const Home = () => {
        
         
         <div className="container-custom relative z-10">
-          <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4 capitalize">OUR FRONTIER AI EXPERTISE</h2><p></p></div>
+          <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4 capitalize">OUR FRONTIER AI EXPERTISE</h2><p className="font-caveat text-xl tracking-wide">Comming Soon</p></div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
               
             {/* Left - Circular Diagram */}
