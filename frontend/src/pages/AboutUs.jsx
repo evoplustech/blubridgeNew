@@ -704,7 +704,7 @@ const AboutUs = () => {
               >
                 Our Purpose
               </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
                 We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
               </p>
             </div>
@@ -740,7 +740,7 @@ const AboutUs = () => {
               >
                 How We Work
               </h3>
-              <p className="text-md leading-relaxed text-[#1a1a1a]">
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
                 Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
               </p>
             </div>
