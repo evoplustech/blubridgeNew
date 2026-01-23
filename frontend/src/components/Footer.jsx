@@ -62,8 +62,7 @@ const Footer = () => {
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Product Links */}
-          <div className ="">
-          <div>
+          <div className="px-12">
             <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">PRODUCT</h3>
             {/* <ul className="space-y-3">
               <li><Link to="/products/gpu-nodes" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">GPU Nodes</Link></li>
@@ -138,7 +137,7 @@ const Footer = () => {
               <li><a href="https://www.youtube.com/@blubridge-ai" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">YouTube</a></li>
             </ul>
           </div>
-          </div>
+          
 
           {/* Contact Us Form */}
           <div className="lg:col-span-2">
