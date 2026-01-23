@@ -243,7 +243,7 @@ const totalPoints = 20;
 // 🔒 FIXED START & END POSITIONS
 const startY = height - padding - 20;   // VERY LOW (bottom)
 // const endY = padding + 20;              // VERY HIGH (top)
-const endY = padding - 20;     // peak high (safe limit)
+const endY = padding - 30;     // peak high (safe limit)
 
 for (let i = 0; i <= totalPoints; i++) {
   const x = padding + (width - padding * 2) * (i / totalPoints);

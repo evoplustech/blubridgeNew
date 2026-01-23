@@ -656,7 +656,7 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-       {/* How We Build, Innovate, and Lead Section - Full Width with Animations */}
+       {/* How We Build, Innovate, and Lead Section - Full Width with Scroll Animations */}
       <section className="py-20 bg-[#efede5] overflow-hidden">
         {/* Animation Keyframes */}
         <style>{`
@@ -680,16 +680,15 @@ const AboutUs = () => {
               transform: translateX(0);
             }
           }
-          .slide-left {
+          .slide-left-animate {
             animation: slideFromLeft 0.8s ease-out forwards;
           }
-          .slide-right {
+          .slide-right-animate {
             animation: slideFromRight 0.8s ease-out forwards;
           }
-          .delay-1 { animation-delay: 0.1s; }
-          .delay-2 { animation-delay: 0.3s; }
-          .delay-3 { animation-delay: 0.5s; }
-          .delay-4 { animation-delay: 0.7s; }
+          .scroll-hidden {
+            opacity: 0;
+          }
         `}</style>
         
         <div className="max-w-4xl mx-auto px-4">
@@ -709,76 +708,84 @@ const AboutUs = () => {
           </h2>
           
           {/* Row 1 - Our Purpose - Slide from Left */}
-          <div className="mb-12 slide-left delay-1" style={{ opacity: 0 }}>
-            <h3 
-              className="mb-3"
-              style={{ 
-                fontSize: '26px', 
-                fontWeight: '600', 
-                color: '#0B1F3B',
-                fontFamily: "'DM Sans', sans-serif"
-              }}
-            >
-              Our Purpose
-            </h3>
-            <p className="text-lg leading-relaxed text-[#1a1a1a]">
-              We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
-            </p>
-          </div>
+          <ScrollAnimatedItem direction="left" delay={0}>
+            <div className="mb-12">
+              <h3 
+                className="mb-3"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#0B1F3B',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                Our Purpose
+              </h3>
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
+                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+              </p>
+            </div>
+          </ScrollAnimatedItem>
           
           {/* Row 2 - How We Work - Slide from Right */}
-          <div className="mb-12 slide-right delay-2" style={{ opacity: 0 }}>
-            <h3 
-              className="mb-3"
-              style={{ 
-                fontSize: '26px', 
-                fontWeight: '600', 
-                color: '#0B1F3B',
-                fontFamily: "'DM Sans', sans-serif"
-              }}
-            >
-              How We Work
-            </h3>
-            <p className="text-lg leading-relaxed text-[#1a1a1a]">
-              Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
-            </p>
-          </div>
+          <ScrollAnimatedItem direction="right" delay={100}>
+            <div className="mb-12">
+              <h3 
+                className="mb-3"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#0B1F3B',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                How We Work
+              </h3>
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
+                Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
+              </p>
+            </div>
+          </ScrollAnimatedItem>
           
           {/* Row 3 - Excellence Through Rigor & Creativity - Slide from Left */}
-          <div className="mb-12 slide-left delay-3" style={{ opacity: 0 }}>
-            <h3 
-              className="mb-3"
-              style={{ 
-                fontSize: '26px', 
-                fontWeight: '600', 
-                color: '#0B1F3B',
-                fontFamily: "'DM Sans', sans-serif"
-              }}
-            >
-              Excellence Through Rigor & Creativity
-            </h3>
-            <p className="text-lg leading-relaxed text-[#1a1a1a]">
-              Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
-            </p>
-          </div>
+          <ScrollAnimatedItem direction="left" delay={200}>
+            <div className="mb-12">
+              <h3 
+                className="mb-3"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#0B1F3B',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                Excellence Through Rigor & Creativity
+              </h3>
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
+                Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
+              </p>
+            </div>
+          </ScrollAnimatedItem>
           
           {/* Row 4 - Our People - Slide from Right */}
-          <div className="slide-right delay-4" style={{ opacity: 0 }}>
-            <h3 
-              className="mb-3"
-              style={{ 
-                fontSize: '26px', 
-                fontWeight: '600', 
-                color: '#0B1F3B',
-                fontFamily: "'DM Sans', sans-serif"
-              }}
-            >
-              Our People
-            </h3>
-            <p className="text-lg leading-relaxed text-[#1a1a1a]">
-              We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
-            </p>
-          </div>
+          <ScrollAnimatedItem direction="right" delay={300}>
+            <div>
+              <h3 
+                className="mb-3"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#0B1F3B',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                Our People
+              </h3>
+              <p className="text-lg leading-relaxed text-[#1a1a1a]">
+                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
+              </p>
+            </div>
+          </ScrollAnimatedItem>
         </div>
       </section>
 
