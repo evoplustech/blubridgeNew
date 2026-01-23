@@ -720,22 +720,27 @@ const eased = t * t * t; // slow start, strong finish
       {/* SECTION 5: Performance Metrics */}
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">The Impact on Value</h2>
+          <div className="grid md:grid-cols-4 gap-8">
             <div className="border-l border-[#D6DEC3] pl-6">
-              <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">40%</div>
-              <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">FASTER ADOPTION</div>
-              <p className="text-[#000000] text-sm leading-relaxed">Reduce time from prototype to production-ready use.</p>
+              <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">4.3%</div>
+              <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Piloting</div>
+              {/* <p className="text-[#000000] text-sm leading-relaxed">Reduce time from prototype to production-ready use.</p> */}
             </div>
             <div className="border-l border-[#D6DEC3] pl-6">
-              <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">7.2X</div>
-              <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">FASTER EXECUTION</div>
-              <p className="text-[#000000] text-sm leading-relaxed">Accelerate real-world AI workflows with optimized infrastructure.</p>
+              <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">7.2%</div>
+              <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Implementing</div>
+              {/* <p className="text-[#000000] text-sm leading-relaxed">Accelerate real-world AI workflows with optimized infrastructure.</p> */}
             </div>
             <div className="border-l border-[#D6DEC3] pl-6">
-              <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">80%</div>
-              <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">LOWER TOTAL COST</div>
-              <p className="text-[#000000] text-sm leading-relaxed">Achieve business impact at a fraction of traditional platform spend.</p>
+              <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">10.0%</div>
+              <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Operating</div>
+              {/* <p className="text-[#000000] text-sm leading-relaxed">Achieve business impact at a fraction of traditional platform spend.</p> */}
+            </div>
+            <div className="border-l border-[#D6DEC3] pl-6">
+              <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">11.5%</div>
+              <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Optimizing</div>
+              {/* <p className="text-[#000000] text-sm leading-relaxed">Achieve business impact at a fraction of traditional platform spend.</p> */}
             </div>
           </div>
         </div>
