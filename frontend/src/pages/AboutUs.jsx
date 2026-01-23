@@ -656,38 +656,144 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-       <section className="py-20 bg-[#efede5]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left - Text Content */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">How we like to work</h2>
-              <p className="text-black leading-relaxed mb-8">We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs.
-
-Our teams move fast with purpose, combining individual ownership with strong collaboration.
-
-We operate with transparency, believing open exchange is key to building better intelligence.
-
-Rigor defines our research, ensuring every model is grounded in technical excellence.
-
-Creativity drives us to discover new paths toward efficiency and performance.
-
-Everything we build is application-driven, turning AI innovation into tangible value.</p>
-              <p className="text-black leading-relaxed mb-8">We are proud to be a diverse team, bringing together people from many backgrounds and perspectives, united by a broad and deep range of expertise across the AI landscape.</p>
-              {/* <Link to="/careers">
-                <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-8 py-3 rounded-md font-medium">
-                  Join us
-                </Button>
-              </Link> */}
-            </div>
-            
-            {/* Right - Team Image */}
-            <div className="rounded-2xl overflow-hidden">
+       {/* Who We Are Section - Cyan Gradient Background */}
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #00A8CC 0%, #0BC5EA 50%, #06B6D4 100%)' }}>
+        <div className="max-w-6xl mx-auto px-4">
+          {/* Section Heading */}
+          <h2 
+            className="text-center mb-16"
+            style={{ 
+              fontSize: '42px', 
+              fontWeight: '700', 
+              color: '#FFFFFF',
+              letterSpacing: '-0.5px',
+              fontFamily: "'DM Sans', sans-serif"
+            }}
+            data-testid="who-we-are-heading"
+          >
+            Who We Are
+          </h2>
+          
+          {/* Row 1 - Image Left, Text Right */}
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16">
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
               <img 
-                src="https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/eh9ofkir_imag-right.png" 
-                alt="BluBridge Team" 
-                className="w-full h-auto object-cover rounded-2xl"
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" 
+                alt="Person working with futuristic display"
+                className="w-full rounded-2xl shadow-lg"
+                style={{ 
+                  maxWidth: '320px',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  borderRadius: '16px'
+                }}
+                data-testid="who-we-are-image-1"
               />
+            </div>
+            {/* Text Content */}
+            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
+              <h3 
+                className="mb-4"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#FFFFFF',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                We are versatile
+              </h3>
+              <p style={{ 
+                fontSize: '15px', 
+                lineHeight: '1.7', 
+                color: '#FFFFFF',
+                opacity: 0.95
+              }}>
+                We can support every aspect of the software and product life cycle, from feasibility analysis, user experience design, and prototyping, to the development of scalable, winning solutions. Our data team goes beyond everyday reporting to mine, segment, and deliver game-changing insights for our clients.
+              </p>
+            </div>
+          </div>
+          
+          {/* Row 2 - Text Left, Image Right */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 mb-16">
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" 
+                alt="Two people collaborating"
+                className="w-full rounded-2xl shadow-lg"
+                style={{ 
+                  maxWidth: '320px',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  borderRadius: '16px'
+                }}
+                data-testid="who-we-are-image-2"
+              />
+            </div>
+            {/* Text Content */}
+            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
+              <h3 
+                className="mb-4"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#FFFFFF',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                We are practical
+              </h3>
+              <p style={{ 
+                fontSize: '15px', 
+                lineHeight: '1.7', 
+                color: '#FFFFFF',
+                opacity: 0.95
+              }}>
+                Our approach is to keep it simple and do what makes sense for our clients. Even though we enjoy building complex software and web applications, we don't recommend reinventing the wheel. We are all about helping our clients find, customize, and integrate best-in-class solutions that are readily available and affordable.
+              </p>
+            </div>
+          </div>
+          
+          {/* Row 3 - Image Left, Text Right */}
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            {/* Image */}
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <img 
+                src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&q=80" 
+                alt="Futuristic cityscape with technology"
+                className="w-full rounded-2xl shadow-lg"
+                style={{ 
+                  maxWidth: '320px',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  borderRadius: '16px'
+                }}
+                data-testid="who-we-are-image-3"
+              />
+            </div>
+            {/* Text Content */}
+            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
+              <h3 
+                className="mb-4"
+                style={{ 
+                  fontSize: '26px', 
+                  fontWeight: '600', 
+                  color: '#FFFFFF',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+              >
+                We are iterative
+              </h3>
+              <p style={{ 
+                fontSize: '15px', 
+                lineHeight: '1.7', 
+                color: '#FFFFFF',
+                opacity: 0.95
+              }}>
+                When it's time to innovate, we like to achieve short-term milestones with your greater vision in mind. This way you can manage your technology investment as we flex to meet your changing needs along the way.
+              </p>
             </div>
           </div>
         </div>
