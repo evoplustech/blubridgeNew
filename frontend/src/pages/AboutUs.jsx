@@ -960,6 +960,89 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* What Sets Us Apart Section - Clean Minimalist Design */}
+      <section className="py-24 md:py-32 bg-white" data-testid="what-sets-us-apart-section">
+        <div className="max-w-5xl mx-auto px-6">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-6"
+              style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '-0.02em' }}
+              data-testid="what-sets-us-apart-heading"
+            >
+              What sets us apart
+            </h2>
+            <p 
+              className="text-lg md:text-xl text-[#4B5563] max-w-2xl mx-auto leading-relaxed"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              We're focused on removing friction from work so teams can spend more time on what truly matters.
+            </p>
+          </div>
+          
+          {/* Features Grid - 3 columns top, 1 centered bottom */}
+          <div className="space-y-16">
+            {/* Top Row - 3 Features */}
+            <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+              {/* Feature 1 - Simple by design */}
+              <div className="text-left">
+                <h3 
+                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Simple by design
+                </h3>
+                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                  Our enterprise-ready solutions are built to deploy, adapt, and operate with ease. We remove unnecessary complexity, making everyday work smoother and processes more efficient.
+                </p>
+              </div>
+              
+              {/* Feature 2 - Fast results */}
+              <div className="text-left">
+                <h3 
+                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Fast results
+                </h3>
+                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                  Our software delivers real value in days or weeks—not months or years. We help teams move quickly with precision, creating experiences that both customers and employees genuinely appreciate.
+                </p>
+              </div>
+              
+              {/* Feature 3 - Human-centered AI */}
+              <div className="text-left">
+                <h3 
+                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Human-centered AI
+                </h3>
+                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                  Our AI-powered tools amplify human capability, helping people deliver outstanding service. We design everything with users in mind—because people always come first.
+                </p>
+              </div>
+            </div>
+            
+            {/* Bottom Row - Single Feature (Left aligned like in the image) */}
+            <div className="md:max-w-xs">
+              {/* Feature 4 - No hidden catches */}
+              <div className="text-left">
+                <h3 
+                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  No hidden catches
+                </h3>
+                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                  With dependable products, clear pricing, and straightforward communication, there are no unpleasant surprises. We aim to build trust, not test your tolerance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Strip */}
       <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
