@@ -145,7 +145,7 @@ const ValueRealization = () => {
       };
 
       const drawGraph = () => {
-        time += 0.02;
+        // time += 0.02;
         ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
         const width = canvas.offsetWidth;
         const height = canvas.offsetHeight;
