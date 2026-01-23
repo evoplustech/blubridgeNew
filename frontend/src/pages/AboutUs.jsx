@@ -233,10 +233,11 @@ const PassionTypingText = () => {
       data-testid="passion-typing-text"
     >
       <h2 
-        className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#0B1F3B] leading-tight"
+        className="font-bold text-[#0B1F3B] leading-tight"
         style={{ 
           fontFamily: "'DM Sans', sans-serif",
-          letterSpacing: '-0.02em'
+          letterSpacing: '-0.02em',
+          fontSize: 'clamp(2.5rem, 5vw + 1rem, 7rem)'
         }}
         data-testid="passion-heading"
       >
@@ -976,7 +977,7 @@ const AboutUs = () => {
        {/* How We Build, Innovate, and Lead Section - Premium Redesign */}
       
       {/* What Sets Us Apart Section - Clean Minimalist Design */}
-      <section className="py-24 md:py-32 bg-white" data-testid="what-sets-us-apart-section">
+      <section className="py-24 md:py-32 bg-[#efede5]" data-testid="what-sets-us-apart-section">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           {/* Header */}
           <div className="text-center mb-20">
@@ -998,9 +999,9 @@ const AboutUs = () => {
           {/* Features Grid - 3 columns top, 1 centered bottom */}
           <div className="space-y-16">
             {/* Top Row - 3 Features */}
-            <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+            <div className="grid md:grid-cols-3 gap-12 md:gap-12">
               {/* Feature 1 - Simple by design */}
-              <div className="text-left">
+              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -1013,7 +1014,7 @@ const AboutUs = () => {
               </div>
               
               {/* Feature 2 - Fast results */}
-              <div className="text-left">
+              <div className="text-left"  style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -1026,7 +1027,7 @@ const AboutUs = () => {
               </div>
               
               {/* Feature 3 - Human-centered AI */}
-              <div className="text-left">
+              <div className="text-left"  style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -1043,7 +1044,7 @@ const AboutUs = () => {
             <div className="grid md:grid-cols-3 gap-14 md:gap-12 items-end">
               {/* Left Side - No hidden catches with gold line */}
               <div className="flex items-start gap-6 w-sm">
-                <div className="text-left flex-1">
+                <div className="text-left flex-1" style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                   <h3 
                     className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
