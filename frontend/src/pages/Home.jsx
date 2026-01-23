@@ -482,7 +482,7 @@ const Home = () => {
         {/* LAYER 1: Content (Always on top) */}
         <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
           <div className="space-y-6 text-center">
-            <h1 className="leading-[1.08] tracking-tight text-[#000] flex items-baseline justify-center" style={{ fontSize: '4.5rem', fontWeight: 260 }}>
+            <h1 className="leading-[1.08] tracking-tight text-[#000] flex items-baseline justify-center" style={{ fontSize: '4.5rem', fontWeight: '260', letterSpacing:'3px' }}>
               {/* "Beyond the Horizon" - Letter by letter zoom animation */}
               <span className="hero-letter" style={{ animationDelay: '0ms' }}>
                 <img 
@@ -520,7 +520,7 @@ const Home = () => {
               <span className="hero-subheading">An Independent AI Research Lab.</span>
             </p>
             
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
               <Link to="/contact">
                 <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-8 rounded font-medium text-lg" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }} data-testid="hero-contact-btn">
                   Contact Us
@@ -697,7 +697,7 @@ const Home = () => {
        
       
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="pt-20 pb-5 bg-[#fffdf7]">
         <div className="container-custom">
           <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4 capitalize">OUR FRONTIER AI EXPERTISE</h2></div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -739,7 +739,7 @@ const Home = () => {
       </section>
 
       {/* Solutions Section - Model Customization, Value Realization, Deployment */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="pt-10 pb-20 bg-[#fffdf7]">
         <div className="container-custom">
           {/* Section Header */}
           <div className="text-center mb-16">

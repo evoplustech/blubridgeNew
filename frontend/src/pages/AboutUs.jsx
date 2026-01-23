@@ -317,7 +317,7 @@ const AboutUs = () => {
               }}
               data-testid="hero-heading"
             >
-              Building the Next Frontier for AI
+              Building the Next Frontier of AI
             </h1>
             
             {/* Description */}

@@ -223,13 +223,13 @@ const ValueRealization = () => {
     return (
       <div className="relative bg-white rounded-xl border border-[#D6DEC3] p-4 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-xs text-[#2F3A4A]">Training Progress</span>
-          <span className="text-xs text-[#328CC1]">Live</span>
+          <span className="text-xs text-[#2F3A4A]">Value Growth</span>
+          <span className="text-xs text-[#2F3A4A]">Real-Time Impact</span>
         </div>
         <canvas ref={graphCanvasRef} className="w-full h-[200px]" />
         <div className="flex justify-between mt-2 text-xs text-[#6B7280]">
-          <span>Epoch 1</span>
-          <span>Epoch 10</span>
+          <span>Initial ROI</span>
+          <span>Peak ROI</span>
         </div>
       </div>
     );

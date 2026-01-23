@@ -378,10 +378,13 @@ const Deployment = () => {
               <span className="text-[#6B7280] text-sm font-medium">Production Ready</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black leading-tight max-w-2xl">
-              From Development to Production in Minutes
+              Intelligent Model Deployment
             </h2>
-            <p className="text-[#4B5563] max-w-2xl leading-relaxed text-lg">
-              Our deployment pipeline transforms your trained models into production-ready services with built-in observability, scaling, and governance.
+            <p className="text-[#4B5563] leading-relaxed text-lg mb-5">
+              Deployment is where AI becomes operational. BluBridge delivers a unified deployment layer that transforms trained models into reliable, real-time systems, ready to serve users, applications, and workflows at scale.
+            </p>
+            <p className="text-[#4B5563] leading-relaxed text-lg">
+              Our deployment stack supports low-latency inference, batch execution, traffic orchestration, versioned releases, and instant rollback. Models move seamlessly from experimentation into production with full observability, governance, and performance control across environments.
             </p>
           </div>
 
@@ -397,28 +400,28 @@ const Deployment = () => {
                 style={{ animation: 'pipelineFloat1 5s ease-in-out infinite' }}
               >
                 {/* Step Number */}
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   01
                 </div>
                 {/* Arrow connector (hidden on last item) */}
                 <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#fffdf7] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
-                  <ArrowRight className="w-3 h-3 text-cyan-500" />
+                  <ArrowRight className="w-3 h-3 " />
                 </div>
                 
                 <div className="pt-4">
-                  <div className="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14  rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-[#000000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">Build</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Containerize models with optimized runtimes and dependencies.</p>
-                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                  <h3 className="text-xl font-bold text-black mb-2">Package</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Prepare models with optimized runtimes, dependencies, and hardware-aware configurations for production execution.</p>
+                  {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-cyan-500 rounded-full" />
                       Docker + ONNX
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               
@@ -427,27 +430,27 @@ const Deployment = () => {
                 className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
                 style={{ animation: 'pipelineFloat2 6s ease-in-out infinite' }}
               >
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   02
                 </div>
-                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#fffdf7] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
-                  <ArrowRight className="w-3 h-3 text-purple-500" />
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6  border border-[#E5E7EB] rounded-full items-center justify-center z-20">
+                  <ArrowRight className="w-3 h-3 " />
                 </div>
                 
                 <div className="pt-4">
-                  <div className="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14  rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-[#000000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">Validate</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Run automated tests, benchmarks, and quality gates.</p>
-                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                  <h3 className="text-xl font-bold text-black mb-2">Verify</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Continuously validate behavior, performance, and safety using automated checks and pre-release gates.</p>
+                  {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-purple-500 rounded-full" />
                       CI/CD Pipeline
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               
@@ -456,27 +459,27 @@ const Deployment = () => {
                 className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
                 style={{ animation: 'pipelineFloat3 5.5s ease-in-out infinite' }}
               >
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   03
                 </div>
-                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#fffdf7] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
-                  <ArrowRight className="w-3 h-3 text-orange-500" />
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6  border border-[#E5E7EB] rounded-full items-center justify-center z-20">
+                  <ArrowRight className="w-3 h-3" />
                 </div>
                 
                 <div className="pt-4">
-                  <div className="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14  rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-[#000000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">Deploy</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Push to production with blue-green or canary strategies.</p>
-                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                  <h3 className="text-xl font-bold text-black mb-2">Release</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Ship models into live environments using controlled rollout strategies that ensure zero disruption.</p>
+                  {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-orange-500 rounded-full" />
                       Zero Downtime
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               
@@ -485,31 +488,31 @@ const Deployment = () => {
                 className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
                 style={{ animation: 'pipelineFloat4 6.5s ease-in-out infinite' }}
               >
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   04
                 </div>
                 
                 <div className="pt-4">
-                  <div className="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14  rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-[#000000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2">Scale</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Auto-scale based on traffic with global load balancing.</p>
-                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                  <h3 className="text-xl font-bold text-black mb-2">Operate</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Scale globally with intelligent routing, live monitoring, and adaptive resource management.</p>
+                  {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-green-500 rounded-full" />
                       12+ Regions
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Stats Bar */}
-          <div className="mt-16 bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB]">
+          {/* <div className="mt-16 bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB]">
             <div className="grid md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-[#E5E7EB]">
               <div className="text-center pt-4 md:pt-0">
                 <div className="text-4xl font-bold text-black mb-1">99.9%</div>
@@ -528,7 +531,7 @@ const Deployment = () => {
                 <div className="text-[#6B7280] text-sm">Success Rate</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         
         {/* Animation styles */}

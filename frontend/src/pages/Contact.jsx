@@ -269,6 +269,60 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+            {/* Office Card 2 */}
+            <div style={{
+              backgroundColor: '#fffdf7',
+              border: '1px solid #e0ded8',
+              borderLeft: '3px solid #0b1f3b',
+              borderRadius: '12px',
+              padding: '20px 24px',
+              marginBottom: '15px'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div style={{ flex: 1 }}>
+                  <h3 style={{
+                    fontWeight: '600',
+                    color: '#0B1F3B',
+                    fontSize: '16px',
+                    marginBottom: '8px',
+                    lineHeight: '1.3'
+                  }}>
+                    BluBridge Technologies (P) Ltd.
+                  </h3>
+                  <p style={{
+                    color: '#4a5568',
+                    fontSize: '14px',
+                    lineHeight: '1.6',
+                    margin: 0
+                  }}>
+                    44 Center Grove Rd, Randolph,<br />
+                    New Jersey – 07869
+                  </p>
+                </div>
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  alignItems: 'center',
+                  marginLeft: '16px',
+                  paddingTop: '22px'
+                }}>
+                  <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
+                  <a 
+                    href="https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ 
+                      color: '#3b82f6', 
+                      fontSize: '13px',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    View on Map »
+                  </a>
+                </div>
+              </div>
+            </div>
 
             {/* Contact Info Boxes - Exact Design Match */}
             <div style={{ }}>
@@ -672,7 +726,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows={5}
+                  rows={11}
                   style={{
                     width: '100%',
                     padding: '12px 16px',
