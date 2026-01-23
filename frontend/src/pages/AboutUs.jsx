@@ -200,20 +200,6 @@ const PassionTypingSection = () => {
       </div>
     </section>
   );
-}; 
-                    height: '1em',
-                    verticalAlign: 'baseline',
-                    marginBottom: '-0.1em',
-                    animation: 'none'
-                  }}
-                />
-              )}
-            </span>
-          </h2>
-        </div>
-      </div>
-    </section>
-  );
 };
 
 const AboutUs = () => {
