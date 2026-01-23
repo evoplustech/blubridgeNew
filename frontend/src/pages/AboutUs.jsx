@@ -92,17 +92,17 @@ const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
   );
 };
 
-// Premium Typing Animation Text Component with Backspace Effect
+// Premium Typing Animation Text Component with Looping Backspace Effect
 const PassionTypingText = () => {
   const [displayText, setDisplayText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const textRef = useRef(null);
+  const animationRef = useRef(null);
   
   const staticText = "It's Our ";
-  const firstWord = "Passion";
-  const finalWord = "Craft.";
+  const words = ["Passion", "Craft"];
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -126,81 +126,91 @@ const PassionTypingText = () => {
     };
   }, [hasStarted]);
   
-  // Main animation sequence
+  // Main looping animation
   useEffect(() => {
     if (!hasStarted) return;
     
-    let timeoutId;
+    let isCancelled = false;
     
-    const runAnimation = async () => {
-      // Step 1: Type "Passion" character by character
-      for (let i = 0; i <= firstWord.length; i++) {
-        await new Promise(resolve => {
-          timeoutId = setTimeout(() => {
-            setDisplayText(firstWord.slice(0, i));
-            resolve();
-          }, 80 + Math.random() * 50);
-        });
+    const delay = (ms) => new Promise(resolve => {
+      animationRef.current = setTimeout(resolve, ms);
+    });
+    
+    const typeWord = async (word) => {
+      for (let i = 0; i <= word.length; i++) {
+        if (isCancelled) return;
+        setDisplayText(word.slice(0, i));
+        setIsPaused(false);
+        await delay(80 + Math.random() * 40);
       }
-      
-      // Step 2: Pause after typing "Passion"
-      await new Promise(resolve => {
-        timeoutId = setTimeout(resolve, 500);
-      });
-      
-      // Step 3: Backspace erase "Passion" letter by letter
-      for (let i = firstWord.length; i >= 0; i--) {
-        await new Promise(resolve => {
-          timeoutId = setTimeout(() => {
-            setDisplayText(firstWord.slice(0, i));
-            resolve();
-          }, 60 + Math.random() * 30);
-        });
-      }
-      
-      // Small pause before retyping
-      await new Promise(resolve => {
-        timeoutId = setTimeout(resolve, 200);
-      });
-      
-      // Step 4: Type "Craft." character by character
-      for (let i = 0; i <= finalWord.length; i++) {
-        await new Promise(resolve => {
-          timeoutId = setTimeout(() => {
-            setDisplayText(finalWord.slice(0, i));
-            resolve();
-          }, 80 + Math.random() * 50);
-        });
-      }
-      
-      // Step 5: Animation complete - hide cursor
-      await new Promise(resolve => {
-        timeoutId = setTimeout(() => {
-          setIsAnimationComplete(true);
-          setShowCursor(false);
-          resolve();
-        }, 400);
-      });
     };
     
-    // Start with small delay
-    timeoutId = setTimeout(() => {
-      runAnimation();
+    const backspaceWord = async (word) => {
+      for (let i = word.length; i >= 0; i--) {
+        if (isCancelled) return;
+        setDisplayText(word.slice(0, i));
+        setIsPaused(false);
+        await delay(50 + Math.random() * 25);
+      }
+    };
+    
+    const runLoop = async () => {
+      while (!isCancelled) {
+        // Type "Passion"
+        await typeWord(words[0]);
+        
+        // Pause after "Passion"
+        setIsPaused(true);
+        await delay(500);
+        
+        // Backspace "Passion"
+        await backspaceWord(words[0]);
+        
+        // Small pause before typing next word
+        await delay(150);
+        
+        // Type "Craft"
+        await typeWord(words[1]);
+        
+        // Pause after "Craft"
+        setIsPaused(true);
+        await delay(700);
+        
+        // Backspace "Craft"
+        await backspaceWord(words[1]);
+        
+        // Small pause before looping
+        await delay(150);
+      }
+    };
+    
+    // Start animation with initial delay
+    const startTimeout = setTimeout(() => {
+      runLoop();
     }, 300);
     
-    return () => clearTimeout(timeoutId);
+    return () => {
+      isCancelled = true;
+      clearTimeout(startTimeout);
+      if (animationRef.current) {
+        clearTimeout(animationRef.current);
+      }
+    };
   }, [hasStarted]);
   
-  // Cursor blink effect during animation
+  // Cursor blink effect only during pauses
   useEffect(() => {
-    if (isAnimationComplete) return;
+    if (!isPaused) {
+      setShowCursor(true);
+      return;
+    }
     
     const blinkInterval = setInterval(() => {
       setShowCursor(prev => !prev);
     }, 530);
     
     return () => clearInterval(blinkInterval);
-  }, [isAnimationComplete]);
+  }, [isPaused]);
   
   return (
     <div 
@@ -219,17 +229,17 @@ const PassionTypingText = () => {
         <span>{staticText}</span>
         <span className="inline">
           {displayText}
-          {showCursor && (
-            <span 
-              className="inline-block w-[3px] ml-[1px]"
-              style={{ 
-                height: '0.75em',
-                backgroundColor: '#C9A227',
-                verticalAlign: 'middle',
-                marginBottom: '0.05em'
-              }}
-            />
-          )}
+          <span 
+            className="inline-block w-[3px] ml-[1px]"
+            style={{ 
+              height: '0.75em',
+              backgroundColor: '#C9A227',
+              verticalAlign: 'middle',
+              marginBottom: '0.05em',
+              opacity: showCursor ? 1 : 0,
+              transition: 'opacity 0.1s'
+            }}
+          />
         </span>
       </h2>
     </div>

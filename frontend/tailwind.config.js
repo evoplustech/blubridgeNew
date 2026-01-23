@@ -16,7 +16,8 @@ module.exports = {
 			caveat: ['Caveat', 'cursive'],
 			handwritten: ['"Caveat"', 'cursive'],
 			cursiveJoint: ['"Dancing Script"', 'cursive'],
-
+			signature: ['"Great Vibes"', 'cursive'],
+			handwriting: ['Pacifico', 'cursive'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
