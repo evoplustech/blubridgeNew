@@ -357,115 +357,175 @@ const Deployment = () => {
         </div>
       </section>
 
-            {/* SECTION 3: Accelerated Deployment - Redesigned */}
+      {/* SECTION 3: Deployment Pipeline - Unique Horizontal Flow Design */}
       <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Gradient orbs */}
-          <div className="absolute top-20 left-10 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
-          {/* Grid pattern */}
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 opacity-5"
+            className="absolute inset-0 opacity-[0.03]"
             style={{
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)',
-              backgroundSize: '50px 50px'
+              backgroundImage: 'radial-gradient(circle at 2px 2px, #0B1F3B 1px, transparent 0)',
+              backgroundSize: '32px 32px'
             }}
           />
         </div>
         
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B1F3B]/10 rounded-full mb-6">
-                <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" />
-                <span className="text-[#6B7280] text-sm font-medium">Production Ready</span>
+          {/* Section Header */}
+          <div className="mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B1F3B]/10 rounded-full mb-6">
+              <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" />
+              <span className="text-[#6B7280] text-sm font-medium">Production Ready</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black leading-tight max-w-2xl">
+              From Development to Production in Minutes
+            </h2>
+            <p className="text-[#4B5563] max-w-2xl leading-relaxed text-lg">
+              Our deployment pipeline transforms your trained models into production-ready services with built-in observability, scaling, and governance.
+            </p>
+          </div>
+
+          {/* Horizontal Pipeline Flow */}
+          <div className="relative">
+            {/* Connection Line */}
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-green-500/20 -translate-y-1/2 z-0" />
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+              {/* Stage 1 - Build */}
+              <div 
+                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                style={{ animation: 'pipelineFloat1 5s ease-in-out infinite' }}
+              >
+                {/* Step Number */}
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                  01
+                </div>
+                {/* Arrow connector (hidden on last item) */}
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#fffdf7] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
+                  <ArrowRight className="w-3 h-3 text-cyan-500" />
+                </div>
+                
+                <div className="pt-4">
+                  <div className="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-2">Build</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Containerize models with optimized runtimes and dependencies.</p>
+                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                    <div className="flex items-center gap-2 text-xs text-[#6B7280]">
+                      <span className="w-2 h-2 bg-cyan-500 rounded-full" />
+                      Docker + ONNX
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black leading-tight">
-                Leverage Advanced GPU
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0B1F3B] to-[#06B6D4]">
-                  Cloud Infrastructure
-                </span>
-              </h2>
-              
-              <p className="text-[#4B5563] mb-6 leading-relaxed text-lg">
-                Deployment is where models meet reality. BluBridge provides a unified platform for launching and operating AI systems at scale.
-              </p>
-              
-              <p className="text-[#6B7280] mb-8 leading-relaxed">
-                Our deployment layer supports real-time inference, batch processing, traffic routing, version control, and rollback strategies. Models can be promoted directly from training into production with full observability and governance.
-              </p>
-              
-              {/* Stats row */}
-              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#E5E7EB]">
-                <div>
-                  <div className="text-3xl font-bold text-black mb-1">99.9%</div>
-                  <div className="text-[#6B7280] text-sm">Uptime SLA</div>
+              {/* Stage 2 - Test */}
+              <div 
+                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                style={{ animation: 'pipelineFloat2 6s ease-in-out infinite' }}
+              >
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                  02
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-black mb-1">12ms</div>
-                  <div className="text-[#6B7280] text-sm">Avg Latency</div>
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#fffdf7] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
+                  <ArrowRight className="w-3 h-3 text-purple-500" />
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-black mb-1">12+</div>
-                  <div className="text-[#6B7280] text-sm">Global Regions</div>
+                
+                <div className="pt-4">
+                  <div className="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-2">Validate</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Run automated tests, benchmarks, and quality gates.</p>
+                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                    <div className="flex items-center gap-2 text-xs text-[#6B7280]">
+                      <span className="w-2 h-2 bg-purple-500 rounded-full" />
+                      CI/CD Pipeline
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Stage 3 - Deploy */}
+              <div 
+                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                style={{ animation: 'pipelineFloat3 5.5s ease-in-out infinite' }}
+              >
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                  03
+                </div>
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#fffdf7] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
+                  <ArrowRight className="w-3 h-3 text-orange-500" />
+                </div>
+                
+                <div className="pt-4">
+                  <div className="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-2">Deploy</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Push to production with blue-green or canary strategies.</p>
+                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                    <div className="flex items-center gap-2 text-xs text-[#6B7280]">
+                      <span className="w-2 h-2 bg-orange-500 rounded-full" />
+                      Zero Downtime
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Stage 4 - Scale */}
+              <div 
+                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                style={{ animation: 'pipelineFloat4 6.5s ease-in-out infinite' }}
+              >
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                  04
+                </div>
+                
+                <div className="pt-4">
+                  <div className="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-2">Scale</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Auto-scale based on traffic with global load balancing.</p>
+                  <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
+                    <div className="flex items-center gap-2 text-xs text-[#6B7280]">
+                      <span className="w-2 h-2 bg-green-500 rounded-full" />
+                      12+ Regions
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            {/* Right - Feature Cards Stack */}
-            <div className="relative">
-              {/* Decorative rings */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 border border-[#E5E7EB] rounded-full" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-[#E5E7EB] rounded-full" />
-              
-              <div className="space-y-5">
-                {/* Training Compute Card */}
-                <div 
-                  className="relative bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-cyan-400/50 transition-all duration-300"
-                  style={{ animation: 'cardFloatDeploy1 6s ease-in-out infinite' }}
-                >
-                  <div className="absolute top-6 right-6 w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                    </svg>
-                  </div>
-                  <p className="text-cyan-600 text-sm font-semibold mb-2 uppercase tracking-wider">Seamless Transition</p>
-                  <h3 className="text-3xl font-bold text-black mb-3">Training Compute</h3>
-                  <p className="text-[#6B7280]">Move from training to production seamlessly with optimized compute resources.</p>
-                </div>
-                
-                {/* Inference Card */}
-                <div 
-                  className="relative bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-purple-400/50 transition-all duration-300"
-                  style={{ animation: 'cardFloatDeploy2 5s ease-in-out infinite' }}
-                >
-                  <div className="absolute top-6 right-6 w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
-                  </div>
-                  <p className="text-purple-600 text-sm font-semibold mb-2 uppercase tracking-wider">One-Click Rollout</p>
-                  <h3 className="text-3xl font-bold text-black mb-3">Inference & Deploy</h3>
-                  <p className="text-[#6B7280]">Deploy and scale models instantly with automated infrastructure provisioning.</p>
-                </div>
-                
-                {/* Global Scale Card */}
-                <div 
-                  className="relative bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-green-400/50 transition-all duration-300"
-                  style={{ animation: 'cardFloatDeploy3 7s ease-in-out infinite' }}
-                >
-                  <div className="absolute top-6 right-6 w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                  </div>
-                  <p className="text-green-600 text-sm font-semibold mb-2 uppercase tracking-wider">Worldwide Coverage</p>
-                  <h3 className="text-3xl font-bold text-black mb-3">Global Scale</h3>
-                  <p className="text-[#6B7280]">Deploy across 12+ regions with automatic failover and load balancing.</p>
-                </div>
+          </div>
+
+          {/* Bottom Stats Bar */}
+          <div className="mt-16 bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB]">
+            <div className="grid md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-[#E5E7EB]">
+              <div className="text-center pt-4 md:pt-0">
+                <div className="text-4xl font-bold text-black mb-1">99.9%</div>
+                <div className="text-[#6B7280] text-sm">Uptime SLA</div>
+              </div>
+              <div className="text-center pt-4 md:pt-0">
+                <div className="text-4xl font-bold text-black mb-1">&lt;12ms</div>
+                <div className="text-[#6B7280] text-sm">Avg Latency</div>
+              </div>
+              <div className="text-center pt-4 md:pt-0">
+                <div className="text-4xl font-bold text-black mb-1">847</div>
+                <div className="text-[#6B7280] text-sm">Deploys/Day</div>
+              </div>
+              <div className="text-center pt-4 md:pt-0">
+                <div className="text-4xl font-bold text-black mb-1">99.8%</div>
+                <div className="text-[#6B7280] text-sm">Success Rate</div>
               </div>
             </div>
           </div>
@@ -473,17 +533,21 @@ const Deployment = () => {
         
         {/* Animation styles */}
         <style>{`
-          @keyframes cardFloatDeploy1 {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-          }
-          @keyframes cardFloatDeploy2 {
+          @keyframes pipelineFloat1 {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-6px); }
           }
-          @keyframes cardFloatDeploy3 {
+          @keyframes pipelineFloat2 {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
+          }
+          @keyframes pipelineFloat3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }
+          @keyframes pipelineFloat4 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-7px); }
           }
         `}</style>
       </section>
