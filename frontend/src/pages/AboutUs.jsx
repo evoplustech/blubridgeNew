@@ -796,7 +796,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4" >
           {/* Section Heading */}
           <h2 
             className="text-center mb-16"
