@@ -815,7 +815,7 @@ const Home = () => {
               <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#0B1F3B]/30" />
             </div> */}
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3B]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B]" >
               By Solutions
             </h2>
           </div>
