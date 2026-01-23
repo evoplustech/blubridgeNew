@@ -709,7 +709,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           {/* Section Heading */}
           <h2 
             className="text-center mb-16"
@@ -747,7 +747,7 @@ const AboutUs = () => {
           
           {/* Row 2 - How We Work - Slide from Right */}
           <ScrollAnimatedItem direction="right" delay={100}>
-            <div className="mb-12">
+            <div className="mb-12" style={{ textAlign:'right'}}>
               <h3 
                 className="mb-3"
                 style={{ 
@@ -787,7 +787,7 @@ const AboutUs = () => {
           
           {/* Row 4 - Our People - Slide from Right */}
           <ScrollAnimatedItem direction="right" delay={300}>
-            <div>
+            <div style={{ textAlign:'right'}}>
               <h3 
                 className="mb-3"
                 style={{ 
