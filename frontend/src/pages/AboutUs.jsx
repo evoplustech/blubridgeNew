@@ -805,14 +805,25 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-       {/* How We Build, Innovate, and Lead Section - Full Width with Scroll Animations */}
-      <section className="py-20 bg-[#efede5] overflow-hidden">
+       {/* How We Build, Innovate, and Lead Section - Premium Redesign */}
+      <section className="py-24 bg-[#efede5] overflow-hidden relative">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div 
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 2px 2px, #0B1F3B 1px, transparent 0)',
+              backgroundSize: '48px 48px'
+            }}
+          />
+        </div>
+        
         {/* Animation Keyframes */}
         <style>{`
           @keyframes slideFromLeft {
             0% {
               opacity: 0;
-              transform: translateX(-100px);
+              transform: translateX(-60px);
             }
             100% {
               opacity: 1;
@@ -822,7 +833,7 @@ const AboutUs = () => {
           @keyframes slideFromRight {
             0% {
               opacity: 0;
-              transform: translateX(100px);
+              transform: translateX(60px);
             }
             100% {
               opacity: 1;
@@ -830,111 +841,122 @@ const AboutUs = () => {
             }
           }
           .slide-left-animate {
-            animation: slideFromLeft 0.8s ease-out forwards;
+            animation: slideFromLeft 0.7s ease-out forwards;
           }
           .slide-right-animate {
-            animation: slideFromRight 0.8s ease-out forwards;
+            animation: slideFromRight 0.7s ease-out forwards;
           }
           .scroll-hidden {
             opacity: 0;
           }
+          .premium-card {
+            background: linear-gradient(135deg, #fffdf7 0%, #fafaf5 100%);
+            border: 1px solid rgba(11, 31, 59, 0.06);
+            transition: all 0.4s ease;
+          }
+          .premium-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(11, 31, 59, 0.08);
+            border-color: rgba(50, 140, 193, 0.15);
+          }
+          .premium-number {
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(135deg, rgba(50, 140, 193, 0.15) 0%, rgba(50, 140, 193, 0.05) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+          }
         `}</style>
         
-        <div className="max-w-6xl mx-auto px-4" >
-          {/* Section Heading */}
-          <h2 
-            className="text-center mb-16"
-            style={{ 
-              fontSize: '42px', 
-              fontWeight: '700', 
-              color: '#0B1F3B',
-              letterSpacing: '-0.5px',
-              fontFamily: "'DM Sans', sans-serif"
-            }}
-            data-testid="how-we-build-heading"
-          >
-            How We Build, Innovate, and Lead
-          </h2>
-          
-          {/* Row 1 - Our Purpose - Slide from Left */}
-          <ScrollAnimatedItem direction="left" delay={0}>
-            <div className="mb-12" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px' }} >
-              <h3 
-                className="mb-3"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Our Purpose
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. <br></br>Everything we build is application-driven, turning AI innovation into tangible value.
-              </p>
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#328CC1]/40" />
+              <span className="text-[#328CC1] text-sm font-semibold uppercase tracking-[0.2em]">Our Philosophy</span>
+              <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#328CC1]/40" />
             </div>
-          </ScrollAnimatedItem>
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-[#0B1F3B] leading-tight"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              data-testid="how-we-build-heading"
+            >
+              How We Build, Innovate,<br className="hidden md:block" /> and Lead
+            </h2>
+          </div>
           
-          {/* Row 2 - How We Work - Slide from Right */}
-          <ScrollAnimatedItem direction="right" delay={100}>
-            <div className="mb-12" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px',textAlign:'right' }} >
-              <h3 
-                className="mb-3"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                How We Work
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                Our teams move fast with purpose, combining individual ownership with strong collaboration. <br></br>We operate with transparency, believing open exchange is key to building better intelligence.
-              </p>
-            </div>
-          </ScrollAnimatedItem>
-          
-          {/* Row 3 - Excellence Through Rigor & Creativity - Slide from Left */}
-          <ScrollAnimatedItem direction="left" delay={200}>
-            <div className="mb-12" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px' }}>
-              <h3 
-                className="mb-3"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Excellence Through Rigor & Creativity
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                Rigor defines our research, ensuring every model is grounded in technical excellence.<br></br> Creativity drives us to discover new paths toward efficiency and performance.
-              </p>
-            </div>
-          </ScrollAnimatedItem>
-          
-          {/* Row 4 - Our People - Slide from Right */}
-          <ScrollAnimatedItem direction="right" delay={300}>
-            <div style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px',textAlign:'right' }}>
-              <h3 
-                className="mb-3"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Our People
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives.<br></br> We are united by a broad and deep range of expertise across the AI landscape.
-              </p>
-            </div>
-          </ScrollAnimatedItem>
+          {/* Premium 2x2 Grid Layout */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Card 1 - Our Purpose */}
+            <ScrollAnimatedItem direction="left" delay={0}>
+              <div className="premium-card rounded-2xl p-8 h-full">
+                <div className="flex items-start gap-5">
+                  <span className="premium-number">01</span>
+                  <div className="pt-2">
+                    <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      Our Purpose
+                    </h3>
+                    <p className="text-[#4B5563] leading-relaxed">
+                      We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimatedItem>
+            
+            {/* Card 2 - How We Work */}
+            <ScrollAnimatedItem direction="right" delay={100}>
+              <div className="premium-card rounded-2xl p-8 h-full">
+                <div className="flex items-start gap-5">
+                  <span className="premium-number">02</span>
+                  <div className="pt-2">
+                    <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      How We Work
+                    </h3>
+                    <p className="text-[#4B5563] leading-relaxed">
+                      Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimatedItem>
+            
+            {/* Card 3 - Excellence */}
+            <ScrollAnimatedItem direction="left" delay={200}>
+              <div className="premium-card rounded-2xl p-8 h-full">
+                <div className="flex items-start gap-5">
+                  <span className="premium-number">03</span>
+                  <div className="pt-2">
+                    <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      Excellence Through Rigor
+                    </h3>
+                    <p className="text-[#4B5563] leading-relaxed">
+                      Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimatedItem>
+            
+            {/* Card 4 - Our People */}
+            <ScrollAnimatedItem direction="right" delay={300}>
+              <div className="premium-card rounded-2xl p-8 h-full">
+                <div className="flex items-start gap-5">
+                  <span className="premium-number">04</span>
+                  <div className="pt-2">
+                    <h3 className="text-xl font-bold text-[#0B1F3B] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      Our People
+                    </h3>
+                    <p className="text-[#4B5563] leading-relaxed">
+                      We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimatedItem>
+          </div>
         </div>
       </section>
 
