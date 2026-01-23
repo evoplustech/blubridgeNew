@@ -58,7 +58,7 @@ const ModelCustomization = () => {
       const height = canvas.offsetHeight;
 
       // Calculate which connection is currently active (one at a time, sequential)
-      const cycleDuration = 1.0; // seconds per connection
+      const cycleDuration = 0.3; // seconds per connection
       const totalCycleTime = connectionSequence.length * cycleDuration;
       const currentCycleTime = (time * 0.5) % totalCycleTime;
       const activeConnectionIndex = Math.floor(currentCycleTime / cycleDuration);

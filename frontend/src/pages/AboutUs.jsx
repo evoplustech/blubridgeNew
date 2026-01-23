@@ -368,7 +368,7 @@ const AboutUs = () => {
 
       {/* Our Mission Section - Section 2 */}
       <section className="py-24 bg-[#fffdf7]">
-        {/* Enhanced Wing Glitter Animation Styles */}
+        {/* Enhanced Wing Glitter Animation Styles - On Bird Wings Only */}
         <style>{`
           @keyframes softGlow {
             0%, 100% {
@@ -407,7 +407,7 @@ const AboutUs = () => {
           @keyframes wingShimmer {
             0% { 
               opacity: 0;
-              transform: translateX(-10px) translateY(5px) scale(0.5);
+              transform: translateX(-3px) translateY(2px) scale(0.5);
             }
             30% { 
               opacity: 1;
@@ -415,11 +415,11 @@ const AboutUs = () => {
             }
             70% { 
               opacity: 0.8;
-              transform: translateX(10px) translateY(-5px) scale(1.1);
+              transform: translateX(3px) translateY(-2px) scale(1.1);
             }
             100% { 
               opacity: 0;
-              transform: translateX(20px) translateY(-10px) scale(0.5);
+              transform: translateX(6px) translateY(-4px) scale(0.5);
             }
           }
           
@@ -439,40 +439,37 @@ const AboutUs = () => {
             animation: softGlow 4s ease-in-out infinite;
           }
           
-          /* Wing glitter particles - larger and more visible */
+          /* Wing glitter particles - positioned on actual wings */
           .wing-glitter {
             position: absolute;
             border-radius: 50%;
             pointer-events: none;
+            z-index: 10;
           }
           
-          /* Left wing glitter particles */
-          .wing-l1 { top: 25%; left: 5%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #64d2ff 40%, transparent 70%); animation: wingGlitterPulse 2s ease-in-out infinite 0s; }
-          .wing-l2 { top: 30%; left: 12%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #a0e7ff 40%, transparent 70%); animation: wingGlitterPulse 2.3s ease-in-out infinite 0.3s; }
-          .wing-l3 { top: 35%; left: 8%; width: 7px; height: 7px; background: radial-gradient(circle, #ffffff 0%, #7dd3fc 40%, transparent 70%); animation: wingSparkle 3s ease-in-out infinite 0.5s; }
-          .wing-l4 { top: 40%; left: 15%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #bae6fd 40%, transparent 70%); animation: wingGlitterPulse 1.8s ease-in-out infinite 0.2s; }
-          .wing-l5 { top: 28%; left: 18%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #93c5fd 40%, transparent 70%); animation: wingShimmer 2.5s ease-in-out infinite 0.7s; }
-          .wing-l6 { top: 45%; left: 10%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #60a5fa 40%, transparent 70%); animation: wingGlitterPulse 2.1s ease-in-out infinite 0.4s; }
-          .wing-l7 { top: 33%; left: 3%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #38bdf8 40%, transparent 70%); animation: starBurst 2.8s ease-in-out infinite 0.1s; }
+          /* Left wing glitter - positioned on the bird's left wing area */
+          .wing-l1 { top: 32%; left: 22%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #64d2ff 40%, transparent 70%); animation: wingGlitterPulse 2s ease-in-out infinite 0s; }
+          .wing-l2 { top: 38%; left: 26%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #a0e7ff 40%, transparent 70%); animation: wingGlitterPulse 2.3s ease-in-out infinite 0.3s; }
+          .wing-l3 { top: 35%; left: 30%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #7dd3fc 40%, transparent 70%); animation: wingSparkle 3s ease-in-out infinite 0.5s; }
+          .wing-l4 { top: 42%; left: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #bae6fd 40%, transparent 70%); animation: wingGlitterPulse 1.8s ease-in-out infinite 0.2s; }
+          .wing-l5 { top: 30%; left: 34%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #93c5fd 40%, transparent 70%); animation: wingShimmer 2.5s ease-in-out infinite 0.7s; }
+          .wing-l6 { top: 45%; left: 32%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #60a5fa 40%, transparent 70%); animation: wingGlitterPulse 2.1s ease-in-out infinite 0.4s; }
+          .wing-l7 { top: 28%; left: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #38bdf8 40%, transparent 70%); animation: starBurst 2.8s ease-in-out infinite 0.1s; }
           
-          /* Right wing glitter particles */
-          .wing-r1 { top: 25%; right: 5%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #f0abfc 40%, transparent 70%); animation: wingGlitterPulse 2.2s ease-in-out infinite 0.1s; }
-          .wing-r2 { top: 30%; right: 12%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #e879f9 40%, transparent 70%); animation: wingGlitterPulse 1.9s ease-in-out infinite 0.4s; }
-          .wing-r3 { top: 35%; right: 8%; width: 7px; height: 7px; background: radial-gradient(circle, #ffffff 0%, #d946ef 40%, transparent 70%); animation: wingSparkle 2.7s ease-in-out infinite 0.6s; }
-          .wing-r4 { top: 40%; right: 15%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #c084fc 40%, transparent 70%); animation: wingGlitterPulse 2.4s ease-in-out infinite 0.3s; }
-          .wing-r5 { top: 28%; right: 18%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #a855f7 40%, transparent 70%); animation: wingShimmer 2.6s ease-in-out infinite 0.8s; }
-          .wing-r6 { top: 45%; right: 10%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #8b5cf6 40%, transparent 70%); animation: wingGlitterPulse 2s ease-in-out infinite 0.5s; }
-          .wing-r7 { top: 33%; right: 3%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fb7185 40%, transparent 70%); animation: starBurst 3s ease-in-out infinite 0.2s; }
+          /* Right wing glitter - positioned on the bird's right wing area */
+          .wing-r1 { top: 32%; right: 22%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #f0abfc 40%, transparent 70%); animation: wingGlitterPulse 2.2s ease-in-out infinite 0.1s; }
+          .wing-r2 { top: 38%; right: 26%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #e879f9 40%, transparent 70%); animation: wingGlitterPulse 1.9s ease-in-out infinite 0.4s; }
+          .wing-r3 { top: 35%; right: 30%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #d946ef 40%, transparent 70%); animation: wingSparkle 2.7s ease-in-out infinite 0.6s; }
+          .wing-r4 { top: 42%; right: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #c084fc 40%, transparent 70%); animation: wingGlitterPulse 2.4s ease-in-out infinite 0.3s; }
+          .wing-r5 { top: 30%; right: 34%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #a855f7 40%, transparent 70%); animation: wingShimmer 2.6s ease-in-out infinite 0.8s; }
+          .wing-r6 { top: 45%; right: 32%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #8b5cf6 40%, transparent 70%); animation: wingGlitterPulse 2s ease-in-out infinite 0.5s; }
+          .wing-r7 { top: 28%; right: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fb7185 40%, transparent 70%); animation: starBurst 3s ease-in-out infinite 0.2s; }
           
-          /* Wing edge shimmer particles */
-          .wing-edge1 { top: 20%; left: 25%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fcd34d 40%, transparent 70%); animation: wingShimmer 3.5s ease-in-out infinite 0s; }
-          .wing-edge2 { top: 22%; right: 25%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fbbf24 40%, transparent 70%); animation: wingShimmer 3.2s ease-in-out infinite 0.4s; }
-          .wing-edge3 { top: 50%; left: 20%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #34d399 40%, transparent 70%); animation: wingGlitterPulse 2.5s ease-in-out infinite 0.6s; }
-          .wing-edge4 { top: 50%; right: 20%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #2dd4bf 40%, transparent 70%); animation: wingGlitterPulse 2.3s ease-in-out infinite 0.9s; }
-          
-          /* Body accent glitters */
-          .body-glitter1 { top: 55%; left: 45%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #67e8f9 40%, transparent 70%); animation: starBurst 2.5s ease-in-out infinite 0.3s; }
-          .body-glitter2 { top: 60%; left: 50%; width: 3px; height: 3px; background: radial-gradient(circle, #ffffff 0%, #a5f3fc 40%, transparent 70%); animation: wingGlitterPulse 3s ease-in-out infinite 0.7s; }
+          /* Wing feather tip glitters */
+          .wing-tip1 { top: 25%; left: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fcd34d 40%, transparent 70%); animation: wingShimmer 3.5s ease-in-out infinite 0s; }
+          .wing-tip2 { top: 25%; right: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fbbf24 40%, transparent 70%); animation: wingShimmer 3.2s ease-in-out infinite 0.4s; }
+          .wing-tip3 { top: 48%; left: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #34d399 40%, transparent 70%); animation: wingGlitterPulse 2.5s ease-in-out infinite 0.6s; }
+          .wing-tip4 { top: 48%; right: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #2dd4bf 40%, transparent 70%); animation: wingGlitterPulse 2.3s ease-in-out infinite 0.9s; }
         `}</style>
         
         <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
@@ -517,10 +514,10 @@ const AboutUs = () => {
               </Link>
             </div>
             
-            {/* Right - Eagle Illustration with Enhanced Wing Glitter Effects */}
+            {/* Right - Eagle Illustration with Wing Glitter Effects */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end" style={{ maxWidth: '250px', width: '100%' }}>
               <div className="bird-glow-container relative">
-                {/* Left Wing Glitter Particles */}
+                {/* Left Wing Glitter Particles - On Wings */}
                 <div className="wing-glitter wing-l1" />
                 <div className="wing-glitter wing-l2" />
                 <div className="wing-glitter wing-l3" />
@@ -529,7 +526,7 @@ const AboutUs = () => {
                 <div className="wing-glitter wing-l6" />
                 <div className="wing-glitter wing-l7" />
                 
-                {/* Right Wing Glitter Particles */}
+                {/* Right Wing Glitter Particles - On Wings */}
                 <div className="wing-glitter wing-r1" />
                 <div className="wing-glitter wing-r2" />
                 <div className="wing-glitter wing-r3" />
@@ -538,17 +535,13 @@ const AboutUs = () => {
                 <div className="wing-glitter wing-r6" />
                 <div className="wing-glitter wing-r7" />
                 
-                {/* Wing Edge Shimmer */}
-                <div className="wing-glitter wing-edge1" />
-                <div className="wing-glitter wing-edge2" />
-                <div className="wing-glitter wing-edge3" />
-                <div className="wing-glitter wing-edge4" />
+                {/* Wing Tip Glitters */}
+                <div className="wing-glitter wing-tip1" />
+                <div className="wing-glitter wing-tip2" />
+                <div className="wing-glitter wing-tip3" />
+                <div className="wing-glitter wing-tip4" />
                 
-                {/* Body Accent Glitters */}
-                <div className="wing-glitter body-glitter1" />
-                <div className="wing-glitter body-glitter2" />
-                
-                {/* Bird Image with Soft Inner Glow */}
+                {/* Bird Image */}
                 <img 
                   src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/llrlfhzt_toolfk_a_majestic_eagle_in_.png" 
                   alt="Digital technology eagle representing AI innovation"
@@ -847,7 +840,7 @@ const AboutUs = () => {
           }
         `}</style>
         
-        <div className="max-w-6xl mx-auto px-4" style={{ }} >
+        <div className="max-w-6xl mx-auto px-4" style={{ backgroundColor:'#fffdf7', padding:'2em 2.5em', borderRadius:'20px' }} >
           {/* Section Heading */}
           <h2 
             className="text-center mb-16"
