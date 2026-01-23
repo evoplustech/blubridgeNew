@@ -656,8 +656,8 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-       {/* Who We Are Section - Cyan Gradient Background */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #00A8CC 0%, #0BC5EA 50%, #06B6D4 100%)' }}>
+       {/* Who We Are Section - Light Background */}
+      <section className="py-20 bg-[#efede5]">
         <div className="max-w-6xl mx-auto px-4">
           {/* Section Heading */}
           <h2 
@@ -665,7 +665,7 @@ const AboutUs = () => {
             style={{ 
               fontSize: '42px', 
               fontWeight: '700', 
-              color: '#FFFFFF',
+              color: '#0B1F3B',
               letterSpacing: '-0.5px',
               fontFamily: "'DM Sans', sans-serif"
             }}
@@ -698,7 +698,7 @@ const AboutUs = () => {
                 style={{ 
                   fontSize: '26px', 
                   fontWeight: '600', 
-                  color: '#FFFFFF',
+                  color: '#0B1F3B',
                   fontFamily: "'DM Sans', sans-serif"
                 }}
               >
@@ -707,8 +707,7 @@ const AboutUs = () => {
               <p style={{ 
                 fontSize: '15px', 
                 lineHeight: '1.7', 
-                color: '#FFFFFF',
-                opacity: 0.95
+                color: '#1a1a1a'
               }}>
                 We can support every aspect of the software and product life cycle, from feasibility analysis, user experience design, and prototyping, to the development of scalable, winning solutions. Our data team goes beyond everyday reporting to mine, segment, and deliver game-changing insights for our clients.
               </p>
@@ -739,7 +738,7 @@ const AboutUs = () => {
                 style={{ 
                   fontSize: '26px', 
                   fontWeight: '600', 
-                  color: '#FFFFFF',
+                  color: '#0B1F3B',
                   fontFamily: "'DM Sans', sans-serif"
                 }}
               >
@@ -748,8 +747,7 @@ const AboutUs = () => {
               <p style={{ 
                 fontSize: '15px', 
                 lineHeight: '1.7', 
-                color: '#FFFFFF',
-                opacity: 0.95
+                color: '#1a1a1a'
               }}>
                 Our approach is to keep it simple and do what makes sense for our clients. Even though we enjoy building complex software and web applications, we don't recommend reinventing the wheel. We are all about helping our clients find, customize, and integrate best-in-class solutions that are readily available and affordable.
               </p>
@@ -780,7 +778,7 @@ const AboutUs = () => {
                 style={{ 
                   fontSize: '26px', 
                   fontWeight: '600', 
-                  color: '#FFFFFF',
+                  color: '#0B1F3B',
                   fontFamily: "'DM Sans', sans-serif"
                 }}
               >
@@ -789,8 +787,7 @@ const AboutUs = () => {
               <p style={{ 
                 fontSize: '15px', 
                 lineHeight: '1.7', 
-                color: '#FFFFFF',
-                opacity: 0.95
+                color: '#1a1a1a'
               }}>
                 When it's time to innovate, we like to achieve short-term milestones with your greater vision in mind. This way you can manage your technology investment as we flex to meet your changing needs along the way.
               </p>
