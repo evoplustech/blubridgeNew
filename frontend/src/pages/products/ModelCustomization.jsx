@@ -211,6 +211,8 @@ const ModelCustomization = () => {
     };
   }, []);
 
+  useDocumentTitle('Model Customization | BluBridge');
+
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
