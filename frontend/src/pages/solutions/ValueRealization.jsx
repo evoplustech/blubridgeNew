@@ -52,7 +52,7 @@ const ValueRealization = () => {
             <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
               <div className="relative w-full max-w-[520px] h-full">
                 {/* Background glow effects */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl" />
                 
                 {/* Central Value Circle */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
@@ -256,22 +256,22 @@ const ValueRealization = () => {
       {/* SECTION 2: Value Highlights - 3 Column Strip */}
       <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-10 text-center">
+          <div className="grid md:grid-cols-3 gap-10">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Business Impact</h3>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
+              <p className="text-[#4B5563] text-md leading-relaxed">
                 Align models with real-world goals, ensuring every deployment drives operational or revenue outcomes.
               </p>
             </div>
-            <div>
+            <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Execution</h3>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
+              <p className="text-[#4B5563] text-md leading-relaxed">
                 Streamline the journey from proof-of-concept to production with guided workflows and built-in best practices.
               </p>
             </div>
-            <div>
+            <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
+              <p className="text-[#4B5563] text-md leading-relaxed">
                 Apply AI across teams, products, and industries using a flexible foundation that adapts to evolving needs.
               </p>
             </div>
