@@ -750,9 +750,20 @@ const Home = () => {
       </section>
 
       {/* Solutions Section - Premium Animated Hexagonal Design */}
-      <section className="pt-10 pb-20 bg-[#fffdf7] relative overflow-hidden">
+      <section 
+        className="pt-10 pb-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Light overlay for readability */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(255, 253, 247, 0.92)' }} />
+        
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
           {/* Floating gradient orbs */}
           <div 
             className="absolute w-96 h-96 rounded-full opacity-[0.04] blur-3xl"
