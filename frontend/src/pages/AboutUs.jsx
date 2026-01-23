@@ -656,9 +656,43 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-       {/* How We Build, Innovate, and Lead Section */}
-      <section className="py-20 bg-[#efede5]">
-        <div className="max-w-6xl mx-auto px-4">
+       {/* How We Build, Innovate, and Lead Section - Full Width with Animations */}
+      <section className="py-20 bg-[#efede5] overflow-hidden">
+        {/* Animation Keyframes */}
+        <style>{`
+          @keyframes slideFromLeft {
+            0% {
+              opacity: 0;
+              transform: translateX(-100px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          @keyframes slideFromRight {
+            0% {
+              opacity: 0;
+              transform: translateX(100px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          .slide-left {
+            animation: slideFromLeft 0.8s ease-out forwards;
+          }
+          .slide-right {
+            animation: slideFromRight 0.8s ease-out forwards;
+          }
+          .delay-1 { animation-delay: 0.1s; }
+          .delay-2 { animation-delay: 0.3s; }
+          .delay-3 { animation-delay: 0.5s; }
+          .delay-4 { animation-delay: 0.7s; }
+        `}</style>
+        
+        <div className="max-w-4xl mx-auto px-4">
           {/* Section Heading */}
           <h2 
             className="text-center mb-16"
@@ -674,148 +708,76 @@ const AboutUs = () => {
             How We Build, Innovate, and Lead
           </h2>
           
-          {/* Row 1 - Our Purpose - Image Left, Text Right */}
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16">
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/zd00lfph_our%20purpose.png" 
-                alt="Our Purpose"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
-                data-testid="how-we-build-image-1"
-              />
-            </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Our Purpose
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
-              </p>
-            </div>
+          {/* Row 1 - Our Purpose - Slide from Left */}
+          <div className="mb-12 slide-left delay-1" style={{ opacity: 0 }}>
+            <h3 
+              className="mb-3"
+              style={{ 
+                fontSize: '26px', 
+                fontWeight: '600', 
+                color: '#0B1F3B',
+                fontFamily: "'DM Sans', sans-serif"
+              }}
+            >
+              Our Purpose
+            </h3>
+            <p className="text-lg leading-relaxed text-[#1a1a1a]">
+              We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+            </p>
           </div>
           
-          {/* Row 2 - How We Work - Text Left, Image Right */}
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 mb-16">
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
-              <img 
-                src="https://images.pexels.com/photos/6804093/pexels-photo-6804093.jpeg?w=600&q=80" 
-                alt="Agile workflow planning board with sticky notes"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
-                data-testid="how-we-build-image-2"
-              />
-            </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                How We Work
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
-              </p>
-            </div>
+          {/* Row 2 - How We Work - Slide from Right */}
+          <div className="mb-12 slide-right delay-2" style={{ opacity: 0 }}>
+            <h3 
+              className="mb-3"
+              style={{ 
+                fontSize: '26px', 
+                fontWeight: '600', 
+                color: '#0B1F3B',
+                fontFamily: "'DM Sans', sans-serif"
+              }}
+            >
+              How We Work
+            </h3>
+            <p className="text-lg leading-relaxed text-[#1a1a1a]">
+              Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
+            </p>
           </div>
           
-          {/* Row 3 - Excellence Through Rigor & Creativity - Image Left, Text Right */}
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16">
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0">
-              <img 
-                src="https://images.pexels.com/photos/4792503/pexels-photo-4792503.jpeg?w=600&q=80" 
-                alt="Light bulb representing creativity and innovation"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
-                data-testid="how-we-build-image-3"
-              />
-            </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Excellence Through Rigor & Creativity
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
-              </p>
-            </div>
+          {/* Row 3 - Excellence Through Rigor & Creativity - Slide from Left */}
+          <div className="mb-12 slide-left delay-3" style={{ opacity: 0 }}>
+            <h3 
+              className="mb-3"
+              style={{ 
+                fontSize: '26px', 
+                fontWeight: '600', 
+                color: '#0B1F3B',
+                fontFamily: "'DM Sans', sans-serif"
+              }}
+            >
+              Excellence Through Rigor & Creativity
+            </h3>
+            <p className="text-lg leading-relaxed text-[#1a1a1a]">
+              Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
+            </p>
           </div>
           
-          {/* Row 4 - Our People - Text Left, Image Right */}
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
-            {/* Image */}
-            <div className="w-full md:w-2/5 flex-shrink-0 md:flex md:justify-end">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/3epci5sz_Our%20People.png" 
-                alt="Our People"
-                className="w-full rounded-2xl shadow-lg"
-                style={{ 
-                  maxWidth: '320px',
-                  height: '220px',
-                  objectFit: 'cover',
-                  borderRadius: '16px'
-                }}
-                data-testid="how-we-build-image-4"
-              />
-            </div>
-            {/* Text Content */}
-            <div className="w-full md:w-3/5" style={{ maxWidth: '550px' }}>
-              <h3 
-                className="mb-4"
-                style={{ 
-                  fontSize: '26px', 
-                  fontWeight: '600', 
-                  color: '#0B1F3B',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-              >
-                Our People
-              </h3>
-              <p className="text-lg leading-relaxed text-[#1a1a1a]">
-                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
-              </p>
-            </div>
+          {/* Row 4 - Our People - Slide from Right */}
+          <div className="slide-right delay-4" style={{ opacity: 0 }}>
+            <h3 
+              className="mb-3"
+              style={{ 
+                fontSize: '26px', 
+                fontWeight: '600', 
+                color: '#0B1F3B',
+                fontFamily: "'DM Sans', sans-serif"
+              }}
+            >
+              Our People
+            </h3>
+            <p className="text-lg leading-relaxed text-[#1a1a1a]">
+              We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
+            </p>
           </div>
         </div>
       </section>
