@@ -826,7 +826,7 @@ const Home = () => {
             {/* Card 1: Model Customization - Floating Animation 1 */}
             <Link to="/products/model-customization" className="group block" style={{ animation: 'solutionCardFloat1 6s ease-in-out infinite' }}>
               <div 
-                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
+                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
                 data-testid="solution-model-customization"
               >
                 {/* Decorative Corner Accent */}
