@@ -710,7 +710,7 @@ const Home = () => {
        
         
         <div className="container-custom relative z-10">
-          <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4 capitalize">OUR FRONTIER AI EXPERTISE</h2><p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p></div>
+          <div className="text-center mb-16"><h2 className="text-3xl md:text-4xl font-bold mb-4 capitalize" style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 55, 132, 1) 53%, rgba(0, 55, 132, 1) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>OUR FRONTIER AI EXPERTISE</h2><p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p></div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
               
             {/* Left - Circular Diagram */}
