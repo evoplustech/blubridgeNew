@@ -996,41 +996,25 @@ const AboutUs = () => {
             </div>
           </div>
           
-          {/* Features Grid - 3 columns top, 1 centered bottom */}
-          <div className="space-y-16">
-            {/* Top Row - 3 Features */}
-            
-            
-            {/* Bottom Row - "Our Purpose" on LEFT + "It's Our Hunger & Precision." on RIGHT */}
-            <div className="grid md:grid-cols-3 gap-6 md:gap-6 items-end">
-              {/* Left Side - Our Purpose with gold line */}
-              <div className="flex items-start gap-6 w-sm">
-                <div className="text-left flex-1" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-                  <h3 
-                    className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
-                    Our Purpose
-                  </h3>
-                  <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                    We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
-                  </p>
-                </div>
-                {/* Gold decorative line */}
-                {/* <div 
-                  className="hidden md:block w-[2px] self-stretch"
-                  style={{ backgroundColor: '#C9A227', minHeight: '100px' }}
-                /> */}
+          {/* Features Grid - 2x2 layout */}
+          <div className="space-y-6">
+            {/* Top Row - Our Purpose + How We Work */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Our Purpose */}
+              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
+                <h3 
+                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Our Purpose
+                </h3>
+                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                  We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+                </p>
               </div>
               
-              {/* Right Side - Typing Animation "It's Our Hunger & Precision." */}
-              <div className="md:col-span-2">
-                <PassionTypingText />
-              </div>
-            </div>
-<div className="grid md:grid-cols-3 gap-6 md:gap-6" style={{ position:'relative', top:'-15px'}}>
-              {/* Feature 1 - How We Work */}
-              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'15px'}}>
+              {/* How We Work */}
+              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -1041,9 +1025,12 @@ const AboutUs = () => {
                   Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
                 </p>
               </div>
-              
-              {/* Feature 2 - Excellence Through Rigor */}
-              <div className="text-left"  style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
+            </div>
+            
+            {/* Bottom Row - Excellence Through Rigor + Our People */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Excellence Through Rigor */}
+              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -1055,8 +1042,8 @@ const AboutUs = () => {
                 </p>
               </div>
               
-              {/* Feature 3 - Our People */}
-              <div className="text-left"  style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
+              {/* Our People */}
+              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -1068,8 +1055,6 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
-
-
           </div>
         </div>
       </section>
