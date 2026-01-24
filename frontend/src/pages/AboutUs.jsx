@@ -722,7 +722,7 @@ const AboutUs = () => {
                     height: 'auto',
                     objectFit: 'contain'
                   }}
-                  className="hidden sm:block"
+                  className="block"
                   data-testid="our-mission-eagle-image"
                 />
               </div>
