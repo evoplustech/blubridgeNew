@@ -17,8 +17,8 @@ const PassionTypingText = () => {
   const animationRef = useRef(null);
   const blinkRef = useRef(null);
   
-  
-  const words = ["In Progress"];
+  const staticText = "(";
+  const words = ["In Progress)"];
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -64,7 +64,7 @@ const PassionTypingText = () => {
     };
   }, [isAnimating]);
   
-  // Main looping animation
+  // Main looping animation - Single word typing only
   useEffect(() => {
     if (!hasStarted) return;
     
@@ -75,6 +75,7 @@ const PassionTypingText = () => {
     });
     
     const typeWord = async (word) => {
+      if (!word) return;
       setIsAnimating(true);
       for (let i = 0; i <= word.length; i++) {
         if (isCancelled) return;
@@ -83,45 +84,10 @@ const PassionTypingText = () => {
       }
     };
     
-    const backspaceWord = async (word) => {
-      setIsAnimating(true);
-      for (let i = word.length; i >= 0; i--) {
-        if (isCancelled) return;
-        setDisplayText(word.slice(0, i));
-        await delay(40 + Math.random() * 25);
-      }
-    };
-    
     const runLoop = async () => {
-      while (!isCancelled) {
-        // Type "Hunger"
-        await typeWord(words[0]);
-        
-        // Hold for 2 seconds - hide cursor
-        setIsAnimating(false);
-        await delay(2000);
-        
-        // Backspace "Hunger"
-        await backspaceWord(words[0]);
-        
-        // Small pause before typing next word
-        setIsAnimating(false);
-        await delay(80);
-        
-        // Type "Precision"
-        await typeWord(words[1]);
-        
-        // Hold for 2 seconds - hide cursor
-        setIsAnimating(false);
-        await delay(2000);
-        
-        // Backspace "Precision"
-        await backspaceWord(words[1]);
-        
-        // Small pause before looping
-        setIsAnimating(false);
-        await delay(80);
-      }
+      // Type the word once and stop
+      await typeWord(words[0]);
+      setIsAnimating(false);
     };
     
     // Start animation with initial delay
