@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect,useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap, Scale, Server, SlidersHorizontal, Lightbulb, FlaskConical, Rocket, Smartphone, Laptop } from 'lucide-react';
@@ -7,6 +7,156 @@ import useEmblaCarousel from 'embla-carousel-react';
 import NodeConnections2 from './NodeConnections2';
 import NeuralBackground from '../components/NeuralBackground';
 
+// Premium Typing Animation Text Component with Looping Backspace Effect
+const PassionTypingText = () => {
+  const [displayText, setDisplayText] = useState('');
+  const [cursorVisible, setCursorVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const textRef = useRef(null);
+  const animationRef = useRef(null);
+  const blinkRef = useRef(null);
+  
+  
+  const words = ["In Progress"];
+  
+  // Intersection Observer to trigger animation when text is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
+    
+    return () => {
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
+      }
+    };
+  }, [hasStarted]);
+  
+  // Smooth cursor blink during typing/erasing
+  useEffect(() => {
+    if (!isAnimating) {
+      setCursorVisible(false);
+      return;
+    }
+    
+    // Smooth blinking cursor
+    const blink = () => {
+      setCursorVisible(prev => !prev);
+    };
+    
+    setCursorVisible(true);
+    blinkRef.current = setInterval(blink, 400);
+    
+    return () => {
+      if (blinkRef.current) {
+        clearInterval(blinkRef.current);
+      }
+    };
+  }, [isAnimating]);
+  
+  // Main looping animation
+  useEffect(() => {
+    if (!hasStarted) return;
+    
+    let isCancelled = false;
+    
+    const delay = (ms) => new Promise(resolve => {
+      animationRef.current = setTimeout(resolve, ms);
+    });
+    
+    const typeWord = async (word) => {
+      setIsAnimating(true);
+      for (let i = 0; i <= word.length; i++) {
+        if (isCancelled) return;
+        setDisplayText(word.slice(0, i));
+        await delay(70 + Math.random() * 40);
+      }
+    };
+    
+    const backspaceWord = async (word) => {
+      setIsAnimating(true);
+      for (let i = word.length; i >= 0; i--) {
+        if (isCancelled) return;
+        setDisplayText(word.slice(0, i));
+        await delay(40 + Math.random() * 25);
+      }
+    };
+    
+    const runLoop = async () => {
+      while (!isCancelled) {
+        // Type "Hunger"
+        await typeWord(words[0]);
+        
+        // Hold for 2 seconds - hide cursor
+        setIsAnimating(false);
+        await delay(2000);
+        
+        // Backspace "Hunger"
+        await backspaceWord(words[0]);
+        
+        // Small pause before typing next word
+        setIsAnimating(false);
+        await delay(80);
+        
+        // Type "Precision"
+        await typeWord(words[1]);
+        
+        // Hold for 2 seconds - hide cursor
+        setIsAnimating(false);
+        await delay(2000);
+        
+        // Backspace "Precision"
+        await backspaceWord(words[1]);
+        
+        // Small pause before looping
+        setIsAnimating(false);
+        await delay(80);
+      }
+    };
+    
+    // Start animation with initial delay
+    const startTimeout = setTimeout(() => {
+      runLoop();
+    }, 300);
+    
+    return () => {
+      isCancelled = true;
+      clearTimeout(startTimeout);
+      if (animationRef.current) {
+        clearTimeout(animationRef.current);
+      }
+      if (blinkRef.current) {
+        clearInterval(blinkRef.current);
+      }
+    };
+  }, [hasStarted]);
+  
+  return (
+    <div 
+      ref={textRef}
+      className="text-center"
+      data-testid="passion-typing-text"
+    >
+      <h2 
+        className="font-signature text-lg text-[#0B1F3B] leading-none"
+        
+        data-testid="passion-heading"
+      >
+        {displayText}
+      </h2>
+    </div>
+  );
+};
 // Testimonials Carousel Component
 // Mistral-style Vertical Tabs Section
 const VerticalTabsSection = () => {
@@ -712,7 +862,8 @@ const Home = () => {
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 capitalize" style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 55, 132, 1) 53%, rgba(0, 55, 132, 1) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>OUR FRONTIER AI EXPERTISE</h2>
-            <p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p>
+            {/*<p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p>*/}
+            <p className="font-signature text-lg text-[#0B1F3B] leading-none"><PassionTypingText /></p>
           </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
               
