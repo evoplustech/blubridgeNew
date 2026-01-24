@@ -308,7 +308,7 @@ const Contact = () => {
                 }}>
                   <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
-                    href="https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028"
+                    href="https://maps.google.com/?q=44+Center+Grove+Rd+Randolph+New+Jersey+07869"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ 
