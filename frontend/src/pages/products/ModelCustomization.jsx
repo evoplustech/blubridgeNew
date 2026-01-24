@@ -579,24 +579,24 @@ useEffect(() => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
-                metric: '50%', 
-                label: 'Improved Efficiency', 
+                metric: '11×', 
+                label: 'MODELS IN PRODUCTION', 
                 sublabel: 'Accelerate Time to Value',
-                desc: 'Shorter development feedback loops with streamlined training pipelines.',
+                desc: 'Enterprises deployed eleven times more AI models this year than last, marking a decisive shift toward real, customized systems in production.',
                 link: 'Learn More',
                 linkTo: '/about'
               },
               { 
-                metric: '47%', 
-                label: 'Enhanced user satisfaction', 
+                metric: '70%', 
+                label: 'TAILORED INTELLIGENCE', 
                 sublabel: 'More performance for less.',
-                desc: 'Reduce training costs while maintaining high performance standards.',
+                desc: 'Most organizations now adapt base models with their own data, replacing generic outputs with domain-specific understanding.',
                 link: 'Our Data Centres',
                 linkTo: '/products/glomfjord'
               },
               { 
-                metric: '42%', 
-                label: 'Innovation and Creativity', 
+                metric: '76%', 
+                label: 'BUILT FOR CONTROL', 
                 sublabel: 'Improved Resource Utilisation',
                 desc: ' Improved utilization and training workload optimization.',
                 link: 'See GPU Nodes',

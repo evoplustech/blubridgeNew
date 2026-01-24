@@ -607,48 +607,7 @@ const eased = t * t * t; // slow start, strong finish
       </section>
 
       {/* ROI Statistics Section */}
-      <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Stat 1 - ROI Per Dollar */}
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
-              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">3.7×</div>
-              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">ROI Per Dollar</h3>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
-                Enterprises report an average 3.7× return on every dollar invested in AI, with top adopters exceeding 10× ROI.
-              </p>
-            </div>
-            
-            {/* Stat 2 - ROI & Efficiency Boost */}
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
-              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">60%</div>
-              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">ROI & Efficiency Boost</h3>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
-                In a 2025 PwC survey, 60% of executives say AI boosts ROI and operational efficiency.
-              </p>
-            </div>
-            
-            {/* Stat 3 - Formal ROI Tracking */}
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
-              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">72%</div>
-              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Formal ROI Tracking</h3>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
-                Nearly three-quarters of business leaders formally measure ROI for generative AI, focusing on productivity and profitability.
-              </p>
-            </div>
-            
-            {/* Stat 4 - Positive AI ROI */}
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
-              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">67%</div>
-              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Positive AI ROI</h3>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
-                In IT-centric studies, 67% of respondents report positive ROI from AI initiatives, with only 3% negative.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* SECTION 3: Speed up time-to-value Section */}
       <section className="bg-[#fffdf7] py-24">
         <div className="container-custom">
@@ -761,6 +720,51 @@ const eased = t * t * t; // slow start, strong finish
       </section>
 
       {/* SECTION 5: Performance Metrics */}
+<section className="py-20 bg-[#fffdf7]">
+        <div className="container-custom">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">The Impact on Value</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Stat 1 - ROI Per Dollar */}
+            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">3.7×</div>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">ROI Per Dollar</h3>
+              <p className="text-[#4B5563] text-sm leading-relaxed">
+                Enterprises report an average 3.7× return on every dollar invested in AI, with top adopters exceeding 10× ROI.
+              </p>
+            </div>
+            
+            {/* Stat 2 - ROI & Efficiency Boost */}
+            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">60%</div>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">ROI & Efficiency Boost</h3>
+              <p className="text-[#4B5563] text-sm leading-relaxed">
+                In a 2025 PwC survey, 60% of executives say AI boosts ROI and operational efficiency.
+              </p>
+            </div>
+            
+            {/* Stat 3 - Formal ROI Tracking */}
+            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">72%</div>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Formal ROI Tracking</h3>
+              <p className="text-[#4B5563] text-sm leading-relaxed">
+                Nearly three-quarters of business leaders formally measure ROI for generative AI, focusing on productivity and profitability.
+              </p>
+            </div>
+            
+            {/* Stat 4 - Positive AI ROI */}
+            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">67%</div>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Positive AI ROI</h3>
+              <p className="text-[#4B5563] text-sm leading-relaxed">
+                In IT-centric studies, 67% of respondents report positive ROI from AI initiatives, with only 3% negative.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+{/* 
+
+
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">The Impact on Value</h2>
@@ -768,26 +772,26 @@ const eased = t * t * t; // slow start, strong finish
             <div className="border-l border-[#D6DEC3] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">4.3%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Piloting</div>
-              {/* <p className="text-[#000000] text-sm leading-relaxed">Reduce time from prototype to production-ready use.</p> */}
+              
             </div>
             <div className="border-l border-[#D6DEC3] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">7.2%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Implementing</div>
-              {/* <p className="text-[#000000] text-sm leading-relaxed">Accelerate real-world AI workflows with optimized infrastructure.</p> */}
+             
             </div>
             <div className="border-l border-[#D6DEC3] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">10.0%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Operating</div>
-              {/* <p className="text-[#000000] text-sm leading-relaxed">Achieve business impact at a fraction of traditional platform spend.</p> */}
+              
             </div>
             <div className="border-l border-[#D6DEC3] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">11.5%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">Optimizing</div>
-              {/* <p className="text-[#000000] text-sm leading-relaxed">Achieve business impact at a fraction of traditional platform spend.</p> */}
+             
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* SECTION 7: More Solutions */}
