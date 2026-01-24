@@ -4,6 +4,124 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
+// Country codes with flags and names
+const countryCodes = [
+  { code: '+1', flag: '🇺🇸', name: 'United States' },
+  { code: '+1', flag: '🇨🇦', name: 'Canada' },
+  { code: '+7', flag: '🇷🇺', name: 'Russia' },
+  { code: '+20', flag: '🇪🇬', name: 'Egypt' },
+  { code: '+27', flag: '🇿🇦', name: 'South Africa' },
+  { code: '+30', flag: '🇬🇷', name: 'Greece' },
+  { code: '+31', flag: '🇳🇱', name: 'Netherlands' },
+  { code: '+32', flag: '🇧🇪', name: 'Belgium' },
+  { code: '+33', flag: '🇫🇷', name: 'France' },
+  { code: '+34', flag: '🇪🇸', name: 'Spain' },
+  { code: '+36', flag: '🇭🇺', name: 'Hungary' },
+  { code: '+39', flag: '🇮🇹', name: 'Italy' },
+  { code: '+40', flag: '🇷🇴', name: 'Romania' },
+  { code: '+41', flag: '🇨🇭', name: 'Switzerland' },
+  { code: '+43', flag: '🇦🇹', name: 'Austria' },
+  { code: '+44', flag: '🇬🇧', name: 'United Kingdom' },
+  { code: '+45', flag: '🇩🇰', name: 'Denmark' },
+  { code: '+46', flag: '🇸🇪', name: 'Sweden' },
+  { code: '+47', flag: '🇳🇴', name: 'Norway' },
+  { code: '+48', flag: '🇵🇱', name: 'Poland' },
+  { code: '+49', flag: '🇩🇪', name: 'Germany' },
+  { code: '+51', flag: '🇵🇪', name: 'Peru' },
+  { code: '+52', flag: '🇲🇽', name: 'Mexico' },
+  { code: '+53', flag: '🇨🇺', name: 'Cuba' },
+  { code: '+54', flag: '🇦🇷', name: 'Argentina' },
+  { code: '+55', flag: '🇧🇷', name: 'Brazil' },
+  { code: '+56', flag: '🇨🇱', name: 'Chile' },
+  { code: '+57', flag: '🇨🇴', name: 'Colombia' },
+  { code: '+58', flag: '🇻🇪', name: 'Venezuela' },
+  { code: '+60', flag: '🇲🇾', name: 'Malaysia' },
+  { code: '+61', flag: '🇦🇺', name: 'Australia' },
+  { code: '+62', flag: '🇮🇩', name: 'Indonesia' },
+  { code: '+63', flag: '🇵🇭', name: 'Philippines' },
+  { code: '+64', flag: '🇳🇿', name: 'New Zealand' },
+  { code: '+65', flag: '🇸🇬', name: 'Singapore' },
+  { code: '+66', flag: '🇹🇭', name: 'Thailand' },
+  { code: '+81', flag: '🇯🇵', name: 'Japan' },
+  { code: '+82', flag: '🇰🇷', name: 'South Korea' },
+  { code: '+84', flag: '🇻🇳', name: 'Vietnam' },
+  { code: '+86', flag: '🇨🇳', name: 'China' },
+  { code: '+90', flag: '🇹🇷', name: 'Turkey' },
+  { code: '+91', flag: '🇮🇳', name: 'India' },
+  { code: '+92', flag: '🇵🇰', name: 'Pakistan' },
+  { code: '+93', flag: '🇦🇫', name: 'Afghanistan' },
+  { code: '+94', flag: '🇱🇰', name: 'Sri Lanka' },
+  { code: '+95', flag: '🇲🇲', name: 'Myanmar' },
+  { code: '+98', flag: '🇮🇷', name: 'Iran' },
+  { code: '+212', flag: '🇲🇦', name: 'Morocco' },
+  { code: '+213', flag: '🇩🇿', name: 'Algeria' },
+  { code: '+216', flag: '🇹🇳', name: 'Tunisia' },
+  { code: '+218', flag: '🇱🇾', name: 'Libya' },
+  { code: '+220', flag: '🇬🇲', name: 'Gambia' },
+  { code: '+221', flag: '🇸🇳', name: 'Senegal' },
+  { code: '+234', flag: '🇳🇬', name: 'Nigeria' },
+  { code: '+254', flag: '🇰🇪', name: 'Kenya' },
+  { code: '+255', flag: '🇹🇿', name: 'Tanzania' },
+  { code: '+256', flag: '🇺🇬', name: 'Uganda' },
+  { code: '+260', flag: '🇿🇲', name: 'Zambia' },
+  { code: '+263', flag: '🇿🇼', name: 'Zimbabwe' },
+  { code: '+351', flag: '🇵🇹', name: 'Portugal' },
+  { code: '+352', flag: '🇱🇺', name: 'Luxembourg' },
+  { code: '+353', flag: '🇮🇪', name: 'Ireland' },
+  { code: '+354', flag: '🇮🇸', name: 'Iceland' },
+  { code: '+358', flag: '🇫🇮', name: 'Finland' },
+  { code: '+370', flag: '🇱🇹', name: 'Lithuania' },
+  { code: '+371', flag: '🇱🇻', name: 'Latvia' },
+  { code: '+372', flag: '🇪🇪', name: 'Estonia' },
+  { code: '+380', flag: '🇺🇦', name: 'Ukraine' },
+  { code: '+381', flag: '🇷🇸', name: 'Serbia' },
+  { code: '+385', flag: '🇭🇷', name: 'Croatia' },
+  { code: '+386', flag: '🇸🇮', name: 'Slovenia' },
+  { code: '+420', flag: '🇨🇿', name: 'Czech Republic' },
+  { code: '+421', flag: '🇸🇰', name: 'Slovakia' },
+  { code: '+501', flag: '🇧🇿', name: 'Belize' },
+  { code: '+502', flag: '🇬🇹', name: 'Guatemala' },
+  { code: '+503', flag: '🇸🇻', name: 'El Salvador' },
+  { code: '+504', flag: '🇭🇳', name: 'Honduras' },
+  { code: '+505', flag: '🇳🇮', name: 'Nicaragua' },
+  { code: '+506', flag: '🇨🇷', name: 'Costa Rica' },
+  { code: '+507', flag: '🇵🇦', name: 'Panama' },
+  { code: '+509', flag: '🇭🇹', name: 'Haiti' },
+  { code: '+591', flag: '🇧🇴', name: 'Bolivia' },
+  { code: '+592', flag: '🇬🇾', name: 'Guyana' },
+  { code: '+593', flag: '🇪🇨', name: 'Ecuador' },
+  { code: '+595', flag: '🇵🇾', name: 'Paraguay' },
+  { code: '+598', flag: '🇺🇾', name: 'Uruguay' },
+  { code: '+852', flag: '🇭🇰', name: 'Hong Kong' },
+  { code: '+853', flag: '🇲🇴', name: 'Macau' },
+  { code: '+855', flag: '🇰🇭', name: 'Cambodia' },
+  { code: '+856', flag: '🇱🇦', name: 'Laos' },
+  { code: '+880', flag: '🇧🇩', name: 'Bangladesh' },
+  { code: '+886', flag: '🇹🇼', name: 'Taiwan' },
+  { code: '+960', flag: '🇲🇻', name: 'Maldives' },
+  { code: '+961', flag: '🇱🇧', name: 'Lebanon' },
+  { code: '+962', flag: '🇯🇴', name: 'Jordan' },
+  { code: '+963', flag: '🇸🇾', name: 'Syria' },
+  { code: '+964', flag: '🇮🇶', name: 'Iraq' },
+  { code: '+965', flag: '🇰🇼', name: 'Kuwait' },
+  { code: '+966', flag: '🇸🇦', name: 'Saudi Arabia' },
+  { code: '+967', flag: '🇾🇪', name: 'Yemen' },
+  { code: '+968', flag: '🇴🇲', name: 'Oman' },
+  { code: '+971', flag: '🇦🇪', name: 'UAE' },
+  { code: '+972', flag: '🇮🇱', name: 'Israel' },
+  { code: '+973', flag: '🇧🇭', name: 'Bahrain' },
+  { code: '+974', flag: '🇶🇦', name: 'Qatar' },
+  { code: '+975', flag: '🇧🇹', name: 'Bhutan' },
+  { code: '+976', flag: '🇲🇳', name: 'Mongolia' },
+  { code: '+977', flag: '🇳🇵', name: 'Nepal' },
+  { code: '+992', flag: '🇹🇯', name: 'Tajikistan' },
+  { code: '+993', flag: '🇹🇲', name: 'Turkmenistan' },
+  { code: '+994', flag: '🇦🇿', name: 'Azerbaijan' },
+  { code: '+995', flag: '🇬🇪', name: 'Georgia' },
+  { code: '+996', flag: '🇰🇬', name: 'Kyrgyzstan' },
+  { code: '+998', flag: '🇺🇿', name: 'Uzbekistan' },
+];
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -17,22 +135,96 @@ const Contact = () => {
   const [emailVerified, setEmailVerified] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [validationErrors, setValidationErrors] = useState({});
 
   useDocumentTitle('Contact | BluBridge');
+
+  // Get the selected country info for display
+  const getSelectedCountry = () => {
+    return countryCodes.find(c => c.code === formData.phoneCode) || countryCodes.find(c => c.code === '+91');
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    const phoneRegex = /^[0-9]{6,15}$/;
+    return phoneRegex.test(phone.replace(/\s/g, ''));
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Clear validation error when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/[^0-9]/g, ''); // Only allow numbers
+    setFormData(prev => ({ ...prev, phoneNumber: value }));
+    if (validationErrors.phoneNumber) {
+      setValidationErrors(prev => ({ ...prev, phoneNumber: '' }));
+    }
   };
 
   const handleVerifyEmail = () => {
-    if (formData.email && formData.email.includes('@')) {
+    if (formData.email && validateEmail(formData.email)) {
       setEmailVerified(true);
+      setValidationErrors(prev => ({ ...prev, email: '' }));
+    } else {
+      setValidationErrors(prev => ({ ...prev, email: 'Please enter a valid email address' }));
     }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    
+    if (!formData.firstName.trim()) {
+      errors.firstName = 'First name is required';
+    }
+    
+    if (!formData.lastName.trim()) {
+      errors.lastName = 'Last name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!validateEmail(formData.email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.phoneNumber.trim()) {
+      errors.phoneNumber = 'Phone number is required';
+    } else if (!validatePhone(formData.phoneNumber)) {
+      errors.phoneNumber = 'Please enter a valid phone number (6-15 digits)';
+    }
+    
+    if (!formData.inquiryType) {
+      errors.inquiryType = 'Please select an inquiry type';
+    }
+    
+    if (!formData.message.trim()) {
+      errors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      errors.message = 'Message must be at least 10 characters';
+    }
+    
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     setSubmitError('');
 
@@ -65,6 +257,7 @@ const Contact = () => {
           message: ''
         });
         setEmailVerified(false);
+        setValidationErrors({});
       } else {
         const errorData = await response.json();
         setSubmitError(errorData.detail || 'Failed to submit form. Please try again.');
