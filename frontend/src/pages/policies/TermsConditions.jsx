@@ -371,7 +371,7 @@ const TermsConditions = () => {
               }}>
                 <strong style={{ color: '#0B1F3B' }}>Legal:</strong>{' '}
                 <a 
-                  href="mailto:legal@blubridge.example"
+                  href="mailto:legal@blubridge.com"
                   style={{
                     color: '#0B1F3B',
                     textDecoration: 'none',
