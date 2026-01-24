@@ -1000,10 +1000,10 @@ const Home = () => {
                 </div>
                 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
                   Model Customization
                 </h3>
-                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
+                <p className="text-[#4b5563] leading-relaxed text-sm sm:text-base mb-6">
                   We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence.
                 </p>
                 
