@@ -259,9 +259,9 @@ const AIExpertiseOrbit = () => {
   ];
 
   return (
-    <div className="orbit-container relative w-[520px] h-[520px]">
+    <div className="orbit-container relative w-full max-w-[520px] aspect-square mx-auto" style={{ maxWidth: 'min(520px, 90vw)', height: 'auto' }}>
       {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
         <circle className="track" cx="260" cy="260" r="105" />
         <circle className="track" cx="260" cy="260" r="155" />
         <circle className="track" cx="260" cy="260" r="212" />
