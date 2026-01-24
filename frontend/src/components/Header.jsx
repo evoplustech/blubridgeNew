@@ -262,7 +262,7 @@ const Header = () => {
                   >
                     <div className="space-y-1">
                       <Link
-                        to="/products/model-customization"
+                        to="/solutions/model-customization"
                       >
                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
                           <div className="font-medium flex items-center py-2 gap-1">
@@ -521,7 +521,7 @@ const Header = () => {
             {mobileSubmenuOpen === 'solutions' && (
               <div className="mt-4 space-y-2 pl-4">
                 <Link
-                  to="/products/model-customization"
+                  to="/solutions/model-customization"
                   className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >

@@ -86,7 +86,7 @@ const Footer = () => {
 
   <div className="space-y-1">
     <Link
-      to="/products/model-customization"
+      to="/solutions/model-customization"
       className="flex items-center gap-2 px-4 py-1 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
     >
       {/* <div className="w-6 h-6 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center flex-shrink-0">
