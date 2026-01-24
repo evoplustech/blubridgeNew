@@ -970,21 +970,21 @@ const Home = () => {
           }
         `}</style>
 
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 px-4">
           {/* Section Header with Decorative Line */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-10 sm:mb-20">
             {/* <div className="inline-flex items-center gap-4 mb-6">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#0B1F3B]/30" />
               <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#0B1F3B]/30" />
             </div> */}
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B]" >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0B1F3B]" >
               By Use Case
             </h2>
           </div>
           
           {/* Premium 3-Column Animated Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
             
             {/* Card 1: Model Customization - Floating Animation 1 */}
             <Link to="/solutions/model-customization" className="group block" style={{ animation: 'solutionCardFloat1 6s ease-in-out infinite' }}>
