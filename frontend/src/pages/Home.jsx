@@ -18,7 +18,7 @@ const PassionTypingText = () => {
   const blinkRef = useRef(null);
   
   const staticText = "(";
-  const words = ["In Progress)"];
+  const word = "In Progress)";
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -64,7 +64,7 @@ const PassionTypingText = () => {
     };
   }, [isAnimating]);
   
-  // Main looping animation - Single word typing only
+  // Main looping animation - Continuous loop
   useEffect(() => {
     if (!hasStarted) return;
     
@@ -74,8 +74,7 @@ const PassionTypingText = () => {
       animationRef.current = setTimeout(resolve, ms);
     });
     
-    const typeWord = async (word) => {
-      if (!word) return;
+    const typeWord = async () => {
       setIsAnimating(true);
       for (let i = 0; i <= word.length; i++) {
         if (isCancelled) return;
@@ -84,10 +83,31 @@ const PassionTypingText = () => {
       }
     };
     
+    const backspaceWord = async () => {
+      setIsAnimating(true);
+      for (let i = word.length; i >= 0; i--) {
+        if (isCancelled) return;
+        setDisplayText(word.slice(0, i));
+        await delay(40 + Math.random() * 25);
+      }
+    };
+    
     const runLoop = async () => {
-      // Type the word once and stop
-      await typeWord(words[0]);
-      setIsAnimating(false);
+      while (!isCancelled) {
+        // Type "In Progress)"
+        await typeWord();
+        
+        // Hold for 2 seconds - hide cursor
+        setIsAnimating(false);
+        await delay(2000);
+        
+        // Backspace "In Progress)"
+        await backspaceWord();
+        
+        // Small pause before looping
+        setIsAnimating(false);
+        await delay(500);
+      }
     };
     
     // Start animation with initial delay
