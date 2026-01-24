@@ -17,8 +17,8 @@ const PassionTypingText = () => {
   const animationRef = useRef(null);
   const blinkRef = useRef(null);
   
- 
-  const word = "In Progress...";
+  const staticText = "(";
+  const word = "In Progress)";
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
