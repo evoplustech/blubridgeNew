@@ -356,9 +356,9 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - Network Visualization */}
+            {/* Right - Animated Vertical Flow */}
             <div className="relative h-[400px] lg:h-[480px] flex items-center justify-center">
-              <NetworkVisualization />
+              <VerticalFlowAnimation />
             </div>
           </div>
         </div>
