@@ -626,13 +626,13 @@ const Home = () => {
                   alt="B" 
                   className="hero-b-image"
                   style={{ 
-                  position:'relative',
+                    position: 'relative',
                     width: 'auto', 
-                    maxHeight: 'clamp(40px, 10vw, 72px)',
+                    height: '1em',
                     display: 'inline-block',
                     verticalAlign: 'baseline',
                     marginRight: '0em',
-                    top:'6px'
+                    top: '0.08em'
                   }} 
                 />
               </span>
