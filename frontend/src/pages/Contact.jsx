@@ -965,13 +965,6 @@ const Contact = () => {
                   </p>
                 </div>
               )}
-                    fontSize: '14px',
-                    outline: 'none',
-                    resize: 'none',
-                    boxSizing: 'border-box'
-                  }}
-                />
-              </div>
 
               {/* Submit Button */}
               <div style={{ textAlign: 'center' }}>
