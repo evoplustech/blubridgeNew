@@ -712,29 +712,7 @@ const Home = () => {
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 capitalize" style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 55, 132, 1) 53%, rgba(0, 55, 132, 1) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>OUR FRONTIER AI EXPERTISE</h2>
-            <p className="in-progress-text font-signature text-lg leading-none">(In Progress)</p>
-            <style>{`
-              .in-progress-text {
-                background: linear-gradient(90deg, 
-                  #0B1F3B 0%, 
-                  #0B1F3B 30%, 
-                  #60a5fa 45%, 
-                  #93c5fd 50%, 
-                  #60a5fa 55%, 
-                  #0B1F3B 70%, 
-                  #0B1F3B 100%
-                );
-                background-size: 300% 100%;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                animation: shimmerLoading 3s linear infinite;
-              }
-              @keyframes shimmerLoading {
-                0% { background-position: 100% 0; }
-                100% { background-position: -100% 0; }
-              }
-            `}</style>
+            <p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p>
           </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
               
