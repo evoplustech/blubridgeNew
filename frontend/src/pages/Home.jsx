@@ -259,9 +259,9 @@ const AIExpertiseOrbit = () => {
   ];
 
   return (
-    <div className="orbit-container relative w-full max-w-[520px] aspect-square mx-auto" style={{ maxWidth: 'min(520px, 90vw)', height: 'auto' }}>
+    <div className="orbit-container relative w-[520px] h-[520px]">
       {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
         <circle className="track" cx="260" cy="260" r="105" />
         <circle className="track" cx="260" cy="260" r="155" />
         <circle className="track" cx="260" cy="260" r="212" />
@@ -836,7 +836,7 @@ const Home = () => {
       
       {/* Our AI Expertise Section - Section 2 (EVEN) */}
       <section 
-        className="pt-20 pb-0 relative overflow-hidden"
+        className="pt-20 pb-0 relative"
         style={{
           backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
           backgroundSize: 'cover',
@@ -847,23 +847,23 @@ const Home = () => {
         {/* Light overlay for readability */}
        
         
-        <div className="container-custom relative z-10 px-4">
+        <div className="container-custom relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 capitalize" style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 55, 132, 1) 53%, rgba(0, 55, 132, 1) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>OUR FRONTIER AI EXPERTISE</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 capitalize" style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 55, 132, 1) 53%, rgba(0, 55, 132, 1) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>OUR FRONTIER AI EXPERTISE</h2>
             {/*<p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p>*/}
             <div className="font-signature text-lg text-[#0B1F3B] leading-none" style={{ minHeight: '28px' }}><PassionTypingText /></div>
           </div>
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
               
-            {/* Left - Circular Diagram - Hidden on mobile */}
-            <div className="relative hidden lg:flex items-center justify-center">
+            {/* Left - Circular Diagram */}
+            <div className="relative flex items-center justify-center">
               <AIExpertiseOrbit />    
             </div>
             
             {/* Right - AI Expertise Grid (8 tabs) */}
-            <div className="w-full">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6 sm:mb-8 text-center lg:text-center" style={{ position: 'relative', top: '-20px' }}>By Industry</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" style={{ position: 'relative', top:'-10px'}}>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8 text-center"  style={{ position: 'relative', top:'-40px'}}>By Industry</h2>
+              <div className="grid grid-cols-2 gap-4" style={{ position: 'relative', top:'-10px'}}>
                 {[
                   { icon: Radio, title: "Telco" },
                   { icon: ShieldCheck, title: "Finance & Insurance" },
@@ -878,10 +878,10 @@ const Home = () => {
                   return (
                   <div 
                     key={index}
-                    className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-xl border border-[#E8E4D9] shadow-sm"
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#E8E4D9] shadow-sm"
                     data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
-                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-[#328CC1] flex-shrink-0" strokeWidth={1.5} />
+                    <IconComponent className="w-6 h-6 text-[#328CC1]" strokeWidth={1.5} />
                     <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
                   </div>
                 )})}
