@@ -29,23 +29,23 @@ useEffect(() => {
   };
 
   /* ==========================
-     Models (pipeline order)
+     Models (pipeline order) - Matching hand-drawn diagram
   ========================== */
   const models = [
-    { name: 'Data',        x: 0.2,  y: 0.2,  color: '#3b82f6' }, // 0
-    { name: 'Adapters',    x: 0.5,  y: 0.15, color: '#8b5cf6' }, // 1
-    { name: 'Tuning',      x: 0.8,  y: 0.25, color: '#ec4899' }, // 2
-    { name: 'Prompts',     x: 0.15, y: 0.5,  color: '#06b6d4' }, // 3
-    { name: 'Embeddings',  x: 0.4,  y: 0.45, color: '#f97316' }, // 4
-    { name: 'Alignment',   x: 0.65, y: 0.4,  color: '#22c55e' }, // 5
-    { name: 'Evaluation',  x: 0.85, y: 0.55, color: '#eab308' }, // 6
-    { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' }, // 7
-    { name: 'Behavior',    x: 0.55, y: 0.7,  color: '#a855f7' }, // 8
-    { name: 'Guardrails',  x: 0.75, y: 0.8,  color: '#14b8a6' }  // 9
+    { name: 'Data',        x: 0.12, y: 0.12, color: '#3b82f6' }, // 0 - Top left
+    { name: 'Adapters',    x: 0.38, y: 0.12, color: '#8b5cf6' }, // 1 - Top middle
+    { name: 'Tuning',      x: 0.75, y: 0.22, color: '#ec4899' }, // 2 - Top right
+    { name: 'Prompts',     x: 0.75, y: 0.42, color: '#06b6d4' }, // 3 - Right side middle
+    { name: 'Embeddings',  x: 0.45, y: 0.52, color: '#f97316' }, // 4 - Center
+    { name: 'Alignment',   x: 0.15, y: 0.52, color: '#22c55e' }, // 5 - Left middle
+    { name: 'Compression', x: 0.15, y: 0.75, color: '#ef4444' }, // 6 - Bottom left
+    { name: 'Behaviour',   x: 0.40, y: 0.88, color: '#a855f7' }, // 7 - Bottom row left
+    { name: 'Guardrails',  x: 0.60, y: 0.88, color: '#14b8a6' }, // 8 - Bottom row middle
+    { name: 'Evaluation',  x: 0.82, y: 0.88, color: '#eab308' }  // 9 - Bottom row right
   ];
 
   /* ==========================
-     Sequential connections
+     Sequential connections - Matching hand-drawn diagram flow
   ========================== */
   const connectionSequence = [
     [0, 1], // Data → Adapters
@@ -53,10 +53,10 @@ useEffect(() => {
     [2, 3], // Tuning → Prompts
     [3, 4], // Prompts → Embeddings
     [4, 5], // Embeddings → Alignment
-    [5, 6], // Alignment → Evaluation
-    [6, 7], // Evaluation → Compression
-    [7, 8], // Compression → Behavior
-    [8, 9]  // Behavior → Guardrails
+    [5, 6], // Alignment → Compression
+    [6, 7], // Compression → Behaviour
+    [7, 8], // Behaviour → Guardrails
+    [8, 9]  // Guardrails → Evaluation
   ];
 
   /* ==========================
