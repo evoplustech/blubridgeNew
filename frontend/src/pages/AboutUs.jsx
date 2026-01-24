@@ -992,7 +992,7 @@ const AboutUs = () => {
             </h2>
             
             {/* Mobile Only - Typing Animation below heading */}
-            <div className="block md:hidden mt-4 mb-8">
+            <div className="block md:hidden mt-4 mb-8" style={{ marginTop: '80px' }}>
               <PassionTypingText />
             </div>
           </div>
