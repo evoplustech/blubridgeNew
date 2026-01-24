@@ -721,10 +721,11 @@ const Deployment = () => {
       </section>    
 
       {/* Deployment Statistics Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#000000] mb-16">Deployment Patterns</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Stat 1 - Faster to Production */}
+           
             <div className="text-center p-8 bg-[#efede5] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">210%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Faster to Production</h3>
@@ -733,7 +734,7 @@ const Deployment = () => {
               </p>
             </div>
             
-            {/* Stat 2 - Enterprise Deployment */}
+            
             <div className="text-center p-8 bg-[#efede5] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">88%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Enterprise Deployment</h3>
@@ -742,7 +743,7 @@ const Deployment = () => {
               </p>
             </div>
             
-            {/* Stat 3 - Workforce Reach */}
+          
             <div className="text-center p-8 bg-[#efede5] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">50%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Workforce Reach</h3>
@@ -752,59 +753,49 @@ const Deployment = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Performance Metrics - 4 Column */}
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Deployment Patterns</h2>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { 
-                metric: '59.0%', 
-                label: 'AI API endpoints', 
+                metric: '210%', 
+                label: 'FASTER TO PRODUCTION', 
                 sublabel: 'Accelerate Time to Value',
-                desc: 'Reduce deployment cycles with automated pipelines.',
+                desc: 'Organizations registering AI models for production grew by over two times in a single year.',
                 link: 'Learn More',
                 linkTo: '/about'
               },
               { 
-                metric: '49.6%', 
-                label: 'Dedicated Vendor-managed APIs', 
+                metric: '88%', 
+                label: 'ENTERPRISE DEPLOYMENT', 
                 sublabel: 'More performance for less.',
-                desc: 'Run inference workloads at a fraction of hyperscaler pricing.',
+                desc: 'Nearly nine in ten companies now run AI in at least one core business function.',
                 link: 'Our Data Centres',
                 linkTo: '/products/glomfjord'
               },
               { 
-                metric: '43.0%', 
-                label: 'Custom Code and proprietary Model Deployment', 
+                metric: '50%', 
+                label: 'WORKFORCE REACH', 
                 sublabel: 'Improved Resource Utilisation',
-                desc: ' Improve uptime and consistency across production environments.',
+                desc: 'Employee access to AI tools increased by half in one year, accelerating real-world rollout.',
                 link: 'See GPU Nodes',
                 linkTo: '/products/gpu-nodes'
               }
-              // { 
-              //   metric: '7.2X', 
-              //   label: 'Faster Inference', 
-              //   sublabel: 'Accelerate time to insights',
-              //   desc: 'Optimized GPU infrastructure delivers higher throughput and lower latency.',
-              //   link: 'Blog Post',
-              //   linkTo: '/blog'
-              // }
+            
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
                 <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
-                {/* <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p> */}
-                {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
-                  {item.link} <ArrowRight className="w-3 h-3" />
-                </Link> */}
+                <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> 
 
       {/* Key Services */}
       {/* <section className="py-24 bg-[#fffdf7]">
