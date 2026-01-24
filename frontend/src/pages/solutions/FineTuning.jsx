@@ -280,7 +280,7 @@ const FineTuning = () => {
                 sublabel: 'Accelerate Time to Value',
                 desc: 'Accelerate the time to actionable results with an AI stack optimised for rapid experimentation and tuning.',
                 link: 'Learn More',
-                linkTo: '/about'
+                linkTo: '/about-us'
               },
               { 
                 metric: '80%', 

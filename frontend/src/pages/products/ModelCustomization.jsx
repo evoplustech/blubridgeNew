@@ -584,7 +584,7 @@ useEffect(() => {
                 sublabel: 'Accelerate Time to Value',
                 desc: 'Enterprises deployed eleven times more AI models this year than last, marking a decisive shift toward real, customized systems in production.',
                 link: 'Learn More',
-                linkTo: '/about'
+                linkTo: '/about-us'
               },
               { 
                 metric: '70%', 

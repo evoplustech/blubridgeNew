@@ -283,7 +283,7 @@ const Inference = () => {
                 sublabel: 'More performance for less.',
                 desc: ' Lower inference costs through efficient hardware usage and integrated optimisation compared to traditional cloud platforms.',
                 link: 'Learn More',
-                linkTo: '/about'
+                linkTo: '/about-us'
               }
             ].map((item, i) => (
               <div key={i} className="border-l border-[#D6DEC3] pl-6">

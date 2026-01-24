@@ -269,7 +269,7 @@ const AIDevelopment = () => {
                 sublabel: 'Excellent Time-to-Value',
                 desc: 'Accelerate the pace of experimentation and delivery with an AI-optimised platform that drives quicker results.',
                 link: 'Learn More',
-                linkTo: '/about'
+                linkTo: '/about-us'
               },
               { 
                 metric: '80%', 

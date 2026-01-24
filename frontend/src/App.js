@@ -128,7 +128,7 @@ const AppLayout = () => {
           <Route path="/solutions/*" element={<Solutions />} />
           
           {/* Company Routes */}
-          <Route path="/about" element={<AboutUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/joinourteam" element={<JoinOurTeam />} />
           <Route path="/media-kit" element={<MediaKit />} />
           <Route path="/careers" element={<Careers />} />

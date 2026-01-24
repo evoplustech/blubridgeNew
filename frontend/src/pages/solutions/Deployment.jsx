@@ -767,7 +767,7 @@ const Deployment = () => {
                 sublabel: 'Accelerate Time to Value',
                 desc: 'Organizations registering AI models for production grew by over two times in a single year.',
                 link: 'Learn More',
-                linkTo: '/about'
+                linkTo: '/about-us'
               },
               { 
                 metric: '88%', 
