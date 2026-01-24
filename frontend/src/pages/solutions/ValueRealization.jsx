@@ -764,7 +764,7 @@ const eased = t * t * t; // slow start, strong finish
 
 
 
-      <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Measurable Impact AI at Scale</h2>
           <div className="grid md:grid-cols-4 gap-8">
@@ -790,7 +790,7 @@ const eased = t * t * t; // slow start, strong finish
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* SECTION 7: More Solutions */}
@@ -838,7 +838,7 @@ const eased = t * t * t; // slow start, strong finish
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-24 bg-[#efede5]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

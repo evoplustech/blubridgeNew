@@ -756,7 +756,7 @@ const Deployment = () => {
       </section> */}
 
       {/* Performance Metrics - 4 Column */}
-      <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -795,7 +795,7 @@ const Deployment = () => {
             ))}
           </div>
         </div>
-      </section> 
+      </section>  */}
 
       {/* Key Services */}
       {/* <section className="py-24 bg-[#fffdf7]">
@@ -884,7 +884,7 @@ const Deployment = () => {
       </section> */}
 
       {/* FAQs */}
-      <section className="py-24 bg-[#efede5]">
+      <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

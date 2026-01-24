@@ -155,7 +155,7 @@ const Contact = () => {
               textAlign: 'center',
               letterSpacing: '-0.02em'
             }}>
-              Our Offices / Partner Office
+              Our Office Locations
             </h2>
             
             {/* Office Card 1 */}
@@ -169,15 +169,15 @@ const Contact = () => {
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
-                   {/* <h3 style={{
+                   <h3 style={{
                     fontWeight: '600',
                     color: '#0B1F3B',
                     fontSize: '16px',
                     marginBottom: '8px',
                     lineHeight: '1.3'
                   }}>
-                    BluBridge Technologies (P) Ltd.
-                  </h3> */}
+                   INDIA
+                  </h3>
                   <p style={{
                     color: '#4a5568',
                     fontSize: '14px',
@@ -225,15 +225,15 @@ const Contact = () => {
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
-                  {/* <h3 style={{
+                 <h3 style={{
                     fontWeight: '600',
                     color: '#0B1F3B',
                     fontSize: '16px',
                     marginBottom: '8px',
                     lineHeight: '1.3'
                   }}>
-                    BluBridge Technologies (P) Ltd.
-                  </h3> */}
+                   INDIA
+                  </h3> 
                   <p style={{
                     color: '#4a5568',
                     fontSize: '14px',
@@ -280,15 +280,15 @@ const Contact = () => {
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
-                  {/* <h3 style={{
+                 <h3 style={{
                     fontWeight: '600',
                     color: '#0B1F3B',
                     fontSize: '16px',
                     marginBottom: '8px',
                     lineHeight: '1.3'
                   }}>
-                    BluBridge Technologies (P) Ltd.
-                  </h3> */}
+                    USA
+                  </h3> 
                   <p style={{
                     color: '#4a5568',
                     fontSize: '14px',
@@ -632,7 +632,7 @@ const Contact = () => {
                       borderRadius: '8px 0 0 8px',
                       gap: '4px'
                     }}>
-                      <span style={{ fontSize: '16px' }}>🇮🇳</span>
+                      <span style={{ fontSize: '16px' }}>IN</span>
                       <select
                         name="phoneCode"
                         value={formData.phoneCode}
