@@ -720,6 +720,40 @@ const Deployment = () => {
         </div>
       </section>    
 
+      {/* Deployment Statistics Section */}
+      <section className="py-20 bg-[#fffdf7]">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Stat 1 - Faster to Production */}
+            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">210%</div>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Faster to Production</h3>
+              <p className="text-[#4B5563] text-sm leading-relaxed">
+                Organizations registering AI models for production grew by over two times in a single year.
+              </p>
+            </div>
+            
+            {/* Stat 2 - Enterprise Deployment */}
+            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">88%</div>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Enterprise Deployment</h3>
+              <p className="text-[#4B5563] text-sm leading-relaxed">
+                Nearly nine in ten companies now run AI in at least one core business function.
+              </p>
+            </div>
+            
+            {/* Stat 3 - Workforce Reach */}
+            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+              <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">50%</div>
+              <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Workforce Reach</h3>
+              <p className="text-[#4B5563] text-sm leading-relaxed">
+                Employee access to AI tools increased by half in one year, accelerating real-world rollout.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Performance Metrics - 4 Column */}
       <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
