@@ -1,203 +1,294 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Plus, Minus, Check, Cpu, Box } from 'lucide-react';
-
-// Vertical Flow Animation Component for Hero Section
-const VerticalFlowAnimation = () => {
-  const [phase, setPhase] = useState('entering');
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(-1);
-  const [breathePhase, setBreathePhase] = useState(0);
-  const containerRef = useRef(null);
-  
-  const flowItems = [
-    { name: 'Pre-Training', color: '#3b82f6', accent: '#60a5fa' },
-    { name: 'Fine-Tuning', color: '#8b5cf6', accent: '#a78bfa' },
-    { name: 'Efficient', color: '#22c55e', accent: '#4ade80' },
-    { name: 'Evaluation', color: '#f59e0b', accent: '#fbbf24' },
-    { name: 'Inference', color: '#ec4899', accent: '#f472b6' },
-    { name: 'Applications', color: '#06b6d4', accent: '#22d3ee' }
-  ];
-
-  useEffect(() => {
-    const breatheInterval = setInterval(() => {
-      setBreathePhase(prev => (prev + 1) % 360);
-    }, 50);
-    return () => clearInterval(breatheInterval);
-  }, []);
-
-  useEffect(() => {
-    let timeouts = [];
-    
-    const runCycle = () => {
-      setPhase('entering');
-      setVisibleCount(0);
-      setActiveIndex(-1);
-      
-      flowItems.forEach((_, index) => {
-        const enterDelay = index * 420 + 200;
-        timeouts.push(setTimeout(() => {
-          setVisibleCount(prev => prev + 1);
-          setActiveIndex(index);
-        }, enterDelay));
-      });
-      
-      const holdStart = flowItems.length * 420 + 600;
-      timeouts.push(setTimeout(() => {
-        setPhase('holding');
-        setActiveIndex(-1);
-      }, holdStart));
-      
-      const pulseStart = holdStart + 400;
-      flowItems.forEach((_, index) => {
-        timeouts.push(setTimeout(() => {
-          setActiveIndex(index);
-        }, pulseStart + index * 280));
-      });
-      
-      const exitStart = pulseStart + flowItems.length * 280 + 800;
-      timeouts.push(setTimeout(() => {
-        setPhase('exiting');
-        setActiveIndex(-1);
-      }, exitStart));
-      
-      const cycleEnd = exitStart + 1200;
-      timeouts.push(setTimeout(runCycle, cycleEnd));
-    };
-    
-    runCycle();
-    return () => timeouts.forEach(t => clearTimeout(t));
-  }, []);
-
-  const breatheIntensity = Math.sin(breathePhase * Math.PI / 180) * 0.5 + 0.5;
-  
-  const getItemStyle = (index) => {
-    const isVisible = index < visibleCount;
-    const isActive = activeIndex === index;
-    const isExiting = phase === 'exiting';
-    const parallaxOffset = Math.sin(breathePhase * Math.PI / 180 + index * 0.5) * 2;
-    
-    return {
-      opacity: isExiting ? 0 : isVisible ? 1 : 0,
-      transform: `translateY(${isVisible ? parallaxOffset : -24}px) scale(${isVisible ? (isActive ? 1.02 : 1) : 0.92}) translateX(${isActive ? 4 : 0}px)`,
-      transition: isExiting 
-        ? `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 80}ms`
-        : `all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) ${isVisible ? 0 : index * 60}ms`,
-    };
-  };
-
-  const getConnectorStyle = (index) => {
-    const isVisible = index < visibleCount - 1;
-    const isExiting = phase === 'exiting';
-    const isFlowing = activeIndex === index || activeIndex === index + 1;
-    
-    return {
-      opacity: isExiting ? 0 : isVisible ? 1 : 0,
-      transform: `scaleY(${isVisible ? 1 : 0})`,
-      transition: isExiting 
-        ? `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 60}ms`
-        : `all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 200ms`,
-      filter: isFlowing ? 'brightness(1.3)' : 'brightness(1)',
-    };
-  };
-
-  return (
-    <div ref={containerRef} className="relative flex flex-col items-center justify-center h-full py-4">
-      <style>{`
-        .flow-container::before {
-          content: '';
-          position: absolute;
-          top: 50%; left: 50%;
-          width: 300px; height: 500px;
-          transform: translate(-50%, -50%);
-          background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.04) 30%, transparent 70%);
-          filter: blur(40px);
-          pointer-events: none;
-          animation: ambientBreathe 8s ease-in-out infinite;
-        }
-        @keyframes ambientBreathe {
-          0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-          50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
-        }
-        @keyframes shadowBreathe {
-          0%, 100% { box-shadow: 0 4px 16px var(--glow-color-20), 0 0 32px var(--glow-color-10), 0 0 0 1px var(--glow-color-15); }
-          50% { box-shadow: 0 6px 24px var(--glow-color-25), 0 0 48px var(--glow-color-15), 0 0 0 1px var(--glow-color-20); }
-        }
-        @keyframes flowEnergy { 0% { background-position: 0% 0%; } 100% { background-position: 0% 200%; } }
-        @keyframes connectorPulse { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.2); } }
-        .flow-card {
-          --glow-color-10: rgba(var(--card-rgb), 0.1);
-          --glow-color-15: rgba(var(--card-rgb), 0.15);
-          --glow-color-20: rgba(var(--card-rgb), 0.2);
-          --glow-color-25: rgba(var(--card-rgb), 0.25);
-          animation: shadowBreathe 4s ease-in-out infinite;
-          animation-delay: calc(var(--index) * 0.3s);
-        }
-        .flow-connector-line {
-          background: linear-gradient(180deg, var(--from-color) 0%, var(--to-color) 50%, var(--from-color) 100%);
-          background-size: 100% 200%;
-          animation: flowEnergy 2s linear infinite;
-        }
-        .connector-dot { animation: connectorPulse 2s ease-in-out infinite; }
-        .flow-card.is-active { animation: shadowBreathe 1.5s ease-in-out infinite; }
-      `}</style>
-      
-      <div className="flow-container absolute inset-0 pointer-events-none" />
-      
-      <div className="absolute left-1/2 top-8 bottom-8 w-px -translate-x-1/2 pointer-events-none"
-        style={{
-          background: `linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.1) 10%, rgba(139, 92, 246, 0.1) 30%, rgba(34, 197, 94, 0.1) 50%, rgba(236, 72, 153, 0.1) 70%, rgba(6, 182, 212, 0.1) 90%, transparent 100%)`,
-          opacity: phase === 'exiting' ? 0 : 0.6 + breatheIntensity * 0.4,
-          transition: 'opacity 0.8s ease-out',
-        }}
-      />
-      
-      {flowItems.map((item, index) => {
-        const isActive = activeIndex === index;
-        const cardRgb = item.color.match(/\w\w/g).map(x => parseInt(x, 16)).join(', ');
-        
-        return (
-          <div key={index} className="flex flex-col items-center relative z-10" style={getItemStyle(index)}>
-            <div
-              className={`flow-card relative px-7 py-3.5 rounded-2xl backdrop-blur-md ${isActive ? 'is-active' : ''}`}
-              style={{
-                '--card-rgb': cardRgb, '--card-color': item.color, '--index': index,
-                backgroundColor: `rgba(${cardRgb}, 0.08)`,
-                border: `1px solid rgba(${cardRgb}, ${isActive ? 0.4 : 0.2})`,
-                boxShadow: `0 4px 16px rgba(${cardRgb}, ${0.15 + breatheIntensity * 0.1}), 0 0 32px rgba(${cardRgb}, ${0.08 + breatheIntensity * 0.05}), inset 0 1px 0 rgba(255, 255, 255, 0.1)`,
-              }}
-            >
-              <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at 50% 0%, rgba(${cardRgb}, 0.15) 0%, transparent 60%)`, opacity: 0.5 + breatheIntensity * 0.3 }}
-              />
-              <span className="relative text-[15px] font-semibold tracking-wide"
-                style={{ color: item.color, textShadow: `0 0 20px rgba(${cardRgb}, 0.3)` }}
-              >
-                {item.name}
-              </span>
-            </div>
-            
-            {index < flowItems.length - 1 && (
-              <div className="flex flex-col items-center my-0.5 h-7 origin-top" style={getConnectorStyle(index)}>
-                <div className="flow-connector-line w-0.5 h-5 rounded-full"
-                  style={{ '--from-color': `${item.color}50`, '--to-color': `${flowItems[index + 1].color}50` }}
-                />
-                <div className="connector-dot w-1.5 h-1.5 rounded-full -mt-0.5"
-                  style={{ backgroundColor: flowItems[index + 1].color, boxShadow: `0 0 6px ${flowItems[index + 1].color}`, animationDelay: `${index * 0.15}s` }}
-                />
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+import ModelGraphCanvas from './ModelGraphCanvas';
 
 const ModelCustomization = () => {
   const [openFaq, setOpenFaq] = useState(null);
+
+  const canvasRef = useRef(null);
+
+  // Animated model graph visualization for hero
+useEffect(() => {
+  /* ==========================
+     Canvas setup
+  ========================== */
+  const canvas = canvasRef.current;
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrame;
+  let time = 0;
+
+  const resize = () => {
+    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  };
+
+  /* ==========================
+     Models (pipeline order)
+  ========================== */
+  const models = [
+    { name: 'Data',        x: 0.2,  y: 0.2,  color: '#3b82f6' }, // 0
+    { name: 'Adapters',    x: 0.5,  y: 0.15, color: '#8b5cf6' }, // 1
+    { name: 'Tuning',      x: 0.8,  y: 0.25, color: '#ec4899' }, // 2
+    { name: 'Prompts',     x: 0.15, y: 0.5,  color: '#06b6d4' }, // 3
+    { name: 'Embeddings',  x: 0.4,  y: 0.45, color: '#f97316' }, // 4
+    { name: 'Alignment',   x: 0.65, y: 0.4,  color: '#22c55e' }, // 5
+    { name: 'Evaluation',  x: 0.85, y: 0.55, color: '#eab308' }, // 6
+    { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' }, // 7
+    { name: 'Behavior',    x: 0.55, y: 0.7,  color: '#a855f7' }, // 8
+    { name: 'Guardrails',  x: 0.75, y: 0.8,  color: '#14b8a6' }  // 9
+  ];
+
+  /* ==========================
+     Sequential connections
+  ========================== */
+  const connectionSequence = [
+    [0, 1], // Data → Adapters
+    [1, 2], // Adapters → Tuning
+    [2, 3], // Tuning → Prompts
+    [3, 4], // Prompts → Embeddings
+    [4, 5], // Embeddings → Alignment
+    [5, 6], // Alignment → Evaluation
+    [6, 7], // Evaluation → Compression
+    [7, 8], // Compression → Behavior
+    [8, 9]  // Behavior → Guardrails
+  ];
+
+  /* ==========================
+     Main draw loop
+  ========================== */
+  const drawModelGraph = () => {
+    time += 0.008;
+
+    ctx.clearRect(
+      0,
+      0,
+      canvas.offsetWidth,
+      canvas.offsetHeight
+    );
+
+    const width = canvas.offsetWidth;
+    const height = canvas.offsetHeight;
+
+    /* ==========================
+       Active connection timing
+    ========================== */
+    const cycleDuration = 0.4;
+    const totalCycleTime =
+      connectionSequence.length * cycleDuration;
+
+    const currentCycleTime =
+      (time * 0.5) % totalCycleTime;
+
+    const activeConnectionIndex =
+      Math.floor(currentCycleTime / cycleDuration);
+
+    const connectionProgress =
+      (currentCycleTime % cycleDuration) / cycleDuration;
+
+    /* ==========================
+       Draw faint static paths
+    ========================== */
+    connectionSequence.forEach(([fromIdx, toIdx]) => {
+      const model1 = models[fromIdx];
+      const model2 = models[toIdx];
+
+      const x1 = model1.x * width;
+      const y1 = model1.y * height;
+      const x2 = model2.x * width;
+      const y2 = model2.y * height;
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = 'rgba(100, 120, 150, 0.08)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    /* ==========================
+       Draw active animated path
+    ========================== */
+    if (activeConnectionIndex < connectionSequence.length) {
+      const [fromIdx, toIdx] =
+        connectionSequence[activeConnectionIndex];
+
+      const model1 = models[fromIdx];
+      const model2 = models[toIdx];
+
+      const x1 = model1.x * width;
+      const y1 = model1.y * height;
+      const x2 = model2.x * width;
+      const y2 = model2.y * height;
+
+      // 👇 THIS LINE IS PRESERVED EXACTLY
+      // Smooth eased progress for faster, cleaner motion
+        const easedProgress = Math.min(
+          1,
+          1 - Math.pow(1 - connectionProgress, 3)
+        );
+
+        // Animate the line drawing from start to end (eased)
+        const animatedX2 = x1 + (x2 - x1) * easedProgress;
+        const animatedY2 = y1 + (y2 - y1) * easedProgress;
+
+      const gradient =
+        ctx.createLinearGradient(x1, y1, animatedX2, animatedY2);
+
+      gradient.addColorStop(0, model1.color + '99');
+      gradient.addColorStop(1, model2.color + '99');
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(animatedX2, animatedY2);
+     ctx.strokeStyle = gradient;
+      ctx.lineWidth = 1.5;
+      ctx.globalAlpha = 0.7;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(animatedX2, animatedY2);
+      ctx.strokeStyle = model1.color + '20';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+
+      // Draw a traveling pulse dot exactly at the tip of the animated line
+      if (connectionProgress < 1) {
+        const pulseX = animatedX2;
+        const pulseY = animatedY2;
+
+        const pulseGradient =
+          ctx.createRadialGradient(
+            pulseX,
+            pulseY,
+            0,
+            pulseX,
+            pulseY,
+            12
+          );
+
+        pulseGradient.addColorStop(0, model1.color + '80');
+        pulseGradient.addColorStop(1, model1.color + '00');
+
+        ctx.fillStyle = pulseGradient;
+        ctx.beginPath();
+        ctx.arc(pulseX, pulseY, 12, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(pulseX, pulseY, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    /* ==========================
+       Draw model nodes
+    ========================== */
+    models.forEach((model, i) => {
+      const x =
+        model.x * width +
+        Math.sin(time + i * 0.5) * 4;
+
+      const y =
+        model.y * height +
+        Math.cos(time + i * 0.3) * 4;
+
+      const pulseSize =
+        30 + Math.sin(time * 1.5 + i) * 3;
+
+      const isActiveFrom =
+        connectionSequence[activeConnectionIndex] &&
+        connectionSequence[activeConnectionIndex][0] === i;
+
+      const isActiveTo =
+        connectionSequence[activeConnectionIndex] &&
+        connectionSequence[activeConnectionIndex][1] === i;
+
+      const isActive = isActiveFrom || isActiveTo;
+
+      const glowOpacity = isActive ? '60' : '30';
+      const glowSize =
+        isActive ? pulseSize * 2.5 : pulseSize * 1.8;
+
+      const gradient =
+        ctx.createRadialGradient(x, y, 0, x, y, glowSize);
+
+      gradient.addColorStop(0, model.color + glowOpacity);
+      gradient.addColorStop(1, model.color + '00');
+
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(x, y, glowSize, 0, Math.PI * 2);
+      ctx.fill();
+
+      const nodeSize =
+        isActive ? pulseSize * 0.5 : pulseSize * 0.4;
+
+      ctx.fillStyle = model.color;
+      ctx.beginPath();
+      ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
+      ctx.font = '11px DM Sans, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(
+        model.name,
+        x,
+        y + pulseSize * 0.7
+      );
+    });
+
+    /* ==========================
+       Floating particles
+    ========================== */
+    for (let i = 0; i < 15; i++) {
+      const px =
+        (Math.sin(time * 0.3 + i * 0.5) + 1) *
+        width * 0.5;
+
+      const py =
+        (Math.cos(time * 0.2 + i * 0.6) + 1) *
+        height * 0.5;
+
+      const size =
+        1.5 + Math.sin(time + i) * 0.5;
+
+      ctx.beginPath();
+      ctx.arc(px, py, size, 0, Math.PI * 2);
+      ctx.fillStyle =
+        `rgba(59, 130, 246, ${
+          0.15 + Math.sin(time + i) * 0.05
+        })`;
+      ctx.fill();
+    }
+
+    animationFrame =
+      requestAnimationFrame(drawModelGraph);
+  };
+
+  /* ==========================
+     Init & cleanup
+  ========================== */
+  resize();
+  window.addEventListener('resize', resize);
+  drawModelGraph();
+
+  return () => {
+    window.removeEventListener('resize', resize);
+    cancelAnimationFrame(animationFrame);
+  };
+}, []);
 
 
 
@@ -270,9 +361,15 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - Animated Vertical Flow */}
-            <div className="relative h-[400px] lg:h-[480px] flex items-center justify-center">
-              <VerticalFlowAnimation />
+            {/* Right - Model Customization Network - Unique Design */}
+           {/* <ModelGraphCanvas></ModelGraphCanvas> */}
+           {/* Right - Animated Model Graph */}
+            <div className="relative h-[400px] lg:h-[450px]">
+              <canvas 
+                ref={canvasRef} 
+                className="w-full h-full"
+                style={{ background: 'transparent' }}
+              />
             </div>
           </div>
         </div>
