@@ -1058,10 +1058,10 @@ const Home = () => {
                 </div>
                 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
                   Deployment
                 </h3>
-                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
+                <p className="text-[#4b5563] leading-relaxed text-sm sm:text-base mb-6">
                   We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model runs reliably in real environments with seamless integration.
                 </p>
                 
