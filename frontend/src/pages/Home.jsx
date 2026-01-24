@@ -616,17 +616,19 @@ const Home = () => {
         `}</style>
         
         {/* LAYER 1: Content (Always on top) */}
-        <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full">
+        <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full px-4">
           <div className="space-y-6 text-center">
-            <h1 className="leading-[1.08] tracking-tight text-[#000] flex items-baseline justify-center" style={{ fontSize: '4.5rem', fontWeight: '260', letterSpacing:'3px' }}>
+            <h1 className="leading-[1.08] tracking-tight text-[#000] flex items-baseline justify-center flex-wrap" style={{ fontSize: 'clamp(2rem, 8vw, 4.5rem)', fontWeight: '260', letterSpacing:'3px' }}>
               {/* "Beyond the Horizon" - Letter by letter zoom animation */}
               <span className="hero-letter" style={{ animationDelay: '0ms' }}>
                 <img 
                   src="https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/g6niy0el_Beyond-B.jpg" 
                   alt="B" 
+                  className="hero-b-image"
                   style={{ 
                   position:'relative',
                     width: 'auto', 
+                    maxHeight: 'clamp(40px, 10vw, 72px)',
                     display: 'inline-block',
                     verticalAlign: 'baseline',
                     marginRight: '0em',
@@ -652,7 +654,7 @@ const Home = () => {
               <span className="hero-letter" style={{ animationDelay: '1800ms' }}>o</span>
               <span className="hero-letter" style={{ animationDelay: '1920ms' }}>n</span>
             </h1>
-            <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto" style={{ fontSize: '1.5rem' }}>
+            <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto px-4" style={{ fontSize: 'clamp(1rem, 4vw, 1.5rem)' }}>
               <span className="hero-subheading">An Independent AI Research Lab.</span>
             </p>
             
