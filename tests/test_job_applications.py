@@ -8,7 +8,7 @@ import os
 import io
 import tempfile
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://interface-polish-8.preview.emergentagent.com')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://passion-craft-anim.preview.emergentagent.com')
 
 class TestJobApplicationSubmit:
     """Tests for POST /api/job-applications/submit endpoint"""

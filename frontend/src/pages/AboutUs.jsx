@@ -229,7 +229,7 @@ const PassionTypingText = () => {
   return (
     <div 
       ref={textRef}
-      className="text-left"
+      className="text-center"
       data-testid="passion-typing-text"
     >
       <h2 
@@ -237,7 +237,9 @@ const PassionTypingText = () => {
         style={{ 
           fontFamily: "'DM Sans', sans-serif",
           letterSpacing: '-0.02em',
-          fontSize: 'clamp(2.5rem, 5vw + 1rem, 7rem)'
+          fontSize: 'clamp(2.5rem, 5vw + 1rem, 7rem)',
+          position:'relative',
+          top:'-70px'
         }}
         data-testid="passion-heading"
       >
