@@ -1003,19 +1003,19 @@ const AboutUs = () => {
             {/* Top Row - 3 Features */}
             
             
-            {/* Bottom Row - "No hidden catches" on LEFT + "It's Our Passion & Craft." on RIGHT */}
+            {/* Bottom Row - "Our Purpose" on LEFT + "It's Our Passion & Craft." on RIGHT */}
             <div className="grid md:grid-cols-3 gap-14 md:gap-12 items-end">
-              {/* Left Side - No hidden catches with gold line */}
+              {/* Left Side - Our Purpose with gold line */}
               <div className="flex items-start gap-6 w-sm">
                 <div className="text-left flex-1" style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                   <h3 
                     className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
-                    No hidden catches
+                    Our Purpose
                   </h3>
                   <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                    With dependable products, clear pricing, and straightforward communication, there are no unpleasant surprises. We aim to build trust, not test your tolerance.
+                    We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
                   </p>
                 </div>
                 {/* Gold decorative line */}
