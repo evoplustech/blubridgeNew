@@ -633,7 +633,7 @@ const Contact = () => {
                       gap: '4px'
                     }}>
                       {/* <span style={{ fontSize: '16px' }}>🇮🇳</span> */}
-                        <span style={{ fontSize: '14px' }}>🇮🇳</span>
+                        <span style={{ fontSize: '14px' }}>IN</span>
                       <select
                         name="phoneCode"
                         value={formData.phoneCode}
