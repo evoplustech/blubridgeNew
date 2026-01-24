@@ -1,294 +1,164 @@
-import React, { useState,useEffect,useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus, Check, Cpu, Box } from 'lucide-react';
-import ModelGraphCanvas from './ModelGraphCanvas';
+import { ArrowRight, Plus, Minus, Check, Cpu, Box, ChevronDown } from 'lucide-react';
+
+// Animated Vertical Flow Component for Hero Section
+const VerticalFlowAnimation = () => {
+  const [visibleItems, setVisibleItems] = useState([]);
+  const [cycleKey, setCycleKey] = useState(0);
+  
+  const flowItems = [
+    { name: 'Pre-Training', color: '#3b82f6', bgColor: 'rgba(59, 130, 246, 0.1)' },
+    { name: 'Fine-Tuning', color: '#8b5cf6', bgColor: 'rgba(139, 92, 246, 0.1)' },
+    { name: 'Efficient', color: '#22c55e', bgColor: 'rgba(34, 197, 94, 0.1)' },
+    { name: 'Evaluation', color: '#f59e0b', bgColor: 'rgba(245, 158, 11, 0.1)' },
+    { name: 'Inference', color: '#ec4899', bgColor: 'rgba(236, 72, 153, 0.1)' },
+    { name: 'Applications', color: '#06b6d4', bgColor: 'rgba(6, 182, 212, 0.1)' }
+  ];
+
+  useEffect(() => {
+    setVisibleItems([]);
+    
+    // Stagger the appearance of each item
+    flowItems.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleItems(prev => [...prev, index]);
+      }, index * 600); // 600ms delay between each item
+    });
+
+    // After all items are shown, wait and restart
+    const totalDuration = flowItems.length * 600 + 2500; // All items + 2.5s pause
+    const resetTimer = setTimeout(() => {
+      setCycleKey(prev => prev + 1);
+    }, totalDuration);
+
+    return () => clearTimeout(resetTimer);
+  }, [cycleKey]);
+
+  return (
+    <div className="relative flex flex-col items-center justify-center h-full py-6">
+      <style>{`
+        @keyframes flowItemFadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.9);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        @keyframes connectorGrow {
+          0% {
+            height: 0;
+            opacity: 0;
+          }
+          100% {
+            height: 24px;
+            opacity: 1;
+          }
+        }
+        @keyframes pulseGlow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+          }
+        }
+        @keyframes arrowBounce {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(3px);
+          }
+        }
+        .flow-item-enter {
+          animation: flowItemFadeIn 0.5s ease-out forwards;
+        }
+        .connector-enter {
+          animation: connectorGrow 0.4s ease-out forwards;
+        }
+        .flow-card {
+          animation: pulseGlow 3s ease-in-out infinite;
+        }
+        .flow-arrow {
+          animation: arrowBounce 1.5s ease-in-out infinite;
+        }
+      `}</style>
+      
+      {flowItems.map((item, index) => (
+        <div key={`${cycleKey}-${index}`} className="flex flex-col items-center">
+          {/* Flow Item Card */}
+          <div
+            className={`flow-card relative px-8 py-4 rounded-xl border backdrop-blur-sm transition-all duration-300 ${
+              visibleItems.includes(index) ? 'flow-item-enter' : 'opacity-0'
+            }`}
+            style={{
+              backgroundColor: item.bgColor,
+              borderColor: item.color + '40',
+              boxShadow: visibleItems.includes(index) 
+                ? `0 4px 20px ${item.color}20, 0 0 40px ${item.color}10` 
+                : 'none',
+              transitionDelay: `${index * 100}ms`
+            }}
+          >
+            {/* Subtle glow effect */}
+            <div 
+              className="absolute inset-0 rounded-xl opacity-30"
+              style={{
+                background: `radial-gradient(ellipse at center, ${item.color}20 0%, transparent 70%)`
+              }}
+            />
+            
+            {/* Icon indicator */}
+            <div 
+              className="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full"
+              style={{ backgroundColor: item.color }}
+            />
+            
+            <span 
+              className="relative text-base font-semibold tracking-wide"
+              style={{ color: item.color }}
+            >
+              {item.name}
+            </span>
+          </div>
+          
+          {/* Connector Arrow (not after last item) */}
+          {index < flowItems.length - 1 && (
+            <div 
+              className={`flex flex-col items-center my-1 ${
+                visibleItems.includes(index) ? 'connector-enter' : 'opacity-0 h-0'
+              }`}
+              style={{ transitionDelay: `${index * 100 + 300}ms` }}
+            >
+              {/* Vertical line */}
+              <div 
+                className="w-0.5 h-4 rounded-full"
+                style={{ 
+                  background: `linear-gradient(to bottom, ${item.color}60, ${flowItems[index + 1]?.color}60)` 
+                }}
+              />
+              {/* Arrow icon */}
+              <ChevronDown 
+                className="flow-arrow w-4 h-4 -mt-1"
+                style={{ color: flowItems[index + 1]?.color || item.color }}
+                strokeWidth={2.5}
+              />
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const ModelCustomization = () => {
   const [openFaq, setOpenFaq] = useState(null);
-
-  const canvasRef = useRef(null);
-
-  // Animated model graph visualization for hero
-useEffect(() => {
-  /* ==========================
-     Canvas setup
-  ========================== */
-  const canvas = canvasRef.current;
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let animationFrame;
-  let time = 0;
-
-  const resize = () => {
-    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-  };
-
-  /* ==========================
-     Models (pipeline order)
-  ========================== */
-  const models = [
-    { name: 'Data',        x: 0.2,  y: 0.2,  color: '#3b82f6' }, // 0
-    { name: 'Adapters',    x: 0.5,  y: 0.15, color: '#8b5cf6' }, // 1
-    { name: 'Tuning',      x: 0.8,  y: 0.25, color: '#ec4899' }, // 2
-    { name: 'Prompts',     x: 0.15, y: 0.5,  color: '#06b6d4' }, // 3
-    { name: 'Embeddings',  x: 0.4,  y: 0.45, color: '#f97316' }, // 4
-    { name: 'Alignment',   x: 0.65, y: 0.4,  color: '#22c55e' }, // 5
-    { name: 'Evaluation',  x: 0.85, y: 0.55, color: '#eab308' }, // 6
-    { name: 'Compression', x: 0.25, y: 0.75, color: '#ef4444' }, // 7
-    { name: 'Behavior',    x: 0.55, y: 0.7,  color: '#a855f7' }, // 8
-    { name: 'Guardrails',  x: 0.75, y: 0.8,  color: '#14b8a6' }  // 9
-  ];
-
-  /* ==========================
-     Sequential connections
-  ========================== */
-  const connectionSequence = [
-    [0, 1], // Data → Adapters
-    [1, 2], // Adapters → Tuning
-    [2, 3], // Tuning → Prompts
-    [3, 4], // Prompts → Embeddings
-    [4, 5], // Embeddings → Alignment
-    [5, 6], // Alignment → Evaluation
-    [6, 7], // Evaluation → Compression
-    [7, 8], // Compression → Behavior
-    [8, 9]  // Behavior → Guardrails
-  ];
-
-  /* ==========================
-     Main draw loop
-  ========================== */
-  const drawModelGraph = () => {
-    time += 0.008;
-
-    ctx.clearRect(
-      0,
-      0,
-      canvas.offsetWidth,
-      canvas.offsetHeight
-    );
-
-    const width = canvas.offsetWidth;
-    const height = canvas.offsetHeight;
-
-    /* ==========================
-       Active connection timing
-    ========================== */
-    const cycleDuration = 0.4;
-    const totalCycleTime =
-      connectionSequence.length * cycleDuration;
-
-    const currentCycleTime =
-      (time * 0.5) % totalCycleTime;
-
-    const activeConnectionIndex =
-      Math.floor(currentCycleTime / cycleDuration);
-
-    const connectionProgress =
-      (currentCycleTime % cycleDuration) / cycleDuration;
-
-    /* ==========================
-       Draw faint static paths
-    ========================== */
-    connectionSequence.forEach(([fromIdx, toIdx]) => {
-      const model1 = models[fromIdx];
-      const model2 = models[toIdx];
-
-      const x1 = model1.x * width;
-      const y1 = model1.y * height;
-      const x2 = model2.x * width;
-      const y2 = model2.y * height;
-
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-      ctx.strokeStyle = 'rgba(100, 120, 150, 0.08)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    });
-
-    /* ==========================
-       Draw active animated path
-    ========================== */
-    if (activeConnectionIndex < connectionSequence.length) {
-      const [fromIdx, toIdx] =
-        connectionSequence[activeConnectionIndex];
-
-      const model1 = models[fromIdx];
-      const model2 = models[toIdx];
-
-      const x1 = model1.x * width;
-      const y1 = model1.y * height;
-      const x2 = model2.x * width;
-      const y2 = model2.y * height;
-
-      // 👇 THIS LINE IS PRESERVED EXACTLY
-      // Smooth eased progress for faster, cleaner motion
-        const easedProgress = Math.min(
-          1,
-          1 - Math.pow(1 - connectionProgress, 3)
-        );
-
-        // Animate the line drawing from start to end (eased)
-        const animatedX2 = x1 + (x2 - x1) * easedProgress;
-        const animatedY2 = y1 + (y2 - y1) * easedProgress;
-
-      const gradient =
-        ctx.createLinearGradient(x1, y1, animatedX2, animatedY2);
-
-      gradient.addColorStop(0, model1.color + '99');
-      gradient.addColorStop(1, model2.color + '99');
-
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(animatedX2, animatedY2);
-     ctx.strokeStyle = gradient;
-      ctx.lineWidth = 1.5;
-      ctx.globalAlpha = 0.7;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(animatedX2, animatedY2);
-      ctx.strokeStyle = model1.color + '20';
-      ctx.lineWidth = 4;
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-
-
-      // Draw a traveling pulse dot exactly at the tip of the animated line
-      if (connectionProgress < 1) {
-        const pulseX = animatedX2;
-        const pulseY = animatedY2;
-
-        const pulseGradient =
-          ctx.createRadialGradient(
-            pulseX,
-            pulseY,
-            0,
-            pulseX,
-            pulseY,
-            12
-          );
-
-        pulseGradient.addColorStop(0, model1.color + '80');
-        pulseGradient.addColorStop(1, model1.color + '00');
-
-        ctx.fillStyle = pulseGradient;
-        ctx.beginPath();
-        ctx.arc(pulseX, pulseY, 12, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.fillStyle = '#ffffff';
-        ctx.beginPath();
-        ctx.arc(pulseX, pulseY, 3, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    /* ==========================
-       Draw model nodes
-    ========================== */
-    models.forEach((model, i) => {
-      const x =
-        model.x * width +
-        Math.sin(time + i * 0.5) * 4;
-
-      const y =
-        model.y * height +
-        Math.cos(time + i * 0.3) * 4;
-
-      const pulseSize =
-        30 + Math.sin(time * 1.5 + i) * 3;
-
-      const isActiveFrom =
-        connectionSequence[activeConnectionIndex] &&
-        connectionSequence[activeConnectionIndex][0] === i;
-
-      const isActiveTo =
-        connectionSequence[activeConnectionIndex] &&
-        connectionSequence[activeConnectionIndex][1] === i;
-
-      const isActive = isActiveFrom || isActiveTo;
-
-      const glowOpacity = isActive ? '60' : '30';
-      const glowSize =
-        isActive ? pulseSize * 2.5 : pulseSize * 1.8;
-
-      const gradient =
-        ctx.createRadialGradient(x, y, 0, x, y, glowSize);
-
-      gradient.addColorStop(0, model.color + glowOpacity);
-      gradient.addColorStop(1, model.color + '00');
-
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(x, y, glowSize, 0, Math.PI * 2);
-      ctx.fill();
-
-      const nodeSize =
-        isActive ? pulseSize * 0.5 : pulseSize * 0.4;
-
-      ctx.fillStyle = model.color;
-      ctx.beginPath();
-      ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = 'rgba(26, 26, 26, 0.85)';
-      ctx.font = '11px DM Sans, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(
-        model.name,
-        x,
-        y + pulseSize * 0.7
-      );
-    });
-
-    /* ==========================
-       Floating particles
-    ========================== */
-    for (let i = 0; i < 15; i++) {
-      const px =
-        (Math.sin(time * 0.3 + i * 0.5) + 1) *
-        width * 0.5;
-
-      const py =
-        (Math.cos(time * 0.2 + i * 0.6) + 1) *
-        height * 0.5;
-
-      const size =
-        1.5 + Math.sin(time + i) * 0.5;
-
-      ctx.beginPath();
-      ctx.arc(px, py, size, 0, Math.PI * 2);
-      ctx.fillStyle =
-        `rgba(59, 130, 246, ${
-          0.15 + Math.sin(time + i) * 0.05
-        })`;
-      ctx.fill();
-    }
-
-    animationFrame =
-      requestAnimationFrame(drawModelGraph);
-  };
-
-  /* ==========================
-     Init & cleanup
-  ========================== */
-  resize();
-  window.addEventListener('resize', resize);
-  drawModelGraph();
-
-  return () => {
-    window.removeEventListener('resize', resize);
-    cancelAnimationFrame(animationFrame);
-  };
-}, []);
 
 
 
