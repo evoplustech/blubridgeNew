@@ -982,7 +982,7 @@ const AboutUs = () => {
       <section className="py-24 md:py-32 bg-[#efede5]" data-testid="what-sets-us-apart-section">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-8 md:mb-20">
             <h2 
               className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-6"
               style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '-0.02em' }}
@@ -990,10 +990,15 @@ const AboutUs = () => {
             >
               How We Build, Innovate and Lead
             </h2>
+            
+            {/* Mobile Only - Typing Animation below heading */}
+            <div className="block md:hidden mt-4 mb-8">
+              <PassionTypingText />
+            </div>
           </div>
           
-          {/* Features Grid - 3 columns top, 1 centered bottom */}
-          <div className="space-y-16">
+          {/* ========== DESKTOP VIEW (hidden on mobile) ========== */}
+          <div className="hidden md:block space-y-16">
             {/* Top Row - "Our Purpose" on LEFT + "It's Our Hunger & Precision." on RIGHT */}
             <div className="grid md:grid-cols-3 gap-6 md:gap-6 items-end">
               {/* Left Side - Our Purpose */}
@@ -1011,7 +1016,7 @@ const AboutUs = () => {
                 </div>
               </div>
               
-              {/* Right Side - Typing Animation "It's Our Hunger & Precision." */}
+              {/* Right Side - Typing Animation "It's Our Hunger & Precision." - Desktop only */}
               <div className="md:col-span-2">
                 <PassionTypingText />
               </div>
@@ -1027,7 +1032,7 @@ const AboutUs = () => {
                 >
                   How We Work
                 </h3>
-                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg ">
+                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
                   Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
                 </p>
               </div>
@@ -1057,6 +1062,61 @@ const AboutUs = () => {
                   We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
                 </p>
               </div>
+            </div>
+          </div>
+          
+          {/* ========== MOBILE VIEW (hidden on desktop) ========== */}
+          <div className="block md:hidden space-y-4">
+            {/* Our Purpose */}
+            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
+              <h3 
+                className="text-xl font-bold text-[#0B1F3B] mb-4"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Our Purpose
+              </h3>
+              <p className="text-[#4B5563] leading-relaxed text-base">
+                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+              </p>
+            </div>
+            
+            {/* How We Work */}
+            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
+              <h3 
+                className="text-xl font-bold text-[#0B1F3B] mb-4"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                How We Work
+              </h3>
+              <p className="text-[#4B5563] leading-relaxed text-base">
+                Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
+              </p>
+            </div>
+            
+            {/* Excellence Through Rigor */}
+            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
+              <h3 
+                className="text-xl font-bold text-[#0B1F3B] mb-4"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Excellence Through Rigor
+              </h3>
+              <p className="text-[#4B5563] leading-relaxed text-base">
+                Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
+              </p>
+            </div>
+            
+            {/* Our People */}
+            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
+              <h3 
+                className="text-xl font-bold text-[#0B1F3B] mb-4"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Our People
+              </h3>
+              <p className="text-[#4B5563] leading-relaxed text-base">
+                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
+              </p>
             </div>
           </div>
         </div>
