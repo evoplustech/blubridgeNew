@@ -378,7 +378,7 @@ const TermsConditions = () => {
                     borderBottom: '1px solid #0B1F3B'
                   }}
                 >
-                  legal@blubridge.example
+                  legal@blubridge.com
                 </a>
               </p>
               <p style={{
@@ -395,7 +395,7 @@ const TermsConditions = () => {
                     borderBottom: '1px solid #0B1F3B'
                   }}
                 >
-                  support@blubridge.example
+                  support@blubridge.com
                 </a>
               </p>
               <p style={{

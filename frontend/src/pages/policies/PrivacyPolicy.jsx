@@ -242,7 +242,7 @@ const PrivacyPolicy = () => {
                 margin: 0
               }}>
                 Email: <a 
-                  href="mailto:privacy@blubridge.ai"
+                  href="mailto:privacy@blubridge.com"
                   style={{
                     color: '#0B1F3B',
                     fontWeight: '500',
@@ -250,7 +250,7 @@ const PrivacyPolicy = () => {
                     borderBottom: '1px solid #0B1F3B'
                   }}
                 >
-                  privacy@blubridge.ai
+                  privacy@blubridge.com
                 </a>
               </p>
             </div>
