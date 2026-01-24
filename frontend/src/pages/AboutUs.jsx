@@ -980,7 +980,7 @@ const AboutUs = () => {
       <section className="py-24 md:py-32 bg-[#efede5]" data-testid="what-sets-us-apart-section">
         <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-20">
             <h2 
               className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-6"
               style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '-0.02em' }}
@@ -988,29 +988,35 @@ const AboutUs = () => {
             >
               How We Build, Innovate and Lead
             </h2>
-            {/* Typing Animation directly below heading */}
-            <div className="mt-4">
-              <PassionTypingText />
-            </div>
           </div>
           
-          {/* Features Grid - 2x2 layout */}
-          <div className="space-y-6">
-            {/* Top Row - Our Purpose + How We Work */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Our Purpose */}
-              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-                <h3 
-                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Our Purpose
-                </h3>
-                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
-                </p>
+          {/* Features Grid - 3 columns top, 1 centered bottom */}
+          <div className="space-y-16">
+            {/* Top Row - "Our Purpose" on LEFT + "It's Our Hunger & Precision." on RIGHT */}
+            <div className="grid md:grid-cols-3 gap-6 md:gap-6 items-end">
+              {/* Left Side - Our Purpose */}
+              <div className="flex items-start gap-6 w-sm">
+                <div className="text-left flex-1" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
+                  <h3 
+                    className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
+                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                  >
+                    Our Purpose
+                  </h3>
+                  <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                    We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+                  </p>
+                </div>
               </div>
               
+              {/* Right Side - Typing Animation "It's Our Hunger & Precision." */}
+              <div className="md:col-span-2">
+                <PassionTypingText />
+              </div>
+            </div>
+            
+            {/* Bottom Row - 3 Feature boxes */}
+            <div className="grid md:grid-cols-3 gap-6 md:gap-6">
               {/* How We Work */}
               <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
@@ -1023,10 +1029,7 @@ const AboutUs = () => {
                   Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
                 </p>
               </div>
-            </div>
-            
-            {/* Bottom Row - Excellence Through Rigor + Our People */}
-            <div className="grid md:grid-cols-2 gap-6">
+              
               {/* Excellence Through Rigor */}
               <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
