@@ -231,15 +231,9 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - Model Customization Network - Unique Design */}
-           {/* <ModelGraphCanvas></ModelGraphCanvas> */}
-           {/* Right - Animated Model Graph */}
-            <div className="relative h-[400px] lg:h-[450px]">
-              <canvas 
-                ref={canvasRef} 
-                className="w-full h-full"
-                style={{ background: 'transparent' }}
-              />
+            {/* Right - Animated Vertical Flow */}
+            <div className="relative h-[400px] lg:h-[480px] flex items-center justify-center">
+              <VerticalFlowAnimation />
             </div>
           </div>
         </div>
