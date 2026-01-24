@@ -113,13 +113,12 @@ const PassionTypingText = () => {
       className="text-center"
       data-testid="passion-typing-text"
     >
-      <h2 
+      <p 
         className="font-signature text-lg text-[#0B1F3B] leading-none"
-        
         data-testid="passion-heading"
       >
-        {displayText}
-      </h2>
+        {staticText}{displayText}
+      </p>
     </div>
   );
 };
