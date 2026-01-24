@@ -38,10 +38,10 @@ useEffect(() => {
     { name: 'Prompts',     x: 0.75, y: 0.42, color: '#06b6d4' }, // 3 - Right side middle
     { name: 'Embeddings',  x: 0.45, y: 0.52, color: '#f97316' }, // 4 - Center
     { name: 'Alignment',   x: 0.15, y: 0.52, color: '#22c55e' }, // 5 - Left middle
-    { name: 'Compression', x: 0.15, y: 0.75, color: '#ef4444' }, // 6 - Bottom left
-    { name: 'Behaviour',   x: 0.40, y: 0.88, color: '#a855f7' }, // 7 - Bottom row left
-    { name: 'Guardrails',  x: 0.60, y: 0.88, color: '#14b8a6' }, // 8 - Bottom row middle
-    { name: 'Evaluation',  x: 0.82, y: 0.88, color: '#eab308' }  // 9 - Bottom row right
+    { name: 'Evaluation', x: 0.15, y: 0.75, color: '#ef4444' }, // 6 - Bottom left
+    { name: 'Compression',   x: 0.40, y: 0.88, color: '#a855f7' }, // 7 - Bottom row left
+    { name: 'Behaviour',  x: 0.60, y: 0.88, color: '#14b8a6' }, // 8 - Bottom row middle
+    { name: 'Guardrails',  x: 0.82, y: 0.88, color: '#eab308' }  // 9 - Bottom row right
   ];
 
   /* ==========================
