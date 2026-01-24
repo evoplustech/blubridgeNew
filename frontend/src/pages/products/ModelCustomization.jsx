@@ -32,8 +32,8 @@ useEffect(() => {
      Models (pipeline order) - Matching hand-drawn diagram
   ========================== */
   const models = [
-    { name: 'Data',        x: 0.12, y: 0.12, color: '#3b82f6' }, // 0 - Top left
-    { name: 'Adapters',    x: 0.38, y: 0.12, color: '#8b5cf6' }, // 1 - Top middle
+    { name: 'Data',        x: 0.18, y: 0.18, color: '#3b82f6' }, // 0 - Top left
+    { name: 'Adapters',    x: 0.42, y: 0.18, color: '#8b5cf6' }, // 1 - Top middle
     { name: 'Tuning',      x: 0.75, y: 0.22, color: '#ec4899' }, // 2 - Top right
     { name: 'Prompts',     x: 0.75, y: 0.42, color: '#06b6d4' }, // 3 - Right side middle
     { name: 'Embeddings',  x: 0.45, y: 0.52, color: '#f97316' }, // 4 - Center
