@@ -1031,42 +1031,42 @@ const AboutUs = () => {
               </div>
             </div>
 <div className="grid md:grid-cols-3 gap-12 md:gap-12">
-              {/* Feature 1 - Simple by design */}
+              {/* Feature 1 - How We Work */}
               <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  Simple by design
+                  How We Work
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  Our enterprise-ready solutions are built to deploy, adapt, and operate with ease. We remove unnecessary complexity, making everyday work smoother and processes more efficient.
+                  Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
                 </p>
               </div>
               
-              {/* Feature 2 - Fast results */}
+              {/* Feature 2 - Excellence Through Rigor */}
               <div className="text-left"  style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  Fast results
+                  Excellence Through Rigor
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  Our software delivers real value in days or weeks—not months or years. We help teams move quickly with precision, creating experiences that both customers and employees genuinely appreciate.
+                  Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
                 </p>
               </div>
               
-              {/* Feature 3 - Human-centered AI */}
+              {/* Feature 3 - Our People */}
               <div className="text-left"  style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  Human-centered AI
+                  Our People
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  Our AI-powered tools amplify human capability, helping people deliver outstanding service. We design everything with users in mind—because people always come first.
+                  We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
                 </p>
               </div>
             </div>
