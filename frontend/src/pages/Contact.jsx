@@ -155,7 +155,7 @@ const Contact = () => {
               textAlign: 'center',
               letterSpacing: '-0.02em'
             }}>
-              Our Office Locations
+              Office Locations
             </h2>
             
             {/* Office Card 1 */}

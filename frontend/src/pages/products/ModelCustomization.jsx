@@ -284,14 +284,14 @@ const VerticalFlowAnimation = () => {
               />
               
               {/* Premium indicator dot with glow */}
-              <div 
+               {/*  <div 
                 className="flow-indicator absolute -left-2.5 top-1/2 w-3 h-3 rounded-full"
                 style={{ 
                   '--index': index,
                   backgroundColor: item.color,
                   boxShadow: `0 0 ${8 + breatheIntensity * 8}px ${item.color}`,
                 }}
-              />
+              />*/}
               
               {/* Text with subtle shadow for depth */}
               <span 
