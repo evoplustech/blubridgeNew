@@ -573,7 +573,7 @@ useEffect(() => {
       </section>
 
             {/* Performance Metrics - 4 Column */}
-      <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#fffdf7]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Customizing brings Efficiency and more</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -607,14 +607,12 @@ useEffect(() => {
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
                 <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
                 <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
-                 {/* <Link to={item.linkTo} className="text-emerald-400 hover:text-emerald-300 text-sm font-medium flex items-center gap-1">
-                  {item.link} <ArrowRight className="w-3 h-3" />
-                </Link>  */}
+                 
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 5: Performance Metrics */}
       {/* <section className="py-20 bg-[#fffdf7]">
@@ -729,7 +727,7 @@ useEffect(() => {
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#fffdf7]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl  font-bold mb-12 text-[#0B1F3B]">
             FAQs
