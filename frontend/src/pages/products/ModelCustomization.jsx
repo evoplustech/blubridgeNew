@@ -329,11 +329,11 @@ const VerticalFlowAnimation = () => {
                     animationDelay: `${index * 0.15}s`,
                   }}
                 />
-              />
-            </div>
-          )}
-        </div>
-      ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };
