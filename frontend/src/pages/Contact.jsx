@@ -841,7 +841,7 @@ const Contact = () => {
                         color: '#0B1F3B',
                         outline: 'none',
                         cursor: 'pointer',
-                        minWidth: '140px'
+                        minWidth: '91px'
                       }}
                     >
                       {countryCodes.map((country, index) => (
