@@ -1000,10 +1000,10 @@ const AboutUs = () => {
             
             
             {/* Bottom Row - "Our Purpose" on LEFT + "It's Our Hunger & Precision." on RIGHT */}
-            <div className="grid md:grid-cols-3 gap-14 md:gap-12 items-end">
+            <div className="grid md:grid-cols-3 gap-6 md:gap-6 items-end">
               {/* Left Side - Our Purpose with gold line */}
               <div className="flex items-start gap-6 w-sm">
-                <div className="text-left flex-1" style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
+                <div className="text-left flex-1" style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'10px'}}>
                   <h3 
                     className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
