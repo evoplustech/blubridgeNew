@@ -1018,7 +1018,7 @@ const AboutUs = () => {
             </div>
             
             {/* Bottom Row - 3 Feature boxes */}
-            <div className="grid md:grid-cols-3 gap-6 md:gap-6">
+            <div className="grid md:grid-cols-3 gap-6 md:gap-6" style={{position:'relative', top:'-40px'}}>
               {/* How We Work */}
               <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
@@ -1027,7 +1027,7 @@ const AboutUs = () => {
                 >
                   How We Work
                 </h3>
-                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
+                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg ">
                   Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
                 </p>
               </div>
