@@ -1026,7 +1026,7 @@ const AboutUs = () => {
                 <PassionTypingText />
               </div>
             </div>
-<div className="grid md:grid-cols-3 gap-12 md:gap-12">
+<div className="grid md:grid-cols-3 gap-6 md:gap-6" stylee={{ postion:''}}>
               {/* Feature 1 - How We Work */}
               <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1em 1.5em', borderRadius:'15px'}}>
                 <h3 
