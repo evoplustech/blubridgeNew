@@ -4,125 +4,194 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Plus, Minus, Check, Cpu, Box } from 'lucide-react';
 
-// Network Visualization Component - Interconnected Nodes
-const NetworkVisualization = () => {
-  const [activeNode, setActiveNode] = useState(null);
+// Vertical Flow Animation Component for Hero Section
+const VerticalFlowAnimation = () => {
+  const [phase, setPhase] = useState('entering');
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const [breathePhase, setBreathePhase] = useState(0);
+  const containerRef = useRef(null);
   
-  const nodes = [
-    { id: 'data', label: 'Data', x: 20, y: 15, color: '#3b82f6' },
-    { id: 'prompts', label: 'Prompts', x: 75, y: 10, color: '#8b5cf6' },
-    { id: 'embeddings', label: 'Embeddings', x: 50, y: 30, color: '#06b6d4' },
-    { id: 'alignment', label: 'Alignment', x: 15, y: 50, color: '#22c55e' },
-    { id: 'behavior', label: 'Behavior', x: 80, y: 45, color: '#f59e0b' },
-    { id: 'tuning', label: 'Tuning', x: 45, y: 55, color: '#ec4899' },
-    { id: 'compression', label: 'Compression', x: 25, y: 80, color: '#8b5cf6' },
-    { id: 'evaluation', label: 'Evaluation', x: 70, y: 75, color: '#3b82f6' },
-    { id: 'guardrails', label: 'Guardrails', x: 50, y: 90, color: '#22c55e' },
+  const flowItems = [
+    { name: 'Pre-Training', color: '#3b82f6', accent: '#60a5fa' },
+    { name: 'Fine-Tuning', color: '#8b5cf6', accent: '#a78bfa' },
+    { name: 'Efficient', color: '#22c55e', accent: '#4ade80' },
+    { name: 'Evaluation', color: '#f59e0b', accent: '#fbbf24' },
+    { name: 'Inference', color: '#ec4899', accent: '#f472b6' },
+    { name: 'Applications', color: '#06b6d4', accent: '#22d3ee' }
   ];
 
-  const connections = [
-    ['data', 'embeddings'],
-    ['prompts', 'embeddings'],
-    ['embeddings', 'alignment'],
-    ['embeddings', 'behavior'],
-    ['embeddings', 'tuning'],
-    ['alignment', 'tuning'],
-    ['behavior', 'tuning'],
-    ['tuning', 'compression'],
-    ['tuning', 'evaluation'],
-    ['compression', 'guardrails'],
-    ['evaluation', 'guardrails'],
-  ];
+  useEffect(() => {
+    const breatheInterval = setInterval(() => {
+      setBreathePhase(prev => (prev + 1) % 360);
+    }, 50);
+    return () => clearInterval(breatheInterval);
+  }, []);
 
-  const getNodeById = (id) => nodes.find(n => n.id === id);
+  useEffect(() => {
+    let timeouts = [];
+    
+    const runCycle = () => {
+      setPhase('entering');
+      setVisibleCount(0);
+      setActiveIndex(-1);
+      
+      flowItems.forEach((_, index) => {
+        const enterDelay = index * 420 + 200;
+        timeouts.push(setTimeout(() => {
+          setVisibleCount(prev => prev + 1);
+          setActiveIndex(index);
+        }, enterDelay));
+      });
+      
+      const holdStart = flowItems.length * 420 + 600;
+      timeouts.push(setTimeout(() => {
+        setPhase('holding');
+        setActiveIndex(-1);
+      }, holdStart));
+      
+      const pulseStart = holdStart + 400;
+      flowItems.forEach((_, index) => {
+        timeouts.push(setTimeout(() => {
+          setActiveIndex(index);
+        }, pulseStart + index * 280));
+      });
+      
+      const exitStart = pulseStart + flowItems.length * 280 + 800;
+      timeouts.push(setTimeout(() => {
+        setPhase('exiting');
+        setActiveIndex(-1);
+      }, exitStart));
+      
+      const cycleEnd = exitStart + 1200;
+      timeouts.push(setTimeout(runCycle, cycleEnd));
+    };
+    
+    runCycle();
+    return () => timeouts.forEach(t => clearTimeout(t));
+  }, []);
+
+  const breatheIntensity = Math.sin(breathePhase * Math.PI / 180) * 0.5 + 0.5;
+  
+  const getItemStyle = (index) => {
+    const isVisible = index < visibleCount;
+    const isActive = activeIndex === index;
+    const isExiting = phase === 'exiting';
+    const parallaxOffset = Math.sin(breathePhase * Math.PI / 180 + index * 0.5) * 2;
+    
+    return {
+      opacity: isExiting ? 0 : isVisible ? 1 : 0,
+      transform: `translateY(${isVisible ? parallaxOffset : -24}px) scale(${isVisible ? (isActive ? 1.02 : 1) : 0.92}) translateX(${isActive ? 4 : 0}px)`,
+      transition: isExiting 
+        ? `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 80}ms`
+        : `all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) ${isVisible ? 0 : index * 60}ms`,
+    };
+  };
+
+  const getConnectorStyle = (index) => {
+    const isVisible = index < visibleCount - 1;
+    const isExiting = phase === 'exiting';
+    const isFlowing = activeIndex === index || activeIndex === index + 1;
+    
+    return {
+      opacity: isExiting ? 0 : isVisible ? 1 : 0,
+      transform: `scaleY(${isVisible ? 1 : 0})`,
+      transition: isExiting 
+        ? `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 60}ms`
+        : `all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 200ms`,
+      filter: isFlowing ? 'brightness(1.3)' : 'brightness(1)',
+    };
+  };
 
   return (
-    <div className="relative w-full h-full min-h-[400px]">
+    <div ref={containerRef} className="relative flex flex-col items-center justify-center h-full py-4">
       <style>{`
-        @keyframes nodeGlow {
-          0%, 100% { 
-            filter: drop-shadow(0 0 8px var(--node-color));
-            transform: scale(1);
-          }
-          50% { 
-            filter: drop-shadow(0 0 16px var(--node-color));
-            transform: scale(1.05);
-          }
+        .flow-container::before {
+          content: '';
+          position: absolute;
+          top: 50%; left: 50%;
+          width: 300px; height: 500px;
+          transform: translate(-50%, -50%);
+          background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.04) 30%, transparent 70%);
+          filter: blur(40px);
+          pointer-events: none;
+          animation: ambientBreathe 8s ease-in-out infinite;
         }
-        @keyframes linePulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.6; }
+        @keyframes ambientBreathe {
+          0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
         }
-        .network-node {
-          animation: nodeGlow 3s ease-in-out infinite;
+        @keyframes shadowBreathe {
+          0%, 100% { box-shadow: 0 4px 16px var(--glow-color-20), 0 0 32px var(--glow-color-10), 0 0 0 1px var(--glow-color-15); }
+          50% { box-shadow: 0 6px 24px var(--glow-color-25), 0 0 48px var(--glow-color-15), 0 0 0 1px var(--glow-color-20); }
         }
-        .network-line {
-          animation: linePulse 2s ease-in-out infinite;
+        @keyframes flowEnergy { 0% { background-position: 0% 0%; } 100% { background-position: 0% 200%; } }
+        @keyframes connectorPulse { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.2); } }
+        .flow-card {
+          --glow-color-10: rgba(var(--card-rgb), 0.1);
+          --glow-color-15: rgba(var(--card-rgb), 0.15);
+          --glow-color-20: rgba(var(--card-rgb), 0.2);
+          --glow-color-25: rgba(var(--card-rgb), 0.25);
+          animation: shadowBreathe 4s ease-in-out infinite;
+          animation-delay: calc(var(--index) * 0.3s);
         }
+        .flow-connector-line {
+          background: linear-gradient(180deg, var(--from-color) 0%, var(--to-color) 50%, var(--from-color) 100%);
+          background-size: 100% 200%;
+          animation: flowEnergy 2s linear infinite;
+        }
+        .connector-dot { animation: connectorPulse 2s ease-in-out infinite; }
+        .flow-card.is-active { animation: shadowBreathe 1.5s ease-in-out infinite; }
       `}</style>
       
-      <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-        {connections.map(([fromId, toId], index) => {
-          const from = getNodeById(fromId);
-          const to = getNodeById(toId);
-          if (!from || !to) return null;
-          
-          return (
-            <line
-              key={index}
-              x1={`${from.x}%`}
-              y1={`${from.y}%`}
-              x2={`${to.x}%`}
-              y2={`${to.y}%`}
-              stroke="rgba(99, 102, 241, 0.2)"
-              strokeWidth="1"
-              className="network-line"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            />
-          );
-        })}
-      </svg>
+      <div className="flow-container absolute inset-0 pointer-events-none" />
       
-      {nodes.map((node, index) => (
-        <div
-          key={node.id}
-          className="network-node absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300"
-          style={{
-            left: `${node.x}%`,
-            top: `${node.y}%`,
-            '--node-color': node.color,
-            animationDelay: `${index * 0.3}s`,
-            zIndex: activeNode === node.id ? 20 : 10,
-          }}
-          onMouseEnter={() => setActiveNode(node.id)}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          <div 
-            className="absolute inset-0 rounded-full blur-md"
-            style={{
-              background: node.color,
-              opacity: activeNode === node.id ? 0.4 : 0.2,
-              transform: 'scale(1.5)',
-            }}
-          />
-          
-          <div 
-            className="relative px-4 py-2 rounded-full backdrop-blur-sm border"
-            style={{
-              background: `linear-gradient(135deg, ${node.color}20, ${node.color}10)`,
-              borderColor: `${node.color}40`,
-              boxShadow: `0 0 20px ${node.color}30, inset 0 1px 0 rgba(255,255,255,0.1)`,
-            }}
-          >
-            <span 
-              className="text-sm font-medium whitespace-nowrap"
-              style={{ color: node.color }}
+      <div className="absolute left-1/2 top-8 bottom-8 w-px -translate-x-1/2 pointer-events-none"
+        style={{
+          background: `linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.1) 10%, rgba(139, 92, 246, 0.1) 30%, rgba(34, 197, 94, 0.1) 50%, rgba(236, 72, 153, 0.1) 70%, rgba(6, 182, 212, 0.1) 90%, transparent 100%)`,
+          opacity: phase === 'exiting' ? 0 : 0.6 + breatheIntensity * 0.4,
+          transition: 'opacity 0.8s ease-out',
+        }}
+      />
+      
+      {flowItems.map((item, index) => {
+        const isActive = activeIndex === index;
+        const cardRgb = item.color.match(/\w\w/g).map(x => parseInt(x, 16)).join(', ');
+        
+        return (
+          <div key={index} className="flex flex-col items-center relative z-10" style={getItemStyle(index)}>
+            <div
+              className={`flow-card relative px-7 py-3.5 rounded-2xl backdrop-blur-md ${isActive ? 'is-active' : ''}`}
+              style={{
+                '--card-rgb': cardRgb, '--card-color': item.color, '--index': index,
+                backgroundColor: `rgba(${cardRgb}, 0.08)`,
+                border: `1px solid rgba(${cardRgb}, ${isActive ? 0.4 : 0.2})`,
+                boxShadow: `0 4px 16px rgba(${cardRgb}, ${0.15 + breatheIntensity * 0.1}), 0 0 32px rgba(${cardRgb}, ${0.08 + breatheIntensity * 0.05}), inset 0 1px 0 rgba(255, 255, 255, 0.1)`,
+              }}
             >
-              {node.label}
-            </span>
+              <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
+                style={{ background: `radial-gradient(ellipse at 50% 0%, rgba(${cardRgb}, 0.15) 0%, transparent 60%)`, opacity: 0.5 + breatheIntensity * 0.3 }}
+              />
+              <span className="relative text-[15px] font-semibold tracking-wide"
+                style={{ color: item.color, textShadow: `0 0 20px rgba(${cardRgb}, 0.3)` }}
+              >
+                {item.name}
+              </span>
+            </div>
+            
+            {index < flowItems.length - 1 && (
+              <div className="flex flex-col items-center my-0.5 h-7 origin-top" style={getConnectorStyle(index)}>
+                <div className="flow-connector-line w-0.5 h-5 rounded-full"
+                  style={{ '--from-color': `${item.color}50`, '--to-color': `${flowItems[index + 1].color}50` }}
+                />
+                <div className="connector-dot w-1.5 h-1.5 rounded-full -mt-0.5"
+                  style={{ backgroundColor: flowItems[index + 1].color, boxShadow: `0 0 6px ${flowItems[index + 1].color}`, animationDelay: `${index * 0.15}s` }}
+                />
+              </div>
+            )}
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
@@ -201,9 +270,9 @@ const ModelCustomization = () => {
               </div>
             </div>
             
-            {/* Right - Network Visualization */}
+            {/* Right - Animated Vertical Flow */}
             <div className="relative h-[400px] lg:h-[480px] flex items-center justify-center">
-              <NetworkVisualization />
+              <VerticalFlowAnimation />
             </div>
           </div>
         </div>
