@@ -846,7 +846,7 @@ const Contact = () => {
                     >
                       {countryCodes.map((country, index) => (
                         <option key={`${country.code}-${index}`} value={country.code}>
-                          {country.flag} {country.name} ({country.code})
+                          {country.flag} {country.code}
                         </option>
                       ))}
                     </select>
