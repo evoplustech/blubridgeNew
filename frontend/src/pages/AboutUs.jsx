@@ -1021,7 +1021,7 @@ const AboutUs = () => {
                 /> */}
               </div>
               
-              {/* Right Side - Typing Animation "It's Our Passion & Craft." */}
+              {/* Right Side - Typing Animation "It's Our Hunger & Precision." */}
               <div className="md:col-span-2">
                 <PassionTypingText />
               </div>
