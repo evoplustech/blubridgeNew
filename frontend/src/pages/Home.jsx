@@ -715,16 +715,24 @@ const Home = () => {
             <p className="in-progress-text font-signature text-lg leading-none">(In Progress)</p>
             <style>{`
               .in-progress-text {
-                background: linear-gradient(90deg, #0B1F3B 0%, #0B1F3B 35%, #4a90d9 50%, #0B1F3B 65%, #0B1F3B 100%);
-                background-size: 200% 100%;
+                background: linear-gradient(90deg, 
+                  #0B1F3B 0%, 
+                  #0B1F3B 30%, 
+                  #60a5fa 45%, 
+                  #93c5fd 50%, 
+                  #60a5fa 55%, 
+                  #0B1F3B 70%, 
+                  #0B1F3B 100%
+                );
+                background-size: 300% 100%;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                animation: shimmerLoading 2.5s ease-in-out infinite;
+                animation: shimmerLoading 3s linear infinite;
               }
               @keyframes shimmerLoading {
-                0% { background-position: 200% center; }
-                100% { background-position: -200% center; }
+                0% { background-position: 100% 0; }
+                100% { background-position: -100% 0; }
               }
             `}</style>
           </div>
