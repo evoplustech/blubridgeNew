@@ -999,7 +999,7 @@ const AboutUs = () => {
             {/* Top Row - 3 Features */}
             
             
-            {/* Bottom Row - "Our Purpose" on LEFT + "It's Our Passion & Craft." on RIGHT */}
+            {/* Bottom Row - "Our Purpose" on LEFT + "It's Our Hunger & Precision." on RIGHT */}
             <div className="grid md:grid-cols-3 gap-14 md:gap-12 items-end">
               {/* Left Side - Our Purpose with gold line */}
               <div className="flex items-start gap-6 w-sm">
