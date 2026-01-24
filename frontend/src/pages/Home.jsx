@@ -17,8 +17,8 @@ const PassionTypingText = () => {
   const animationRef = useRef(null);
   const blinkRef = useRef(null);
   
-  const staticText = "(";
-  const word = "In Progress)";
+  const staticText = "";
+  const word = "In Progress...";
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -871,14 +871,14 @@ const Home = () => {
                   { icon: Factory, title: "Manufacturing" },
                   { icon: Landmark, title: "Government" },
                   { icon: HeartPulse, title: "Healthcare" }
-                ].map((service, index) => {
+                 ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
                   <div 
                     key={index}
                     className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#E8E4D9] shadow-sm"
                     data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
+                    >
                     <IconComponent className="w-6 h-6 text-[#328CC1]" strokeWidth={1.5} />
                     <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
                   </div>
