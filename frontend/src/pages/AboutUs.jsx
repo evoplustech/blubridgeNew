@@ -237,9 +237,7 @@ const PassionTypingText = () => {
         style={{ 
           fontFamily: "'DM Sans', sans-serif",
           letterSpacing: '-0.02em',
-          fontSize: 'clamp(2rem, 4vw + 1rem, 6rem)',
-          position:'relative',
-          top:'-70px'
+          fontSize: 'clamp(2rem, 4vw + 1rem, 6rem)'
         }}
         data-testid="passion-heading"
       >
