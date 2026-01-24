@@ -179,28 +179,28 @@ const PassionTypingText = () => {
     
     const runLoop = async () => {
       while (!isCancelled) {
-        // Type "Passion"
+        // Type "Hunger"
         await typeWord(words[0]);
         
         // Hold for 2 seconds - hide cursor
         setIsAnimating(false);
         await delay(2000);
         
-        // Backspace "Passion"
+        // Backspace "Hunger"
         await backspaceWord(words[0]);
         
         // Small pause before typing next word
         setIsAnimating(false);
         await delay(80);
         
-        // Type "Craft"
+        // Type "Precision"
         await typeWord(words[1]);
         
         // Hold for 2 seconds - hide cursor
         setIsAnimating(false);
         await delay(2000);
         
-        // Backspace "Craft"
+        // Backspace "Precision"
         await backspaceWord(words[1]);
         
         // Small pause before looping
