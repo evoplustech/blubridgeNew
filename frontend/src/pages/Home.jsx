@@ -712,21 +712,19 @@ const Home = () => {
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 capitalize" style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 55, 132, 1) 53%, rgba(0, 55, 132, 1) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>OUR FRONTIER AI EXPERTISE</h2>
-            <p 
-              className="font-signature text-lg leading-none"
-              style={{
-                background: 'linear-gradient(90deg, #0B1F3B 0%, #0B1F3B 40%, #003784 50%, #0B1F3B 60%, #0B1F3B 100%)',
-                backgroundSize: '200% 100%',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                animation: 'shimmerLoading 2s ease-in-out infinite'
-              }}
-            >(In Progress)</p>
+            <p className="in-progress-text font-signature text-lg leading-none">(In Progress)</p>
             <style>{`
+              .in-progress-text {
+                background: linear-gradient(90deg, #0B1F3B 0%, #0B1F3B 35%, #4a90d9 50%, #0B1F3B 65%, #0B1F3B 100%);
+                background-size: 200% 100%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: shimmerLoading 2.5s ease-in-out infinite;
+              }
               @keyframes shimmerLoading {
-                0% { background-position: 100% 0; }
-                100% { background-position: -100% 0; }
+                0% { background-position: 200% center; }
+                100% { background-position: -200% center; }
               }
             `}</style>
           </div>
@@ -855,7 +853,7 @@ const Home = () => {
               <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#0B1F3B]/30" />
             </div> */}
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B]" >
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B]" >
               By Use Case
             </h2>
           </div>
