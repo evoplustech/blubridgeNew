@@ -489,22 +489,8 @@ const Header = () => {
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'products' ? 'rotate-180' : ''}`} />
             </button>
             {mobileSubmenuOpen === 'products' && (
-              <div className="mt-4 space-y-4 pl-4">
-                {products.map((section, idx) => (
-                  <div key={idx}>
-                    <div className="text-[#243447] font-semibold text-sm mb-2">{section.title}</div>
-                    {section.items.map((item, i) => (
-                      <Link
-                        key={i}
-                        to={item.link}
-                        className="block text-[#5B6B7A] hover:text-[#328CC1] py-1 text-sm"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                ))}
+              <div className="mt-4 pl-4">
+                <span className="text-[#5B6B7A] text-sm">Coming Soon</span>
               </div>
             )}
           </div>
