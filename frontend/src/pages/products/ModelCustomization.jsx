@@ -1,153 +1,334 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
-import { ArrowRight, Plus, Minus, Check, Cpu, Box, ChevronDown } from 'lucide-react';
+import { ArrowRight, Plus, Minus, Check, Cpu, Box } from 'lucide-react';
 
-// Animated Vertical Flow Component for Hero Section
+// World-Class Animated Vertical Flow Component for Hero Section
 const VerticalFlowAnimation = () => {
-  const [visibleItems, setVisibleItems] = useState([]);
-  const [cycleKey, setCycleKey] = useState(0);
+  const [phase, setPhase] = useState('entering'); // 'entering', 'holding', 'exiting'
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const [breathePhase, setBreathePhase] = useState(0);
+  const containerRef = useRef(null);
   
   const flowItems = [
-    { name: 'Pre-Training', color: '#3b82f6', bgColor: 'rgba(59, 130, 246, 0.1)' },
-    { name: 'Fine-Tuning', color: '#8b5cf6', bgColor: 'rgba(139, 92, 246, 0.1)' },
-    { name: 'Efficient', color: '#22c55e', bgColor: 'rgba(34, 197, 94, 0.1)' },
-    { name: 'Evaluation', color: '#f59e0b', bgColor: 'rgba(245, 158, 11, 0.1)' },
-    { name: 'Inference', color: '#ec4899', bgColor: 'rgba(236, 72, 153, 0.1)' },
-    { name: 'Applications', color: '#06b6d4', bgColor: 'rgba(6, 182, 212, 0.1)' }
+    { name: 'Pre-Training', color: '#3b82f6', accent: '#60a5fa' },
+    { name: 'Fine-Tuning', color: '#8b5cf6', accent: '#a78bfa' },
+    { name: 'Efficient', color: '#22c55e', accent: '#4ade80' },
+    { name: 'Evaluation', color: '#f59e0b', accent: '#fbbf24' },
+    { name: 'Inference', color: '#ec4899', accent: '#f472b6' },
+    { name: 'Applications', color: '#06b6d4', accent: '#22d3ee' }
   ];
 
+  // Breathing animation for ambient glow
   useEffect(() => {
-    setVisibleItems([]);
+    const breatheInterval = setInterval(() => {
+      setBreathePhase(prev => (prev + 1) % 360);
+    }, 50);
+    return () => clearInterval(breatheInterval);
+  }, []);
+
+  // Main animation orchestration
+  useEffect(() => {
+    let timeouts = [];
     
-    // Stagger the appearance of each item
-    flowItems.forEach((_, index) => {
-      setTimeout(() => {
-        setVisibleItems(prev => [...prev, index]);
-      }, index * 600); // 600ms delay between each item
-    });
+    const runCycle = () => {
+      setPhase('entering');
+      setVisibleCount(0);
+      setActiveIndex(-1);
+      
+      // Staggered entrance with refined timing
+      flowItems.forEach((_, index) => {
+        const enterDelay = index * 420 + 200; // Slightly offset start, elegant spacing
+        timeouts.push(setTimeout(() => {
+          setVisibleCount(prev => prev + 1);
+          setActiveIndex(index);
+        }, enterDelay));
+      });
+      
+      // Hold phase - all items visible, subtle energy pulse travels down
+      const holdStart = flowItems.length * 420 + 600;
+      timeouts.push(setTimeout(() => {
+        setPhase('holding');
+        setActiveIndex(-1);
+      }, holdStart));
+      
+      // Energy pulse during hold
+      const pulseStart = holdStart + 400;
+      flowItems.forEach((_, index) => {
+        timeouts.push(setTimeout(() => {
+          setActiveIndex(index);
+        }, pulseStart + index * 280));
+      });
+      
+      // Graceful exit phase
+      const exitStart = pulseStart + flowItems.length * 280 + 800;
+      timeouts.push(setTimeout(() => {
+        setPhase('exiting');
+        setActiveIndex(-1);
+      }, exitStart));
+      
+      // Reset and restart cycle
+      const cycleEnd = exitStart + 1200;
+      timeouts.push(setTimeout(runCycle, cycleEnd));
+    };
+    
+    runCycle();
+    
+    return () => timeouts.forEach(t => clearTimeout(t));
+  }, []);
 
-    // After all items are shown, wait and restart
-    const totalDuration = flowItems.length * 600 + 2500; // All items + 2.5s pause
-    const resetTimer = setTimeout(() => {
-      setCycleKey(prev => prev + 1);
-    }, totalDuration);
+  // Calculate breathing glow intensity
+  const breatheIntensity = Math.sin(breathePhase * Math.PI / 180) * 0.5 + 0.5;
+  
+  // Easing function for smooth motion
+  const getItemStyle = (index) => {
+    const isVisible = index < visibleCount;
+    const isActive = activeIndex === index;
+    const isExiting = phase === 'exiting';
+    
+    // Parallax offset based on position
+    const parallaxOffset = Math.sin(breathePhase * Math.PI / 180 + index * 0.5) * 2;
+    
+    return {
+      opacity: isExiting ? 0 : isVisible ? 1 : 0,
+      transform: `
+        translateY(${isVisible ? parallaxOffset : -24}px) 
+        scale(${isVisible ? (isActive ? 1.02 : 1) : 0.92})
+        translateX(${isActive ? 4 : 0}px)
+      `,
+      transition: isExiting 
+        ? `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 80}ms`
+        : `all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) ${isVisible ? 0 : index * 60}ms`,
+    };
+  };
 
-    return () => clearTimeout(resetTimer);
-  }, [cycleKey]);
+  const getConnectorStyle = (index) => {
+    const isVisible = index < visibleCount - 1;
+    const isExiting = phase === 'exiting';
+    const nextIsActive = activeIndex === index + 1;
+    const currentIsActive = activeIndex === index;
+    const isFlowing = currentIsActive || nextIsActive;
+    
+    return {
+      opacity: isExiting ? 0 : isVisible ? 1 : 0,
+      transform: `scaleY(${isVisible ? 1 : 0})`,
+      transition: isExiting 
+        ? `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 60}ms`
+        : `all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 200ms`,
+      filter: isFlowing ? 'brightness(1.3)' : 'brightness(1)',
+    };
+  };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-full py-6">
+    <div ref={containerRef} className="relative flex flex-col items-center justify-center h-full py-4">
       <style>{`
-        @keyframes flowItemFadeIn {
-          0% {
-            opacity: 0;
-            transform: translateY(-20px) scale(0.9);
+        /* Ambient background glow that breathes */
+        .flow-container::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 300px;
+          height: 500px;
+          transform: translate(-50%, -50%);
+          background: radial-gradient(ellipse at center, 
+            rgba(59, 130, 246, 0.08) 0%, 
+            rgba(139, 92, 246, 0.04) 30%,
+            transparent 70%);
+          filter: blur(40px);
+          pointer-events: none;
+          animation: ambientBreathe 8s ease-in-out infinite;
+        }
+        
+        @keyframes ambientBreathe {
+          0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        /* Refined shadow breathing for cards */
+        @keyframes shadowBreathe {
+          0%, 100% { 
+            box-shadow: 
+              0 4px 16px var(--glow-color-20),
+              0 0 32px var(--glow-color-10),
+              0 0 0 1px var(--glow-color-15);
           }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
+          50% { 
+            box-shadow: 
+              0 6px 24px var(--glow-color-25),
+              0 0 48px var(--glow-color-15),
+              0 0 0 1px var(--glow-color-20);
           }
         }
-        @keyframes connectorGrow {
-          0% {
-            height: 0;
-            opacity: 0;
+        
+        /* Indicator pulse - subtle and premium */
+        @keyframes indicatorPulse {
+          0%, 100% { 
+            transform: translateY(-50%) scale(1);
+            box-shadow: 0 0 8px var(--indicator-color);
           }
-          100% {
-            height: 24px;
-            opacity: 1;
-          }
-        }
-        @keyframes pulseGlow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-          }
-          50% {
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+          50% { 
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 0 16px var(--indicator-color);
           }
         }
-        @keyframes arrowBounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(3px);
-          }
+        
+        /* Flow line energy animation */
+        @keyframes flowEnergy {
+          0% { background-position: 0% 0%; }
+          100% { background-position: 0% 200%; }
         }
-        .flow-item-enter {
-          animation: flowItemFadeIn 0.5s ease-out forwards;
+        
+        /* Connector dot pulse */
+        @keyframes connectorPulse {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 0.8; transform: scale(1.2); }
         }
-        .connector-enter {
-          animation: connectorGrow 0.4s ease-out forwards;
-        }
+        
         .flow-card {
-          animation: pulseGlow 3s ease-in-out infinite;
+          --glow-color-10: rgba(var(--card-rgb), 0.1);
+          --glow-color-15: rgba(var(--card-rgb), 0.15);
+          --glow-color-20: rgba(var(--card-rgb), 0.2);
+          --glow-color-25: rgba(var(--card-rgb), 0.25);
+          animation: shadowBreathe 4s ease-in-out infinite;
+          animation-delay: calc(var(--index) * 0.3s);
         }
-        .flow-arrow {
-          animation: arrowBounce 1.5s ease-in-out infinite;
+        
+        .flow-indicator {
+          --indicator-color: var(--card-color);
+          animation: indicatorPulse 3s ease-in-out infinite;
+          animation-delay: calc(var(--index) * 0.2s);
+        }
+        
+        .flow-connector-line {
+          background: linear-gradient(
+            180deg,
+            var(--from-color) 0%,
+            var(--to-color) 50%,
+            var(--from-color) 100%
+          );
+          background-size: 100% 200%;
+          animation: flowEnergy 2s linear infinite;
+        }
+        
+        .connector-dot {
+          animation: connectorPulse 2s ease-in-out infinite;
+        }
+        
+        /* Active state enhancement */
+        .flow-card.is-active {
+          animation: shadowBreathe 1.5s ease-in-out infinite;
+        }
+        
+        .flow-card.is-active .flow-indicator {
+          animation: indicatorPulse 1s ease-in-out infinite;
         }
       `}</style>
       
-      {flowItems.map((item, index) => (
-        <div key={`${cycleKey}-${index}`} className="flex flex-col items-center">
-          {/* Flow Item Card */}
-          <div
-            className={`flow-card relative px-8 py-4 rounded-xl border backdrop-blur-sm transition-all duration-300 ${
-              visibleItems.includes(index) ? 'flow-item-enter' : 'opacity-0'
-            }`}
-            style={{
-              backgroundColor: item.bgColor,
-              borderColor: item.color + '40',
-              boxShadow: visibleItems.includes(index) 
-                ? `0 4px 20px ${item.color}20, 0 0 40px ${item.color}10` 
-                : 'none',
-              transitionDelay: `${index * 100}ms`
-            }}
+      {/* Ambient glow container */}
+      <div className="flow-container absolute inset-0 pointer-events-none" />
+      
+      {/* Pipeline spine - continuous visual thread */}
+      <div 
+        className="absolute left-1/2 top-8 bottom-8 w-px -translate-x-1/2 pointer-events-none"
+        style={{
+          background: `linear-gradient(180deg, 
+            transparent 0%,
+            rgba(59, 130, 246, 0.1) 10%,
+            rgba(139, 92, 246, 0.1) 30%,
+            rgba(34, 197, 94, 0.1) 50%,
+            rgba(236, 72, 153, 0.1) 70%,
+            rgba(6, 182, 212, 0.1) 90%,
+            transparent 100%
+          )`,
+          opacity: phase === 'exiting' ? 0 : 0.6 + breatheIntensity * 0.4,
+          transition: 'opacity 0.8s ease-out',
+        }}
+      />
+      
+      {flowItems.map((item, index) => {
+        const isActive = activeIndex === index;
+        const cardRgb = item.color.match(/\w\w/g).map(x => parseInt(x, 16)).join(', ');
+        
+        return (
+          <div 
+            key={index} 
+            className="flex flex-col items-center relative z-10"
+            style={getItemStyle(index)}
           >
-            {/* Subtle glow effect */}
-            <div 
-              className="absolute inset-0 rounded-xl opacity-30"
+            {/* Flow Item Card */}
+            <div
+              className={`flow-card relative px-7 py-3.5 rounded-2xl backdrop-blur-md ${isActive ? 'is-active' : ''}`}
               style={{
-                background: `radial-gradient(ellipse at center, ${item.color}20 0%, transparent 70%)`
+                '--card-rgb': cardRgb,
+                '--card-color': item.color,
+                '--index': index,
+                backgroundColor: `rgba(${cardRgb}, 0.08)`,
+                border: `1px solid rgba(${cardRgb}, ${isActive ? 0.4 : 0.2})`,
+                boxShadow: `
+                  0 4px 16px rgba(${cardRgb}, ${0.15 + breatheIntensity * 0.1}),
+                  0 0 32px rgba(${cardRgb}, ${0.08 + breatheIntensity * 0.05}),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
               }}
-            />
-            
-            {/* Icon indicator */}
-            <div 
-              className="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full"
-              style={{ backgroundColor: item.color }}
-            />
-            
-            <span 
-              className="relative text-base font-semibold tracking-wide"
-              style={{ color: item.color }}
             >
-              {item.name}
-            </span>
-          </div>
-          
-          {/* Connector Arrow (not after last item) */}
-          {index < flowItems.length - 1 && (
-            <div 
-              className={`flex flex-col items-center my-1 ${
-                visibleItems.includes(index) ? 'connector-enter' : 'opacity-0 h-0'
-              }`}
-              style={{ transitionDelay: `${index * 100 + 300}ms` }}
-            >
-              {/* Vertical line */}
+              {/* Inner ambient glow */}
               <div 
-                className="w-0.5 h-4 rounded-full"
-                style={{ 
-                  background: `linear-gradient(to bottom, ${item.color}60, ${flowItems[index + 1]?.color}60)` 
+                className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
+                style={{
+                  background: `radial-gradient(ellipse at 50% 0%, rgba(${cardRgb}, 0.15) 0%, transparent 60%)`,
+                  opacity: 0.5 + breatheIntensity * 0.3,
                 }}
               />
-              {/* Arrow icon */}
-              <ChevronDown 
-                className="flow-arrow w-4 h-4 -mt-1"
-                style={{ color: flowItems[index + 1]?.color || item.color }}
-                strokeWidth={2.5}
+              
+              {/* Premium indicator dot with glow */}
+              <div 
+                className="flow-indicator absolute -left-2.5 top-1/2 w-3 h-3 rounded-full"
+                style={{ 
+                  '--index': index,
+                  backgroundColor: item.color,
+                  boxShadow: `0 0 ${8 + breatheIntensity * 8}px ${item.color}`,
+                }}
+              />
+              
+              {/* Text with subtle shadow for depth */}
+              <span 
+                className="relative text-[15px] font-semibold tracking-wide"
+                style={{ 
+                  color: item.color,
+                  textShadow: `0 0 20px rgba(${cardRgb}, 0.3)`,
+                }}
+              >
+                {item.name}
+              </span>
+            </div>
+            
+            {/* Connector - flows energy between cards */}
+            {index < flowItems.length - 1 && (
+              <div 
+                className="flex flex-col items-center my-0.5 h-7 origin-top"
+                style={getConnectorStyle(index)}
+              >
+                {/* Flowing gradient line */}
+                <div 
+                  className="flow-connector-line w-0.5 h-5 rounded-full"
+                  style={{ 
+                    '--from-color': `${item.color}50`,
+                    '--to-color': `${flowItems[index + 1].color}50`,
+                  }}
+                />
+                
+                {/* Energy dot traveling down */}
+                <div 
+                  className="connector-dot w-1.5 h-1.5 rounded-full -mt-0.5"
+                  style={{ 
+                    backgroundColor: flowItems[index + 1].color,
+                    boxShadow: `0 0 6px ${flowItems[index + 1].color}`,
+                    animationDelay: `${index * 0.15}s`,
+                  }}
+                />
               />
             </div>
           )}
