@@ -43,8 +43,8 @@ const Deployment = () => {
               </div>
             </div>
             
-            {/* Right - Premium Deployment Infrastructure Visual */}
-            <div className="relative h-[450px] lg:h-[520px] flex items-center justify-center">
+            {/* Right - Premium Deployment Infrastructure Visual - Hidden on mobile */}
+            <div className="relative h-[450px] lg:h-[520px] hidden lg:flex items-center justify-center">
               <div className="relative w-full max-w-[520px] h-full">
                 {/* Background glow effects */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl" />
