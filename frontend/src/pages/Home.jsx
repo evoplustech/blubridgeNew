@@ -17,8 +17,8 @@ const PassionTypingText = () => {
   const animationRef = useRef(null);
   const blinkRef = useRef(null);
   
-  const staticText = "(";
-  const word = "In Progress)";
+ 
+  const word = "In Progress...";
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -137,7 +137,7 @@ const PassionTypingText = () => {
         className="font-signature text-lg text-[#0B1F3B] leading-none"
         data-testid="passion-heading"
       >
-        {staticText}{displayText}
+        {displayText}
       </p>
     </div>
   );
