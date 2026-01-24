@@ -103,7 +103,7 @@ const PassionTypingText = () => {
   const blinkRef = useRef(null);
   
   const staticText = "It's Our ";
-  const words = ["Passion.", "Craft."];
+  const words = ["Hunger.", "Precision."];
   
   // Intersection Observer to trigger animation when text is in view
   useEffect(() => {
@@ -988,14 +988,10 @@ const AboutUs = () => {
               style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '-0.02em' }}
               data-testid="what-sets-us-apart-heading"
             >
-              What sets us apart
+              How We Build, Innovate and Lead
             </h2>
-            <p 
-              className="text-lg md:text-xl text-[#4B5563] max-w-2xl mx-auto leading-relaxed"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              We're focused on removing friction from work so teams can spend more time on what truly matters.
-            </p>
+           
+           
           </div>
           
           {/* Features Grid - 3 columns top, 1 centered bottom */}
