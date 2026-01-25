@@ -632,7 +632,7 @@ const eased = t * t * t; // slow start, strong finish
 
             {/* Right side - Grid Labels */}
             <div className="flex items-start justify-center lg:pt-8">
-              <div className="grid grid-cols-3 gap-4 w-full">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
                 {['Use Case', 'Workflow', 'Decision', 'Insight', 'Impact', 'Outcome', 'Metric', 'ROI', 'Value', 'Analytics', 'Strategy', 'Growth'].map((label, i) => {
                   const colors = [
                     'bg-purple-100 text-purple-700',
