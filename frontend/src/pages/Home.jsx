@@ -856,14 +856,14 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               
             {/* Left - Circular Diagram */}
-            <div className="relative flex items-center justify-center overflow-hidden py-4">
+            <div className="relative flex items-center justify-center min-h-[280px] sm:min-h-[400px] lg:min-h-[520px]">
               <AIExpertiseOrbit />    
             </div>
             
             {/* Right - AI Expertise Grid (8 tabs) */}
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6 lg:mb-8 text-center lg:text-center" style={{ position: 'relative', top: '0', marginTop: '-20px' }}>By Industry</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" style={{ position: 'relative', top: '0' }}>
+            <div className="px-4 sm:px-0">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6 lg:mb-8 text-center lg:text-center">By Industry</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {[
                   { icon: Radio, title: "Telco" },
                   { icon: ShieldCheck, title: "Finance & Insurance" },
