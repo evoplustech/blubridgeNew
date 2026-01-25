@@ -179,10 +179,10 @@ code {
 /* Mobile-first responsive orbit scaling */
 @media (max-width: 639px) {
   .orbit-container {
-    transform: scale(0.54);
+    transform: scale(0.50);
     width: 520px;
     height: 520px;
-    margin: -110px auto;
+    margin: -120px auto;
   }
 }
 
