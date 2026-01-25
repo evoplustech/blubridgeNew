@@ -580,11 +580,11 @@ def validate_file(filename: str, file_size: int) -> tuple[bool, str]:
     # Check file extension
     ext = Path(filename).suffix.lower()
     if ext not in ALLOWED_EXTENSIONS:
-        return False, f"Invalid file type. Allowed types: PDF, DOC, DOCX"
+        return False, "Invalid file type. Allowed types: PDF, DOC, DOCX"
     
     # Check file size
     if file_size > MAX_FILE_SIZE:
-        return False, f"File too large. Maximum size: 5MB"
+        return False, "File too large. Maximum size: 5MB"
     
     return True, ""
 
