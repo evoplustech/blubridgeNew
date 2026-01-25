@@ -384,6 +384,7 @@ async def submit_contact_form(form: ContactForm):
         
         # Send email notification (non-blocking)
         await send_email_notification(form_type, doc)
+        await send_gmail_notification(form_type, doc)
         
         return {"message": "Contact form submitted successfully", "id": form.id}
     except Exception as e:
@@ -420,6 +421,7 @@ async def submit_unified_contact(submission: ContactSubmission):
         
         # Send email notification (non-blocking)
         await send_email_notification(submission.type, doc)
+        await send_gmail_notification(submission.type, doc)
         
         return {"message": "Form submitted successfully", "id": submission.id, "type": submission.type}
     except Exception as e:
@@ -463,6 +465,7 @@ async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[
         
         # Send email notification (non-blocking)
         await send_email_notification("contact_us", doc)
+        await send_gmail_notification("contact_us", doc)
         
         return {"message": "Contact form submitted successfully", "id": doc["id"]}
     except HTTPException:
