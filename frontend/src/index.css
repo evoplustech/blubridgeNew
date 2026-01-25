@@ -221,8 +221,16 @@ code {
 
 .track {
   fill: none;
-  stroke: #D6DEC3;
+  stroke: #c5cdb5;
   stroke-width: 2;
+}
+
+/* Make tracks more visible on all screens */
+@media (max-width: 768px) {
+  .track {
+    stroke: #b8c1a8;
+    stroke-width: 2.5;
+  }
 }
 
 .center {
