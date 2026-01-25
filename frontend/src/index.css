@@ -181,6 +181,9 @@ code {
     transform: scale(0.55);
     transform-origin: center center;
     margin: -115px auto;
+    position: relative;
+    left: 50%;
+    margin-left: -260px;
   }
 }
 
@@ -189,6 +192,9 @@ code {
     transform: scale(0.75);
     transform-origin: center center;
     margin: -65px auto;
+    position: relative;
+    left: 50%;
+    margin-left: -260px;
   }
 }
 
