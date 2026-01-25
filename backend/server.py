@@ -508,6 +508,10 @@ async def subscribe_newsletter(subscription: NewsletterSubscribe):
         doc = subscription.model_dump()
         doc['subscribed_at'] = doc['subscribed_at'].isoformat()
         await db.newsletter_subscribers.insert_one(doc)
+        
+        # Send Gmail notification (non-blocking)
+        await send_gmail_notification("newsletter", doc)
+        
         return {"message": "Successfully subscribed to newsletter", "id": subscription.id}
     except HTTPException:
         raise
