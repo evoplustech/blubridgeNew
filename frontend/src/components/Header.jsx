@@ -470,33 +470,7 @@ const Header = () => {
       style={{ zIndex: 9999 }}
     >
         <div className="p-6 space-y-6">
-          {/* Research Link */}
-          <Link 
-            to="/research" 
-            className="block text-[#0B1F3B] text-lg font-medium hover:text-[#328CC1]"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Research
-          </Link>
-
-          {/* Products */}
-          <div>
-            <button
-              onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'products' ? null : 'products')}
-              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
-            >
-              <span>Products</span>
-              <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'products' ? 'rotate-180' : ''}`} />
-            </button>
-            {mobileSubmenuOpen === 'products' && (
-              <div className="mt-4 pl-4">
-                <span className="text-[#5B6B7A] text-sm">Coming Soon</span>
-              </div>
-            )}
-          </div>
-
-          {/* Solutions */}
-          <div>
+<div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions' ? null : 'solutions')}
               className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
@@ -533,6 +507,34 @@ const Header = () => {
               </div>
             )}
           </div>
+
+          {/* Research Link */}
+         
+
+          {/* Products */}
+          <div>
+            <button
+              onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'products' ? null : 'products')}
+              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
+            >
+              <span>Products</span>
+              <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'products' ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileSubmenuOpen === 'products' && (
+              <div className="mt-4 pl-4">
+                <span className="text-[#5B6B7A] text-sm">Coming Soon</span>
+              </div>
+            )}
+          </div>
+
+          {/* Solutions */}
+           <Link 
+            to="/research" 
+            className="block text-[#0B1F3B] text-lg font-medium hover:text-[#328CC1]"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Research
+          </Link>
 
           {/* Company */}
           <div>

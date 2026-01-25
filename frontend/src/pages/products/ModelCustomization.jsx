@@ -292,7 +292,7 @@ useEffect(() => {
 
 
 
-  useDocumentTitle('Applied AI services - expert assistance | BluBridge');
+  
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -318,7 +318,7 @@ useEffect(() => {
     }
   ];
 
-  useDocumentTitle('Model Customization | BluBridge');
+  useDocumentTitle('Applied AI services - expert assistance | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">

@@ -1299,7 +1299,7 @@ const Home = () => {
           {/* Section Title & Description */}
           <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-light mb-6 text-[#0B1F3B]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              Blubridge Infrastructure for custom AI deployment Solutions
+              BluBridge Infrastructure for custom AI deployment Solutions
             </h2>
             {/* <p className="text-[#243447] max-w-4xl leading-relaxed text-lg">
               Blubridge provides a secure, scalable foundation to run bespoke AI systems in real-world environments. It bridges research and production by delivering performance-optimized, sovereign, and enterprise-ready AI infrastructure.
