@@ -853,17 +853,17 @@ const Home = () => {
             {/*<p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p>*/}
             <div className="font-signature text-lg text-[#0B1F3B] leading-none" style={{ minHeight: '28px' }}><PassionTypingText /></div>
           </div>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               
             {/* Left - Circular Diagram */}
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center min-h-[300px] sm:min-h-[380px] lg:min-h-[520px]">
               <AIExpertiseOrbit />    
             </div>
             
             {/* Right - AI Expertise Grid (8 tabs) */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8 text-center"  style={{ position: 'relative', top:'-40px'}}>By Industry</h2>
-              <div className="grid grid-cols-2 gap-4" style={{ position: 'relative', top:'-10px'}}>
+            <div className="px-4 sm:px-0">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6 lg:mb-8 text-center">By Industry</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {[
                   { icon: Radio, title: "Telco" },
                   { icon: ShieldCheck, title: "Finance & Insurance" },
