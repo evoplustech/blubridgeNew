@@ -218,6 +218,106 @@ async def send_email_notification(form_type: str, form_data: dict):
     except Exception as e:
         logging.error(f"Error preparing Brevo email notification: {e}")
 
+
+# Gmail SMTP email notification (non-blocking)
+async def send_gmail_notification(form_type: str, form_data: dict, submission_timestamp: str = None):
+    """Send email notification via Gmail SMTP. Does not block API response."""
+    
+    def _send_smtp_email():
+        """Synchronous SMTP send - runs in thread pool"""
+        try:
+            if not SMTP_PASSWORD:
+                logging.warning("SMTP_PASSWORD not configured, skipping Gmail notification")
+                return
+            
+            # Format form type label for email subject
+            type_labels = {
+                "contact_sales": "Contact Sales",
+                "general_enquiry": "General Enquiry",
+                "contact_us": "Contact Us",
+                "footer_form": "Footer Form",
+                "job_application": "Job Application",
+                "newsletter": "Newsletter Subscription"
+            }
+            form_type_label = type_labels.get(form_type, form_type.replace("_", " ").title())
+            
+            # Get submission timestamp
+            if submission_timestamp:
+                timestamp_str = submission_timestamp
+            else:
+                timestamp_str = form_data.get('createdAt') or form_data.get('appliedAt') or form_data.get('subscribed_at') or datetime.now(timezone.utc).isoformat()
+            
+            # Parse and format the date for subject
+            try:
+                if isinstance(timestamp_str, str):
+                    dt = datetime.fromisoformat(timestamp_str.replace('Z', '+00:00'))
+                else:
+                    dt = timestamp_str
+                formatted_date = dt.strftime("%Y-%m-%d %H:%M:%S UTC")
+            except Exception:
+                formatted_date = str(timestamp_str)
+            
+            # Build email subject: Form_Type - Submission Date
+            subject = f"{form_type_label} - {formatted_date}"
+            
+            # Build email body with all form fields
+            body_lines = [
+                f"Form Type: {form_type_label}",
+                f"Submission Timestamp: {formatted_date}",
+                "",
+                "=" * 50,
+                "SUBMITTED FORM DATA:",
+                "=" * 50,
+                ""
+            ]
+            
+            # Add all non-empty fields (skip internal fields)
+            skip_fields = {'_id', 'id', 'type', 'status', 'viewedAt', 'updatedAt'}
+            
+            for key, value in form_data.items():
+                if key not in skip_fields and value is not None and value != "":
+                    # Format the field name nicely
+                    field_name = key.replace('_', ' ').replace('At', ' At')
+                    # Convert camelCase to Title Case
+                    field_name = ''.join([' ' + c if c.isupper() else c for c in field_name]).strip()
+                    field_name = field_name.title()
+                    body_lines.append(f"{field_name}: {value}")
+            
+            body_lines.append("")
+            body_lines.append("=" * 50)
+            body_lines.append("This is an automated notification from BluBrg website.")
+            
+            body = "\n".join(body_lines)
+            
+            # Create email message
+            msg = MIMEMultipart()
+            msg['From'] = SMTP_FROM_EMAIL
+            msg['To'] = SMTP_TO_EMAIL
+            msg['Subject'] = subject
+            msg.attach(MIMEText(body, 'plain'))
+            
+            # Send via Gmail SMTP with TLS
+            with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+                server.starttls()
+                server.login(SMTP_FROM_EMAIL, SMTP_PASSWORD)
+                server.sendmail(SMTP_FROM_EMAIL, SMTP_TO_EMAIL, msg.as_string())
+            
+            logging.info(f"Gmail notification sent for {form_type_label}")
+            
+        except smtplib.SMTPAuthenticationError as e:
+            logging.error(f"Gmail SMTP authentication failed: {e}")
+        except smtplib.SMTPException as e:
+            logging.error(f"Gmail SMTP error: {e}")
+        except Exception as e:
+            logging.error(f"Failed to send Gmail notification: {e}")
+    
+    # Run SMTP send in background thread to not block async code
+    try:
+        loop = asyncio.get_event_loop()
+        loop.run_in_executor(None, _send_smtp_email)
+    except Exception as e:
+        logging.error(f"Error scheduling Gmail notification: {e}")
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
