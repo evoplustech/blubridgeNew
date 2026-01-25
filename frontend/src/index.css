@@ -176,6 +176,22 @@ code {
   position: relative;
 }
 
+@media (max-width: 560px) {
+  .orbit-container {
+    transform: scale(0.55);
+    transform-origin: center center;
+    margin: -115px auto;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 768px) {
+  .orbit-container {
+    transform: scale(0.75);
+    transform-origin: center center;
+    margin: -65px auto;
+  }
+}
+
 .orbit-container > svg {
   position: absolute;
   inset: 0;
