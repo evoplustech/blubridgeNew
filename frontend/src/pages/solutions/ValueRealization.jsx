@@ -675,46 +675,51 @@ const eased = t * t * t; // slow start, strong finish
           
           {/* Table Format Layout - 4 Columns */}
           <div className="rounded-xl overflow-hidden border border-[#E5E7EB]">
-            {/* Header Row - Dark Background */}
-            <div className="bg-[#0B1F3B] grid grid-cols-4">
-              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
-                OBSERVABILITY
-              </div>
-              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
-                MONITORING
-              </div>
-              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
-                DEPLOYMENT INSIGHTS
-              </div>
-              <div className="px-5 py-4 text-white text-[10px] font-bold uppercase tracking-wider">
-                INFERENCE ANALYTICS & AUTOMATION
-              </div>
-            </div>
-            
-            {/* Data Rows - White Background */}
-            {[
-              ['Training Metrics', 'Model Performance', 'Model Serving Metrics', 'Data Feedback Loops'],
-              ['Evaluation Metrics', 'Drift Detection', 'Inference Latency Tracking', 'Cost Monitoring'],
-              ['Logs & Traces', 'Error Analysis', 'Throughput Analytics', 'Performance Dashboards'],
-              ['Dashboard Analytics', 'A/B Testing', 'Resource Utilization', 'Alerts & Auto-Remediation'],
-              ['Data Lineage', 'Bias & Fairness Tracking', 'SLA Monitoring', 'Continuous Improvement Pipelines']
-            ].map((row, rowIndex) => (
-              <div key={rowIndex} className="grid grid-cols-4 bg-white border-b border-[#E5E7EB] last:border-b-0">
-                {row.map((cell, cellIndex) => (
-                  <div 
-                    key={cellIndex} 
-                    className={`px-5 py-3 text-[#212529] text-sm ${cellIndex < 3 ? 'border-r border-[#E5E7EB]' : ''}`}
-                  >
-                    {cell && (
-                      <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
-                        <span className="text-xs">{cell}</span>
+            {/* Horizontal scroll wrapper for mobile */}
+            <div className="overflow-x-auto">
+              <div className="min-w-[700px]">
+                {/* Header Row - Dark Background */}
+                <div className="bg-[#0B1F3B] grid grid-cols-4">
+                  <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                    OBSERVABILITY
+                  </div>
+                  <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                    MONITORING
+                  </div>
+                  <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                    DEPLOYMENT INSIGHTS
+                  </div>
+                  <div className="px-5 py-4 text-white text-[10px] font-bold uppercase tracking-wider">
+                    INFERENCE ANALYTICS & AUTOMATION
+                  </div>
+                </div>
+                
+                {/* Data Rows - White Background */}
+                {[
+                  ['Training Metrics', 'Model Performance', 'Model Serving Metrics', 'Data Feedback Loops'],
+                  ['Evaluation Metrics', 'Drift Detection', 'Inference Latency Tracking', 'Cost Monitoring'],
+                  ['Logs & Traces', 'Error Analysis', 'Throughput Analytics', 'Performance Dashboards'],
+                  ['Dashboard Analytics', 'A/B Testing', 'Resource Utilization', 'Alerts & Auto-Remediation'],
+                  ['Data Lineage', 'Bias & Fairness Tracking', 'SLA Monitoring', 'Continuous Improvement Pipelines']
+                ].map((row, rowIndex) => (
+                  <div key={rowIndex} className="grid grid-cols-4 bg-white border-b border-[#E5E7EB] last:border-b-0">
+                    {row.map((cell, cellIndex) => (
+                      <div 
+                        key={cellIndex} 
+                        className={`px-5 py-3 text-[#212529] text-sm ${cellIndex < 3 ? 'border-r border-[#E5E7EB]' : ''}`}
+                      >
+                        {cell && (
+                          <div className="flex items-center gap-3">
+                            <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                            <span className="text-xs">{cell}</span>
+                          </div>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
                 ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
