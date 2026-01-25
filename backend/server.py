@@ -35,6 +35,13 @@ BREVO_API_KEY = os.environ.get('Backend-Email-Key', '')
 BREVO_SENDER_EMAIL = "blazecoder3@gmail.com"
 BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 
+# Gmail SMTP Configuration (for form submission notifications)
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+SMTP_FROM_EMAIL = "blubridgenoreply@gmail.com"
+SMTP_TO_EMAIL = "mbottle540@gmail.com"
+SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
+
 # Create the main app without a prefix
 app = FastAPI()
 
