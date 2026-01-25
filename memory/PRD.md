@@ -1,13 +1,14 @@
 # Design Sprint - AI Company Website PRD
 
 ## Original Problem Statement
-Building a modern AI company website with multiple pages including Home, About Us, Products, Solutions, and Contact pages. The website features a dark theme with premium animations and responsive design.
+Building a modern AI company website with multiple pages including Home, About Us, Products, Solutions, and Contact pages. The website features a light theme (#fffdf7 background) with premium animations and responsive design.
 
 ## Core Requirements
-- Multi-page website with consistent dark theme design
+- Multi-page website with consistent theme design
 - Contact page with hero section, contact cards, and form
-- Responsive layouts for mobile and desktop
+- Responsive layouts for mobile, tablet, and desktop
 - Integration with backend for form submissions
+- Orbit animation for AI expertise visualization
 
 ## User Personas
 - Potential B2B clients looking for AI solutions
@@ -17,6 +18,18 @@ Building a modern AI company website with multiple pages including Home, About U
 ---
 
 ## What's Been Implemented
+
+### Jan 25, 2025 - Home Page Mobile Responsiveness Fix
+- **Fixed mobile responsiveness issues on Home page:**
+  - Hero text "Beyond the Horizon" now fully visible on mobile (no longer cut off)
+  - Orbit animation properly scaled using CSS transform for different viewports:
+    - Mobile (< 640px): scale(0.50)
+    - Tablet (640-1023px): scale(0.73)
+    - Desktop (≥ 1024px): scale(1.0)
+  - "Manufacturing" label and all orbit labels now visible on mobile
+  - "By Industry" cards now stack in single column on mobile (grid-cols-1)
+  - Cards display in 2-column grid on tablet and larger (sm:grid-cols-2)
+  - B logo scales proportionally with clamp() across all viewports
 
 ### Jan 24, 2025 - Contact Page Redesign
 - **Completely redesigned Contact page** to match provided screenshot:
@@ -29,9 +42,11 @@ Building a modern AI company website with multiple pages including Home, About U
 
 ### Previous Sessions
 - Home page with gradient text and looping typing animation
+- Model Customization page with canvas-based animation matching user diagram
 - About Us page with responsive layouts and typing animations
 - Value Realization page with 4-column ROI statistics section
 - Deployment page with 3-column deployment statistics section
+- URL structure updated: /products/model-customization → /solutions/model-customization, /about → /about-us
 - Admin panel at `/admin` (credentials: admin/admin)
 
 ---
@@ -39,11 +54,10 @@ Building a modern AI company website with multiple pages including Home, About U
 ## Prioritized Backlog
 
 ### P0 - Immediate
-- [x] Redesign Contact page (DONE - Jan 24, 2025)
+- [x] Fix Home page mobile responsiveness (DONE - Jan 25, 2025)
 
 ### P1 - High Priority
-- [ ] Undo changes on ModelCustomization.jsx (revert to circular orbital design)
-- [ ] Verify "How We Build, Innovate, and Lead" section on About Us
+- [ ] Fix Deployment page responsiveness (user needs to choose approach)
 - [ ] Apply 3-Grid color to About Page
 - [ ] Create Individual GPU Node Pages
 
@@ -55,7 +69,7 @@ Building a modern AI company website with multiple pages including Home, About U
 - [ ] Create Contact Sub-pages
 
 ### P3 - Low Priority / Refactoring
-- [ ] Extract typing animation into reusable component
+- [ ] Extract AIExpertiseOrbit into separate component
 - [ ] Consolidate mobile/desktop layouts in AboutUs.jsx
 - [ ] Extract reusable UI components
 
