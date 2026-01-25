@@ -221,14 +221,14 @@ code {
 
 .track {
   fill: none;
-  stroke: #c5cdb5;
+  stroke: #a8b498;
   stroke-width: 2;
 }
 
 /* Make tracks more visible on all screens */
 @media (max-width: 768px) {
   .track {
-    stroke: #b8c1a8;
+    stroke: #9aab8a;
     stroke-width: 2.5;
   }
 }
