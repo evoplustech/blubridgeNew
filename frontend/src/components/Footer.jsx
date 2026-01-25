@@ -62,7 +62,7 @@ const Footer = () => {
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Product Links */}
-          <div className="px-12">
+          <div>
             <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">PRODUCT</h3>
             {/* <ul className="space-y-3">
               <li><Link to="/products/gpu-nodes" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">GPU Nodes</Link></li>
@@ -74,54 +74,19 @@ const Footer = () => {
               <li><Link to="/products/glomfjord" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Glomfjord</Link></li>
             </ul> */}
              <ul className="space-y-3">
-              <li>Coming Soon</li>
+              <li className="text-[#243447] text-sm">Coming Soon</li>
              </ul>
           </div>
 
           {/* Solutions Links */}
-            <div>
-  <h3 className="font-semibold text-lg mb-2 text-[#0B1F3B] px-4">
-    SOLUTIONS
-  </h3>
-
-  <div className="space-y-1">
-    <Link
-      to="/solutions/model-customization"
-      className="flex items-center gap-2 px-4 py-1 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
-    >
-      {/* <div className="w-6 h-6 rounded-md bg-[#8B5CF6]/10 flex items-center justify-center flex-shrink-0">
-        <SlidersHorizontal className="w-3.5 h-3.5 text-[#8B5CF6]" strokeWidth={1.5} />
-      </div> */}
-      <span className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">
-        Model Customization
-      </span>
-    </Link>
-
-    <Link
-      to="/solutions/value-realization"
-      className="flex items-center gap-2 px-4 py-1 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
-    >
-      {/* <div className="w-6 h-6 rounded-md bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0">
-        <TrendingUp className="w-3.5 h-3.5 text-[#328CC1]" strokeWidth={1.5} />
-      </div> */}
-      <span className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">
-        Value Realization
-      </span>
-    </Link>
-
-    <Link
-      to="/solutions/deployment"
-      className="flex items-center gap-2 px-4 py-1 rounded-lg hover:bg-[#f3f1e9] transition-colors group"
-    >
-      {/* <div className="w-6 h-6 rounded-md bg-[#10B981]/10 flex items-center justify-center flex-shrink-0">
-        <Rocket className="w-3.5 h-3.5 text-[#10B981]" strokeWidth={1.5} />
-      </div> */}
-      <span className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">
-        Deployment
-      </span>
-    </Link>
-  </div>
-</div>
+          <div>
+            <h3 className="font-semibold text-lg mb-4 text-[#0B1F3B]">SOLUTIONS</h3>
+            <ul className="space-y-3">
+              <li><Link to="/solutions/model-customization" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Model Customization</Link></li>
+              <li><Link to="/solutions/value-realization" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Value Realization</Link></li>
+              <li><Link to="/solutions/deployment" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Deployment</Link></li>
+            </ul>
+          </div>
 
 
           {/* Company Links */}
