@@ -702,6 +702,7 @@ async def submit_job_application(
             "appliedAt": application_doc["appliedAt"]
         }
         await send_email_notification("job_application", email_data)
+        await send_gmail_notification("job_application", email_data)
         
         logging.info(f"Job application submitted: {application_id} for {jobTitle}")
         
