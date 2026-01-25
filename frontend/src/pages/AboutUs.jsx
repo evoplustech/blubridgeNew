@@ -455,7 +455,7 @@ const AboutUs = () => {
     }
   ];
 
-  useDocumentTitle('About | BluBridge');
+  useDocumentTitle('About Us | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">

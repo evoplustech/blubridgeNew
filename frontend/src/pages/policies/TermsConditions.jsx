@@ -2,7 +2,7 @@ import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const TermsConditions = () => {
-  useDocumentTitle('Terms of Use | BluBridge');
+  useDocumentTitle('Terms | BluBridge');
 
   const headingStyle = {
     fontSize: '20px',

@@ -11,7 +11,7 @@ const Deployment = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Deployment | BluBridge');
+  useDocumentTitle('Applied AI services - expert assistance | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">
