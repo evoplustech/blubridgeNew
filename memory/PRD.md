@@ -89,13 +89,24 @@ Building a modern AI company website with multiple pages including Home, About U
 - Brevo/Sendinblue integration
 
 ### Key Files
+- `/app/frontend/src/pages/Home.jsx` - Home page with AIExpertiseOrbit component
 - `/app/frontend/src/pages/Contact.jsx` - Contact page
-- `/app/frontend/src/pages/Home.jsx` - Home page
 - `/app/frontend/src/pages/AboutUs.jsx` - About Us page
+- `/app/frontend/src/pages/products/ModelCustomization.jsx` - Model Customization with canvas animation
 - `/app/frontend/src/pages/solutions/ValueRealization.jsx`
 - `/app/frontend/src/pages/solutions/Deployment.jsx`
+- `/app/frontend/src/index.css` - Contains orbit responsive styles
 
 ---
 
 ## Credentials
 - Admin Panel: `/admin` - Username: `admin`, Password: `admin`
+
+---
+
+## Known Issues (Pending User Decision)
+1. **Deployment Page Responsiveness** - The page has a complex visualization that breaks on mobile. Awaiting user decision:
+   - Option A: Simplified single-column layout for mobile
+   - Option B: Hide visualization on mobile (was reverted)
+
+2. **Container Width Inconsistencies** - Global issue affecting multiple pages
