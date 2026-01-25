@@ -259,9 +259,9 @@ const AIExpertiseOrbit = () => {
   ];
 
   return (
-    <div className="orbit-container relative">
+    <div className="orbit-container relative w-[520px] h-[520px]">
       {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
         <circle className="track" cx="260" cy="260" r="105" />
         <circle className="track" cx="260" cy="260" r="155" />
         <circle className="track" cx="260" cy="260" r="212" />
@@ -853,17 +853,17 @@ const Home = () => {
             {/*<p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p>*/}
             <div className="font-signature text-lg text-[#0B1F3B] leading-none" style={{ minHeight: '28px' }}><PassionTypingText /></div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
               
             {/* Left - Circular Diagram */}
-            <div className="relative flex items-center justify-center min-h-[280px] sm:min-h-[400px] lg:min-h-[520px]">
+            <div className="relative flex items-center justify-center">
               <AIExpertiseOrbit />    
             </div>
             
             {/* Right - AI Expertise Grid (8 tabs) */}
-            <div className="px-4 sm:px-0">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6 lg:mb-8 text-center lg:text-center">By Industry</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8 text-center"  style={{ position: 'relative', top:'-40px'}}>By Industry</h2>
+              <div className="grid grid-cols-2 gap-4" style={{ position: 'relative', top:'-10px'}}>
                 {[
                   { icon: Radio, title: "Telco" },
                   { icon: ShieldCheck, title: "Finance & Insurance" },
