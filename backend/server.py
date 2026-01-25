@@ -39,7 +39,7 @@ BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 SMTP_FROM_EMAIL = "blubridgenoreply@gmail.com"
-SMTP_TO_EMAIL = "mbottle540@gmail.com"
+SMTP_TO_EMAIL = "contact@blubridge.ai"
 SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
 
 # Create the main app without a prefix
@@ -285,7 +285,7 @@ async def send_gmail_notification(form_type: str, form_data: dict, submission_ti
             
             body_lines.append("")
             body_lines.append("=" * 50)
-            body_lines.append("This is an automated notification from BluBrg website.")
+            body_lines.append("This is an automated notification from BluBridge website.")
             
             body = "\n".join(body_lines)
             
