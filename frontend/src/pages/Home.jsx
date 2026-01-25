@@ -259,7 +259,7 @@ const AIExpertiseOrbit = () => {
   ];
 
   return (
-    <div className="orbit-container relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[520px] lg:h-[520px]">
+    <div className="orbit-container relative">
       {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
         <circle className="track" cx="260" cy="260" r="105" />
