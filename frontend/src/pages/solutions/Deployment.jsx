@@ -684,43 +684,48 @@ const Deployment = () => {
           
           {/* Table 2: Last 3 columns */}
           <div className="rounded-xl overflow-hidden border border-[#E5E7EB]">
-            {/* Header Row - Dark Background */}
-            <div className="bg-[#0B1F3B] grid grid-cols-3">
-              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
-                AUTO-SCALING
-              </div>
-              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
-                MULTI-CLOUD SUPPORT
-              </div>
-              <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider">
-                INFERENCE OPTIMIZATION
-              </div>
-            </div>
-            
-            {/* Data Rows - White Background */}
-            {[
-              ['Dynamic Resource Scaling', 'Deploy on AWS, Azure, GCP', 'Quantization & Pruning'],
-              ['Load-Based Auto-Scaling', 'Hybrid Cloud Strategies', 'Distillation & Compiling'],
-              ['Horizontal & Vertical Scaling', 'Cross-Cloud Load Balancing', 'Model Acceleration (TensorRT, ONNX)'],
-              ['Metrics-Driven Policies', 'Failover & Redundancy', 'Automated Hardware Selection'],
-              ['On-Demand Node Provisioning', 'Cost Optimization Across Clouds', 'Optimized Runtime Environments']
-            ].map((row, rowIndex) => (
-              <div key={rowIndex} className="grid grid-cols-3 bg-white border-b border-[#E5E7EB] last:border-b-0">
-                {row.map((cell, cellIndex) => (
-                  <div 
-                    key={cellIndex} 
-                    className={`px-5 py-3 text-[#212529] text-sm ${cellIndex < 2 ? 'border-r border-[#E5E7EB]' : ''}`}
-                  >
-                    {cell && (
-                      <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
-                        <span className="text-xs">{cell}</span>
+            {/* Horizontal scroll wrapper for mobile */}
+            <div className="overflow-x-auto">
+              <div className="min-w-[600px]">
+                {/* Header Row - Dark Background */}
+                <div className="bg-[#0B1F3B] grid grid-cols-3">
+                  <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                    AUTO-SCALING
+                  </div>
+                  <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider border-r border-[#1a3a5f]">
+                    MULTI-CLOUD SUPPORT
+                  </div>
+                  <div className="px-5 py-4 text-white text-xs font-bold uppercase tracking-wider">
+                    INFERENCE OPTIMIZATION
+                  </div>
+                </div>
+                
+                {/* Data Rows - White Background */}
+                {[
+                  ['Dynamic Resource Scaling', 'Deploy on AWS, Azure, GCP', 'Quantization & Pruning'],
+                  ['Load-Based Auto-Scaling', 'Hybrid Cloud Strategies', 'Distillation & Compiling'],
+                  ['Horizontal & Vertical Scaling', 'Cross-Cloud Load Balancing', 'Model Acceleration (TensorRT, ONNX)'],
+                  ['Metrics-Driven Policies', 'Failover & Redundancy', 'Automated Hardware Selection'],
+                  ['On-Demand Node Provisioning', 'Cost Optimization Across Clouds', 'Optimized Runtime Environments']
+                ].map((row, rowIndex) => (
+                  <div key={rowIndex} className="grid grid-cols-3 bg-white border-b border-[#E5E7EB] last:border-b-0">
+                    {row.map((cell, cellIndex) => (
+                      <div 
+                        key={cellIndex} 
+                        className={`px-5 py-3 text-[#212529] text-sm ${cellIndex < 2 ? 'border-r border-[#E5E7EB]' : ''}`}
+                      >
+                        {cell && (
+                          <div className="flex items-center gap-3">
+                            <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                            <span className="text-xs">{cell}</span>
+                          </div>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
                 ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>    
