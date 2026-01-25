@@ -171,9 +171,37 @@ code {
 }
 
 .orbit-container {
-  width: 520px;
-  height: 520px;
   position: relative;
+  /* Base size will be set by Tailwind classes in JSX */
+  transform-origin: center center;
+}
+
+/* Mobile-first responsive orbit scaling */
+@media (max-width: 639px) {
+  .orbit-container {
+    transform: scale(0.54);
+    width: 520px;
+    height: 520px;
+    margin: -110px auto;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .orbit-container {
+    transform: scale(0.73);
+    width: 520px;
+    height: 520px;
+    margin: -70px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orbit-container {
+    transform: scale(1);
+    width: 520px;
+    height: 520px;
+    margin: 0 auto;
+  }
 }
 
 .orbit-container > svg {
