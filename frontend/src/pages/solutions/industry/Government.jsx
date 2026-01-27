@@ -57,19 +57,19 @@ const Government = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Data Processing</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Enable government teams to handle and interpret large volumes of data quickly, supporting advanced analytics, real-time monitoring, and AI-based insights that improve operational effectiveness.
+              Enabling government teams to handle and interpret large volumes of data quickly, supporting advanced analytics, real-time monitoring, and AI-based insights that are improving operational effectiveness.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated AI Development</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Deploy and adopt advanced AI technologies more rapidly, enabling capabilities such as enhanced security monitoring, automated services for citizens, and tools for reducing fraud, all while improving service delivery.
+                Deploying and adopting advanced AI technologies more rapidly, enabling capabilities such as enhanced security monitoring, automated services for citizens, and tools for reducing fraud, all while improving service delivery.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost Efficiency and Scalability</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Benefit from infrastructure that scales based on demand, allowing agencies to optimise compute resources and control costs without investing in and maintaining large physical hardware fleets.
+                Benefiting from infrastructure that is scaling based on demand, allowing agencies to optimise compute resources and control costs without investing in and maintaining large physical hardware fleets.
               </p>
             </div>
           </div>

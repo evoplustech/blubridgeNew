@@ -57,7 +57,7 @@ const Education = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Learning with AI</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Use AI tools and technologies to create personalised educational experiences, adaptive assessments, and intelligent tutoring systems that help students learn more effectively.
+              Using AI tools and technologies to create personalised educational experiences, adaptive assessments, and intelligent tutoring systems that are helping students learn more effectively.
               </p>
             </div>
             <div>
@@ -69,7 +69,7 @@ const Education = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Facilitating Research</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Our GPU Cloud provides the computational power needed for research in areas such as engineering, biology, data science, and artificial intelligence, helping accelerate discovery and innovation.
+              Our GPU Cloud is providing the computational power needed for research in areas such as engineering, biology, data science, and artificial intelligence, helping accelerate discovery and innovation.
               </p>
             </div>
           </div>

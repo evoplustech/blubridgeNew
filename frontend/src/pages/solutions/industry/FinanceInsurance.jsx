@@ -57,19 +57,19 @@ const FinanceInsurance = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Support Computational Needs</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Run demanding workloads such as financial modelling, risk assessment, and large-scale analytics using powerful GPU-accelerated infrastructure built for high performance.
+              Running demanding workloads such as financial modelling, risk assessment, and large-scale analytics using powerful GPU-accelerated infrastructure built for high performance.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Data Analysis</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Process vast datasets at speed to generate real-time insights that support informed, time-critical decision-making across financial operations.
+                Processing vast datasets at speed to generate real-time insights that are supporting informed, time-critical decision-making across financial operations.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Scale on demand</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Adapt compute capacity seamlessly as workloads change, ensuring peak performance during high-demand periods while maintaining cost efficiency.
+              Adapting compute capacity seamlessly as workloads change, ensuring peak performance during high-demand periods while maintaining cost efficiency.
               </p>
             </div>
           </div>
