@@ -453,7 +453,7 @@ precision, combining parameter‑efficient tuning, instruction alignment, and do
 across distributed GPU clusters.
               </p>
               
-              <p className="text-[#6B7280] mb-8 leading-relaxed">
+              <p className="text-[#4B5563] mb-8 leading-relaxed">
                 Every experiment is reproducible. Every change is measurable. Every customized model is
 production‑ready from day one.
               </p>

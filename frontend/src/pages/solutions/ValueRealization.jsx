@@ -867,11 +867,11 @@ or customer outcomes.
             {[
               {
                 question: "What makes BluBridge's Value Realization approach different?",
-                answer: "We focus on outcomes, not experiments. BluBridge connects model performance directly to business metrics, ensuring every deployment is accountable to real-world impact."
+                answer: "We are focusing on outcomes, not experiments. BluBridge is connecting model performance directly to business metrics, ensuring every deployment is accountable to real-world impact."
               },
               {
                 question: "How does BluBridge accelerate time-to-value?",
-                answer: "By unifying experimentation, deployment, and measurement in one platform. Teams iterate faster,deploy with confidence, and see results sooner."
+                answer: "By unifying experimentation, deployment, and measurement in one platform. Teams are iterating faster, deploying with confidence, and seeing results sooner."
               },
               {
                 question: "What industries benefit from Value Realization?",
@@ -879,7 +879,7 @@ or customer outcomes.
               },
               {
                 question: "How do you measure AI value?",
-                answer: "We tie model behavior to business KPIs: efficiency gains, revenue impact, quality improvements, and user outcomes. Every model is evaluated not just on accuracy, but on real-world effect."
+                answer: "We are tying model behavior to business KPIs: efficiency gains, revenue impact, quality improvements, and user outcomes. Every model is being evaluated not just on accuracy, but on real-world effect."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">
