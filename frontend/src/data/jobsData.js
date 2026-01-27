@@ -207,7 +207,7 @@ export const jobsData = [
       'Work directly with leadership to align marketing execution with organizational priorities'
     ],
     requirements: [
-      'Any Bachelor\'s degree; only candidates from the 2025 or 2026 graduating batch will be considered',
+      'Any Bachelor\'s degree; only candidates from the 2025 or 2026 graduating batch are considered',
       'Strong ownership mindset with the ability to execute assigned responsibilities with discipline',
       'Structured and analytical thinking with strong attention to detail',
       'Ability to manage multiple tasks in parallel and close them systematically',
@@ -359,7 +359,7 @@ export const jobsData = [
     ],
     requirements: [
       'Education: B.Com / M.Com (Commerce background)',
-      'Candidates who have completed CMA Inter, CA Inter, or have articleship experience will have an added advantage',
+      'Candidates who have completed CMA Inter, CA Inter, or have articleship experience have an added advantage',
       'Excellent communication and interpersonal skills',
       'Proficiency in Tally or any ERP software, and MS Excel',
       'Basic understanding of taxation and statutory filings'
