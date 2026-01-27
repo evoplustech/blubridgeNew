@@ -918,7 +918,7 @@ environments seamlessly.
               },
               {
                 question: "How quickly can I go live?",
-                answer: "With pre-configured pipelines and automated workflows, teams typically move from a trained model to production in days, not months."
+                answer: "With pre-configured pipelines and automated workflows, teams are typically moving from a trained model to production in days, not months."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">
