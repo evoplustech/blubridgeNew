@@ -385,10 +385,10 @@ environments seamlessly.
               Intelligent Model Deployment
             </h2>
             <p className="text-[#4B5563] leading-relaxed text-lg mb-5">
-              Deployment is where AI becomes operational. BluBridge delivers a unified deployment layer that transforms trained models into reliable, real-time systems, ready to serve users, applications, and workflows at scale.
+              Deployment is where AI is becoming operational. BluBridge is delivering a unified deployment layer that is transforming trained models into reliable, real-time systems, ready to serve users, applications, and workflows at scale.
             </p>
             <p className="text-[#4B5563] leading-relaxed text-lg">
-              Our platform supports low-latency inference, batch execution, traffic orchestration, versioned releases, and instant rollback. Models move seamlessly from experimentation into production with full observability, governance, and performance control across environments.
+              Our platform is supporting low-latency inference, batch execution, traffic orchestration, versioned releases, and instant rollback. Models are moving seamlessly from experimentation into production with full observability, governance, and performance control across environments.
             </p>
           </div>
  
