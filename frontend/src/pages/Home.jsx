@@ -1018,7 +1018,7 @@ const Home = () => {
                   Model Customization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                 Shape foundation models to your domain with precision, control, and repeatability. Build AI that thinks in your language, follows your rules, and is production-ready from day one.
+                 Shaping foundation models to your domain with precision, control, and repeatability. Building AI that thinks in your language, follows your rules, and is production-ready from day one.
                 </p>
                 
                 {/* Learn More Link */}
@@ -1047,7 +1047,7 @@ const Home = () => {
                   Value Realization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-Turn AI experimentation into measurable business outcomes. Move from pilots to impact by connecting models directly to real-world performance and ROI.                </p>
+Turning AI experimentation into measurable business outcomes. Moving from pilots to impact by connecting models directly to real-world performance and ROI.                </p>
                 
                 {/* Learn More Link */}
                 <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
@@ -1075,7 +1075,7 @@ Turn AI experimentation into measurable business outcomes. Move from pilots to i
                   Deployment
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-Bring models from lab to live with enterprise-grade reliability and scale. Launch, operate, and optimize AI systems with low latency, resilience, and cost efficiency.                </p>
+Bringing models from lab to live with enterprise-grade reliability and scale. Launching, operating, and optimizing AI systems with low latency, resilience, and cost efficiency.                </p>
                 
                 {/* Learn More Link */}
                 <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
