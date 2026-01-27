@@ -447,8 +447,8 @@ performance.
               </h2>
               
               <p className="text-[#4B5563] mb-6 leading-relaxed">
-               Model customization is more than fine‑tuning. It is about shaping how a model reasons, behaves, and
-performs in live systems. BluBridge provides a unified platform to adapt foundation models with
+               Model customization is more than fine‑tuning. It is about shaping how a model is reasoning, behaving, and
+performing in live systems. BluBridge is providing a unified platform to adapt foundation models with
 precision, combining parameter‑efficient tuning, instruction alignment, and domain‑specific training
 across distributed GPU clusters.
               </p>
