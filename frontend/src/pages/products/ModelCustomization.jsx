@@ -306,7 +306,7 @@ useEffect(() => {
     },
     {
       question: "What types of customization do you support?",
-      answer: "We support instruction tuning, domain adaptation, parameter‑efficient fine‑tuning, behavioral alignment, and evaluation‑driven optimization across a wide range of foundation models"
+      answer: "We are supporting instruction tuning, domain adaptation, parameter‑efficient fine‑tuning, behavioral alignment, and evaluation‑driven optimization across a wide range of foundation models"
     },
     {
       question: "How do you ensure customization quality?",
