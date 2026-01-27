@@ -1087,6 +1087,20 @@ const AboutUs = () => {
           
           {/* ========== MOBILE VIEW (hidden on desktop) ========== */}
           <div className="block md:hidden space-y-4">
+            {/* Mobile "It's Our Precision" heading */}
+            <h2 
+              className="font-bold text-[#0B1F3B] leading-tight text-center"
+              style={{ 
+                fontFamily: "'DM Sans', sans-serif",
+                letterSpacing: '-0.02em',
+                fontSize: 'clamp(2rem, 1rem + 4vw, 6rem)',
+                position: 'relative',
+                top: '-30px'
+              }}
+            >
+              It's Our Precision.
+            </h2>
+            
             {/* Our Purpose */}
             <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
               <h3 
