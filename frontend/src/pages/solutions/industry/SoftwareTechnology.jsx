@@ -57,13 +57,13 @@ const SoftwareTechnology = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Processing</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Our GPU clusters deliver substantial computational performance, enabling faster processing for tasks such as machine learning, AI model training, and large-scale data analytics, which significantly shortens development timelines.
+              Our GPU clusters are delivering substantial computational performance, enabling faster processing for tasks such as machine learning, AI model training, and large-scale data analytics, which is significantly shortening development timelines.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified AI Deployment</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              By using scalable GPU clusters tailored to your needs, you can streamline the process of training and deploying AI models. This helps reduce time-to-market for intelligent features and improves overall deployment efficiency.
+              By using scalable GPU clusters tailored to your needs, you can streamline the process of training and deploying AI models. This is helping reduce time-to-market for intelligent features and improving overall deployment efficiency.
               </p>
             </div>
             <div>

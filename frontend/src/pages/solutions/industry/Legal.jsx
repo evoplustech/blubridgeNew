@@ -57,19 +57,19 @@ const Legal = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Document Analysis</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Use powerful AI tools to quickly process and interpret large volumes of legal documents, speeding up tasks such as reviewing case files, contracts, and evidence with greater accuracy.
+              Using powerful AI tools to quickly process and interpret large volumes of legal documents, speeding up tasks such as reviewing case files, contracts, and evidence with greater accuracy.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Improved Predictive Analytics</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Apply machine learning techniques to forecast case trends, assess litigation risk, and uncover patterns across historical data, enabling more informed decision-making.
+              Applying machine learning techniques to forecast case trends, assess litigation risk, and uncover patterns across historical data, enabling more informed decision-making.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost Efficiency and Scalability</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Adopt robust GPU computing resources that adjust to workload demands, helping legal teams increase productivity while managing costs as requirements grow.
+                Adopting robust GPU computing resources that are adjusting to workload demands, helping legal teams increase productivity while managing costs as requirements grow.
               </p>
             </div>
           </div>

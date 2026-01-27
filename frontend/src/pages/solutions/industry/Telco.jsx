@@ -57,19 +57,19 @@ const Telco = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Increased Performance</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Handle demanding telco workloads, including real-time traffic processing and deep learning models used for network analytics and optimisation.
+                Handling demanding telco workloads, including real-time traffic processing and deep learning models used for network analytics and optimisation.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Scale Effortlessly</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Support dynamic scaling of AI applications for modern telecom requirements like 5G, Internet of Things (IoT) workloads, and distributed edge networks without compromising performance.
+                Supporting dynamic scaling of AI applications for modern telecom requirements like 5G, Internet of Things (IoT) workloads, and distributed edge networks without compromising performance.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Improve Operability</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Operate energy-efficient infrastructure that reduces overall carbon impact while supporting advanced telco processes and data operations.
+                Operating energy-efficient infrastructure that is reducing overall carbon impact while supporting advanced telco processes and data operations.
               </p>
             </div>
           </div>

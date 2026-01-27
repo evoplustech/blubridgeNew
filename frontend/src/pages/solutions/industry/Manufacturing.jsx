@@ -57,19 +57,19 @@ const Manufacturing = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced Simulation</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Run faster and more precise simulations for manufacturing processes such as finite element analysis, computational fluid dynamics, and digital twin modelling to boost design accuracy and throughput.
+              Running faster and more precise simulations for manufacturing processes such as finite element analysis, computational fluid dynamics, and digital twin modelling to boost design accuracy and throughput.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Improved Predictive Maintenance</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              Analyse large streams of sensor data in real time using GPU-powered AI and machine learning to anticipate equipment failures and schedule maintenance before breakdowns occur.
+              Analysing large streams of sensor data in real time using GPU-powered AI and machine learning to anticipate equipment failures and schedule maintenance before breakdowns occur.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Streamlined Automation</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Support advanced AI techniques in robotics and automation, helping manufacturing operations become more intelligent, efficient, and adaptable to changing production demands.
+                Supporting advanced AI techniques in robotics and automation, helping manufacturing operations become more intelligent, efficient, and adaptable to changing production demands.
               </p>
             </div>
           </div>
