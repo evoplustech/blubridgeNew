@@ -82,15 +82,15 @@ const Training = () => {
             {[
               {
                 title: 'Highly Scalable Architecture',
-                desc: 'Easily scale compute resources to match the size and complexity of AI projects, supporting everything from experimentation to large-scale production training.'
+                desc: 'Easily scaling compute resources to match the size and complexity of AI projects, supporting everything from experimentation to large-scale production training.'
               },
               {
                 title: 'Reduced Training Times',
-                desc: 'Industry-leading GPUs optimised for training workloads accelerate development cycles and enable faster iteration.'
+                desc: 'Industry-leading GPUs optimised for training workloads are accelerating development cycles and enabling faster iteration.'
               },
               {
                 title: 'Increased Productivity',
-                desc: 'Automation and intelligent scheduling reduce operational overhead, allowing teams to focus on innovation rather than infrastructure.'
+                desc: 'Automation and intelligent scheduling are reducing operational overhead, allowing teams to focus on innovation rather than infrastructure.'
               }
             ].map((item, i) => (
               <div key={i} className="text-center">
@@ -109,16 +109,16 @@ const Training = () => {
             <div>
               <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Accelerated Model Training</h2>
               <p className="text-lg text-[#2F3A4A] leading-relaxed mb-6">
-                Training advanced AI models requires flexible, reliable, and cost-efficient
-                infrastructure. BluBridge simplifies this by delivering purpose-built systems
+                Training advanced AI models is requiring flexible, reliable, and cost-efficient
+                infrastructure. BluBridge is simplifying this by delivering purpose-built systems
                 designed specifically for AI workloads.
               </p>
               <p className="text-lg text-[#2F3A4A] leading-relaxed mb-6">
-                Integrated Slurm and Kubernetes orchestration enables efficient job scheduling
+                Integrated Slurm and Kubernetes orchestration is enabling efficient job scheduling
                 and workload management across distributed GPU clusters with minimal setup.
               </p>
               <p className="text-lg text-[#2F3A4A] leading-relaxed">
-                High-performance bare-metal GPU nodes ensure consistent, predictable performance
+                High-performance bare-metal GPU nodes are ensuring consistent, predictable performance
                 for large-scale training and fine-tuning workloads.
               </p>
             </div>
@@ -144,7 +144,7 @@ const Training = () => {
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
             <p className="text-lg text-[#2F3A4A] mb-16 max-w-3xl">
-              Our comprehensive training stack provides everything you need from hardware to
+              Our comprehensive training stack is providing everything you need from hardware to
               applications, with full flexibility to customise at every layer.
             </p>
 
