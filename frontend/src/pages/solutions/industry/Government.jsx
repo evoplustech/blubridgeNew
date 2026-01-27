@@ -34,7 +34,7 @@ const Government = () => {
               GOVERNMENT
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              BluBridge provides secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
+              BluBridge is providing secure, scalable GPU cloud infrastructure designed to help government organisations modernise operations, drive data-informed decision making, and support digital transformation initiatives across public services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">

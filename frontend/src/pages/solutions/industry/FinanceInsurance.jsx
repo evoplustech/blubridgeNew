@@ -34,7 +34,7 @@ const FinanceInsurance = () => {
               FINANCE & INSURANCE
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we provide GPU cloud computing solutions designed to strengthen the computational capabilities of finance and insurance organisations. Our platform helps teams deliver innovative services faster while improving efficiency, security, and performance across data-intensive operations.
+              At BluBridge, we are providing GPU cloud computing solutions designed to strengthen the computational capabilities of finance and insurance organisations. Our platform is helping teams deliver innovative services faster while improving efficiency, security, and performance across data-intensive operations.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">

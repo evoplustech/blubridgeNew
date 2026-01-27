@@ -34,7 +34,7 @@ const Education = () => {
               EDUCATION
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we provide GPU cloud computing resources that help educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure gives students, faculty, and researchers access to high-performance computing environments that support advanced computing projects and AI applications.
+              At BluBridge, we are providing GPU cloud computing resources that are helping educational institutions and research organisations enhance teaching, learning, and research outcomes. Our infrastructure is giving students, faculty, and researchers access to high-performance computing environments that are supporting advanced computing projects and AI applications.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
