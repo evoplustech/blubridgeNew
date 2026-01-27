@@ -81,7 +81,7 @@ const FineTuning = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Unlock the full potential of your AI models and fine-tune to achieve peak performance on your specific datasets and tasks.
+                Unlocking the full potential of your AI models and fine-tuning to achieve peak performance on your specific datasets and tasks.
               </p>
             </div>
             <div>
