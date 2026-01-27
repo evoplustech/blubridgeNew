@@ -703,13 +703,13 @@ or customer outcomes.
                 </div>
                 
                 {/* Data Rows - White Background */}
-                {/* Column-wise data: Each array is a column's items */}
+                {/* Column-wise data: Each array represents items under each header */}
                 {(() => {
                   const columns = [
-                    ['Training Metrics', 'Data Lineage', 'Model Performance', 'Bias & Fairness Tracking', 'Model Serving Metrics', 'SLA Monitoring', 'Data Feedback Loops', 'Continuous Improvement Pipelines'],
-                    ['Evaluation Metrics', 'Drift Detection', 'Inference Latency Tracking', 'Cost Monitoring'],
-                    ['Logs & Traces', 'Error Analysis', 'Throughput Analysis', 'Performance Dashboards'],
-                    ['Dashboard Analytics', 'A/B Testing', 'Resource Utilization', 'Alerts & Auto-Remediation']
+                    ['Training Metrics', 'Evaluation Metrics', 'Logs & Traces', 'Dashboard Analytics', 'Data Lineage'],
+                    ['Model Performance', 'Drift Detection', 'Error Analysis', 'A/B Testing', 'Bias & Fairness Tracking'],
+                    ['Model Serving Metrics', 'Inference Latency Tracking', 'Throughput Analysis', 'Resource Utilization', 'SLA Monitoring'],
+                    ['Data Feedback Loops', 'Cost Monitoring', 'Performance Dashboards', 'Alerts & Auto-Remediation', 'Continuous Improvement Pipelines']
                   ];
                   const maxRows = Math.max(...columns.map(col => col.length));
                   const rows = [];
