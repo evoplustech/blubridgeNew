@@ -314,7 +314,7 @@ useEffect(() => {
     },
     {
       question: "How does BluBridge accelerate AI development?",
-      answer: "By removing infrastructure friction and standardizing experimentation. Teams move from idea to production in days instead of months, with faster iteration and lower operational overhead."
+      answer: "By removing infrastructure friction and standardizing experimentation. Teams are moving from idea to production in days instead of months, with faster iteration and lower operational overhead."
     }
   ];
 
