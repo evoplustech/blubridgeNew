@@ -40,7 +40,7 @@ const GeneralEnquiry = () => {
         })
       });
       if (response.ok) {
-        alert('Thank you for your enquiry. We will get back to you shortly.');
+        alert('Thank you for your enquiry. We get back to you shortly.');
         setFormData({ firstName: '', lastName: '', workEmail: '', companyName: '', message: '', agreeTerms: false, agreeMarketing: false });
       } else {
         alert('Failed to submit form. Please try again.');
@@ -192,7 +192,7 @@ const GeneralEnquiry = () => {
 
                 {/* Privacy Notice */}
                 <div className="text-[#2F3A4A] text-xs leading-relaxed">
-                  BluBridge is committed to protecting and respecting your privacy, and we'll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below to say how you would like us to contact you:
+                  BluBridge is committed to protecting and respecting your privacy, and we only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below to say how you would like us to contact you:
                 </div>
 
                 {/* Checkboxes */}

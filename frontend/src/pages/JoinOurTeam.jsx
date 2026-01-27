@@ -57,8 +57,8 @@ const faqData = [
     content: (
       <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
         <li>Begin by appearing for the <strong className="text-black">initial interview rounds.</strong></li>
-        <li>If selected, you'll be invited to a <strong className="text-black">second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
-        <li>You'll get <strong className="text-black">up to a month</strong> to prepare.</li>
+        <li>If selected, you are invited to a <strong className="text-black">second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
+        <li>You get <strong className="text-black">up to a month</strong> to prepare.</li>
         <li>Final selection is based on a <strong className="text-black">Maths for Deep Learning</strong> test.</li>
       </ul>
     )
@@ -72,13 +72,13 @@ const faqData = [
           We offer competitive compensation, but ask you to consider:
         </p>
         <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
-          <li>You'll be working on Deep Learning from first principles — how many organizations offer that?</li>
+          <li>You work on Deep Learning from first principles — how many organizations offer that?</li>
           <li>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
           <li>Building from "first principles" is not the same as starting "from scratch."</li>
           <li>
             If you were to study this in a university:
             <ul className="pl-6 mt-2 space-y-1 list-none">
-              <li className="text-base">▶ You'd likely go abroad (e.g., the US),</li>
+              <li className="text-base">▶ You likely go abroad (e.g., the US),</li>
               <li className="text-base">▶ Pay for a Master's degree,</li>
               <li className="text-base">▶ Learn theory & practical without real-world application.</li>
             </ul>
@@ -87,7 +87,7 @@ const faqData = [
         <div className="flex items-start gap-2 mt-4 text-base text-gray-700 leading-relaxed">
           <span className="text-base flex-shrink-0">💡</span>
           <span>
-            <strong className="text-black">If compensation is your main driver,</strong> you will find better-paying jobs. We are seeking <strong className="text-black">like-minded individuals</strong> who value the mission over money.
+            <strong className="text-black">If compensation is your main driver,</strong> you find better-paying jobs. We are seeking <strong className="text-black">like-minded individuals</strong> who value the mission over money.
           </span>
         </div>
       </div>

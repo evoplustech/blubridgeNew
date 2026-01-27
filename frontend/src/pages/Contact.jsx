@@ -246,7 +246,7 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        alert('Thank you for your inquiry. We will get back to you soon!');
+        alert('Thank you for your inquiry. We get back to you soon!');
         setFormData({
           firstName: '',
           lastName: '',
