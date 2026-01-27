@@ -384,6 +384,7 @@ reliability.
       {/* SECTION 2: Value Highlights - 3 Cards */}
       <section className="py-16 bg-[#f3f1e9] border-b border-t border-[#D6DEC3]">
         <div className="container-custom">
+          <h2 className="text-center font-bold mb-10 text-3xl ">What You Get</h2>
           <div className="grid md:grid-cols-3 gap-10">
             {/* Card 1 */}
             <div>

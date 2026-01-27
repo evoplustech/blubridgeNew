@@ -590,6 +590,7 @@ perpetual pilot.
       {/* SECTION 2: Value Highlights - 3 Column Strip */}
       <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
         <div className="container-custom">
+        <h2 className="text-center font-bold mb-10 text-3xl ">What You Get</h2>
           <div className="grid md:grid-cols-3 gap-10">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Business Impact</h3>
