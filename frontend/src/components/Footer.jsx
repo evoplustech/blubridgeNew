@@ -40,7 +40,7 @@ const Footer = () => {
       });
       toast({
         title: 'Success!',
-        description: 'Thank you for contacting us. We get back to you soon.'
+        description: 'Thank you for contacting us. We are getting back to you soon.'
       });
       setEmail('');
       setFirstName('');
