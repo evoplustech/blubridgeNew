@@ -41,7 +41,7 @@ const Training = () => {
               MODEL TRAINING
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              BluBridge&apos;s GPU Cloud offers a highly scalable, performance-optimised architecture that significantly reduces training times and boosts productivity, enabling you to achieve your AI goals easier, faster, and more cost-effectively than alternative Cloud platforms.
+              BluBridge&apos;s GPU Cloud is offering a highly scalable, performance-optimised architecture that is significantly reducing training times and boosting productivity, enabling you to achieve your AI goals easier, faster, and more cost-effectively than alternative Cloud platforms.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">

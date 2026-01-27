@@ -40,7 +40,7 @@ const FineTuning = () => {
               MODEL<br />FINE-TUNING
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we offer GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support ensure that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
+              At BluBridge, we are offering GPU cloud computing solutions designed to fine-tune your AI models for peak performance. Our advanced infrastructure and expert support are ensuring that your models are optimised for accuracy, efficiency, and scalability, helping you accelerate time to market.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact">

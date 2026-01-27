@@ -40,7 +40,7 @@ const Inference = () => {
               AI & ML INFERENCE
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              We offer GPU-accelerated nodes designed for efficient AI and Machine Learning Inference at competitive prices. Our experienced team at BluBridge manages system optimisations and scaling, allowing you to focus on the science instead of infrastructure administration.
+              We are offering GPU-accelerated nodes designed for efficient AI and Machine Learning Inference at competitive prices. Our experienced team at BluBridge is managing system optimisations and scaling, allowing you to focus on the science instead of infrastructure administration.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link to="/contact">
