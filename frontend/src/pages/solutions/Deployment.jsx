@@ -906,7 +906,7 @@ environments seamlessly.
             {[
               {
                 question: "What makes BluBridge’s deployment platform different?",
-                answer: "BluBridge is built specifically for AI workloads. It combines high-performance inference, versioned releases, and enterprise-grade orchestration into a single, production-ready layer."
+                answer: "BluBridge is being built specifically for AI workloads. It is combining high-performance inference, versioned releases, and enterprise-grade orchestration into a single, production-ready layer."
               },
               {
                 question: "What types of deployments are supported?",
