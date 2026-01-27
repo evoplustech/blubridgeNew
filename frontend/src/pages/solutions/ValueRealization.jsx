@@ -679,7 +679,7 @@ or customer outcomes.
             Value Stack
           </h2>
           <p className="text-[#4B5563] mb-12 max-w-5xl">
-            BluBridge is providing a complete technology stack for delivering measurable AI value across your organization.
+            BluBridge is provides a complete technology stack for delivering measurable AI value across your organization.
           </p>
           
           {/* Table Format Layout - 4 Columns */}
