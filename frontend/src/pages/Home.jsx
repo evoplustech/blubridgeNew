@@ -452,49 +452,49 @@ const Home = () => {
     {
       name: "Data",
       title: "Data",
-      description: "We prepare and structure data to fuel accurate, scalable AI systems across research and production.",
+      description: "We will prepare and structure data to fuel accurate, scalable AI systems across research and production.",
       features: ["Secure data pipelines", "AI-ready data refinement", "Scalable storage layers", "Privacy-first governance"],
       link : '/research'
     },
     {
       name: "Pre-training",
       title: "Pre-training",
-      description: "We build strong model foundations by training on large-scale, high-quality datasets designed for deep learning performance.",
+      description: "We will build strong model foundations by training on large-scale, high-quality datasets designed for deep learning performance.",
       features: ["Large-scale dataset curation", "Optimized training pipelines", "Foundation model development", "Compute-efficient workflows"],
       link : '/research'
     },
     {
       name: "Mid-training",
       title: "Mid-training",
-      description: "We refine model behavior during training, improving alignment, stability, and domain understanding at scale.",
+      description: "We will refine model behavior during training, improving alignment, stability, and domain understanding at scale.",
       features: ["Curriculum-based refinement", "Domain-specific tuning", "Stability and bias control", "Performance shaping"],
       link : '/research'
     },
     {
       name: "Post-training",
       title: "Post-training",
-      description: "We enhance model readiness through targeted refinement, evaluation, and optimization for real-world performance.",
+      description: "We will enhance model readiness through targeted refinement, evaluation, and optimization for real-world performance.",
       features: ["Fine-tuning for accuracy", "Safety and quality checks", "Inference optimization", "Production readiness"],
       link : '/research'
     },
     {
       name: "Agent Build",
       title: "Agent Build",
-      description: "We design intelligent agents that reason, act, and adapt across real workflows, turning models into autonomous systems.",
+      description: "We will design intelligent agents that reason, act, and adapt across real workflows, turning models into autonomous systems.",
       features: ["Task-aware agent design", "Tool and API integration", "Multi-step reasoning flows", "Production-grade orchestration"],
       link : '/research'
     },
     {
       name: "Inference Optimization",
       title: "Inference Optimization",
-      description: "We optimize models for fast, reliable, and cost-efficient execution in real-world environments.",
+      description: "We will optimize models for fast, reliable, and cost-efficient execution in real-world environments.",
       features: ["Low-latency execution", "Memory-efficient serving", "Hardware-level tuning", "Scalable inference pipelines"],
       link : '/research'
     },
     {
       name: "Infrastructure Scaling",
       title: "Infrastructure Scaling",
-      description: "We expand AI systems seamlessly, ensuring performance remains consistent as demand and complexity grow.",
+      description: "We will expand AI systems seamlessly, ensuring performance will remain consistent as demand and complexity grow.",
       features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"],
       link : '/research'
     }
@@ -1004,7 +1004,7 @@ const Home = () => {
                   Model Customization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence.
+                  We will adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model will be refined to deliver accurate, reliable, and context-aware intelligence.
                 </p>
                 
                 {/* Learn More Link */}
@@ -1033,7 +1033,7 @@ const Home = () => {
                   Value Realization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment drives efficiency, impact, and long-term value.
+                  We will translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment will drive efficiency, impact, and long-term value.
                 </p>
                 
                 {/* Learn More Link */}
@@ -1062,7 +1062,7 @@ const Home = () => {
                   Deployment
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model runs reliably in real environments with seamless integration.
+                  We will move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model will run reliably in real environments with seamless integration.
                 </p>
                 
                 {/* Learn More Link */}
@@ -1351,7 +1351,7 @@ const Home = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">Work with BluBridge</h2>
               <p className="text-black leading-relaxed mb-8">
-                We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
+                We are a small creative group driven by rigorous scientific thinking. Our work will blend deep research with real-world execution, building AI models that will be efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
               </p>
               <Link to="/careers">
                 <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
