@@ -627,13 +627,13 @@ or customer outcomes.
                 Speed up time-to-value
               </h2>
               <p className="text-base text-[#2F3A4A] leading-relaxed mb-6">
-                Value is realized only when models are adopted, trusted, and embedded into workflows. BluBridge unifies experimentation, deployment, and measurement in a single platform. So teams can move from idea to impact without friction.
+                Value is being realized only when models are adopted, trusted, and embedded into workflows. BluBridge is unifying experimentation, deployment, and measurement in a single platform. So teams can move from idea to impact without friction.
               </p>
               <p className="text-base text-[#2F3A4A] leading-relaxed mb-6">
-                Validate use cases quickly. Integrate models into real systems. Track performance against business goals. Built-in tooling ensures every iteration moves closer to outcomes, whether improving efficiency, accuracy, or customer experience.
+                Validating use cases quickly. Integrating models into real systems. Tracking performance against business goals. Built-in tooling is ensuring every iteration is moving closer to outcomes, whether improving efficiency, accuracy, or customer experience.
               </p>
               <p className="text-base text-[#2F3A4A] leading-relaxed mb-8">
-                From first pilot to enterprise rollout, BluBridge transforms AI into a dependable growth engine.
+                From first pilot to enterprise rollout, BluBridge is transforming AI into a dependable growth engine.
               </p>
 
               
