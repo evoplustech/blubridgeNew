@@ -87,7 +87,7 @@ const FineTuning = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Reduce the time it takes to prepare and deploy your AI solutions. With streamlined fine-tuning processes, you can iterate and refine your models more quickly, allowing innovations to reach users sooner.
+                Reducing the time it takes to prepare and deploy your AI solutions. With streamlined fine-tuning processes, you can iterate and refine your models more quickly, allowing innovations to reach users sooner.
               </p>
             </div>
             <div>
