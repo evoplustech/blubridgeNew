@@ -234,7 +234,7 @@ const VerticalTabsSection = () => {
               {/* <h3 className="text-2xl md:text-3xl font-medium text-[#0B1F3B] mb-6 leading-snug">
                 {tabs[activeTab].content.heading}
               </h3> */}
-              <p className="text-[#4B5563] text-lg leading-relaxed mt-20">
+              <p className="text-[#4B5563] text-lg leading-relaxed mt-24">
                 {tabs[activeTab].content.description}
               </p>
             </div>
