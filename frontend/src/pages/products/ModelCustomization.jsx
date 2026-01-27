@@ -310,7 +310,7 @@ useEffect(() => {
     },
     {
       question: "How do you ensure customization quality?",
-      answer: "Every run is reproducible and measurable. We combine automated evaluation, human feedback loops, and versioned experiments to ensure consistent quality and traceability."
+      answer: "Every run is reproducible and measurable. We are combining automated evaluation, human feedback loops, and versioned experiments to ensure consistent quality and traceability."
     },
     {
       question: "How does BluBridge accelerate AI development?",
