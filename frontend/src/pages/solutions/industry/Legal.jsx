@@ -34,7 +34,7 @@ const Legal = () => {
               LEGAL
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we offer GPU cluster computing solutions designed to elevate your organisation's computing capabilities. Our infrastructure supports advanced legal analytics, accelerates case research, and helps legal teams deliver more efficient and impactful services.
+              At BluBridge, we are offering GPU cluster computing solutions designed to elevate your organisation's computing capabilities. Our infrastructure is supporting advanced legal analytics, accelerating case research, and helping legal teams deliver more efficient and impactful services.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">

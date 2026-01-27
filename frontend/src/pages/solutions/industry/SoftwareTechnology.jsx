@@ -34,7 +34,7 @@ const SoftwareTechnology = () => {
               SOFTWARE & TECHNOLOGY
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              At BluBridge, we provide GPU cluster computing solutions that support software and technology companies in powering their compute-intensive tasks. With high-performance infrastructure and scalable cloud capabilities, technology teams can build, deploy, and scale advanced products more quickly and reliably.
+              At BluBridge, we are providing GPU cluster computing solutions that are supporting software and technology companies in powering their compute-intensive tasks. With high-performance infrastructure and scalable cloud capabilities, technology teams can build, deploy, and scale advanced products more quickly and reliably.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">

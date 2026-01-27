@@ -34,7 +34,7 @@ const Manufacturing = () => {
               MANUFACTURING
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              BluBridge's cloud platform uses high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This enables manufacturers to improve productivity, cut costs, and reduce equipment downtime.
+              BluBridge's cloud platform is using high-performance GPU technology and expert support to help manufacturing organisations speed up simulation workflows and optimise business processes. This is enabling manufacturers to improve productivity, cut costs, and reduce equipment downtime.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
