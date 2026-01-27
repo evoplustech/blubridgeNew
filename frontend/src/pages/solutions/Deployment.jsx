@@ -29,8 +29,8 @@ const Deployment = () => {
                 Deployment
               </h1>
               <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
-                At BluBridge, we provide production-grade deployment infrastructure built for real-world AI systems.
-Launch, scale, and operate your models with confidence using high-performance GPU clusters, low-
+                At BluBridge, we are providing production-grade deployment infrastructure built for real-world AI systems.
+Launching, scaling, and operating your models with confidence using high-performance GPU clusters, low-
 latency networking, and enterprise-ready orchestration designed to move your models from lab to live
 environments seamlessly.
               </p>
