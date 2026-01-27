@@ -81,19 +81,19 @@ const Inference = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Performance</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Boost throughput and reduce response times using advanced GPU technology specifically tuned for inference workloads.
+                Boosting throughput and reducing response times using advanced GPU technology specifically tuned for inference workloads.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Workflows</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                BluBridge Cloud removes the complexity of managing and scaling inference operations, enabling teams to concentrate on insights and outcomes rather than resource management
+                BluBridge Cloud is removing the complexity of managing and scaling inference operations, enabling teams to concentrate on insights and outcomes rather than resource management
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-              The platform supports both batch and continuous inference, including streaming use cases, making it suitable for a wide range of deployment scenarios.
+              The platform is supporting both batch and continuous inference, including streaming use cases, making it suitable for a wide range of deployment scenarios.
               </p>
             </div>
           </div>
@@ -110,14 +110,14 @@ const Inference = () => {
                 Speed up time-to-<br />insights
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10 max-w-lg">
-                Model optimisations combined with streamlined orchestration help deliver faster results while maintaining accuracy, reliability, and consistency.
+                Model optimisations combined with streamlined orchestration are helping deliver faster results while maintaining accuracy, reliability, and consistency.
               </p>
 
               <div className="space-y-8">
                 <div className="border-l-2 border-cyan-500 pl-5">
                   <h3 className="text-lg font-semibold text-cyan-400 mb-2">AI & ML Tools</h3>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
-                    Access the latest frameworks Work seamlessly with widely used AI frameworks such as TensorFlow Serving, PyTorch, and ONNX Runtime to ensure smooth and efficient inference execution.
+                    Accessing the latest frameworks. Working seamlessly with widely used AI frameworks such as TensorFlow Serving, PyTorch, and ONNX Runtime to ensure smooth and efficient inference execution.
                   </p>
                 </div>
 
@@ -125,7 +125,7 @@ const Inference = () => {
                   <h3 className="text-lg font-semibold text-cyan-400 mb-2">Simplified Orchestration and Management</h3>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
                    Featuring SLURM and Kubernetes
- Integrated orchestration and scheduling through SLURM and Kubernetes simplify workload management and ensure efficient resource utilisation across inference jobs.
+ Integrated orchestration and scheduling through SLURM and Kubernetes is simplifying workload management and ensuring efficient resource utilisation across inference jobs.
                   </p>
                 </div>
               </div>
@@ -166,7 +166,7 @@ const Inference = () => {
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Inference Stack</h2>
             <p className="text-base text-[#6B7280] max-w-2xl">
-              BluBridge provides a complete inference stack designed to deliver high performance, efficiency, and reliability for production-grade inference workloads.            </p>
+              BluBridge is providing a complete inference stack designed to deliver high performance, efficiency, and reliability for production-grade inference workloads.            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
