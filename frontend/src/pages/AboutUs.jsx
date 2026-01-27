@@ -1098,7 +1098,7 @@ const AboutUs = () => {
                 top: '-30px'
               }}
             >
-              It's Our Precision.
+              It&apos;s Our Precision.
             </h2>
             
             {/* Our Purpose */}
