@@ -93,7 +93,7 @@ const FineTuning = () => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Easily grow your AI operations without excessive costs. BluBridge’s GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
+                Easily growing your AI operations without excessive costs. BluBridge’s GPU cloud solutions are built to scale smoothly and offer flexible pricing that adapts to your resource needs.
               </p>
             </div>
           </div>
