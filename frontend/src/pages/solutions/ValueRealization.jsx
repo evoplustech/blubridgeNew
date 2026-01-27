@@ -595,20 +595,20 @@ perpetual pilot.
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Business Impact</h3>
               <p className="text-[#4B5563] text-md leading-relaxed">
-                Align models with real-world goals so every deployment drives operational efficiency, revenue growth,
+                Aligning models with real-world goals so every deployment is driving operational efficiency, revenue growth,
 or customer outcomes.
               </p>
             </div>
             <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Execution</h3>
               <p className="text-[#4B5563] text-md leading-relaxed">
-                Streamline the journey from proof-of-concept to production with guided workflows and built-in best practices.
+                Streamlining the journey from proof-of-concept to production with guided workflows and built-in best practices.
               </p>
             </div>
             <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
               <p className="text-[#4B5563] text-md leading-relaxed">
-                Apply AI across teams, products, and industries using a flexible foundation that evolves with your needs.
+                Applying AI across teams, products, and industries using a flexible foundation that is evolving with your needs.
               </p>
             </div>
           </div>
