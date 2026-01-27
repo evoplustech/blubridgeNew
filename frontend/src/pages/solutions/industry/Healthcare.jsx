@@ -80,22 +80,22 @@ const Healthcare = () => {
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Drug Discovery</h3>
               <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Build superior AI models</p>
-              <p className="text-[#6B7280] text-sm leading-relaxed">Use high-performance GPU computing to accelerate training of large-scale AI models that can predict protein structures and expedite the development of new treatments.</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">Using high-performance GPU computing to accelerate training of large-scale AI models that can predict protein structures and expedite the development of new treatments.</p>
             </div>
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Life Sciences</h3>
               <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Accelerated Simulations</p>
-              <p className="text-[#6B7280] text-sm leading-relaxed">Run complex biological and chemical simulations much faster using GPU-powered infrastructure, enabling deeper investigation and faster results.</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">Running complex biological and chemical simulations much faster using GPU-powered infrastructure, enabling deeper investigation and faster results.</p>
             </div>
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Genomics</h3>
               <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Personalised medicine</p>
-              <p className="text-[#6B7280] text-sm leading-relaxed">Analyse vast sets of genomic data to support personalised medicine, helping researchers uncover insights that drive tailored healthcare solutions.</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">Analysing vast sets of genomic data to support personalised medicine, helping researchers uncover insights that are driving tailored healthcare solutions.</p>
             </div>
             <div className="border-l-2 border-blue-500 pl-6">
               <h3 className="text-lg font-semibold text-[#328CC1] mb-2">Bioinformatics</h3>
               <p className="text-[#6B7280] text-xs font-medium mb-2 uppercase tracking-wider">Scalable Storage</p>
-              <p className="text-[#6B7280] text-sm leading-relaxed">Scale storage and computing for the large, complex datasets common in bioinformatics, making data easier to access, process, and secure for research purposes.</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">Scaling storage and computing for the large, complex datasets common in bioinformatics, making data easier to access, process, and secure for research purposes.</p>
             </div>
           </div>
         </div>
