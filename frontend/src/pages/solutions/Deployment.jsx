@@ -910,7 +910,7 @@ environments seamlessly.
               },
               {
                 question: "What types of deployments are supported?",
-                answer: "We support real-time APIs, batch inference, streaming workloads, internal services, and edge-style deployments across cloud and hybrid environments."
+                answer: "We are supporting real-time APIs, batch inference, streaming workloads, internal services, and edge-style deployments across cloud and hybrid environments."
               },
               {
                 question: "Can I manage multiple model versions in production?",
