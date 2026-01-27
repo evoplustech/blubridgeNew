@@ -110,7 +110,7 @@ const FineTuning = () => {
                 Fast, efficient model fine-tuning
               </h2>
               <p className="text-base text-white/65 leading-relaxed mb-10">
-                Our platform leverages the latest in GPU technology to provide exceptional performance, efficiency, and scalability. This ensures your AI models are fine-tuned to deliver strong value while meeting the demands of real-world use cases.
+                Our platform is leveraging the latest in GPU technology to provide exceptional performance, efficiency, and scalability. This is ensuring your AI models are fine-tuned to deliver strong value while meeting the demands of real-world use cases.
               </p>
 
               {/* <div className="space-y-8">
