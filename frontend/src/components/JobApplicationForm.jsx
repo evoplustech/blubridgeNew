@@ -345,7 +345,7 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
               Application Submitted Successfully!
             </p>
             <p style={{ fontSize: '14px', color: '#047857' }}>
-              Thank you for applying. We'll review your application and get back to you soon.
+              Thank you for applying. We review your application and get back to you soon.
             </p>
           </div>
         </div>

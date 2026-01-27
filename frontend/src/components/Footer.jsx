@@ -40,7 +40,7 @@ const Footer = () => {
       });
       toast({
         title: 'Success!',
-        description: 'Thank you for contacting us. We will get back to you soon.'
+        description: 'Thank you for contacting us. We get back to you soon.'
       });
       setEmail('');
       setFirstName('');
@@ -145,7 +145,7 @@ const Footer = () => {
                 {loading ? 'Submitting...' : 'Contact Now'}
               </Button>
               <p className="text-xs text-[#5B6B7A]">
-                BluBridge is committed to protecting your privacy. We'll only use your information to provide requested content.
+                BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
               </p>
             </form>
           </div>
