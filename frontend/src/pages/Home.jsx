@@ -501,14 +501,14 @@ const Home = () => {
     {
       name: "Inference Optimization",
       title: "Inference Optimization",
-      description: "Optimize models for fast, reliable, and cost-efficient execution in real-world environments.",
+      description: "Optimizing models for fast, reliable, and cost-efficient execution in real-world environments.",
       features: ["Low-latency execution", "Memory-efficient serving", "Hardware-level tuning", "Scalable inference pipelines"],
       link : '/research'
     },
     {
       name: "Infrastructure Scaling",
       title: "Infrastructure Scaling",
-      description: "Expand AI systems seamlessly, ensuring performance will remain consistent as demand and complexity grow.",
+      description: "Expanding AI systems seamlessly, ensuring performance is remaining consistent as demand and complexity grow.",
       features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"],
       link : '/research'
     }
