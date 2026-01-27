@@ -395,7 +395,7 @@ environments seamlessly.
           {/* Horizontal Pipeline Flow */}
           <div className="relative">
             {/* Connection Line */}
-              <h3 class="font-bold text-3xl mb-10">From Lab to Live</h3>
+              <h3 className="font-bold text-3xl mb-10">From Lab to Live</h3>
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-green-500/20 -translate-y-1/2 z-0" />
           
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
