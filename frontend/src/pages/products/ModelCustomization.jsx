@@ -349,13 +349,13 @@ useEffect(() => {
               </h1>
               
               <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
-                BluBridge Model Customization empowers you to adapt, refine, and specialize foundation models for
+                BluBridge Model Customization is empowering you to adapt, refine, and specialize foundation models for
 your exact use cases. From domain alignment and instruction tuning to behavioral shaping and
-evaluation, our platform gives you full control over how your models think, respond, and perform
+evaluation, our platform is giving you full control over how your models think, respond, and perform
 without the burden of managing complex infrastructure.
               </p>
               <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
-               Build models that speak your domain, follow your rules, and operate with production-grade
+               Building models that speak your domain, follow your rules, and operate with production-grade
 reliability.
               </p>
               
