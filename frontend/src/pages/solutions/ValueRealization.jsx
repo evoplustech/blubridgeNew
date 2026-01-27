@@ -703,28 +703,37 @@ or customer outcomes.
                 </div>
                 
                 {/* Data Rows - White Background */}
-                {[
-                  ['Training Metrics', 'Evaluation Metrics', 'Logs & Traces', 'Dashboard Analytics','Data Lineage'],
-                  ['Model Performance', 'Drift Detection', 'Error Analysis', 'A/B Testing','Bias & Fairness Tracking'],
-                  ['Model Serving Metrics', 'Inference Latency Tracking', 'Throughput Analysis', 'Resource Utilization','SLA Monitoring'],
-                  ['Data Feedback Loops', 'Cost Monitoring', 'Performance Dashboards', 'Alerts & Auto-Remediation','Continuous Improvement Pipelines']
-                ].map((row, rowIndex) => (
-                  <div key={rowIndex} className="grid grid-cols-4 bg-white border-b border-[#E5E7EB] last:border-b-0">
-                    {row.map((cell, cellIndex) => (
-                      <div 
-                        key={cellIndex} 
-                        className={`px-5 py-3 text-[#212529] text-sm ${cellIndex < 3 ? 'border-r border-[#E5E7EB]' : ''}`}
-                      >
-                        {cell && (
-                          <div className="flex items-center gap-3">
-                            <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
-                            <span className="text-xs">{cell}</span>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ))}
+                {/* Column-wise data: Each array is a column's items */}
+                {(() => {
+                  const columns = [
+                    ['Training Metrics', 'Data Lineage', 'Model Performance', 'Bias & Fairness Tracking', 'Model Serving Metrics', 'SLA Monitoring', 'Data Feedback Loops', 'Continuous Improvement Pipelines'],
+                    ['Evaluation Metrics', 'Drift Detection', 'Inference Latency Tracking', 'Cost Monitoring'],
+                    ['Logs & Traces', 'Error Analysis', 'Throughput Analysis', 'Performance Dashboards'],
+                    ['Dashboard Analytics', 'A/B Testing', 'Resource Utilization', 'Alerts & Auto-Remediation']
+                  ];
+                  const maxRows = Math.max(...columns.map(col => col.length));
+                  const rows = [];
+                  for (let i = 0; i < maxRows; i++) {
+                    rows.push(columns.map(col => col[i] || ''));
+                  }
+                  return rows.map((row, rowIndex) => (
+                    <div key={rowIndex} className="grid grid-cols-4 bg-white border-b border-[#E5E7EB] last:border-b-0">
+                      {row.map((cell, cellIndex) => (
+                        <div 
+                          key={cellIndex} 
+                          className={`px-5 py-3 text-[#212529] text-sm ${cellIndex < 3 ? 'border-r border-[#E5E7EB]' : ''}`}
+                        >
+                          {cell && (
+                            <div className="flex items-center gap-3">
+                              <span className="w-2 h-2 bg-[#32CD32] rounded-full flex-shrink-0" />
+                              <span className="text-xs">{cell}</span>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ));
+                })()}
               </div>
             </div>
           </div>
