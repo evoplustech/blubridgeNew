@@ -342,19 +342,19 @@ environments seamlessly.
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
               <p className="text-[#4B5563] leading-relaxed text-md">
-                Deploy models in environments engineered for reliability, consistency, and real-time inference at scale.
+                Deploying models in environments engineered for reliability, consistency, and real-time inference at scale.
               </p>
             </div>
             <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
               <p className="text-[#4B5563] leading-relaxed text-md">
-                Move from experimentation to live systems faster with pre-configured pipelines and automated rollout workflows.
+                Moving from experimentation to live systems faster with pre-configured pipelines and automated rollout workflows.
               </p>
             </div>
             <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
               <p className="text-[#4B5563] leading-relaxed text-md">
-                Scale inference dynamically with predictable pricing and resource-aware orchestration across GPU clusters.
+                Scaling inference dynamically with predictable pricing and resource-aware orchestration across GPU clusters.
               </p>
             </div>
           </div>
