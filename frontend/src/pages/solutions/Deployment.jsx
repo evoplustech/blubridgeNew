@@ -420,7 +420,7 @@ environments seamlessly.
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-black mb-2">Package</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Prepare models with optimized runtime dependencies and hardware-aware configurations for production execution.</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Preparing models with optimized runtime dependencies and hardware-aware configurations for production execution.</p>
                   {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-cyan-500 rounded-full" />
