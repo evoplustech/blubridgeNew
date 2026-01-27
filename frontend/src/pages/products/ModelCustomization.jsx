@@ -301,20 +301,20 @@ useEffect(() => {
   // FAQ data
   const faqs = [
     {
-      question: "What makes BluBridge's Model Customization different from others?",
-      answer: "BluBridge provides a unified environment for adapting models at scale with full control over behavior, tone, and reasoning patterns. Our platform supports parameter-efficient tuning, instruction alignment, and domain-specific adaptation with built-in orchestration for reproducible, scalable experiments."
+      question: "What makes BluBridge’s Model Customization different?",
+      answer: "BluBridge unifies data, training, evaluation, and infrastructure into a single workflow. You get full control over model behavior with enterprise‑grade reliability, without building and maintaining your own ML stack."
     },
     {
-      question: "What types of customization does BluBridge support?",
-      answer: "We support instruction fine-tuning, domain adaptation, behavioral alignment, parameter-efficient methods (LoRA, QLoRA), and full fine-tuning across distributed GPU clusters. Our platform handles everything from lightweight adapters to full model retraining."
+      question: "What types of customization do you support?",
+      answer: "We support instruction tuning, domain adaptation, parameter‑efficient fine‑tuning, behavioral alignment, and evaluation‑driven optimization across a wide range of foundation models"
     },
     {
-      question: "How does BluBridge ensure customization quality?",
-      answer: "Our platform includes built-in evaluation frameworks, A/B testing capabilities, and continuous monitoring. Every customization experiment is versioned, reproducible, and can be rolled back if needed. We also provide alignment packs and domain-specific evaluation sets."
+      question: "How do you ensure customization quality?",
+      answer: "Every run is reproducible and measurable. We combine automated evaluation, human feedback loops, and versioned experiments to ensure consistent quality and traceability."
     },
     {
       question: "How does BluBridge accelerate AI development?",
-      answer: "BluBridge reduces customization cycles from weeks to days through streamlined pipelines, pre-configured environments, and distributed training infrastructure. Our experiment manager tracks all iterations, making it easy to identify winning configurations quickly."
+      answer: "By removing infrastructure friction and standardizing experimentation. Teams move from idea to production in days instead of months, with faster iteration and lower operational overhead."
     }
   ];
 
@@ -349,7 +349,14 @@ useEffect(() => {
               </h1>
               
               <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
-                BluBridge Model Customization enables you to adapt, refine, and specialize foundation models for your exact use cases. From domain alignment to behavioral tuning, our platform gives you full control over how your models think, respond, and perform - without the overhead of managing complex infrastructure.
+                BluBridge Model Customization empowers you to adapt, refine, and specialize foundation models for
+your exact use cases. From domain alignment and instruction tuning to behavioral shaping and
+evaluation, our platform gives you full control over how your models think, respond, and perform
+without the burden of managing complex infrastructure.
+              </p>
+              <p className="text-[#2F3A4A] text-lg max-w-xl leading-relaxed">
+               Build models that speak your domain, follow your rules, and operate with production-grade
+reliability.
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
@@ -382,7 +389,8 @@ useEffect(() => {
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Domain-Aligned Models</h3>
               <p className="text-[#4B5563] leading-relaxed">
-                Tailor models to your industry, data, and workflows, ensuring outputs reflect your domain knowledge and business context.
+                Tailor models to your industry data, language, and workflows so every response reflects your business
+context and expertise.
               </p>
             </div>
             
@@ -390,7 +398,8 @@ useEffect(() => {
             <div className="border-l border-[#D6DEC3] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Faster Adaptation Cycles</h3>
               <p className="text-[#4B5563] leading-relaxed">
-                Iterate rapidly with streamlined fine-tuning pipelines that reduce experimentation time and accelerate deployment.
+               Iterate rapidly with streamlined fine‑tuning pipelines that reduce experimentation time and accelerate
+deployment.
               </p>
             </div>
             
@@ -398,7 +407,8 @@ useEffect(() => {
             <div className="border-l border-[#D6DEC3] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Production-Ready Outputs</h3>
               <p className="text-[#4B5563] leading-relaxed">
-                Deliver models that are optimized for real-world usage, with consistent behavior, reliability, and performance.
+                Ship models that perform reliably in real‑world environments, with consistent behavior, safety, and
+performance.
               </p>
             </div>
           </div>
@@ -436,11 +446,15 @@ useEffect(() => {
               </h2>
               
               <p className="text-[#4B5563] mb-6 leading-relaxed">
-               Model customization is more than fine-tuning, it is about shaping how a model thinks, responds, and performs in real-world environments. BluBridge provides a unified platform to adapt foundation models with precision, consistency, and full operational control.
+               Model customization is more than fine‑tuning. It is about shaping how a model reasons, behaves, and
+performs in live systems. BluBridge provides a unified platform to adapt foundation models with
+precision, combining parameter‑efficient tuning, instruction alignment, and domain‑specific training
+across distributed GPU clusters.
               </p>
               
               <p className="text-[#6B7280] mb-8 leading-relaxed">
-                Our stack enables parameter-efficient tuning, instruction alignment, and domain-specific adaptation across distributed GPU clusters. Every experiment is reproducible, every change is measurable, and every customized model is production-ready from day one.
+                Every experiment is reproducible. Every change is measurable. Every customized model is
+production‑ready from day one.
               </p>
               
               {/* Stats row */}
@@ -464,8 +478,8 @@ useEffect(() => {
                     </svg>
                   </div>
                   <p className="text-blue-600 text-sm font-semibold mb-2 uppercase tracking-wider">Ready-to-use Environments</p>
-                  <h3 className="text-3xl font-bold text-black mb-3">Pre-configured</h3>
-                  <p className="text-[#6B7280]">Fine-tuning and alignment environments ready for immediate use with zero setup time.</p>
+                  <h3 className="text-3xl font-bold text-black mb-3">Pre‑configured Environments</h3>
+                  <p className="text-[#6B7280]">Fine‑tuning and alignment environments ready for immediate use, with zero setup time.</p>
                 </div>
                 
                 {/* Scalable Card */}
@@ -479,8 +493,8 @@ useEffect(() => {
                     </svg>
                   </div>
                   <p className="text-purple-600 text-sm font-semibold mb-2 uppercase tracking-wider">Distributed GPU Clusters</p>
-                  <h3 className="text-3xl font-bold text-black mb-3">Scalable</h3>
-                  <p className="text-[#6B7280]">Large-scale adaptation across high-performance infrastructure with automatic scaling.</p>
+                  <h3 className="text-3xl font-bold text-black mb-3">Scalable by Design</h3>
+                  <p className="text-[#6B7280]">Large‑scale adaptation across high‑performance infrastructure with automatic scaling.</p>
                 </div>
                 
                 {/* Secure Card */}
@@ -494,8 +508,8 @@ useEffect(() => {
                     </svg>
                   </div>
                   <p className="text-teal-600 text-sm font-semibold mb-2 uppercase tracking-wider">Enterprise Security</p>
-                  <h3 className="text-3xl font-bold text-black mb-3">Secure</h3>
-                  <p className="text-[#6B7280]">SOC 2 compliant with end-to-end encryption and isolated training environments.</p>
+                  <h3 className="text-3xl font-bold text-black mb-3">Secure by Default</h3>
+                  <p className="text-[#6B7280]">Enterprise‑grade isolation, encryption, and compliance‑ready training environments.</p>
                 </div>
               </div>
             </div>
@@ -526,7 +540,8 @@ useEffect(() => {
             Customization Stack
           </h2>
           <p className="text-[#4B5563] mb-12 max-w-6xl">
-            Our comprehensive customization stack provides everything you need from hardware to application, with full flexibility to customize at every layer.
+            Our comprehensive customization stack gives you full control from data to deployment, with flexibility
+at every layer
           </p>
           
           {/* Table Format Layout */}

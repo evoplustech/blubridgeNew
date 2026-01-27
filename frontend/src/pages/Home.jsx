@@ -150,24 +150,38 @@ const VerticalTabsSection = () => {
 
   const tabs = [
     {
-      title: "Enterprise Agents",
+      title: "Smart Agents",
       content: {
         heading: "Automate tasks with AI agents connected to your apps and workflows.",
         description: "Build intelligent workflows with AI agents that connect directly to your tools, platforms, and data. We design adaptive systems that work within your existing ecosystem, automating complex tasks while understanding your operational context to drive real, scalable impact."
       }
     },
     {
-      title: "AI-Powered search",
+      title: "AI Driven Search",
       content: {
         heading: "Deep research capabilities powered by advanced language models.",
         description: "Safely link your organization’s proprietary knowledge into one intelligent layer and surface insights you can trust. Our AI agents retrieve the most accurate, context-aware answers, ensuring every response is relevant, reliable, and aligned with your enterprise data."
       }
     },
     {
-      title: "Deep Research",
+      title: "In-Depth Research",
       content: {
         heading: "Build and deploy purpose-built AI models for your specific needs.",
         description: "Access insights that are thoroughly researched and distilled from rich, wide-ranging sources. Our AI agents synthesize complex information into clear, actionable summaries, giving you depth, accuracy, and clarity in every result."
+      }
+    },
+    {
+      title: "Developer APIs",
+      content: {
+        heading: "Build and deploy purpose-built AI models for your specific needs.",
+        description: "Create intelligent applications and products on top of Blubridge’s AI foundation. Embed advanced reasoning, generation, and automation into your workflows. Move from concept to production with models engineered for reliability, performance, and real-world impact across enterprise and developer ecosystems."
+      }
+    },
+    {
+      title: "Custom AI Deployments",
+      content: {
+        heading: "Build and deploy purpose-built AI models for your specific needs.",
+        description: "Shape a truly personalized AI experience through tailored integrations with your enterprise data, platforms, and custom model capabilities, ensuring every system aligns precisely with your operational needs and business objectives."
       }
     }
   ];
@@ -452,49 +466,49 @@ const Home = () => {
     {
       name: "Data",
       title: "Data",
-      description: "We prepare and structure data to fuel accurate, scalable AI systems across research and production.",
-      features: ["Secure data pipelines", "AI-ready data refinement", "Scalable storage layers", "Privacy-first governance"],
+      description: "We are preparing and preprocessing the data for scalable AI  system across research and production.",
+      features: ["Efficient Data Pipeline ", "Mulitmodality & Multilinguistic Dataset", "Human Preference Label", "Domain Specific Dataset Curation"],
       link : '/research'
     },
     {
       name: "Pre-training",
       title: "Pre-training",
-      description: "We build strong model foundations by training on large-scale, high-quality datasets designed for deep learning performance.",
-      features: ["Large-scale dataset curation", "Optimized training pipelines", "Foundation model development", "Compute-efficient workflows"],
+      description: "We are building a series of pre-trained models uniquely suited for different work loads.",
+      features: ["NLP", "Speech Recognition & Generation", "Sequence Models & Visual Models", "Recommender Systems"],
       link : '/research'
     },
     {
       name: "Mid-training",
       title: "Mid-training",
-      description: "We refine model behavior during training, improving alignment, stability, and domain understanding at scale.",
+      description: "A custom mid-training for domain specific requirement.",
       features: ["Curriculum-based refinement", "Domain-specific tuning", "Stability and bias control", "Performance shaping"],
       link : '/research'
     },
     {
       name: "Post-training",
       title: "Post-training",
-      description: "We enhance model readiness through targeted refinement, evaluation, and optimization for real-world performance.",
+      description: "Enhanced model readiness through targeted refinement, evaluation, and optimization for real-world performance.",
       features: ["Fine-tuning for accuracy", "Safety and quality checks", "Inference optimization", "Production readiness"],
       link : '/research'
     },
     {
       name: "Agent Build",
       title: "Agent Build",
-      description: "We design intelligent agents that reason, act, and adapt across real workflows, turning models into autonomous systems.",
+      description: "Design intelligent agents that reason, act, and adapt across real workflows, turning models into autonomous systems.",
       features: ["Task-aware agent design", "Tool and API integration", "Multi-step reasoning flows", "Production-grade orchestration"],
       link : '/research'
     },
     {
       name: "Inference Optimization",
       title: "Inference Optimization",
-      description: "We optimize models for fast, reliable, and cost-efficient execution in real-world environments.",
+      description: "Optimize models for fast, reliable, and cost-efficient execution in real-world environments.",
       features: ["Low-latency execution", "Memory-efficient serving", "Hardware-level tuning", "Scalable inference pipelines"],
       link : '/research'
     },
     {
       name: "Infrastructure Scaling",
       title: "Infrastructure Scaling",
-      description: "We expand AI systems seamlessly, ensuring performance remains consistent as demand and complexity grow.",
+      description: "Expand AI systems seamlessly, ensuring performance will remain consistent as demand and complexity grow.",
       features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"],
       link : '/research'
     }
@@ -1004,7 +1018,7 @@ const Home = () => {
                   Model Customization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We adapt AI models to fit your data, domain, and goals, turning generic systems into purpose-built solutions. Each model is refined to deliver accurate, reliable, and context-aware intelligence.
+                 Shape foundation models to your domain with precision, control, and repeatability. Build AI that thinks in your language, follows your rules, and is production-ready from day one.
                 </p>
                 
                 {/* Learn More Link */}
@@ -1033,8 +1047,7 @@ const Home = () => {
                   Value Realization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We translate AI potential into measurable business outcomes by aligning research with real operational goals. Every deployment drives efficiency, impact, and long-term value.
-                </p>
+Turn AI experimentation into measurable business outcomes. Move from pilots to impact by connecting models directly to real-world performance and ROI.                </p>
                 
                 {/* Learn More Link */}
                 <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
@@ -1062,8 +1075,7 @@ const Home = () => {
                   Deployment
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                  We move AI from lab to production with secure, scalable, and performance-optimized deployments. Each model runs reliably in real environments with seamless integration.
-                </p>
+Bring models from lab to live with enterprise-grade reliability and scale. Launch, operate, and optimize AI systems with low latency, resilience, and cost efficiency.                </p>
                 
                 {/* Learn More Link */}
                 <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">

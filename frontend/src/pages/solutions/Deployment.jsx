@@ -29,7 +29,10 @@ const Deployment = () => {
                 Deployment
               </h1>
               <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
-                At BluBridge, we provide production-grade deployment infrastructure built for real-world AI systems. Launch, scale, and operate your models with confidence using high-performance GPU clusters, low-latency networking, and enterprise-ready orchestration, designed to move your models from lab to live environments seamlessly.
+                At BluBridge, we provide production-grade deployment infrastructure built for real-world AI systems.
+Launch, scale, and operate your models with confidence using high-performance GPU clusters, low-
+latency networking, and enterprise-ready orchestration designed to move your models from lab to live
+environments seamlessly.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <Link to="/contact">
@@ -334,11 +337,12 @@ const Deployment = () => {
       {/* Value Highlights - 3 Column Strip */}
       <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
         <div className="container-custom">
+          <h2 className="text-center mb-10 text-3xl font-bold">What You Get </h2>
           <div className="grid md:grid-cols-3 gap-10">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimise for Performance</h3>
               <p className="text-[#4B5563] leading-relaxed text-md">
-                Deploy models in environments engineered for reliability, consistency, and real-time performance.
+                Deploy models in environments engineered for reliability, consistency, and real-time inference at scale.
               </p>
             </div>
             <div className="border-l border-[#D6DEC3] pl-12">
@@ -384,15 +388,16 @@ const Deployment = () => {
               Deployment is where AI becomes operational. BluBridge delivers a unified deployment layer that transforms trained models into reliable, real-time systems, ready to serve users, applications, and workflows at scale.
             </p>
             <p className="text-[#4B5563] leading-relaxed text-lg">
-              Our deployment stack supports low-latency inference, batch execution, traffic orchestration, versioned releases, and instant rollback. Models move seamlessly from experimentation into production with full observability, governance, and performance control across environments.
+              Our platform supports low-latency inference, batch execution, traffic orchestration, versioned releases, and instant rollback. Models move seamlessly from experimentation into production with full observability, governance, and performance control across environments.
             </p>
           </div>
-
+ 
           {/* Horizontal Pipeline Flow */}
           <div className="relative">
             {/* Connection Line */}
+              <h3 class="font-bold text-3xl mb-10">From Lab to Live</h3>
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-green-500/20 -translate-y-1/2 z-0" />
-            
+          
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
               {/* Stage 1 - Build */}
               <div 
@@ -415,7 +420,7 @@ const Deployment = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-black mb-2">Package</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Prepare models with optimized runtimes, dependencies, and hardware-aware configurations for production execution.</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Prepare models with optimized runtime dependencies and hardware-aware configurations for production execution.</p>
                   {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-cyan-500 rounded-full" />
@@ -633,7 +638,7 @@ const Deployment = () => {
             Deployment Stack
           </h2>
           <p className="text-[#4B5563] mb-12 max-w-6xl">
-            BluBridge provides a complete technology stack for running intensive fine-tuning workloads in the most efficient and high-performing way possible.
+          BluBridge provides a complete technology stack for running high-throughput inference workloads with efficiency and control.
           </p>
           
           {/* Table 1: First 3 columns */}
@@ -656,10 +661,10 @@ const Deployment = () => {
                 
                 {/* Data Rows - White Background */}
                 {[
-                  ['REST API Endpoints', 'Version Control & Rollbacks', 'Automated CI/CD Pipelines'],
-                  ['Real-Time Inference', 'Canary Deployments', 'Blue-Green Deployments'],
-                  ['Batch Inference Jobs', 'Shadow Deployments', 'Model Validation Tests'],
-                  ['Load Balancing', 'Staged Rollouts', 'Containerization'],
+                  ['REST & Streaming APIs', 'Version Control & Rollbacks', 'Automated CI/CD Pipelines'],
+                  ['Real-Time Inference', 'Canary Deployments', 'Zero-Downtime Deployments'],
+                  ['Batch Inference Jobs', 'Shadow Deployments', 'Model Validation Gates'],
+                  ['Load Balancing', 'Staged Rollouts', 'Configuration Management'],
                   ['Secure Access Controls', 'Environment Promotion', 'Infrastructure as Code']
                 ].map((row, rowIndex) => (
                   <div key={rowIndex} className="grid grid-cols-3 bg-white border-b border-[#E5E7EB] last:border-b-0">
@@ -703,9 +708,9 @@ const Deployment = () => {
                 {/* Data Rows - White Background */}
                 {[
                   ['Dynamic Resource Scaling', 'Deploy on AWS, Azure, GCP', 'Quantization & Pruning'],
-                  ['Load-Based Auto-Scaling', 'Hybrid Cloud Strategies', 'Distillation & Compiling'],
+                  ['Load-Based Auto-Scaling', 'Hybrid Cloud Strategies', 'Batching & Caching'],
                   ['Horizontal & Vertical Scaling', 'Cross-Cloud Load Balancing', 'Model Acceleration (TensorRT, ONNX)'],
-                  ['Metrics-Driven Policies', 'Failover & Redundancy', 'Automated Hardware Selection'],
+                  ['Traffic-Aware Policies', 'Failover & Redundancy', 'Automated Hardware Selection'],
                   ['On-Demand Node Provisioning', 'Cost Optimization Across Clouds', 'Optimized Runtime Environments']
                 ].map((row, rowIndex) => (
                   <div key={rowIndex} className="grid grid-cols-3 bg-white border-b border-[#E5E7EB] last:border-b-0">
@@ -901,19 +906,19 @@ const Deployment = () => {
             {[
               {
                 question: "What makes BluBridge’s deployment platform different?",
-                answer: "It is built specifically for AI production workloads, combining infrastructure, orchestration, and observability in a single environment."
+                answer: "BluBridge is built specifically for AI workloads. It combines high-performance inference, versioned releases, and enterprise-grade orchestration into a single, production-ready layer."
               },
               {
                 question: "What types of deployments are supported?",
-                answer: "Real-time APIs, batch inference, internal tools, and customer-facing AI services."
+                answer: "We support real-time APIs, batch inference, streaming workloads, internal services, and edge-style deployments across cloud and hybrid environments."
               },
               {
                 question: "Can I manage multiple model versions in production?",
-                answer: "Yes. The platform supports versioning, traffic splitting, and instant rollback."
+                answer: "Yes. You can run multiple versions simultaneously, route traffic dynamically, perform canary releases, and roll back instantly if needed."
               },
               {
                 question: "How quickly can I go live?",
-                answer: "Models can be promoted directly from training or fine-tuning into production within minutes."
+                answer: "With pre-configured pipelines and automated workflows, teams typically move from a trained model to production in days, not months."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">

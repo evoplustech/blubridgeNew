@@ -359,7 +359,14 @@ const eased = t * t * t; // slow start, strong finish
                 Value Realization
               </h1>
               <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
-                Turn AI investments into measurable business impact. BluBridge helps you convert experimentation into outcomes, accelerating adoption, reducing friction, and ensuring every model delivers tangible value across operations, products, and decision-making.
+                Turn AI investment into measurable business impact.
+              </p>
+               <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
+                BluBridge helps you convert experimentation into outcomes by accelerating adoption, reducing friction,
+and ensuring every model delivers tangible value across operations, products, and decision-making. We
+bridge the gap between innovation and execution, so AI becomes a dependable growth engine, not a
+perpetual pilot.
+
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <Link to="/contact">
@@ -587,7 +594,8 @@ const eased = t * t * t; // slow start, strong finish
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Optimised Business Impact</h3>
               <p className="text-[#4B5563] text-md leading-relaxed">
-                Align models with real-world goals, ensuring every deployment drives operational or revenue outcomes.
+                Align models with real-world goals so every deployment drives operational efficiency, revenue growth,
+or customer outcomes.
               </p>
             </div>
             <div className="border-l border-[#D6DEC3] pl-12">
@@ -599,7 +607,7 @@ const eased = t * t * t; // slow start, strong finish
             <div className="border-l border-[#D6DEC3] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
               <p className="text-[#4B5563] text-md leading-relaxed">
-                Apply AI across teams, products, and industries using a flexible foundation that adapts to evolving needs.
+                Apply AI across teams, products, and industries using a flexible foundation that evolves with your needs.
               </p>
             </div>
           </div>
@@ -618,10 +626,10 @@ const eased = t * t * t; // slow start, strong finish
                 Speed up time-to-value
               </h2>
               <p className="text-base text-[#2F3A4A] leading-relaxed mb-6">
-                Value is realized only when models are adopted, trusted, and embedded into workflows. BluBridge bridges the gap between innovation and impact by unifying experimentation, deployment, and measurement in one platform.
+                Value is realized only when models are adopted, trusted, and embedded into workflows. BluBridge unifies experimentation, deployment, and measurement in a single platform. So teams can move from idea to impact without friction.
               </p>
               <p className="text-base text-[#2F3A4A] leading-relaxed mb-6">
-                Teams can validate use cases quickly, integrate models into real processes, and track performance against business goals. Built-in tooling ensures every iteration moves closer to outcomes, whether improving efficiency, accuracy, or customer experience.
+                Validate use cases quickly. Integrate models into real systems. Track performance against business goals. Built-in tooling ensures every iteration moves closer to outcomes, whether improving efficiency, accuracy, or customer experience.
               </p>
               <p className="text-base text-[#2F3A4A] leading-relaxed mb-8">
                 From first pilot to enterprise rollout, BluBridge transforms AI into a dependable growth engine.
@@ -696,11 +704,10 @@ const eased = t * t * t; // slow start, strong finish
                 
                 {/* Data Rows - White Background */}
                 {[
-                  ['Training Metrics', 'Model Performance', 'Model Serving Metrics', 'Data Feedback Loops'],
-                  ['Evaluation Metrics', 'Drift Detection', 'Inference Latency Tracking', 'Cost Monitoring'],
-                  ['Logs & Traces', 'Error Analysis', 'Throughput Analytics', 'Performance Dashboards'],
-                  ['Dashboard Analytics', 'A/B Testing', 'Resource Utilization', 'Alerts & Auto-Remediation'],
-                  ['Data Lineage', 'Bias & Fairness Tracking', 'SLA Monitoring', 'Continuous Improvement Pipelines']
+                  ['Training Metrics', 'Evaluation Metrics', 'Logs & Traces', 'Dashboard Analytics','Data Lineage'],
+                  ['Model Performance', 'Drift Detection', 'Error Analysis', 'A/B Testing','Bias & Fairness Tracking'],
+                  ['Model Serving Metrics', 'Inference Latency Tracking', 'Throughput Analysis', 'Resource Utilization','SLA Monitoring'],
+                  ['Data Feedback Loops', 'Cost Monitoring', 'Performance Dashboards', 'Alerts & Auto-Remediation','Continuous Improvement Pipelines']
                 ].map((row, rowIndex) => (
                   <div key={rowIndex} className="grid grid-cols-4 bg-white border-b border-[#E5E7EB] last:border-b-0">
                     {row.map((cell, cellIndex) => (
@@ -850,19 +857,19 @@ const eased = t * t * t; // slow start, strong finish
             {[
               {
                 question: "What makes BluBridge's Value Realization approach different?",
-                answer: "BluBridge focuses on business outcomes rather than just technical metrics. Our platform unifies experimentation, deployment, and measurement, ensuring every AI initiative is tied to measurable impact across operations, revenue, and customer experience."
+                answer: "We focus on outcomes, not experiments. BluBridge connects model performance directly to business metrics, ensuring every deployment is accountable to real-world impact."
               },
               {
                 question: "How does BluBridge accelerate time-to-value?",
-                answer: "Through pre-built use-case blueprints, guided workflows, and built-in best practices, BluBridge reduces the time from proof-of-concept to production. Teams can validate use cases quickly and track performance against business goals in real-time."
+                answer: "By unifying experimentation, deployment, and measurement in one platform. Teams iterate faster,deploy with confidence, and see results sooner."
               },
               {
                 question: "What industries benefit from Value Realization?",
-                answer: "Value Realization is applicable across all sectors including finance, healthcare, manufacturing, retail, and technology. Any organization looking to convert AI experimentation into measurable business outcomes can benefit from our platform."
+                answer: "Any industry applying AI at scale from finance and healthcare to manufacturing, retail, and enterprise software, where outcomes must be measurable and repeatable."
               },
               {
                 question: "How do you measure AI value?",
-                answer: "BluBridge provides comprehensive outcome tracking with customizable metrics tied to your business goals. Whether measuring efficiency gains, cost reductions, revenue impact, or customer satisfaction improvements, our platform provides clear visibility into AI ROI."
+                answer: "We tie model behavior to business KPIs: efficiency gains, revenue impact, quality improvements, and user outcomes. Every model is evaluated not just on accuracy, but on real-world effect."
               }
             ].map((faq, i) => (
               <div key={i} className="border-b border-[#D6DEC3]">
