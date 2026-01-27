@@ -336,7 +336,7 @@ const eased = t * t * t; // slow start, strong finish
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  useDocumentTitle('Applied AI services - expert assistance | BluBridge');
+  useDocumentTitle('AI Value Realization Solutions & Measurable ROI | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">

@@ -318,7 +318,7 @@ useEffect(() => {
     }
   ];
 
-  useDocumentTitle('Applied AI services - expert assistance | BluBridge');
+  useDocumentTitle('Custom AI Models & LLM Customization | BluBridge');
 
   return (
     <div className="min-h-screen bg-[#fffdf7]">

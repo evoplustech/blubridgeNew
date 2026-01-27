@@ -477,6 +477,26 @@ const AboutUs = () => {
             background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.7) 100%)',
           }} 
         />
+
+        {/* Animated Light Sweep */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, transparent 50%)`,
+            animation: 'lightSweep 8s ease-in-out infinite',
+          }}
+        />
+        
+        <style>{`
+          @keyframes lightSweep {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+          }
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
         
         <div className="container-custom relative z-10 w-full py-20">
           {/* Left-aligned content */}
@@ -1024,26 +1044,26 @@ const AboutUs = () => {
             
             {/* Bottom Row - 3 Feature boxes */}
             <div className="grid md:grid-cols-3 gap-6 md:gap-6" style={{position:'relative', top:'-40px'}}>
-              {/* How We Work */}
+              {/* How we Build */}
               <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  How We Work
+                  How we Build
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
                   Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
                 </p>
               </div>
               
-              {/* Excellence Through Rigor */}
+              {/* Innovation Through Rigor */}
               <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
                 <h3 
                   className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  Excellence Through Rigor
+                  Innovation Through Rigor
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
                   Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
