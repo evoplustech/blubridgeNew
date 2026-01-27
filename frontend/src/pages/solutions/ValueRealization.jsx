@@ -362,7 +362,7 @@ const eased = t * t * t; // slow start, strong finish
                 Turning AI investment into measurable business impact.
               </p>
                <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
-                BluBridge is helping you convert experimentation into outcomes by accelerating adoption, reducing friction,
+                BluBridge is helps you convert experimentation into outcomes by accelerating adoption, reducing friction,
 and ensuring every model is delivering tangible value across operations, products, and decision-making. We
 are bridging the gap between innovation and execution, so AI is becoming a dependable growth engine, not a
 perpetual pilot.
