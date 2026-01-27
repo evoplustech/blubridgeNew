@@ -449,7 +449,7 @@ environments seamlessly.
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-black mb-2">Verify</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Continuously validate behavior, performance, and safety using automated checks and pre-release gates.</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Continuously validating behavior, performance, and safety using automated checks and pre-release gates.</p>
                   {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-purple-500 rounded-full" />
@@ -478,7 +478,7 @@ environments seamlessly.
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-black mb-2">Release</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Ship models into live environments using controlled rollout strategies that ensure zero disruption.</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Shipping models into live environments using controlled rollout strategies that are ensuring zero disruption.</p>
                   {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-orange-500 rounded-full" />
@@ -504,7 +504,7 @@ environments seamlessly.
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-black mb-2">Operate</h3>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">Scale globally with intelligent routing, live monitoring, and adaptive resource management.</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">Scaling globally with intelligent routing, live monitoring, and adaptive resource management.</p>
                   {/* <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
                     <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                       <span className="w-2 h-2 bg-green-500 rounded-full" />
