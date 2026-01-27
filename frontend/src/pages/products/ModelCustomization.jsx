@@ -302,7 +302,7 @@ useEffect(() => {
   const faqs = [
     {
       question: "What makes BluBridge’s Model Customization different?",
-      answer: "BluBridge unifies data, training, evaluation, and infrastructure into a single workflow. You get full control over model behavior with enterprise‑grade reliability, without building and maintaining your own ML stack."
+      answer: "BluBridge is unifying data, training, evaluation, and infrastructure into a single workflow. You are getting full control over model behavior with enterprise‑grade reliability, without building and maintaining your own ML stack."
     },
     {
       question: "What types of customization do you support?",
