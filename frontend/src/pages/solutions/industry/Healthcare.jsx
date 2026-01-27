@@ -32,7 +32,7 @@ const Healthcare = () => {
               HEALTHCARE
             </h1>
             <p className="text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-              BluBridge Cloud offers tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, BluBridge enables healthcare teams to speed up research efforts and deliver more personalised treatments.
+              BluBridge Cloud is offering tailored computing solutions for biotechnology firms and healthcare research organisations. By providing accessible and powerful GPU resources alongside expert AI support, BluBridge is enabling healthcare teams to speed up research efforts and deliver more personalised treatments.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -54,15 +54,15 @@ const Healthcare = () => {
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerated Analytics</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">Improve the speed and accuracy of analysing medical imaging and other clinical data, helping reduce wait times and support faster clinical insights.</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">Improving the speed and accuracy of analysing medical imaging and other clinical data, helping reduce wait times and support faster clinical insights.</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Enhanced AI Applications</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">Boost the performance of training and running AI models for advanced healthcare use cases, making solutions more effective and responsive.</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">Boosting the performance of training and running AI models for advanced healthcare use cases, making solutions more effective and responsive.</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Scalability and Cost Efficiency</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">On-demand access to flexible and powerful compute resources removes the need for costly local hardware and lets teams scale effortlessly with demand.</p>
+              <p className="text-[#6B7280] text-sm leading-relaxed">On-demand access to flexible and powerful compute resources is removing the need for costly local hardware and letting teams scale effortlessly with demand.</p>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ const Healthcare = () => {
           <div className="mb-12">
             <p className="text-[#328CC1] text-sm font-medium mb-3 uppercase tracking-wider">FOSTERING COLLABORATION AND INNOVATION</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Enhancing Efficiency in Healthcare</h2>
-            <p className="text-base text-[#6B7280] max-w-3xl">The convergence of cloud technologies and GPU-powered computing is transforming healthcare fields such as bioinformatics, genomics, drug discovery, personalised medicine, and multi-omics research. These capabilities streamline workflows, enhance diagnostic accuracy, and foster collaboration and innovation.</p>
+            <p className="text-base text-[#6B7280] max-w-3xl">The convergence of cloud technologies and GPU-powered computing is transforming healthcare fields such as bioinformatics, genomics, drug discovery, personalised medicine, and multi-omics research. These capabilities are streamlining workflows, enhancing diagnostic accuracy, and fostering collaboration and innovation.</p>
           </div>
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="border-l-2 border-blue-500 pl-6">
