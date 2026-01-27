@@ -19,6 +19,19 @@ Building a modern AI company website with multiple pages including Home, About U
 
 ## What's Been Implemented
 
+### Jan 27, 2025 - Future Tense to Present Tense Conversion
+- **Converted all future tense content to present tense across the website:**
+  - Excluded pages: Privacy Policy, Terms of Use (kept unchanged as requested)
+  - Excluded: Headings and sub-headings (kept unchanged as requested)
+  - Files modified:
+    - `JoinOurTeam.jsx`: "you'll be invited" → "you are invited", "You'll get" → "You get", "You'll be working" → "You work", "you'd likely go" → "you likely go", "you will find" → "you find"
+    - `Contact.jsx`: "We will get back to you" → "We get back to you"
+    - `contact/Sales.jsx`: "will contact you" → "contacts you", "we'll only use" → "we only use"
+    - `contact/GeneralEnquiry.jsx`: "We will get back to you" → "We get back to you", "we'll only use" → "we only use"
+    - `Footer.jsx`: "We will get back to you" → "We get back to you", "We'll only use" → "We only use"
+    - `JobApplicationForm.jsx`: "We'll review" → "We review"
+    - `data/jobsData.js`: "will be considered" → "are considered", "will have an added advantage" → "have an added advantage"
+
 ### Jan 25, 2025 - Home Page Mobile Responsiveness Fix
 - **Fixed mobile responsiveness issues on Home page:**
   - Hero text "Beyond the Horizon" now fully visible on mobile (no longer cut off)
