@@ -49,7 +49,7 @@ const Research = () => {
               </div>
               
               <p className="text-[#2F3A4A] leading-relaxed text-base">
-                Blubridge proudly presents the process behind "Blu-WERP", our pipeline that sets a new industry standard for scalable, high-quality LLM pretraining data this month. In our paper, we demonstrate training and evaluation details, including the data preparation pipeline, from JusText extraction to Benchmark-targeted classification...
+                Blubridge is proudly presenting the process behind "Blu-WERP", our pipeline that is setting a new industry standard for scalable, high-quality LLM pretraining data this month. In our paper, we are demonstrating training and evaluation details, including the data preparation pipeline, from JusText extraction to Benchmark-targeted classification...
                 <a href="Research/Blu-Werp" className="text-[#328CC1] hover:underline ml-1">More »</a>
               </p>
             </div>
