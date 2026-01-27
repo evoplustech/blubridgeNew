@@ -390,7 +390,7 @@ reliability.
             <div>
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Domain-Aligned Models</h3>
               <p className="text-[#4B5563] leading-relaxed">
-                Tailor models to your industry data, language, and workflows so every response reflects your business
+                Tailoring models to your industry data, language, and workflows so every response is reflecting your business
 context and expertise.
               </p>
             </div>
@@ -399,7 +399,7 @@ context and expertise.
             <div className="border-l border-[#D6DEC3] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Faster Adaptation Cycles</h3>
               <p className="text-[#4B5563] leading-relaxed">
-               Iterate rapidly with streamlined fine‑tuning pipelines that reduce experimentation time and accelerate
+               Iterating rapidly with streamlined fine‑tuning pipelines that are reducing experimentation time and accelerating
 deployment.
               </p>
             </div>
@@ -408,7 +408,7 @@ deployment.
             <div className="border-l border-[#D6DEC3] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Production-Ready Outputs</h3>
               <p className="text-[#4B5563] leading-relaxed">
-                Ship models that perform reliably in real‑world environments, with consistent behavior, safety, and
+                Shipping models that are performing reliably in real‑world environments, with consistent behavior, safety, and
 performance.
               </p>
             </div>
