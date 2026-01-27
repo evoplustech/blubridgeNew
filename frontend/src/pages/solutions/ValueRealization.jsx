@@ -359,12 +359,12 @@ const eased = t * t * t; // slow start, strong finish
                 Value Realization
               </h1>
               <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
-                Turn AI investment into measurable business impact.
+                Turning AI investment into measurable business impact.
               </p>
                <p className="text-lg lg:text-xl text-[#0B1F3B] mb-10 leading-relaxed">
-                BluBridge helps you convert experimentation into outcomes by accelerating adoption, reducing friction,
-and ensuring every model delivers tangible value across operations, products, and decision-making. We
-bridge the gap between innovation and execution, so AI becomes a dependable growth engine, not a
+                BluBridge is helping you convert experimentation into outcomes by accelerating adoption, reducing friction,
+and ensuring every model is delivering tangible value across operations, products, and decision-making. We
+are bridging the gap between innovation and execution, so AI is becoming a dependable growth engine, not a
 perpetual pilot.
 
               </p>
