@@ -115,9 +115,13 @@ const SolutionsNew = () => {
               </p>
             </div>
 
-            {/* Center B Logo */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-24 md:h-24 bg-[#F5F2E8] rounded-2xl flex items-center justify-center shadow-lg z-20">
-              <span className="text-[#1a1a1a] font-bold text-4xl md:text-5xl" style={{ fontFamily: 'serif' }}>B</span>
+            {/* Center B Logo - Using Image */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/0c9qmaew_b-center.png"
+                alt="BluBridge"
+                className="w-20 h-20 md:w-24 md:h-24 object-contain"
+              />
             </div>
 
             {/* Right Code Snippet */}
