@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
-import { Check, ArrowRight, BarChart3, Pencil, RefreshCw } from 'lucide-react';
+import { Check, ArrowRight, BarChart3, Pencil, RefreshCw, Plus, ArrowUp } from 'lucide-react';
 
 const SolutionsNew = () => {
   useDocumentTitle('Solutions | BluBridge');
@@ -20,7 +20,152 @@ const SolutionsNew = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#FDFCF9]">
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 lg:py-32 bg-[#FDFCF9] relative overflow-hidden">
+        <div className="container-custom">
+          {/* Hero Text Content */}
+          <div className="text-center max-w-4xl mx-auto mb-16 md:mb-24">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[72px] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight mb-6">
+              Partnering with ambitious enterprises
+              <br />
+              <span className="ml-8 md:ml-16">at the frontier.</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-[#555555] max-w-2xl mx-auto mb-8">
+              From model creation to scalable deployment, we deliver tailored solutions for your business needs.
+            </p>
+            
+            <div className="flex items-center justify-center gap-6 md:gap-8">
+              <Link 
+                to="/research" 
+                className="text-[#1a1a1a] font-medium underline underline-offset-4 hover:text-[#FF8C00] transition-colors"
+              >
+                Try le Chat
+              </Link>
+              <Link 
+                to="/contact" 
+                className="text-[#1a1a1a] font-medium underline underline-offset-4 hover:text-[#FF8C00] transition-colors"
+              >
+                Contact sales
+              </Link>
+            </div>
+          </div>
+
+          {/* Hero Visual - Code Snippets and Workflow Diagram */}
+          <div className="relative max-w-6xl mx-auto h-[400px] md:h-[500px]">
+            {/* Left Code Snippet */}
+            <div className="absolute left-0 top-0 w-[280px] md:w-[320px] bg-[#151515] rounded-xl p-4 shadow-xl z-10">
+              {/* Orange Icon */}
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" fill="none"/>
+                </svg>
+              </div>
+              
+              <pre className="text-xs font-mono overflow-hidden">
+                <code>
+                  <span className="text-[#FFC885]">from</span> <span className="text-[#C8E8C8]">mistralai.client</span> <span className="text-[#FFC885]">import</span> <span className="text-white">MistralClient</span>{'\n'}
+                  <span className="text-[#FFC885]">import</span> <span className="text-[#C8E8C8]">os</span>{'\n'}
+                  {'\n'}
+                  <span className="text-white">api_key</span> <span className="text-[#888]">=</span> <span className="text-white">os</span><span className="text-[#888]">.</span><span className="text-white">env</span><span className="text-[#888]">[</span><span className="text-[#C8E8C8]">'MISTRAL_API_KEY'</span><span className="text-[#888]">]</span>{'\n'}
+                  <span className="text-white">model</span> <span className="text-[#888]">=</span> <span className="text-[#C8E8C8]">'mistral-tiny'</span>{'\n'}
+                  {'\n'}
+                  <span className="text-white">client</span> <span className="text-[#888]">=</span> <span className="text-white">MistralClient</span><span className="text-[#888]">(</span><span className="text-white">api_key</span><span className="text-[#888]">)</span>{'\n'}
+                  {'\n'}
+                  <span className="text-white">messages</span> <span className="text-[#888]">=</span> <span className="text-[#888]">[</span>{'\n'}
+                  {'  '}<span className="text-white">ChatMessage</span><span className="text-[#888]">(</span>{'\n'}
+                  {'    '}<span className="text-white">role</span><span className="text-[#888]">=</span><span className="text-[#C8E8C8]">'user'</span><span className="text-[#888]">,</span>{'\n'}
+                  {'    '}<span className="text-white">content</span><span className="text-[#888]">=</span><span className="text-[#C8E8C8]">'Who is the most</span>{'\n'}
+                  {'    '}<span className="text-[#C8E8C8]">renowned French painter?'</span>{'\n'}
+                  {'  '}<span className="text-[#888]">)</span>{'\n'}
+                  <span className="text-[#888]">]</span>
+                </code>
+              </pre>
+            </div>
+
+            {/* Small Orange/Yellow Gradient Rectangles */}
+            <div className="absolute left-[60px] top-[240px] md:top-[280px] flex gap-2">
+              <div className="w-16 h-8 bg-gradient-to-r from-[#FFB347] to-[#FFCC33] rounded-md flex items-center justify-center">
+                <span className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">×</span>
+                </span>
+              </div>
+              <div className="w-16 h-8 bg-gradient-to-r from-[#FFB347] to-[#FFCC33] rounded-md flex items-center justify-center">
+                <span className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">×</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Task Description Box */}
+            <div className="absolute left-[40px] bottom-[20px] md:bottom-[40px] w-[200px] bg-[#151515] rounded-lg p-3 shadow-lg">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex gap-2">
+                  <div className="w-6 h-6 bg-[#333] rounded flex items-center justify-center">
+                    <Plus className="w-3 h-3 text-white" />
+                  </div>
+                  <div className="w-6 h-6 bg-[#333] rounded flex items-center justify-center">
+                    <ArrowUp className="w-3 h-3 text-white" />
+                  </div>
+                </div>
+              </div>
+              <p className="text-white/80 text-xs leading-relaxed">
+                Create a task that will help me organize my schedule
+              </p>
+            </div>
+
+            {/* Center B Logo */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-24 md:h-24 bg-[#F5F2E8] rounded-2xl flex items-center justify-center shadow-lg z-20">
+              <span className="text-[#1a1a1a] font-bold text-4xl md:text-5xl" style={{ fontFamily: 'serif' }}>B</span>
+            </div>
+
+            {/* Right Code Snippet */}
+            <div className="absolute right-0 top-[40px] w-[300px] md:w-[380px] bg-[#151515] rounded-xl p-4 shadow-xl z-10">
+              {/* Orange Icon */}
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#FF8C00] rounded-lg flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <path d="M9 9h6M9 12h6M9 15h4" stroke="currentColor" strokeWidth="2"/>
+                </svg>
+              </div>
+              
+              <pre className="text-xs font-mono overflow-hidden">
+                <code>
+                  <span className="text-[#FFC885]">def</span> <span className="text-white">distill_model</span><span className="text-[#888]">(</span><span className="text-white">teacher_model</span><span className="text-[#888]">,</span>{'\n'}
+                  {'                '}<span className="text-white">student_model</span><span className="text-[#888]">):</span>{'\n'}
+                  {'  '}<span className="text-[#FFC885]">def</span> <span className="text-white">preprocess_function</span><span className="text-[#888]">(</span><span className="text-white">examples</span><span className="text-[#888]">):</span>{'\n'}
+                  {'    '}<span className="text-[#FFC885]">return</span> <span className="text-white">tokenizer</span><span className="text-[#888]">(</span>{'\n'}
+                  {'      '}<span className="text-white">examples</span><span className="text-[#888]">[</span><span className="text-[#C8E8C8]">'text'</span><span className="text-[#888]">],</span>{'\n'}
+                  {'    '}<span className="text-[#888]">)</span>{'\n'}
+                  {'\n'}
+                  {'  '}<span className="text-white">encoded_dataset</span> <span className="text-[#888]">=</span> <span className="text-white">dataset</span><span className="text-[#888]">.</span><span className="text-white">map</span><span className="text-[#888]">(</span>{'\n'}
+                  {'    '}<span className="text-white">preprocess_function</span><span className="text-[#888]">)</span>{'\n'}
+                  {'\n'}
+                  {'  '}<span className="text-white">training_args</span> <span className="text-[#888]">=</span> <span className="text-white">TrainingArguments</span><span className="text-[#888]">(</span>{'\n'}
+                  {'    '}<span className="text-white">output_dir</span><span className="text-[#888]">=</span><span className="text-[#C8E8C8]">'./results'</span><span className="text-[#888]">,</span>{'\n'}
+                  {'    '}<span className="text-white">evaluation_strategy</span><span className="text-[#888]">=</span><span className="text-[#C8E8C8]">'epoch'</span><span className="text-[#888]">,</span>{'\n'}
+                  {'    '}<span className="text-white">learning_rate</span><span className="text-[#888]">=</span><span className="text-[#C8E8C8]">2e-5</span><span className="text-[#888]">,</span>{'\n'}
+                  {'  '}<span className="text-[#888]">)</span>{'\n'}
+                  {'\n'}
+                  {'  '}<span className="text-white">trainer</span> <span className="text-[#888]">=</span> <span className="text-white">Trainer</span><span className="text-[#888]">()</span>
+                </code>
+              </pre>
+            </div>
+
+            {/* Connecting Lines - SVG */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 5 }}>
+              {/* Line from left code to center B */}
+              <line x1="320" y1="120" x2="calc(50% - 48px)" y2="calc(50%)" stroke="#e8e6de" strokeWidth="1.5" strokeDasharray="4,4" />
+              {/* Line from center B to right code */}
+              <line x1="calc(50% + 48px)" y1="calc(50%)" x2="calc(100% - 380px)" y2="140" stroke="#e8e6de" strokeWidth="1.5" strokeDasharray="4,4" />
+              {/* Line from left code to bottom task box */}
+              <line x1="160" y1="200" x2="140" y2="calc(100% - 100px)" stroke="#e8e6de" strokeWidth="1.5" strokeDasharray="4,4" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
       {/* Section 1: Model Customization - Three Column Cards */}
       <section id="model-customization" className="py-16 md:py-24 bg-[#fffdf7]">
         <div className="container-custom">
