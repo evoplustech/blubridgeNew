@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { Check, ArrowRight, BarChart3, Pencil, RefreshCw, Plus, ArrowUp } from 'lucide-react';
@@ -6,6 +6,7 @@ import { Check, ArrowRight, BarChart3, Pencil, RefreshCw, Plus, ArrowUp } from '
 const SolutionsNew = () => {
   useDocumentTitle('Solutions | BluBridge');
   const location = useLocation();
+  const [activeTab, setActiveTab] = useState('ai-studio');
 
   // Smooth scroll to anchor on page load
   useEffect(() => {
