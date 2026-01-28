@@ -179,9 +179,9 @@ const SolutionsNew = () => {
           </h2>
 
           {/* Three Column Cards */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
             {/* Card 1: Custom pre-training */}
-            <div className="bg-white/60 rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
+            <div className="bg-white rounded-xl p-6 lg:p-8 shadow-md">
               {/* Orange Icon Box */}
               <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
@@ -195,28 +195,28 @@ const SolutionsNew = () => {
                 Custom pre-training.
               </h3>
               
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Full pre-training:</strong> Build models from scratch using custom data mixtures, pre-training codebases, and tailored training recipes.
+                    <strong className="text-[#1a1a1a]">Full pre-training:</strong> Build models from scratch using custom data mixtures, pre-training codebases, and tailored training recipes.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Continued pre-training:</strong> Start from early open model checkpoints (e.g., BluBridge 7B) and retrain with your proprietary data for domain-specific performance.
+                    <strong className="text-[#1a1a1a]">Continued pre-training:</strong> Start from early open model checkpoints (e.g., BluBridge 7B) and retrain with your proprietary data for domain-specific performance.
                   </span>
                 </li>
               </ul>
             </div>
 
             {/* Card 2: Specialized model capabilities */}
-            <div className="bg-white/60 rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
-              {/* Orange Icon Box */}
+            <div className="bg-white rounded-xl p-6 lg:p-8 shadow-md">
+              {/* Orange Icon Box - Rabbit/Bunny Icon */}
               <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                  <path d="M18 8c0-2.21-1.79-4-4-4-.55 0-1.08.11-1.56.31C11.56 2.91 10.11 2 8.5 2 6.01 2 4 4.01 4 6.5c0 .88.25 1.71.69 2.41C3.06 10.05 2 11.91 2 14c0 3.31 2.69 6 6 6h8c3.31 0 6-2.69 6-6 0-2.09-1.06-3.95-2.69-5.09.44-.7.69-1.53.69-2.41 0-.2-.02-.39-.04-.58C19.43 8.62 18.76 9 18 9c-1.1 0-2-.9-2-2 0-.55.22-1.05.58-1.41C17.21 5.21 18 5.9 18 8z"/>
                 </svg>
               </div>
               
@@ -224,37 +224,37 @@ const SolutionsNew = () => {
                 Specialized model capabilities.
               </h3>
               
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Supervised Fine Tuning (SFT):</strong> Adapt models to specific tasks.
+                    <strong className="text-[#1a1a1a]">Supervised Fine Tuning (SFT):</strong> Adapt models to specific tasks.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Direct Preference Optimization (DPO):</strong> Align model behavior with specific user expectations.
+                    <strong className="text-[#1a1a1a]">Direct Preference Optimization (DPO):</strong> Align model behavior with specific user expectations.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Synthetic data generation</strong> for platforms: Enhance model robustness.
+                    <strong className="text-[#1a1a1a]">Synthetic data generation and evaluation platforms:</strong> Enhance model relevance and robustness.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Integrations and agents</strong> for enterprise knowledge bases, connectors, prompt libraries, and AI-in-a-box.
+                    <strong className="text-[#1a1a1a]">Integrations and agents building:</strong> Leverage your enterprise knowledge base with custom connectors, prompt libraries, and tools like "rag-in-a-box."
                   </span>
                 </li>
               </ul>
             </div>
 
             {/* Card 3: Optimized inference platform */}
-            <div className="bg-white/60 rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
-              {/* Orange Icon Box */}
+            <div className="bg-white rounded-xl p-6 lg:p-8 shadow-md">
+              {/* Orange Icon Box - Monitor Icon */}
               <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                   <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
@@ -267,17 +267,74 @@ const SolutionsNew = () => {
                 Optimized inference platform.
               </h3>
               
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Inference optimization:</strong> Use optimized inference libraries, deployment templates, and quantization stacks.
+                    <strong className="text-[#1a1a1a]">Inference optimization:</strong> Use optimized inference libraries, deployment templates, and quantization stacks.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#00B050] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#1a1a1a] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    <strong>Platform scaling:</strong> Scalable deployments with plug-and-play data sources. Bespoke observability toolchains and devtools.
+                    <strong className="text-[#1a1a1a]">Platform scaling:</strong> Scalable deployments with plug-and-play data sources. Bespoke observability toolchains and devtools.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Section: Two Gradient Panels */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Panel 1: Codestral Story */}
+            <div className="rounded-2xl p-8 lg:p-10" style={{ background: 'linear-gradient(135deg, #FFD700 0%, #FF8C00 100%)' }}>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                Codestral story
+              </h3>
+              <p className="text-white/90 text-sm md:text-base leading-relaxed mb-6">
+                We customized BluBridge Small (22B parameters) on coding tasks with our proprietary dataset, resulting in turbocharged performance on coding:
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <span className="text-sm md:text-base text-white leading-relaxed">
+                    <span className="text-[#00FF7F] font-semibold">+23 points</span> higher accuracy compared to state-of-the-art LLMs
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <span className="text-sm md:text-base text-white leading-relaxed">
+                    <span className="text-[#00FF7F] font-semibold">+19 points</span> higher accuracy than other competing solution
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Panel 2: Real-world Benefits */}
+            <div className="rounded-2xl p-8 lg:p-10" style={{ background: 'linear-gradient(135deg, #FFD700 0%, #FF8C00 100%)' }}>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                Real-world benefits
+              </h3>
+              <p className="text-white/90 text-sm md:text-base leading-relaxed mb-6">
+                Customers that have co-trained models with BluBridge AI solutions team have achieved:
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <span className="text-sm md:text-base text-white leading-relaxed">
+                    <span className="text-[#00FF7F] font-semibold">94%</span> reduction in cost per token
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <span className="text-sm md:text-base text-white leading-relaxed">
+                    <span className="text-[#00FF7F] font-semibold">70%</span> improvement in latency
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <span className="text-sm md:text-base text-white leading-relaxed">
+                    <span className="text-[#00FF7F] font-semibold">Optimized for processing</span> billions of queries weekly
                   </span>
                 </li>
               </ul>
