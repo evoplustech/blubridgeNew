@@ -474,7 +474,7 @@ const Home = () => {
       name: "Pre-training",
       title: "Pre-training",
       description: "We are building a series of pre-trained models uniquely suited for different work loads.",
-      features: ["NLP", "Speech Recognition & Generation", "Sequence Models & Visual Models", "Recommender Systems"],
+      features: ["Natural Language Processing", "Speech Recognition & Generation", "Sequence Models & Visual Models", "Recommender Systems"],
       link : '/research'
     },
     {
@@ -900,6 +900,7 @@ const Home = () => {
                   </div>
                 )})}
               </div>
+              <p className="text-center text-black text-2xl mt-1 font-bold text-[#1180c1]">&amp; More</p>
             </div>
           </div>
         </div>

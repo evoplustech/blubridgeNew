@@ -66,7 +66,7 @@ const TermsConditions = () => {
             color: '#6b7280',
             marginBottom: '32px'
           }}>
-            Effective date: January 2026
+            Last Updated on : 23rd January 2026
           </p>
 
           {/* Introduction */}
@@ -381,7 +381,7 @@ const TermsConditions = () => {
                   legal@blubridge.com
                 </a>
               </p>
-              <p style={{
+              {/* <p style={{
                 fontSize: '15px',
                 color: '#4a5568',
                 margin: 0
@@ -397,7 +397,7 @@ const TermsConditions = () => {
                 >
                   support@blubridge.com
                 </a>
-              </p>
+              </p> */}
               <p style={{
                 fontSize: '14px',
                 color: '#6b7280',

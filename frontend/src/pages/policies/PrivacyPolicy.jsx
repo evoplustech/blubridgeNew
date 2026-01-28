@@ -58,7 +58,7 @@ const PrivacyPolicy = () => {
 
           {/* Introduction */}
           <p style={paragraphStyle}>
-            This Privacy Policy governs the manner in which Blubridge Technologies Private Limited ("Blubridge", "we", "our", or "us"), a company incorporated under the laws of India, collects, uses, stores, processes, and protects information in connection with your access to and use of our websites, platforms, research interfaces, developer tools, experimental systems, APIs, products, and services (collectively, the "Services"). This Policy applies to all individuals who visit, access, or interact with our Services, whether as visitors, researchers, collaborators, customers, partners, or users ("you" or "User").
+            This Privacy Policy governs the manner in which Blubridge Technologies ("Blubridge", "we", "our", or "us"), a company incorporated under the laws of India, collects, uses, stores, processes, and protects information in connection with your access to and use of our websites, platforms, research interfaces, developer tools, experimental systems, APIs, products, and services (collectively, the "Services"). This Policy applies to all individuals who visit, access, or interact with our Services, whether as visitors, researchers, collaborators, customers, partners, or users ("you" or "User").
           </p>
 
           <p style={paragraphStyle}>
@@ -75,7 +75,7 @@ const PrivacyPolicy = () => {
             The objective of this Privacy Policy is to clearly describe the categories of information we collect, the purposes for which such information is processed, the manner in which it is handled, and the rights available to you under applicable law. This Policy applies to information collected directly from you, automatically through your interaction with our Services, or from lawful third-party sources. It covers both personal data and certain technical or operational data that may arise in the context of AI research and system usage.
           </p>
           <p style={paragraphStyle}>
-            Depending on the nature of your engagement with Blubridge—such as a website visitor, research collaborator, enterprise customer, or developer—we may provide supplemental notices or contractual data protection terms. This Policy operates as the baseline framework governing our data practices.
+            Depending on the nature of your engagement with Blubridge, such as a website visitor, research collaborator, enterprise customer, or developer. We may provide supplemental notices or contractual data protection terms. This Policy operates as the baseline framework governing our data practices.
           </p>
 
           {/* Information We Collect */}
