@@ -420,6 +420,112 @@ const SolutionsNew = () => {
         </div>
       </section>
 
+      {/* Section: Our Frontier Models - Below Value Realization */}
+      <section className="py-20 md:py-32 bg-[#f8f7f4]">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            {/* Pixelated Hot Air Balloon Icon */}
+            <div className="mb-10 flex justify-center">
+              <svg width="80" height="100" viewBox="0 0 80 100" className="w-16 h-20 md:w-20 md:h-24">
+                {/* Balloon body - pixelated multi-color segments */}
+                {/* Red segment */}
+                <rect x="30" y="5" width="5" height="5" fill="#E53935"/>
+                <rect x="35" y="5" width="5" height="5" fill="#E53935"/>
+                <rect x="40" y="5" width="5" height="5" fill="#E53935"/>
+                <rect x="25" y="10" width="5" height="5" fill="#E53935"/>
+                <rect x="30" y="10" width="5" height="5" fill="#E53935"/>
+                <rect x="45" y="10" width="5" height="5" fill="#E53935"/>
+                <rect x="50" y="10" width="5" height="5" fill="#E53935"/>
+                
+                {/* Orange segment */}
+                <rect x="35" y="10" width="5" height="5" fill="#FF9800"/>
+                <rect x="40" y="10" width="5" height="5" fill="#FF9800"/>
+                <rect x="20" y="15" width="5" height="5" fill="#FF9800"/>
+                <rect x="25" y="15" width="5" height="5" fill="#FF9800"/>
+                <rect x="50" y="15" width="5" height="5" fill="#FF9800"/>
+                <rect x="55" y="15" width="5" height="5" fill="#FF9800"/>
+                <rect x="30" y="15" width="5" height="5" fill="#FF9800"/>
+                <rect x="45" y="15" width="5" height="5" fill="#FF9800"/>
+                
+                {/* Yellow segment */}
+                <rect x="35" y="15" width="5" height="5" fill="#FFEB3B"/>
+                <rect x="40" y="15" width="5" height="5" fill="#FFEB3B"/>
+                <rect x="20" y="20" width="5" height="5" fill="#FFEB3B"/>
+                <rect x="55" y="20" width="5" height="5" fill="#FFEB3B"/>
+                <rect x="25" y="20" width="5" height="5" fill="#FFEB3B"/>
+                <rect x="50" y="20" width="5" height="5" fill="#FFEB3B"/>
+                
+                {/* Green segment */}
+                <rect x="30" y="20" width="5" height="5" fill="#4CAF50"/>
+                <rect x="35" y="20" width="5" height="5" fill="#4CAF50"/>
+                <rect x="40" y="20" width="5" height="5" fill="#4CAF50"/>
+                <rect x="45" y="20" width="5" height="5" fill="#4CAF50"/>
+                <rect x="20" y="25" width="5" height="5" fill="#4CAF50"/>
+                <rect x="25" y="25" width="5" height="5" fill="#4CAF50"/>
+                <rect x="50" y="25" width="5" height="5" fill="#4CAF50"/>
+                <rect x="55" y="25" width="5" height="5" fill="#4CAF50"/>
+                
+                {/* Blue segment */}
+                <rect x="30" y="25" width="5" height="5" fill="#2196F3"/>
+                <rect x="35" y="25" width="5" height="5" fill="#2196F3"/>
+                <rect x="40" y="25" width="5" height="5" fill="#2196F3"/>
+                <rect x="45" y="25" width="5" height="5" fill="#2196F3"/>
+                <rect x="25" y="30" width="5" height="5" fill="#2196F3"/>
+                <rect x="30" y="30" width="5" height="5" fill="#2196F3"/>
+                <rect x="35" y="30" width="5" height="5" fill="#2196F3"/>
+                <rect x="40" y="30" width="5" height="5" fill="#2196F3"/>
+                <rect x="45" y="30" width="5" height="5" fill="#2196F3"/>
+                <rect x="50" y="30" width="5" height="5" fill="#2196F3"/>
+                
+                {/* Bottom of balloon */}
+                <rect x="30" y="35" width="5" height="5" fill="#1976D2"/>
+                <rect x="35" y="35" width="5" height="5" fill="#1976D2"/>
+                <rect x="40" y="35" width="5" height="5" fill="#1976D2"/>
+                <rect x="45" y="35" width="5" height="5" fill="#1976D2"/>
+                <rect x="35" y="40" width="5" height="5" fill="#1565C0"/>
+                <rect x="40" y="40" width="5" height="5" fill="#1565C0"/>
+                
+                {/* Strings */}
+                <rect x="35" y="45" width="2" height="10" fill="#8B7355"/>
+                <rect x="43" y="45" width="2" height="10" fill="#8B7355"/>
+                
+                {/* Basket */}
+                <rect x="30" y="55" width="5" height="5" fill="#8B7355"/>
+                <rect x="35" y="55" width="5" height="5" fill="#A0522D"/>
+                <rect x="40" y="55" width="5" height="5" fill="#8B7355"/>
+                <rect x="45" y="55" width="5" height="5" fill="#A0522D"/>
+                <rect x="30" y="60" width="5" height="5" fill="#A0522D"/>
+                <rect x="35" y="60" width="5" height="5" fill="#8B7355"/>
+                <rect x="40" y="60" width="5" height="5" fill="#A0522D"/>
+                <rect x="45" y="60" width="5" height="5" fill="#8B7355"/>
+              </svg>
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a1a1a] mb-2 leading-tight">
+              Our frontier models + Your proprietary data =
+            </h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1a1a] mb-8 leading-tight">
+              Your unique models
+            </h2>
+
+            {/* Description */}
+            <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8 max-w-2xl mx-auto">
+              We are bringing our expertise of building world class models and managing hyper-scale AI infrastructure to you. We are externalizing our science, technology, and solutions, from GPU to interfaces, so that you can in-house your AI systems.
+            </p>
+
+            {/* CTA Link */}
+            <Link 
+              to="/contact"
+              className="inline-flex items-center gap-2 text-[#1a1a1a] font-medium text-base md:text-lg underline underline-offset-4 decoration-[#1a1a1a] hover:text-[#FF8C00] hover:decoration-[#FF8C00] transition-colors group"
+            >
+              <span>Start building with BluBridge AI</span>
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Section 3: Deployment - What's available for self-deployment? */}
       <section id="deployment" className="py-16 md:py-24 bg-[#fffdf7] relative">
         {/* Grid Background Pattern */}
