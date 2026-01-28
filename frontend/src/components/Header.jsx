@@ -260,67 +260,77 @@ const Header = () => {
                       transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
-                    {/* Dropdown Header with Logo */}
-                    <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#e8e6de]">
-                      <img 
-                        src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/mbswp07i_b-center.png"
-                        alt="BluBridge"
-                        className="h-8 w-auto"
-                      />
-                      <span className="text-[#0B1F3B] font-semibold text-sm">Enterprise Solutions</span>
-                    </div>
                     <div className="space-y-1">
                       <Link
-                        to="/solutions-new#model-customization"
+                        to="/solutions/model-customization"
                       >
                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
-                                  Model Customization
-                                </span>
-                              </div>
+                          <div className="font-medium flex items-center py-2 gap-1">
+                            <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                            <div className="ml-6">
+                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
+                                Model Customization
+                              </span>
                             </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
                           </div>
                         </div>
+                        {/* <div className="w-8 h-8 rounded-md bg-[#1E40AF]/10 flex items-center justify-center">
+                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" />
+                          <Server className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" strokeWidth={1.5} />
+                        </div> */}
+                        {/* <div>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Model Customization</span>
+                          <span className="block text-[#6B7280] text-xs">Adapt models to your domain</span>
+                        </div> */}
                       </Link>
                       <Link
-                        to="/solutions-new#value-realization"
+                        to="/solutions/value-realization"
                         className="mb-1"
                       >
                         <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
-                                  Value Realization
-                                </span>
-                              </div>
+                          <div className="font-medium flex items-center py-2 gap-1">
+                            <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                            <div className="ml-6">
+                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
+                                Value Realization
+                              </span>
                             </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
                           </div>
                         </div>
+                        {/* <div className="w-8 h-8 rounded-md bg-[#F4C430]/10 flex items-center justify-center">
+                          <Sparkles className="w-4 h-4 text-[#328CC1]" />
+                          <Zap className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                          <TrendingUp className="w-4 h-4 text-[#328CC1]" strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Value Realization</span>
+                          <span className="block text-[#6B7280] text-xs">End-to-end AI solutions</span>
+                        </div> */}
                       </Link>
                       <Link
-                        to="/solutions-new#deployment"
+                        to="/solutions/deployment"
+                        
                       >
                         <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <Rocket className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
-                                  Deployment
-                                </span>
-                              </div>
+                          <div className="font-medium flex items-center py-2 gap-1">
+                            <Rocket className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
+                            <div className="ml-6">
+                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
+                                Deployment
+                              </span>
                             </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
                           </div>
                         </div>
+                        {/* <div className="w-8 h-8 rounded-md bg-[#64748B]/10 flex items-center justify-center">
+                          <Server className="w-4 h-4 text-[#10B981]" />
+                          <Wrench className="w-4 h-4 text-[#000000]" />
+                          <Rocket className="w-4 h-4 text-[#10B981]" />
+                        </div>
+                        <div>
+                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Deployment</span>
+                          <span className="block text-[#6B7280] text-xs">GPU clusters for AI workloads</span>
+                        </div> */}
                       </Link>
                     </div>
                   </div>
@@ -471,37 +481,28 @@ const Header = () => {
             {mobileSubmenuOpen === 'solutions' && (
               <div className="mt-4 space-y-2 pl-4">
                 <Link
-                  to="/solutions-new#model-customization"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
+                  to="/solutions/model-customization"
+                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <div className="flex items-center gap-3">
-                    <SlidersHorizontal className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Model Customization</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
+                  <SlidersHorizontal className="w-4 h-4" strokeWidth={1.5} />
+                  <span>Model Customization</span>
                 </Link>
                 <Link
-                  to="/solutions-new#value-realization"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
+                  to="/solutions/value-realization"
+                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <div className="flex items-center gap-3">
-                    <TrendingUp className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Value Realization</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
+                  <TrendingUp className="w-4 h-4" strokeWidth={1.5} />
+                  <span>Value Realization</span>
                 </Link>
                 <Link
-                  to="/solutions-new#deployment"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
+                  to="/solutions/deployment"
+                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <div className="flex items-center gap-3">
-                    <Rocket className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Deployment</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
+                  <Rocket className="w-4 h-4" strokeWidth={1.5} />
+                  <span>Deployment</span>
                 </Link>
               </div>
             )}

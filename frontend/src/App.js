@@ -65,7 +65,6 @@ import TransparencyHumanRights from './pages/policies/TransparencyHumanRights';
 import PrivacyPolicy from './pages/policies/PrivacyPolicy';
 import TermsConditions from './pages/policies/TermsConditions';
 import JoinOurTeam from './pages/JoinOurTeam';
-import SolutionsNew from './pages/SolutionsNew';
 
 // Admin Pages
 import AdminLogin from './pages/admin/AdminLogin';
@@ -124,9 +123,6 @@ const AppLayout = () => {
           <Route path="/solutions/industry/government" element={<Government />} />
           <Route path="/solutions/industry/legal" element={<Legal />} />
           <Route path="/solutions/industry/healthcare" element={<Healthcare />} />
-          
-          {/* Solutions New Page */}
-          <Route path="/solutions-new" element={<SolutionsNew />} />
           
           {/* Solutions Fallback */}
           <Route path="/solutions/*" element={<Solutions />} />
