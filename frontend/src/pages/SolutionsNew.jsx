@@ -434,127 +434,174 @@ const SolutionsNew = () => {
             {/* Left Navigation Tabs */}
             <div className="lg:w-64 flex-shrink-0">
               <nav className="space-y-1">
-                <button className="w-full text-left px-4 py-3 text-[#1a1a1a] font-semibold border-b-2 border-[#FF8C00] flex items-center justify-between group">
+                <button 
+                  onClick={() => setActiveTab('ai-studio')}
+                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all ${
+                    activeTab === 'ai-studio' 
+                      ? 'text-[#1a1a1a] font-semibold border-b-2 border-[#FF8C00]' 
+                      : 'text-[#888888] hover:text-[#1a1a1a] border-b-2 border-transparent'
+                  }`}
+                >
                   <span>AI Studio</span>
-                  <ArrowRight className="w-4 h-4 text-[#FF8C00]" />
+                  {activeTab === 'ai-studio' && <ArrowRight className="w-4 h-4 text-[#FF8C00]" />}
                 </button>
-                <button className="w-full text-left px-4 py-3 text-[#888888] hover:text-[#1a1a1a] transition-colors">
-                  Packaged products
+                <button 
+                  onClick={() => setActiveTab('packaged-products')}
+                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all ${
+                    activeTab === 'packaged-products' 
+                      ? 'text-[#1a1a1a] font-semibold border-b-2 border-[#FF8C00]' 
+                      : 'text-[#888888] hover:text-[#1a1a1a] border-b-2 border-transparent'
+                  }`}
+                >
+                  <span>Packaged products</span>
+                  {activeTab === 'packaged-products' && <ArrowRight className="w-4 h-4 text-[#FF8C00]" />}
                 </button>
-                <button className="w-full text-left px-4 py-3 text-[#888888] hover:text-[#1a1a1a] transition-colors">
-                  Model customization
+                <button 
+                  onClick={() => setActiveTab('model-customization')}
+                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all ${
+                    activeTab === 'model-customization' 
+                      ? 'text-[#1a1a1a] font-semibold border-b-2 border-[#FF8C00]' 
+                      : 'text-[#888888] hover:text-[#1a1a1a] border-b-2 border-transparent'
+                  }`}
+                >
+                  <span>Model customization</span>
+                  {activeTab === 'model-customization' && <ArrowRight className="w-4 h-4 text-[#FF8C00]" />}
                 </button>
               </nav>
             </div>
 
-            {/* Right Content Area */}
-            <div className="flex-1 grid md:grid-cols-3 gap-6 lg:gap-8">
-              {/* Card 1: AI Studio */}
-              <div className="bg-white/90 rounded-xl p-6 shadow-sm border border-[#e8e6de]/50">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">AI Studio</h3>
-                <p className="text-sm text-[#555555] leading-relaxed mb-4">
-                  Deployable on public, private clouds or on your premises with support from our experts.
-                </p>
-                <code className="text-xs text-[#888888] font-mono block truncate">
-                  dd78abb3-30b9-4a9c-8550-d151232f0f77
-                </code>
-              </div>
+            {/* Right Content Area - Tab Content */}
+            <div className="flex-1">
+              {/* AI Studio Content */}
+              {activeTab === 'ai-studio' && (
+                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-md">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a]">AI Studio</h3>
+                    <code className="text-xs text-[#888888] font-mono">
+                      dd78abb3-30b9-4a9c-8550-d151232f0f77
+                    </code>
+                  </div>
+                  <p className="text-[#555555] text-base md:text-lg leading-relaxed">
+                    Deployable on public, private clouds or on your premises with support from our experts.
+                  </p>
+                </div>
+              )}
 
-              {/* Card 2: Packaged Products with Chat UI */}
-              <div className="bg-white/90 rounded-xl p-6 shadow-sm border border-[#e8e6de]/50">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">Packaged products</h3>
-                <p className="text-sm text-[#555555] leading-relaxed mb-4">
-                  To solve large scale use cases (e.g. internal chat, coding copilot).
-                </p>
-                
-                {/* Mini Chat UI */}
-                <div className="bg-[#1a1a1a] rounded-lg overflow-hidden">
-                  {/* Chat Header */}
-                  <div className="p-3 border-b border-[#333]">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-6 h-6 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold">A</div>
-                      <span className="text-white text-xs font-medium">Anastasia</span>
-                      <span className="text-[#888] text-xs ml-auto">08:00 AM</span>
+              {/* Packaged Products Content */}
+              {activeTab === 'packaged-products' && (
+                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-md">
+                  <div className="flex flex-col lg:flex-row gap-8">
+                    <div className="flex-1">
+                      <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-4">Packaged products</h3>
+                      <p className="text-[#555555] text-base md:text-lg leading-relaxed">
+                        To solve large scale use cases (e.g internal chat, coding copilot).
+                      </p>
                     </div>
-                    <p className="text-white/90 text-xs">Any task for today?</p>
-                  </div>
-                  
-                  {/* Chat Message */}
-                  <div className="p-3">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-6 h-6 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold">J</div>
-                      <span className="text-white text-xs font-medium">Johnathan</span>
-                      <span className="text-[#888] text-xs ml-auto">3 min ago</span>
+                    
+                    {/* Chat UI Simulation */}
+                    <div className="lg:w-80 relative">
+                      {/* B Logo */}
+                      <div className="absolute -top-4 -right-4 w-14 h-14 bg-[#FF8C00] rounded-xl border-2 border-[#1a1a1a] flex items-center justify-center z-20 shadow-lg">
+                        <span className="text-[#1a1a1a] font-bold text-2xl" style={{ WebkitTextStroke: '1px white' }}>B</span>
+                      </div>
+                      
+                      <div className="bg-[#1a1a1a] rounded-xl overflow-hidden shadow-lg">
+                        {/* Chat Message 1 */}
+                        <div className="p-4 border-b border-[#333]">
+                          <div className="flex items-center gap-3 mb-2">
+                            <div className="w-8 h-8 rounded-full border-2 border-[#FF8C00] bg-[#333] flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">A</span>
+                            </div>
+                            <span className="text-white text-sm font-medium">Anastasia</span>
+                            <span className="text-[#888] text-xs ml-auto">08:00 AM</span>
+                          </div>
+                          <p className="text-white/90 text-sm ml-11">Any task for today?</p>
+                        </div>
+                        
+                        {/* Chat Message 2 */}
+                        <div className="p-4">
+                          <div className="flex items-center gap-3 mb-2">
+                            <div className="w-8 h-8 rounded-full border-2 border-[#FF8C00] bg-[#333] flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">J</span>
+                            </div>
+                            <span className="text-white text-sm font-medium">Johnathan</span>
+                            <span className="text-[#888] text-xs ml-auto">3 minutes ago</span>
+                          </div>
+                          <p className="text-white/90 text-sm ml-11 leading-relaxed">
+                            Yes, you have 3 meetings and 5 reminders on your Google calendar and Slack
+                          </p>
+                        </div>
+                        
+                        {/* Chat Input */}
+                        <div className="p-3 border-t border-[#333] flex gap-2">
+                          <input 
+                            type="text" 
+                            placeholder="Type here..." 
+                            className="flex-1 bg-[#333] text-white text-sm px-4 py-2.5 rounded-lg outline-none"
+                            readOnly
+                          />
+                          <button className="bg-[#FF8C00] text-white text-sm px-4 py-2.5 rounded-lg font-medium hover:bg-[#e67e00] transition-colors">
+                            Send
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-white/90 text-xs leading-relaxed">Yes, you have 3 meetings and 5 reminders on your calendar</p>
-                  </div>
-                  
-                  {/* Chat Input */}
-                  <div className="p-2 border-t border-[#333] flex gap-2">
-                    <input 
-                      type="text" 
-                      placeholder="Type here..." 
-                      className="flex-1 bg-[#333] text-white text-xs px-3 py-2 rounded outline-none"
-                      readOnly
-                    />
-                    <button className="bg-[#FF8C00] text-white text-xs px-3 py-2 rounded font-medium">
-                      Send
-                    </button>
                   </div>
                 </div>
-                
-                {/* B Logo */}
-                <div className="absolute top-4 right-4 w-10 h-10 bg-[#FF8C00] rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">B</span>
-                </div>
-              </div>
+              )}
 
-              {/* Card 3: Model Customization with Diagram */}
-              <div className="bg-white/90 rounded-xl p-6 shadow-sm border border-[#e8e6de]/50 relative">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">Model customization</h3>
-                <p className="text-sm text-[#555555] leading-relaxed mb-6">
-                  Including professional services for model customization up to co-training to tackle the most complex use cases.
-                </p>
-                
-                {/* Connection Diagram */}
-                <div className="relative h-48 flex items-center justify-center">
-                  {/* Central B Logo */}
-                  <div className="w-16 h-16 bg-[#FF8C00] rounded-xl flex items-center justify-center z-10">
-                    <span className="text-white font-bold text-2xl">B</span>
+              {/* Model Customization Content */}
+              {activeTab === 'model-customization' && (
+                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-md">
+                  <div className="flex flex-col lg:flex-row gap-8">
+                    <div className="flex-1">
+                      <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-4">Model customization</h3>
+                      <p className="text-[#555555] text-base md:text-lg leading-relaxed">
+                        Including professional services for model customization up to co-training to tackle the most complex use cases.
+                      </p>
+                    </div>
+                    
+                    {/* Connection Diagram */}
+                    <div className="lg:w-80 relative h-64 flex items-center justify-center">
+                      {/* Central B Logo */}
+                      <div className="w-20 h-20 bg-[#FF8C00] rounded-xl border-2 border-[#1a1a1a] flex items-center justify-center z-10 shadow-lg">
+                        <span className="text-[#1a1a1a] font-bold text-3xl" style={{ WebkitTextStroke: '1px white' }}>B</span>
+                      </div>
+                      
+                      {/* Connection Nodes */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+                        <span className="text-xs text-[#555555] font-medium">Pet Owner</span>
+                        <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
+                      </div>
+                      <div className="absolute top-4 right-4 flex flex-col items-center gap-1">
+                        <span className="text-xs text-[#555555] font-medium">Billing</span>
+                        <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
+                      </div>
+                      <div className="absolute top-1/2 left-0 -translate-y-1/2 flex items-center gap-1">
+                        <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
+                        <span className="text-xs text-[#555555] font-medium">Employee</span>
+                      </div>
+                      <div className="absolute bottom-4 left-4 flex flex-col items-center gap-1">
+                        <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
+                        <span className="text-xs text-[#555555] font-medium">Payment</span>
+                      </div>
+                      <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1">
+                        <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
+                        <span className="text-xs text-[#555555] font-medium">Geography</span>
+                      </div>
+                      
+                      {/* Connection Lines - SVG */}
+                      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+                        <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="#1a1a1a" strokeWidth="1" />
+                        <line x1="50%" y1="50%" x2="85%" y2="20%" stroke="#1a1a1a" strokeWidth="1" />
+                        <line x1="50%" y1="50%" x2="8%" y2="50%" stroke="#1a1a1a" strokeWidth="1" />
+                        <line x1="50%" y1="50%" x2="18%" y2="82%" stroke="#1a1a1a" strokeWidth="1" />
+                        <line x1="50%" y1="50%" x2="82%" y2="82%" stroke="#1a1a1a" strokeWidth="1" />
+                      </svg>
+                    </div>
                   </div>
-                  
-                  {/* Connection Nodes */}
-                  <div className="absolute top-2 right-4 flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
-                    <span className="text-xs text-[#555555]">Pet Owner</span>
-                  </div>
-                  <div className="absolute top-8 right-8 flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
-                    <span className="text-xs text-[#555555]">Billing</span>
-                  </div>
-                  <div className="absolute top-1/2 left-2 -translate-y-1/2 flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
-                    <span className="text-xs text-[#555555]">Employee</span>
-                  </div>
-                  <div className="absolute bottom-8 left-4 flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
-                    <span className="text-xs text-[#555555]">Payment</span>
-                  </div>
-                  <div className="absolute bottom-2 right-4 flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
-                    <span className="text-xs text-[#555555]">Geography</span>
-                  </div>
-                  
-                  {/* Connection Lines - SVG */}
-                  <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-                    <line x1="50%" y1="50%" x2="85%" y2="15%" stroke="#e8e6de" strokeWidth="1" />
-                    <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="#e8e6de" strokeWidth="1" />
-                    <line x1="50%" y1="50%" x2="15%" y2="50%" stroke="#e8e6de" strokeWidth="1" />
-                    <line x1="50%" y1="50%" x2="20%" y2="75%" stroke="#e8e6de" strokeWidth="1" />
-                    <line x1="50%" y1="50%" x2="80%" y2="85%" stroke="#e8e6de" strokeWidth="1" />
-                  </svg>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
