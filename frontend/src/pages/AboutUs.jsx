@@ -694,7 +694,7 @@ const AboutUs = () => {
                 }}
                 data-testid="our-mission-description"
               >
-                We are driven to move AI ahead for both the open ecosystem and enterprise users. Our focus is on building open-weight models that match the performance of closed, proprietary systems. As we continue shaping the future of AI, there is much more innovation on the way.
+               We build AI systems that advance both the open ecosystem and enterprise deployment. Our focus is on engineering open-weight models that match the performance and reliability of closed, proprietary systems. At Blubridge, progress in AI is treated as an engineering discipline — driven by training rigor, systems-level optimization, and end-to-end control across data, models, and deployment.
               </p>
               
               {/* Read More Button - Dark navy background */}
