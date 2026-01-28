@@ -471,28 +471,37 @@ const Header = () => {
             {mobileSubmenuOpen === 'solutions' && (
               <div className="mt-4 space-y-2 pl-4">
                 <Link
-                  to="/solutions/model-customization"
-                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
+                  to="/solutions-new#model-customization"
+                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <SlidersHorizontal className="w-4 h-4" strokeWidth={1.5} />
-                  <span>Model Customization</span>
+                  <div className="flex items-center gap-3">
+                    <SlidersHorizontal className="w-4 h-4" strokeWidth={1.5} />
+                    <span>Model Customization</span>
+                  </div>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
                 </Link>
                 <Link
-                  to="/solutions/value-realization"
-                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
+                  to="/solutions-new#value-realization"
+                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <TrendingUp className="w-4 h-4" strokeWidth={1.5} />
-                  <span>Value Realization</span>
+                  <div className="flex items-center gap-3">
+                    <TrendingUp className="w-4 h-4" strokeWidth={1.5} />
+                    <span>Value Realization</span>
+                  </div>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
                 </Link>
                 <Link
-                  to="/solutions/deployment"
-                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
+                  to="/solutions-new#deployment"
+                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Rocket className="w-4 h-4" strokeWidth={1.5} />
-                  <span>Deployment</span>
+                  <div className="flex items-center gap-3">
+                    <Rocket className="w-4 h-4" strokeWidth={1.5} />
+                    <span>Deployment</span>
+                  </div>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
                 </Link>
               </div>
             )}
