@@ -203,53 +203,150 @@ const SolutionsNew = () => {
         </div>
       </section>
 
-      {/* Section 3: Deployment - Feature Highlight */}
-      <section id="deployment" className="py-16 md:py-24 bg-[#fffdf7]">
-        <div className="container-custom">
-          {/* Codestral Story Section */}
-          <div className="bg-[#FFF8E7] rounded-2xl p-8 md:p-12 relative overflow-hidden border-l-4 border-[#FF8C00]">
-            <div className="max-w-3xl">
-              <span className="text-sm font-medium text-[#FF8C00] uppercase tracking-wide mb-4 block">
-                Case Study
-              </span>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-4">
-                The Codestral story
-              </h3>
-              <p className="text-[#555555] leading-relaxed mb-6">
-                Learn how we developed Codestral, a state-of-the-art code generation model, using our custom training infrastructure and optimized deployment platform.
-              </p>
-              <Link 
-                to="/research"
-                className="inline-flex items-center gap-2 text-[#007AFF] font-medium hover:underline group"
-              >
-                <span>Read full story</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+      {/* Section 3: Deployment - What's available for self-deployment? */}
+      <section id="deployment" className="py-16 md:py-24 bg-[#fffdf7] relative">
+        {/* Grid Background Pattern */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #F4C430 1px, transparent 1px),
+              linear-gradient(to bottom, #F4C430 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+        
+        <div className="container-custom relative z-10">
+          {/* Section Heading */}
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1a1a1a] mb-12 leading-tight">
+            What's available for self-deployment?
+          </h2>
+
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+            {/* Left Navigation Tabs */}
+            <div className="lg:w-64 flex-shrink-0">
+              <nav className="space-y-1">
+                <button className="w-full text-left px-4 py-3 text-[#1a1a1a] font-semibold border-b-2 border-[#FF8C00] flex items-center justify-between group">
+                  <span>AI Studio</span>
+                  <ArrowRight className="w-4 h-4 text-[#FF8C00]" />
+                </button>
+                <button className="w-full text-left px-4 py-3 text-[#888888] hover:text-[#1a1a1a] transition-colors">
+                  Packaged products
+                </button>
+                <button className="w-full text-left px-4 py-3 text-[#888888] hover:text-[#1a1a1a] transition-colors">
+                  Model customization
+                </button>
+              </nav>
             </div>
-          </div>
 
-          {/* Real-world benefits */}
-          <div className="mt-16">
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1a1a1a] mb-12 leading-tight">
-              Real-world benefits
-            </h2>
+            {/* Right Content Area */}
+            <div className="flex-1 grid md:grid-cols-3 gap-6 lg:gap-8">
+              {/* Card 1: AI Studio */}
+              <div className="bg-white/90 rounded-xl p-6 shadow-sm border border-[#e8e6de]/50">
+                <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">AI Studio</h3>
+                <p className="text-sm text-[#555555] leading-relaxed mb-4">
+                  Deployable on public, private clouds or on your premises with support from our experts.
+                </p>
+                <code className="text-xs text-[#888888] font-mono block truncate">
+                  dd78abb3-30b9-4a9c-8550-d151232f0f77
+                </code>
+              </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-[#FFF8E7] rounded-xl p-6 border border-[#F4C430]/20">
-                <div className="text-3xl md:text-4xl font-bold text-[#FF8C00] mb-2">40%</div>
-                <div className="text-sm text-[#555555]">Accuracy Improvement</div>
+              {/* Card 2: Packaged Products with Chat UI */}
+              <div className="bg-white/90 rounded-xl p-6 shadow-sm border border-[#e8e6de]/50">
+                <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">Packaged products</h3>
+                <p className="text-sm text-[#555555] leading-relaxed mb-4">
+                  To solve large scale use cases (e.g. internal chat, coding copilot).
+                </p>
+                
+                {/* Mini Chat UI */}
+                <div className="bg-[#1a1a1a] rounded-lg overflow-hidden">
+                  {/* Chat Header */}
+                  <div className="p-3 border-b border-[#333]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-6 h-6 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold">A</div>
+                      <span className="text-white text-xs font-medium">Anastasia</span>
+                      <span className="text-[#888] text-xs ml-auto">08:00 AM</span>
+                    </div>
+                    <p className="text-white/90 text-xs">Any task for today?</p>
+                  </div>
+                  
+                  {/* Chat Message */}
+                  <div className="p-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-6 h-6 rounded-full bg-[#FF8C00] flex items-center justify-center text-white text-xs font-bold">J</div>
+                      <span className="text-white text-xs font-medium">Johnathan</span>
+                      <span className="text-[#888] text-xs ml-auto">3 min ago</span>
+                    </div>
+                    <p className="text-white/90 text-xs leading-relaxed">Yes, you have 3 meetings and 5 reminders on your calendar</p>
+                  </div>
+                  
+                  {/* Chat Input */}
+                  <div className="p-2 border-t border-[#333] flex gap-2">
+                    <input 
+                      type="text" 
+                      placeholder="Type here..." 
+                      className="flex-1 bg-[#333] text-white text-xs px-3 py-2 rounded outline-none"
+                      readOnly
+                    />
+                    <button className="bg-[#FF8C00] text-white text-xs px-3 py-2 rounded font-medium">
+                      Send
+                    </button>
+                  </div>
+                </div>
+                
+                {/* B Logo */}
+                <div className="absolute top-4 right-4 w-10 h-10 bg-[#FF8C00] rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">B</span>
+                </div>
               </div>
-              <div className="bg-[#FFF8E7] rounded-xl p-6 border border-[#F4C430]/20">
-                <div className="text-3xl md:text-4xl font-bold text-[#FF8C00] mb-2">3x</div>
-                <div className="text-sm text-[#555555]">Faster Deployment</div>
-              </div>
-              <div className="bg-[#FFF8E7] rounded-xl p-6 border border-[#F4C430]/20">
-                <div className="text-3xl md:text-4xl font-bold text-[#FF8C00] mb-2">60%</div>
-                <div className="text-sm text-[#555555]">Cost Reduction</div>
-              </div>
-              <div className="bg-[#FFF8E7] rounded-xl p-6 border border-[#F4C430]/20">
-                <div className="text-3xl md:text-4xl font-bold text-[#FF8C00] mb-2">99.9%</div>
-                <div className="text-sm text-[#555555]">Uptime SLA</div>
+
+              {/* Card 3: Model Customization with Diagram */}
+              <div className="bg-white/90 rounded-xl p-6 shadow-sm border border-[#e8e6de]/50 relative">
+                <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">Model customization</h3>
+                <p className="text-sm text-[#555555] leading-relaxed mb-6">
+                  Including professional services for model customization up to co-training to tackle the most complex use cases.
+                </p>
+                
+                {/* Connection Diagram */}
+                <div className="relative h-48 flex items-center justify-center">
+                  {/* Central B Logo */}
+                  <div className="w-16 h-16 bg-[#FF8C00] rounded-xl flex items-center justify-center z-10">
+                    <span className="text-white font-bold text-2xl">B</span>
+                  </div>
+                  
+                  {/* Connection Nodes */}
+                  <div className="absolute top-2 right-4 flex items-center gap-2">
+                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
+                    <span className="text-xs text-[#555555]">Pet Owner</span>
+                  </div>
+                  <div className="absolute top-8 right-8 flex items-center gap-2">
+                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
+                    <span className="text-xs text-[#555555]">Billing</span>
+                  </div>
+                  <div className="absolute top-1/2 left-2 -translate-y-1/2 flex items-center gap-2">
+                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
+                    <span className="text-xs text-[#555555]">Employee</span>
+                  </div>
+                  <div className="absolute bottom-8 left-4 flex items-center gap-2">
+                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
+                    <span className="text-xs text-[#555555]">Payment</span>
+                  </div>
+                  <div className="absolute bottom-2 right-4 flex items-center gap-2">
+                    <div className="w-4 h-4 bg-[#1a1a1a] rounded"></div>
+                    <span className="text-xs text-[#555555]">Geography</span>
+                  </div>
+                  
+                  {/* Connection Lines - SVG */}
+                  <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+                    <line x1="50%" y1="50%" x2="85%" y2="15%" stroke="#e8e6de" strokeWidth="1" />
+                    <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="#e8e6de" strokeWidth="1" />
+                    <line x1="50%" y1="50%" x2="15%" y2="50%" stroke="#e8e6de" strokeWidth="1" />
+                    <line x1="50%" y1="50%" x2="20%" y2="75%" stroke="#e8e6de" strokeWidth="1" />
+                    <line x1="50%" y1="50%" x2="80%" y2="85%" stroke="#e8e6de" strokeWidth="1" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
