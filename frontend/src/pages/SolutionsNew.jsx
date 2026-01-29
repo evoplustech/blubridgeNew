@@ -325,8 +325,8 @@ const SolutionsNew = () => {
       <section id="value-realization" className="py-16 md:py-24 bg-[#fffdf7]">
         <div className="container-custom">
           {/* Two Column Layout: Left Text + Right Cards */}
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            {/* Left Column: Heading and CTA */}
+          <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+            {/* Left Column: Heading and CTA - Vertically Centered */}
             <div className="lg:w-1/2 lg:pr-8">
               <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-4 leading-tight">
                 We start from your current AI maturity and engineer toward deployable systems.
