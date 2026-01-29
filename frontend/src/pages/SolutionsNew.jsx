@@ -410,7 +410,7 @@ const SolutionsNew = () => {
         <div className="container-custom">
           {/* Section Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-12 leading-tight max-w-4xl">
-            Deployment Tooling → Serving Frameworks Infrastructure Tracks
+            What self-deployment capabilities are under development?
           </h2>
 
           {/* Tabbed Layout */}
@@ -466,7 +466,7 @@ const SolutionsNew = () => {
               {activeDeploymentTab === 'deployment-tooling' && (
                 <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
-                    Self-Deployment Capability — Under Active Development
+                    Self-Deployment Tooling
                   </h3>
                   
                   <p className="text-base text-[#555555] leading-relaxed">
@@ -479,7 +479,7 @@ const SolutionsNew = () => {
               {activeDeploymentTab === 'serving-frameworks' && (
                 <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
-                    Serving Frameworks — In Development
+                    Serving Frameworks
                   </h3>
                   
                   <p className="text-base text-[#555555] leading-relaxed mb-6">
@@ -498,7 +498,7 @@ const SolutionsNew = () => {
               {activeDeploymentTab === 'infrastructure-tracks' && (
                 <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
-                    Infrastructure Tracks — Under Engineering
+                    Infrastructure Tracks
                   </h3>
                   
                   <p className="text-base text-[#555555] leading-relaxed">
