@@ -338,105 +338,13 @@ const Header = () => {
               )}
             </div>
             
-            {/* NEW Solutions Dropdown (Sample 2) - Links to /solutions-new */}
-            <div 
-              className="relative"
-              onMouseEnter={() => { setActiveDropdown('solutions-new'); setTimeout(() => setDropdownVisible(true), 10); }}
-              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
+            {/* NEW Solutions - Direct Link to /solutions-new */}
+            <Link 
+              to="/solutions-new"
+              className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors font-medium"
             >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-                <span>Solutions</span>
-                <ChevronDown 
-                  className="w-4 h-4 transition-transform duration-250" 
-                  style={{ transform: activeDropdown === 'solutions-new' ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                />
-              </button>
-              
-              {activeDropdown === 'solutions-new' && (
-                <div 
-                  className="absolute pt-3" 
-                  style={{ 
-                    width: '320px', 
-                    left: '50%', 
-                    transform: 'translateX(-50%)', 
-                    top: '100%', 
-                    zIndex: 1000 
-                  }}
-                >
-                  <div 
-                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] overflow-hidden p-4"
-                    style={{ 
-                      opacity: dropdownVisible ? 1 : 0,
-                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
-                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
-                    }}
-                  >
-                    {/* Dropdown Header with Logo */}
-                    <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#e8e6de]">
-                      <img 
-                        src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/nfrmzez2_b-center.png"
-                        alt="BluBridge"
-                        className="h-8 w-auto"
-                      />
-                      <span className="text-[#0B1F3B] font-semibold text-sm">Enterprise Solutions</span>
-                    </div>
-                    <div className="space-y-1">
-                      <Link
-                        to="/solutions-new#model-customization"
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
-                                  Model Customization
-                                </span>
-                              </div>
-                            </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
-                          </div>
-                        </div>
-                      </Link>
-                      <Link
-                        to="/solutions-new#value-realization"
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
-                                  Value Realization
-                                </span>
-                              </div>
-                            </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
-                          </div>
-                        </div>
-                      </Link>
-                      <Link
-                        to="/solutions-new#deployment"
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <Rocket className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
-                                  Deployment
-                                </span>
-                              </div>
-                            </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+              Solutions
+            </Link>
 
             {/* Products Dropdown */}
             <div 
