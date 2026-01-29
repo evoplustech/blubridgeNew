@@ -324,54 +324,82 @@ const SolutionsNew = () => {
       {/* Section: Value Realization */}
       <section id="value-realization" className="py-16 md:py-24 bg-[#fffdf7]">
         <div className="container-custom">
-          {/* Section Heading */}
-          <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-3 leading-tight max-w-4xl">
-              We start from your current AI maturity and engineer toward deployable systems. 
-            </h2>
-            <p clasName="text-xl">From use-case discovery through model development and deployment validation, BluBridge engineering teams remain directly engaged across the full lifecycle.</p>
-            <Link 
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B1F3B] mt-6 text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
-            >
-              <span>Talk to our experts</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Three Column Cards */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Card 1: Proof of Value */}
-            <div className="bg-[#f9f7f0] rounded-xl p-6 lg:p-8 border border-[#e8e6de]">
-              <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
-                Proof of Value
-              </h3>
-              
-              <p className="text-sm text-[#555555] leading-relaxed">
-                We help define measurable success criteria for AI adoption and validate use cases through feasibility analysis, controlled prototypes, and evaluation against your data, system constraints, and technical objectives.
+          {/* Two Column Layout: Left Text + Right Cards */}
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            {/* Left Column: Heading and CTA */}
+            <div className="lg:w-1/2 lg:pr-8">
+              <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-4 leading-tight">
+                We start from your current AI maturity and engineer toward deployable systems.
+              </h2>
+              <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8">
+                From use-case discovery through model development and deployment validation, BluBridge engineering teams remain directly engaged across the full lifecycle.
               </p>
+              <Link 
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
+              >
+                <span>Talk to our experts</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
-            {/* Card 2: Custom Training */}
-            <div className="bg-[#f9f7f0] rounded-xl p-6 lg:p-8 border border-[#e8e6de]">
-              <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
-                Custom Training
-              </h3>
-              
-              <p className="text-sm text-[#555555] leading-relaxed">
-                We help build domain-customized models using your proprietary data through structured fine-tuning and training workflows aligned with defined technical success criteria.
-              </p>
-            </div>
+            {/* Right Column: Three Stacked Cards */}
+            <div className="lg:w-1/2 space-y-4">
+              {/* Card 1: Proof of Value */}
+              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-[#0B1F3B] flex items-center justify-center flex-shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                    <path d="M3 3v18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M18 17l-5-5-4 4-3-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">
+                    Proof of Value
+                  </h3>
+                  <p className="text-sm text-[#555555] leading-relaxed">
+                    We help define measurable success criteria for AI adoption and validate use cases through feasibility analysis, controlled prototypes, and evaluation against your data, system constraints, and technical objectives.
+                  </p>
+                </div>
+              </div>
 
-            {/* Card 3: Deployment Engineering */}
-            <div className="bg-[#f9f7f0] rounded-xl p-6 lg:p-8 border border-[#e8e6de]">
-              <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
-                Deployment Engineering
-              </h3>
-              
-              <p className="text-sm text-[#555555] leading-relaxed">
-                We help design and implement model deployment across managed cloud environments (including hyperscalers), private infrastructure, and controlled on-prem environments, with deployment patterns selected based on performance, security, and operational constraints.
-              </p>
+              {/* Card 2: Custom Training */}
+              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-[#0B1F3B] flex items-center justify-center flex-shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                    <path d="M12 20h9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">
+                    Custom Training
+                  </h3>
+                  <p className="text-sm text-[#555555] leading-relaxed">
+                    We help build domain-customized models using your proprietary data through structured fine-tuning and training workflows aligned with defined technical success criteria.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3: Deployment Engineering */}
+              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-[#0B1F3B] flex items-center justify-center flex-shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-[#0B1F3B] mb-2">
+                    Deployment Engineering
+                  </h3>
+                  <p className="text-sm text-[#555555] leading-relaxed">
+                    We help design and implement model deployment across managed cloud environments (including hyperscalers), private infrastructure, and controlled on-prem environments, with deployment patterns selected based on performance, security, and operational constraints.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
