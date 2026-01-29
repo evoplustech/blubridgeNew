@@ -1496,7 +1496,6 @@ Bringing models from lab to live with enterprise-grade reliability and scale. La
       <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
-            {/* Access thousands of GPUs tailored to your requirements. */}
             Know more about our Research 
           </h2>
           
@@ -1506,14 +1505,6 @@ Bringing models from lab to live with enterprise-grade reliability and scale. La
                 Explore
               </Button>
             </Link>
-            {/* <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
-                Reserve GPUs
-              </Button>
-            </Link>
-            <Link to="/contact" className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium px-6 py-0">
-              Contact <ArrowRight className="w-4 h-4" />
-            </Link> */}
           </div>
         </div>
       </section>

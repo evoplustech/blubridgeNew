@@ -518,6 +518,21 @@ const SolutionsNew = () => {
           </div>
         </div>
       </section>
+      {/* Final CTA Strip */}
+      <section className="py-16 bg-[#0B1F3B]">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
+            Know more about our Research 
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/research">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+                Explore
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
