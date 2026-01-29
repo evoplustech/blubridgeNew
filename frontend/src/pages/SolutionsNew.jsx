@@ -8,13 +8,20 @@ const SolutionsNew = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('ai-studio');
 
-  // Smooth scroll to anchor on page load
+  // Smooth scroll to anchor on page load with header offset
   useEffect(() => {
     if (location.hash) {
       const element = document.getElementById(location.hash.slice(1));
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const headerOffset = 120; // Account for fixed header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }, 100);
       }
     }
