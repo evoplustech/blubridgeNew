@@ -645,7 +645,7 @@ const SolutionsNew = () => {
               linear-gradient(to right, #F4C430 1px, transparent 1px),
               linear-gradient(to bottom, #F4C430 1px, transparent 1px)
             `,
-            backgroundSize: '40px 40px'
+            backgroundSize: '37px 37px'
           }}
         />
         
@@ -699,7 +699,7 @@ const SolutionsNew = () => {
             <div className="flex-1">
               {/* AI Studio Content */}
               {activeTab === 'ai-studio' && (
-                <div className="bg-[#fffdf7] rounded-2xl shadow-md min-h-[350px] p-8 border-[#efede5] border-1">
+                <div className="bg-[#fffdf7] rounded-2xl shadow-md min-h-[350px] p-8" style={{ border:'1px solid rgb(236, 233, 220)'}}>
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a]">AI Studio</h3>
                     <code className="text-xs text-[#888888] font-mono">
