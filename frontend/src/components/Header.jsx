@@ -227,19 +227,19 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
 
-             {/* Solutions Dropdown */}
+            {/* Solutions Dropdown - Hover-based, links to /solutions-new anchors */}
             <div 
               className="relative"
               onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
               onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
             >
-              {/* <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
                 <span>Solutions</span>
                 <ChevronDown 
                   className="w-4 h-4 transition-transform duration-250" 
                   style={{ transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0deg)' }}
                 />
-              </button> */}
+              </button>
               
               {activeDropdown === 'solutions' && (
                 <div 
@@ -260,129 +260,6 @@ const Header = () => {
                       transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
-                    <div className="space-y-1">
-                      <Link
-                        to="/solutions/model-customization"
-                      >
-                       <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1">
-                            <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                            <div className="ml-6">
-                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
-                                Model Customization
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        {/* <div className="w-8 h-8 rounded-md bg-[#1E40AF]/10 flex items-center justify-center">
-                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" />
-                          <Server className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                          <SlidersHorizontal className="w-4 h-4 text-[#8B5CF6]" strokeWidth={1.5} />
-                        </div> */}
-                        {/* <div>
-                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Model Customization</span>
-                          <span className="block text-[#6B7280] text-xs">Adapt models to your domain</span>
-                        </div> */}
-                      </Link>
-                      <Link
-                        to="/solutions/value-realization"
-                        className="mb-1"
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1">
-                            <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                            <div className="ml-6">
-                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
-                                Value Realization
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        {/* <div className="w-8 h-8 rounded-md bg-[#F4C430]/10 flex items-center justify-center">
-                          <Sparkles className="w-4 h-4 text-[#328CC1]" />
-                          <Zap className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                          <TrendingUp className="w-4 h-4 text-[#328CC1]" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Value Realization</span>
-                          <span className="block text-[#6B7280] text-xs">End-to-end AI solutions</span>
-                        </div> */}
-                      </Link>
-                      <Link
-                        to="/solutions/deployment"
-                        
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1">
-                            <Rocket className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                            <div className="ml-6">
-                              <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
-                                Deployment
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        {/* <div className="w-8 h-8 rounded-md bg-[#64748B]/10 flex items-center justify-center">
-                          <Server className="w-4 h-4 text-[#10B981]" />
-                          <Wrench className="w-4 h-4 text-[#000000]" />
-                          <Rocket className="w-4 h-4 text-[#10B981]" />
-                        </div>
-                        <div>
-                          <span className="block text-[#0B1F3B] font-medium text-sm group-hover:text-[#328CC1]">Deployment</span>
-                          <span className="block text-[#6B7280] text-xs">GPU clusters for AI workloads</span>
-                        </div> */}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            
-            {/* NEW Solutions Dropdown (Sample 2) - Links to /solutions-new */}
-            <div 
-              className="relative"
-              onMouseEnter={() => { setActiveDropdown('solutions-new'); setTimeout(() => setDropdownVisible(true), 10); }}
-              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
-            >
-              <Link 
-                to="/solutions-new"
-                className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors"
-              >
-                <span>Solutions</span>
-                <ChevronDown 
-                  className="w-4 h-4 transition-transform duration-250" 
-                  style={{ transform: activeDropdown === 'solutions-new' ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                />
-              </Link>
-              
-              {activeDropdown === 'solutions-new' && (
-                <div 
-                  className="absolute pt-3" 
-                  style={{ 
-                    width: '320px', 
-                    left: '50%', 
-                    transform: 'translateX(-50%)', 
-                    top: '100%', 
-                    zIndex: 1000 
-                  }}
-                >
-                  <div 
-                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] overflow-hidden p-4"
-                    style={{ 
-                      opacity: dropdownVisible ? 1 : 0,
-                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
-                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
-                    }}
-                  >
-                    {/* Dropdown Header with Logo */}
-                    {/* <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#e8e6de]">
-                      <img 
-                        src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/nfrmzez2_b-center.png"
-                        alt="BluBridge"
-                        className="h-8 w-auto"
-                      />
-                      <span className="text-[#0B1F3B] font-semibold text-sm">Enterprise Solutions</span>
-                    </div> */}
                     <div className="space-y-1">
                       <Link
                         to="/solutions-new#model-customization"
