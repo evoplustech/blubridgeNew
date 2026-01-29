@@ -268,45 +268,104 @@ const SolutionsNew = () => {
       {/* Section: Deployment */}
       <section id="deployment" className="py-16 md:py-24 bg-[#efede5]">
         <div className="container-custom">
-          {/* Three Column Layout for Deployment Tracks */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Card 1: Self-Deployment Capability */}
-            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-sm border border-[#e8e6de]">
-              <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
-                Self-Deployment Capability — Under Active Development
-              </h3>
-              
-              <p className="text-sm text-[#555555] leading-relaxed">
-                BluBridge is building internal deployment tooling and model serving workflows to support controlled self-hosted and private infrastructure model deployments. Current engineering efforts focus on deployment configuration patterns, runtime setup, performance profiling, and validation procedures so that model serving can be executed in reproducible and monitored environments. These self-deployment capabilities are presently in engineering and validation stages and are not yet available as packaged external releases.
-              </p>
+          {/* Section Heading */}
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-12 leading-tight">
+            Deployment Tooling → Serving Frameworks Infrastructure Tracks
+          </h2>
+
+          {/* Tabbed Layout */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            {/* Left: Vertical Tab Navigation */}
+            <div className="lg:w-72 flex-shrink-0">
+              <nav className="space-y-2">
+                <button 
+                  onClick={() => setActiveDeploymentTab('deployment-tooling')}
+                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all rounded-lg ${
+                    activeDeploymentTab === 'deployment-tooling' 
+                      ? 'text-[#0B1F3B] font-semibold bg-[#fffdf7]' 
+                      : 'text-[#888888] hover:text-[#0B1F3B] hover:bg-[#f5f3eb]'
+                  }`}
+                >
+                  <span>Deployment Tooling</span>
+                  {activeDeploymentTab === 'deployment-tooling' && (
+                    <span className="text-[#F4C430] font-bold">→</span>
+                  )}
+                </button>
+                <button 
+                  onClick={() => setActiveDeploymentTab('serving-frameworks')}
+                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all rounded-lg ${
+                    activeDeploymentTab === 'serving-frameworks' 
+                      ? 'text-[#0B1F3B] font-semibold bg-[#fffdf7]' 
+                      : 'text-[#888888] hover:text-[#0B1F3B] hover:bg-[#f5f3eb]'
+                  }`}
+                >
+                  <span>Serving Frameworks</span>
+                  {activeDeploymentTab === 'serving-frameworks' && (
+                    <span className="text-[#F4C430] font-bold">→</span>
+                  )}
+                </button>
+                <button 
+                  onClick={() => setActiveDeploymentTab('infrastructure-tracks')}
+                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all rounded-lg ${
+                    activeDeploymentTab === 'infrastructure-tracks' 
+                      ? 'text-[#0B1F3B] font-semibold bg-[#fffdf7]' 
+                      : 'text-[#888888] hover:text-[#0B1F3B] hover:bg-[#f5f3eb]'
+                  }`}
+                >
+                  <span>Infrastructure Tracks</span>
+                  {activeDeploymentTab === 'infrastructure-tracks' && (
+                    <span className="text-[#F4C430] font-bold">→</span>
+                  )}
+                </button>
+              </nav>
             </div>
 
-            {/* Card 2: Serving Frameworks */}
-            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-sm border border-[#e8e6de]">
-              <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
-                Serving Frameworks — In Development
-              </h3>
-              
-              <p className="text-sm text-[#555555] leading-relaxed mb-5">
-                BluBridge is developing internal model serving frameworks to standardize inference configuration, runtime behavior, and performance measurement across controlled environments. Current engineering work focuses on serving configuration patterns, runtime controls, profiling methods, and observability integration so that model execution can be measured, tuned, and reproduced reliably. These frameworks are presently limited to internal experiments and pilot-stage systems and are not yet released as external tooling.
-              </p>
-              
-              <div className="pt-4 border-t border-[#e8e6de]">
-                <span className="text-xs text-[#888888] font-medium uppercase tracking-wide">
-                  Availability: Internal use and limited pilot programs.
-                </span>
-              </div>
-            </div>
+            {/* Right: Tab Content */}
+            <div className="flex-1">
+              {/* Deployment Tooling Content */}
+              {activeDeploymentTab === 'deployment-tooling' && (
+                <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
+                    Self-Deployment Capability — Under Active Development
+                  </h3>
+                  
+                  <p className="text-base text-[#555555] leading-relaxed">
+                    BluBridge is building internal deployment tooling and model serving workflows to support controlled self-hosted and private infrastructure model deployments. Current engineering efforts focus on deployment configuration patterns, runtime setup, performance profiling, and validation procedures so that model serving can be executed in reproducible and monitored environments. These self-deployment capabilities are presently in engineering and validation stages and are not yet available as packaged external releases.
+                  </p>
+                </div>
+              )}
 
-            {/* Card 3: Infrastructure Tracks */}
-            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-sm border border-[#e8e6de]">
-              <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
-                Infrastructure Tracks — Under Engineering
-              </h3>
-              
-              <p className="text-sm text-[#555555] leading-relaxed">
-                BluBridge is developing internal infrastructure tracks to study and standardize how AI model training and inference systems are provisioned, measured, and operated across controlled compute environments. Current work covers compute topology patterns, GPU workload profiling, storage and data pipeline behavior, and observability baselines required for reliable AI system operation. These infrastructure tracks are part of ongoing internal engineering programs and are not yet exposed as external infrastructure offerings.
-              </p>
+              {/* Serving Frameworks Content */}
+              {activeDeploymentTab === 'serving-frameworks' && (
+                <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
+                    Serving Frameworks — In Development
+                  </h3>
+                  
+                  <p className="text-base text-[#555555] leading-relaxed mb-6">
+                    BluBridge is developing internal model serving frameworks to standardize inference configuration, runtime behavior, and performance measurement across controlled environments. Current engineering work focuses on serving configuration patterns, runtime controls, profiling methods, and observability integration so that model execution can be measured, tuned, and reproduced reliably. These frameworks are presently limited to internal experiments and pilot-stage systems and are not yet released as external tooling.
+                  </p>
+                  
+                  <div className="pt-5 border-t border-[#e8e6de]">
+                    <span className="text-sm text-[#888888] font-medium">
+                      Availability: Internal use and limited pilot programs.
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* Infrastructure Tracks Content */}
+              {activeDeploymentTab === 'infrastructure-tracks' && (
+                <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
+                    Infrastructure Tracks — Under Engineering
+                  </h3>
+                  
+                  <p className="text-base text-[#555555] leading-relaxed">
+                    BluBridge is developing internal infrastructure tracks to study and standardize how AI model training and inference systems are provisioned, measured, and operated across controlled compute environments. Current work covers compute topology patterns, GPU workload profiling, storage and data pipeline behavior, and observability baselines required for reliable AI system operation. These infrastructure tracks are part of ongoing internal engineering programs and are not yet exposed as external infrastructure offerings.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
