@@ -448,7 +448,8 @@ const Header = () => {
       style={{ zIndex: 9999 }}
     >
         <div className="p-6 space-y-6">
-<div>
+          {/* Solutions Menu - Links to /solutions-new anchors */}
+          <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions' ? null : 'solutions')}
               className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
@@ -458,61 +459,6 @@ const Header = () => {
             </button>
             {mobileSubmenuOpen === 'solutions' && (
               <div className="mt-4 space-y-2 pl-4">
-                <Link
-                  to="/solutions/model-customization"
-                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <SlidersHorizontal className="w-4 h-4" strokeWidth={1.5} />
-                  <span>Model Customization</span>
-                </Link>
-                <Link
-                  to="/solutions/value-realization"
-                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <TrendingUp className="w-4 h-4" strokeWidth={1.5} />
-                  <span>Value Realization</span>
-                </Link>
-                <Link
-                  to="/solutions/deployment"
-                  className="flex items-center gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Rocket className="w-4 h-4" strokeWidth={1.5} />
-                  <span>Deployment</span>
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* NEW Solutions Menu (Sample 2) - Links to /solutions-new */}
-          <div>
-            <button
-              onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions-new' ? null : 'solutions-new')}
-              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
-            >
-              <span>Solutions</span>
-              <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions-new' ? 'rotate-180' : ''}`} />
-            </button>
-            {mobileSubmenuOpen === 'solutions-new' && (
-              <div className="mt-4 space-y-2 pl-4">
-                <div className="flex items-center gap-2 pb-2 mb-2 border-b border-[#e8e6de]">
-                  <img 
-                    src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/nfrmzez2_b-center.png"
-                    alt="BluBridge"
-                    className="h-6 w-auto"
-                  />
-                  <span className="text-[#0B1F3B] font-medium text-xs">Enterprise Solutions</span>
-                </div>
-                <Link
-                  to="/solutions-new"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group font-semibold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span>View All Solutions</span>
-                  <span className="text-[#F4C430]">→</span>
-                </Link>
                 <Link
                   to="/solutions-new#model-customization"
                   className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
