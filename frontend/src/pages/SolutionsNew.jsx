@@ -48,11 +48,11 @@ const SolutionsNew = () => {
       <section id="model-customization" className="py-16 md:py-24 bg-[#efede5]">
         <div className="container-custom">
           {/* Section Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-6 leading-tight max-w-4xl">
             Domain-Specialized Models, Engineered on Proprietary Data
           </h2>
           
-          <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-12 max-w-4xl">
+          <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-12 ">
             Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. BluBridge is actively building model customization capabilities across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness — not surface-level tuning.
           </p>
 
@@ -214,13 +214,13 @@ const SolutionsNew = () => {
         <div className="container-custom">
           {/* Section Heading */}
           <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-6 leading-tight max-w-4xl">
-              We start from your current AI maturity and engineer toward deployable systems. From use-case discovery through model development and deployment validation, BluBridge engineering teams remain directly engaged across the full lifecycle.
+            <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-3 leading-tight max-w-4xl">
+              We start from your current AI maturity and engineer toward deployable systems. 
             </h2>
-            
+            <p clasName="text-xl">From use-case discovery through model development and deployment validation, BluBridge engineering teams remain directly engaged across the full lifecycle.</p>
             <Link 
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B1F3B] mt-6 text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
             >
               <span>Talk to our experts</span>
               <ArrowRight className="w-4 h-4" />
@@ -269,7 +269,7 @@ const SolutionsNew = () => {
       <section id="deployment" className="py-16 md:py-24 bg-[#efede5]">
         <div className="container-custom">
           {/* Section Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-12 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-12 leading-tight max-w-4xl">
             Deployment Tooling → Serving Frameworks Infrastructure Tracks
           </h2>
 
