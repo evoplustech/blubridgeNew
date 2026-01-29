@@ -206,6 +206,83 @@ const SolutionsNew = () => {
               </div>
             </div>
           </div>
+
+          {/* Two Column Cards: Codestral Story & Real-world Benefits */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mt-12">
+            {/* Left Card: Codestral story */}
+            <div className="rounded-2xl overflow-hidden flex bg-[#FFF9E6]">
+              {/* Gradient Left Border */}
+              <div className="w-2 flex-shrink-0" style={{ background: 'linear-gradient(to bottom, #FFD700 0%, #FF8C00 50%, #DC143C 100%)' }}></div>
+              
+              <div className="p-8 lg:p-10 flex-1">
+                <h3 className="text-xl md:text-2xl font-bold text-[#555555] mb-4">
+                  Codestral story
+                </h3>
+                <p className="text-[#333333] text-sm md:text-base leading-relaxed mb-6">
+                  We customized BluBridge Small (22B parameters) on coding tasks with our proprietary dataset, resulting in turbocharged performance on coding:
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 pb-4 border-b border-[#e8e6de]">
+                    <svg className="w-5 h-5 text-[#333333] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span className="text-sm md:text-base text-[#333333] leading-relaxed">
+                      <span className="text-[#FF8C00] font-semibold">+23 points</span> higher accuracy compared to state-of-the-art LLMs
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-[#333333] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span className="text-sm md:text-base text-[#333333] leading-relaxed">
+                      <span className="text-[#FF8C00] font-semibold">+19 points</span> higher accuracy than other competing solution
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Right Card: Real-world benefits */}
+            <div className="rounded-2xl overflow-hidden flex bg-[#FFF9E6]">
+              {/* Gradient Left Border */}
+              <div className="w-2 flex-shrink-0" style={{ background: 'linear-gradient(to bottom, #FFD700 0%, #FF8C00 50%, #DC143C 100%)' }}></div>
+              
+              <div className="p-8 lg:p-10 flex-1">
+                <h3 className="text-xl md:text-2xl font-bold text-[#555555] mb-4">
+                  Real-world benefits
+                </h3>
+                <p className="text-[#333333] text-sm md:text-base leading-relaxed mb-6">
+                  Customers that have co-trained models with BluBridge AI solutions team have achieved:
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 pb-4 border-b border-[#e8e6de]">
+                    <svg className="w-5 h-5 text-[#333333] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span className="text-sm md:text-base text-[#333333] leading-relaxed">
+                      <span className="text-[#FF8C00] font-semibold">94%</span> reduction in cost per token
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 pb-4 border-b border-[#e8e6de]">
+                    <svg className="w-5 h-5 text-[#333333] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span className="text-sm md:text-base text-[#333333] leading-relaxed">
+                      <span className="text-[#FF8C00] font-semibold">70%</span> improvement in latency
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-[#333333] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span className="text-sm md:text-base text-[#333333] leading-relaxed">
+                      <span className="text-[#FF8C00] font-semibold">Optimized for processing</span> billions of queries weekly
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
