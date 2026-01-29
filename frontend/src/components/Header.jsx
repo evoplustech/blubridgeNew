@@ -233,13 +233,13 @@ const Header = () => {
               onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
               onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
             >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
+              {/* <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
                 <span>Solutions</span>
                 <ChevronDown 
                   className="w-4 h-4 transition-transform duration-250" 
                   style={{ transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0deg)' }}
                 />
-              </button>
+              </button> */}
               
               {activeDropdown === 'solutions' && (
                 <div 
@@ -375,14 +375,14 @@ const Header = () => {
                     }}
                   >
                     {/* Dropdown Header with Logo */}
-                    <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#e8e6de]">
+                    {/* <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#e8e6de]">
                       <img 
                         src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/nfrmzez2_b-center.png"
                         alt="BluBridge"
                         className="h-8 w-auto"
                       />
                       <span className="text-[#0B1F3B] font-semibold text-sm">Enterprise Solutions</span>
-                    </div>
+                    </div> */}
                     <div className="space-y-1">
                       <Link
                         to="/solutions-new#model-customization"

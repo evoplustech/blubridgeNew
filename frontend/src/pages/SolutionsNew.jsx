@@ -21,9 +21,9 @@ const SolutionsNew = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-[#FDFCF9]">
+    <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-[#FDFCF9] relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 bg-[#fffdf7] relative overflow-hidden">
         <div className="container-custom">
           {/* Hero Text Content */}
           <div className="text-center max-w-4xl mx-auto mb-16 md:mb-24">
@@ -172,7 +172,7 @@ const SolutionsNew = () => {
       </section>
 
       {/* Section 1: Model Customization - Three Column Cards */}
-      <section id="model-customization" className="py-16 md:py-24 bg-[#fffdf7]">
+      <section id="model-customization" className="py-16 md:py-24 bg-[#efede5]">
         <div className="container-custom">
           {/* Section Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1a1a1a] mb-12 leading-tight max-w-3xl">
@@ -182,7 +182,7 @@ const SolutionsNew = () => {
           {/* Three Column Cards */}
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
             {/* Card 1: Custom pre-training */}
-            <div className="bg-white rounded-xl p-6 lg:p-8 shadow-md">
+            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-md">
               {/* Orange Icon Box */}
               <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
@@ -213,7 +213,7 @@ const SolutionsNew = () => {
             </div>
 
             {/* Card 2: Specialized model capabilities */}
-            <div className="bg-white rounded-xl p-6 lg:p-8 shadow-md">
+            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-md">
               {/* Orange Icon Box - Rabbit/Bunny Icon */}
               <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
@@ -254,7 +254,7 @@ const SolutionsNew = () => {
             </div>
 
             {/* Card 3: Optimized inference platform */}
-            <div className="bg-white rounded-xl p-6 lg:p-8 shadow-md">
+            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-md">
               {/* Orange Icon Box - Monitor Icon */}
               <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
@@ -286,10 +286,10 @@ const SolutionsNew = () => {
           </div>
 
           {/* Bottom Section: Two Panels with Left Gradient Bar */}
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {/* Panel 1: Codestral Story */}
+          {/* <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+           
             <div className="rounded-2xl overflow-hidden flex bg-[#FFF9E6]">
-              {/* Left Gradient Bar */}
+             
               <div className="w-2 flex-shrink-0" style={{ background: 'linear-gradient(to bottom, #FFD700 0%, #FF8C00 50%, #DC143C 100%)' }}></div>
               
               <div className="p-8 lg:p-10 flex-1">
@@ -316,9 +316,9 @@ const SolutionsNew = () => {
               </div>
             </div>
 
-            {/* Panel 2: Real-world Benefits */}
+          
             <div className="rounded-2xl overflow-hidden flex bg-[#FFF9E6]">
-              {/* Left Gradient Bar */}
+             
               <div className="w-2 flex-shrink-0" style={{ background: 'linear-gradient(to bottom, #FFD700 0%, #FF8C00 50%, #DC143C 100%)' }}></div>
               
               <div className="p-8 lg:p-10 flex-1">
@@ -350,7 +350,7 @@ const SolutionsNew = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -365,7 +365,7 @@ const SolutionsNew = () => {
           {/* Three Column Cards */}
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {/* Card 1: Proof of value */}
-            <div className="bg-white/80 rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
+            <div className="bg-[#fffdf7] rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
               <div className="w-12 h-12 rounded-lg bg-[#f3f1e9] flex items-center justify-center mb-5">
                 <BarChart3 className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
               </div>
@@ -388,7 +388,7 @@ const SolutionsNew = () => {
             </div>
 
             {/* Card 2: Custom training */}
-            <div className="bg-white/80 rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
+            <div className="bg-[#fffdf7] rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
               <div className="w-12 h-12 rounded-lg bg-[#f3f1e9] flex items-center justify-center mb-5">
                 <Pencil className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
               </div>
@@ -403,7 +403,7 @@ const SolutionsNew = () => {
             </div>
 
             {/* Card 3: Deployment services */}
-            <div className="bg-white/80 rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
+            <div className="bg-[#fffdf7] rounded-lg p-6 lg:p-8 shadow-sm border border-[#e8e6de]/50">
               <div className="w-12 h-12 rounded-lg bg-[#f3f1e9] flex items-center justify-center mb-5">
                 <RefreshCw className="w-6 h-6 text-[#0B1F3B]" strokeWidth={1.5} />
               </div>
@@ -421,11 +421,11 @@ const SolutionsNew = () => {
       </section>
 
       {/* Section: Our Frontier Models - Below Value Realization */}
-      <section className="py-20 md:py-32 bg-[#f8f7f4]">
+      <section className="pb-20 md:pb-32 bg-[#f9f7f0]">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             {/* Pixelated Hot Air Balloon Icon */}
-            <div className="mb-10 flex justify-center">
+            <div className="flex justify-center">
               <svg width="80" height="100" viewBox="0 0 80 100" className="w-16 h-20 md:w-20 md:h-24">
                 {/* Balloon body - pixelated multi-color segments */}
                 {/* Red segment */}
@@ -536,7 +536,7 @@ const SolutionsNew = () => {
               linear-gradient(to right, #F4C430 1px, transparent 1px),
               linear-gradient(to bottom, #F4C430 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px'
+            backgroundSize: '40px 40px'
           }}
         />
         
@@ -590,7 +590,7 @@ const SolutionsNew = () => {
             <div className="flex-1">
               {/* AI Studio Content */}
               {activeTab === 'ai-studio' && (
-                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-md">
+                <div className="bg-[#fffdf7] rounded-2xl shadow-md min-h-[350px] p-8 border-[#efede5] border-1">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a]">AI Studio</h3>
                     <code className="text-xs text-[#888888] font-mono">
@@ -605,7 +605,7 @@ const SolutionsNew = () => {
 
               {/* Packaged Products Content */}
               {activeTab === 'packaged-products' && (
-                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-md">
+                <div className="bg-[#fffdf7] rounded-2xl p-8 shadow-md">
                   <div className="flex flex-col lg:flex-row gap-8">
                     <div className="flex-1">
                       <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-4">Packaged products</h3>
@@ -668,7 +668,7 @@ const SolutionsNew = () => {
 
               {/* Model Customization Content */}
               {activeTab === 'model-customization' && (
-                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-md">
+                <div className="bg-[#fffdf7] rounded-2xl p-8 shadow-md">
                   <div className="flex flex-col lg:flex-row gap-8">
                     <div className="flex-1">
                       <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-4">Model customization</h3>
@@ -693,10 +693,12 @@ const SolutionsNew = () => {
                         <span className="text-xs text-[#555555] font-medium">Billing</span>
                         <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
                       </div>
+                      
                       <div className="absolute top-1/2 left-0 -translate-y-1/2 flex items-center gap-1">
+                      <span className="text-xs text-[#555555] font-medium">Employee</span>
                         <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
-                        <span className="text-xs text-[#555555] font-medium">Employee</span>
                       </div>
+                      
                       <div className="absolute bottom-4 left-4 flex flex-col items-center gap-1">
                         <div className="w-5 h-5 bg-[#1a1a1a] rounded"></div>
                         <span className="text-xs text-[#555555] font-medium">Payment</span>
@@ -710,7 +712,7 @@ const SolutionsNew = () => {
                       <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
                         <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="#1a1a1a" strokeWidth="1" />
                         <line x1="50%" y1="50%" x2="85%" y2="20%" stroke="#1a1a1a" strokeWidth="1" />
-                        <line x1="50%" y1="50%" x2="8%" y2="50%" stroke="#1a1a1a" strokeWidth="1" />
+                        <line x1="50%" y1="50%" x2="25%" y2="50%" stroke="#1a1a1a" strokeWidth="1" />
                         <line x1="50%" y1="50%" x2="18%" y2="82%" stroke="#1a1a1a" strokeWidth="1" />
                         <line x1="50%" y1="50%" x2="82%" y2="82%" stroke="#1a1a1a" strokeWidth="1" />
                       </svg>
@@ -724,7 +726,7 @@ const SolutionsNew = () => {
       </section>
 
       {/* Have Questions Section */}
-      <section className="py-16 md:py-20 bg-[#FFF8E7]">
+      <section className="py-16 md:py-20 bg-[#efede5]">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-4">
