@@ -525,10 +525,11 @@ const SolutionsNew = () => {
             Know more about our Research 
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/research">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
-                Explore
-              </Button>
+            <Link 
+              to="/research"
+              className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded-lg font-medium transition-colors"
+            >
+              Explore
             </Link>
           </div>
         </div>
