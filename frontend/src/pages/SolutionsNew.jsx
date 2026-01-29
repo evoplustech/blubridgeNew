@@ -316,8 +316,16 @@ const SolutionsNew = () => {
             </div>
           </div>
 
-        
-         
+          {/* Contact Us Button */}
+          <div className="mt-12 text-center">
+            <Link 
+              to="/contact"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
+            >
+              <span>Contact Us</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
