@@ -119,7 +119,7 @@ const SolutionsNew = () => {
             {/* Center B Logo - Using Image */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
               <img 
-                src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/0c9qmaew_b-center.png"
+                src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/3355uptl_b-log.jpg"
                 alt="BluBridge"
                 className="w-20 h-20 md:w-24 md:h-24 object-contain"
               />
