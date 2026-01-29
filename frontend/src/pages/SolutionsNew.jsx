@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import { ArrowRight } from 'lucide-react';
@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react';
 const SolutionsNew = () => {
   useDocumentTitle('Solutions | BluBridge');
   const location = useLocation();
+  const [activeDeploymentTab, setActiveDeploymentTab] = useState('deployment-tooling');
 
   // Smooth scroll to anchor on page load with header offset
   useEffect(() => {
