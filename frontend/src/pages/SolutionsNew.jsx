@@ -207,6 +207,115 @@ const SolutionsNew = () => {
             </div>
           </div>
 
+          {/* Customization Stack Table Section */}
+          <div className="mt-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-4">
+              Customization Stack
+            </h3>
+            <p className="text-[#555555] text-base md:text-lg mb-8 max-w-3xl">
+              Our comprehensive customization stack gives you full control from data to deployment, with flexibility at every layer
+            </p>
+
+            {/* Table */}
+            <div className="rounded-xl overflow-hidden shadow-sm">
+              {/* Header Row */}
+              <div className="grid grid-cols-3 bg-[#0B1F3B]">
+                <div className="px-6 py-4">
+                  <span className="text-white font-bold text-sm uppercase tracking-wide">DATA</span>
+                </div>
+                <div className="px-6 py-4">
+                  <span className="text-white font-bold text-sm uppercase tracking-wide">PLATFORM</span>
+                </div>
+                <div className="px-6 py-4">
+                  <span className="text-white font-bold text-sm uppercase tracking-wide">INFRASTRUCTURE & HARDWARE</span>
+                </div>
+              </div>
+
+              {/* Data Rows */}
+              <div className="bg-[#fffdf7]">
+                {/* Row 1 */}
+                <div className="grid grid-cols-3 border-b border-[#e8e6de]">
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Instruction Datasets</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Training Pipelines</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Distributed Training</span>
+                  </div>
+                </div>
+
+                {/* Row 2 */}
+                <div className="grid grid-cols-3 border-b border-[#e8e6de]">
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Domain Corpora</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Experiment Manager</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">GPU Orchestration</span>
+                  </div>
+                </div>
+
+                {/* Row 3 */}
+                <div className="grid grid-cols-3 border-b border-[#e8e6de]">
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Prompt Templates</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Hyperparameter Tuning</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">NVIDIA H100 / A100</span>
+                  </div>
+                </div>
+
+                {/* Row 4 */}
+                <div className="grid grid-cols-3 border-b border-[#e8e6de]">
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Alignment Packs</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Model Versioning</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">High-Speed Storage</span>
+                  </div>
+                </div>
+
+                {/* Row 5 */}
+                <div className="grid grid-cols-3">
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Fine-Tuning Kits</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">Adapter Management</span>
+                  </div>
+                  <div className="px-6 py-4 flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] flex-shrink-0"></span>
+                    <span className="text-[#333333] text-sm">High-Speed Networking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Two Column Cards: Codestral Story & Real-world Benefits */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mt-12">
             {/* Left Card: Codestral story */}
