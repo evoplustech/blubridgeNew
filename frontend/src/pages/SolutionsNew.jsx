@@ -66,13 +66,13 @@ const SolutionsNew = () => {
               
               <pre className="text-xs font-mono overflow-hidden">
                 <code>
-                  <span className="text-[#FFC885]">from</span> <span className="text-[#C8E8C8]">mistralai.client</span> <span className="text-[#FFC885]">import</span> <span className="text-white">MistralClient</span>{'\n'}
+                  <span className="text-[#FFC885]">from</span> <span className="text-[#C8E8C8]">blubridge.client</span> <span className="text-[#FFC885]">import</span> <span className="text-white">MistralClient</span>{'\n'}
                   <span className="text-[#FFC885]">import</span> <span className="text-[#C8E8C8]">os</span>{'\n'}
                   {'\n'}
                   <span className="text-white">api_key</span> <span className="text-[#888]">=</span> <span className="text-white">os</span><span className="text-[#888]">.</span><span className="text-white">env</span><span className="text-[#888]">[</span><span className="text-[#C8E8C8]">'MISTRAL_API_KEY'</span><span className="text-[#888]">]</span>{'\n'}
-                  <span className="text-white">model</span> <span className="text-[#888]">=</span> <span className="text-[#C8E8C8]">'mistral-tiny'</span>{'\n'}
+                  <span className="text-white">model</span> <span className="text-[#888]">=</span> <span className="text-[#C8E8C8]">'blubridge-tiny'</span>{'\n'}
                   {'\n'}
-                  <span className="text-white">client</span> <span className="text-[#888]">=</span> <span className="text-white">MistralClient</span><span className="text-[#888]">(</span><span className="text-white">api_key</span><span className="text-[#888]">)</span>{'\n'}
+                  <span className="text-white">client</span> <span className="text-[#888]">=</span> <span className="text-white">BlubridgeClient</span><span className="text-[#888]">(</span><span className="text-white">api_key</span><span className="text-[#888]">)</span>{'\n'}
                   {'\n'}
                   <span className="text-white">messages</span> <span className="text-[#888]">=</span> <span className="text-[#888]">[</span>{'\n'}
                   {'  '}<span className="text-white">ChatMessage</span><span className="text-[#888]">(</span>{'\n'}
@@ -184,7 +184,7 @@ const SolutionsNew = () => {
             {/* Card 1: Custom pre-training */}
             <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-md">
               {/* Orange Icon Box */}
-              <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-lg bg-[#0b1f3b] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <polyline points="14,2 14,8 20,8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -215,7 +215,7 @@ const SolutionsNew = () => {
             {/* Card 2: Specialized model capabilities */}
             <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-md">
               {/* Orange Icon Box - Rabbit/Bunny Icon */}
-              <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-lg bg-[#0b1f3b] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                   <path d="M18 8c0-2.21-1.79-4-4-4-.55 0-1.08.11-1.56.31C11.56 2.91 10.11 2 8.5 2 6.01 2 4 4.01 4 6.5c0 .88.25 1.71.69 2.41C3.06 10.05 2 11.91 2 14c0 3.31 2.69 6 6 6h8c3.31 0 6-2.69 6-6 0-2.09-1.06-3.95-2.69-5.09.44-.7.69-1.53.69-2.41 0-.2-.02-.39-.04-.58C19.43 8.62 18.76 9 18 9c-1.1 0-2-.9-2-2 0-.55.22-1.05.58-1.41C17.21 5.21 18 5.9 18 8z"/>
                 </svg>
@@ -256,7 +256,7 @@ const SolutionsNew = () => {
             {/* Card 3: Optimized inference platform */}
             <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-md">
               {/* Orange Icon Box - Monitor Icon */}
-              <div className="w-12 h-12 rounded-lg bg-[#FF8C00] flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-lg bg-[#0b1f3b] flex items-center justify-center mb-5">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                   <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
                   <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2"/>
@@ -310,7 +310,7 @@ const SolutionsNew = () => {
               </div>
 
               {/* Data Rows */}
-              <div className="bg-white">
+              <div className="bg-[#fffdf7]">
                 {/* Row 1 */}
                 <div className="grid grid-cols-3 border-b border-[#e8e6de]">
                   <div className="px-6 py-4 flex items-center gap-3">
