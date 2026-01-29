@@ -514,15 +514,6 @@ const Header = () => {
             )}
           </div>
 
-          {/* NEW Solutions Menu (Sample 2) - Links to /solutions-new */}
-          <div>
-            <button
-              onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions-new' ? null : 'solutions-new')}
-              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
-            >
-              <span>Solutions</span>
-              <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions-new' ? 'rotate-180' : ''}`} />
-            </button>
           {/* NEW Solutions - Direct Link */}
           <Link 
             to="/solutions-new" 
