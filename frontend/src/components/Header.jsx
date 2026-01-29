@@ -523,52 +523,14 @@ const Header = () => {
               <span>Solutions</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions-new' ? 'rotate-180' : ''}`} />
             </button>
-            {mobileSubmenuOpen === 'solutions-new' && (
-              <div className="mt-4 space-y-2 pl-4">
-                <div className="flex items-center gap-2 pb-2 mb-2 border-b border-[#e8e6de]">
-                  <img 
-                    src="https://customer-assets.emergentagent.com/job_text-tune/artifacts/nfrmzez2_b-center.png"
-                    alt="BluBridge"
-                    className="h-6 w-auto"
-                  />
-                  <span className="text-[#0B1F3B] font-medium text-xs">Enterprise Solutions</span>
-                </div>
-                <Link
-                  to="/solutions-new#model-customization"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <div className="flex items-center gap-3">
-                    <SlidersHorizontal className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Model Customization</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
-                </Link>
-                <Link
-                  to="/solutions-new#value-realization"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <div className="flex items-center gap-3">
-                    <TrendingUp className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Value Realization</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
-                </Link>
-                <Link
-                  to="/solutions-new#deployment"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#F4C430] py-2 text-sm group"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <div className="flex items-center gap-3">
-                    <Rocket className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Deployment</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
-                </Link>
-              </div>
-            )}
-          </div>
+          {/* NEW Solutions - Direct Link */}
+          <Link 
+            to="/solutions-new" 
+            className="block text-[#0B1F3B] text-lg font-medium hover:text-[#328CC1]"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Solutions
+          </Link>
 
           {/* Research Link */}
          
