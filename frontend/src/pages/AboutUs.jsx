@@ -716,9 +716,9 @@ const AboutUs = () => {
               {/* Read More Button - Highlighted with glow effect */}
               <Link to="/careers">
                 <Button 
-                  className="bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5c] text-white hover:from-[#162B4D] hover:to-[#234b6e] px-8 py-3 rounded-md font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border border-[#328CC1]/30"
+                  className="bg-gradient-to-r from-[#328CC1] to-[#1a5a8c] text-white hover:from-[#2b7ab0] hover:to-[#164d7a] px-10 py-4 rounded-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 text-base"
                   style={{
-                    boxShadow: '0 4px 15px rgba(50, 140, 193, 0.3), 0 0 20px rgba(50, 140, 193, 0.1)'
+                    boxShadow: '0 6px 20px rgba(50, 140, 193, 0.4), 0 0 30px rgba(50, 140, 193, 0.2)'
                   }}
                 >
                   Join us
