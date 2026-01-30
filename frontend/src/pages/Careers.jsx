@@ -312,20 +312,38 @@ const Careers = () => {
             borderBottom: '3px solid rgb(211, 205, 185)'
           }}
         >
-          {/* Title */}
-          <h1 
-            data-testid="join-us-title"
-            className="join-us-title"
-            style={{ 
-              fontWeight: '600', 
-              color: '#1A1A1A',
-              marginBottom: '30px',
-              lineHeight: '1.2',
-              letterSpacing: '-0.02em'
-            }}
-          >
-            Join Us
-          </h1>
+          {/* Page Header - BluBridge Careers + CURIOSITY WANTED */}
+          <div style={{ marginBottom: '40px' }}>
+            {/* Small Label */}
+            <p 
+              data-testid="careers-label"
+              style={{ 
+                fontSize: '14px',
+                fontWeight: '500',
+                color: '#6B7280',
+                marginBottom: '8px',
+                letterSpacing: '0.5px'
+              }}
+            >
+              BluBridge Careers
+            </p>
+            
+            {/* Main Heading - Serif Font */}
+            <h1 
+              data-testid="join-us-title"
+              style={{ 
+                fontFamily: "'Playfair Display', 'Georgia', serif",
+                fontSize: 'clamp(42px, 6vw, 64px)',
+                fontWeight: '400',
+                color: '#1A1A1A',
+                lineHeight: '1.1',
+                letterSpacing: '-0.02em',
+                textTransform: 'uppercase'
+              }}
+            >
+              Curiosity Wanted
+            </h1>
+          </div>
            
           {/* ======================================== */}
           {/* CAREERS CTA STRIP */}
