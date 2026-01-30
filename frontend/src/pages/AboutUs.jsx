@@ -694,7 +694,7 @@ const AboutUs = () => {
                 }}
                 data-testid="our-mission-description"
               >
-               We build AI systems that advance both the open ecosystem and enterprise deployment. Our focus is on engineering open-weight models that match the performance and reliability of closed, proprietary systems. At Blubridge, progress in AI is treated as an engineering discipline — driven by training rigor, systems-level optimization, and end-to-end control across data, models, and deployment.
+              We are advancing AI for both the open ecosystem and enterprise deployment. BluBridge focuses on engineering open-weight AI models intended to approach the performance and reliability characteristics of closed systems through disciplined training, systems-level optimization, and end-to-end technical ownership. Progress is treated as an engineering discipline — defined by measurement, validation, and reproducibility.
               </p>
               
               {/* Read More Button - Dark navy background */}

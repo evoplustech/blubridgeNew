@@ -254,21 +254,22 @@ const AIExpertiseOrbit = () => {
 
   const atoms = [
     // INNER ring: 2 features + 1 dummy
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 225, Icon: Radio, label: 'Telco' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Finance' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 250, Icon: Radio, label: 'Telco' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 50, Icon: ShieldCheck, label: 'Finance' },
     { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
     // MIDDLE ring: 2 features + 1 dummy
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 110, Icon: GraduationCap, label: 'Retail' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: GraduationCap, label: 'Education' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: HeartPulse, label: 'Healthcare' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 100, Icon: GraduationCap, label: 'Retail' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 330, Icon: GraduationCap, label: 'Education' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 180, Icon: HeartPulse, label: 'Healthcare' },
     { ring: 2, type: 'dummy', angle: 250, dummyClass: 'dummy-orange' },
 
     // OUTER ring: 4 features + 2 dummies
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Scale, label: 'Legal' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 60, Icon: Scale, label: 'Legal' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 260, Icon: Factory, label: 'Manufacturing' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 350, Icon: Landmark, label: 'Government' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 230, Icon: Factory, label: 'Manufacturing' },
+     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Factory, label: 'Real Estate' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 370, Icon: Landmark, label: 'Government' },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
     { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
   ];
@@ -903,7 +904,7 @@ const Home = () => {
                   </div>
                 )})}
               </div>
-              <p className="text-center text-black text-2xl mt-1 font-bold text-[#1180c1]">&amp; More</p>
+              {/* <p className="text-center text-black text-2xl mt-1 font-bold text-[#1180c1]">&amp; More</p> */}
             </div>
           </div>
         </div>
