@@ -34,8 +34,8 @@ const SolutionsNew = () => {
         className="py-20 md:py-28 lg:py-36"
         style={{
           backgroundColor: '#fffdf7',
-          backgroundImage: 'repeating-linear-gradient(90deg, #e8e8ef 0px, #e8e8ef 1px, transparent 1px, transparent 3px)',
-          backgroundSize: '3px 100%'
+          backgroundImage: 'repeating-linear-gradient(135deg, #e8e8ef 0px, #e8e8ef 1px, transparent 1px, transparent 3px)',
+          backgroundSize: '4px 4px'
         }}
       >
         <div className="container-custom">
