@@ -37,9 +37,18 @@ const SolutionsNew = () => {
               Engineering AI-Native Systems at the Frontier of Enterprise AI
             </h1>
             
-            <p className="text-lg md:text-xl text-[#555555] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[#555555] leading-relaxed max-w-3xl mx-auto mb-10">
               Partnering with technically ambitious enterprises — from model development to production-grade deployment — through research-driven, system-level AI engineering.
             </p>
+
+            {/* CTA Button */}
+            <Link 
+              to="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors text-lg"
+            >
+              <span>Talk to Our Expertise</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
