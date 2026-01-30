@@ -268,7 +268,7 @@ const AIExpertiseOrbit = () => {
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 60, Icon: Scale, label: 'Legal' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 230, Icon: Factory, label: 'Manufacturing' },
-     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Home, label: 'Real Estate' },
+     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: HomeIcon, label: 'Real Estate' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 370, Icon: Landmark, label: 'Government' },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
     { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
