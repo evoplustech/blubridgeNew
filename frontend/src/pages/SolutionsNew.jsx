@@ -474,7 +474,7 @@ const SolutionsNew = () => {
           {/* Section Heading with Premium Accent */}
           <div className="mb-14">
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0B1F3B] leading-tight max-w-4xl">
-              What self-deployment <br></br>Capabilities are under development?
+              What self-deployment <br></br>capabilities are under development?
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#F4C430] to-[#D4A420] mt-6 rounded-full"></div>
           </div>
@@ -546,7 +546,7 @@ const SolutionsNew = () => {
                   </h3>
                   
                   <p className="text-base md:text-lg text-[#555555] leading-[1.8]">
-                    BluBridge is building internal deployment tooling and model serving workflows to support controlled self-hosted and private infrastructure model deployments. Current engineering efforts focus on deployment configuration patterns, runtime setup, performance profiling, and validation procedures so that model serving can be executed in reproducible and monitored environments. These self-deployment capabilities are presently in engineering and validation stages and are not yet available as packaged external releases.
+                    Deployment enablement tooling is under development to support controlled self-hosted and private infrastructure model deployments. This track focuses on packaging patterns, environment configuration templates, dependency controls, and reproducible deployment setup so that models can be installed and executed consistently across approved environments. These capabilities are in engineering development stages and are not yet available as packaged external releases.
                   </p>
                 </div>
               )}
@@ -559,7 +559,7 @@ const SolutionsNew = () => {
                   </h3>
                   
                   <p className="text-base md:text-lg text-[#555555] leading-[1.8] mb-6">
-                    BluBridge is developing internal model serving frameworks to standardize inference configuration, runtime behavior, and performance measurement across controlled environments. Current engineering work focuses on serving configuration patterns, runtime controls, profiling methods, and observability integration so that model execution can be measured, tuned, and reproduced reliably. These frameworks are presently limited to internal experiments and pilot-stage systems and are not yet released as external tooling.
+                    Model serving frameworks are being engineered to control how models execute at runtime across inference environments. This work focuses on request handling behavior, batching strategies, concurrency controls, runtime parameter management, and inference observability so that model execution characteristics can be measured and tuned reliably. These frameworks remain in internal experiment and pilot stages and are not yet released as external serving stacks.
                   </p>
                   
                   {/* <div className="pt-5 border-t border-[#e8e6de]">
@@ -578,7 +578,7 @@ const SolutionsNew = () => {
                   </h3>
                   
                   <p className="text-base md:text-lg text-[#555555] leading-[1.8]">
-                    BluBridge is developing internal infrastructure tracks to study and standardize how AI model training and inference systems are provisioned, measured, and operated across controlled compute environments. Current work covers compute topology patterns, GPU workload profiling, storage and data pipeline behavior, and observability baselines required for reliable AI system operation. These infrastructure tracks are part of ongoing internal engineering programs and are not yet exposed as external infrastructure offerings.
+                    Infrastructure engineering tracks study how AI training and inference systems are provisioned and operated across compute environments. Current work includes GPU workload profiling, compute topology patterns, storage and data pipeline behavior, and system-level observability baselines required for stable AI system operation. These tracks are part of internal engineering programs and are not yet external infrastructure offerings.
                   </p>
                 </div>
               )}
