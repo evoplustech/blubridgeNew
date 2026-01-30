@@ -890,7 +890,7 @@ const Home = () => {
                   { icon: Landmark, title: "Government" },
                   { icon: HeartPulse, title: "Healthcare" },
                   { icon: ShoppingCart, title: "Retail" },
-                  { icon: Home, title: "Real Estate" }
+                  { icon: HomeIcon, title: "Real Estate" }
                  ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
