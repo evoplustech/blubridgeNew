@@ -460,9 +460,17 @@ const SolutionsNew = () => {
         </div>
       </section>
 
-      {/* Section: Deployment - Premium Clean Design */}
-      <section id="deployment" className="py-20 md:py-28 bg-[#efede5]">
-        <div className="container-custom">
+      {/* Section: Deployment - Premium Clean Design with Grid Background */}
+      <section 
+        id="deployment" 
+        className="py-20 md:py-28 relative"
+        style={{
+          backgroundColor: '#efede5',
+          backgroundImage: 'linear-gradient(to right, rgba(244, 196, 48, 0.3) 1px, transparent 1px), linear-gradient(rgba(244, 196, 48, 0.3) 1px, transparent 1px)',
+          backgroundSize: '37px 37px'
+        }}
+      >
+        <div className="container-custom relative z-10">
           {/* Section Heading with Premium Accent */}
           <div className="mb-14">
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0B1F3B] leading-tight max-w-4xl">
