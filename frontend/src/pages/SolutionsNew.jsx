@@ -498,11 +498,11 @@ const SolutionsNew = () => {
                     BluBridge is developing internal model serving frameworks to standardize inference configuration, runtime behavior, and performance measurement across controlled environments. Current engineering work focuses on serving configuration patterns, runtime controls, profiling methods, and observability integration so that model execution can be measured, tuned, and reproduced reliably. These frameworks are presently limited to internal experiments and pilot-stage systems and are not yet released as external tooling.
                   </p>
                   
-                  <div className="pt-5 border-t border-[#e8e6de]">
+                  {/* <div className="pt-5 border-t border-[#e8e6de]">
                     <span className="text-sm text-[#888888] font-medium">
                       Availability: Internal use and limited pilot programs.
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               )}
 

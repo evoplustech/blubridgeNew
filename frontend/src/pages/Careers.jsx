@@ -300,7 +300,7 @@ const Careers = () => {
       {/* ======================================== */}
       {/* HERO HEADER SECTION - BluBridge Careers + CURIOSITY WANTED */}
       {/* ======================================== */}
-      <div 
+      {/* <div 
         data-testid="careers-hero"
         style={{ 
           textAlign: 'center',
@@ -310,8 +310,8 @@ const Careers = () => {
           margin: '0 auto',
           padding: '40px 20px 50px'
         }}
-      >
-        {/* Small Label - BluBridge Careers */}
+       >
+        
         <p 
           data-testid="careers-label"
           style={{ 
@@ -325,7 +325,7 @@ const Careers = () => {
           BluBridge Careers
         </p>
         
-        {/* Main Heading - CURIOSITY WANTED */}
+     
         <h1 
           data-testid="careers-main-title"
           style={{ 
@@ -341,7 +341,7 @@ const Careers = () => {
         >
           CURIOSITY<br />WANTED
         </h1>
-      </div>
+      </div> */}
 
       <div style={{ 
         maxWidth: '1261px',
