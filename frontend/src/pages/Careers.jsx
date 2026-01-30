@@ -317,7 +317,7 @@ const Careers = () => {
           style={{ 
             fontSize: '16px',
             fontWeight: '500',
-            color: '#328CC1',
+            color: '#161616',
             marginBottom: '20px',
             letterSpacing: '0.5px'
           }}
