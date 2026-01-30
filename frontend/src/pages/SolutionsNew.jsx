@@ -380,13 +380,13 @@ const SolutionsNew = () => {
       <section id="value-realization" className="py-16 md:py-24 bg-[#fffdf7]">
         <div className="container-custom">
           {/* Two Column Layout: Left Text + Right Cards */}
-          <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             {/* Left Column: Heading and CTA - Vertically Centered */}
-            <div className="lg:w-1/2 lg:pr-8">
+            <div className="lg:w-1/2 lg:pr-8 mt-10">
               <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-4 leading-tight">
                 We start from your current AI maturity and engineer toward deployable systems.
               </h2>
-              <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8">
+              <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-10 mt-10">
                 From use-case discovery through model development and deployment validation, our engineering teams remain directly engaged across the full lifecycle.
               </p>
               <Link 
@@ -601,7 +601,7 @@ const SolutionsNew = () => {
       <section className="py-16 bg-[#0B1F3B]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
-            Know more about our Research 
+            Research & Publications
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 

@@ -695,7 +695,7 @@ const AboutUs = () => {
                 }}
                 data-testid="our-mission-description"
               >
-              We are building AI systems for both open ecosystems and enterprise environments with focus on engineering open-weight models and applied AI capabilities through disciplined training, evaluation, and deployment-aware design. We develop and deploy validated AI solutions that transform model research into operational capability across real-world environments.Progress is communicated according to technical maturity and production readiness. We treat progress in AI as an engineering discipline — measured, validated, and reproducible — with correctness and operational reliability prioritized over surface benchmarks.
+             We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.
               </p>
               
               {/* Read More Button - Highlighted with glow effect */}
@@ -1014,7 +1014,7 @@ const AboutUs = () => {
               style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '-0.02em' }}
               data-testid="what-sets-us-apart-heading"
             >
-              How We Build, Innovate and Lead
+             How We Build, Engineer and Validate
             </h2>
             
             {/* Mobile Only - Typing Animation below heading */}
@@ -1037,7 +1037,7 @@ const AboutUs = () => {
                     Our Purpose
                   </h3>
                   <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                    We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
+                    BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.
                   </p>
                 </div>
               </div>
@@ -1059,7 +1059,7 @@ const AboutUs = () => {
                   How we Build
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
+                We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.
                 </p>
               </div>
               
@@ -1072,7 +1072,7 @@ const AboutUs = () => {
                   Innovation Through Rigor
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
+                  Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.
                 </p>
               </div>
               
@@ -1085,7 +1085,7 @@ const AboutUs = () => {
                   Our People
                 </h3>
                 <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
+                  We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.
                 </p>
               </div>
             </div>
