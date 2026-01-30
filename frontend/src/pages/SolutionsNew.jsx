@@ -192,15 +192,9 @@ const SolutionsNew = () => {
                 </li>
               </ul>
               
-              <p className="text-sm text-[#555555] leading-relaxed mb-5">
+              <p className="text-sm text-[#555555] leading-relaxed">
                 Our focus is on deployment correctness and efficiency engineering before scale claims.
               </p>
-              
-              <div className="pt-4 border-t border-[#e8e6de]">
-                <span className="text-xs text-[#888888] font-medium uppercase tracking-wide">
-                  Status: Inference and deployment optimization playbooks under construction
-                </span>
-              </div>
             </div>
           </div>
 
