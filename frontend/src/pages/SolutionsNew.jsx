@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Database, Sparkles, Zap, Check } from 'lucide-react';
 
 const SolutionsNew = () => {
   useDocumentTitle('Solutions | BluBridge');
