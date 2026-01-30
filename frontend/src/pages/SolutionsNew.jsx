@@ -34,11 +34,11 @@ const SolutionsNew = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3B] leading-[1.1] tracking-tight mb-8">
-              Engineering AI-Native Systems at the Frontier of Enterprise AI
+              Engineering AI-Native Systems for Enterprise Frontiers
             </h1>
             
             <p className="text-lg md:text-xl text-[#555555] leading-relaxed max-w-3xl mx-auto mb-10">
-              Partnering with technically ambitious enterprises — from model development to production-grade deployment — through research-driven, system-level AI engineering.
+              Partnering with technically ambitious organizations— from model development to production grade deployment — through research-driven, system-level AI engineering.
             </p>
 
             {/* CTA Button */}
@@ -46,7 +46,7 @@ const SolutionsNew = () => {
               to="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors text-lg"
             >
-              <span>Talk to Our Expertise</span>
+              <span>Talk to our Experts</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -63,7 +63,7 @@ const SolutionsNew = () => {
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#328CC1] to-[#1a5a8c] rounded-full mb-8"></div>
             <p className="text-base md:text-lg text-[#555555] leading-relaxed max-w-4xl">
-              Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. BluBridge is actively building model customization capabilities across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness — not surface-level tuning.
+              Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. Model customization capabilities are under active development across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness rather than surface-level tuning.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ const SolutionsNew = () => {
               </h3>
               
               <p className="text-sm text-[#555555] leading-relaxed mb-6">
-                We are building and validating domain-oriented pre-training and continued training pipelines using proprietary datasets and controlled training configurations.
+                We are building and validating domain oriented pre-training and continued training pipelines using proprietary datasets and controlled training configurations. Current capability development includes:
               </p>
               
               <ul className="space-y-3">
@@ -95,7 +95,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Full pre-training workflows using curated domain data mixtures
+                    Full pre-training workflows using curated domain data mixtures and custom training recipes
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -103,7 +103,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Continued pre-training from open or internal checkpoints
+                    Continued pre-training from open or internal checkpoints using domain corpora
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -111,7 +111,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Tokenization and dataset strategy design
+                    Tokenization and dataset strategy design for domain signal preservation
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -119,7 +119,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Training evaluation and regression tracking
+                    Training evaluation and regression tracking frameworks
                   </span>
                 </li>
               </ul>
@@ -142,7 +142,7 @@ const SolutionsNew = () => {
               </h3>
               
               <p className="text-sm text-[#555555] leading-relaxed mb-6">
-                We are building and testing specialization workflows intended to adapt model behavior and task performance through structured fine-tuning.
+                Specialization workflows are in prototype and validation stages to adapt model behavior and task performance through structured fine-tuning and alignment methods. Current engineering directions include:
               </p>
               
               <ul className="space-y-3">
@@ -159,7 +159,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Preference and behavior alignment methods
+                    Preference and behavior alignment methods under controlled evaluation
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -167,7 +167,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Synthetic data generation for robustness
+                    Synthetic data generation for robustness and edge-case coverage
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -175,7 +175,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Retrieval-grounded model workflows
+                    Retrieval-grounded model workflows under prototype validation
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -183,7 +183,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Prompt and tool orchestration layers
+                    Prompt and tool orchestration layers for bounded enterprise tasks
                   </span>
                 </li>
               </ul>
@@ -206,7 +206,7 @@ const SolutionsNew = () => {
               </h3>
               
               <p className="text-sm text-[#555555] leading-relaxed mb-6">
-                We are building and validating inference and deployment optimization capabilities to support efficient and reliable model serving.
+                Inference and deployment optimization capabilities are under development to support efficient and reliable model serving. Active workstreams include:
               </p>
               
               <ul className="space-y-3">
@@ -239,7 +239,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Containerized inference deployment patterns
+                    Containerized inference deployment patterns under internal testing
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -247,7 +247,7 @@ const SolutionsNew = () => {
                     <Check className="w-3 h-3 text-[#328CC1]" />
                   </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Observability hooks for latency and throughput
+                    Observability hooks for latency, throughput, and drift measurement
                   </span>
                 </li>
               </ul>
@@ -363,13 +363,13 @@ const SolutionsNew = () => {
             </div>
           </div>
 
-          {/* Contact Us Button */}
+          {/* Customize Your Model Button */}
           <div className="mt-12 text-center">
             <Link 
               to="/contact"
               className="inline-flex items-center gap-2 px-8 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
             >
-              <span>Contact Us</span>
+              <span>Customize Your Model</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -387,13 +387,13 @@ const SolutionsNew = () => {
                 We start from your current AI maturity and engineer toward deployable systems.
               </h2>
               <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8">
-                From use-case discovery through model development and deployment validation, BluBridge engineering teams remain directly engaged across the full lifecycle.
+                From use-case discovery through model development and deployment validation, our engineering teams remain directly engaged across the full lifecycle.
               </p>
               <Link 
                 to="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
               >
-                <span>Talk to our experts</span>
+                <span>Request Assessment</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -413,7 +413,7 @@ const SolutionsNew = () => {
                     Proof of Value
                   </h3>
                   <p className="text-sm text-[#555555] leading-relaxed">
-                    We help define measurable success criteria for AI adoption and validate use cases through feasibility analysis, controlled prototypes, and evaluation against your data, system constraints, and technical objectives.
+                    Measurable success criteria for AI adoption are defined and validated through feasibility analysis, controlled prototypes, and evaluation against your data, system constraints, and technical objectives.
                   </p>
                 </div>
               </div>
@@ -431,7 +431,7 @@ const SolutionsNew = () => {
                     Custom Training
                   </h3>
                   <p className="text-sm text-[#555555] leading-relaxed">
-                    We help build domain-customized models using your proprietary data through structured fine-tuning and training workflows aligned with defined technical success criteria.
+                    Domain-customized models are developed using proprietary datasets through structured fine-tuning and training workflows aligned with defined technical success metrics.
                   </p>
                 </div>
               </div>
@@ -451,7 +451,7 @@ const SolutionsNew = () => {
                     Deployment Engineering
                   </h3>
                   <p className="text-sm text-[#555555] leading-relaxed">
-                    We help design and implement model deployment across managed cloud environments (including hyperscalers), private infrastructure, and controlled on-prem environments, with deployment patterns selected based on performance, security, and operational constraints.
+                    Model deployment architectures are designed and implemented across managed cloud platforms (including hyperscalers), private infrastructure, and controlled on-prem environments based on performance, security, and operational constraints.
                   </p>
                 </div>
               </div>
