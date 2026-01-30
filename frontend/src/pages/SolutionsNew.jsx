@@ -53,148 +53,204 @@ const SolutionsNew = () => {
         </div>
       </section>
 
-      {/* Section: Model Customization */}
-      <section id="model-customization" className="py-16 md:py-24 bg-[#efede5]">
+      {/* Section: Model Customization - Premium Design */}
+      <section id="model-customization" className="py-20 md:py-28 bg-[#efede5]">
         <div className="container-custom">
-          {/* Section Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-6 leading-tight max-w-4xl">
-            Domain-Specialized Models, Engineered on Proprietary Data
-          </h2>
-          
-          <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-12 ">
-            Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. BluBridge is actively building model customization capabilities across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness — not surface-level tuning.
-          </p>
+          {/* Section Header with Accent */}
+          <div className="mb-14">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0B1F3B] mb-6 leading-tight max-w-4xl">
+              Domain-Specialized Models, Engineered on Proprietary Data
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-[#328CC1] to-[#1a5a8c] rounded-full mb-8"></div>
+            <p className="text-base md:text-lg text-[#555555] leading-relaxed max-w-4xl">
+              Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. BluBridge is actively building model customization capabilities across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness — not surface-level tuning.
+            </p>
+          </div>
 
-          {/* Three Column Cards */}
+          {/* Premium Three Column Cards */}
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {/* Card 1: Custom Pre-Training */}
-            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-sm border border-[#e8e6de]">
+            <div className="group bg-white rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+              {/* Card Number Badge */}
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
+                01
+              </div>
+              
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#328CC1]/10 to-[#328CC1]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Database className="w-7 h-7 text-[#328CC1]" />
+              </div>
+              
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
                 Custom Pre-Training
               </h3>
               
-              <p className="text-sm text-[#555555] leading-relaxed mb-5">
-                We are building and validating domain-oriented pre-training and continued training pipelines using proprietary datasets and controlled training configurations. Current capability development includes:
+              <p className="text-sm text-[#555555] leading-relaxed mb-6">
+                We are building and validating domain-oriented pre-training and continued training pipelines using proprietary datasets and controlled training configurations.
               </p>
               
-              <ul className="space-y-3 mb-5">
+              <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Full pre-training workflows using curated domain data mixtures and custom training recipes
+                    Full pre-training workflows using curated domain data mixtures
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Continued pre-training from open or internal checkpoints using domain corpora
+                    Continued pre-training from open or internal checkpoints
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Tokenization and dataset strategy design for domain signal preservation
+                    Tokenization and dataset strategy design
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Training evaluation and regression tracking frameworks
+                    Training evaluation and regression tracking
                   </span>
                 </li>
               </ul>
             </div>
 
             {/* Card 2: Specialized Model Capabilities */}
-            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-sm border border-[#e8e6de]">
+            <div className="group bg-white rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+              {/* Card Number Badge */}
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
+                02
+              </div>
+              
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#328CC1]/10 to-[#328CC1]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="w-7 h-7 text-[#328CC1]" />
+              </div>
+              
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
                 Specialized Model Capabilities
               </h3>
               
-              <p className="text-sm text-[#555555] leading-relaxed mb-5">
-                We are building and testing specialization workflows intended to adapt model behavior and task performance through structured fine-tuning and alignment methods. Current engineering directions include:
+              <p className="text-sm text-[#555555] leading-relaxed mb-6">
+                We are building and testing specialization workflows intended to adapt model behavior and task performance through structured fine-tuning.
               </p>
               
-              <ul className="space-y-3 mb-5">
+              <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
                     Supervised fine-tuning pipelines for task-specific adaptation
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Preference and behavior alignment methods under controlled evaluation
+                    Preference and behavior alignment methods
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Synthetic data generation for robustness and edge-case coverage
+                    Synthetic data generation for robustness
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Retrieval-grounded model workflows under prototype validation
+                    Retrieval-grounded model workflows
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Prompt and tool orchestration layers for bounded enterprise tasks
+                    Prompt and tool orchestration layers
                   </span>
                 </li>
               </ul>
             </div>
 
             {/* Card 3: Inference & Deployment Optimization */}
-            <div className="bg-[#fffdf7] rounded-xl p-6 lg:p-8 shadow-sm border border-[#e8e6de]">
+            <div className="group bg-white rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+              {/* Card Number Badge */}
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
+                03
+              </div>
+              
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#328CC1]/10 to-[#328CC1]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Zap className="w-7 h-7 text-[#328CC1]" />
+              </div>
+              
               <h3 className="text-xl font-bold text-[#0B1F3B] mb-4">
                 Inference & Deployment Optimization
               </h3>
               
-              <p className="text-sm text-[#555555] leading-relaxed mb-5">
-                We are building and validating inference and deployment optimization capabilities to support efficient and reliable model serving. Active workstreams include:
+              <p className="text-sm text-[#555555] leading-relaxed mb-6">
+                We are building and validating inference and deployment optimization capabilities to support efficient and reliable model serving.
               </p>
               
-              <ul className="space-y-3 mb-5">
+              <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
                     Inference profiling and performance characterization
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
                     Quantization and efficiency experiments
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
                     Runtime and batching strategy evaluation
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Containerized inference deployment patterns under internal testing
+                    Containerized inference deployment patterns
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F3B] flex-shrink-0 mt-2"></span>
+                  <div className="w-5 h-5 rounded-full bg-[#328CC1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#328CC1]" />
+                  </div>
                   <span className="text-sm text-[#555555] leading-relaxed">
-                    Observability hooks for latency, throughput, and drift measurement
+                    Observability hooks for latency and throughput
                   </span>
                 </li>
               </ul>
-              
-              <p className="text-sm text-[#555555] leading-relaxed">
-                Our focus is on deployment correctness and efficiency engineering before scale claims.
-              </p>
             </div>
           </div>
 
