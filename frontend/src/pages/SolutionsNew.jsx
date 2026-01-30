@@ -63,7 +63,7 @@ const SolutionsNew = () => {
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#328CC1] to-[#1a5a8c] rounded-full mb-8"></div>
             <p className="text-base md:text-lg text-[#555555] leading-relaxed max-w-4xl">
-              Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. Model customization capabilities are under active development across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness rather than surface-level tuning.
+              Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. Model customization capabilities are under active development across training, specialization, and inference optimization workflows.This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness rather than surface-level tuning.
             </p>
           </div>
 
@@ -380,9 +380,9 @@ const SolutionsNew = () => {
       <section id="value-realization" className="py-16 md:py-24 bg-[#fffdf7]">
         <div className="container-custom">
           {/* Two Column Layout: Left Text + Right Cards */}
-          <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             {/* Left Column: Heading and CTA - Vertically Centered */}
-            <div className="lg:w-1/2 lg:pr-8">
+            <div className="lg:w-1/2 lg:pr-8 mt-10">
               <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-4 leading-tight">
                 We start from your current AI maturity and engineer toward deployable systems.
               </h2>
@@ -540,7 +540,7 @@ const SolutionsNew = () => {
             <div className="flex-1">
               {/* Deployment Tooling Content */}
               {activeDeploymentTab === 'deployment-tooling' && (
-                <div className="bg-transparent rounded-2xl p-8 lg:p-10 min-h-[320px]" data-testid="deployment-content-tooling">
+                <div className="bg-[#fffdf7] rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-tooling">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
                     Self-Deployment Tooling
                   </h3>

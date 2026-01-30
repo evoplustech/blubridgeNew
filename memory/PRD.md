@@ -1,152 +1,67 @@
-# Design Sprint - AI Company Website PRD
+# BluBridge Website - Product Requirements Document
 
 ## Original Problem Statement
-Building a modern AI company website with multiple pages including Home, About Us, Products, Solutions, and Contact pages. The website features a light theme (#fffdf7 background) with premium animations and responsive design.
+Build and iteratively refine a corporate website for BluBridge, an AI engineering company. The primary focus is creating a `/solutions-new` page and updating various other pages (Home, About Us, Careers) based on visual feedback and document content.
 
-## Core Requirements
-- Multi-page website with consistent theme design
-- Contact page with hero section, contact cards, and form
-- Responsive layouts for mobile, tablet, and desktop
-- Integration with backend for form submissions
-- Orbit animation for AI expertise visualization
+## Current State (December 2025)
 
-## User Personas
-- Potential B2B clients looking for AI solutions
-- Partners seeking collaboration opportunities
-- Technical users needing support
+### Completed Features
+- **Solutions New Page (`/solutions-new`)**: Complete with Hero, Model Customization, Value Realization, and Deployment sections
+- **Header Component**: Functional Solutions dropdown with proper hover states
+- **Home Page**: Updated icons for Retail and Real Estate categories
+- **About Us Page**: Highlighted "Join Us" button
+- **Careers Page**: New hero section with "BluBridge Careers" and "CURIOSITY WANTED" titles
+- **Content Update (Latest)**: All Solutions page content replaced from Solution.docx document
 
----
+### Key Pages Structure
 
-## What's Been Implemented
+#### /solutions-new
+- Hero Section: "Engineering AI-Native Systems for Enterprise Frontiers"
+- Model Customization Section: 3 premium cards (Custom Pre-Training, Specialized Model Capabilities, Inference & Deployment Optimization)
+- Customization Stack Table
+- Value Realization Section: 3 cards (Proof of Value, Custom Training, Deployment Engineering)
+- Deployment Section: Interactive tabs (Self-Deployment Tooling, Serving Frameworks, Infrastructure Tracks) with golden grid background
 
-### Jan 28, 2025 - TWO Solutions Dropdown Menus Implementation
-- **Added SECOND Solutions dropdown menu in navigation (coexisting with existing):**
-  - Sample 1 (Existing): Original Solutions dropdown - unchanged, links to `/solutions/...` pages
-  - Sample 2 (New): New Solutions dropdown with BluBridge logo header
-    - Links to `/solutions-new#model-customization`
-    - Links to `/solutions-new#value-realization`
-    - Links to `/solutions-new#deployment`
-  - Orange hover effect (#F4C430) with arrow indicator (→) for Sample 2
-  - Both menus visible in navigation with identical styling
-- **Created new `/solutions-new` page:**
-  - Hero section with BluBridge logo
-  - Three anchor sections: model-customization, value-realization, deployment
-  - Each section has: icon, subtitle, title, description, feature list, stats card
-  - Alternating layout for visual variety
-  - Smooth scroll to anchor on page load
-- **Files created:** `SolutionsNew.jsx`
-- **Files modified:** `Header.jsx`, `App.js`
-
-### Jan 27, 2025 - Present Tense to Present Continuous Tense Conversion
-- **Converted all present tense content to present continuous tense across the website:**
-  - Excluded pages: About Us, Privacy Policy, Terms of Use (kept unchanged as requested)
-  - Excluded: Headings and sub-headings (kept unchanged as requested)
-  - Files modified (partial list):
-    - `Home.jsx`: "Optimize models" → "Optimizing models", "Shape foundation models" → "Shaping foundation models", etc.
-    - `ValueRealization.jsx`: "Turn AI investment" → "Turning AI investment", "BluBridge helps" → "BluBridge is helping", etc.
-    - `Deployment.jsx`: "we provide" → "we are providing", "Deploy models" → "Deploying models", etc.
-    - `Training.jsx`, `Inference.jsx`, `FineTuning.jsx`: Updated all content paragraphs
-    - `ModelCustomization.jsx`: "empowers you" → "is empowering you", "gives you full control" → "is giving you full control"
-    - `Research.jsx`: "proudly presents" → "is proudly presenting", "we demonstrate" → "we are demonstrating"
-    - `JoinOurTeam.jsx`: FAQ answers converted to present continuous
-    - `Footer.jsx`: "We get back to you" → "We are getting back to you"
-    - All Industry pages (Healthcare, Finance, Education, Government, Legal, Manufacturing, Software, Telco): Hero paragraphs and value props converted
-- **Also fixed:** Value Stack table alignment on `/solutions/value-realization` page
-- **Also added:** "It's Our Precision" heading on mobile About Us page
-
-### Jan 27, 2025 - Future Tense to Present Tense Conversion (Previous Session)
-- **Converted all future tense content to present tense across the website:**
-  - Excluded pages: Privacy Policy, Terms of Use (kept unchanged as requested)
-  - Excluded: Headings and sub-headings (kept unchanged as requested)
-
-### Jan 25, 2025 - Home Page Mobile Responsiveness Fix
-- **Fixed mobile responsiveness issues on Home page:**
-  - Hero text "Beyond the Horizon" now fully visible on mobile (no longer cut off)
-  - Orbit animation properly scaled using CSS transform for different viewports:
-    - Mobile (< 640px): scale(0.50)
-    - Tablet (640-1023px): scale(0.73)
-    - Desktop (≥ 1024px): scale(1.0)
-  - "Manufacturing" label and all orbit labels now visible on mobile
-  - "By Industry" cards now stack in single column on mobile (grid-cols-1)
-  - Cards display in 2-column grid on tablet and larger (sm:grid-cols-2)
-  - B logo scales proportionally with clamp() across all viewports
-
-### Jan 24, 2025 - Contact Page Redesign
-- **Completely redesigned Contact page** to match provided screenshot:
-  - Dark theme (#0a0a0a background)
-  - Hero section: "Let's Build the Future Together"
-  - Three contact cards grid (General Inquiries, Partnership Opportunities, Technical Support)
-  - Modern contact form with: First Name, Last Name, Email, Company, Subject dropdown, Message
-  - "Send Message" white CTA button
-  - Form submission integrated with backend API
-
-### Previous Sessions
-- Home page with gradient text and looping typing animation
-- Model Customization page with canvas-based animation matching user diagram
-- About Us page with responsive layouts and typing animations
-- Value Realization page with 4-column ROI statistics section
-- Deployment page with 3-column deployment statistics section
-- URL structure updated: /products/model-customization → /solutions/model-customization, /about → /about-us
-- Admin panel at `/admin` (credentials: admin/admin)
-
----
+### Technical Stack
+- Frontend: React with Tailwind CSS
+- Backend: FastAPI with MongoDB
+- UI Components: Shadcn/UI
+- Icons: Lucide React
+- Fonts: Custom (Playfair Display via Google Fonts)
+- Animation: Framer Motion
 
 ## Prioritized Backlog
 
-### P0 - Immediate
-- [x] Fix Home page mobile responsiveness (DONE - Jan 25, 2025)
+### P0 (High Priority)
+- Apply 3-Grid color to About Page
+- Create Individual GPU Node Pages
 
-### P1 - High Priority
-- [ ] Fix Deployment page responsiveness (user needs to choose approach)
-- [ ] Apply 3-Grid color to About Page
-- [ ] Create Individual GPU Node Pages
+### P1 (Medium Priority)
+- Create Blog/Press Pages
+- Create Contact Sub-pages
+- Refactor `SolutionsNew.jsx` and `Home.jsx` into smaller components
 
-### P2 - Medium Priority
-- [ ] Fix Container Width Inconsistencies across pages
-- [ ] Verify Header Logo Scroll Behavior
-- [ ] Create Blog/Press Pages
-- [ ] Create "Home-1" page (cloning scale.com)
-- [ ] Create Contact Sub-pages
+### P2 (Lower Priority)
+- Responsiveness fixes for new components
+- Fix pre-existing lint errors
+- Container width consistency across pages
 
-### P3 - Low Priority / Refactoring
-- [ ] Extract AIExpertiseOrbit into separate component
-- [ ] Consolidate mobile/desktop layouts in AboutUs.jsx
-- [ ] Extract reusable UI components
+## File References
+- `/app/frontend/src/pages/SolutionsNew.jsx`: Main solutions page
+- `/app/frontend/src/pages/Home.jsx`: Home page with updated icons
+- `/app/frontend/src/pages/AboutUs.jsx`: About page with button styling
+- `/app/frontend/src/pages/Careers.jsx`: Careers page with hero section
+- `/app/frontend/src/components/Header.jsx`: Navigation header
+- `/app/frontend/public/index.html`: Custom fonts
 
----
+## 3rd Party Integrations
+- Brevo (Sendinblue)
+- Embla Carousel React
+- Lucide React
+- Framer Motion
+- MongoDB Atlas
 
-## Technical Architecture
-
-### Frontend
-- React with Tailwind CSS
-- Lucide React for icons
-- Framer Motion for animations
-- Embla Carousel for carousels
-
-### Backend
-- FastAPI
-- MongoDB (via MONGO_URL)
-- Brevo/Sendinblue integration
-
-### Key Files
-- `/app/frontend/src/pages/Home.jsx` - Home page with AIExpertiseOrbit component
-- `/app/frontend/src/pages/Contact.jsx` - Contact page
-- `/app/frontend/src/pages/AboutUs.jsx` - About Us page
-- `/app/frontend/src/pages/products/ModelCustomization.jsx` - Model Customization with canvas animation
-- `/app/frontend/src/pages/solutions/ValueRealization.jsx`
-- `/app/frontend/src/pages/solutions/Deployment.jsx`
-- `/app/frontend/src/index.css` - Contains orbit responsive styles
-
----
-
-## Credentials
-- Admin Panel: `/admin` - Username: `admin`, Password: `admin`
-
----
-
-## Known Issues (Pending User Decision)
-1. **Deployment Page Responsiveness** - The page has a complex visualization that breaks on mobile. Awaiting user decision:
-   - Option A: Simplified single-column layout for mobile
-   - Option B: Hide visualization on mobile (was reverted)
-
-2. **Container Width Inconsistencies** - Global issue affecting multiple pages
+## Notes
+- User workflow is iterative and screenshot-driven
+- Design changes must be pixel-perfect to user requirements
+- Large components (SolutionsNew.jsx, Home.jsx) need refactoring into smaller pieces
