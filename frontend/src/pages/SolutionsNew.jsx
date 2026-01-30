@@ -256,10 +256,10 @@ const SolutionsNew = () => {
 
           {/* Customization Stack Table Section */}
           <div className="mt-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-4 text-center">
               Customization Stack
             </h3>
-            <p className="text-[#555555] text-base md:text-lg mb-8 max-w-3xl">
+            <p className="text-[#555555] text-base md:text-lg mb-8text-center">
               Our comprehensive customization stack gives you full control from data to deployment, with flexibility at every layer
             </p>
 
