@@ -31,13 +31,21 @@ const SolutionsNew = () => {
     <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero Section */}
       <section 
-        className="py-20 md:py-28 lg:py-36"
+        className="py-20 md:py-28 lg:py-36 relative"
         style={{
-          backgroundColor: '#fffdf7',
-          backgroundImage: 'repeating-linear-gradient(135deg, #e8e8ef 0px, #e8e8ef 1px, transparent 1px, transparent 3px)',
-          backgroundSize: '4px 4px'
+          backgroundColor: '#fffdf7'
         }}
       >
+        {/* Background lines with fade effect */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, #e8e8ef 0px, #e8e8ef 1px, transparent 1px, transparent 3px)',
+            backgroundSize: '4px 4px',
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%)'
+          }}
+        />
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3B] leading-[1.1] tracking-tight mb-8">
