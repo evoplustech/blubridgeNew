@@ -538,7 +538,22 @@ const AboutUs = () => {
                 maxWidth: '600px',
               }}
             >
-              We are an AI research and consulting company focused on turning intelligence into real-world impact. Our work bridges deep research with practical execution, helping organisations move from ideas to deployed AI systems. By combining scientific rigor with hands-on consulting, we enable businesses to build, scale, and trust AI that delivers measurable outcomes.
+              We are an AI research and engineering company with consulting and applied AI
+programs, developing advanced machine learning systems from first principles. Our work
+spans model development, systems engineering, inference optimization, and deployment
+architecture, with technical rigor and reproducibility treated as core requirements.
+            </p>
+            <p 
+              className="text-white/90 mb-10 leading-relaxed"
+              style={{
+                fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
+                lineHeight: 1.8,
+                maxWidth: '600px',
+              }}
+            >
+             We advance model and system capabilities through disciplined research, controlled
+experimentation, and engineering-driven validation, and translate mature capabilities into
+production AI solutions.
             </p>
             
             {/* Get in touch button */}
@@ -694,7 +709,19 @@ const AboutUs = () => {
                 }}
                 data-testid="our-mission-description"
               >
-              We build AI systems that advance both the open ecosystem and enterprise deployment. BluBridge focuses on engineering open-weight AI models intended to approach the performance and reliability characteristics of closed systems through disciplined training, systems-level optimization, and end-to-end technical ownership. Progress is treated as an engineering discipline — defined by measurement, validation, and reproducibility.
+              We are building AI systems for both open ecosystems and enterprise environments with focus on engineering open-weight models and applied AI capabilities through disciplined training, evaluation, and deployment-aware design.
+              </p>
+              <p 
+                style={{ 
+                  fontSize: '17px', 
+                  lineHeight: '1.75', 
+                  color: '#4B5563', 
+                  marginBottom: '32px',
+                  fontFamily: "'DM Sans', sans-serif"
+                }}
+                data-testid="our-mission-description"
+              >
+             We develop and deploy validated AI solutions that transform model research into operational capability across real-world environments.Progress is communicated according to technical maturity and production readiness. We treat progress in AI as an engineering discipline — measured, validated, and reproducible — with correctness and operational reliability prioritized over surface benchmarks.
               </p>
               
               {/* Read More Button - Highlighted with glow effect */}

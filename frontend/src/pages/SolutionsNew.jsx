@@ -466,7 +466,7 @@ const SolutionsNew = () => {
         className="py-20 md:py-28 relative"
         style={{
           backgroundColor: '#efede5',
-          backgroundImage: 'linear-gradient(to right, rgba(244, 196, 48, 0.3) 1px, transparent 1px), linear-gradient(rgba(244, 196, 48, 0.3) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(to right, #e6e2d4 1px, transparent 1px), linear-gradient( #e6e2d4 1px, transparent 1px)',
           backgroundSize: '37px 37px'
         }}
       >
@@ -474,7 +474,7 @@ const SolutionsNew = () => {
           {/* Section Heading with Premium Accent */}
           <div className="mb-14">
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0B1F3B] leading-tight max-w-4xl">
-              What self-deployment capabilities are under development?
+              What self-deployment <br></br>Capabilities are under development?
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#F4C430] to-[#D4A420] mt-6 rounded-full"></div>
           </div>
@@ -483,7 +483,7 @@ const SolutionsNew = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left: Clean Vertical Tab Navigation */}
             <div className="lg:w-[300px] flex-shrink-0">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-lg">
+              <div className="bg-[#fffdf7] backdrop-blur-sm rounded-2xl p-5 shadow-lg">
                 <nav className="space-y-2">
                   {/* Tab 1: Deployment Tooling */}
                   <button 
@@ -491,7 +491,7 @@ const SolutionsNew = () => {
                     data-testid="deployment-tab-tooling"
                     className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl ${
                       activeDeploymentTab === 'deployment-tooling' 
-                        ? 'bg-white text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
+                        ? 'bg-[#fffdf7] text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
                         : 'text-[#666666] hover:text-[#0B1F3B] hover:bg-white/50'
                     }`}
                   >
@@ -507,7 +507,7 @@ const SolutionsNew = () => {
                     data-testid="deployment-tab-serving"
                     className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl ${
                       activeDeploymentTab === 'serving-frameworks' 
-                        ? 'bg-white text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
+                        ? 'bg-[#fffdf7] text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
                         : 'text-[#666666] hover:text-[#0B1F3B] hover:bg-white/50'
                     }`}
                   >
@@ -523,7 +523,7 @@ const SolutionsNew = () => {
                     data-testid="deployment-tab-infrastructure"
                     className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl ${
                       activeDeploymentTab === 'infrastructure-tracks' 
-                        ? 'bg-white text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
+                        ? 'bg-[#fffdf7] text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
                         : 'text-[#666666] hover:text-[#0B1F3B] hover:bg-white/50'
                     }`}
                   >
@@ -540,7 +540,7 @@ const SolutionsNew = () => {
             <div className="flex-1">
               {/* Deployment Tooling Content */}
               {activeDeploymentTab === 'deployment-tooling' && (
-                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-tooling">
+                <div className="bg-transparent rounded-2xl p-8 lg:p-10 min-h-[320px]" data-testid="deployment-content-tooling">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
                     Self-Deployment Tooling
                   </h3>
@@ -553,7 +553,7 @@ const SolutionsNew = () => {
 
               {/* Serving Frameworks Content */}
               {activeDeploymentTab === 'serving-frameworks' && (
-                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-serving">
+                <div className="bg-[#fffdf7] rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-serving">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
                     Serving Frameworks
                   </h3>
@@ -572,7 +572,7 @@ const SolutionsNew = () => {
 
               {/* Infrastructure Tracks Content */}
               {activeDeploymentTab === 'infrastructure-tracks' && (
-                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-infrastructure">
+                <div className="bg-[#fffdf7] rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-infrastructure">
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
                     Infrastructure Tracks
                   </h3>

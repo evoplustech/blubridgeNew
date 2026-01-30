@@ -192,9 +192,9 @@ const VerticalTabsSection = () => {
       <div 
         className="absolute inset-0 opacity-60"
         style={{
-          backgroundImage: `url('https://customer-assets.emergentagent.com/job_web-redesign-22/artifacts/ddqne8xx_grid.png')`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '50px 50px'
+          backgroundColor: '#efede5',
+          backgroundImage: 'linear-gradient(to right, #e4dfcf 1px, transparent 1px), linear-gradient( #e4dfcf 1px, transparent 1px)',
+          backgroundSize: '37px 37px'
         }}
       />
       <div className="max-w-5xl mx-auto px-4 relative z-10">
@@ -215,7 +215,7 @@ const VerticalTabsSection = () => {
                   className={`w-full text-left px-6 py-5 flex items-center justify-between border-b border-[#E5E7EB] last:border-b-0 transition-all duration-200 ${
                     activeTab === index 
                       ? 'bg-[#0B1F3B] text-white' 
-                      : 'bg-white text-[#1A1A1A] hover:bg-gray-50'
+                      : 'bg-[#fffdf7] text-[#1A1A1A] hover:bg-gray-50'
                   }`}
                   data-testid={`vertical-tab-${index}`}
                 >
@@ -254,21 +254,21 @@ const AIExpertiseOrbit = () => {
 
   const atoms = [
     // INNER ring: 2 features + 1 dummy
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 250, Icon: Radio, label: 'Telco' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 50, Icon: ShieldCheck, label: 'Finance' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 255, Icon: Radio, label: 'Telco' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Finance' },
     { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
     // MIDDLE ring: 2 features + 1 dummy
     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 100, Icon: ShoppingCart, label: 'Oil & Gas' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 330, Icon: GraduationCap, label: 'Education' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 180, Icon: HeartPulse, label: 'Healthcare' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 325, Icon: GraduationCap, label: 'Education' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 185, Icon: HeartPulse, label: 'Healthcare' },
     { ring: 2, type: 'dummy', angle: 250, dummyClass: 'dummy-orange' },
 
     // OUTER ring: 4 features + 2 dummies
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 60, Icon: Scale, label: 'Legal' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 230, Icon: Factory, label: 'Manufacturing' },
-     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: HomeIcon, label: 'Construction & Infra' },
+     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: HomeIcon, label: <>Construction <br /> & Infra</> },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 370, Icon: Landmark, label: 'Government' },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
     { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
@@ -1332,7 +1332,7 @@ Bringing models from lab to live with enterprise-grade reliability and scale. La
                 className={`px-5 py-3 rounded-lg text-sm font-medium transition-all ${
                   activeInfraTab === index 
                     ? 'bg-[#0B1F3B] text-white shadow-lg' 
-                    : 'bg-white/90 text-[#243447] border border-[#D6DEC3] hover:bg-white hover:shadow-md'
+                    : 'bg-[#fffdf7] text-[#243447] border border-[#D6DEC3] hover:bg-white hover:shadow-md'
                 }`}
                 data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -1342,7 +1342,7 @@ Bringing models from lab to live with enterprise-grade reliability and scale. La
           </div>
           
           {/* Tab Content Card */}
-          <div className="bg-white rounded-2xl p-8 border border-[#E8E4D9] shadow-lg max-w-5xl" data-testid="infra-content-card">
+          <div className="bg-[#fffdf7] rounded-2xl p-8 border border-[#E8E4D9] shadow-lg max-w-5xl" data-testid="infra-content-card">
             <h3 className="text-2xl font-medium mb-4 text-[#0B1F3B]">{infraTabs[activeInfraTab].title}</h3>
             <p className="text-[#243447] mb-6 leading-relaxed">{infraTabs[activeInfraTab].description}</p>
             <div className="grid grid-cols-2 gap-4 mb-6">
