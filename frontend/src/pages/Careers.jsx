@@ -296,6 +296,53 @@ const Careers = () => {
           }
         }
       `}</style>
+      
+      {/* ======================================== */}
+      {/* HERO HEADER SECTION - BluBridge Careers + CURIOSITY WANTED */}
+      {/* ======================================== */}
+      <div 
+        data-testid="careers-hero"
+        style={{ 
+          textAlign: 'center',
+          paddingTop: '40px',
+          paddingBottom: '50px',
+          maxWidth: '900px',
+          margin: '0 auto',
+          padding: '40px 20px 50px'
+        }}
+      >
+        {/* Small Label - BluBridge Careers */}
+        <p 
+          data-testid="careers-label"
+          style={{ 
+            fontSize: '16px',
+            fontWeight: '500',
+            color: '#328CC1',
+            marginBottom: '20px',
+            letterSpacing: '0.5px'
+          }}
+        >
+          BluBridge Careers
+        </p>
+        
+        {/* Main Heading - CURIOSITY WANTED */}
+        <h1 
+          data-testid="careers-main-title"
+          style={{ 
+            fontFamily: "'Playfair Display', 'Georgia', 'Times New Roman', serif",
+            fontSize: 'clamp(48px, 8vw, 80px)',
+            fontWeight: '400',
+            color: '#1A2F3B',
+            lineHeight: '1.05',
+            letterSpacing: '-0.01em',
+            textTransform: 'uppercase',
+            margin: '0'
+          }}
+        >
+          CURIOSITY<br />WANTED
+        </h1>
+      </div>
+
       <div style={{ 
         maxWidth: '1261px',
         margin: '0 auto', 
@@ -313,7 +360,7 @@ const Careers = () => {
           }}
         >
           {/* Title */}
-          <h1 
+          <h2 
             data-testid="join-us-title"
             className="join-us-title"
             style={{ 
@@ -325,7 +372,7 @@ const Careers = () => {
             }}
           >
             Join Us
-          </h1>
+          </h2>
            
           {/* ======================================== */}
           {/* CAREERS CTA STRIP */}
