@@ -58,8 +58,8 @@ const SolutionsNew = () => {
         <div className="container-custom">
           {/* Section Header with Accent */}
           <div className="mb-14">
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0B1F3B] mb-6 leading-tight max-w-4xl">
-              Domain-Specialized Models, Engineered on Proprietary Data
+            <h2 className="leading-10 text-2xl lg:text-[44px] font-bold text-[#0B1F3B] mb-6 ">
+              Domain-Specialized Models,<br></br> Engineered on Proprietary Data
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#328CC1] to-[#1a5a8c] rounded-full mb-8"></div>
             <p className="text-base md:text-lg text-[#555555] leading-relaxed max-w-4xl">
@@ -70,11 +70,11 @@ const SolutionsNew = () => {
           {/* Premium Three Column Cards */}
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {/* Card 1: Custom Pre-Training */}
-            <div className="group bg-white rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+            <div className="group bg-[#fffdf7] rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
               {/* Card Number Badge */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
+              {/* <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
                 01
-              </div>
+              </div> */}
               
               {/* Icon */}
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#328CC1]/10 to-[#328CC1]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -126,11 +126,11 @@ const SolutionsNew = () => {
             </div>
 
             {/* Card 2: Specialized Model Capabilities */}
-            <div className="group bg-white rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+            <div className="group  bg-[#fffdf7] rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
               {/* Card Number Badge */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
+              {/* <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
                 02
-              </div>
+              </div> */}
               
               {/* Icon */}
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#328CC1]/10 to-[#328CC1]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -190,11 +190,11 @@ const SolutionsNew = () => {
             </div>
 
             {/* Card 3: Inference & Deployment Optimization */}
-            <div className="group bg-white rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+            <div className="group bg-[#fffdf7] rounded-2xl p-8 shadow-lg border border-[#e8e6de]/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
               {/* Card Number Badge */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
+              {/* <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gradient-to-br from-[#328CC1] to-[#1a5a8c] flex items-center justify-center text-white font-bold text-sm shadow-md">
                 03
-              </div>
+              </div> */}
               
               {/* Icon */}
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#328CC1]/10 to-[#328CC1]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
