@@ -538,7 +538,8 @@ const AboutUs = () => {
                 maxWidth: '600px',
               }}
             >
-              We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. We advance model and system capabilities through disciplined research, controlled experimentation, and engineering-driven validation, and translate mature capabilities into production AI solutions.
+             We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.
+
             </p>
             
             {/* Get in touch button */}
