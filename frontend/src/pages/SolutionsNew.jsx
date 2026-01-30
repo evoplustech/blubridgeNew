@@ -422,7 +422,7 @@ const SolutionsNew = () => {
         </div>
       </section>
 
-      {/* Section: Deployment - Premium Design */}
+      {/* Section: Deployment - Premium Clean Design */}
       <section id="deployment" className="py-20 md:py-28 bg-[#efede5]">
         <div className="container-custom">
           {/* Section Heading with Premium Accent */}
@@ -433,185 +433,107 @@ const SolutionsNew = () => {
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#F4C430] to-[#D4A420] mt-6 rounded-full"></div>
           </div>
 
-          {/* Premium Tabbed Layout with Connected Design */}
-          <div className="flex flex-col lg:flex-row">
-            {/* Left: Premium Vertical Tab Navigation */}
-            <div className="lg:w-[320px] flex-shrink-0">
-              <div className="bg-white rounded-2xl lg:rounded-r-none p-4 shadow-xl border border-[#e8e6de]/50 lg:border-r-0">
-                <nav className="space-y-3">
+          {/* Premium Tabbed Layout */}
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Left: Clean Vertical Tab Navigation */}
+            <div className="lg:w-[300px] flex-shrink-0">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-lg">
+                <nav className="space-y-2">
                   {/* Tab 1: Deployment Tooling */}
                   <button 
                     onClick={() => setActiveDeploymentTab('deployment-tooling')}
                     data-testid="deployment-tab-tooling"
-                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl ${
                       activeDeploymentTab === 'deployment-tooling' 
-                        ? 'bg-gradient-to-r from-[#0B1F3B] to-[#162B4D] text-white shadow-lg' 
-                        : 'bg-[#f9f7f0] text-[#555555] hover:bg-[#f5f3eb] hover:shadow-md'
+                        ? 'bg-white text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
+                        : 'text-[#666666] hover:text-[#0B1F3B] hover:bg-white/50'
                     }`}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                        activeDeploymentTab === 'deployment-tooling' 
-                          ? 'bg-[#F4C430] shadow-md' 
-                          : 'bg-white shadow-sm group-hover:shadow-md'
-                      }`}>
-                        <Wrench className="w-5 h-5 text-[#0B1F3B]" />
-                      </div>
-                      <span className="font-semibold text-[15px]">Deployment Tooling</span>
-                    </div>
-                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
-                      activeDeploymentTab === 'deployment-tooling' 
-                        ? 'text-[#F4C430] opacity-100' 
-                        : 'opacity-0 group-hover:opacity-50'
-                    }`} />
+                    <span className={`font-medium ${activeDeploymentTab === 'deployment-tooling' ? 'font-semibold' : ''}`}>Deployment Tooling</span>
+                    {activeDeploymentTab === 'deployment-tooling' && (
+                      <span className="text-[#F4C430] text-xl font-bold">→</span>
+                    )}
                   </button>
                   
                   {/* Tab 2: Serving Frameworks */}
                   <button 
                     onClick={() => setActiveDeploymentTab('serving-frameworks')}
                     data-testid="deployment-tab-serving"
-                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl ${
                       activeDeploymentTab === 'serving-frameworks' 
-                        ? 'bg-gradient-to-r from-[#0B1F3B] to-[#162B4D] text-white shadow-lg' 
-                        : 'bg-[#f9f7f0] text-[#555555] hover:bg-[#f5f3eb] hover:shadow-md'
+                        ? 'bg-white text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
+                        : 'text-[#666666] hover:text-[#0B1F3B] hover:bg-white/50'
                     }`}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                        activeDeploymentTab === 'serving-frameworks' 
-                          ? 'bg-[#F4C430] shadow-md' 
-                          : 'bg-white shadow-sm group-hover:shadow-md'
-                      }`}>
-                        <Monitor className="w-5 h-5 text-[#0B1F3B]" />
-                      </div>
-                      <span className="font-semibold text-[15px]">Serving Frameworks</span>
-                    </div>
-                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
-                      activeDeploymentTab === 'serving-frameworks' 
-                        ? 'text-[#F4C430] opacity-100' 
-                        : 'opacity-0 group-hover:opacity-50'
-                    }`} />
+                    <span className={`font-medium ${activeDeploymentTab === 'serving-frameworks' ? 'font-semibold' : ''}`}>Serving Frameworks</span>
+                    {activeDeploymentTab === 'serving-frameworks' && (
+                      <span className="text-[#F4C430] text-xl font-bold">→</span>
+                    )}
                   </button>
                   
                   {/* Tab 3: Infrastructure Tracks */}
                   <button 
                     onClick={() => setActiveDeploymentTab('infrastructure-tracks')}
                     data-testid="deployment-tab-infrastructure"
-                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl ${
                       activeDeploymentTab === 'infrastructure-tracks' 
-                        ? 'bg-gradient-to-r from-[#0B1F3B] to-[#162B4D] text-white shadow-lg' 
-                        : 'bg-[#f9f7f0] text-[#555555] hover:bg-[#f5f3eb] hover:shadow-md'
+                        ? 'bg-white text-[#0B1F3B] shadow-md border border-[#e8e6de]' 
+                        : 'text-[#666666] hover:text-[#0B1F3B] hover:bg-white/50'
                     }`}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                        activeDeploymentTab === 'infrastructure-tracks' 
-                          ? 'bg-[#F4C430] shadow-md' 
-                          : 'bg-white shadow-sm group-hover:shadow-md'
-                      }`}>
-                        <Server className="w-5 h-5 text-[#0B1F3B]" />
-                      </div>
-                      <span className="font-semibold text-[15px]">Infrastructure Tracks</span>
-                    </div>
-                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
-                      activeDeploymentTab === 'infrastructure-tracks' 
-                        ? 'text-[#F4C430] opacity-100' 
-                        : 'opacity-0 group-hover:opacity-50'
-                    }`} />
+                    <span className={`font-medium ${activeDeploymentTab === 'infrastructure-tracks' ? 'font-semibold' : ''}`}>Infrastructure Tracks</span>
+                    {activeDeploymentTab === 'infrastructure-tracks' && (
+                      <span className="text-[#F4C430] text-xl font-bold">→</span>
+                    )}
                   </button>
                 </nav>
               </div>
             </div>
 
             {/* Right: Premium Tab Content Panel */}
-            <div className="flex-1 lg:-ml-px">
+            <div className="flex-1">
               {/* Deployment Tooling Content */}
               {activeDeploymentTab === 'deployment-tooling' && (
-                <div className="bg-white rounded-2xl lg:rounded-l-none p-8 lg:p-12 shadow-xl border border-[#e8e6de]/50 lg:border-l-0 min-h-[380px] relative overflow-hidden" data-testid="deployment-content-tooling">
-                  {/* Decorative Background Element */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#F4C430]/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-tooling">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
+                    Self-Deployment Tooling
+                  </h3>
                   
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F4C430] to-[#D4A420] flex items-center justify-center shadow-lg">
-                        <Wrench className="w-7 h-7 text-[#0B1F3B]" />
-                      </div>
-                      <h3 className="text-2xl md:text-[32px] font-bold text-[#0B1F3B]">
-                        Self-Deployment Tooling
-                      </h3>
-                    </div>
-                    
-                    <p className="text-base md:text-lg text-[#555555] leading-[1.8] mb-10">
-                      BluBridge is building internal deployment tooling and model serving workflows to support controlled self-hosted and private infrastructure model deployments. Current engineering efforts focus on deployment configuration patterns, runtime setup, performance profiling, and validation procedures so that model serving can be executed in reproducible and monitored environments. These self-deployment capabilities are presently in engineering and validation stages and are not yet available as packaged external releases.
-                    </p>
-
-                    <div className="flex items-center gap-3 pt-6 border-t border-[#e8e6de]">
-                      <span className="inline-flex items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-[#F4C430]/10 to-[#F4C430]/5 rounded-full border border-[#F4C430]/20">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#F4C430] animate-pulse shadow-sm shadow-[#F4C430]/50"></span>
-                        <span className="text-sm font-semibold text-[#0B1F3B]">Engineering & Validation Stage</span>
-                      </span>
-                    </div>
-                  </div>
+                  <p className="text-base md:text-lg text-[#555555] leading-[1.8]">
+                    BluBridge is building internal deployment tooling and model serving workflows to support controlled self-hosted and private infrastructure model deployments. Current engineering efforts focus on deployment configuration patterns, runtime setup, performance profiling, and validation procedures so that model serving can be executed in reproducible and monitored environments. These self-deployment capabilities are presently in engineering and validation stages and are not yet available as packaged external releases.
+                  </p>
                 </div>
               )}
 
               {/* Serving Frameworks Content */}
               {activeDeploymentTab === 'serving-frameworks' && (
-                <div className="bg-white rounded-2xl lg:rounded-l-none p-8 lg:p-12 shadow-xl border border-[#e8e6de]/50 lg:border-l-0 min-h-[380px] relative overflow-hidden" data-testid="deployment-content-serving">
-                  {/* Decorative Background Element */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#22C55E]/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-serving">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
+                    Serving Frameworks
+                  </h3>
                   
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F4C430] to-[#D4A420] flex items-center justify-center shadow-lg">
-                        <Monitor className="w-7 h-7 text-[#0B1F3B]" />
-                      </div>
-                      <h3 className="text-2xl md:text-[32px] font-bold text-[#0B1F3B]">
-                        Serving Frameworks
-                      </h3>
-                    </div>
-                    
-                    <p className="text-base md:text-lg text-[#555555] leading-[1.8] mb-10">
-                      BluBridge is developing internal model serving frameworks to standardize inference configuration, runtime behavior, and performance measurement across controlled environments. Current engineering work focuses on serving configuration patterns, runtime controls, profiling methods, and observability integration so that model execution can be measured, tuned, and reproduced reliably. These frameworks are presently limited to internal experiments and pilot-stage systems and are not yet released as external tooling.
-                    </p>
-                    
-                    <div className="flex items-center gap-3 pt-6 border-t border-[#e8e6de]">
-                      <span className="inline-flex items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-[#22C55E]/10 to-[#22C55E]/5 rounded-full border border-[#22C55E]/20">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] shadow-sm shadow-[#22C55E]/50"></span>
-                        <span className="text-sm font-semibold text-[#0B1F3B]">Internal Use & Limited Pilot Programs</span>
-                      </span>
-                    </div>
+                  <p className="text-base md:text-lg text-[#555555] leading-[1.8] mb-6">
+                    BluBridge is developing internal model serving frameworks to standardize inference configuration, runtime behavior, and performance measurement across controlled environments. Current engineering work focuses on serving configuration patterns, runtime controls, profiling methods, and observability integration so that model execution can be measured, tuned, and reproduced reliably. These frameworks are presently limited to internal experiments and pilot-stage systems and are not yet released as external tooling.
+                  </p>
+                  
+                  <div className="pt-5 border-t border-[#e8e6de]">
+                    <span className="text-sm text-[#888888] font-medium">
+                      Availability: Internal use and limited pilot programs.
+                    </span>
                   </div>
                 </div>
               )}
 
               {/* Infrastructure Tracks Content */}
               {activeDeploymentTab === 'infrastructure-tracks' && (
-                <div className="bg-white rounded-2xl lg:rounded-l-none p-8 lg:p-12 shadow-xl border border-[#e8e6de]/50 lg:border-l-0 min-h-[380px] relative overflow-hidden" data-testid="deployment-content-infrastructure">
-                  {/* Decorative Background Element */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#3B82F6]/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-[#e8e6de]/30 min-h-[320px]" data-testid="deployment-content-infrastructure">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
+                    Infrastructure Tracks
+                  </h3>
                   
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F4C430] to-[#D4A420] flex items-center justify-center shadow-lg">
-                        <Server className="w-7 h-7 text-[#0B1F3B]" />
-                      </div>
-                      <h3 className="text-2xl md:text-[32px] font-bold text-[#0B1F3B]">
-                        Infrastructure Tracks
-                      </h3>
-                    </div>
-                    
-                    <p className="text-base md:text-lg text-[#555555] leading-[1.8] mb-10">
-                      BluBridge is developing internal infrastructure tracks to study and standardize how AI model training and inference systems are provisioned, measured, and operated across controlled compute environments. Current work covers compute topology patterns, GPU workload profiling, storage and data pipeline behavior, and observability baselines required for reliable AI system operation. These infrastructure tracks are part of ongoing internal engineering programs and are not yet exposed as external infrastructure offerings.
-                    </p>
-                    
-                    <div className="flex items-center gap-3 pt-6 border-t border-[#e8e6de]">
-                      <span className="inline-flex items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 rounded-full border border-[#3B82F6]/20">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#3B82F6] shadow-sm shadow-[#3B82F6]/50"></span>
-                        <span className="text-sm font-semibold text-[#0B1F3B]">Internal Engineering Programs</span>
-                      </span>
-                    </div>
-                  </div>
+                  <p className="text-base md:text-lg text-[#555555] leading-[1.8]">
+                    BluBridge is developing internal infrastructure tracks to study and standardize how AI model training and inference systems are provisioned, measured, and operated across controlled compute environments. Current work covers compute topology patterns, GPU workload profiling, storage and data pipeline behavior, and observability baselines required for reliable AI system operation. These infrastructure tracks are part of ongoing internal engineering programs and are not yet exposed as external infrastructure offerings.
+                  </p>
                 </div>
               )}
             </div>
