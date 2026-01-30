@@ -382,26 +382,28 @@ const SolutionsNew = () => {
           {/* Two Column Layout: Left Text + Right Cards */}
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             {/* Left Column: Heading and CTA - Vertically Centered */}
-            <div className="lg:w-1/2 lg:pr-8 mt-10">
-              <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0B1F3B] mb-4 leading-tight">
-                We start from your current AI maturity and engineer toward deployable systems.
+            <div className="lg:w-1/2 lg:pr-8 lg:flex lg:flex-col lg:justify-center">
+              <h2 className="text-[#0B1F3B] mb-6 leading-tight">
+                <span className="block text-base md:text-lg font-medium text-[#555555] mb-2">We start from your current</span>
+                <span className="block text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1]">AI Maturity</span>
+                <span className="block text-xl md:text-2xl font-medium mt-3 text-[#555555]">and engineer toward deployable systems.</span>
               </h2>
               <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8">
                 From use-case discovery through model development and deployment validation, our engineering teams remain directly engaged across the full lifecycle.
               </p>
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B1F3B] text-white font-medium rounded-lg hover:bg-[#162B4D] transition-colors w-fit"
               >
                 <span>Request Assessment</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
-            {/* Right Column: Three Stacked Cards */}
-            <div className="lg:w-1/2 space-y-4">
+            {/* Right Column: Three Stacked Cards - Equal Height */}
+            <div className="lg:w-1/2 flex flex-col gap-4">
               {/* Card 1: Proof of Value */}
-              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4">
+              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4 flex-1 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="w-12 h-12 rounded-lg bg-[#0B1F3B] flex items-center justify-center flex-shrink-0">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                     <path d="M3 3v18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -419,7 +421,7 @@ const SolutionsNew = () => {
               </div>
 
               {/* Card 2: Custom Training */}
-              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4">
+              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4 flex-1 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="w-12 h-12 rounded-lg bg-[#0B1F3B] flex items-center justify-center flex-shrink-0">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                     <path d="M12 20h9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -437,7 +439,7 @@ const SolutionsNew = () => {
               </div>
 
               {/* Card 3: Deployment Engineering */}
-              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4">
+              <div className="bg-[#f9f7f0] rounded-xl p-6 border border-[#e8e6de] flex items-start gap-4 flex-1 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="w-12 h-12 rounded-lg bg-[#0B1F3B] flex items-center justify-center flex-shrink-0">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
