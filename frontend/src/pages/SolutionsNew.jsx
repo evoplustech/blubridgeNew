@@ -30,7 +30,14 @@ const SolutionsNew = () => {
   return (
     <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero Section */}
-      <section className="py-20 md:py-28 lg:py-36 bg-[#fffdf7]">
+      <section 
+        className="py-20 md:py-28 lg:py-36"
+        style={{
+          backgroundColor: '#fffdf7',
+          backgroundImage: 'repeating-linear-gradient(90deg, #e8e8ef 0px, #e8e8ef 1px, transparent 1px, transparent 3px)',
+          backgroundSize: '3px 100%'
+        }}
+      >
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3B] leading-[1.1] tracking-tight mb-8">
