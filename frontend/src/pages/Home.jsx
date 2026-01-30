@@ -1023,7 +1023,7 @@ const Home = () => {
                   Model Customization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                 Shaping foundation models to your domain with precision, control, and repeatability. Building AI that thinks in your language, follows your rules, and is production-ready from day one.
+                 Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.
                 </p>
                 
                 {/* Learn More Link */}
@@ -1052,7 +1052,8 @@ const Home = () => {
                   Value Realization
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-Turning AI experimentation into measurable business outcomes. Moving from pilots to impact by connecting models directly to real-world performance and ROI.                </p>
+From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.
+</p>
                 
                 {/* Learn More Link */}
                 <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
@@ -1080,7 +1081,7 @@ Turning AI experimentation into measurable business outcomes. Moving from pilots
                   Deployment
                 </h3>
                 <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-Bringing models from lab to live with enterprise-grade reliability and scale. Launching, operating, and optimizing AI systems with low latency, resilience, and cost efficiency.                </p>
+Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.</p>
                 
                 {/* Learn More Link */}
                 <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
