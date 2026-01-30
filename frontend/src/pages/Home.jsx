@@ -259,9 +259,10 @@ const AIExpertiseOrbit = () => {
     { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
     // MIDDLE ring: 2 features + 1 dummy
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 110, Icon: GraduationCap, label: 'Retail' },
     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 310, Icon: GraduationCap, label: 'Education' },
     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 190, Icon: HeartPulse, label: 'Healthcare' },
-    { ring: 2, type: 'dummy', angle: 230, dummyClass: 'dummy-orange' },
+    { ring: 2, type: 'dummy', angle: 250, dummyClass: 'dummy-orange' },
 
     // OUTER ring: 4 features + 2 dummies
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 70, Icon: Scale, label: 'Legal' },
@@ -886,7 +887,9 @@ const Home = () => {
                   { icon: Code2, title: "Software & Technology" },
                   { icon: Factory, title: "Manufacturing" },
                   { icon: Landmark, title: "Government" },
-                  { icon: HeartPulse, title: "Healthcare" }
+                  { icon: HeartPulse, title: "Healthcare" },
+                  { icon: Landmark, title: "Retail" },
+                  { icon: HeartPulse, title: "Real Estate" }
                  ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
