@@ -234,7 +234,7 @@ const Header = () => {
               onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
             >
               <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-                <span>Solutions</span>
+                <span><Link to='/solutions-new'>Solutions</Link></span>
                 <ChevronDown 
                   className="w-4 h-4 transition-transform duration-250" 
                   style={{ transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0deg)' }}
@@ -454,7 +454,7 @@ const Header = () => {
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions' ? null : 'solutions')}
               className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
             >
-              <span>Solutionssdas</span>
+              <span>Solutions</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions' ? 'rotate-180' : ''}`} />
             </button>
             {mobileSubmenuOpen === 'solutions' && (

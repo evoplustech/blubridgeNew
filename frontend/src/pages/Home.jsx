@@ -991,7 +991,7 @@ const Home = () => {
 
         <div className="container-custom relative z-10">
           {/* Section Header with Decorative Line */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-10">
             {/* <div className="inline-flex items-center gap-4 mb-6">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#0B1F3B]/30" />
               <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
