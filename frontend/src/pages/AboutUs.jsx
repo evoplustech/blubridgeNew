@@ -713,9 +713,14 @@ const AboutUs = () => {
               We build AI systems that advance both the open ecosystem and enterprise deployment. BluBridge focuses on engineering open-weight AI models intended to approach the performance and reliability characteristics of closed systems through disciplined training, systems-level optimization, and end-to-end technical ownership. Progress is treated as an engineering discipline — defined by measurement, validation, and reproducibility.
               </p>
               
-              {/* Read More Button - Dark navy background */}
+              {/* Read More Button - Highlighted with glow effect */}
               <Link to="/careers">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
+                <Button 
+                  className="bg-gradient-to-r from-[#0B1F3B] to-[#1a3a5c] text-white hover:from-[#162B4D] hover:to-[#234b6e] px-8 py-3 rounded-md font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border border-[#328CC1]/30"
+                  style={{
+                    boxShadow: '0 4px 15px rgba(50, 140, 193, 0.3), 0 0 20px rgba(50, 140, 193, 0.1)'
+                  }}
+                >
                   Join us
                 </Button>
               </Link>
