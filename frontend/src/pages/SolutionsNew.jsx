@@ -422,90 +422,168 @@ const SolutionsNew = () => {
         </div>
       </section>
 
-      {/* Section: Deployment */}
-      <section id="deployment" className="py-16 md:py-24 bg-[#efede5]">
+      {/* Section: Deployment - Premium Design */}
+      <section id="deployment" className="py-20 md:py-28 bg-[#efede5]">
         <div className="container-custom">
-          {/* Section Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#0B1F3B] mb-12 leading-tight max-w-4xl">
-            What self-deployment capabilities are under development?
-          </h2>
+          {/* Section Heading with Accent */}
+          <div className="mb-14">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#0B1F3B] leading-tight max-w-4xl">
+              What self-deployment capabilities are under development?
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-[#F4C430] to-[#E6B800] mt-6 rounded-full"></div>
+          </div>
 
-          {/* Tabbed Layout */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-            {/* Left: Vertical Tab Navigation */}
-            <div className="lg:w-72 flex-shrink-0">
-              <nav className="space-y-2">
-                <button 
-                  onClick={() => setActiveDeploymentTab('deployment-tooling')}
-                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all rounded-lg ${
-                    activeDeploymentTab === 'deployment-tooling' 
-                      ? 'text-[#0B1F3B] font-semibold bg-[#fffdf7]' 
-                      : 'text-[#888888] hover:text-[#0B1F3B] hover:bg-[#f5f3eb]'
-                  }`}
-                >
-                  <span>Deployment Tooling</span>
-                  {activeDeploymentTab === 'deployment-tooling' && (
-                    <span className="text-[#F4C430] font-bold">→</span>
-                  )}
-                </button>
-                <button 
-                  onClick={() => setActiveDeploymentTab('serving-frameworks')}
-                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all rounded-lg ${
-                    activeDeploymentTab === 'serving-frameworks' 
-                      ? 'text-[#0B1F3B] font-semibold bg-[#fffdf7]' 
-                      : 'text-[#888888] hover:text-[#0B1F3B] hover:bg-[#f5f3eb]'
-                  }`}
-                >
-                  <span>Serving Frameworks</span>
-                  {activeDeploymentTab === 'serving-frameworks' && (
-                    <span className="text-[#F4C430] font-bold">→</span>
-                  )}
-                </button>
-                <button 
-                  onClick={() => setActiveDeploymentTab('infrastructure-tracks')}
-                  className={`w-full text-left px-4 py-3 flex items-center justify-between transition-all rounded-lg ${
-                    activeDeploymentTab === 'infrastructure-tracks' 
-                      ? 'text-[#0B1F3B] font-semibold bg-[#fffdf7]' 
-                      : 'text-[#888888] hover:text-[#0B1F3B] hover:bg-[#f5f3eb]'
-                  }`}
-                >
-                  <span>Infrastructure Tracks</span>
-                  {activeDeploymentTab === 'infrastructure-tracks' && (
-                    <span className="text-[#F4C430] font-bold">→</span>
-                  )}
-                </button>
-              </nav>
+          {/* Premium Tabbed Layout */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
+            {/* Left: Premium Vertical Tab Navigation */}
+            <div className="lg:w-80 flex-shrink-0">
+              <div className="bg-[#fffdf7] rounded-2xl lg:rounded-r-none p-3 shadow-lg border border-[#e8e6de] lg:border-r-0">
+                <nav className="space-y-2">
+                  <button 
+                    onClick={() => setActiveDeploymentTab('deployment-tooling')}
+                    data-testid="deployment-tab-tooling"
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
+                      activeDeploymentTab === 'deployment-tooling' 
+                        ? 'bg-[#0B1F3B] text-white shadow-md' 
+                        : 'text-[#555555] hover:bg-[#f5f3eb]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
+                        activeDeploymentTab === 'deployment-tooling' 
+                          ? 'bg-[#F4C430]' 
+                          : 'bg-[#efede5] group-hover:bg-[#e8e6de]'
+                      }`}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={activeDeploymentTab === 'deployment-tooling' ? 'text-[#0B1F3B]' : 'text-[#0B1F3B]'}>
+                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                      <span className="font-semibold text-base">Deployment Tooling</span>
+                    </div>
+                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
+                      activeDeploymentTab === 'deployment-tooling' 
+                        ? 'text-[#F4C430] translate-x-0 opacity-100' 
+                        : 'opacity-0 -translate-x-2'
+                    }`} />
+                  </button>
+                  
+                  <button 
+                    onClick={() => setActiveDeploymentTab('serving-frameworks')}
+                    data-testid="deployment-tab-serving"
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
+                      activeDeploymentTab === 'serving-frameworks' 
+                        ? 'bg-[#0B1F3B] text-white shadow-md' 
+                        : 'text-[#555555] hover:bg-[#f5f3eb]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
+                        activeDeploymentTab === 'serving-frameworks' 
+                          ? 'bg-[#F4C430]' 
+                          : 'bg-[#efede5] group-hover:bg-[#e8e6de]'
+                      }`}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={activeDeploymentTab === 'serving-frameworks' ? 'text-[#0B1F3B]' : 'text-[#0B1F3B]'}>
+                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                          <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                      </div>
+                      <span className="font-semibold text-base">Serving Frameworks</span>
+                    </div>
+                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
+                      activeDeploymentTab === 'serving-frameworks' 
+                        ? 'text-[#F4C430] translate-x-0 opacity-100' 
+                        : 'opacity-0 -translate-x-2'
+                    }`} />
+                  </button>
+                  
+                  <button 
+                    onClick={() => setActiveDeploymentTab('infrastructure-tracks')}
+                    data-testid="deployment-tab-infrastructure"
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
+                      activeDeploymentTab === 'infrastructure-tracks' 
+                        ? 'bg-[#0B1F3B] text-white shadow-md' 
+                        : 'text-[#555555] hover:bg-[#f5f3eb]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
+                        activeDeploymentTab === 'infrastructure-tracks' 
+                          ? 'bg-[#F4C430]' 
+                          : 'bg-[#efede5] group-hover:bg-[#e8e6de]'
+                      }`}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={activeDeploymentTab === 'infrastructure-tracks' ? 'text-[#0B1F3B]' : 'text-[#0B1F3B]'}>
+                          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                          <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                      </div>
+                      <span className="font-semibold text-base">Infrastructure Tracks</span>
+                    </div>
+                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
+                      activeDeploymentTab === 'infrastructure-tracks' 
+                        ? 'text-[#F4C430] translate-x-0 opacity-100' 
+                        : 'opacity-0 -translate-x-2'
+                    }`} />
+                  </button>
+                </nav>
+              </div>
             </div>
 
-            {/* Right: Tab Content */}
+            {/* Right: Premium Tab Content */}
             <div className="flex-1">
               {/* Deployment Tooling Content */}
               {activeDeploymentTab === 'deployment-tooling' && (
-                <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
-                    Self-Deployment Tooling
-                  </h3>
+                <div className="bg-[#fffdf7] rounded-2xl lg:rounded-l-none p-8 lg:p-12 shadow-lg border border-[#e8e6de] lg:border-l-0 min-h-[320px]" data-testid="deployment-content-tooling">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F4C430] to-[#E6B800] flex items-center justify-center shadow-md">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B]">
+                      Self-Deployment Tooling
+                    </h3>
+                  </div>
                   
-                  <p className="text-base text-[#555555] leading-relaxed">
+                  <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8">
                     BluBridge is building internal deployment tooling and model serving workflows to support controlled self-hosted and private infrastructure model deployments. Current engineering efforts focus on deployment configuration patterns, runtime setup, performance profiling, and validation procedures so that model serving can be executed in reproducible and monitored environments. These self-deployment capabilities are presently in engineering and validation stages and are not yet available as packaged external releases.
                   </p>
+
+                  <div className="flex items-center gap-2 pt-6 border-t border-[#e8e6de]">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B1F3B]/5 rounded-full">
+                      <span className="w-2 h-2 rounded-full bg-[#F4C430] animate-pulse"></span>
+                      <span className="text-sm font-medium text-[#0B1F3B]">Engineering & Validation Stage</span>
+                    </span>
+                  </div>
                 </div>
               )}
 
               {/* Serving Frameworks Content */}
               {activeDeploymentTab === 'serving-frameworks' && (
-                <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
-                    Serving Frameworks
-                  </h3>
+                <div className="bg-[#fffdf7] rounded-2xl lg:rounded-l-none p-8 lg:p-12 shadow-lg border border-[#e8e6de] lg:border-l-0 min-h-[320px]" data-testid="deployment-content-serving">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F4C430] to-[#E6B800] flex items-center justify-center shadow-md">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B]">
+                      Serving Frameworks
+                    </h3>
+                  </div>
                   
-                  <p className="text-base text-[#555555] leading-relaxed mb-6">
+                  <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8">
                     BluBridge is developing internal model serving frameworks to standardize inference configuration, runtime behavior, and performance measurement across controlled environments. Current engineering work focuses on serving configuration patterns, runtime controls, profiling methods, and observability integration so that model execution can be measured, tuned, and reproduced reliably. These frameworks are presently limited to internal experiments and pilot-stage systems and are not yet released as external tooling.
                   </p>
                   
-                  <div className="pt-5 border-t border-[#e8e6de]">
-                    <span className="text-sm text-[#888888] font-medium">
-                      Availability: Internal use and limited pilot programs.
+                  <div className="flex items-center gap-2 pt-6 border-t border-[#e8e6de]">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B1F3B]/5 rounded-full">
+                      <span className="w-2 h-2 rounded-full bg-[#22C55E]"></span>
+                      <span className="text-sm font-medium text-[#0B1F3B]">Internal Use & Limited Pilot Programs</span>
                     </span>
                   </div>
                 </div>
@@ -513,14 +591,31 @@ const SolutionsNew = () => {
 
               {/* Infrastructure Tracks Content */}
               {activeDeploymentTab === 'infrastructure-tracks' && (
-                <div className="bg-[#fffdf7] rounded-xl p-8 lg:p-10 shadow-sm border border-[#e8e6de]">
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-6">
-                    Infrastructure Tracks
-                  </h3>
+                <div className="bg-[#fffdf7] rounded-2xl lg:rounded-l-none p-8 lg:p-12 shadow-lg border border-[#e8e6de] lg:border-l-0 min-h-[320px]" data-testid="deployment-content-infrastructure">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F4C430] to-[#E6B800] flex items-center justify-center shadow-md">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#0B1F3B]">
+                      Infrastructure Tracks
+                    </h3>
+                  </div>
                   
-                  <p className="text-base text-[#555555] leading-relaxed">
+                  <p className="text-base md:text-lg text-[#555555] leading-relaxed mb-8">
                     BluBridge is developing internal infrastructure tracks to study and standardize how AI model training and inference systems are provisioned, measured, and operated across controlled compute environments. Current work covers compute topology patterns, GPU workload profiling, storage and data pipeline behavior, and observability baselines required for reliable AI system operation. These infrastructure tracks are part of ongoing internal engineering programs and are not yet exposed as external infrastructure offerings.
                   </p>
+                  
+                  <div className="flex items-center gap-2 pt-6 border-t border-[#e8e6de]">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B1F3B]/5 rounded-full">
+                      <span className="w-2 h-2 rounded-full bg-[#3B82F6]"></span>
+                      <span className="text-sm font-medium text-[#0B1F3B]">Internal Engineering Programs</span>
+                    </span>
+                  </div>
                 </div>
               )}
             </div>
