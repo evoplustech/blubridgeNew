@@ -259,7 +259,7 @@ const AIExpertiseOrbit = () => {
     { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
 
     // MIDDLE ring: 2 features + 1 dummy
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 100, Icon: GraduationCap, label: 'Retail' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 100, Icon: ShoppingCart, label: 'Retail' },
     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 330, Icon: GraduationCap, label: 'Education' },
     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 180, Icon: HeartPulse, label: 'Healthcare' },
     { ring: 2, type: 'dummy', angle: 250, dummyClass: 'dummy-orange' },
@@ -268,7 +268,7 @@ const AIExpertiseOrbit = () => {
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 60, Icon: Scale, label: 'Legal' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 230, Icon: Factory, label: 'Manufacturing' },
-     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Factory, label: 'Real Estate' },
+     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Home, label: 'Real Estate' },
     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 370, Icon: Landmark, label: 'Government' },
     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
     { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
