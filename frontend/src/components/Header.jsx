@@ -269,12 +269,12 @@ const Header = () => {
                             <div className="flex items-center gap-1">
                               <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
                               <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
+                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
                                   Model Customization
                                 </span>
                               </div>
                             </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
                           </div>
                         </div>
                       </Link>
@@ -286,12 +286,12 @@ const Header = () => {
                             <div className="flex items-center gap-1">
                               <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
                               <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
+                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
                                   Value Realization
                                 </span>
                               </div>
                             </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
                           </div>
                         </div>
                       </Link>
@@ -303,12 +303,12 @@ const Header = () => {
                             <div className="flex items-center gap-1">
                               <Rocket className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
                               <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#F4C430]">
+                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
                                   Deployment
                                 </span>
                               </div>
                             </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#F4C430]">→</span>
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
                           </div>
                         </div>
                       </Link>
