@@ -521,3 +521,72 @@ code {
   animation: slideReveal 0.4s ease-out forwards;
 }
 /* ===== END INTERACTIVE ABOUT CARDS ===== */
+
+/* ===== PREMIUM BUTTON HOVER EFFECTS ===== */
+
+/* Primary dark buttons (bg-[#0B1F3B]) */
+.btn-premium,
+a[class*="bg-[#0B1F3B]"],
+button[class*="bg-[#0B1F3B]"],
+[class*="bg-[#0B1F3B]"][class*="rounded"] {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.btn-premium:hover,
+a[class*="bg-[#0B1F3B]"]:hover,
+button[class*="bg-[#0B1F3B]"]:hover,
+[class*="bg-[#0B1F3B]"][class*="rounded"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(11, 31, 59, 0.35), 0 4px 12px rgba(11, 31, 59, 0.2);
+}
+
+.btn-premium:active,
+a[class*="bg-[#0B1F3B]"]:active,
+button[class*="bg-[#0B1F3B]"]:active,
+[class*="bg-[#0B1F3B]"][class*="rounded"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(11, 31, 59, 0.25);
+}
+
+/* White/Light buttons */
+a[class*="bg-white"]:hover,
+button[class*="bg-white"]:hover,
+[class*="bg-white"][class*="rounded"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+a[class*="bg-white"]:active,
+button[class*="bg-white"]:active,
+[class*="bg-white"][class*="rounded"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Outline/Border buttons */
+a[class*="border"][class*="rounded"]:not([class*="bg-"]):hover,
+button[class*="border"][class*="rounded"]:not([class*="bg-"]):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(11, 31, 59, 0.15);
+}
+
+/* Global button transition enhancement */
+a[class*="px-"][class*="py-"],
+button[class*="px-"][class*="py-"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shadcn Button component premium hover */
+button[class*="bg-primary"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(11, 31, 59, 0.35), 0 4px 12px rgba(11, 31, 59, 0.2);
+}
+
+button[class*="bg-primary"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(11, 31, 59, 0.25);
+}
+
+/* ===== END PREMIUM BUTTON HOVER EFFECTS ===== */
