@@ -998,7 +998,7 @@ const Home = () => {
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#0B1F3B]/30" />
             </div> */}
             <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B]" >
-              By Use Case
+              By Services
             </h2>
           </div>
           

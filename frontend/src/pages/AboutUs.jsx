@@ -627,7 +627,23 @@ const AboutUs = () => {
           
           .bird-glow-container {
             position: relative;
-            animation: softGlow 4s ease-in-out infinite;
+            animation: softGlow 4s ease-in-out infinite, birdFly 3s ease-in-out infinite;
+          }
+          
+          /* Subtle flying/floating animation for the bird */
+          @keyframes birdFly {
+            0%, 100% {
+              transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+              transform: translateY(-8px) rotate(1deg);
+            }
+            50% {
+              transform: translateY(-4px) rotate(0deg);
+            }
+            75% {
+              transform: translateY(-10px) rotate(-1deg);
+            }
           }
           
           /* Wing glitter particles - positioned on actual wings */
