@@ -437,31 +437,29 @@ const SolutionsNew = () => {
           <div className="flex flex-col lg:flex-row">
             {/* Left: Premium Vertical Tab Navigation */}
             <div className="lg:w-[320px] flex-shrink-0">
-              <div className="bg-white rounded-2xl lg:rounded-r-none p-4 shadow-xl border border-[#e8e6de]/50 lg:border-r-0 backdrop-blur-sm">
+              <div className="bg-white rounded-2xl lg:rounded-r-none p-4 shadow-xl border border-[#e8e6de]/50 lg:border-r-0">
                 <nav className="space-y-3">
                   {/* Tab 1: Deployment Tooling */}
                   <button 
                     onClick={() => setActiveDeploymentTab('deployment-tooling')}
                     data-testid="deployment-tab-tooling"
-                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl relative overflow-hidden group ${
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
                       activeDeploymentTab === 'deployment-tooling' 
                         ? 'bg-gradient-to-r from-[#0B1F3B] to-[#162B4D] text-white shadow-lg' 
                         : 'bg-[#f9f7f0] text-[#555555] hover:bg-[#f5f3eb] hover:shadow-md'
                     }`}
                   >
-                    <div className="flex items-center gap-4 relative z-10">
+                    <div className="flex items-center gap-4">
                       <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         activeDeploymentTab === 'deployment-tooling' 
                           ? 'bg-[#F4C430] shadow-md' 
                           : 'bg-white shadow-sm group-hover:shadow-md'
                       }`}>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
-                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                        <Wrench className="w-5 h-5 text-[#0B1F3B]" />
                       </div>
                       <span className="font-semibold text-[15px]">Deployment Tooling</span>
                     </div>
-                    <ArrowRight className={`w-5 h-5 transition-all duration-300 relative z-10 ${
+                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
                       activeDeploymentTab === 'deployment-tooling' 
                         ? 'text-[#F4C430] opacity-100' 
                         : 'opacity-0 group-hover:opacity-50'
@@ -472,27 +470,23 @@ const SolutionsNew = () => {
                   <button 
                     onClick={() => setActiveDeploymentTab('serving-frameworks')}
                     data-testid="deployment-tab-serving"
-                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl relative overflow-hidden group ${
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
                       activeDeploymentTab === 'serving-frameworks' 
                         ? 'bg-gradient-to-r from-[#0B1F3B] to-[#162B4D] text-white shadow-lg' 
                         : 'bg-[#f9f7f0] text-[#555555] hover:bg-[#f5f3eb] hover:shadow-md'
                     }`}
                   >
-                    <div className="flex items-center gap-4 relative z-10">
+                    <div className="flex items-center gap-4">
                       <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         activeDeploymentTab === 'serving-frameworks' 
                           ? 'bg-[#F4C430] shadow-md' 
                           : 'bg-white shadow-sm group-hover:shadow-md'
                       }`}>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
-                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                          <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                          <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
+                        <Monitor className="w-5 h-5 text-[#0B1F3B]" />
                       </div>
                       <span className="font-semibold text-[15px]">Serving Frameworks</span>
                     </div>
-                    <ArrowRight className={`w-5 h-5 transition-all duration-300 relative z-10 ${
+                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
                       activeDeploymentTab === 'serving-frameworks' 
                         ? 'text-[#F4C430] opacity-100' 
                         : 'opacity-0 group-hover:opacity-50'
@@ -503,28 +497,23 @@ const SolutionsNew = () => {
                   <button 
                     onClick={() => setActiveDeploymentTab('infrastructure-tracks')}
                     data-testid="deployment-tab-infrastructure"
-                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl relative overflow-hidden group ${
+                    className={`w-full text-left px-5 py-4 flex items-center justify-between transition-all duration-300 rounded-xl group ${
                       activeDeploymentTab === 'infrastructure-tracks' 
                         ? 'bg-gradient-to-r from-[#0B1F3B] to-[#162B4D] text-white shadow-lg' 
                         : 'bg-[#f9f7f0] text-[#555555] hover:bg-[#f5f3eb] hover:shadow-md'
                     }`}
                   >
-                    <div className="flex items-center gap-4 relative z-10">
+                    <div className="flex items-center gap-4">
                       <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         activeDeploymentTab === 'infrastructure-tracks' 
                           ? 'bg-[#F4C430] shadow-md' 
                           : 'bg-white shadow-sm group-hover:shadow-md'
                       }`}>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
-                          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                          <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                          <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
+                        <Server className="w-5 h-5 text-[#0B1F3B]" />
                       </div>
                       <span className="font-semibold text-[15px]">Infrastructure Tracks</span>
                     </div>
-                    <ArrowRight className={`w-5 h-5 transition-all duration-300 relative z-10 ${
+                    <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
                       activeDeploymentTab === 'infrastructure-tracks' 
                         ? 'text-[#F4C430] opacity-100' 
                         : 'opacity-0 group-hover:opacity-50'
@@ -545,9 +534,7 @@ const SolutionsNew = () => {
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-8">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F4C430] to-[#D4A420] flex items-center justify-center shadow-lg">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
-                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                        <Wrench className="w-7 h-7 text-[#0B1F3B]" />
                       </div>
                       <h3 className="text-2xl md:text-[32px] font-bold text-[#0B1F3B]">
                         Self-Deployment Tooling
@@ -577,11 +564,7 @@ const SolutionsNew = () => {
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-8">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F4C430] to-[#D4A420] flex items-center justify-center shadow-lg">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
-                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                          <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                          <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
+                        <Monitor className="w-7 h-7 text-[#0B1F3B]" />
                       </div>
                       <h3 className="text-2xl md:text-[32px] font-bold text-[#0B1F3B]">
                         Serving Frameworks
@@ -611,12 +594,7 @@ const SolutionsNew = () => {
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-8">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F4C430] to-[#D4A420] flex items-center justify-center shadow-lg">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#0B1F3B]">
-                          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                          <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                          <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
+                        <Server className="w-7 h-7 text-[#0B1F3B]" />
                       </div>
                       <h3 className="text-2xl md:text-[32px] font-bold text-[#0B1F3B]">
                         Infrastructure Tracks
