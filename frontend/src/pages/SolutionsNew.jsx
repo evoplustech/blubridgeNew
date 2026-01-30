@@ -147,12 +147,6 @@ const SolutionsNew = () => {
                   </span>
                 </li>
               </ul>
-              
-              <div className="pt-4 border-t border-[#e8e6de]">
-                <span className="text-xs text-[#888888] font-medium uppercase tracking-wide">
-                  Status: Specialization frameworks in prototype and validation stages.
-                </span>
-              </div>
             </div>
 
             {/* Card 3: Inference & Deployment Optimization */}
