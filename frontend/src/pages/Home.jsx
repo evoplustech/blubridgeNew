@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect,useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap, Scale, Server, SlidersHorizontal, Lightbulb, FlaskConical, Rocket, Smartphone, Laptop } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap, Scale, Server, SlidersHorizontal, Lightbulb, FlaskConical, Rocket, Smartphone, Laptop, ShoppingCart, Home } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useEmblaCarousel from 'embla-carousel-react';
 import NodeConnections2 from './NodeConnections2';
