@@ -66,6 +66,7 @@ const AdminLayout = ({ children }) => {
     { path: '/admin/footer-forms', icon: FileText, label: 'Footer Forms' },
     { path: '/admin/contact-forms', icon: MessageSquare, label: 'Contact Forms' },
     { path: '/admin/careers', icon: Briefcase, label: 'Career Applications' },
+    { path: '/admin/settings', icon: Settings, label: 'Settings' },
   ];
 
   const isActive = (path) => location.pathname === path;
