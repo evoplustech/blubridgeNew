@@ -773,9 +773,9 @@ async def update_application_status(application_id: str, status: str):
 
 # ==================== ADMIN PANEL APIs ====================
 
-# Admin credentials (In production, use environment variables and proper hashing)
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "admin"
+# Admin credentials stored in database (with fallback to defaults)
+DEFAULT_ADMIN_USERNAME = "admin"
+DEFAULT_ADMIN_PASSWORD = "admin"
 
 # Simple token store (In production, use Redis or database)
 admin_tokens = {}
@@ -788,6 +788,15 @@ class AdminTokenResponse(BaseModel):
     token: str
     message: str
 
+class AdminPasswordChange(BaseModel):
+    currentPassword: str
+    newPassword: str
+    confirmPassword: str
+
+def hash_password(password: str) -> str:
+    """Hash password using SHA256"""
+    return hashlib.sha256(password.encode()).hexdigest()
+
 def generate_admin_token():
     """Generate a secure admin token"""
     return secrets.token_urlsafe(32)
@@ -795,6 +804,13 @@ def generate_admin_token():
 def verify_admin_token(token: str) -> bool:
     """Verify if admin token is valid"""
     return token in admin_tokens
+
+async def get_admin_credentials():
+    """Get admin credentials from database or use defaults"""
+    admin_doc = await db.admin_settings.find_one({"type": "credentials"})
+    if admin_doc:
+        return admin_doc.get("username", DEFAULT_ADMIN_USERNAME), admin_doc.get("passwordHash")
+    return DEFAULT_ADMIN_USERNAME, hash_password(DEFAULT_ADMIN_PASSWORD)
 
 async def get_admin_token(authorization: Optional[str] = None):
     """Dependency to verify admin authentication"""
@@ -816,7 +832,10 @@ async def get_admin_token(authorization: Optional[str] = None):
 @api_router.post("/admin/login")
 async def admin_login(credentials: AdminLogin):
     """Admin login endpoint"""
-    if credentials.username == ADMIN_USERNAME and credentials.password == ADMIN_PASSWORD:
+    stored_username, stored_password_hash = await get_admin_credentials()
+    input_password_hash = hash_password(credentials.password)
+    
+    if credentials.username == stored_username and input_password_hash == stored_password_hash:
         token = generate_admin_token()
         admin_tokens[token] = {
             "username": credentials.username,
