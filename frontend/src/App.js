@@ -73,6 +73,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import FooterForms from './pages/admin/FooterForms';
 import ContactForms from './pages/admin/ContactForms';
 import CareerApplications from './pages/admin/CareerApplications';
+import AdminSettings from './pages/admin/AdminSettings';
 
 // Main App Layout Component
 const AppLayout = () => {
