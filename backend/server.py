@@ -1072,6 +1072,140 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
         raise HTTPException(status_code=500, detail="Failed to download resume")
 
 
+@api_router.post("/admin/change-password")
+async def change_admin_password(password_data: AdminPasswordChange, authorization: Optional[str] = Header(None)):
+    """Change admin password"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        # Validate new passwords match
+        if password_data.newPassword != password_data.confirmPassword:
+            raise HTTPException(status_code=400, detail="New passwords do not match")
+        
+        # Validate password length
+        if len(password_data.newPassword) < 6:
+            raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
+        
+        # Verify current password
+        stored_username, stored_password_hash = await get_admin_credentials()
+        current_hash = hash_password(password_data.currentPassword)
+        
+        if current_hash != stored_password_hash:
+            raise HTTPException(status_code=400, detail="Current password is incorrect")
+        
+        # Update password in database
+        new_password_hash = hash_password(password_data.newPassword)
+        await db.admin_settings.update_one(
+            {"type": "credentials"},
+            {"$set": {
+                "type": "credentials",
+                "username": stored_username,
+                "passwordHash": new_password_hash,
+                "updatedAt": datetime.now(timezone.utc).isoformat()
+            }},
+            upsert=True
+        )
+        
+        return {"success": True, "message": "Password changed successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error changing password: {e}")
+        raise HTTPException(status_code=500, detail="Failed to change password")
+
+
+@api_router.get("/admin/settings")
+async def get_admin_settings(authorization: Optional[str] = Header(None)):
+    """Get admin settings"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        stored_username, _ = await get_admin_credentials()
+        return {"username": stored_username}
+    except Exception as e:
+        logging.error(f"Error fetching admin settings: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch settings")
+
+
+@api_router.get("/admin/export/{data_type}")
+async def export_data(data_type: str, authorization: Optional[str] = Header(None)):
+    """Export data as CSV"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        import csv
+        import io
+        
+        if data_type == "footer":
+            # Export footer form submissions
+            data = await db.contacts.find({"type": "footer_form"}, {"_id": 0}).sort("createdAt", -1).to_list(10000)
+            headers = ["First Name", "Last Name", "Email", "Message", "Created At"]
+            rows = [[d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("message", ""), d.get("createdAt", "")] for d in data]
+            filename = "footer_forms_export.csv"
+            
+        elif data_type == "contact":
+            # Export contact form submissions
+            data = await db.contacts.find({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}, {"_id": 0}).sort("createdAt", -1).to_list(10000)
+            headers = ["Type", "First Name", "Last Name", "Email", "Company", "Phone", "Message", "Country", "Job Title", "Purpose", "Created At"]
+            rows = [[d.get("type", ""), d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("company", ""), d.get("phone", ""), d.get("message", ""), d.get("country", ""), d.get("jobTitle", ""), d.get("purpose", ""), d.get("createdAt", "")] for d in data]
+            filename = "contact_forms_export.csv"
+            
+        elif data_type == "careers":
+            # Export job applications
+            data = await db.job_applications.find({}, {"_id": 0}).sort("appliedAt", -1).to_list(10000)
+            headers = ["First Name", "Last Name", "Email", "Phone", "Location", "Job Title", "LinkedIn", "Status", "Applied At"]
+            rows = [[d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("phone", ""), d.get("location", ""), d.get("jobTitle", ""), d.get("linkedInProfile", ""), d.get("status", ""), d.get("appliedAt", "")] for d in data]
+            filename = "career_applications_export.csv"
+            
+        elif data_type == "all":
+            # Export all data combined
+            footer_data = await db.contacts.find({"type": "footer_form"}, {"_id": 0}).to_list(10000)
+            contact_data = await db.contacts.find({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}, {"_id": 0}).to_list(10000)
+            career_data = await db.job_applications.find({}, {"_id": 0}).to_list(10000)
+            
+            headers = ["Source", "Type", "First Name", "Last Name", "Email", "Phone", "Company", "Message", "Job Title", "Status", "Created At"]
+            rows = []
+            
+            for d in footer_data:
+                rows.append(["Footer Form", d.get("type", ""), d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), "", "", d.get("message", ""), "", "", d.get("createdAt", "")])
+            
+            for d in contact_data:
+                rows.append(["Contact Form", d.get("type", ""), d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("phone", ""), d.get("company", ""), d.get("message", ""), d.get("jobTitle", ""), "", d.get("createdAt", "")])
+            
+            for d in career_data:
+                rows.append(["Career Application", "job_application", d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("phone", ""), "", "", d.get("jobTitle", ""), d.get("status", ""), d.get("appliedAt", "")])
+            
+            filename = "all_submissions_export.csv"
+        else:
+            raise HTTPException(status_code=400, detail="Invalid data type")
+        
+        # Create CSV in memory
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow(headers)
+        writer.writerows(rows)
+        
+        # Return as downloadable file
+        csv_content = output.getvalue()
+        return Response(
+            content=csv_content,
+            media_type="text/csv",
+            headers={"Content-Disposition": f"attachment; filename={filename}"}
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error exporting data: {e}")
+        raise HTTPException(status_code=500, detail="Failed to export data")
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
