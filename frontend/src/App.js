@@ -92,6 +92,7 @@ const AppLayout = () => {
           <Route path="/admin/footer-forms" element={<FooterForms />} />
           <Route path="/admin/contact-forms" element={<ContactForms />} />
           <Route path="/admin/careers" element={<CareerApplications />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
           
           <Route path="/" element={<Home />} />
           
