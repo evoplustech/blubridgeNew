@@ -80,7 +80,7 @@ const jobListings = [
 ];
 
 const Careers = () => {
-  useDocumentTitle('Careers | BluBridge');
+  useDocumentTitle('Careers | Blubridge');
   const joinOurTeamRef = useRef(null);
   const [showJobListings, setShowJobListings] = useState(false);
   
