@@ -7,6 +7,35 @@
         <meta name="description" content="Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions." />
         <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
+        <script>
+            // Immediate meta description update based on URL path
+            (function() {
+                var metaDescriptions = {
+                    '/': 'Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.',
+                    '/solutions': 'Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure.',
+                    '/research': 'Explore Blubridge research across deep learning, model training, and AI systems engineering, focused on reproducible methods and scalable infrastructure.',
+                    '/about-us': 'How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.',
+                    '/careers': 'Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.',
+                    '/contact': 'Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.'
+                };
+                var pageTitles = {
+                    '/': 'Frontier AI Research and Enterprise Solutions | Blubridge',
+                    '/solutions': 'Applied AI Solutions - For your Use Case | Blubridge',
+                    '/research': 'Research | Blubridge',
+                    '/about-us': 'About Us | Blubridge',
+                    '/careers': 'Careers | Blubridge',
+                    '/contact': 'Contact us | Blubridge'
+                };
+                var path = window.location.pathname;
+                var meta = document.querySelector('meta[name="description"]');
+                if (meta && metaDescriptions[path]) {
+                    meta.setAttribute('content', metaDescriptions[path]);
+                }
+                if (pageTitles[path]) {
+                    document.title = pageTitles[path];
+                }
+            })();
+        </script>
         <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
