@@ -566,7 +566,7 @@ const Home = () => {
     }
   ];
 
-  useDocumentTitle('BluBridge | AI Research, LLM Development & AI Solutions');
+  useDocumentTitle('Frontier AI Research and Enterprise Solutions | Blubridge');
 
   return (
     <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">

@@ -2,7 +2,7 @@ import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const PrivacyPolicy = () => {
-  useDocumentTitle('Privacy Policy | BluBridge');
+  useDocumentTitle('Privacy Policy | Blubridge');
 
   const sectionStyle = {
     marginBottom: '32px'

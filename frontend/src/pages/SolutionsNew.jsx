@@ -4,7 +4,7 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import { ArrowRight, Database, Sparkles, Zap, Check } from 'lucide-react';
 
 const SolutionsNew = () => {
-  useDocumentTitle('Solutions | BluBridge');
+  useDocumentTitle('Applied AI Solutions - For your Use Case | Blubridge');
   const location = useLocation();
   const [activeDeploymentTab, setActiveDeploymentTab] = useState('deployment-tooling');
 

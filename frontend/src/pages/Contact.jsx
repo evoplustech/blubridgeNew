@@ -137,7 +137,7 @@ const Contact = () => {
   const [submitError, setSubmitError] = useState('');
   const [validationErrors, setValidationErrors] = useState({});
 
-  useDocumentTitle('Contact | BluBridge');
+  useDocumentTitle('Contact us | Blubridge');
 
   // Get the selected country info for display
   const getSelectedCountry = () => {
