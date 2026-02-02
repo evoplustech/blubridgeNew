@@ -12,7 +12,9 @@ const metaDescriptions = {
   '/research': 'Explore Blubridge research across deep learning, model training, and AI systems engineering, focused on reproducible methods and scalable infrastructure.',
   '/about-us': 'How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.',
   '/careers': 'Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.',
-  '/contact': 'Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.'
+  '/contact': 'Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.',
+  '/policies/privacy-policy': 'Learn how Blubridge Technologies collects, uses, stores, and protects your information when you access our AI research platforms, tools, and services.',
+  '/policies/terms-conditions': 'Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.'
 };
 
 // Page titles for each route
@@ -22,7 +24,9 @@ const pageTitles = {
   '/research': 'Research | Blubridge',
   '/about-us': 'About Us | Blubridge',
   '/careers': 'Careers | Blubridge',
-  '/contact': 'Contact us | Blubridge'
+  '/contact': 'Contact us | Blubridge',
+  '/policies/privacy-policy': 'Privacy Policy | Blubridge',
+  '/policies/terms-conditions': 'Terms | Blubridge'
 };
 
 // Default meta description
