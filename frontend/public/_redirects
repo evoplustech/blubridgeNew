@@ -1,0 +1,5 @@
+/hiring     https://www.test.ai/hiring     301
+/hiring/*   https://www.test.ai/hiring/:splat  301
+
+/hrms       https://www.test.ai/hrms       301
+/hrms/*     https://www.test.ai/hrms/:splat    301
