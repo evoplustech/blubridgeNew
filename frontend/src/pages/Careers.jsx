@@ -938,6 +938,7 @@ const Careers = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 

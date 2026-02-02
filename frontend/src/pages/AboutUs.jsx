@@ -1193,6 +1193,7 @@ const AboutUs = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
