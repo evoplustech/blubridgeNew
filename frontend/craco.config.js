@@ -129,4 +129,58 @@ if (config.enableVisualEdits || config.enableHealthCheck) {
   };
 }
 
+// Always add devServer configuration for meta injection
+const existingDevServer = webpackConfig.devServer;
+webpackConfig.devServer = (devServerConfig) => {
+  // Apply existing devServer config if it exists
+  if (existingDevServer) {
+    devServerConfig = existingDevServer(devServerConfig);
+  }
+
+  // Store original setupMiddlewares
+  const originalSetupMiddlewares = devServerConfig.setupMiddlewares;
+
+  devServerConfig.setupMiddlewares = (middlewares, devServer) => {
+    // Add meta injection middleware at the beginning
+    devServer.app.use((req, res, next) => {
+      // Store the original send function
+      const originalSend = res.send.bind(res);
+      
+      res.send = function(body) {
+        // Only process HTML that contains our app
+        if (typeof body === 'string' && body.includes('<!doctype html>') && body.includes('<div id="root">')) {
+          const urlPath = req.path.split('?')[0].split('#')[0];
+          const metaDesc = metaDescriptions[urlPath] || metaDescriptions['/'];
+          const pageTitle = pageTitles[urlPath] || pageTitles['/'];
+          
+          // Replace meta description
+          body = body.replace(
+            /<meta name="description" content="[^"]*"\s*\/?>/,
+            `<meta name="description" content="${metaDesc}" />`
+          );
+          
+          // Replace title
+          body = body.replace(
+            /<title>[^<]*<\/title>/,
+            `<title>${pageTitle}</title>`
+          );
+        }
+        
+        return originalSend(body);
+      };
+      
+      next();
+    });
+
+    // Call original setup if exists
+    if (originalSetupMiddlewares) {
+      return originalSetupMiddlewares(middlewares, devServer);
+    }
+
+    return middlewares;
+  };
+
+  return devServerConfig;
+};
+
 module.exports = webpackConfig;
