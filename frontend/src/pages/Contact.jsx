@@ -139,6 +139,7 @@ const Contact = () => {
   const [validationErrors, setValidationErrors] = useState({});
 
   useDocumentTitle('Contact us | Blubridge');
+  useMetaDescription('Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.');
 
   // Get the selected country info for display
   const getSelectedCountry = () => {
@@ -272,19 +273,15 @@ const Contact = () => {
   };
 
   return (
-    <>
-      <Helmet>
-        <meta name="description" content="Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment." />
-      </Helmet>
-      <div 
-        data-testid="contact-page"
-        className="contact-page-container"
-        style={{
-          paddingTop: '60px',
-          paddingBottom: '60px',
-          backgroundColor: 'rgb(255, 253, 247)'
-        }}
-      >
+    <div 
+      data-testid="contact-page"
+      className="contact-page-container"
+      style={{
+        paddingTop: '60px',
+        paddingBottom: '60px',
+        backgroundColor: 'rgb(255, 253, 247)'
+      }}
+    >
       <style>{`
         .contact-grid {
           display: grid;
@@ -999,7 +996,6 @@ const Contact = () => {
       {/* Map Section */}
       
     </div>
-    </>
   );
 };
 
