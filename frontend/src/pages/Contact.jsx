@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
@@ -682,7 +683,7 @@ const Contact = () => {
               border: '1px solid #e8e6e0'
             }}
           >
-            <h2 style={{ 
+            <h1 style={{ 
               fontSize: '28px', 
               fontWeight: '700', 
               color: '#0B1F3B',
@@ -691,7 +692,7 @@ const Contact = () => {
               letterSpacing: '-0.02em'
             }}>
               Contact Us
-            </h2>
+            </h1>
             
             <form onSubmit={handleSubmit}>
               {/* First Name & Last Name */}

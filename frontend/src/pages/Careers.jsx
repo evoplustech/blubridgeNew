@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import JoinOurTeam from './JoinOurTeam';
 import { MapPin, Phone, Mail, Linkedin, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
