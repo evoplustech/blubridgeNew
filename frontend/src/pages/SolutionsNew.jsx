@@ -6,6 +6,7 @@ import { ArrowRight, Database, Sparkles, Zap, Check } from 'lucide-react';
 
 const SolutionsNew = () => {
   useDocumentTitle('Applied AI Solutions - For your Use Case | Blubridge');
+  useMetaDescription('Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure.');
   const location = useLocation();
   const [activeDeploymentTab, setActiveDeploymentTab] = useState('deployment-tooling');
 
@@ -29,11 +30,7 @@ const SolutionsNew = () => {
   }, [location]);
 
   return (
-    <>
-      <Helmet>
-        <meta name="description" content="Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure." />
-      </Helmet>
-      <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero Section */}
       <section 
         className="py-20 md:py-28 lg:py-36 relative"
@@ -634,7 +631,6 @@ const SolutionsNew = () => {
         </div>
       </section>
     </div>
-    </>
   );
 };
 
