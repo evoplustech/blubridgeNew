@@ -78,7 +78,7 @@ const SolutionsNew = () => {
             </h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-[#328CC1] to-[#1a5a8c] rounded-full mb-8"></div>
             <p className="text-base md:text-lg text-[#555555] leading-relaxed max-w-4xl">
-              Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. Model customization capabilities are under active development across training, specialization, and inference optimization workflows.This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness rather than surface-level tuning.
+              Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. Model customization capabilities are under active development across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness.
             </p>
           </div>
 
@@ -101,7 +101,7 @@ const SolutionsNew = () => {
               </h3>
               
               <p className="text-sm text-[#555555] leading-relaxed mb-6">
-                We are building and validating domain oriented pre-training and continued training pipelines using proprietary datasets and controlled training configurations. Current capability development includes:
+                We are building and validating domain oriented pre-training and continued training pipelines using customized datasets and controlled training configurations. Current capability development includes:
               </p>
               
               <ul className="space-y-3">
@@ -428,7 +428,7 @@ const SolutionsNew = () => {
                     Proof of Value
                   </h3>
                   <p className="text-sm text-[#555555] leading-relaxed">
-                    Measurable success criteria for AI adoption are defined and validated through feasibility analysis, controlled prototypes, and evaluation against your data, system constraints, and technical objectives.
+                   Find pain points that can be AI adopted in your business & help you build use case exclusively based on your organization type, business goals and data.
                   </p>
                 </div>
               </div>
@@ -446,7 +446,7 @@ const SolutionsNew = () => {
                     Custom Training
                   </h3>
                   <p className="text-sm text-[#555555] leading-relaxed">
-                    Domain-customized models are developed using proprietary datasets through structured fine-tuning and training workflows aligned with defined technical success metrics.
+                    Build domain-customized models developed using your proprietary datasets through training workflows and structured fine-tuning aligned with defined business success metrics.
                   </p>
                 </div>
               </div>
@@ -466,7 +466,7 @@ const SolutionsNew = () => {
                     Deployment Engineering
                   </h3>
                   <p className="text-sm text-[#555555] leading-relaxed">
-                    Model deployment architectures are designed and implemented across managed cloud platforms (including hyperscalers), private infrastructure, and controlled on-prem environments based on performance, security, and operational constraints.
+                   Model deployment architectures designed and implemented across managed cloud platforms (including hyperscalers), private infrastructure, and controlled on-prem environments based on performance, security, and operational constraints.
                   </p>
                 </div>
               </div>

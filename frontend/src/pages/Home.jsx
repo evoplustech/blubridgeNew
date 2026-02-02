@@ -174,7 +174,7 @@ const VerticalTabsSection = () => {
       title: "Developer APIs",
       content: {
         heading: "Build and deploy purpose-built AI models for your specific needs.",
-        description: "Create intelligent applications and products on top of Blubridge’s AI foundation. Embed advanced reasoning, generation, and automation into your workflows. Move from concept to production with models engineered for reliability, performance, and real-world impact across enterprise and developer ecosystems."
+        description: "Create intelligent applications and products on top of our foundation models. Embed advanced reasoning, generation, and automation into your workflows. Move from concept to production with models engineered for reliability, performance, and real-world impact across enterprise and developer ecosystems."
       }
     },
     {
@@ -468,8 +468,8 @@ const Home = () => {
     {
       name: "Data",
       title: "Data",
-      description: "We are preparing and preprocessing the data for scalable AI  system across research and production.",
-      features: ["Efficient Data Pipeline ", "Mulitmodality & Multilinguistic Dataset", "Human Preference Label", "Domain Specific Dataset Curation"],
+      description: "We help you design & build custom datasets for your bespoke requirement.",
+      features: ["Efficient Data Pipeline", "Multimodal & Multilinguistic Dataset", "Synthetic data generation", "Domain Specific Dataset curation"],
       link : '/research'
     },
     {
@@ -483,7 +483,7 @@ const Home = () => {
       name: "Mid-training",
       title: "Mid-training",
       description: "A custom mid-training for domain specific requirement.",
-      features: ["Curriculum-based refinement", "Domain-specific tuning", "Stability and bias control", "Performance shaping"],
+      features: ["Curriculum-based refinement", "Domain-specific mid-training", "Stability and bias control", "Performance shaping"],
       link : '/research'
     },
     {
