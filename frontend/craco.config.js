@@ -2,6 +2,26 @@
 const path = require("path");
 require("dotenv").config();
 
+// Meta descriptions for each route
+const metaDescriptions = {
+  '/': 'Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.',
+  '/solutions': 'Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure.',
+  '/research': 'Explore Blubridge research across deep learning, model training, and AI systems engineering, focused on reproducible methods and scalable infrastructure.',
+  '/about-us': 'How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.',
+  '/careers': 'Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.',
+  '/contact': 'Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.'
+};
+
+// Page titles for each route
+const pageTitles = {
+  '/': 'Frontier AI Research and Enterprise Solutions | Blubridge',
+  '/solutions': 'Applied AI Solutions - For your Use Case | Blubridge',
+  '/research': 'Research | Blubridge',
+  '/about-us': 'About Us | Blubridge',
+  '/careers': 'Careers | Blubridge',
+  '/contact': 'Contact us | Blubridge'
+};
+
 // Environment variable overrides
 const config = {
   disableHotReload: process.env.DISABLE_HOT_RELOAD === "true",
