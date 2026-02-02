@@ -634,6 +634,7 @@ const SolutionsNew = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

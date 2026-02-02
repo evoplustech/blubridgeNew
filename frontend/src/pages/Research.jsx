@@ -73,6 +73,7 @@ const Research = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
