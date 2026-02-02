@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import useMetaDescription from '../hooks/useMetaDescription';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 

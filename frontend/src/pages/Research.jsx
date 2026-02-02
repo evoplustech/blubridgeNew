@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, FileText, ExternalLink } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import useMetaDescription from '../hooks/useMetaDescription';
 
 const Research = () => {
   useDocumentTitle('Research | Blubridge');

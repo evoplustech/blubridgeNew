@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';
 import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight, SlidersHorizontal, TrendingUp, Rocket, Database, Brain, Shield, Lightbulb } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import useMetaDescription from '../hooks/useMetaDescription';
 
 // Team slug to index mapping
 const teamSlugToIndex = {
