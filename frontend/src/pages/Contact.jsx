@@ -272,15 +272,19 @@ const Contact = () => {
   };
 
   return (
-    <div 
-      data-testid="contact-page"
-      className="contact-page-container"
-      style={{
-        paddingTop: '60px',
-        paddingBottom: '60px',
-        backgroundColor: 'rgb(255, 253, 247)'
-      }}
-    >
+    <>
+      <Helmet>
+        <meta name="description" content="Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment." />
+      </Helmet>
+      <div 
+        data-testid="contact-page"
+        className="contact-page-container"
+        style={{
+          paddingTop: '60px',
+          paddingBottom: '60px',
+          backgroundColor: 'rgb(255, 253, 247)'
+        }}
+      >
       <style>{`
         .contact-grid {
           display: grid;

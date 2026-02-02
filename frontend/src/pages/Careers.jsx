@@ -139,14 +139,18 @@ const Careers = () => {
   ];
 
   return (
-    <div 
-      data-testid="careers-page"
-      style={{ 
-        backgroundColor: '#efede5', 
-        minHeight: '100vh', 
-        paddingTop: '50px'
-      }}
-    >
+    <>
+      <Helmet>
+        <meta name="description" content="Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems." />
+      </Helmet>
+      <div 
+        data-testid="careers-page"
+        style={{ 
+          backgroundColor: '#efede5', 
+          minHeight: '100vh', 
+          paddingTop: '50px'
+        }}
+      >
       {/* Responsive Styles */}
       <style>{`
         .careers-cta-strip {

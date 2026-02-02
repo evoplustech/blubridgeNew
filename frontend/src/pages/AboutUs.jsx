@@ -459,7 +459,11 @@ const AboutUs = () => {
   useDocumentTitle('About Us | Blubridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
+    <>
+      <Helmet>
+        <meta name="description" content="How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles." />
+      </Helmet>
+      <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
       {/* Hero Section with Motion */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}

@@ -570,7 +570,11 @@ const Home = () => {
   useDocumentTitle('Frontier AI Research and Enterprise Solutions | Blubridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
+    <>
+      <Helmet>
+        <meta name="description" content="Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions." />
+      </Helmet>
+      <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
       {/* Hero Section - Neural Network Background */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section" data-testid="hero-section" style={{ zIndex: 100 }}>
         {/* LAYER 0: Neural Network Animation Background */}

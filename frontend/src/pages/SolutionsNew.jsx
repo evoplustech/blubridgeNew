@@ -29,7 +29,11 @@ const SolutionsNew = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <>
+      <Helmet>
+        <meta name="description" content="Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure." />
+      </Helmet>
+      <div className="min-h-screen bg-[#fffdf7]">
       {/* Hero Section */}
       <section 
         className="py-20 md:py-28 lg:py-36 relative"

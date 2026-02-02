@@ -7,12 +7,16 @@ const Research = () => {
   useDocumentTitle('Research | Blubridge');
 
   return (
-    <div 
-      className="min-h-screen pt-24 pb-16"
-      style={{
-        backgroundColor: '#f3f1e9',
-      }}
-    >
+    <>
+      <Helmet>
+        <meta name="description" content="Explore Blubridge research across deep learning, model training, and AI systems engineering, focused on reproducible methods and scalable infrastructure." />
+      </Helmet>
+      <div 
+        className="min-h-screen pt-24 pb-16"
+        style={{
+          backgroundColor: '#f3f1e9',
+        }}
+      >
       <div className="container-custom">
         {/* Page Title */}
         <h1 className="text-4xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-12">
