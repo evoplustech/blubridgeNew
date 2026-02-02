@@ -128,7 +128,7 @@ const AppLayout = () => {
           <Route path="/solutions/industry/healthcare" element={<Healthcare />} />
           
           {/* Solutions New Page */}
-          <Route path="/solutions-new" element={<SolutionsNew />} />
+          <Route path="/solutions" element={<SolutionsNew />} />
           
           {/* Solutions Fallback */}
           <Route path="/solutions/*" element={<Solutions />} />

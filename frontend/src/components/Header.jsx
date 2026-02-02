@@ -227,14 +227,14 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
 
-            {/* Solutions Dropdown - Hover-based, links to /solutions-new anchors */}
+            {/* Solutions Dropdown - Hover-based, links to /solutions anchors */}
             <div 
               className="relative"
               onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
               onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
             >
               <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-                <span><Link to='/solutions-new'>Solutions</Link></span>
+                <span><Link to='/solutions'>Solutions</Link></span>
                 <ChevronDown 
                   className="w-4 h-4 transition-transform duration-250" 
                   style={{ transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0deg)' }}
@@ -262,7 +262,7 @@ const Header = () => {
                   >
                     <div className="space-y-1">
                       <Link
-                        to="/solutions-new#model-customization"
+                        to="/solutions#model-customization"
                       >
                         <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
                           <div className="font-medium flex items-center py-2 gap-1 justify-between">
@@ -279,7 +279,7 @@ const Header = () => {
                         </div>
                       </Link>
                       <Link
-                        to="/solutions-new#value-realization"
+                        to="/solutions#value-realization"
                       >
                         <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
                           <div className="font-medium flex items-center py-2 gap-1 justify-between">
@@ -296,7 +296,7 @@ const Header = () => {
                         </div>
                       </Link>
                       <Link
-                        to="/solutions-new#deployment"
+                        to="/solutions#deployment"
                       >
                         <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
                           <div className="font-medium flex items-center py-2 gap-1 justify-between">
@@ -448,7 +448,7 @@ const Header = () => {
       style={{ zIndex: 9999 }}
     >
         <div className="p-6 space-y-6">
-          {/* Solutions Menu - Links to /solutions-new anchors */}
+          {/* Solutions Menu - Links to /solutions anchors */}
           <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions' ? null : 'solutions')}
@@ -460,7 +460,7 @@ const Header = () => {
             {mobileSubmenuOpen === 'solutions' && (
               <div className="mt-4 space-y-2 pl-4">
                 <Link
-                  to="/solutions-new#model-customization"
+                  to="/solutions#model-customization"
                   className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm group"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -471,7 +471,7 @@ const Header = () => {
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
                 </Link>
                 <Link
-                  to="/solutions-new#value-realization"
+                  to="/solutions#value-realization"
                   className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm group"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -482,7 +482,7 @@ const Header = () => {
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
                 </Link>
                 <Link
-                  to="/solutions-new#deployment"
+                  to="/solutions#deployment"
                   className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm group"
                   onClick={() => setMobileMenuOpen(false)}
                 >

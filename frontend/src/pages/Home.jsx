@@ -1006,7 +1006,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
             {/* Card 1: Model Customization - Floating Animation 1 */}
-            <Link to="/solutions-new#model-customization" className="group block" style={{ animation: 'solutionCardFloat1 6s ease-in-out infinite' }}>
+            <Link to="/solutions#model-customization" className="group block" style={{ animation: 'solutionCardFloat1 6s ease-in-out infinite' }}>
               <div 
                 className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
                 data-testid="solution-model-customization"
@@ -1035,7 +1035,7 @@ const Home = () => {
             </Link>
 
             {/* Card 2: Value Realization - Floating Animation 2 */}
-            <Link to="/solutions-new#value-realization" className="group block" style={{ animation: 'solutionCardFloat2 7s ease-in-out infinite' }}>
+            <Link to="/solutions#value-realization" className="group block" style={{ animation: 'solutionCardFloat2 7s ease-in-out infinite' }}>
               <div 
                 className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
                 data-testid="solution-value-realization"
@@ -1064,7 +1064,7 @@ From use-case validation to engineering prototypes, we help translate AI experim
             </Link>
 
             {/* Card 3: Deployment - Floating Animation 3 */}
-            <Link to="/solutions-new#deployment" className="group block" style={{ animation: 'solutionCardFloat3 5.5s ease-in-out infinite' }}>
+            <Link to="/solutions#deployment" className="group block" style={{ animation: 'solutionCardFloat3 5.5s ease-in-out infinite' }}>
               <div 
                 className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
                 data-testid="solution-deployment"
