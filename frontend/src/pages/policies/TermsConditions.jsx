@@ -1,8 +1,10 @@
 import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import useMetaDescription from '../../hooks/useMetaDescription';
 
 const TermsConditions = () => {
   useDocumentTitle('Terms | Blubridge');
+  useMetaDescription('Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.');
 
   const headingStyle = {
     fontSize: '20px',

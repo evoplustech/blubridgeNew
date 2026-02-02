@@ -1,8 +1,10 @@
 import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import useMetaDescription from '../../hooks/useMetaDescription';
 
 const PrivacyPolicy = () => {
   useDocumentTitle('Privacy Policy | Blubridge');
+  useMetaDescription('Learn how Blubridge Technologies collects, uses, stores, and protects your information when you access our AI research platforms, tools, and services.');
 
   const sectionStyle = {
     marginBottom: '32px'
