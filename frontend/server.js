@@ -58,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'build'), {
 }));
 
 // Handle all routes
-app.get('*', (req, res) => {
+app.get('/{*splat}', (req, res) => {
   // Check if it's a static file request
   const staticPath = path.join(__dirname, 'build', req.path);
   if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
