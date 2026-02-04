@@ -111,6 +111,37 @@ const AdminSettings = () => {
     }
   };
 
+  const handleCleanupDuplicates = async () => {
+    if (!window.confirm('This will remove duplicate records from the database. Are you sure you want to proceed?')) {
+      return;
+    }
+
+    setCleanupLoading(true);
+    setCleanupResults(null);
+    setMessage({ type: '', text: '' });
+    
+    try {
+      const token = localStorage.getItem('adminToken');
+      const response = await fetch(`${API_URL}/api/admin/cleanup-duplicates`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setCleanupResults(data.details);
+        setMessage({ type: 'success', text: data.message });
+      } else {
+        setMessage({ type: 'error', text: data.detail || 'Failed to cleanup duplicates' });
+      }
+    } catch (err) {
+      setMessage({ type: 'error', text: 'Failed to connect to server' });
+    } finally {
+      setCleanupLoading(false);
+    }
+  };
+
   return (
     <AdminLayout>
       <div className="space-y-6">
