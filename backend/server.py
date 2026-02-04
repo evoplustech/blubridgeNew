@@ -471,7 +471,7 @@ async def submit_unified_contact(submission: ContactSubmission):
 # Contact Us (Footer Form) - Simple endpoint
 @api_router.post("/contact-us")
 async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[str] = None, email: str = None, message: Optional[str] = None):
-    """Simple Contact Us form (footer) endpoint"""
+    """Simple Contact Us form (footer) endpoint with duplicate prevention"""
     from pydantic import ValidationError
     
     # Validate email
@@ -485,11 +485,25 @@ async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[
         raise HTTPException(status_code=400, detail="Invalid email format")
     
     try:
+        # DUPLICATE PREVENTION: Check for recent submission with same email
+        one_minute_ago = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+        existing = await db.contacts.find_one({
+            "email": email.lower().strip(),
+            "type": "contact_us",
+            "createdAt": {"$gte": one_minute_ago}
+        })
+        
+        if existing:
+            raise HTTPException(
+                status_code=409, 
+                detail="A similar submission was recently received. Please wait before submitting again."
+            )
+        
         doc = {
             "type": "contact_us",
             "firstName": firstName,
             "lastName": lastName,
-            "email": email,
+            "email": email.lower().strip(),
             "message": message,
             "createdAt": datetime.now(timezone.utc).isoformat(),
             "id": str(uuid.uuid4())
