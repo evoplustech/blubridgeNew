@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AdminLayout from './AdminLayout';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
-import { Settings, Lock, Download, FileText, MessageSquare, Briefcase, Database, AlertCircle, CheckCircle } from 'lucide-react';
+import { Settings, Lock, Download, FileText, MessageSquare, Briefcase, Database, AlertCircle, CheckCircle, Trash2, RefreshCw } from 'lucide-react';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -14,6 +14,8 @@ const AdminSettings = () => {
   const [message, setMessage] = useState({ type: '', text: '' });
   const [username, setUsername] = useState('');
   const [exportLoading, setExportLoading] = useState('');
+  const [cleanupLoading, setCleanupLoading] = useState(false);
+  const [cleanupResults, setCleanupResults] = useState(null);
 
   useEffect(() => {
     fetchSettings();
