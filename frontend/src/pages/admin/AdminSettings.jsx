@@ -348,6 +348,72 @@ const AdminSettings = () => {
             </div>
           </div>
         </div>
+
+        {/* Database Maintenance Section */}
+        <div className="bg-white rounded-xl border border-[#E5E7EB] p-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
+              <Trash2 className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold text-[#0B1F3B]">Database Maintenance</h2>
+              <p className="text-sm text-[#6B7280]">Clean up duplicate records from the database</p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p className="text-sm text-yellow-800">
+                <strong>Warning:</strong> This action will scan all collections and remove duplicate records. 
+                Only the first (oldest) record will be kept for each unique submission.
+              </p>
+            </div>
+
+            <Button
+              onClick={handleCleanupDuplicates}
+              disabled={cleanupLoading}
+              className="bg-red-500 hover:bg-red-600 text-white"
+            >
+              {cleanupLoading ? (
+                <>
+                  <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                  Cleaning up...
+                </>
+              ) : (
+                <>
+                  <Trash2 className="w-4 h-4 mr-2" />
+                  Cleanup Duplicate Records
+                </>
+              )}
+            </Button>
+
+            {cleanupResults && (
+              <div className="mt-4 p-4 bg-[#F8F9FA] rounded-lg space-y-2">
+                <h3 className="font-medium text-[#0B1F3B]">Cleanup Results:</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="p-3 bg-white rounded border border-[#E5E7EB]">
+                    <span className="text-xs text-[#6B7280] block">Contacts</span>
+                    <span className="font-medium text-[#0B1F3B]">
+                      {cleanupResults.contacts?.duplicates_removed || 0} removed
+                    </span>
+                  </div>
+                  <div className="p-3 bg-white rounded border border-[#E5E7EB]">
+                    <span className="text-xs text-[#6B7280] block">Job Applications</span>
+                    <span className="font-medium text-[#0B1F3B]">
+                      {cleanupResults.job_applications?.duplicates_removed || 0} removed
+                    </span>
+                  </div>
+                  <div className="p-3 bg-white rounded border border-[#E5E7EB]">
+                    <span className="text-xs text-[#6B7280] block">Footer Forms</span>
+                    <span className="font-medium text-[#0B1F3B]">
+                      {cleanupResults.footer_forms?.duplicates_removed || 0} removed
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </AdminLayout>
   );
