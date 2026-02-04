@@ -17,10 +17,11 @@ const metaDescriptions = {
   '/policies/terms-conditions': 'Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.',
   '/admin': 'Admin Dashboard | Blubridge',
   '/admin/login': 'Admin Login | Blubridge',
-  '/admin/career-applications': 'Career Applications | Blubridge Admin',
+  '/admin/careers': 'Career Applications | Blubridge Admin',
   '/admin/contact-forms': 'Contact Form Submissions | Blubridge Admin',
   '/admin/footer-forms': 'Footer Form Submissions | Blubridge Admin',
-  '/admin/settings': 'Admin Settings | Blubridge'
+  '/admin/settings': 'Admin Settings | Blubridge',
+  '/admin/dashboard': 'Admin Dashboard | Blubridge'
 };
 
 // Page titles for each route
@@ -35,10 +36,11 @@ const pageTitles = {
   '/policies/terms-conditions': 'Terms | Blubridge',
   '/admin': 'Admin Dashboard | Blubridge',
   '/admin/login': 'Admin Login | Blubridge',
-  '/admin/career-applications': 'Career Applications | Blubridge Admin',
+  '/admin/careers': 'Career Applications | Blubridge Admin',
   '/admin/contact-forms': 'Contact Form Submissions | Blubridge Admin',
   '/admin/footer-forms': 'Footer Form Submissions | Blubridge Admin',
-  '/admin/settings': 'Admin Settings | Blubridge'
+  '/admin/settings': 'Admin Settings | Blubridge',
+  '/admin/dashboard': 'Admin Dashboard | Blubridge'
 };
 
 // Default meta description
