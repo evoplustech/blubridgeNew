@@ -191,6 +191,11 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Prevent double submission
+    if (isSubmitting) {
+      return;
+    }
+    
     if (!validateAll()) {
       return;
     }
@@ -202,7 +207,7 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
       const formDataToSend = new FormData();
       formDataToSend.append('firstName', formData.firstName.trim());
       formDataToSend.append('lastName', formData.lastName.trim());
-      formDataToSend.append('email', formData.email.trim());
+      formDataToSend.append('email', formData.email.trim().toLowerCase());
       formDataToSend.append('phone', formData.phone.trim());
       formDataToSend.append('location', formData.location.trim());
       formDataToSend.append('jobTitle', jobTitle);
@@ -239,6 +244,14 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
             fileInputRef.current.value = '';
           }
         }, 2000);
+      } else if (response.status === 409) {
+        // Duplicate submission
+        setSubmitStatus('error');
+        if (data.errors?.duplicate) {
+          setSubmitMessage(data.errors.duplicate);
+        } else {
+          setSubmitMessage('You have already applied for this position recently. Please wait 24 hours before reapplying.');
+        }
       } else {
         setSubmitStatus('error');
         if (data.errors) {
