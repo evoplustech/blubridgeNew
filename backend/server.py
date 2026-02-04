@@ -698,6 +698,23 @@ async def submit_job_application(
                 content={"success": False, "errors": errors}
             )
         
+        # DUPLICATE PREVENTION: Check for existing application with same email and job title within 24 hours
+        twenty_four_hours_ago = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+        existing_application = await db.job_applications.find_one({
+            "email": email.strip().lower(),
+            "jobTitle": jobTitle.strip(),
+            "appliedAt": {"$gte": twenty_four_hours_ago}
+        })
+        
+        if existing_application:
+            return JSONResponse(
+                status_code=409,
+                content={
+                    "success": False, 
+                    "errors": {"duplicate": f"You have already applied for {jobTitle} recently. Please wait 24 hours before reapplying."}
+                }
+            )
+        
         # Generate unique filename
         file_ext = Path(resume.filename).suffix.lower()
         unique_filename = f"{uuid.uuid4()}{file_ext}"
