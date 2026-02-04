@@ -397,11 +397,46 @@ async def submit_contact_form(form: ContactForm):
 async def submit_unified_contact(submission: ContactSubmission):
     """
     Unified contact submission endpoint.
-    Requires 'type' field: contact_sales, general_enquiry, or contact_us
+    Requires 'type' field: contact_sales, general_enquiry, contact_us, or footer_form
+    Includes duplicate prevention based on email + type within 1 minute
     """
     try:
+        # Validate required fields based on type
+        if not submission.email:
+            raise HTTPException(status_code=400, detail="Email is required")
+        
+        # Validate email format
+        if not validate_email(submission.email):
+            raise HTTPException(status_code=400, detail="Invalid email format")
+        
+        # For contact_us type, validate required fields
+        if submission.type == "contact_us":
+            if not submission.firstName or not submission.firstName.strip():
+                raise HTTPException(status_code=400, detail="First name is required")
+            if not submission.lastName or not submission.lastName.strip():
+                raise HTTPException(status_code=400, detail="Last name is required")
+            if not submission.message or not submission.message.strip():
+                raise HTTPException(status_code=400, detail="Message is required")
+        
+        # DUPLICATE PREVENTION: Check for recent submission with same email and type
+        one_minute_ago = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+        existing = await db.contacts.find_one({
+            "email": submission.email.lower().strip(),
+            "type": submission.type,
+            "createdAt": {"$gte": one_minute_ago}
+        })
+        
+        if existing:
+            raise HTTPException(
+                status_code=409, 
+                detail="A similar submission was recently received. Please wait before submitting again."
+            )
+        
         # Build document with only non-null fields
-        doc = {"type": submission.type}
+        doc = {
+            "type": submission.type,
+            "id": submission.id or str(uuid.uuid4())
+        }
         
         # Add all provided fields (exclude None values)
         submission_dict = submission.model_dump()
@@ -409,6 +444,8 @@ async def submit_unified_contact(submission: ContactSubmission):
             if value is not None:
                 if isinstance(value, datetime):
                     doc[key] = value.isoformat()
+                elif key == "email":
+                    doc[key] = value.lower().strip()
                 else:
                     doc[key] = value
         
@@ -423,7 +460,9 @@ async def submit_unified_contact(submission: ContactSubmission):
         await send_email_notification(submission.type, doc)
         await send_gmail_notification(submission.type, doc)
         
-        return {"message": "Form submitted successfully", "id": submission.id, "type": submission.type}
+        return {"message": "Form submitted successfully", "id": doc.get("id"), "type": submission.type}
+    except HTTPException:
+        raise
     except Exception as e:
         logging.error(f"Error submitting contact form: {e}")
         raise HTTPException(status_code=500, detail="Failed to submit form")
