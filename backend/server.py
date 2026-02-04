@@ -1309,6 +1309,103 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         raise HTTPException(status_code=500, detail="Failed to export data")
 
 
+@api_router.post("/admin/cleanup-duplicates")
+async def cleanup_duplicate_records(authorization: Optional[str] = Header(None)):
+    """
+    Clean up duplicate records from all collections.
+    Keeps only the first (oldest) record for each unique combination.
+    """
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        cleanup_results = {
+            "contacts": {"duplicates_found": 0, "duplicates_removed": 0},
+            "job_applications": {"duplicates_found": 0, "duplicates_removed": 0},
+            "footer_forms": {"duplicates_found": 0, "duplicates_removed": 0}
+        }
+        
+        # 1. Clean up contacts collection - unique by email + type
+        contacts_pipeline = [
+            {"$group": {
+                "_id": {"email": {"$toLower": "$email"}, "type": "$type"},
+                "count": {"$sum": 1},
+                "ids": {"$push": "$id"},
+                "docs": {"$push": "$$ROOT"}
+            }},
+            {"$match": {"count": {"$gt": 1}}}
+        ]
+        
+        contact_duplicates = await db.contacts.aggregate(contacts_pipeline).to_list(None)
+        for dup_group in contact_duplicates:
+            cleanup_results["contacts"]["duplicates_found"] += dup_group["count"] - 1
+            # Keep the first one (oldest), remove the rest
+            ids_to_remove = dup_group["ids"][1:]  # Skip first
+            for id_to_remove in ids_to_remove:
+                await db.contacts.delete_one({"id": id_to_remove})
+                cleanup_results["contacts"]["duplicates_removed"] += 1
+        
+        # 2. Clean up job_applications collection - unique by email + jobTitle
+        job_pipeline = [
+            {"$group": {
+                "_id": {"email": {"$toLower": "$email"}, "jobTitle": "$jobTitle"},
+                "count": {"$sum": 1},
+                "ids": {"$push": "$id"},
+                "docs": {"$push": "$$ROOT"}
+            }},
+            {"$match": {"count": {"$gt": 1}}}
+        ]
+        
+        job_duplicates = await db.job_applications.aggregate(job_pipeline).to_list(None)
+        for dup_group in job_duplicates:
+            cleanup_results["job_applications"]["duplicates_found"] += dup_group["count"] - 1
+            # Keep the first one (oldest), remove the rest
+            ids_to_remove = dup_group["ids"][1:]  # Skip first
+            for id_to_remove in ids_to_remove:
+                # Also delete resume file if exists
+                app_doc = await db.job_applications.find_one({"id": id_to_remove})
+                if app_doc and app_doc.get("resumeCV"):
+                    resume_path = Path(app_doc["resumeCV"])
+                    if resume_path.exists():
+                        resume_path.unlink()
+                await db.job_applications.delete_one({"id": id_to_remove})
+                cleanup_results["job_applications"]["duplicates_removed"] += 1
+        
+        # 3. Clean up footer_forms collection (legacy) - unique by email
+        footer_pipeline = [
+            {"$group": {
+                "_id": {"email": {"$toLower": "$email"}},
+                "count": {"$sum": 1},
+                "ids": {"$push": "$id"}
+            }},
+            {"$match": {"count": {"$gt": 1}}}
+        ]
+        
+        footer_duplicates = await db.footer_forms.aggregate(footer_pipeline).to_list(None)
+        for dup_group in footer_duplicates:
+            cleanup_results["footer_forms"]["duplicates_found"] += dup_group["count"] - 1
+            ids_to_remove = dup_group["ids"][1:]
+            for id_to_remove in ids_to_remove:
+                if id_to_remove:  # Some old records might not have id
+                    await db.footer_forms.delete_one({"id": id_to_remove})
+                    cleanup_results["footer_forms"]["duplicates_removed"] += 1
+        
+        total_found = sum(r["duplicates_found"] for r in cleanup_results.values())
+        total_removed = sum(r["duplicates_removed"] for r in cleanup_results.values())
+        
+        return {
+            "success": True,
+            "message": f"Cleanup complete. Found {total_found} duplicates, removed {total_removed}.",
+            "details": cleanup_results
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error during duplicate cleanup: {e}")
+        raise HTTPException(status_code=500, detail="Failed to cleanup duplicates")
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
