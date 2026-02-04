@@ -14,7 +14,13 @@ const metaDescriptions = {
   '/careers': 'Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.',
   '/contact': 'Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.',
   '/policies/privacy-policy': 'Learn how Blubridge Technologies collects, uses, stores, and protects your information when you access our AI research platforms, tools, and services.',
-  '/policies/terms-conditions': 'Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.'
+  '/policies/terms-conditions': 'Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.',
+  '/admin': 'Admin Dashboard | Blubridge',
+  '/admin/login': 'Admin Login | Blubridge',
+  '/admin/career-applications': 'Career Applications | Blubridge Admin',
+  '/admin/contact-forms': 'Contact Form Submissions | Blubridge Admin',
+  '/admin/footer-forms': 'Footer Form Submissions | Blubridge Admin',
+  '/admin/settings': 'Admin Settings | Blubridge'
 };
 
 // Page titles for each route
@@ -26,7 +32,13 @@ const pageTitles = {
   '/careers': 'Careers | Blubridge',
   '/contact': 'Contact us | Blubridge',
   '/policies/privacy-policy': 'Privacy Policy | Blubridge',
-  '/policies/terms-conditions': 'Terms | Blubridge'
+  '/policies/terms-conditions': 'Terms | Blubridge',
+  '/admin': 'Admin Dashboard | Blubridge',
+  '/admin/login': 'Admin Login | Blubridge',
+  '/admin/career-applications': 'Career Applications | Blubridge Admin',
+  '/admin/contact-forms': 'Contact Form Submissions | Blubridge Admin',
+  '/admin/footer-forms': 'Footer Form Submissions | Blubridge Admin',
+  '/admin/settings': 'Admin Settings | Blubridge'
 };
 
 // Default meta description
