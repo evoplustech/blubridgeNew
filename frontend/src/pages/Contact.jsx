@@ -223,6 +223,11 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Prevent double submission
+    if (isSubmitting) {
+      return;
+    }
+    
     if (!validateForm()) {
       return;
     }
@@ -238,17 +243,17 @@ const Contact = () => {
         },
         body: JSON.stringify({
           type: 'contact_us',
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          email: formData.email.trim().toLowerCase(),
           phone: `${formData.phoneCode} ${formData.phoneNumber}`,
           enquiryCategory: formData.inquiryType,
-          message: formData.message
+          message: formData.message.trim()
         }),
       });
 
       if (response.ok) {
-        alert('Thank you for your inquiry. We get back to you soon!');
+        alert('Thank you for your inquiry. We will get back to you soon!');
         setFormData({
           firstName: '',
           lastName: '',
@@ -260,6 +265,9 @@ const Contact = () => {
         });
         setEmailVerified(false);
         setValidationErrors({});
+      } else if (response.status === 409) {
+        // Duplicate submission
+        setSubmitError('You have already submitted this form recently. Please wait a moment before trying again.');
       } else {
         const errorData = await response.json();
         setSubmitError(errorData.detail || 'Failed to submit form. Please try again.');
