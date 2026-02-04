@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AdminLayout from './AdminLayout';
-import { Search, Eye, Trash2, RefreshCw, User, Download, Briefcase, X, FileText } from 'lucide-react';
+import { Search, Eye, Trash2, RefreshCw, User, Download, Briefcase, X, FileText, Calendar } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 
@@ -11,6 +11,8 @@ const CareerApplications = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
   const [selectedApplication, setSelectedApplication] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
 
@@ -26,6 +28,8 @@ const CareerApplications = () => {
       const params = new URLSearchParams();
       if (search) params.append('search', search);
       if (statusFilter) params.append('status', statusFilter);
+      if (startDate) params.append('start_date', startDate);
+      if (endDate) params.append('end_date', endDate);
       if (params.toString()) url += `?${params.toString()}`;
       
       const response = await fetch(url, {
@@ -46,6 +50,16 @@ const CareerApplications = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     fetchApplications();
+  };
+
+  const handleDateFilter = () => {
+    fetchApplications();
+  };
+
+  const clearDateFilter = () => {
+    setStartDate('');
+    setEndDate('');
+    setTimeout(() => fetchApplications(), 0);
   };
 
   const viewApplication = async (application) => {
@@ -146,6 +160,57 @@ const CareerApplications = () => {
     }
   };
 
+  const exportToCSV = () => {
+    if (applications.length === 0) {
+      alert('No data to export');
+      return;
+    }
+
+    // Define CSV headers
+    const headers = [
+      'First Name',
+      'Last Name',
+      'Email',
+      'Phone',
+      'Job Title',
+      'LinkedIn',
+      'Portfolio',
+      'Status',
+      'Applied Date'
+    ];
+
+    // Convert applications to CSV rows
+    const rows = applications.map(app => [
+      app.firstName || '',
+      app.lastName || '',
+      app.email || '',
+      app.phone || '',
+      app.jobTitle || '',
+      app.linkedIn || '',
+      app.portfolio || '',
+      app.status || 'pending',
+      app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : ''
+    ]);
+
+    // Create CSV content
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+    ].join('\n');
+
+    // Create and trigger download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const dateStr = new Date().toISOString().split('T')[0];
+    a.download = `career_applications_${dateStr}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+  };
+
   const formatDate = (dateStr) => {
     if (!dateStr) return '-';
     const date = new Date(dateStr);
@@ -178,13 +243,59 @@ const CareerApplications = () => {
             <h1 className="text-2xl font-bold text-[#0B1F3B]">Career Applications</h1>
             <p className="text-[#6B7280] mt-1">Manage job applications and resumes</p>
           </div>
-          <Button onClick={fetchApplications} variant="outline" size="sm">
-            <RefreshCw className="w-4 h-4 mr-2" />
-            Refresh
-          </Button>
+          <div className="flex gap-2">
+            <Button onClick={exportToCSV} variant="outline" size="sm" className="bg-green-50 border-green-200 text-green-700 hover:bg-green-100">
+              <Download className="w-4 h-4 mr-2" />
+              Export CSV
+            </Button>
+            <Button onClick={fetchApplications} variant="outline" size="sm">
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Refresh
+            </Button>
+          </div>
         </div>
 
-        {/* Search & Filter */}
+        {/* Date Range Filter */}
+        <div className="bg-white rounded-xl border border-[#E5E7EB] p-4">
+          <div className="flex flex-col md:flex-row md:items-end gap-4">
+            <div className="flex items-center gap-2 text-[#0B1F3B] font-medium">
+              <Calendar className="w-5 h-5 text-[#328CC1]" />
+              <span>Filter by Date Range</span>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 flex-1">
+              <div className="flex flex-col gap-1">
+                <label className="text-xs font-medium text-[#6B7280]">Start Date</label>
+                <Input
+                  type="date"
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
+                  className="w-full sm:w-44"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="text-xs font-medium text-[#6B7280]">End Date</label>
+                <Input
+                  type="date"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
+                  className="w-full sm:w-44"
+                />
+              </div>
+              <div className="flex items-end gap-2">
+                <Button onClick={handleDateFilter} size="sm">
+                  Apply Filter
+                </Button>
+                {(startDate || endDate) && (
+                  <Button onClick={clearDateFilter} variant="outline" size="sm">
+                    Clear
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Search & Status Filter */}
         <div className="flex flex-col md:flex-row gap-4">
           <form onSubmit={handleSearch} className="flex gap-2 flex-1">
             <div className="relative flex-1 max-w-md">
@@ -211,6 +322,16 @@ const CareerApplications = () => {
             <option value="rejected">Rejected</option>
             <option value="hired">Hired</option>
           </select>
+        </div>
+
+        {/* Results Count */}
+        <div className="text-sm text-[#6B7280]">
+          Showing {applications.length} application{applications.length !== 1 ? 's' : ''}
+          {(startDate || endDate) && (
+            <span className="ml-2 text-[#328CC1]">
+              ({startDate && `From: ${startDate}`}{startDate && endDate && ' - '}{endDate && `To: ${endDate}`})
+            </span>
+          )}
         </div>
 
         {/* Table */}
