@@ -18,8 +18,19 @@ const Footer = () => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Prevent double submission
+    if (loading) {
+      return;
+    }
+    
     if (!email) {
       toast({
         title: 'Error',
@@ -29,29 +40,47 @@ const Footer = () => {
       return;
     }
 
+    if (!validateEmail(email)) {
+      toast({
+        title: 'Error',
+        description: 'Please enter a valid email address',
+        variant: 'destructive'
+      });
+      return;
+    }
+
     setLoading(true);
     try {
-      await axios.post(`${API}/contacts/submit`, {
+      const response = await axios.post(`${API}/contacts/submit`, {
         type: 'footer_form',
-        email,
-        firstName: firstName || undefined,
-        lastName: lastName || undefined,
-        message: message || undefined
+        email: email.trim().toLowerCase(),
+        firstName: firstName.trim() || undefined,
+        lastName: lastName.trim() || undefined,
+        message: message.trim() || undefined
       });
+      
       toast({
         title: 'Success!',
-        description: 'Thank you for contacting us. We are getting back to you soon.'
+        description: 'Thank you for contacting us. We will get back to you soon.'
       });
       setEmail('');
       setFirstName('');
       setLastName('');
       setMessage('');
     } catch (error) {
-      toast({
-        title: 'Error',
-        description: error.response?.data?.detail || 'Failed to submit',
-        variant: 'destructive'
-      });
+      if (error.response?.status === 409) {
+        toast({
+          title: 'Already Submitted',
+          description: 'You have already submitted this form recently. Please wait a moment.',
+          variant: 'destructive'
+        });
+      } else {
+        toast({
+          title: 'Error',
+          description: error.response?.data?.detail || 'Failed to submit',
+          variant: 'destructive'
+        });
+      }
     } finally {
       setLoading(false);
     }
