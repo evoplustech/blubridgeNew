@@ -947,8 +947,8 @@ async def get_contact_submissions_admin(authorization: Optional[str] = Header(No
 
 
 @api_router.get("/admin/submissions/careers")
-async def get_career_applications_admin(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None, status: Optional[str] = None):
-    """Get career applications"""
+async def get_career_applications_admin(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None, status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
+    """Get career applications with optional date range filter"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -964,6 +964,16 @@ async def get_career_applications_admin(authorization: Optional[str] = Header(No
                 {"email": {"$regex": search, "$options": "i"}},
                 {"jobTitle": {"$regex": search, "$options": "i"}}
             ]
+        
+        # Date range filter
+        if start_date or end_date:
+            date_query = {}
+            if start_date:
+                date_query["$gte"] = start_date + "T00:00:00"
+            if end_date:
+                date_query["$lte"] = end_date + "T23:59:59"
+            if date_query:
+                query["appliedAt"] = date_query
         
         applications = await db.job_applications.find(query, {"_id": 0}).sort("appliedAt", -1).to_list(limit)
         return applications
