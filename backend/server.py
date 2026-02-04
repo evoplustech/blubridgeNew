@@ -350,8 +350,29 @@ async def get_status_checks():
 # Contact Form Endpoint - LEGACY (backward compatible)
 @api_router.post("/contact")
 async def submit_contact_form(form: ContactForm):
-    """Legacy endpoint - converts old format to new unified contacts collection"""
+    """Legacy endpoint - converts old format to new unified contacts collection with duplicate prevention"""
     try:
+        # Validate required fields
+        if not form.email:
+            raise HTTPException(status_code=400, detail="Email is required")
+        if not form.firstName or not form.firstName.strip():
+            raise HTTPException(status_code=400, detail="First name is required")
+        if not form.lastName or not form.lastName.strip():
+            raise HTTPException(status_code=400, detail="Last name is required")
+        
+        # DUPLICATE PREVENTION: Check for recent submission with same email
+        one_minute_ago = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+        existing = await db.contacts.find_one({
+            "email": form.email.lower().strip(),
+            "createdAt": {"$gte": one_minute_ago}
+        })
+        
+        if existing:
+            raise HTTPException(
+                status_code=409, 
+                detail="A similar submission was recently received. Please wait before submitting again."
+            )
+        
         # Map old 'interest' field to new 'type' field
         type_mapping = {
             "sales": "contact_sales",
@@ -365,7 +386,7 @@ async def submit_contact_form(form: ContactForm):
             "type": form_type,
             "firstName": form.firstName,
             "lastName": form.lastName,
-            "email": form.email,
+            "email": form.email.lower().strip(),
             "company": form.company,
             "phone": form.phone,
             "message": form.message,
@@ -387,6 +408,8 @@ async def submit_contact_form(form: ContactForm):
         await send_gmail_notification(form_type, doc)
         
         return {"message": "Contact form submitted successfully", "id": form.id}
+    except HTTPException:
+        raise
     except Exception as e:
         logging.error(f"Error submitting contact form: {e}")
         raise HTTPException(status_code=500, detail="Failed to submit form")
