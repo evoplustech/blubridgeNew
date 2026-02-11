@@ -31,7 +31,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Brevo (Sendinblue) Email configuration
-BREVO_API_KEY = os.environ.get('Backend-Email-Key', '')
+BREVO_API_KEY = os.environ.get('Backend_Email_Key', '')
 BREVO_SENDER_EMAIL = "blazecoder3@gmail.com"
 BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 
