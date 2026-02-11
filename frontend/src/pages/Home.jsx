@@ -435,6 +435,15 @@ const Home = () => {
     whoWeAre: false,
     whatWeAim: false
   });
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Redirect hash links to appropriate pages
+  useEffect(() => {
+    if (location.hash === '#join-our-team') {
+      navigate('/careers#join-our-team', { replace: true });
+    }
+  }, [location, navigate]);
 
   const toggleAboutCard = (cardId) => {
     setExpandedAboutCards(prev => ({
