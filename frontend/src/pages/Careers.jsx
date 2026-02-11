@@ -86,6 +86,19 @@ const Careers = () => {
   useMetaDescription('Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.');
   const joinOurTeamRef = useRef(null);
   const [showJobListings, setShowJobListings] = useState(false);
+  const location = useLocation();
+  
+  // Handle hash navigation to join-our-team section
+  useEffect(() => {
+    if (location.hash === '#join-our-team') {
+      setTimeout(() => {
+        joinOurTeamRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 100);
+    }
+  }, [location]);
   
   const handleScrollToJoin = () => {
     joinOurTeamRef.current?.scrollIntoView({
