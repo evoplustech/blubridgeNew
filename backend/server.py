@@ -220,14 +220,17 @@ async def send_email_notification(form_type: str, form_data: dict):
 
 # Gmail SMTP email notification (non-blocking)
 async def send_gmail_notification(form_type: str, form_data: dict, submission_timestamp: str = None):
-    """Send email notification via Gmail SMTP. Does not block API response."""
+    """Send email notification via Resend API. Does not block API response."""
     
-    def _send_smtp_email():
-        """Synchronous SMTP send - runs in thread pool"""
+    def _send_resend_email():
+        """Synchronous Resend send - runs in thread pool"""
         try:
-            if not SMTP_PASSWORD:
-                logging.warning("SMTP_PASSWORD not configured, skipping Gmail notification")
+            if not RESEND_API_KEY:
+                logging.warning("RESEND_API_KEY not configured, skipping email notification")
                 return
+            
+            # Set Resend API key
+            resend.api_key = RESEND_API_KEY
             
             # Format form type label for email subject
             type_labels = {
@@ -288,34 +291,27 @@ async def send_gmail_notification(form_type: str, form_data: dict, submission_ti
             
             body = "\n".join(body_lines)
             
-            # Create email message
-            msg = MIMEMultipart()
-            msg['From'] = SMTP_FROM_EMAIL
-            msg['To'] = SMTP_TO_EMAIL
-            msg['Subject'] = subject
-            msg.attach(MIMEText(body, 'plain'))
+            # Send via Resend API
+            params = {
+                "from": f"BluBridge <{RESEND_FROM_EMAIL}>",
+                "to": [RESEND_TO_EMAIL],
+                "subject": subject,
+                "text": body
+            }
             
-            # Send via Gmail SMTP with TLS
-            with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-                server.starttls()
-                server.login(SMTP_FROM_EMAIL, SMTP_PASSWORD)
-                server.sendmail(SMTP_FROM_EMAIL, SMTP_TO_EMAIL, msg.as_string())
+            resend.Emails.send(params)
             
-            logging.info(f"Gmail notification sent for {form_type_label}")
+            logging.info(f"Resend notification sent for {form_type_label}")
             
-        except smtplib.SMTPAuthenticationError as e:
-            logging.error(f"Gmail SMTP authentication failed: {e}")
-        except smtplib.SMTPException as e:
-            logging.error(f"Gmail SMTP error: {e}")
         except Exception as e:
-            logging.error(f"Failed to send Gmail notification: {e}")
+            logging.error(f"Failed to send Resend notification: {e}")
     
-    # Run SMTP send in background thread to not block async code
+    # Run Resend send in background thread to not block async code
     try:
         loop = asyncio.get_event_loop()
-        loop.run_in_executor(None, _send_smtp_email)
+        loop.run_in_executor(None, _send_resend_email)
     except Exception as e:
-        logging.error(f"Error scheduling Gmail notification: {e}")
+        logging.error(f"Error scheduling Resend notification: {e}")
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
