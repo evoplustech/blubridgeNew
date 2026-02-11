@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect,useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap, Scale, Server, SlidersHorizontal, Lightbulb, FlaskConical, Rocket, Smartphone, Laptop, ShoppingCart, Home as HomeIcon } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
