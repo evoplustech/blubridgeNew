@@ -441,9 +441,9 @@ const Home = () => {
   // Redirect hash links to appropriate pages
   useEffect(() => {
     if (location.hash === '#join-our-team') {
-      navigate('/careers#join-our-team', { replace: true });
+      window.location.href = 'https://blubridge.com/careers#join-our-team';
     }
-  }, [location, navigate]);
+  }, [location]);
 
   const toggleAboutCard = (cardId) => {
     setExpandedAboutCards(prev => ({
