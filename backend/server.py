@@ -35,12 +35,10 @@ BREVO_API_KEY = os.environ.get('Backend_Email_Key', '')
 BREVO_SENDER_EMAIL = "blazecoder3@gmail.com"
 BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 
-# Gmail SMTP Configuration (for form submission notifications)
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
-SMTP_FROM_EMAIL = "blubridgenoreply@gmail.com"
-SMTP_TO_EMAIL = "contact@blubridge.ai"
-SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
+# Resend Email Configuration (for form submission notifications)
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 're_BRgjgEiZ_84FFx8t38LomYNBdo28r7WLa')
+RESEND_FROM_EMAIL = "blubridgenoreply@gmail.com"
+RESEND_TO_EMAIL = "contact@blubridge.ai"
 
 # Create the main app without a prefix
 app = FastAPI()
