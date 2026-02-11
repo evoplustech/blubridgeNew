@@ -881,8 +881,8 @@ const Careers = () => {
       </div>
 
       {/* Join Our Team Section */}
-      <div id="join-our-team" ref={joinOurTeamRef} style={{ marginTop: '30px' }}>
-        <JoinOurTeam />
+      <div id="join-our-team" ref={joinOurTeamRef} style={{ marginTop: '30px', scrollMarginTop: '100px' }}>
+        <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
 
       {/* Hover Styles */}
