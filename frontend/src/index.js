@@ -1,23 +1,12 @@
 import React from "react";
-import { createRoot, hydrateRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import "@/index.css";
 import App from "@/App";
 
 const rootElement = document.getElementById("root");
-
-// Check if the page has pre-rendered content (from react-snap)
-if (rootElement.hasChildNodes()) {
-  hydrateRoot(
-    rootElement,
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-} else {
-  const root = createRoot(rootElement);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-}
+const root = createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
