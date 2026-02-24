@@ -113,64 +113,658 @@ const seoContent = {
     `
   },
   '/solutions': {
-    title: 'AI solutions for every use case | Blubridge',
-    description: 'Comprehensive AI infrastructure solutions designed to accelerate your innovation across industries.',
+    title: 'Applied AI Solutions - For your Use Case | Blubridge',
+    description: 'Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure.',
     content: `
-      <h1>AI solutions for every use case</h1>
-      <p>Comprehensive AI infrastructure solutions designed to accelerate your innovation across industries.</p>
+      <h1>Engineering AI-Native Systems for Enterprise Frontiers</h1>
+      <p>Partnering with ambitious organizations from model development to production grade deployment through research-driven, system-level AI engineering.</p>
       
-      <h2>By Use Case</h2>
+      <h2>Domain-Specialized Models, Engineered on Proprietary Data</h2>
+      <p>Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. Model customization capabilities are under active development across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness.</p>
       
-      <h3>Model Training</h3>
+      <h3>Custom Pre-Training</h3>
+      <p>We are building and validating domain oriented pre-training and continued training pipelines using customized datasets and controlled training configurations.</p>
+      <ul>
+        <li>Full pre-training workflows using curated domain data mixtures and custom training recipes</li>
+        <li>Continued pre-training from open or internal checkpoints using domain corpora</li>
+        <li>Tokenization and dataset strategy design for domain signal preservation</li>
+        <li>Training evaluation and regression tracking frameworks</li>
+      </ul>
+      
+      <h3>Specialized Model Capabilities</h3>
+      <p>Specialization workflows are in prototype and validation stages to adapt model behavior and task performance through structured fine-tuning and alignment methods.</p>
+      <ul>
+        <li>Supervised fine-tuning pipelines for task-specific adaptation</li>
+        <li>Preference and behavior alignment methods under controlled evaluation</li>
+        <li>Synthetic data generation for robustness and edge-case coverage</li>
+        <li>Retrieval-grounded model workflows under prototype validation</li>
+        <li>Prompt and tool orchestration layers for bounded enterprise tasks</li>
+      </ul>
+      
+      <h3>Inference & Deployment Optimization</h3>
+      <p>Inference and deployment optimization capabilities are under development to support efficient and reliable model serving.</p>
+      <ul>
+        <li>Inference profiling and performance characterization</li>
+        <li>Quantization and efficiency experiments</li>
+        <li>Runtime and batching strategy evaluation</li>
+        <li>Containerized inference deployment patterns under internal testing</li>
+        <li>Observability hooks for latency, throughput, and drift measurement</li>
+      </ul>
+      
+      <h3>Customization Stack</h3>
+      <p>Our comprehensive customization stack gives you full control from data to deployment, with flexibility at every layer</p>
+      <table>
+        <tr><th>DATA</th><th>PLATFORM</th><th>INFRASTRUCTURE & HARDWARE</th></tr>
+        <tr><td>Instruction Datasets</td><td>Training Pipelines</td><td>Distributed Training</td></tr>
+        <tr><td>Domain Corpora</td><td>Experiment Manager</td><td>GPU Orchestration</td></tr>
+        <tr><td>Prompt Templates</td><td>Hyperparameter Tuning</td><td>NVIDIA H100 / A100</td></tr>
+        <tr><td>Alignment Packs</td><td>Model Versioning</td><td>High-Speed Storage</td></tr>
+        <tr><td>Fine-Tuning Kits</td><td>Adapter Management</td><td>High-Speed Networking</td></tr>
+      </table>
+      
+      <h2>Value Realization</h2>
+      <p>We start from your current AI maturity and engineer toward deployable systems. From use-case discovery through model development and deployment validation, our engineering teams remain directly engaged across the full lifecycle.</p>
+      
+      <h3>Proof of Value</h3>
+      <p>Find pain points that can be AI adopted in your business & help you build use case exclusively based on your organization type, business goals and data.</p>
+      
+      <h3>Custom Training</h3>
+      <p>Model training cycles with systematic iteration, evaluation checkpoints, and deployment-aware performance validation.</p>
+      
+      <h3>Deployment Engineering</h3>
+      <p>Production deployment execution with runtime optimization, observability integration, and operational readiness verification.</p>
+      
+      <h2>Deployment</h2>
+      <p>Bringing enterprise AI systems to production with engineering discipline across tooling, serving, and infrastructure integration.</p>
+      
+      <h3>Self-Deployment Tooling</h3>
+      <p>Full-stack engineering packages for teams deploying and managing LLMs on their own infrastructure.</p>
+      <ul>
+        <li>Pre-configured inference servers</li>
+        <li>Monitoring and alerting templates</li>
+        <li>Documentation and runbooks</li>
+        <li>Integration guides for common enterprise stacks</li>
+      </ul>
+      
+      <h3>Serving Frameworks</h3>
+      <p>Optimized model serving with support for batching, streaming, caching, and multi-tenant workloads.</p>
+      <ul>
+        <li>vLLM, TGI, and TensorRT-LLM integrations</li>
+        <li>Custom serving layers with advanced scheduling</li>
+        <li>API gateway and rate limiting</li>
+        <li>Embedding and retrieval serving</li>
+      </ul>
+      
+      <h3>Infrastructure Tracks</h3>
+      <p>Deployment architectures suited to enterprise security, compliance, and operational requirements.</p>
+      <ul>
+        <li>Private Cloud Track: On-prem or VPC-based deployments</li>
+        <li>Hybrid Track: Coordinated cloud and on-prem serving</li>
+        <li>Edge Track: Optimized deployments for latency-sensitive use cases</li>
+        <li>Sovereign Track: Deployments meeting jurisdictional data residency requirements</li>
+      </ul>
+      
+      <h2>Let's Build Together</h2>
+      <p>Ready to discuss your requirements? Contact us to explore how we can engineer AI systems tailored to your needs.</p>
+    `
+  },
+  '/solutions/model-customization': {
+    title: 'Model Customization | Blubridge',
+    description: 'Custom AI model development and fine-tuning services for enterprise applications.',
+    content: `
+      <h1>Model Customization</h1>
+      <p>Build AI models trained specifically for your data, domain, and use case with full control over architecture and training.</p>
+      
+      <h2>Custom Pre-Training</h2>
+      <p>We build foundational LLMs optimized for vertical use cases, multilingual requirements, or niche domains.</p>
+      <ul>
+        <li>Full-stack training infrastructure: Distributed compute, efficient data pipelines, robust checkpointing</li>
+        <li>Architecture experimentation: Attention variants, MoE structures, positional encodings</li>
+        <li>Tokenization tuning: Domain-aware tokenizer construction for improved performance on specialized corpora</li>
+        <li>Evaluation and benchmarking</li>
+      </ul>
+      
+      <h2>Specialized Model Capabilities</h2>
+      <p>We enhance base models with domain-specific reasoning, tool usage, and multi-turn dialogue capabilities.</p>
+      <ul>
+        <li>Supervised fine-tuning (SFT): Instruction tuning on curated, domain-specific datasets</li>
+        <li>Reinforcement Learning from Human Feedback (RLHF)</li>
+        <li>Tool-augmented training: Enabling web search, API calls, and retrieval integration within model responses</li>
+        <li>Function calling and schema adherence: Structuring outputs for downstream system integrations</li>
+      </ul>
+      
+      <h2>Inference and Deployment Optimization</h2>
+      <p>We ensure models perform reliably in production, optimizing for throughput, latency, and operational costs.</p>
+      <ul>
+        <li>Quantization: INT8, INT4, and hybrid strategies with minimal accuracy loss</li>
+        <li>Batching and scheduling strategies: Continuous batching, speculative decoding</li>
+        <li>Containerized serving: Kubernetes-native deployments with health checks, autoscaling, and metrics</li>
+        <li>Multi-backend support: vLLM, TensorRT-LLM, TGI, custom CUDA kernels</li>
+      </ul>
+    `
+  },
+  '/solutions/value-realization': {
+    title: 'AI Value Realization Solutions & Measurable ROI | BluBridge',
+    description: 'Transform AI investments into measurable business outcomes with our value realization framework.',
+    content: `
+      <h1>Engineering AI Value from Exploration to Deployment</h1>
+      <p>From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.</p>
+      
+      <h2>What You Get</h2>
+      
+      <h3>Optimised Business Impact</h3>
+      <p>Identify high-value AI use cases aligned with business goals and data readiness.</p>
+      
+      <h3>Simplified Execution</h3>
+      <p>Structured engineering workflows from prototype to production deployment.</p>
+      
+      <h3>Versatile Platform</h3>
+      <p>Flexible infrastructure supporting diverse AI workloads and deployment patterns.</p>
+      
+      <h2>Build, Train, Deploy</h2>
+      <p>Structured engagement model from AI exploration through production deployment and ongoing optimization.</p>
+      
+      <h2>AI Metrics That Matter</h2>
+      <h3>ROI Per Dollar</h3>
+      <p>$7 ROI per dollar spent on AI initiatives</p>
+      
+      <h3>ROI & Efficiency Boost</h3>
+      <p>$2.6T potential productivity gains from generative AI</p>
+      
+      <h3>Formal ROI Tracking</h3>
+      <p>70% of organizations have formal GenAI ROI tracking</p>
+      
+      <h3>Positive AI ROI</h3>
+      <p>74% of organizations report positive AI ROI</p>
+      
+      <h2>Measurable Impact AI at Scale</h2>
+      <ul>
+        <li>LLM Training - Deploy domain-specific LLMs trained on your proprietary data with our managed training infrastructure</li>
+        <li>AI Infrastructure - Access purpose-built GPU clusters with optimized networking, storage, and orchestration</li>
+        <li>Model Fine-tuning - Adapt foundation models to your specific use cases with structured fine-tuning workflows</li>
+        <li>ML Inference - Deploy optimized inference endpoints with auto-scaling and low-latency serving</li>
+        <li>Serverless AI - Run AI workloads without infrastructure management overhead</li>
+        <li>Sovereign Cloud - Deploy in compliant, jurisdiction-specific environments</li>
+      </ul>
+      
+      <h2>FAQs</h2>
+      <p>Common questions about AI value realization and ROI measurement.</p>
+    `
+  },
+  '/solutions/deployment': {
+    title: 'AI Deployment & Scalable Model Production | BluBridge',
+    description: 'Enterprise AI deployment solutions with optimized infrastructure and production-grade reliability.',
+    content: `
+      <h1>Bringing AI to Production Through Engineering Discipline</h1>
+      <p>Production deployment execution with runtime optimization, observability integration, and operational readiness verification.</p>
+      
+      <h2>What You Get</h2>
+      
+      <h3>Optimise for Performance</h3>
+      <p>Deploy AI models with optimized inference pipelines and resource utilization.</p>
+      
+      <h3>Accelerate Time to Market</h3>
+      <p>Streamlined deployment workflows from model development to production.</p>
+      
+      <h3>Cost-Effective Scalability</h3>
+      <p>Efficient resource allocation and auto-scaling for variable workloads.</p>
+      
+      <h2>From Lab to Live</h2>
+      <h3>Package</h3>
+      <p>Containerize and prepare models for deployment with standardized packaging.</p>
+      
+      <h3>Verify</h3>
+      <p>Validate model performance and behavior in staging environments.</p>
+      
+      <h3>Release</h3>
+      <p>Deploy to production with controlled rollout and monitoring.</p>
+      
+      <h3>Operate</h3>
+      <p>Manage deployed models with observability and maintenance workflows.</p>
+      
+      <h2>Performance Metrics</h2>
+      <h3>30% Faster Time to Value for Your AI Projects</h3>
+      <h3>40% Efficiency Improvement</h3>
+      
+      <h2>Deployment Patterns</h2>
+      <h3>Faster to Production</h3>
+      <p>3x faster deployment cycles</p>
+      
+      <h3>Enterprise Deployment</h3>
+      <p>1000+ models deployed</p>
+      
+      <h3>Workforce Reach</h3>
+      <p>500k+ employees reached</p>
+      
+      <h2>Key Services</h2>
+      <h3>AI Compute</h3>
+      <p>Purpose-built GPU infrastructure for AI workloads.</p>
+      
+      <h3>AI Marketplace</h3>
+      <p>Pre-built models and components for rapid deployment.</p>
+      
+      <h2>FAQs</h2>
+      <p>Common questions about AI deployment and production operations.</p>
+    `
+  },
+  '/solutions/training': {
+    title: 'AI Model Training Solutions | BluBridge',
+    description: 'Enterprise AI training infrastructure with optimized GPU clusters and distributed training capabilities.',
+    content: `
+      <h1>AI Model Training</h1>
       <p>Train large language models and deep learning networks efficiently with our optimized GPU clusters.</p>
+      
+      <h2>Training Infrastructure</h2>
       <ul>
         <li>80% Lower Cost</li>
         <li>30% Faster Training</li>
         <li>99.9% Uptime</li>
       </ul>
       
-      <h3>AI & ML Inference</h3>
-      <p>Deploy production-ready inference endpoints with auto-scaling and low latency.</p>
+      <h2>Features</h2>
       <ul>
-        <li>7.2X Performance</li>
-        <li>+40% Efficiency</li>
+        <li>Distributed training support</li>
+        <li>Efficient data pipelines</li>
+        <li>Robust checkpointing</li>
+        <li>Multi-node scaling</li>
+      </ul>
+    `
+  },
+  '/solutions/inference': {
+    title: 'AI Inference Solutions | BluBridge',
+    description: 'High-performance AI inference with optimized serving and low-latency endpoints.',
+    content: `
+      <h1>AI & ML Inference</h1>
+      <p>Deploy production-ready inference endpoints with auto-scaling and low latency.</p>
+      
+      <h2>Performance Metrics</h2>
+      <ul>
+        <li>7.2X Performance improvement</li>
+        <li>+40% Efficiency gains</li>
         <li>Sub-100ms Latency</li>
       </ul>
       
-      <h3>AI Development</h3>
+      <h2>Features</h2>
+      <ul>
+        <li>Optimized model serving</li>
+        <li>Continuous batching</li>
+        <li>Speculative decoding</li>
+        <li>Multi-backend support</li>
+      </ul>
+    `
+  },
+  '/solutions/fine-tuning': {
+    title: 'AI Fine-Tuning Solutions | BluBridge',
+    description: 'Customized AI model fine-tuning services for enterprise applications.',
+    content: `
+      <h1>Model Fine-Tuning</h1>
+      <p>Fine-tune pre-trained models on your custom datasets with automated pipelines.</p>
+      
+      <h2>Performance Metrics</h2>
+      <ul>
+        <li>+40% Efficiency improvement</li>
+        <li>30% Faster fine-tuning</li>
+        <li>Custom Datasets support</li>
+      </ul>
+      
+      <h2>Techniques</h2>
+      <ul>
+        <li>Supervised Fine-Tuning (SFT)</li>
+        <li>Reinforcement Learning from Human Feedback (RLHF)</li>
+        <li>LoRA and QLoRA</li>
+        <li>Instruction tuning</li>
+      </ul>
+    `
+  },
+  '/solutions/ai-development': {
+    title: 'AI Development Solutions | BluBridge',
+    description: 'Complete AI development environment for building, testing, and deploying AI applications.',
+    content: `
+      <h1>AI Development</h1>
       <p>Complete development environment for building, testing, and deploying AI applications.</p>
+      
+      <h2>Development Tools</h2>
       <ul>
         <li>80% Lower Cost</li>
-        <li>30% Faster</li>
+        <li>30% Faster development</li>
         <li>Integrated Tools</li>
       </ul>
       
-      <h3>Model Fine-Tuning</h3>
+      <h2>Features</h2>
+      <ul>
+        <li>End-to-end development workflows</li>
+        <li>Testing and validation pipelines</li>
+        <li>Version control and collaboration</li>
+        <li>Deployment automation</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/telco': {
+    title: 'AI Solutions for Telecommunications | BluBridge',
+    description: 'AI solutions for network optimization, predictive maintenance, and customer experience in telecommunications.',
+    content: `
+      <h1>AI for Telecommunications</h1>
+      <p>Network optimization and predictive maintenance solutions for telecom operators.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Network Optimization - AI-driven network planning and resource allocation</li>
+        <li>Predictive Maintenance - Proactive equipment maintenance and failure prediction</li>
+        <li>Customer Experience - Personalized services and intelligent customer support</li>
+        <li>Fraud Detection - Real-time fraud detection and prevention</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/software-technology': {
+    title: 'AI Solutions for Software & Technology | BluBridge',
+    description: 'AI-powered development tools and intelligent automation for software companies.',
+    content: `
+      <h1>AI for Software & Technology</h1>
+      <p>AI-powered development tools and intelligent automation solutions.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Code Generation - AI-assisted code completion and generation</li>
+        <li>Testing Automation - Intelligent test case generation and execution</li>
+        <li>DevOps Intelligence - AI-driven deployment and monitoring</li>
+        <li>Documentation - Automated documentation generation</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/finance-insurance': {
+    title: 'AI Solutions for Finance & Insurance | BluBridge',
+    description: 'AI solutions for risk analysis, fraud detection, and customer service in financial services.',
+    content: `
+      <h1>AI for Finance & Insurance</h1>
+      <p>Risk analysis and fraud detection solutions for financial institutions.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Risk Analysis - AI-driven credit scoring and risk assessment</li>
+        <li>Fraud Detection - Real-time transaction monitoring and fraud prevention</li>
+        <li>Customer Service - Intelligent chatbots and personalized recommendations</li>
+        <li>Compliance - Automated regulatory compliance monitoring</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/manufacturing': {
+    title: 'AI Solutions for Manufacturing | BluBridge',
+    description: 'AI solutions for quality control, predictive maintenance, and process optimization in manufacturing.',
+    content: `
+      <h1>AI for Manufacturing</h1>
+      <p>Quality control and automation solutions for manufacturing operations.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Quality Control - AI-powered visual inspection and defect detection</li>
+        <li>Predictive Maintenance - Equipment failure prediction and maintenance scheduling</li>
+        <li>Process Optimization - AI-driven production planning and optimization</li>
+        <li>Supply Chain - Demand forecasting and inventory optimization</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/education': {
+    title: 'AI Solutions for Education | BluBridge',
+    description: 'AI solutions for personalized learning, assessment, and educational content creation.',
+    content: `
+      <h1>AI for Education</h1>
+      <p>Personalized learning platforms and intelligent tutoring systems.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Personalized Learning - Adaptive learning paths based on student performance</li>
+        <li>Assessment - Automated grading and feedback generation</li>
+        <li>Content Creation - AI-assisted educational content development</li>
+        <li>Student Support - Intelligent tutoring and Q&A systems</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/government': {
+    title: 'AI Solutions for Government | BluBridge',
+    description: 'Secure and sovereign AI solutions for government agencies and public sector organizations.',
+    content: `
+      <h1>AI for Government</h1>
+      <p>Secure and sovereign AI solutions for public sector organizations.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Citizen Services - Intelligent chatbots and automated service delivery</li>
+        <li>Document Processing - Automated document analysis and classification</li>
+        <li>Security - AI-powered threat detection and monitoring</li>
+        <li>Policy Analysis - Data-driven policy evaluation and impact assessment</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/legal': {
+    title: 'AI Solutions for Legal | BluBridge',
+    description: 'AI solutions for document analysis, contract review, and legal research.',
+    content: `
+      <h1>AI for Legal</h1>
+      <p>Document analysis and research solutions for legal professionals.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Contract Review - AI-powered contract analysis and risk identification</li>
+        <li>Legal Research - Intelligent case law search and analysis</li>
+        <li>Document Review - Automated document classification and summarization</li>
+        <li>Due Diligence - AI-assisted due diligence and compliance review</li>
+      </ul>
+    `
+  },
+  '/solutions/industry/healthcare': {
+    title: 'AI Solutions for Healthcare | BluBridge',
+    description: 'AI solutions for medical imaging, diagnostics, and patient care in healthcare.',
+    content: `
+      <h1>AI for Healthcare</h1>
+      <p>Medical imaging and diagnostics solutions for healthcare providers.</p>
+      
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Medical Imaging - AI-powered image analysis and diagnostic support</li>
+        <li>Clinical Decision Support - Evidence-based treatment recommendations</li>
+        <li>Patient Care - Personalized care plans and monitoring</li>
+        <li>Administrative - Automated scheduling and documentation</li>
+      </ul>
+    `
+  },
+  '/products/training': {
+    title: 'AI Training Infrastructure | BluBridge',
+    description: 'Enterprise AI training infrastructure with 80% lower costs and 30% faster training times.',
+    content: `
+      <h1>Model Training</h1>
+      <p>Train large language models and deep learning networks efficiently with our optimized GPU clusters.</p>
+      
+      <h2>Key Benefits</h2>
+      <ul>
+        <li>80% Lower Cost - Optimized infrastructure reduces training costs</li>
+        <li>30% Faster Training - Efficient distributed training acceleration</li>
+        <li>99.9% Uptime - Enterprise-grade reliability</li>
+      </ul>
+      
+      <h2>Features</h2>
+      <ul>
+        <li>Distributed training across multiple GPU nodes</li>
+        <li>Efficient data pipelines and preprocessing</li>
+        <li>Robust checkpointing and fault tolerance</li>
+        <li>Multi-node scaling and orchestration</li>
+      </ul>
+    `
+  },
+  '/products/inference': {
+    title: 'AI Inference Infrastructure | BluBridge',
+    description: 'High-performance AI inference with 7.2X performance improvement and 40% better efficiency.',
+    content: `
+      <h1>AI & ML Inference</h1>
+      <p>Deploy production-ready inference endpoints with auto-scaling and low latency.</p>
+      
+      <h2>Key Benefits</h2>
+      <ul>
+        <li>7.2X Performance - Optimized inference throughput</li>
+        <li>+40% Efficiency - Better resource utilization</li>
+        <li>Sub-100ms Latency - Low-latency serving</li>
+      </ul>
+      
+      <h2>Features</h2>
+      <ul>
+        <li>Optimized model serving with batching</li>
+        <li>Continuous batching for higher throughput</li>
+        <li>Speculative decoding support</li>
+        <li>Multi-backend deployment options</li>
+      </ul>
+    `
+  },
+  '/products/fine-tuning': {
+    title: 'AI Fine-Tuning Platform | BluBridge',
+    description: 'Enterprise AI fine-tuning platform with 40% efficiency improvement and 30% faster results.',
+    content: `
+      <h1>Model Fine-Tuning</h1>
       <p>Fine-tune pre-trained models on your custom datasets with automated pipelines.</p>
+      
+      <h2>Key Benefits</h2>
       <ul>
-        <li>+40% Efficiency</li>
-        <li>30% Faster</li>
-        <li>Custom Datasets</li>
+        <li>+40% Efficiency - Optimized fine-tuning workflows</li>
+        <li>30% Faster - Accelerated training cycles</li>
+        <li>Custom Datasets - Support for proprietary data</li>
       </ul>
       
-      <h2>By Industry</h2>
+      <h2>Techniques</h2>
       <ul>
-        <li>Telco - Network optimization and predictive maintenance</li>
-        <li>Software & Technology - AI-powered development tools</li>
-        <li>Finance & Insurance - Risk analysis and fraud detection</li>
-        <li>Manufacturing - Quality control and automation</li>
-        <li>Education - Personalized learning platforms</li>
-        <li>Government - Secure and sovereign AI solutions</li>
-        <li>Legal - Document analysis and research</li>
-        <li>Healthcare - Medical imaging and diagnostics</li>
+        <li>Supervised Fine-Tuning (SFT)</li>
+        <li>Reinforcement Learning from Human Feedback (RLHF)</li>
+        <li>LoRA and QLoRA parameter-efficient methods</li>
+        <li>Instruction tuning</li>
+      </ul>
+    `
+  },
+  '/products/gpu-nodes': {
+    title: 'GPU Nodes | BluBridge',
+    description: 'Latest NVIDIA GPUs including H100, H200, and GB200 NVL72 Blackwell architecture for AI workloads.',
+    content: `
+      <h1>GPU Nodes</h1>
+      <p>Latest NVIDIA GPUs including H100, H200, and GB200 NVL72 Blackwell architecture for AI workloads.</p>
+      
+      <h2>Available GPUs</h2>
+      <ul>
+        <li>NVIDIA H100 - High-performance AI training and inference</li>
+        <li>NVIDIA H200 - Next-generation AI capabilities</li>
+        <li>NVIDIA GB200 NVL72 - Blackwell architecture for maximum performance</li>
       </ul>
       
-      <h2>Let's build your AI solution</h2>
+      <h2>Features</h2>
+      <ul>
+        <li>On-demand availability</li>
+        <li>Bare-metal performance</li>
+        <li>Scale from single GPUs to thousands of nodes</li>
+        <li>High-bandwidth networking</li>
+      </ul>
+    `
+  },
+  '/products/serverless': {
+    title: 'Serverless AI | BluBridge',
+    description: 'Run AI workloads without infrastructure management with our serverless AI platform.',
+    content: `
+      <h1>Serverless AI</h1>
+      <p>Run AI workloads without infrastructure management overhead.</p>
+      
+      <h2>Key Benefits</h2>
+      <ul>
+        <li>No Infrastructure Management - Focus on your models, not servers</li>
+        <li>Auto-Scaling - Automatic scaling based on demand</li>
+        <li>Pay-Per-Use - Only pay for actual compute usage</li>
+      </ul>
+      
+      <h2>Features</h2>
+      <ul>
+        <li>Instant deployment</li>
+        <li>Automatic scaling</li>
+        <li>Built-in monitoring</li>
+        <li>API-first design</li>
+      </ul>
+    `
+  },
+  '/products/sovereign-cloud': {
+    title: 'Sovereign Cloud | BluBridge',
+    description: 'Deploy AI in compliant, jurisdiction-specific environments with data sovereignty guarantees.',
+    content: `
+      <h1>Sovereign Cloud</h1>
+      <p>Deploy in compliant, jurisdiction-specific environments with data sovereignty.</p>
+      
+      <h2>Key Benefits</h2>
+      <ul>
+        <li>Data Sovereignty - Data stays within specified jurisdictions</li>
+        <li>Compliance - Meet regulatory requirements</li>
+        <li>Security - Enterprise-grade security controls</li>
+      </ul>
+      
+      <h2>Features</h2>
+      <ul>
+        <li>Jurisdiction-specific deployments</li>
+        <li>Compliance certifications</li>
+        <li>Air-gapped options</li>
+        <li>Dedicated infrastructure</li>
+      </ul>
+    `
+  },
+  '/products/marketplace': {
+    title: 'AI Marketplace | BluBridge',
+    description: 'Pre-built AI models and components for rapid deployment and integration.',
+    content: `
+      <h1>AI Marketplace</h1>
+      <p>Pre-built models and components for rapid deployment.</p>
+      
+      <h2>Available Models</h2>
+      <ul>
+        <li>Large Language Models</li>
+        <li>Vision Models</li>
+        <li>Speech Models</li>
+        <li>Embedding Models</li>
+      </ul>
+      
+      <h2>Features</h2>
+      <ul>
+        <li>One-click deployment</li>
+        <li>Pre-optimized configurations</li>
+        <li>API integration</li>
+        <li>Custom fine-tuning options</li>
+      </ul>
+    `
+  },
+  '/products/glomfjord': {
+    title: 'Glomfjord Data Center | BluBridge',
+    description: 'Arctic data center powered by 100% renewable hydroelectric energy for sustainable AI.',
+    content: `
+      <h1>Glomfjord Data Center</h1>
+      <p>Arctic data center powered by 100% renewable hydroelectric energy.</p>
+      
+      <h2>Key Benefits</h2>
+      <ul>
+        <li>100% Renewable Energy - Powered by hydroelectric</li>
+        <li>Natural Cooling - Arctic location provides natural cooling</li>
+        <li>Low Carbon Footprint - Sustainable AI infrastructure</li>
+      </ul>
+      
+      <h2>Location</h2>
+      <p>Located in Norway with access to abundant renewable energy and natural cooling.</p>
+    `
+  },
+  '/products/narvik': {
+    title: 'Narvik Data Center | BluBridge',
+    description: 'High-performance data center in Norway with renewable energy and excellent connectivity.',
+    content: `
+      <h1>Narvik Data Center</h1>
+      <p>High-performance data center in Norway with excellent connectivity.</p>
+      
+      <h2>Key Benefits</h2>
+      <ul>
+        <li>Renewable Energy - Powered by sustainable sources</li>
+        <li>High Connectivity - Excellent network infrastructure</li>
+        <li>Strategic Location - Optimal for European customers</li>
+      </ul>
     `
   },
   '/research': {
     title: 'Research | Blubridge',
-    description: 'Explore Blubridge research across deep learning, model training, and AI systems engineering, focused on reproducible methods and scalable infrastructure.',
+    description: 'Explore Blubridge research across deep learning, model training, and AI systems engineering.',
     content: `
       <h1>Papers & Publications</h1>
       <p>Explore Blubridge research across deep learning, model training, and AI systems engineering, focused on reproducible methods and scalable infrastructure.</p>
@@ -183,6 +777,14 @@ const seoContent = {
         <li>Reproducible Methods</li>
         <li>Scalable Infrastructure</li>
       </ul>
+    `
+  },
+  '/Research/Blu-Werp': {
+    title: 'Blu-Werp Research | Blubridge',
+    description: 'Blu-Werp research project at Blubridge.',
+    content: `
+      <h1>Blu-Werp</h1>
+      <p>Research project focused on advancing AI capabilities.</p>
     `
   },
   '/about-us': {
@@ -259,6 +861,22 @@ const seoContent = {
       <p>44 Center Grove Rd, Randolph, New Jersey – 07869</p>
     `
   },
+  '/joinourteam': {
+    title: 'Join Our Team | Blubridge',
+    description: 'Join the BluBridge team and help build the next frontier of AI.',
+    content: `
+      <h1>Join Our Team</h1>
+      <p>We're looking for passionate individuals to join our team and help build the next frontier of AI.</p>
+      
+      <h2>Open Positions</h2>
+      <ul>
+        <li>AI Systems Engineer</li>
+        <li>AI & ML Engineer</li>
+        <li>Branding & Communications Lead</li>
+        <li>Marketing & Growth Lead</li>
+      </ul>
+    `
+  },
   '/contact': {
     title: 'Contact us | Blubridge',
     description: 'Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.',
@@ -285,72 +903,146 @@ const seoContent = {
       <p>Fill out the form to get in touch with our team for sales inquiries, partnership opportunities, or general questions.</p>
     `
   },
+  '/contact/sales': {
+    title: 'Contact Sales | Blubridge',
+    description: 'Contact our sales team to discuss enterprise AI solutions and pricing.',
+    content: `
+      <h1>Contact Sales</h1>
+      <p>Contact our sales team to discuss enterprise AI solutions, pricing, and custom requirements.</p>
+      
+      <h2>Sales Inquiries</h2>
+      <p>Our sales team is ready to help you find the right AI solutions for your business needs.</p>
+    `
+  },
+  '/contact/general-enquiry': {
+    title: 'General Enquiry | Blubridge',
+    description: 'Submit a general enquiry to the Blubridge team.',
+    content: `
+      <h1>General Enquiry</h1>
+      <p>Submit your enquiry and our team will get back to you shortly.</p>
+    `
+  },
+  '/partners': {
+    title: 'Partners | Blubridge',
+    description: 'Partner with Blubridge to deliver AI solutions to your customers.',
+    content: `
+      <h1>Partners</h1>
+      <p>Partner with Blubridge to deliver AI solutions to your customers.</p>
+      
+      <h2>Partnership Benefits</h2>
+      <ul>
+        <li>Access to cutting-edge AI technology</li>
+        <li>Technical support and training</li>
+        <li>Co-marketing opportunities</li>
+        <li>Revenue sharing programs</li>
+      </ul>
+    `
+  },
+  '/pricing': {
+    title: 'Pricing | Blubridge',
+    description: 'Explore Blubridge pricing for AI infrastructure, training, and deployment services.',
+    content: `
+      <h1>Pricing</h1>
+      <p>Flexible pricing options for AI infrastructure, training, and deployment services.</p>
+      
+      <h2>Pricing Models</h2>
+      <ul>
+        <li>Pay-as-you-go - Only pay for what you use</li>
+        <li>Reserved capacity - Discounted rates for committed usage</li>
+        <li>Enterprise - Custom pricing for large-scale deployments</li>
+      </ul>
+    `
+  },
+  '/docs': {
+    title: 'Documentation | Blubridge',
+    description: 'Technical documentation for Blubridge AI platform and services.',
+    content: `
+      <h1>Documentation</h1>
+      <p>Technical documentation for Blubridge AI platform and services.</p>
+      
+      <h2>Getting Started</h2>
+      <ul>
+        <li>Quick Start Guide</li>
+        <li>API Reference</li>
+        <li>SDK Documentation</li>
+        <li>Tutorials</li>
+      </ul>
+    `
+  },
+  '/media-kit': {
+    title: 'Media Kit | Blubridge',
+    description: 'Blubridge media kit with logos, brand assets, and press materials.',
+    content: `
+      <h1>Media Kit</h1>
+      <p>Download Blubridge logos, brand assets, and press materials.</p>
+      
+      <h2>Available Assets</h2>
+      <ul>
+        <li>Logos</li>
+        <li>Brand Guidelines</li>
+        <li>Press Releases</li>
+        <li>Company Information</li>
+      </ul>
+    `
+  },
   '/policies/privacy-policy': {
     title: 'Privacy Policy | Blubridge',
-    description: 'Learn how Blubridge Technologies collects, uses, stores, and protects your information when you access our AI research platforms, tools, and services.',
+    description: 'Learn how Blubridge Technologies collects, uses, stores, and protects your information.',
     content: `
       <h1>Privacy Policy</h1>
       <p>Learn how Blubridge Technologies collects, uses, stores, and protects your information when you access our AI research platforms, tools, and services.</p>
+      
+      <h2>Information We Collect</h2>
+      <p>We collect information you provide directly to us, such as when you create an account, submit a form, or contact us.</p>
+      
+      <h2>How We Use Your Information</h2>
+      <p>We use the information we collect to provide, maintain, and improve our services, and to communicate with you.</p>
+      
+      <h2>Data Security</h2>
+      <p>We implement appropriate technical and organizational measures to protect your personal information.</p>
+      
+      <h2>Your Rights</h2>
+      <p>You have the right to access, correct, or delete your personal information. Contact us to exercise these rights.</p>
+      
+      <h2>Contact Us</h2>
+      <p>If you have questions about this Privacy Policy, please contact us at privacy@blubridge.ai</p>
     `
   },
   '/policies/terms-conditions': {
-    title: 'Terms | Blubridge',
-    description: 'Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.',
+    title: 'Terms and Conditions | Blubridge',
+    description: 'Read the Terms of Use governing access to Blubridge Technologies websites, APIs, and services.',
     content: `
       <h1>Terms and Conditions</h1>
       <p>Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.</p>
+      
+      <h2>Acceptance of Terms</h2>
+      <p>By accessing or using our services, you agree to be bound by these Terms of Use.</p>
+      
+      <h2>Use of Services</h2>
+      <p>You may use our services only for lawful purposes and in accordance with these terms.</p>
+      
+      <h2>Intellectual Property</h2>
+      <p>All content, features, and functionality of our services are owned by Blubridge Technologies.</p>
+      
+      <h2>Limitation of Liability</h2>
+      <p>Blubridge Technologies shall not be liable for any indirect, incidental, or consequential damages.</p>
+      
+      <h2>Contact Us</h2>
+      <p>If you have questions about these Terms, please contact us at legal@blubridge.ai</p>
     `
   },
-  '/products/training': {
-    title: 'AI Training Solutions | Blubridge',
-    description: 'Enterprise AI training infrastructure with 80% lower costs and 30% faster training times using latest NVIDIA GPUs.',
+  '/policies/transparency-and-human-rights': {
+    title: 'Transparency and Human Rights | Blubridge',
+    description: 'Our commitment to transparency and human rights in AI development.',
     content: `
-      <h1>Model Training</h1>
-      <p>Train large language models and deep learning networks efficiently with our optimized GPU clusters.</p>
-      <ul>
-        <li>80% Lower Cost</li>
-        <li>30% Faster Training</li>
-        <li>99.9% Uptime</li>
-      </ul>
-    `
-  },
-  '/products/inference': {
-    title: 'AI Inference Solutions | Blubridge',
-    description: 'High-performance AI inference with 7.2X performance improvement and 40% better efficiency.',
-    content: `
-      <h1>AI & ML Inference</h1>
-      <p>Deploy production-ready inference endpoints with auto-scaling and low latency.</p>
-      <ul>
-        <li>7.2X Performance</li>
-        <li>+40% Efficiency</li>
-        <li>Sub-100ms Latency</li>
-      </ul>
-    `
-  },
-  '/products/fine-tuning': {
-    title: 'AI Fine-Tuning Solutions | Blubridge',
-    description: 'Customized AI model fine-tuning with 40% efficiency improvement and 30% faster results.',
-    content: `
-      <h1>Model Fine-Tuning</h1>
-      <p>Fine-tune pre-trained models on your custom datasets with automated pipelines.</p>
-      <ul>
-        <li>+40% Efficiency</li>
-        <li>30% Faster</li>
-        <li>Custom Datasets</li>
-      </ul>
-    `
-  },
-  '/products/gpu-nodes': {
-    title: 'GPU Nodes | Blubridge',
-    description: 'Latest NVIDIA GPUs including H100, H200, and GB200 NVL72 Blackwell architecture for AI workloads.',
-    content: `
-      <h1>GPU Nodes</h1>
-      <p>Latest NVIDIA GPUs including H100, H200, and GB200 NVL72 Blackwell architecture for AI workloads.</p>
-      <ul>
-        <li>NVIDIA H100</li>
-        <li>NVIDIA H200</li>
-        <li>NVIDIA GB200 NVL72</li>
-      </ul>
+      <h1>Transparency and Human Rights</h1>
+      <p>Our commitment to transparency and human rights in AI development and deployment.</p>
+      
+      <h2>Our Commitment</h2>
+      <p>We are committed to developing AI systems that respect human rights and promote transparency.</p>
+      
+      <h2>Responsible AI</h2>
+      <p>We follow responsible AI practices to ensure our technology benefits society.</p>
     `
   }
 };
