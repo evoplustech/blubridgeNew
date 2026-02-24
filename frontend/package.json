@@ -59,14 +59,8 @@
   "scripts": {
     "start": "node server.js",
     "start:dev": "craco start",
-    "build": "craco build && react-snap",
+    "build": "craco build",
     "test": "craco test"
-  },
-  "reactSnap": {
-    "source": "build",
-    "inlineCss": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "skipThirdPartyRequests": false
   },
   "browserslist": {
     "production": [
