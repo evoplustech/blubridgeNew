@@ -5,17 +5,16 @@ const fs = require('fs');
 const app = express();
 const PORT = 3000;
 
-// SEO Content for each route - this will be injected into the HTML for crawlers
+// SEO Content for each route - EXACT visible content from each page
 const seoContent = {
   '/': {
     title: 'Frontier AI Research and Enterprise Solutions | Blubridge',
     description: 'Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.',
     content: `
-      <h1>Beyond the Horizon - An Independent AI Research Lab</h1>
-      <p>Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.</p>
+      <h1>Beyond the Horizon</h1>
+      <p>An Independent AI Research Lab.</p>
       
       <h2>OUR FRONTIER AI EXPERTISE</h2>
-      <p>BluBridge is an early-stage AI research company focused on advancing probabilistic and predictive modeling—building next-generation Artificial Intelligence from the ground up. We are assembling a team of passionate, driven researchers and engineers committed to pushing the boundaries of machine learning.</p>
       
       <h3>By Industry</h3>
       <ul>
@@ -42,7 +41,7 @@ const seoContent = {
       <h4>Deployment</h4>
       <p>Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.</p>
       
-      <h2>BluBridge's Infrastructure</h2>
+      <h2>BluBridge Infrastructure for custom AI deployment Solutions</h2>
       
       <h3>Data</h3>
       <p>We help you design & build custom datasets for your bespoke requirement.</p>
@@ -107,137 +106,66 @@ const seoContent = {
         <li>Production-grade resilience</li>
       </ul>
       
-      <h2>Use Cases</h2>
-      <ul>
-        <li>Training - 80% Lower Cost, 30% Faster</li>
-        <li>Inference - 7.2X Performance, +40% Efficiency</li>
-        <li>Fine-Tuning - +40% Efficiency, 30% Faster</li>
-        <li>AI Development - 80% Lower Cost, 30% Faster</li>
-      </ul>
-      
-      <h2>Frequently Asked Questions</h2>
-      
-      <h3>What makes BluBridge different from other cloud providers?</h3>
-      <p>BluBridge is purpose-built for AI from the ground up. Unlike general-purpose cloud providers, our infrastructure is optimized specifically for AI workloads with latest NVIDIA GPUs, high-bandwidth networking, and 100% renewable energy. We offer up to 80% cost savings and zero rate limits.</p>
-      
-      <h3>What GPU options are available?</h3>
-      <p>We offer the latest NVIDIA GPUs including H100, H200, and the new GB200 NVL72 Blackwell architecture. All GPUs are available on-demand with bare-metal performance and can scale from single GPUs to thousands of nodes.</p>
-      
-      <h3>How does BluBridge ensure sustainability?</h3>
-      <p>All our data centers are powered by 100% renewable hydroelectric energy in Norway. Our Arctic location provides natural cooling advantages, significantly reducing our environmental footprint compared to traditional data centers.</p>
-      
-      <h3>What support is available for enterprise customers?</h3>
-      <p>Enterprise customers receive dedicated support including 24/7 technical assistance, dedicated account management, custom SLAs, and access to our AI solutions architects for architecture review and optimization.</p>
-      
-      <h3>Can I try BluBridge before committing?</h3>
-      <p>Yes! We offer free trials and proof-of-concept deployments. Contact our sales team to discuss your specific requirements and get started with a customized evaluation plan.</p>
-      
       <h2>Work with BluBridge</h2>
-      <p>We're always on the lookout for passionate, creative minds who want to push the boundaries of AI. Whether you're a researcher, engineer, or innovator—if you thrive in fast-paced, high-impact environments, we'd love to hear from you.</p>
+      <p>We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.</p>
       
-      <h2>Contact Us</h2>
-      <p>Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.</p>
+      <h2>Know more about our Research</h2>
     `
   },
   '/solutions': {
-    title: 'Applied AI Solutions - For your Use Case | Blubridge',
-    description: 'Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure.',
+    title: 'AI solutions for every use case | Blubridge',
+    description: 'Comprehensive AI infrastructure solutions designed to accelerate your innovation across industries.',
     content: `
-      <h1>Applied AI Solutions - For your Use Case</h1>
-      <p>Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure.</p>
+      <h1>AI solutions for every use case</h1>
+      <p>Comprehensive AI infrastructure solutions designed to accelerate your innovation across industries.</p>
       
-      <h2>Model Customization</h2>
-      <p>Build AI models trained specifically for your data, domain, and use case with full control over architecture and training.</p>
+      <h2>By Use Case</h2>
       
-      <h3>Custom Pre-Training</h3>
-      <p>We build foundational LLMs optimized for vertical use cases, multilingual requirements, or niche domains.</p>
+      <h3>Model Training</h3>
+      <p>Train large language models and deep learning networks efficiently with our optimized GPU clusters.</p>
       <ul>
-        <li>Full-stack training infrastructure: Distributed compute, efficient data pipelines, robust checkpointing</li>
-        <li>Architecture experimentation: Attention variants, MoE structures, positional encodings</li>
-        <li>Tokenization tuning: Domain-aware tokenizer construction for improved performance on specialized corpora</li>
-        <li>Evaluation and benchmarking</li>
+        <li>80% Lower Cost</li>
+        <li>30% Faster Training</li>
+        <li>99.9% Uptime</li>
       </ul>
       
-      <h3>Specialized Model Capabilities</h3>
-      <p>We enhance base models with domain-specific reasoning, tool usage, and multi-turn dialogue capabilities.</p>
+      <h3>AI & ML Inference</h3>
+      <p>Deploy production-ready inference endpoints with auto-scaling and low latency.</p>
       <ul>
-        <li>Supervised fine-tuning (SFT): Instruction tuning on curated, domain-specific datasets</li>
-        <li>Reinforcement Learning from Human Feedback (RLHF)</li>
-        <li>Tool-augmented training: Enabling web search, API calls, and retrieval integration within model responses</li>
-        <li>Function calling and schema adherence: Structuring outputs for downstream system integrations</li>
+        <li>7.2X Performance</li>
+        <li>+40% Efficiency</li>
+        <li>Sub-100ms Latency</li>
       </ul>
       
-      <h3>Inference and Deployment Optimization</h3>
-      <p>We ensure models perform reliably in production, optimizing for throughput, latency, and operational costs.</p>
+      <h3>AI Development</h3>
+      <p>Complete development environment for building, testing, and deploying AI applications.</p>
       <ul>
-        <li>Quantization: INT8, INT4, and hybrid strategies with minimal accuracy loss</li>
-        <li>Batching and scheduling strategies: Continuous batching, speculative decoding</li>
-        <li>Containerized serving: Kubernetes-native deployments with health checks, autoscaling, and metrics</li>
-        <li>Multi-backend support: vLLM, TensorRT-LLM, TGI, custom CUDA kernels</li>
+        <li>80% Lower Cost</li>
+        <li>30% Faster</li>
+        <li>Integrated Tools</li>
       </ul>
       
-      <h2>Value Realization</h2>
-      <p>From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes.</p>
-      
-      <h3>Proof of Value</h3>
-      <p>Rapid technical validation through systematic benchmarking, comparative studies, and structured pilot programs.</p>
+      <h3>Model Fine-Tuning</h3>
+      <p>Fine-tune pre-trained models on your custom datasets with automated pipelines.</p>
       <ul>
-        <li>Scoped feasibility assessments</li>
-        <li>Benchmark construction and evaluation</li>
-        <li>Failure mode analysis</li>
-        <li>Decision frameworks for model selection</li>
+        <li>+40% Efficiency</li>
+        <li>30% Faster</li>
+        <li>Custom Datasets</li>
       </ul>
       
-      <h3>Custom Training</h3>
-      <p>Tailored training pipelines with domain-specific data curation, annotation, and iterative improvement cycles.</p>
+      <h2>By Industry</h2>
       <ul>
-        <li>Data curation and labeling strategy</li>
-        <li>Active learning integration</li>
-        <li>Training diagnostics</li>
-        <li>Versioned dataset and model management</li>
+        <li>Telco - Network optimization and predictive maintenance</li>
+        <li>Software & Technology - AI-powered development tools</li>
+        <li>Finance & Insurance - Risk analysis and fraud detection</li>
+        <li>Manufacturing - Quality control and automation</li>
+        <li>Education - Personalized learning platforms</li>
+        <li>Government - Secure and sovereign AI solutions</li>
+        <li>Legal - Document analysis and research</li>
+        <li>Healthcare - Medical imaging and diagnostics</li>
       </ul>
       
-      <h3>Deployment Engineering</h3>
-      <p>Infrastructure-as-code implementations with integrated monitoring, rollback capabilities, and compliance tooling.</p>
-      <ul>
-        <li>Production-grade deployment pipelines</li>
-        <li>Observability stack integration</li>
-        <li>Canary and staged rollouts</li>
-        <li>Cost management and resource optimization</li>
-      </ul>
-      
-      <h2>Deployment</h2>
-      <p>Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments.</p>
-      
-      <h3>Self-Deployment Tooling</h3>
-      <p>Full-stack engineering packages for teams deploying and managing LLMs on their own infrastructure.</p>
-      <ul>
-        <li>Pre-configured inference servers</li>
-        <li>Monitoring and alerting templates</li>
-        <li>Documentation and runbooks</li>
-        <li>Integration guides for common enterprise stacks</li>
-      </ul>
-      
-      <h3>Serving Frameworks</h3>
-      <p>Optimized model serving with support for batching, streaming, caching, and multi-tenant workloads.</p>
-      <ul>
-        <li>vLLM, TGI, and TensorRT-LLM integrations</li>
-        <li>Custom serving layers with advanced scheduling</li>
-        <li>API gateway and rate limiting</li>
-        <li>Embedding and retrieval serving</li>
-      </ul>
-      
-      <h3>Infrastructure Tracks</h3>
-      <p>Deployment architectures suited to enterprise security, compliance, and operational requirements.</p>
-      <ul>
-        <li>Private Cloud Track: On-prem or VPC-based deployments</li>
-        <li>Hybrid Track: Coordinated cloud and on-prem serving</li>
-        <li>Edge Track: Optimized deployments for latency-sensitive use cases</li>
-        <li>Sovereign Track: Deployments meeting jurisdictional data residency requirements</li>
-      </ul>
-      
-      <h2>Contact Us</h2>
-      <p>Ready to bring AI solutions to your enterprise? Contact our team to discuss your requirements.</p>
+      <h2>Let's build your AI solution</h2>
     `
   },
   '/research': {
@@ -254,127 +182,81 @@ const seoContent = {
         <li>AI Systems Engineering</li>
         <li>Reproducible Methods</li>
         <li>Scalable Infrastructure</li>
-        <li>Scaling Laws</li>
-        <li>Human Work Optimization</li>
-        <li>Multimodal Agents</li>
-        <li>Reinforcement Learning</li>
       </ul>
-      
-      <h2>Our Approach</h2>
-      <p>We focus on engineering deep learning systems from first principles, with emphasis on reproducibility, efficiency, and real-world applicability.</p>
-      
-      <h2>Data Research</h2>
-      <p>We help you design & build custom datasets for your bespoke requirement.</p>
-      <ul>
-        <li>Efficient Data Pipeline</li>
-        <li>Multimodal & Multilinguistic Dataset</li>
-        <li>Synthetic data generation</li>
-        <li>Domain Specific Dataset curation</li>
-      </ul>
-      
-      <h2>Pre-training Research</h2>
-      <p>We are building a series of pre-trained models uniquely suited for different work loads.</p>
-      <ul>
-        <li>Natural Language Processing</li>
-        <li>Speech Recognition & Generation</li>
-        <li>Sequence Models & Visual Models</li>
-        <li>Recommender Systems</li>
-      </ul>
-      
-      <h2>Contact</h2>
-      <p>Interested in collaborating on research? Contact our team at research@blubridge.ai</p>
     `
   },
   '/about-us': {
     title: 'About Us | Blubridge',
     description: 'How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.',
     content: `
-      <h1>About Blubridge</h1>
-      <p>How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.</p>
-      
-      <h2>Who We Are</h2>
-      <p>BluBridge is an early-stage AI research company focused on advancing probabilistic and predictive modeling—building next-generation Artificial Intelligence from the ground up. We are assembling a team of passionate, driven researchers and engineers committed to pushing the boundaries of machine learning.</p>
-      
-      <h2>What We Aim To Do</h2>
-      <p>Our immediate goal is to develop a state-of-the-art 70-billion-parameter (dense) Large Language Model, establishing a strong foundation for future innovations in AI systems, its applications, and research.</p>
+      <h1>Building the Next Frontier of AI</h1>
+      <p>We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.</p>
       
       <h2>Our Mission</h2>
-      <p>Engineering deep learning systems from first principles for real-world applications.</p>
+      <p>We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.</p>
       
-      <h2>Our Values</h2>
-      <ul>
-        <li>Rigor - We prioritize technical excellence and scientific integrity in everything we build</li>
-        <li>Ownership - We take responsibility for our work from conception to deployment</li>
-        <li>Engineering Excellence - We build systems that are reliable, scalable, and maintainable</li>
-      </ul>
+      <h2>How We Build, Engineer and Validate</h2>
+      <p>It's Our Hunger. It's Our Precision.</p>
       
-      <h2>Our Team</h2>
-      <p>We are a team of researchers and engineers passionate about building AI systems that work in the real world. Our team combines expertise in deep learning, systems engineering, and product development.</p>
+      <h3>Our Purpose</h3>
+      <p>BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.</p>
       
-      <h2>Locations</h2>
-      <ul>
-        <li>Chennai, India</li>
-        <li>New Jersey, USA</li>
-      </ul>
+      <h3>How we Build</h3>
+      <p>We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.</p>
       
-      <h2>Join Us</h2>
-      <p>We're always looking for talented individuals to join our team. If you're passionate about AI and want to work on challenging problems, we'd love to hear from you.</p>
+      <h3>Innovation Through Rigor</h3>
+      <p>Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.</p>
+      
+      <h3>Our People</h3>
+      <p>We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.</p>
+      
+      <h2>Know more about our Research</h2>
     `
   },
   '/careers': {
     title: 'Careers | Blubridge',
     description: 'Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.',
     content: `
-      <h1>Careers at Blubridge</h1>
+      <h1>BluBridge Careers</h1>
+      <h2>CURIOSITY WANTED</h2>
       <p>Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.</p>
-      
-      <h2>BluBridge Careers - CURIOSITY WANTED</h2>
-      <p>We're looking for people who are passionate about AI and want to push the boundaries of what's possible.</p>
-      
-      <h2>Join our Deep Learning Research Team</h2>
-      <p>We are looking for talented engineers and researchers to join our team and help build the next generation of AI systems.</p>
-      
-      <h2>Why Join BluBridge?</h2>
-      <ul>
-        <li>Work on cutting-edge AI research and engineering</li>
-        <li>Collaborate with world-class researchers and engineers</li>
-        <li>Build systems that have real-world impact</li>
-        <li>Competitive compensation and benefits</li>
-        <li>Flexible work environment</li>
-      </ul>
       
       <h2>Open Positions</h2>
       <ul>
-        <li>Deep Learning Engineer</li>
-        <li>ML Infrastructure Engineer</li>
-        <li>Research Scientist</li>
-        <li>AI Systems Engineer</li>
-        <li>Data Engineer</li>
+        <li>AI Systems Engineer - AI Research - Chennai</li>
+        <li>AI & ML Engineer – C++ / Java Developer - Core ML - Chennai</li>
+        <li>Branding & Communications Lead - Brand - Chennai</li>
+        <li>Marketing & Growth Lead - Growth - Chennai</li>
+        <li>Process & Operations Intern - Internship - Chennai</li>
+        <li>Office Administration - Admin - Chennai</li>
+        <li>Accountant - Finance - Chennai</li>
       </ul>
       
-      <h2>What We Look For</h2>
+      <h2>Must Have Skills</h2>
       <ul>
-        <li>Strong technical foundation in machine learning and deep learning</li>
-        <li>Experience with modern ML frameworks (PyTorch, JAX)</li>
-        <li>Passion for building robust, scalable systems</li>
-        <li>Excellent problem-solving and communication skills</li>
-        <li>Self-motivated with a strong sense of ownership</li>
+        <li>Aptitude and Logical Reasoning</li>
+        <li>Linear Algebra, Calculus, Probability & Statistics</li>
+        <li>Strong Programming Foundations in C++ or Java</li>
       </ul>
       
-      <h2>Our Culture</h2>
-      <p>We believe in fostering an environment where curiosity thrives, ideas are challenged constructively, and everyone has the opportunity to make meaningful contributions.</p>
+      <h2>Contact</h2>
+      <ul>
+        <li>Phone: +91 8925987250</li>
+        <li>Email: careers@blubridge.com</li>
+        <li>LinkedIn: linkedin.com/blubridge</li>
+        <li>X (Twitter): x.com/BlubridgeAI</li>
+      </ul>
       
-      <h2>Application Process</h2>
-      <ol>
-        <li>Submit your application with resume and cover letter</li>
-        <li>Initial screening call</li>
-        <li>Technical interview</li>
-        <li>On-site or virtual interviews with the team</li>
-        <li>Offer</li>
-      </ol>
+      <h2>Office Locations</h2>
       
-      <h2>Apply Now</h2>
-      <p>Ready to join us? Submit your application and let's build the future of AI together.</p>
+      <h3>Chennai Office - Besant Nagar</h3>
+      <p>No. E160 Tiger Varadhachari Road, Kalakshetra Colony, Besant Nagar, Chennai – 600090</p>
+      
+      <h3>Chennai Office - Mandavelipakkam</h3>
+      <p>30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram, Chennai, Tamil Nadu – 600028</p>
+      
+      <h3>US Office - New Jersey</h3>
+      <p>44 Center Grove Rd, Randolph, New Jersey – 07869</p>
     `
   },
   '/contact': {
@@ -384,36 +266,23 @@ const seoContent = {
       <h1>Contact Blubridge</h1>
       <p>Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.</p>
       
-      <h2>Get in Touch</h2>
-      <p>We'd love to hear from you. Whether you're interested in our solutions, have questions about our research, or want to explore partnership opportunities, reach out to us.</p>
+      <h2>Office Locations</h2>
+      
+      <h3>India Office - Chennai</h3>
+      <p>No. E160 Tiger Varadhachari Road, Kalakshetra Colony, Besant Nagar, Chennai – 600090</p>
+      <p>30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram, Chennai, Tamil Nadu – 600028</p>
+      
+      <h3>US Office - New Jersey</h3>
+      <p>44 Center Grove Rd, Randolph, New Jersey – 07869</p>
       
       <h2>Contact Information</h2>
       <ul>
         <li>Email: contact@blubridge.ai</li>
-        <li>Sales: sales@blubridge.ai</li>
-        <li>Research: research@blubridge.ai</li>
-        <li>Careers: careers@blubridge.ai</li>
+        <li>Phone: +91 8925987250</li>
       </ul>
       
-      <h2>Office Locations</h2>
-      
-      <h3>India Office</h3>
-      <p>Chennai, Tamil Nadu, India</p>
-      
-      <h3>US Office</h3>
-      <p>New Jersey, United States</p>
-      
-      <h2>Sales Inquiry</h2>
-      <p>Interested in our AI solutions for your enterprise? Contact our sales team to discuss your requirements and get a customized proposal.</p>
-      
-      <h2>Partnership Opportunities</h2>
-      <p>We're always open to exploring partnerships with organizations that share our vision for advancing AI technology.</p>
-      
-      <h2>Media Inquiries</h2>
-      <p>For press and media inquiries, please contact our communications team.</p>
-      
-      <h2>Support</h2>
-      <p>Existing customers can reach our support team for technical assistance and account-related queries.</p>
+      <h2>Contact Form</h2>
+      <p>Fill out the form to get in touch with our team for sales inquiries, partnership opportunities, or general questions.</p>
     `
   },
   '/policies/privacy-policy': {
@@ -422,21 +291,6 @@ const seoContent = {
     content: `
       <h1>Privacy Policy</h1>
       <p>Learn how Blubridge Technologies collects, uses, stores, and protects your information when you access our AI research platforms, tools, and services.</p>
-      
-      <h2>Information We Collect</h2>
-      <p>We collect information you provide directly to us, such as when you create an account, submit a form, or contact us.</p>
-      
-      <h2>How We Use Your Information</h2>
-      <p>We use the information we collect to provide, maintain, and improve our services, and to communicate with you.</p>
-      
-      <h2>Data Security</h2>
-      <p>We implement appropriate technical and organizational measures to protect your personal information.</p>
-      
-      <h2>Your Rights</h2>
-      <p>You have the right to access, correct, or delete your personal information. Contact us to exercise these rights.</p>
-      
-      <h2>Contact Us</h2>
-      <p>If you have questions about this Privacy Policy, please contact us at privacy@blubridge.ai</p>
     `
   },
   '/policies/terms-conditions': {
@@ -445,47 +299,18 @@ const seoContent = {
     content: `
       <h1>Terms and Conditions</h1>
       <p>Read the Terms of Use governing access to Blubridge Technologies websites, APIs, research tools, and AI services.</p>
-      
-      <h2>Acceptance of Terms</h2>
-      <p>By accessing or using our services, you agree to be bound by these Terms of Use.</p>
-      
-      <h2>Use of Services</h2>
-      <p>You may use our services only for lawful purposes and in accordance with these terms.</p>
-      
-      <h2>Intellectual Property</h2>
-      <p>All content, features, and functionality of our services are owned by Blubridge Technologies.</p>
-      
-      <h2>Limitation of Liability</h2>
-      <p>Blubridge Technologies shall not be liable for any indirect, incidental, or consequential damages.</p>
-      
-      <h2>Contact Us</h2>
-      <p>If you have questions about these Terms, please contact us at legal@blubridge.ai</p>
     `
   },
   '/products/training': {
     title: 'AI Training Solutions | Blubridge',
     description: 'Enterprise AI training infrastructure with 80% lower costs and 30% faster training times using latest NVIDIA GPUs.',
     content: `
-      <h1>AI Training Solutions</h1>
-      <p>Enterprise AI training infrastructure with 80% lower costs and 30% faster training times using latest NVIDIA GPUs.</p>
-      
-      <h2>Training Infrastructure</h2>
-      <p>Purpose-built infrastructure for training large-scale AI models with optimal performance and cost efficiency.</p>
-      
-      <h2>Key Benefits</h2>
+      <h1>Model Training</h1>
+      <p>Train large language models and deep learning networks efficiently with our optimized GPU clusters.</p>
       <ul>
-        <li>80% Lower Cost compared to traditional cloud providers</li>
-        <li>30% Faster training times with optimized infrastructure</li>
-        <li>Latest NVIDIA GPUs including H100, H200, and GB200</li>
-        <li>100% Renewable Energy powered data centers</li>
-      </ul>
-      
-      <h2>Features</h2>
-      <ul>
-        <li>Distributed training support</li>
-        <li>Efficient data pipelines</li>
-        <li>Robust checkpointing</li>
-        <li>Multi-node scaling</li>
+        <li>80% Lower Cost</li>
+        <li>30% Faster Training</li>
+        <li>99.9% Uptime</li>
       </ul>
     `
   },
@@ -493,26 +318,12 @@ const seoContent = {
     title: 'AI Inference Solutions | Blubridge',
     description: 'High-performance AI inference with 7.2X performance improvement and 40% better efficiency.',
     content: `
-      <h1>AI Inference Solutions</h1>
-      <p>High-performance AI inference with 7.2X performance improvement and 40% better efficiency.</p>
-      
-      <h2>Inference Infrastructure</h2>
-      <p>Optimized infrastructure for deploying AI models at scale with low latency and high throughput.</p>
-      
-      <h2>Key Benefits</h2>
+      <h1>AI & ML Inference</h1>
+      <p>Deploy production-ready inference endpoints with auto-scaling and low latency.</p>
       <ul>
-        <li>7.2X Performance improvement</li>
-        <li>+40% Efficiency gains</li>
-        <li>Low-latency serving</li>
-        <li>Scalable deployment</li>
-      </ul>
-      
-      <h2>Features</h2>
-      <ul>
-        <li>Optimized model serving</li>
-        <li>Continuous batching</li>
-        <li>Speculative decoding</li>
-        <li>Multi-backend support</li>
+        <li>7.2X Performance</li>
+        <li>+40% Efficiency</li>
+        <li>Sub-100ms Latency</li>
       </ul>
     `
   },
@@ -520,26 +331,12 @@ const seoContent = {
     title: 'AI Fine-Tuning Solutions | Blubridge',
     description: 'Customized AI model fine-tuning with 40% efficiency improvement and 30% faster results.',
     content: `
-      <h1>AI Fine-Tuning Solutions</h1>
-      <p>Customized AI model fine-tuning with 40% efficiency improvement and 30% faster results.</p>
-      
-      <h2>Fine-Tuning Services</h2>
-      <p>Adapt foundation models to your specific needs through advanced fine-tuning techniques and domain specialization.</p>
-      
-      <h2>Key Benefits</h2>
+      <h1>Model Fine-Tuning</h1>
+      <p>Fine-tune pre-trained models on your custom datasets with automated pipelines.</p>
       <ul>
-        <li>+40% Efficiency improvement</li>
-        <li>30% Faster fine-tuning</li>
-        <li>Domain-specific adaptation</li>
-        <li>Quality optimization</li>
-      </ul>
-      
-      <h2>Techniques</h2>
-      <ul>
-        <li>Supervised Fine-Tuning (SFT)</li>
-        <li>Reinforcement Learning from Human Feedback (RLHF)</li>
-        <li>LoRA and QLoRA</li>
-        <li>Instruction tuning</li>
+        <li>+40% Efficiency</li>
+        <li>30% Faster</li>
+        <li>Custom Datasets</li>
       </ul>
     `
   },
@@ -549,28 +346,10 @@ const seoContent = {
     content: `
       <h1>GPU Nodes</h1>
       <p>Latest NVIDIA GPUs including H100, H200, and GB200 NVL72 Blackwell architecture for AI workloads.</p>
-      
-      <h2>Available GPUs</h2>
       <ul>
-        <li>NVIDIA H100 - High-performance AI training and inference</li>
-        <li>NVIDIA H200 - Next-generation capabilities</li>
-        <li>NVIDIA GB200 NVL72 - Blackwell architecture for maximum performance</li>
-      </ul>
-      
-      <h2>Features</h2>
-      <ul>
-        <li>On-demand availability</li>
-        <li>Bare-metal performance</li>
-        <li>Scale from single GPUs to thousands of nodes</li>
-        <li>High-bandwidth networking</li>
-      </ul>
-      
-      <h2>Use Cases</h2>
-      <ul>
-        <li>Large Language Model training</li>
-        <li>Computer vision models</li>
-        <li>Reinforcement learning</li>
-        <li>Scientific computing</li>
+        <li>NVIDIA H100</li>
+        <li>NVIDIA H200</li>
+        <li>NVIDIA GB200 NVL72</li>
       </ul>
     `
   }
