@@ -131,10 +131,10 @@ const Careers = () => {
     },
     {
       id: 'randolph-nj',
-      address: '44 Center Grove Rd,',
-      area: 'Randolph,',
-      city: 'New Jersey – 07869',
-      mapUrl: 'https://www.google.com/maps/place/44+Center+Grove+Rd,+Randolph,+NJ+07869/@40.8486,-74.5779,17z',
+      address: '2 University Plaza Drive, Suite 100,',
+      area: 'Hackensack,',
+      city: 'NJ 07601',
+      mapUrl: 'https://www.google.com/maps/place/2+University+Plaza+Dr,+Hackensack,+NJ+07601/@40.8891,-74.0465,17z',
       mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=40.8486,-74.5779&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C40.8486,-74.5779&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
     }
     

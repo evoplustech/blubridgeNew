@@ -498,8 +498,8 @@ const Contact = () => {
                     lineHeight: '1.6',
                     margin: 0
                   }}>
-                    44 Center Grove Rd, Randolph,<br />
-                    New Jersey – 07869
+                    2 University Plaza Drive, Suite 100,<br />
+                    Hackensack, NJ 07601
                   </p>
                 </div>
                 <div style={{ 
@@ -511,7 +511,7 @@ const Contact = () => {
                 }}>
                   <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
-                    href="https://maps.google.com/?q=44+Center+Grove+Rd+Randolph+New+Jersey+07869"
+                    href="https://maps.google.com/?q=2+University+Plaza+Drive+Suite+100+Hackensack+NJ+07601"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ 

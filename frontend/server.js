@@ -858,7 +858,7 @@ const seoContent = {
       <p>30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram, Chennai, Tamil Nadu – 600028</p>
       
       <h3>US Office - New Jersey</h3>
-      <p>44 Center Grove Rd, Randolph, New Jersey – 07869</p>
+      <p>2 University Plaza Drive, Suite 100, Hackensack, NJ 07601</p>
     `
   },
   '/joinourteam': {
@@ -891,7 +891,7 @@ const seoContent = {
       <p>30, Norton Rd, Mandavelipakkam, Raja Annamalai Puram, Chennai, Tamil Nadu – 600028</p>
       
       <h3>US Office - New Jersey</h3>
-      <p>44 Center Grove Rd, Randolph, New Jersey – 07869</p>
+      <p>2 University Plaza Drive, Suite 100, Hackensack, NJ 07601</p>
       
       <h2>Contact Information</h2>
       <ul>
