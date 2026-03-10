@@ -511,7 +511,7 @@ const Contact = () => {
                 }}>
                   <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
-                    href="https://maps.google.com/?q=2+University+Plaza+Drive+Suite+100+Hackensack+NJ+07601"
+                    href="https://www.google.com/maps/place/2+University+Plaza+Dr,+Hackensack,+NJ+07601"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ 
