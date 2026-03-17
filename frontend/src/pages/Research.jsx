@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, FileText, ExternalLink } from 'lucide-react';
+import { Users, FileText, ExternalLink, Calendar } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
@@ -29,15 +29,23 @@ const Research = () => {
           >
             
             {/* Paper Title */}
-            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
               FLUX: Data Worth Training On
             </h2>
 
             {/* Authors Row */}
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-3">
               <Users className="w-5 h-5 text-[#6B7280]" />
               <span className="text-[#2F3A4A] text-sm">
                 Gowtham, Sai Rupesh, Sanjay Kumar, Saravanan, Venkata Chaithanya
+              </span>
+            </div>
+
+            {/* Publish Date */}
+            <div className="flex items-center gap-2 mb-6">
+              <Calendar className="w-5 h-5 text-[#6B7280]" />
+              <span className="text-[#6B7280] text-sm">
+                Published: March 2026
               </span>
             </div>
 
@@ -76,15 +84,23 @@ const Research = () => {
           >
             
             {/* Paper Title */}
-            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
               Blu-WERP (Web Extraction and Refinement Pipeline): A Scalable Pipeline for Preprocessing Large Language Model Datasets
             </h2>
 
             {/* Authors Row */}
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-3">
               <Users className="w-5 h-5 text-[#6B7280]" />
               <span className="text-[#2F3A4A] text-sm">
                 Gowtham, Sai Rupesh, Sanjay Kumar, Saravanan, Venkata Chaithanya
+              </span>
+            </div>
+
+            {/* Publish Date */}
+            <div className="flex items-center gap-2 mb-6">
+              <Calendar className="w-5 h-5 text-[#6B7280]" />
+              <span className="text-[#6B7280] text-sm">
+                Published: November 2025
               </span>
             </div>
 
