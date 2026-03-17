@@ -4,6 +4,11 @@ const FLUX = () => {
   return (
     <div className="min-h-screen bg-[#f3f1e9]">
       <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
+        {/* Title */}
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+          FLUX: Data Worth Training On
+        </h1>
+
         {/* Read the Paper Button */}
         <div className="mb-8">
           <a
