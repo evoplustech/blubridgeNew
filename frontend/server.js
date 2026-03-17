@@ -780,10 +780,10 @@ const seoContent = {
     `
   },
   '/Research/FLUX': {
-    title: 'FLUX: Data Worth Training On | Blubridge',
+    title: 'FLUX: Data Worth Training | Blubridge',
     description: 'FLUX is a preprocessing pipeline designed to break the retention-quality trade-off by maximizing token retention while enforcing rigorous quality control for LLM training.',
     content: `
-      <h1>FLUX: Data Worth Training On</h1>
+      <h1>FLUX: Data Worth Training On — A Preprocessing Pipeline for Large-Scale Language Model Training</h1>
       <p>Modern large language model training is no longer limited by data availability, but by the inability of existing preprocessing pipelines to simultaneously achieve massive scale and high data quality.</p>
       
       <h2>Abstract</h2>

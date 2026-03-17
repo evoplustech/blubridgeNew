@@ -149,7 +149,7 @@ const FLUX = () => {
           <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
             {/* Title */}
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              FLUX: Data Worth Training On
+              FLUX: Data Worth Training On — A Preprocessing Pipeline for Large-Scale Language Model Training
             </h1>
             
             {/* Authors */}

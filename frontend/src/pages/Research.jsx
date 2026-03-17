@@ -30,7 +30,7 @@ const Research = () => {
             
             {/* Paper Title */}
             <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
-              FLUX: Data Worth Training On
+              FLUX: Data Worth Training On — A Preprocessing Pipeline for Large-Scale Language Model Training
             </h2>
 
             {/* Authors Row */}
