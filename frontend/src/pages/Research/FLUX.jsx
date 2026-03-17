@@ -99,7 +99,7 @@ const FLUX = () => {
       <div key={item.id}>
         <div
           className={`flex items-center gap-2 py-2 px-3 cursor-pointer rounded-md transition-colors ${
-            isActive ? 'bg-[#0B1F3B] text-white' : 'text-gray-700 hover:bg-gray-100'
+            isActive ? 'bg-[#0B1F3B]' : 'hover:bg-gray-100'
           }`}
           style={{ paddingLeft: item.level === 1 ? '24px' : '12px' }}
           onClick={() => {
@@ -110,9 +110,14 @@ const FLUX = () => {
           }}
         >
           {item.expandable && (
-            isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />
+            isExpanded ? 
+              <ChevronDown size={16} className={isActive ? 'text-white' : 'text-gray-700'} /> : 
+              <ChevronRight size={16} className={isActive ? 'text-white' : 'text-gray-700'} />
           )}
-          <span className={`text-sm ${item.level === 1 ? 'text-gray-600' : 'font-medium'}`}>
+          <span 
+            className={`text-sm ${item.level === 1 ? '' : 'font-medium'}`}
+            style={{ color: isActive ? '#ffffff' : (item.level === 1 ? '#4B5563' : '#374151') }}
+          >
             {item.label}
           </span>
         </div>
