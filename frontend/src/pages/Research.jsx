@@ -20,8 +20,56 @@ const Research = () => {
           Papers & Publications
         </h1>
 
-        {/* Paper Card */}
-        <div className="max-w-8xl mx-auto px-4">
+        <div className="max-w-8xl mx-auto px-4 space-y-8">
+          
+          {/* Paper Card 1 - FLUX (NEW - TOP) */}
+          <div 
+            className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
+            style={{ backgroundColor: '#fffdf7' }}
+          >
+            
+            {/* Paper Title */}
+            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-6">
+              FLUX: Data Worth Training On
+            </h2>
+
+            {/* Authors Row */}
+            <div className="flex items-center gap-2 mb-6">
+              <Users className="w-5 h-5 text-[#6B7280]" />
+              <span className="text-[#2F3A4A] text-sm">
+                Gowtham, Sai Rupesh, Sanjay Kumar, Saravanan, Venkata Chaithanya
+              </span>
+            </div>
+
+            {/* Divider */}
+            <hr className="border-[#E8EDD8] mb-6" />
+
+            {/* Abstract Section */}
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <FileText className="w-5 h-5 text-[#6B7280]" />
+                <span className="text-[#0B1F3B] font-medium">Abstract</span>
+              </div>
+              
+              <p className="text-[#2F3A4A] leading-relaxed text-base">
+                Modern large language model training is no longer limited by data availability, but by the inability of existing preprocessing pipelines to simultaneously achieve massive scale and high data quality. In this work, we introduce FLUX, a preprocessing pipeline specifically designed to break this long-standing trade-off by maximizing token retention while enforcing rigorous quality control. Models trained on FLUX-curated data consistently outperform prior methods...
+                <a href="Research/FLUX" className="text-[#328CC1] hover:underline ml-1">More »</a>
+              </p>
+            </div>
+
+            {/* External Link */}
+            <a 
+              href="https://arxiv.org/pdf/2603.13972" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#328CC1] hover:underline text-sm"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View on arXiv
+            </a>
+          </div>
+
+          {/* Paper Card 2 - Blu-WERP (Existing) */}
           <div 
             className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
             style={{ backgroundColor: '#fffdf7' }}
@@ -67,6 +115,7 @@ const Research = () => {
               View on arXiv
             </a>
           </div>
+
         </div>
       </div>
     </div>

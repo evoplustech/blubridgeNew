@@ -779,12 +779,56 @@ const seoContent = {
       </ul>
     `
   },
+  '/Research/FLUX': {
+    title: 'FLUX: Data Worth Training On | Blubridge',
+    description: 'FLUX is a preprocessing pipeline designed to break the retention-quality trade-off by maximizing token retention while enforcing rigorous quality control for LLM training.',
+    content: `
+      <h1>FLUX: Data Worth Training On</h1>
+      <p>Modern large language model training is no longer limited by data availability, but by the inability of existing preprocessing pipelines to simultaneously achieve massive scale and high data quality.</p>
+      
+      <h2>Abstract</h2>
+      <p>In this work, we introduce FLUX, a preprocessing pipeline specifically designed to break this long-standing trade-off by maximizing token retention while enforcing rigorous quality control. Models trained on FLUX-curated data consistently outperform prior methods.</p>
+      
+      <h2>Key Results</h2>
+      <ul>
+        <li>A 3B-parameter model trained on 60B tokens with FLUX achieves 32.14% MMLU accuracy, surpassing DCLM (31.98%) and FineWeb (29.88%)</li>
+        <li>34.4% reduction in training compute compared to DCLM</li>
+        <li>50B usable tokens from a single dump (+25% retention over DCLM)</li>
+        <li>FLUX-Base yields 192B tokens, exceeding FineWeb's 170B</li>
+      </ul>
+      
+      <h2>Pipeline Architecture</h2>
+      <ul>
+        <li>URL-based pre-filtering</li>
+        <li>Language identification</li>
+        <li>Document-level quality gating</li>
+        <li>Line-level cleaning</li>
+        <li>Dual-bin FastText classification</li>
+      </ul>
+      
+      <h2>Authors</h2>
+      <p>Gowtham, Sai Rupesh, Sanjay Kumar, Saravanan, Venkata Chaithanya</p>
+    `
+  },
   '/Research/Blu-Werp': {
     title: 'Blu-Werp Research | Blubridge',
-    description: 'Blu-Werp research project at Blubridge.',
+    description: 'Blu-WERP: A Scalable Pipeline for Preprocessing Large Language Model Datasets.',
     content: `
-      <h1>Blu-Werp</h1>
-      <p>Research project focused on advancing AI capabilities.</p>
+      <h1>Blu-WERP: Web Extraction and Refinement Pipeline</h1>
+      <p>A Scalable Pipeline for Preprocessing Large Language Model Datasets.</p>
+      
+      <h2>Abstract</h2>
+      <p>Blubridge is proudly presenting the process behind Blu-WERP, our pipeline that is setting a new industry standard for scalable, high-quality LLM pretraining data.</p>
+      
+      <h2>Key Results</h2>
+      <ul>
+        <li>4.0% aggregate improvement over DCLM at 1B parameter scale</li>
+        <li>9.5% aggregate improvement over FineWeb</li>
+        <li>Superior performance across World Knowledge, Language Understanding, and Commonsense Reasoning benchmarks</li>
+      </ul>
+      
+      <h2>Authors</h2>
+      <p>Gowtham, Sai Rupesh, Sanjay Kumar, Saravanan, Venkata Chaithanya</p>
     `
   },
   '/about-us': {
