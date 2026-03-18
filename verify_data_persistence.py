@@ -6,7 +6,7 @@ Verify data persistence in MongoDB for BluBrg backend
 import requests
 import json
 
-BACKEND_URL = "https://data-export-test.preview.emergentagent.com/api"
+BACKEND_URL = "https://flux-page-redesign.preview.emergentagent.com/api"
 
 def verify_data_persistence():
     print("🔍 Verifying Data Persistence in MongoDB")

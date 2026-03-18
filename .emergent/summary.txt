@@ -1,167 +1,243 @@
 <analysis>**original_problem_statement:**
-The user's initial set of instructions involved multiple conflicting requests:
-1.  Add a backend email notification system (Completed in the previous session).
-2.  Change website body content from present to future tense (Started, then immediately superseded).
-3.  Change all future-tense content back to present tense.
-
-The most recent and active task, which was the focus of this session, was to systematically update the website content by converting all sentences written in future tense into present tense.
-
-PRODUCT REQUIREMENTS:
-- Do NOT change anything in the headings or sub-headings.
-- Do NOT modify the meaning, wording, sentence structure, or terminology.
-- Only the tense must change from future to present.
-- Apply this change across every page of the website.
-- Exceptions (must remain untouched): Privacy Policy page, Terms of Use page.
+The user's initial objective was to build a new Solutions page and refine the UI. This expanded significantly to include:
+1.  A complete SEO overhaul, implementing a custom Express.js server to inject page content into the raw HTML source, a task that required multiple iterations to meet the user's requirement for all content to be visible.
+2.  Fixing and thoroughly testing the Admin Settings page, including password changes and CSV data exports.
+3.  Resolving a critical admin login bug caused by a password hash mismatch in the database.
+4.  Adding a new research paper, FLUX, to the website, which involved creating a main research page, a detailed article page with complex layout and multiple images, and then duplicating this page twice (, ) with different designs based on user feedback.
+5.  Creating and updating a  file.
+6.  Updating the Clicky analytics script and office addresses.
+7.  Fixing various UI and responsive layout bugs.
+8.  Repeatedly fixing a recurring frontend server crash caused by an environment instability issue.
 
 **User's preferred language**: English
 
 **what currently exists?**
-*   A fully functional backend Gmail SMTP notification system that sends emails for form submissions.
-*   The frontend website content has been systematically updated to use present tense instead of future tense for all body content, as per the user's latest request.
+- A full-stack application with a React frontend and a FastAPI backend.
+- The frontend is served by a custom Express.js server () that injects SEO content for over 40 pages, ensuring it's visible in the source code.
+- A functional and tested admin panel, with credentials /.
+- A  file in  with a user-specified list of URLs.
+- Three versions of the FLUX research paper exist:  (original),  (redesigned), and  (in progress).
+- All form submission endpoints have duplicate prevention logic.
+- The email service uses the Resend API.
 
 **Last working item**:
-    - Last item agent was working: The agent completed the task of converting all user-facing future-tense content (, ) to present tense across all relevant frontend pages, components, and data files, while excluding the specified legal pages.
-    - Status: USER VERIFICATION PENDING
-    - Agent Testing Done: Y
-    - Which testing method agent to use? NA (Testing has been completed. Awaiting user review.)
+    - Last item agent was working: The user requested to create a third version of the FLUX research page at the URL . This page should be a duplicate of the original  page but with an improved design (very good and proper). The agent had begun this task by viewing the source files to prepare for the duplication and redesign.
+    - Status: IN PROGRESS
+    - Agent Testing Done: N
+    - Which testing method agent to use? screenshot tool
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-This session did not introduce new issues. The following are outstanding from the previous session:
-*   **Issue 1:** Container Width Inconsistencies across the application. (P2)
-*   **Issue 2:** The visualization on  is not responsive on mobile devices. (P2)
-*   **Issue 3:** The file  is located in  but its URL route is , which is an organizational inconsistency. (P3)
+  - Issue 1: Create  page (P0)
+  - Issue 2: Recurring Frontend Server Crash (P0)
+  - Issue 3: Apply 3-Grid color to About Page (P1)
+  - Issue 4: Create Individual GPU Node Pages (P1)
 
-**Issues Detail:**
-*   **Issue 1: Container Width Inconsistencies**
-    *   **Attempted fixes:** None.
-    *   **Next debug checklist:** A global CSS review is needed to standardize container widths.
-    *   **Why fix this issue and what will be achieved with the fix?** To create a visually consistent and polished user experience across all pages.
-    *   **Status:** NOT STARTED
-    *   **Is recurring issue?** N
-    *   **Should Test frontend/backend/both after fix?** Frontend
-    *   **Blocked on other issue:** None
-*   **Issue 2:  visualization responsiveness**
-    *   **Attempted fixes:** None.
-    *   **Next debug checklist:** Awaiting user clarification on the desired mobile behavior for the visualization.
-    *   **Why fix this issue and what will be achieved with the fix?** To ensure the deployment page is usable and looks correct on mobile devices.
-    *   **Status:** BLOCKED (pending user feedback)
-    *   **Is recurring issue?** N
-    *   **Should Test frontend/backend/both after fix?** Frontend
-    *   **Blocked on other issue:** None
-*   **Issue 3:  file location inconsistency**
-    *   **Attempted fixes:** None.
-    *   **Next debug checklist:** Move the file from  to  and update any import paths.
-    *   **Why fix this issue and what will be achieved with the fix?** To improve code organization and maintainability.
-    *   **Status:** NOT STARTED
-    *   **Is recurring issue?** N
-    *   **Should Test frontend/backend/both after fix?** Frontend (verify the page still loads correctly).
-    *   **Blocked on other issue:** None
+  Issues Detail:
+  - **Issue 1: Create  page**
+     - **Attempted fixes:** None yet. The agent was in the planning phase, having just viewed the source file .
+     - **Next debug checklist:**
+        1. Create a new file  by copying the content of .
+        2. In , enhance the design by adding styled headings, bolding key terms, and improving the layout for better readability, similar to the improvements made for .
+        3. Add a new route for  in .
+        4. Add meta tags for the new page in .
+        5. Rebuild the frontend (yarn run v1.22.22
+$ craco build
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  274 kB (+15 B)  build/static/js/main.7214d7e5.js
+  21.94 kB        build/static/css/main.93441742.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+Done in 15.48s.) and restart the server (frontend: stopped
+frontend: started).
+        6. Use the screenshot tool to verify the new page renders correctly at the  URL.
+     - **Why fix this issue and what will be achieved with the fix?** To fulfill the user's latest request for a new design variation of the research paper page.
+     - **Status:** IN PROGRESS
+     - **Is recurring issue?** N
+     - **Should Test frontend/backend/both after fix?** Frontend
+  - **Issue 2: Recurring Frontend Server Crash**
+     - **Attempted fixes:** The agent has repeatedly run yarn run v1.22.22
+$ craco build
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  274 kB    build/static/js/main.7214d7e5.js
+  21.94 kB  build/static/css/main.93441742.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+Done in 13.20s. followed by frontend: stopped
+frontend: started. This is a temporary workaround, not a permanent fix.
+     - **Next debug checklist:**
+        1. This is a known, persistent environment issue where the  directory is deleted. The agent cannot fix the root cause.
+        2. When a Server Error occurs, the agent must immediately run the build and restart command.
+        3. The agent should remind the user that this is an environmental problem and the workaround is necessary after environment resets.
+     - **Why fix this issue and what will be achieved with the fix?** The entire website is down and unusable until the workaround is applied. It is a critical blocker.
+     - **Status:** BLOCKED
+     - **Is recurring issue?** Y
+     - **Should Test frontend/backend/both after fix?** Frontend (to confirm the site is accessible).
+     - **Blocked on other issue:** No.
 
 **In progress Task List**:
-*   None. The active task for this session was completed.
+  - **Task 1: Creating the  page**
+     - **Where to resume:** The agent has viewed the source file . The next step is to create  and begin applying the design improvements.
+     - **What will be achieved with this?** A new page at  that meets the user's design expectations.
+     - **Status:** IN PROGRESS
+     - **Should Test frontend/backend/both after fix?** Frontend
 
 **Upcoming and Future Tasks**
 *   **Upcoming Tasks:**
-    *   Get user verification for the tense conversion task. (P0)
     *   Apply 3-Grid color to About Page (P1)
     *   Create Individual GPU Node Pages (P1)
-    *   Get user verification for the table responsiveness fix on solution pages. (P1)
-    *   Get user verification for the footer alignment fix. (P1)
-    *   Get user verification for the Home Page mobile responsiveness fixes. (P1)
 *   **Future Tasks:**
+    *   Refactor  into a proper project structure (routes, models). (P2)
+    *   Refactor large React components (, , ). (P2)
     *   Create Blog/Press Pages (P2)
     *   Create Contact Sub-pages (P2)
-    *   Refactor  and  to extract large components (P3)
 
 **Completed work in this session**
-- **Content Tense Conversion (DONE):**
-  - Systematically converted all future-tense content to present tense across the entire frontend.
-  - Edited files include: , , , , , , and .
-  - Verified that excluded pages (, ) were not modified.
-  - Confirmed changes via  searches and visual inspection with the screenshot tool.
-- **Documentation Update (DONE):**
-  - Updated  to reflect the completion of the content tense conversion task.
+- **Admin Panel Fully Functional:** Fixed the admin login bug by correcting the password hash in the database. The credentials are now /. Successfully tested all admin features (password change, data export) via API and UI.
+- **Complete SEO Content Injection:** Resolved a major user pain point by iteratively updating  to inject the *exact* visible content for over 40 pages into the HTML source code.
+- **Research Page Development (FLUX):** Added a new research paper, FLUX, to the site. This included creating a main research page, a highly detailed article page () with 7 images, styled tables, and complex layout. Created two design variants (, and started ) based on user feedback.
+- **Sitemap Management:** Created and later updated  to contain a specific list of 9 URLs as requested by the user.
+- **General Fixes:** Updated the Clicky analytics script, corrected the US office address on multiple pages, and fixed a responsive layout bug on the About Us page.
+- **Server Stability:** Repeatedly stabilized the application by rebuilding the frontend after it crashed due to the known environment issue.
 
 **Earlier issues found/mentioned but not fixed**
-*   Same as the All Pending/In progress Issue list above. No new issues were found and left unfixed.
+   - None, all known issues are captured in the pending list.
 
 **Known issue recurrence from previous fork**
-  - **Issue recurrence in previous fork:** The user's workflow is extremely volatile, characterized by issuing a request, waiting for implementation, and then immediately requesting the opposite. This was the primary driver for the task in this session (reverting a future-tense change back to present-tense).
-  - **Recurrence count:** 1
-  - **Status:** RESOLVED (The agent successfully handled the contradictory request).
+  - **Issue recurrence in previous fork:** The  directory gets deleted, causing the frontend server to crash.
+  - **Recurrence count:** 2+ in this session.
+  - **Status:** BLOCKED (Workaround is known and must be applied when it happens).
 
 **Code Architecture**
 
 
 **Key Technical Concepts**
-*   **Systematic Content Auditing:** Used  extensively to search for specific future-tense patterns (, ) across the entire frontend codebase.
-*   **Targeted File Editing:** Used  to apply precise content changes to multiple files in parallel.
-*   **Visual Verification:** Used the screenshot tool to confirm UI changes and verify that the updated text rendered correctly.
+*   **Server-Side SEO for SPAs:** A custom Express server () injects hardcoded HTML content for SEO purposes. This is a fragile but core feature.
+*   **Database Debugging:** The agent demonstrated the ability to debug a login issue by inspecting the hashing algorithm in the Python backend and directly interacting with the MongoDB database to correct a faulty password hash.
+*   **Mandatory Build Step:** The frontend architecture requires a manual yarn run v1.22.22
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command. and Error: restart requires a process name
+restart <name>		Restart a process
+restart <gname>:*	Restart all processes in a group
+restart <name> <name>	Restart multiple processes or groups
+restart all		Restart all processes
+Note: restart does not reread config files. For that, see reread and update. for any UI changes to become visible, as it serves a static production build.
 
 **key DB schema**
-*   No changes were made to the database schema.
+  - **admin_settings:** The  document in this collection was directly manipulated to fix the admin login password hash.
 
 **changes in tech stack**
-*   None.
+  - None.
 
 **All files of reference**
-*   
-*   
-*   
-*   
-*   
-*   
-*   
-*   
+*   : **CRITICAL**. Contains all SEO content. Must be edited for any text changes meant for crawlers.
+*   : Contains all frontend routes. Must be updated for new pages.
+*   : Contains all backend logic, including the admin authentication that was debugged.
+*   : The base file for the new research content.
+*   : The first redesigned version of the FLUX page.
+*   : The sitemap file.
 
 **Areas that need refactoring**:
-*   The  component logic is still tightly coupled within  and should be extracted.
-*   The file  should be moved from  to  for organizational consistency.
+*   The  file is extremely brittle and difficult to maintain with over 1000 lines of hardcoded HTML strings for SEO.
+*   The monolithic  remains a significant piece of technical debt.
+*   The , , and upcoming  files contain a large amount of duplicated content, which should be broken down into reusable components.
 
 **key api endpoints**
-*   No API endpoints were modified in this session.
+*   : The endpoint for admin authentication, which was successfully debugged.
 
 **Critical Info for New Agent**
-*   **The user's instructions can be highly volatile.** Be prepared for requests to be undone shortly after implementation. Always prioritize the user's latest instruction.
-*   The primary task of this session—converting future-tense content to present-tense—is complete and verified by the agent. The next step is to seek user confirmation before moving on to backlog tasks.
-*   The backend email feature is stable and complete. No work is needed there.
+*   **FRONTEND BUILD IS MANDATORY:** Any change to frontend code (, , etc.) will **NOT** be visible until you run yarn run v1.22.22
+$ craco build
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+Done in 15.98s.
+frontend: stopped
+frontend: started. This is the most frequent source of user confusion.
+*   **RECURRING SERVER CRASH:** The site will crash with a Server Error when the environment resets because the  directory gets deleted. You must run the build/restart command to fix it. This is a known environmental issue.
+*   **ADMIN CREDENTIALS:** The admin login is , .
+*   **SEO CONTENT IS HARDCODED:** All content visible to web crawlers is manually written inside . To update SEO content, you must edit this file directly.
 
 **documents and test reports created in this job**
-*    (Updated)
+  - 
 
 **Last 10 User Messages and any pending HUMAN messages**
-1.  **LATEST:** P0 - Update the website content by converting all sentences written in future tense into present tense... - **Status: COMPLETED (Awaiting user verification).**
-2.  *Agent receives user confirmation and begins exploring the codebase.* - **Status: DONE.**
-3.  *Agent asks for confirmation of the plan to convert tense.* - **Status: DONE.**
-
-The previous 8 messages are from a prior session and relate to a now-superseded set of tasks. The current task was initiated by the latest user message.
+1.  **LATEST:** Proceed - User confirming to proceed with the creation of the  page.
+2.  User requests to duplicate the FLUX page to  with a better design.
+3.  User requests to clear the cache.
+4.  User reports an image is misplaced on the  page and provides the correct placement.
+5.  User provides additional images and updated documents for the  page.
+6.  User provides new content and a reference screenshot for the  page design.
+7.  User reports that their manual changes to the Research page are not being reflected.
+8.  User reports a responsive design bug on the About Us page.
+9.  User asks to add publish dates to the research papers.
+10. User reports that text is not visible in the sidebar on the  page.
 
 **Project Health Check:**
-*   **Broken:**
-    *   The  page has an unresolved responsive layout issue.
-*   **Mocked:**
-    *   None.
+*   **Broken:** The frontend is unstable due to the recurring environmental issue that deletes the  directory, requiring frequent manual intervention.
+*   **Mocked:** None.
+*   **Technical Debt:** High. The monolithic backend, hardcoded SEO server, and duplicated page components make the project difficult to scale and maintain.
 
 **3rd Party Integrations**
-*   Brevo (Sendinblue)
-*   Embla Carousel React
-*   Lucide React
-*   Framer Motion
-*   Pymongo
-*   MongoDB Atlas
+*   **Resend API** (Email)
+*   **Clicky Analytics** (Web Analytics)
+*   MongoDB Atlas (Database)
 
 **Testing status**
-  - **Testing agent used after significant changes:** NO (Not required for this content-only change).
-  - **Troubleshoot agent used after agent stuck in loop:** NO
-  - **Test files created:** []
-  - **Known regressions:** None from this session's work.
+  - Testing agent used after significant changes: YES (once for the admin panel).
+  - Troubleshoot agent used after agent stuck in loop: NO
+  - Test files created: []
+  - Known regressions: The entire frontend is unstable and frequently goes down.
 
 **Credentials to test flow:**
-*   **Admin Panel:**
-    *   URL: 
-    *   Username: 
-    *   Password: 
+*   Admin Login: username , password .
 
 **What agent forgot to execute**
-*   The agent correctly prioritized the user's explicit and immediate P0 task. It did not forget other tasks but correctly postponed them.</analysis>
+*   The agent was in the middle of executing the user's latest request (creating the  page) when the session ended. It did not forget, but the task is unfinished.</analysis>
