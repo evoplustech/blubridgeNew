@@ -261,19 +261,19 @@ const FLUX = () => {
               </tbody>
             </table>
           </div>
-
-          <p className="text-sm text-gray-600 italic mb-6">
-            Heuristic filtering summary (530M scale; 10.6B tokens). Overview figure for the FLUX filtering design and its retention–quality behavior.
-          </p>
-
-          {/* Image: Filtering Stage Overview */}
-          <div className="my-8">
+ <div className="my-8">
             <img 
               src="/images/flux/flux-base-comparison.png" 
               alt="DCLM-RefinedWeb vs FineWeb vs FLUX BASE - Heuristic filtering overview showing retention-quality behavior"
               className="w-full rounded-lg border border-gray-200"
             />
           </div>
+          <p className="text-sm text-gray-600 italic mb-6">
+            Heuristic filtering summary (530M scale; 10.6B tokens). Overview figure for the FLUX filtering design and its retention–quality behavior.
+          </p>
+
+          {/* Image: Filtering Stage Overview */}
+         
 
           <p className="mb-10">
             The result speaks for itself. In ablation studies, FLUX is the only configuration that simultaneously outperforms both DCLM and FineWeb on token retention and downstream model quality. At the 530M scale trained on 10.6B tokens, FLUX retains 27.22B post-deduplication tokens and achieves an aggregate score of 45.45 — compared to 24.81B tokens and 44.40 for DCLM, and 24.50B tokens and 44.31 for FineWeb — while also being 6.26× faster to preprocess per terabyte. The core insight is simple: when you remove only what is genuinely bad rather than discarding everything that contains something bad, you get more data and better data at the same time.
