@@ -538,12 +538,12 @@ const FLUX2 = () => {
             <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results at 3B Scale</h3>
             <div className="grid md:grid-cols-2 gap-6 text-center">
               <div>
-                <p className="text-3xl font-bold text-gray-600">51.92%</p>
-                <p className="text-sm text-gray-300">Aggregate Score</p>
+                <p className="text-3xl font-bold text-gray-800">51.92%</p>
+                <p className="text-sm text-gray-600">Aggregate Score</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-gray-600">32.14%</p>
-                <p className="text-sm text-gray-300">MMLU Score</p>
+                <p className="text-3xl font-bold text-gray-800">32.14%</p>
+                <p className="text-sm text-gray-600">MMLU Score</p>
               </div>
             </div>
           </div>
