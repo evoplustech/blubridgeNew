@@ -174,10 +174,10 @@ const FLUX2 = () => {
           {/* Compute Savings Highlight */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-10">
             <div className="text-center">
-              <p className="text-4xl font-bold text-blue-800 mb-2">34.4%</p>
-              <p className="text-lg text-blue-700 font-medium">Compute Savings</p>
+              <p className="text-4xl font-bold text-black-800 mb-2">34.4%</p>
+              <p className="text-lg text-black-700 font-medium">Compute Savings</p>
             </div>
-            <p className="text-sm text-blue-600 mt-4 text-center">
+            <p className="text-sm text-black-600 mt-4 text-center">
               DCLM requires <strong>1.227 × 10²¹ FLOPs</strong> to reach 50.48 aggregate score.<br/>
               FLUX achieves the same with only <strong>8.044 × 10²⁰ FLOPs</strong>.
             </p>
@@ -427,12 +427,12 @@ const FLUX2 = () => {
 
           <div className="grid md:grid-cols-2 gap-4 mb-10">
             <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
-              <h4 className="font-bold text-blue-800 mb-2">BETR Classifier</h4>
-              <p className="text-sm text-blue-700 mb-0">Introduced in Blu-WERP work</p>
+              <h4 className="font-bold text-black-800 mb-2">BETR Classifier</h4>
+              <p className="text-sm text-black-700 mb-0">Introduced in Blu-WERP work</p>
             </div>
             <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
-              <h4 className="font-bold text-purple-800 mb-2">DCLM Classifier</h4>
-              <p className="text-sm text-purple-700 mb-0">DataComp-LM standard</p>
+              <h4 className="font-bold text-black-800 mb-2">DCLM Classifier</h4>
+              <p className="text-sm text-black-700 mb-0">DataComp-LM standard</p>
             </div>
           </div>
 
