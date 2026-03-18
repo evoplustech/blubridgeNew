@@ -42,6 +42,7 @@ import Careers from './pages/Careers';
 import Research from './pages/Research';
 import BluWerp from './pages/Research/BluWerp';
 import FLUX from './pages/Research/FLUX';
+import FLUX2 from './pages/Research/FLUX2';
 
 // Solution Pages - Industry
 import Telco from './pages/solutions/industry/Telco';
@@ -142,6 +143,7 @@ const AppLayout = () => {
           <Route path="/careers/job/:slug" element={<JobDetail />} />
           <Route path="/research" element={<Research />} />
           <Route path="/Research/FLUX" element={<FLUX />} />
+          <Route path="/Research/FLUX-2" element={<FLUX2 />} />
           <Route path="/Research/Blu-Werp" element={<BluWerp />} />
           
           {/* Contact Routes */}
