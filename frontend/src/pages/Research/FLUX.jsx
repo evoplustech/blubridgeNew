@@ -124,6 +124,15 @@ const FLUX = () => {
             At the final checkpoint, FLUX-Base achieves an aggregate score of 48.53, compared to 48.05 for FineWeb. These results indicate that the retention gains observed in FLUX-Base translate directly into improved downstream model performance, even without classifier-based filtering.
           </p>
 
+          {/* Image: FLUX-Base Comparison */}
+          <div className="my-8">
+            <img 
+              src="/images/flux/flux-base-comparison.png" 
+              alt="FLUX-Base vs DCLM-RefinedWeb vs FineWeb comparison"
+              className="w-full rounded-lg border border-gray-200"
+            />
+          </div>
+
           {/* Compute Savings Section */}
           <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Compute Savings</h2>
 
@@ -363,6 +372,15 @@ const FLUX = () => {
             In FLUX, rather than relying solely on these defaults, we conducted multiple ablation experiments on 530M params model, across different threshold combinations to identify an optimized operating point. This allowed us to balance token retention and downstream performance more effectively within the dual-bin framework.
           </p>
 
+          {/* Image: Threshold Ablation */}
+          <div className="my-8">
+            <img 
+              src="/images/flux/threshold-ablation.png" 
+              alt="Threshold ablation experiments showing different DCLM and BETR threshold combinations"
+              className="w-full rounded-lg border border-gray-200"
+            />
+          </div>
+
           <p className="mb-10">
             Among the evaluated configurations, the combination of the BETR bin at a threshold of 0.76 and the DCLM bin at 0.025119 produced the strongest results. This setting achieved the best performance across both the aggregate benchmark suite and MMLU, establishing it as the optimal operating point for FLUX within our dual-bin framework.
           </p>
@@ -377,6 +395,15 @@ const FLUX = () => {
           <p className="mb-6">
             When progressively adding each component — beginning with the parser and sequentially incorporating filters, deduplication, and finally classification — we observed consistent performance improvements at the 530M parameter scale. The aggregate score increased from 41.23 (Parser only) to 42.43 (Parser + Filters), then to 45.45 (Parser + Filters + Deduplication), and finally to 48.22 (Full pipeline with Classification).
           </p>
+
+          {/* Image: Pipeline Ablation */}
+          <div className="my-8">
+            <img 
+              src="/images/flux/pipeline-ablation.png" 
+              alt="Pipeline ablation showing progressive improvements from parser to classifier"
+              className="w-full rounded-lg border border-gray-200"
+            />
+          </div>
 
           <p className="mb-10">
             This progressive improvement trend is further reflected at the 3B scale, where the complete FLUX pipeline achieves an aggregate score of 51.92% and an MMLU score of 32.14%, demonstrating consistent gains across model sizes.
