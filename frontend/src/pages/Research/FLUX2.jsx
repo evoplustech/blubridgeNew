@@ -84,7 +84,7 @@ const FLUX2 = () => {
           </p>
 
           {/* Key Results Box */}
-          <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
             <h4 className="font-bold text-green-800 mb-3">Key Results at Final Checkpoint:</h4>
             <ul className="list-none space-y-2 mb-0">
               <li className="flex items-start">
@@ -138,9 +138,9 @@ const FLUX2 = () => {
               <p className="text-sm text-gray-600 mb-1">FineWeb Retention</p>
               <p className="text-2xl font-bold text-gray-800">170B tokens</p>
             </div>
-            <div className="bg-green-100 p-4 rounded-lg text-center">
+            <div className="bg-gray-100 p-4 rounded-lg text-center">
               <p className="text-sm text-green-700 mb-1">FLUX-Base Retention</p>
-              <p className="text-2xl font-bold text-green-800">192B tokens</p>
+              <p className="text-2xl font-bold text-gray-600">192B tokens</p>
               <p className="text-sm text-green-600">(+12% higher)</p>
             </div>
           </div>
