@@ -33,7 +33,13 @@ const FLUX2 = () => {
           {/* Opening Statement - Emphasized */}
           <div className="bg-gray-50 border-l-4 border-[#0B1F3B] p-6 mb-8 rounded-r-lg">
             <p className="text-xl font-semibold text-gray-900 mb-2 italic">
-              "Model performance is visible. Data curation is not. Yet the latter determines the former."
+              Model performance is visible.
+            </p>
+             <p className="text-xl font-semibold text-gray-900 mb-2 italic">
+               Data curation is not. 
+            </p>
+              <p className="text-xl font-semibold text-gray-900 mb-2 italic">
+               Yet the latter determines the former.
             </p>
           </div>
 
@@ -58,9 +64,9 @@ const FLUX2 = () => {
           </p>
 
           {/* Key Objective Box */}
-          <div className="bg-[#0B1F3B] text-white p-6 rounded-lg mb-10">
+          <div className="bg-gray-100 p-4 rounded-lg text-center">
             <h3 className="text-xl font-bold mb-3">FLUX Objective</h3>
-            <p className="mb-0">
+            <p className="mb-0 text-gray-600">
               Eliminate the traditional trade-off between <strong>data quality</strong> and <strong>token retention</strong>, while operating with <strong>minimal computational cost</strong>. FLUX achieves this by outperforming DCLM and FineWeb in both Quality and Retention.
             </p>
           </div>
@@ -237,14 +243,14 @@ const FLUX2 = () => {
           </p>
 
           {/* Table 1 */}
-          <div className="overflow-x-auto my-6">
-            <table className="min-w-full border border-gray-300 text-sm">
+          <div className="overflow-x-auto my-6 -mx-6 px-6">
+            <table className="min-w-[480px] w-full border border-gray-300 text-sm">
               <thead className="bg-[#0B1F3B] text-white">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Parser</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Tokens (Multilingual)</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Tokens (English)</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Compute Cost (hrs)</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Parser</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Tokens (Multilingual)</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Tokens (English)</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Compute Cost (hrs)</th>
                 </tr>
               </thead>
               <tbody>
@@ -371,15 +377,15 @@ const FLUX2 = () => {
           </p>
 
           {/* Table 3 */}
-          <div className="overflow-x-auto my-6">
-            <table className="min-w-full border border-gray-300 text-sm">
+          <div className="overflow-x-auto my-6 -mx-6 px-6">
+            <table className="min-w-[520px] w-full border border-gray-300 text-sm">
               <thead className="bg-[#0B1F3B] text-white">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Pipeline</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Input</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Wall-clock</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">CPU-hrs</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">vs. FLUX</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Pipeline</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Input</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Wall-clock</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">CPU-hrs</th>
+                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">vs. FLUX</th>
                 </tr>
               </thead>
               <tbody>
@@ -485,31 +491,35 @@ const FLUX2 = () => {
           {/* Pipeline Stages */}
           <div className="space-y-3 mb-6">
             <div className="flex items-center">
-              <div className="w-32 text-right pr-4 text-sm text-gray-600">Parser only</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-6 relative">
-                <div className="bg-gray-500 h-6 rounded-full" style={{width: '41%'}}></div>
-                <span className="absolute right-2 top-0.5 text-xs font-semibold">41.23</span>
+              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">Parser only</div>
+              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
+                <div className="bg-gray-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '41%'}}>
+                  <span className="text-xs font-semibold text-white">41.23</span>
+                </div>
               </div>
             </div>
             <div className="flex items-center">
-              <div className="w-32 text-right pr-4 text-sm text-gray-600">+ Filters</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-6 relative">
-                <div className="bg-blue-500 h-6 rounded-full" style={{width: '42.4%'}}></div>
-                <span className="absolute right-2 top-0.5 text-xs font-semibold">42.43</span>
+              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">+ Filters</div>
+              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
+                <div className="bg-blue-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '42.4%'}}>
+                  <span className="text-xs font-semibold text-white">42.43</span>
+                </div>
               </div>
             </div>
             <div className="flex items-center">
-              <div className="w-32 text-right pr-4 text-sm text-gray-600">+ Deduplication</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-6 relative">
-                <div className="bg-indigo-500 h-6 rounded-full" style={{width: '45.4%'}}></div>
-                <span className="absolute right-2 top-0.5 text-xs font-semibold">45.45</span>
+              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">+ Dedup</div>
+              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
+                <div className="bg-indigo-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '45.4%'}}>
+                  <span className="text-xs font-semibold text-white">45.45</span>
+                </div>
               </div>
             </div>
             <div className="flex items-center">
-              <div className="w-32 text-right pr-4 text-sm text-gray-600">+ Classification</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-6 relative">
-                <div className="bg-green-500 h-6 rounded-full" style={{width: '48.2%'}}></div>
-                <span className="absolute right-2 top-0.5 text-xs font-semibold text-white">48.22</span>
+              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">+ Classifier</div>
+              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
+                <div className="bg-green-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '48.2%'}}>
+                  <span className="text-xs font-semibold text-white">48.22</span>
+                </div>
               </div>
             </div>
           </div>
@@ -524,15 +534,15 @@ const FLUX2 = () => {
           </div>
 
           {/* Final Results Box */}
-          <div className="bg-[#0B1F3B] text-white p-6 rounded-lg mb-10">
+          <div className="bg-gray-100 text-gray-600 p-6 rounded-lg mb-10">
             <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results at 3B Scale</h3>
             <div className="grid md:grid-cols-2 gap-6 text-center">
               <div>
-                <p className="text-3xl font-bold text-green-400">51.92%</p>
+                <p className="text-3xl font-bold text-gray-600">51.92%</p>
                 <p className="text-sm text-gray-300">Aggregate Score</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-green-400">32.14%</p>
+                <p className="text-3xl font-bold text-gray-600">32.14%</p>
                 <p className="text-sm text-gray-300">MMLU Score</p>
               </div>
             </div>
