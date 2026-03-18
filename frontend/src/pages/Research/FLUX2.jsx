@@ -1,6 +1,11 @@
 import React from 'react';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import useMetaDescription from '../../hooks/useMetaDescription';
 
 const FLUX2 = () => {
+  useDocumentTitle('FLUX: Data Worth Training On | BluBridge');
+  useMetaDescription('FLUX is a preprocessing pipeline designed to eliminate the trade-off between data quality and token retention for large language model training.');
+
   return (
     <div className="min-h-screen bg-[#f3f1e9]">
       <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
