@@ -39,7 +39,7 @@ const FLUX2 = () => {
                Data curation is not. 
             </p>
               <p className="text-xl font-semibold text-gray-900 mb-2 italic">
-               Yet the latter determines the former.
+               "Yet the latter determines the former"
             </p>
           </div>
 
