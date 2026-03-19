@@ -20,7 +20,6 @@ const FLUX4 = () => {
             href="https://arxiv.org/pdf/2603.13972"
             target="_blank"
             rel="noopener noreferrer"
-            data-testid="flux4-read-paper-btn"
           >
             <button className="bg-[#0B1F3B] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1a3a5c] transition-colors">
               Read the Paper
@@ -31,18 +30,16 @@ const FLUX4 = () => {
         {/* Content */}
         <div className="prose prose-lg max-w-none text-gray-800" style={{ textAlign: "justify" }}>
           
-          {/* Opening Statement - Emphasized */}
-          <div className="bg-gray-50 border-l-4 border-[#0B1F3B] p-6 mb-8 rounded-r-lg">
-            <p className="text-xl font-semibold text-gray-900 mb-2 italic">
-              Model performance is visible.
-            </p>
-             <p className="text-xl font-semibold text-gray-900 mb-2 italic">
-               Data curation is not. 
-            </p>
-              <p className="text-xl font-semibold text-gray-900 mb-2 italic">
-               Yet the latter determines the former.
-            </p>
-          </div>
+          {/* Opening Statement */}
+          <p className="text-xl font-medium text-gray-900 leading-relaxed mb-2">
+            <strong>Model performance is visible.</strong>
+          </p>
+          <p className="text-xl font-medium text-gray-900 leading-relaxed mb-2">
+            <strong>Data curation is not.</strong>
+          </p>
+          <p className="text-xl font-medium text-gray-900 leading-relaxed mb-6">
+            <strong>Yet the latter determines the former.</strong>
+          </p>
 
           <p className="mb-6">
             Before parameters are scaled, before benchmarks are reported, and before models are deployed, the <strong>training corpus</strong> is constructed. That construction process determines what information is preserved, what is filtered out, and what ultimately shapes the model's behavior.
@@ -64,25 +61,19 @@ const FLUX4 = () => {
             We believe the next phase of LLM progress requires <strong>transparency at the data layer</strong>. At <strong>BluBridge Technologies</strong>, we intend to release <strong>FLUX as open source</strong> in the future, enabling broader scrutiny, validation, and community-driven improvement.
           </p>
 
-          {/* Key Objective Box */}
-          <div className="bg-gray-100 p-4 rounded-lg text-center">
-            <h3 className="text-xl font-bold mb-3">FLUX Objective</h3>
-            <p className="mb-0 text-gray-600">
-              Eliminate the traditional trade-off between <strong>data quality</strong> and <strong>token retention</strong>, while operating with <strong>minimal computational cost</strong>. FLUX achieves this by outperforming <strong>DCLM</strong> and <strong>FineWeb</strong> in both Quality and Retention.
-            </p>
-          </div>
+          <p className="mb-10">
+            The objective of FLUX is to eliminate the traditional trade-off between <strong>data quality</strong> and <strong>token retention</strong>, while operating with <strong>minimal computational cost</strong>. Flux achieves it comprehensively by outperforming <strong>DCLM</strong> and <strong>Fineweb</strong> in both the <strong>Quality</strong> and <strong>Retention</strong>.
+          </p>
 
           {/* FLUX vs DCLM Section */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            FLUX vs DCLM
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Flux vs DCLM</h2>
 
           {/* Image: FLUX vs DCLM */}
           <div className="my-8">
             <img 
               src="/images/flux/flux-vs-dclm.png" 
-              alt="FLUX vs DCLM learning curve comparison"
-              className="w-full rounded-lg border border-gray-200 shadow-sm"
+              alt="FLUX vs DCLM learning curve comparison showing FLUX consistently outperforming DCLM"
+              className="w-full rounded-lg border border-gray-200"
             />
           </div>
 
@@ -90,31 +81,20 @@ const FLUX4 = () => {
             At the <strong>3B scale</strong> (<strong>60B training tokens</strong>), aggregate learning-curve analysis shows that <strong>FLUX consistently outperforms DCLM</strong> across the full training budget, with the gap widening steadily beyond <strong>30B tokens</strong>.
           </p>
 
-          {/* Key Results Box */}
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-            <h4 className="font-bold text-green-800 mb-3">Key Results at Final Checkpoint:</h4>
-            <ul className="list-none space-y-2 mb-0">
-              <li className="flex items-start">
-                <span className="text-green-600 mr-2">&#10003;</span>
-                <span><strong>FLUX Aggregate Score:</strong> <strong>51.92</strong> vs DCLM's <strong>50.48</strong> (+1.44 pp)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 mr-2">&#10003;</span>
-                <span><strong>MMLU:</strong> <strong>32.14%</strong> vs <strong>31.98%</strong></span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 mr-2">&#10003;</span>
-                <span><strong>Outperforms on 7 of 9 benchmarks</strong></span>
-              </li>
-            </ul>
-          </div>
-
           <p className="mb-6">
-            <strong>Largest gains observed:</strong> ARC-Challenge (<strong>+2.9pp</strong>), WinoGrande (<strong>+2.9pp</strong>), SocialIQA (<strong>+2.2pp</strong>), and PIQA (<strong>+1.9pp</strong>).
+            At the final checkpoint, FLUX achieves an aggregate score of <strong>51.92</strong>, surpassing DCLM's <strong>50.48</strong> by <strong>1.44 percentage points</strong> across a nine-benchmark suite.
           </p>
 
           <p className="mb-6">
-            At the <strong>corpus level</strong>, FLUX extracts <strong>50B tokens</strong> from a single Common Crawl dump, compared to <strong>40B</strong> for DCLM — a <strong>25% increase</strong> in token retention. Across two dumps, FLUX yields <strong>365B tokens</strong> post-deduplication, exceeding DCLM's <strong>302B tokens</strong> by <strong>21%</strong>.
+            On <strong>MMLU</strong>, FLUX reaches <strong>32.14%</strong>, compared to <strong>31.98%</strong> for DCLM.
+          </p>
+
+          <p className="mb-6">
+            Across individual benchmarks, FLUX outperforms DCLM on <strong>7 of 9 tasks</strong>, with the largest gains observed on <strong>ARC-Challenge (+2.9pp)</strong>, <strong>WinoGrande (+2.9pp)</strong>, <strong>SocialIQA (+2.2pp)</strong>, and <strong>PIQA (+1.9pp)</strong>.
+          </p>
+
+          <p className="mb-6">
+            At the corpus level, FLUX extracts <strong>50B tokens</strong> from a single Common Crawl dump, compared to <strong>40B</strong> for DCLM — a <strong>25% increase</strong> in token retention. Across two dumps, FLUX yields <strong>365B tokens</strong> post-deduplication, exceeding DCLM's <strong>302B tokens</strong> by <strong>21%</strong>.
           </p>
 
           <p className="mb-10">
@@ -122,16 +102,14 @@ const FLUX4 = () => {
           </p>
 
           {/* Flux-Base vs Fineweb Section */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            FLUX-Base vs FineWeb
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Flux-Base vs Fineweb</h2>
 
           {/* Image: Flux-Base vs FineWeb */}
           <div className="my-8">
             <img 
               src="/images/flux/flux-base-vs-fineweb.png" 
-              alt="FLUX-Base vs FineWeb comparison"
-              className="w-full rounded-lg border border-gray-200 shadow-sm"
+              alt="FLUX-Base vs FineWeb comparison showing FLUX-Base outperforming FineWeb"
+              className="w-full rounded-lg border border-gray-200"
             />
           </div>
 
@@ -139,21 +117,8 @@ const FLUX4 = () => {
             The comparison with FineWeb is conducted using <strong>FLUX-Base</strong>, which represents the FLUX pipeline <em>without</em> the classifier stage.
           </p>
 
-          {/* Comparison Box */}
-          <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="bg-gray-100 p-4 rounded-lg text-center">
-              <p className="text-sm text-gray-600 mb-1">FineWeb Retention</p>
-              <p className="text-2xl font-bold text-gray-800">170B tokens</p>
-            </div>
-            <div className="bg-gray-100 p-4 rounded-lg text-center">
-              <p className="text-sm text-green-700 mb-1">FLUX-Base Retention</p>
-              <p className="text-2xl font-bold text-gray-600">192B tokens</p>
-              <p className="text-sm text-green-600">(+12% higher)</p>
-            </div>
-          </div>
-
           <p className="mb-6">
-            This demonstrates that even without classifier-based filtering, the FLUX preprocessing framework achieves <strong>superior token retention</strong> through its parser, filtering, and deduplication design.
+            On a single dump, FineWeb retains <strong>170B tokens</strong>, whereas FLUX-Base retains <strong>192B tokens</strong> — approximately <strong>12% higher retention</strong>. This demonstrates that even without classifier-based filtering, the FLUX preprocessing framework achieves <strong>superior token retention</strong> through its parser, filtering, and deduplication design.
           </p>
 
           <p className="mb-6">
@@ -161,162 +126,112 @@ const FLUX4 = () => {
           </p>
 
           <p className="mb-10">
-            At the final checkpoint, FLUX-Base achieves an aggregate score of <strong>48.53</strong>, compared to <strong>48.05</strong> for FineWeb. These results indicate that the retention gains translate directly into <strong>improved downstream model performance</strong>.
+            At the final checkpoint, FLUX-Base achieves an aggregate score of <strong>48.53</strong>, compared to <strong>48.05</strong> for FineWeb. These results indicate that the retention gains observed in FLUX-Base translate directly into <strong>improved downstream model performance</strong>, even without classifier-based filtering.
           </p>
 
           {/* Compute Savings Section */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            Compute Savings
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Compute Savings</h2>
 
           {/* Image: Compute Savings */}
           <div className="my-8">
             <img 
               src="/images/flux/compute-savings.png" 
-              alt="Compute savings comparison"
-              className="w-full max-w-md mx-auto rounded-lg border border-gray-200 shadow-sm"
+              alt="Compute savings comparison showing FLUX achieves 34.4% compute savings over DCLM"
+              className="w-full max-w-md mx-auto rounded-lg border border-gray-200"
             />
           </div>
 
-          {/* Compute Savings Highlight */}
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-10">
-            <div className="text-center">
-              <p className="text-4xl font-bold text-gray-900 mb-2">34.4%</p>
-              <p className="text-lg text-gray-700 font-medium">Compute Savings</p>
-            </div>
-            <p className="text-sm text-gray-600 mt-4 text-center">
-              DCLM requires <strong>1.227 × 10²¹ FLOPs</strong> to reach <strong>50.48</strong> aggregate score.<br/>
-              FLUX achieves the same with only <strong>8.044 × 10²⁰ FLOPs</strong>.
-            </p>
-          </div>
+          <p className="mb-10">
+            At the <strong>3B scale</strong>, a model trained on DCLM curated data requires <strong>1.227 × 10²¹ FLOPs</strong> to reach an aggregate benchmark score of <strong>50.48</strong>. In contrast, a model trained on the FLUX-curated dataset achieves the same performance using only <strong>8.044 × 10²⁰ FLOPs</strong>, resulting in approximately <strong>34.4% compute savings</strong>.
+          </p>
 
           {/* APEX Parser Section */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            APEX: A Statistical Parser for Large-Scale Web Data Extraction
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">APEX: A Statistical Parser for Large-Scale Web Data Extraction</h2>
 
           <p className="mb-6">
-            Web crawl archives distributed by <strong>Common Crawl</strong> are available in three standardized formats:
+            Web crawl archives distributed by <strong>Common Crawl</strong> are available in three standardized formats: <strong>WARC</strong>, <strong>WET</strong>, and <strong>WAT</strong>. WARC files encapsulate raw HTTP responses alongside full HTML content. WET files deliver pre-extracted plain text; and WAT files expose structured metadata records. For pretraining pipelines operating at scale, direct processing of <strong>WARC data</strong> is preferred, as it affords complete control over extraction behavior, content filtering criteria, and downstream text quality.
           </p>
 
-          <ul className="list-none space-y-2 mb-6">
-            <li><strong>WARC</strong> — Raw HTTP responses with full HTML content</li>
-            <li><strong>WET</strong> — Pre-extracted plain text</li>
-            <li><strong>WAT</strong> — Structured metadata records</li>
+          <p className="mb-6">
+            Within the FLUX extraction pipeline, WARC ingestion is performed via <strong>FastWARC</strong>, a C-implemented archive reader engineered for <strong>low per-record latency</strong> and <strong>minimal memory overhead</strong>. HTML parsing and content extraction are delegated to <strong>Resiliparse</strong>, a high-throughput framework purpose-built for large-scale web corpora, with robust tolerance for malformed markup, tag soup, and encoding inconsistencies commonly encountered in real-world crawl data.
+          </p>
+
+          <p className="mb-6">
+            A distinguishing characteristic of <strong>Apex</strong> is its departure from fixed semantic tag heuristics in favor of <strong>statistical main-content detection</strong>. Candidate page regions are evaluated through a composite scoring function incorporating three orthogonal signals:
+          </p>
+
+          <ul className="list-disc pl-6 space-y-2 mb-8">
+            <li><strong>Content Density</strong> — character-to-node ratio within a given subtree</li>
+            <li><strong>Link Density</strong> — proportion of anchor-enclosed text within a candidate region</li>
+            <li><strong>Structural Depth</strong> — relative position of a node with respect to the document root</li>
           </ul>
 
-          <p className="mb-6">
-            For pretraining pipelines operating at scale, direct processing of <strong>WARC data</strong> is preferred, as it affords complete control over extraction behavior, content filtering criteria, and downstream text quality.
-          </p>
-
-          <p className="mb-6">
-            Within the FLUX extraction pipeline, WARC ingestion is performed via <strong>FastWARC</strong>, a C-implemented archive reader engineered for <strong>low per-record latency</strong> and <strong>minimal memory overhead</strong>. HTML parsing and content extraction are delegated to <strong>Resiliparse</strong>, a high-throughput framework purpose-built for large-scale web corpora.
-          </p>
-
-          <p className="mb-6">
-            A distinguishing characteristic of <strong>APEX</strong> is its departure from fixed semantic tag heuristics in favor of <strong>statistical main-content detection</strong>. Candidate page regions are evaluated through a composite scoring function incorporating three orthogonal signals:
-          </p>
-
-          <div className="bg-gray-50 rounded-lg p-6 mb-8">
-            <ul className="list-none space-y-3 mb-0">
-              <li className="flex items-start">
-                <span className="bg-[#0B1F3B] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">1</span>
-                <span><strong>Content Density</strong> — Character-to-node ratio within a given subtree</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-[#0B1F3B] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">2</span>
-                <span><strong>Link Density</strong> — Proportion of anchor-enclosed text within a candidate region</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-[#0B1F3B] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">3</span>
-                <span><strong>Structural Depth</strong> — Relative position of a node with respect to the document root</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Parser Benchmark Results */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            Parser Benchmark Results
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Parser Benchmark Results</h2>
 
           <p className="mb-6">
-            <strong>APEX</strong> achieves the highest token yield across both evaluation configurations, producing <strong>279.5B multilingual tokens</strong> and <strong>54B English tokens</strong>, and is adopted as the <strong>production parser</strong> for the FLUX pipeline.
+            <strong>Apex</strong> achieves the highest token yield across both evaluation configurations, producing <strong>279.5B multilingual tokens</strong> and <strong>54B English tokens</strong>, and is adopted as the <strong>production parser</strong> for the FLUX pipeline.
           </p>
 
           {/* Table 1 */}
-          <div className="overflow-x-auto my-6 -mx-6 px-6">
-            <table className="min-w-[480px] w-full border border-gray-300 text-sm">
-              <thead className="bg-[#0B1F3B] text-white">
+          <div className="overflow-x-auto my-6">
+            <table className="min-w-full border border-gray-300 text-sm">
+              <thead className="bg-gray-100">
                 <tr>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Parser</th>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Tokens (Multilingual)</th>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Tokens (English)</th>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Compute Cost (hrs)</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Parser</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Total Tokens (Multilingual)</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Total Tokens (English)</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Aggregate Compute Cost (hrs)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-3">Resiliparse</td>
-                  <td className="border border-gray-300 px-4 py-3">279.4B</td>
-                  <td className="border border-gray-300 px-4 py-3">54.6B</td>
-                  <td className="border border-gray-300 px-4 py-3">6.63</td>
+                  <td className="border border-gray-300 px-4 py-2">Resiliparse</td>
+                  <td className="border border-gray-300 px-4 py-2">279.4B</td>
+                  <td className="border border-gray-300 px-4 py-2">54.6B</td>
+                  <td className="border border-gray-300 px-4 py-2">6.63</td>
                 </tr>
-                <tr className="bg-green-50 font-semibold">
-                  <td className="border border-gray-300 px-4 py-3">APEX &#9733;</td>
-                  <td className="border border-gray-300 px-4 py-3">279.5B</td>
-                  <td className="border border-gray-300 px-4 py-3">54.0B</td>
-                  <td className="border border-gray-300 px-4 py-3 text-green-700">4.31</td>
+                <tr className="bg-green-50">
+                  <td className="border border-gray-300 px-4 py-2 font-semibold"><strong>Apex</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>279.5B</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>54.0B</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>4.31</strong></td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-3">Trafilatura</td>
-                  <td className="border border-gray-300 px-4 py-3">136.7B</td>
-                  <td className="border border-gray-300 px-4 py-3">35.5B</td>
-                  <td className="border border-gray-300 px-4 py-3">47.33</td>
+                  <td className="border border-gray-300 px-4 py-2">Trafilatura</td>
+                  <td className="border border-gray-300 px-4 py-2">136.7B</td>
+                  <td className="border border-gray-300 px-4 py-2">35.5B</td>
+                  <td className="border border-gray-300 px-4 py-2">47.33</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <p className="text-sm text-gray-600 italic mb-4">
-            Evaluation performed on 10K WARC files from CC-MAIN-2025-51 Common Crawl snapshot.
+            Evaluation performed on a sample of 10K WARC files drawn from the CC-MAIN-2025-51 Common Crawl snapshot.
           </p>
 
           {/* Image: Parser Benchmark */}
           <div className="my-8">
             <img 
               src="/images/flux/parser-benchmark.png" 
-              alt="Parser benchmark comparison"
-              className="w-full rounded-lg border border-gray-200 shadow-sm"
+              alt="Parser benchmark comparison showing APEX, Resiliparse, and Trafilatura performance"
+              className="w-full rounded-lg border border-gray-200"
             />
             <p className="text-sm text-gray-600 italic text-center mt-2">
-              Comparative parser evaluation on a 530M-scale model trained on 10.6B tokens.
+              Comparative parser evaluation of APEX, Resiliparse, and Trafilatura conducted on a 530M-scale model trained on 10.6B tokens.
             </p>
           </div>
 
           {/* Deterministic Filter Pipeline */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            Deterministic Filter Pipeline
-          </h2>
-
-          <p className="mb-6">
-            Most data preprocessing pipelines face a frustrating trade-off: <strong>filter aggressively</strong> for quality and you lose too many tokens, or <strong>keep everything</strong> and let noise degrade your model.
-          </p>
-
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
-            <p className="font-semibold text-yellow-800 mb-2">FLUX's Different Approach:</p>
-            <p className="text-yellow-700 mb-0">
-              Instead of discarding entire documents, FLUX <strong>surgically removes only problematic lines</strong> — cookie banners, social media counters, navigation breadcrumbs, JavaScript artifacts, and form labels — and keeps the rest.
-            </p>
-          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Deterministic Filter Pipeline for Large-Scale Web Data Curation</h2>
 
           <p className="mb-10">
-            This <strong>line-level excision</strong>, enforced across <strong>eleven distinct heuristic classes</strong>, is why FLUX retains <strong>27.2B</strong> post-deduplication tokens where DCLM retains only <strong>24.8B</strong> and FineWeb retains <strong>24.5B</strong>.
+            Most data preprocessing pipelines for large language models face a frustrating trade-off: filter aggressively for quality and you lose too many tokens, or keep everything and let noise degrade your model. <strong>FLUX takes a different approach</strong>. Instead of discarding an entire document the moment it contains a bad line, the pipeline <strong>surgically removes only the problematic lines</strong> — things like cookie banners, social media counters, navigation breadcrumbs, JavaScript artifacts, and form labels — and keeps the rest. This <strong>line-level excision</strong>, enforced across <strong>eleven distinct heuristic classes</strong>, is the core reason FLUX retains <strong>27.2B</strong> post-deduplication tokens from the same input where DCLM retains only <strong>24.8B</strong> and FineWeb retains <strong>24.5B</strong>.
           </p>
 
           {/* Filtering Stage Results */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            Filtering Stage Results
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Filtering Stage Results</h2>
 
           <p className="text-sm text-gray-600 italic mb-4">
             530M scale · 10.6B tokens · post-deduplication
@@ -325,100 +240,99 @@ const FLUX4 = () => {
           {/* Table 2 */}
           <div className="overflow-x-auto my-6">
             <table className="min-w-full border border-gray-300 text-sm">
-              <thead className="bg-[#0B1F3B] text-white">
+              <thead className="bg-gray-100">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Pipeline</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Post-Dedup Tokens</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Aggregate (530M)</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Pipeline</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Post-Dedup Tokens</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Aggregate (530M)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-3">FineWeb</td>
-                  <td className="border border-gray-300 px-4 py-3">24.50B</td>
-                  <td className="border border-gray-300 px-4 py-3">44.31</td>
+                  <td className="border border-gray-300 px-4 py-2">FineWeb</td>
+                  <td className="border border-gray-300 px-4 py-2">24.50B</td>
+                  <td className="border border-gray-300 px-4 py-2">44.31</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-3">DCLM</td>
-                  <td className="border border-gray-300 px-4 py-3">24.81B</td>
-                  <td className="border border-gray-300 px-4 py-3">44.40</td>
+                  <td className="border border-gray-300 px-4 py-2">DCLM</td>
+                  <td className="border border-gray-300 px-4 py-2">24.81B</td>
+                  <td className="border border-gray-300 px-4 py-2">44.40</td>
                 </tr>
-                <tr className="bg-green-50 font-semibold">
-                  <td className="border border-gray-300 px-4 py-3">FLUX &#9733;</td>
-                  <td className="border border-gray-300 px-4 py-3 text-green-700">27.22B</td>
-                  <td className="border border-gray-300 px-4 py-3 text-green-700">45.45</td>
+                <tr className="bg-green-50">
+                  <td className="border border-gray-300 px-4 py-2 font-semibold"><strong>FLUX</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>27.22B</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>45.45</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          {/* Image: Filtering Overview */}
           <div className="my-8">
             <img 
               src="/images/flux/flux-base-comparison.png" 
-              alt="FLUX filtering design and retention-quality behavior"
-              className="w-full rounded-lg border border-gray-200 shadow-sm"
+              alt="DCLM-RefinedWeb vs FineWeb vs FLUX BASE - Heuristic filtering overview showing retention-quality behavior"
+              className="w-full rounded-lg border border-gray-200"
             />
-            <p className="text-sm text-gray-600 italic text-center mt-2">
-              Overview of FLUX filtering design and its retention–quality behavior.
-            </p>
           </div>
+          <p className="text-sm text-gray-600 italic mb-6">
+            Heuristic filtering summary (530M scale; 10.6B tokens). Overview figure for the FLUX filtering design and its retention–quality behavior.
+          </p>
 
           <p className="mb-10">
-            <strong>The core insight is simple:</strong> when you remove only what is genuinely bad rather than discarding everything that contains something bad, you get <strong>more data</strong> and <strong>better data</strong> at the same time.
+            The result speaks for itself. In ablation studies, <strong>FLUX is the only configuration that simultaneously outperforms both DCLM and FineWeb</strong> on token retention and downstream model quality. At the <strong>530M scale</strong> trained on <strong>10.6B tokens</strong>, FLUX retains <strong>27.22B</strong> post-deduplication tokens and achieves an aggregate score of <strong>45.45</strong> — compared to <strong>24.81B</strong> tokens and <strong>44.40</strong> for DCLM, and <strong>24.50B</strong> tokens and <strong>44.31</strong> for FineWeb — while also being <strong>6.26× faster</strong> to preprocess per terabyte. The core insight is simple: <strong>when you remove only what is genuinely bad rather than discarding everything that contains something bad, you get more data and better data at the same time</strong>.
           </p>
 
           {/* Preprocessing Efficiency */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            Preprocessing Efficiency
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Preprocessing Efficiency</h2>
 
           <p className="text-sm text-gray-600 italic mb-4">
             Filtering-stage compute cost on identical hardware (c8a.8xlarge, 32 vCPUs) over 10,000 WARC files.
           </p>
 
           {/* Table 3 */}
-          <div className="overflow-x-auto my-6 -mx-6 px-6">
-            <table className="min-w-[520px] w-full border border-gray-300 text-sm">
-              <thead className="bg-[#0B1F3B] text-white">
+          <div className="overflow-x-auto my-6">
+            <table className="min-w-full border border-gray-300 text-sm">
+              <thead className="bg-gray-100">
                 <tr>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Pipeline</th>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Input</th>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">Wall-clock</th>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">CPU-hrs</th>
-                  <th className="border border-gray-300 px-3 md:px-4 py-3 text-left font-semibold">vs. FLUX</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Pipeline</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Input</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Wall-clock</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">CPU-hrs</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">CPU-hrs/TB</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">vs. FLUX</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-3">DCLM</td>
-                  <td className="border border-gray-300 px-4 py-3">1.20 TB</td>
-                  <td className="border border-gray-300 px-4 py-3">11 hr 7 min</td>
-                  <td className="border border-gray-300 px-4 py-3">355.7</td>
-                  <td className="border border-gray-300 px-4 py-3 text-red-600"><strong>6.26× slower</strong></td>
+                  <td className="border border-gray-300 px-4 py-2">DCLM</td>
+                  <td className="border border-gray-300 px-4 py-2">1.20 TB</td>
+                  <td className="border border-gray-300 px-4 py-2">11 hr 7 min</td>
+                  <td className="border border-gray-300 px-4 py-2">355.7</td>
+                  <td className="border border-gray-300 px-4 py-2">296.4</td>
+                  <td className="border border-gray-300 px-4 py-2">6.26×</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-3">FineWeb</td>
-                  <td className="border border-gray-300 px-4 py-3">0.60 TB</td>
-                  <td className="border border-gray-300 px-4 py-3">5 hr 39 min</td>
-                  <td className="border border-gray-300 px-4 py-3">181.0</td>
-                  <td className="border border-gray-300 px-4 py-3 text-red-600"><strong>6.36× slower</strong></td>
+                  <td className="border border-gray-300 px-4 py-2">FineWeb</td>
+                  <td className="border border-gray-300 px-4 py-2">0.60 TB</td>
+                  <td className="border border-gray-300 px-4 py-2">5 hr 39 min</td>
+                  <td className="border border-gray-300 px-4 py-2">181.0</td>
+                  <td className="border border-gray-300 px-4 py-2">301.3</td>
+                  <td className="border border-gray-300 px-4 py-2">6.36×</td>
                 </tr>
-                <tr className="bg-green-50 font-semibold">
-                  <td className="border border-gray-300 px-4 py-3">FLUX &#9733;</td>
-                  <td className="border border-gray-300 px-4 py-3">1.03 TB</td>
-                  <td className="border border-gray-300 px-4 py-3 text-green-700"><strong>1 hr 31 min</strong></td>
-                  <td className="border border-gray-300 px-4 py-3 text-green-700"><strong>48.5</strong></td>
-                  <td className="border border-gray-300 px-4 py-3 text-green-700"><strong>1.00× (baseline)</strong></td>
+                <tr className="bg-green-50">
+                  <td className="border border-gray-300 px-4 py-2 font-semibold"><strong>FLUX</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>1.03 TB</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>1 hr 31 min</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>48.5</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>47.3</strong></td>
+                  <td className="border border-gray-300 px-4 py-2"><strong>1.00×</strong></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           {/* Dual-Bin Classifier */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            Dual-Bin Classifier
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Dual-Bin Classifier</h2>
 
           <p className="mb-6">
             Content classification in large-scale data pipelines is typically performed using <strong>model-based filtering</strong>. Heuristic rules alone are insufficient to remove semantically weak or low-information content.
@@ -429,125 +343,74 @@ const FLUX4 = () => {
           </p>
 
           <p className="mb-6">
-            In practice, single-bin classifiers can be sensitive to threshold selection. To improve separation between high-quality and low-quality content, FLUX adopts a <strong>dual-bin classification strategy</strong>:
+            One of the core objectives of FLUX is to <strong>minimize computational overhead</strong> during preprocessing. To evaluate the efficiency of classifier-based filtering, we conducted comparative compute experiments between <strong>lightweight fastText classifiers</strong> and <strong>LLM-based classification methods</strong> on representative sample inputs.
           </p>
-
-          <div className="grid md:grid-cols-2 gap-4 mb-10">
-            <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
-              <h4 className="font-bold text-gray-800 mb-2">BETR Classifier</h4>
-              <p className="text-sm text-gray-700 mb-0">Introduced in <strong>Blu-WERP</strong> work</p>
-            </div>
-            <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
-              <h4 className="font-bold text-gray-800 mb-2">DCLM Classifier</h4>
-              <p className="text-sm text-gray-700 mb-0"><strong>DataComp-LM</strong> standard</p>
-            </div>
-          </div>
-
-          {/* Acceptance Rule */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            Acceptance Rule
-          </h2>
 
           <p className="mb-6">
-            Given a document <em>d</em>, let <strong>s<sub>DCLM</sub>(d)</strong> and <strong>s<sub>BETR</sub>(d)</strong> denote the scalar confidence scores produced by the respective classifiers, each calibrated to [0, 1] for the positive (high-quality) class label.
+            In practice, single-bin classifiers can be sensitive to threshold selection and may struggle to balance false positives and false negatives effectively. To improve separation between high-quality and low-quality content, FLUX adopts a <strong>dual-bin classification strategy</strong>, enabling more controlled filtering.
           </p>
 
-          <p className="mb-4">Document <em>d</em> is accepted into the final corpus if and only if:</p>
+          <p className="mb-10">
+            We adopted the two strongest bins — the <strong>BETR classifier bin</strong> introduced in our earlier <strong>Blu-WERP</strong> work and the <strong>DCLM classifier bin</strong>.
+          </p>
 
-          <div className="bg-gray-900 text-white p-6 rounded-lg my-6 text-center font-mono">
-            <p className="text-lg mb-0">
-              s<sub>DCLM</sub>(d) &ge; &tau;<sub>DCLM</sub> &nbsp;&nbsp;<span className="text-yellow-400 font-bold">&or;</span>&nbsp;&nbsp; s<sub>BETR</sub>(d) &ge; &tau;<sub>BETR</sub>
+          {/* Acceptance Rule */}
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Acceptance Rule</h2>
+
+          <p className="mb-6">
+            <strong>Acceptance rule.</strong> Given a document 𝑑, let 𝑠<sub>DCLM</sub>(𝑑) and 𝑠<sub>BETR</sub>(𝑑) denote the scalar confidence scores produced by 𝜙<sub>DCLM</sub> and 𝜙<sub>BETR</sub> respectively, each calibrated to [0, 1] for the positive (high-quality) class label. Document 𝑑 is accepted into the final corpus if and only if:
+          </p>
+
+          <div className="bg-gray-100 p-6 rounded-lg my-6 text-center">
+            <p className="font-mono text-lg">
+              𝑠<sub>DCLM</sub>(𝑑) ≥ 𝜏<sub>DCLM</sub> &nbsp;&nbsp;&nbsp; ∨ &nbsp;&nbsp;&nbsp; 𝑠<sub>BETR</sub>(𝑑) ≥ 𝜏<sub>BETR</sub>
             </p>
           </div>
+
+          <p className="mb-6">
+            The default threshold for the <strong>BETR classifier bin</strong> in Blu-WERP is <strong>0.635</strong>, while the <strong>DCLM classifier bin</strong> uses a default threshold of <strong>0.0182</strong> in its original configuration.
+          </p>
+
+          <p className="mb-6">
+            In FLUX, rather than relying solely on these defaults, we conducted <strong>multiple ablation experiments</strong> on <strong>530M params model</strong>, across different threshold combinations to identify an <strong>optimized operating point</strong>. This allowed us to balance token retention and downstream performance more effectively within the dual-bin framework.
+          </p>
 
           {/* Image: Threshold Ablation */}
           <div className="my-8">
             <img 
               src="/images/flux/threshold-ablation.png" 
-              alt="Threshold ablation experiments"
-              className="w-full rounded-lg border border-gray-200 shadow-sm"
+              alt="Threshold ablation experiments showing different DCLM and BETR threshold combinations"
+              className="w-full rounded-lg border border-gray-200"
             />
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 mb-10">
-            <h4 className="font-bold text-gray-800 mb-3">Optimal Thresholds Found:</h4>
-            <ul className="list-none space-y-2 mb-0">
-              <li><strong>BETR threshold:</strong> <strong>0.76</strong></li>
-              <li><strong>DCLM threshold:</strong> <strong>0.025119</strong></li>
-            </ul>
-            <p className="text-sm text-gray-600 mt-3 mb-0">
-              This configuration achieved <strong>best performance</strong> across both the aggregate benchmark suite and MMLU.
-            </p>
-          </div>
+          <p className="mb-10">
+            Among the evaluated configurations, the combination of the <strong>BETR bin at a threshold of 0.76</strong> and the <strong>DCLM bin at 0.025119</strong> produced the strongest results. This setting achieved the <strong>best performance</strong> across both the aggregate benchmark suite and MMLU, establishing it as the <strong>optimal operating point</strong> for FLUX within our dual-bin framework.
+          </p>
 
           {/* The FLUX Pipeline */}
-          <h2 className="text-2xl font-bold text-[#0B1F3B] mt-12 mb-6 pb-2 border-b-2 border-[#0B1F3B]">
-            The FLUX Pipeline
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">The FLUX Pipeline</h2>
 
           <p className="mb-6">
             To establish the final FLUX configuration, we performed a <strong>staged ablation</strong> across the major pipeline components: <strong>parser selection</strong>, <strong>heuristic filtering</strong>, <strong>deduplication</strong>, and <strong>classification</strong>.
           </p>
 
-          {/* Pipeline Stages */}
-          <div className="space-y-3 mb-6">
-            <div className="flex items-center">
-              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">Parser only</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
-                <div className="bg-gray-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '41%'}}>
-                  <span className="text-xs font-semibold text-white">41.23</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">+ Filters</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
-                <div className="bg-blue-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '42.4%'}}>
-                  <span className="text-xs font-semibold text-white">42.43</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">+ Dedup</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
-                <div className="bg-indigo-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '45.4%'}}>
-                  <span className="text-xs font-semibold text-white">45.45</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <div className="w-24 md:w-32 text-right pr-3 md:pr-4 text-xs md:text-sm text-gray-600 flex-shrink-0">+ Classifier</div>
-              <div className="flex-1 bg-gray-200 rounded-full h-7 relative overflow-hidden">
-                <div className="bg-green-500 h-7 rounded-full flex items-center justify-end pr-2" style={{width: '48.2%'}}>
-                  <span className="text-xs font-semibold text-white">48.22</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p className="mb-6">
+            When progressively adding each component — beginning with the parser and sequentially incorporating filters, deduplication, and finally classification — we observed <strong>consistent performance improvements</strong> at the <strong>530M parameter scale</strong>. The aggregate score increased from <strong>41.23</strong> (Parser only) to <strong>42.43</strong> (Parser + Filters), then to <strong>45.45</strong> (Parser + Filters + Deduplication), and finally to <strong>48.22</strong> (Full pipeline with Classification).
+          </p>
 
           {/* Image: Pipeline Ablation */}
           <div className="my-8">
             <img 
               src="/images/flux/pipeline-ablation.png" 
-              alt="Pipeline ablation results"
-              className="w-full rounded-lg border border-gray-200 shadow-sm"
+              alt="Pipeline ablation showing progressive improvements from parser to classifier"
+              className="w-full rounded-lg border border-gray-200"
             />
           </div>
 
-          {/* Final Results Box */}
-          <div className="bg-gray-100 text-gray-600 p-6 rounded-lg mb-10">
-            <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results at 3B Scale</h3>
-            <div className="grid md:grid-cols-2 gap-6 text-center">
-              <div>
-                <p className="text-3xl font-bold text-gray-800">51.92%</p>
-                <p className="text-sm text-gray-600">Aggregate Score</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-gray-800">32.14%</p>
-                <p className="text-sm text-gray-600">MMLU Score</p>
-              </div>
-            </div>
-          </div>
+          <p className="mb-10">
+            This progressive improvement trend is further reflected at the <strong>3B scale</strong>, where the complete FLUX pipeline achieves an aggregate score of <strong>51.92%</strong> and an MMLU score of <strong>32.14%</strong>, demonstrating <strong>consistent gains across model sizes</strong>.
+          </p>
 
         </div>
       </div>
