@@ -145,7 +145,7 @@ const AppLayout = () => {
           <Route path="/careers/job/:slug" element={<JobDetail />} />
           <Route path="/research" element={<Research />} />
           <Route path="/Research/FLUX" element={<FLUX />} />
-          <Route path="/Research/FLUX-2" element={<FLUX2 />} />
+          <Route path="/Research/FLUX-Data" element={<FLUX2 />} />
           <Route path="/Research/FLUX-3" element={<FLUX3 />} />
           <Route path="/Research/FLUX-4" element={<FLUX4 />} />
           <Route path="/Research/Blu-Werp" element={<BluWerp />} />

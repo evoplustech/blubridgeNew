@@ -61,7 +61,7 @@ const Research = () => {
               
               <p className="text-[#2F3A4A] leading-relaxed text-base">
                 FLUX is a preprocessing pipeline designed to improve the quality of large-scale web datasets used for training language models. The pipeline maximises token retention while maintaining strong filtering standards during dataset construction
-                <a href="Research/FLUX-2" className="text-[#328CC1] hover:underline ml-1">More »</a>
+                <a href="Research/FLUX-Data" className="text-[#328CC1] hover:underline ml-1">More »</a>
               </p>
             </div>
 

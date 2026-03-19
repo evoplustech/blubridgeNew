@@ -216,7 +216,7 @@ const FLUX2 = () => {
             A distinguishing characteristic of <strong>APEX</strong> is its departure from fixed semantic tag heuristics in favor of <strong>statistical main-content detection</strong>. Candidate page regions are evaluated through a composite scoring function incorporating three orthogonal signals:
           </p>
 
-          <div className="bg-gray-50 rounded-lg p-6 mb-8">
+          <div className="bg-[#f3f1e9] rounded-lg p-6 mb-8">
             <ul className="list-none space-y-3 mb-0">
               <li className="flex items-start">
                 <span className="bg-[#0B1F3B] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">1</span>
@@ -468,7 +468,7 @@ const FLUX2 = () => {
             />
           </div>
 
-          <div className="bg[#f3f1e9] rounded-lg p-6 mb-10">
+          <div className="bg-[#f3f1e9] rounded-lg p-6 mb-10">
             <h4 className="font-bold text-gray-800 mb-3">Optimal Thresholds Found:</h4>
             <ul className="list-none space-y-2 mb-0">
               <li><strong>BETR threshold:</strong> 0.76</li>
