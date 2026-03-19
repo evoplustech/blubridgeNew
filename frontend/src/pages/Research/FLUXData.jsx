@@ -32,14 +32,14 @@ const FLUXData = () => {
           
           {/* Opening Statement - Emphasized */}
           <div className="bg-[#f3f1e9] border-l-4 border-[#0B1F3B] p-6 mb-8 rounded-r-lg">
-            <p className="text-xl font-semibold text-gray-900 mb-2 italic">
+            <p className="text-xl font-semibold text-gray-900 mb-1">
               Model performance is visible.
             </p>
-             <p className="text-xl font-semibold text-gray-900 mb-2 italic">
-               Data curation is not. 
+            <p className="text-xl font-semibold text-gray-900 mb-1">
+              Data curation is not.
             </p>
-              <p className="text-xl font-semibold text-gray-900 mb-2 italic">
-               "Yet the latter determines the former"
+            <p className="text-xl font-semibold text-gray-900 italic">
+              Yet the latter determines the former.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ const FLUXData = () => {
           </p>
 
           {/* Key Objective Box */}
-          <div className="bg-[#f3f1e9] p-4 rounded-lg text-center">
+          <div className="bg-[#f3f1e9] p-4 rounded-lg">
             <h3 className="text-xl font-bold mb-3">FLUX Objective</h3>
             <p className="mb-0 text-gray-600">
               Eliminate the traditional trade-off between <strong>data quality</strong> and <strong>token retention</strong>, while operating with <strong>minimal computational cost</strong>. FLUX achieves this by outperforming DCLM and FineWeb in both Quality and Retention.
