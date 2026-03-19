@@ -2,7 +2,7 @@ import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 
-const FLUX2 = () => {
+const FLUXData = () => {
   useDocumentTitle('FLUX: Data Worth Training On | BluBridge');
   useMetaDescription('FLUX is a preprocessing pipeline designed to eliminate the trade-off between data quality and token retention for large language model training.');
 
@@ -554,4 +554,4 @@ const FLUX2 = () => {
   );
 };
 
-export default FLUX2;
+export default FLUXData;
