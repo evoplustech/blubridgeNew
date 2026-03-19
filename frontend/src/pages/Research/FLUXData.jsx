@@ -10,14 +10,14 @@ const FLUXData = () => {
     <div className="min-h-screen bg-[#f3f1e9]">
       <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
           Introducing FLUX: Data Worth Training On
         </h1>
 
         {/* Read the Paper Button */}
         <div className="mb-10">
           <a
-            href="https://arxiv.org/pdf/2603.13972"
+            href="https://arxiv.org/abs/2603.13972"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -82,11 +82,11 @@ const FLUXData = () => {
           <p className="text-xs text-gray-400 text-center mb-8">Option 4</p> 
 
           {/* ===== OPTION 5: Stacked with Top/Bottom Borders ===== */}
-          <div className="border-t-2 border-b-2 border-[#0B1F3B] bg-[#f3f1e9] py-12 px-8 mb-4 text-center">
+          <div className="border-t-2 border-b-2 border-[#0B1F3B] bg-[#f3f1e9] py-8 px-8 mb-4 text-center">
             <p className="text-2xl md:text-3xl font-black text-[#0B1F3B] mb-8 leading-tight">
               Model performance is visible.<br />Data curation is not.
             </p>
-            <p className="text-lg md:text-xl italic text-[#0B1F3B] opacity-50">
+            <p className="text-lg md:text-xl italic text-[#0B1F3B] opacity-80">
               "Yet the latter determines the former."
             </p>
           </div>
