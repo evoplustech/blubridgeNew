@@ -44,6 +44,7 @@ import BluWerp from './pages/Research/BluWerp';
 import FLUX from './pages/Research/FLUX';
 import FLUX2 from './pages/Research/FLUX2';
 import FLUX3 from './pages/Research/FLUX3';
+import FLUX4 from './pages/Research/FLUX4';
 
 // Solution Pages - Industry
 import Telco from './pages/solutions/industry/Telco';
@@ -146,6 +147,7 @@ const AppLayout = () => {
           <Route path="/Research/FLUX" element={<FLUX />} />
           <Route path="/Research/FLUX-2" element={<FLUX2 />} />
           <Route path="/Research/FLUX-3" element={<FLUX3 />} />
+          <Route path="/Research/FLUX-4" element={<FLUX4 />} />
           <Route path="/Research/Blu-Werp" element={<BluWerp />} />
           
           {/* Contact Routes */}
