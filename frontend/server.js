@@ -1,9 +1,33 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const { execSync } = require('child_process');
 
 const app = express();
 const PORT = 3000;
+
+const buildDir = path.join(__dirname, 'build');
+const indexPath = path.join(buildDir, 'index.html');
+
+function ensureBuildExists() {
+  if (!fs.existsSync(indexPath)) {
+    console.log('[auto-rebuild] build/index.html missing — rebuilding...');
+    try {
+      execSync('cd /app/frontend && yarn build', { stdio: 'inherit', timeout: 120000 });
+      console.log('[auto-rebuild] Build completed successfully.');
+    } catch (e) {
+      console.error('[auto-rebuild] Build failed:', e.message);
+    }
+  }
+}
+
+ensureBuildExists();
+
+setInterval(() => {
+  if (!fs.existsSync(indexPath)) {
+    ensureBuildExists();
+  }
+}, 30000);
 
 // SEO Content for each route - EXACT visible content from each page
 const seoContent = {
@@ -1094,9 +1118,6 @@ const seoContent = {
 // Default SEO content
 const defaultSeo = seoContent['/'];
 
-// Read the index.html template
-const indexPath = path.join(__dirname, 'build', 'index.html');
-
 // Function to get SEO content for a path
 function getSeoForPath(urlPath) {
   const normalizedPath = urlPath.split('?')[0].split('#')[0];
@@ -1120,7 +1141,32 @@ app.get('/{*splat}', (req, res) => {
   fs.readFile(indexPath, 'utf8', (err, html) => {
     if (err) {
       console.error('Error reading index.html:', err);
-      return res.status(500).send('Server error');
+      console.log('[auto-rebuild] Attempting rebuild on read failure...');
+      try {
+        execSync('cd /app/frontend && yarn build', { stdio: 'inherit', timeout: 120000 });
+        const retryHtml = fs.readFileSync(indexPath, 'utf8');
+        const seo = getSeoForPath(req.path);
+        let modifiedHtml = retryHtml.replace(
+          /<meta name="description" content="[^"]*"/,
+          `<meta name="description" content="${seo.description}"`
+        );
+        modifiedHtml = modifiedHtml.replace(
+          /<title>[^<]*<\/title>/,
+          `<title>${seo.title}</title>`
+        );
+        const seoHtml = `
+          <div id="seo-content" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+            ${seo.content}
+          </div>
+        `;
+        modifiedHtml = modifiedHtml.replace(
+          '<div id="root">',
+          `<div id="root">${seoHtml}`
+        );
+        return res.send(modifiedHtml);
+      } catch (rebuildErr) {
+        return res.status(503).send('<html><body><h1>Site is rebuilding, please refresh in 30 seconds...</h1></body></html>');
+      }
     }
 
     // Get the SEO content for this path
