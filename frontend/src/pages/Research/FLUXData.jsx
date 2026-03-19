@@ -10,7 +10,7 @@ const FLUXData = () => {
     <div className="min-h-screen bg-[#f3f1e9]">
       <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
           Introducing FLUX: Data Worth Training On
         </h1>
 
@@ -31,7 +31,7 @@ const FLUXData = () => {
         <div className="prose prose-lg max-w-none text-gray-800" style={{ textAlign: "justify" }}>
           
           {/* ===== OPTION 1: Minimal Centered ===== */}
-         <div className="bg-[#f3f1e9] py-14 px-8 mb-4 rounded-lg text-center">
+         {/* <div className="bg-[#f3f1e9] py-14 px-8 mb-4 rounded-lg text-center">
             <p className="text-2xl md:text-3xl font-extrabold text-[#0B1F3B] tracking-tight mb-6">
               Model performance is visible. &nbsp;&nbsp; Data curation is not.
             </p>
@@ -39,10 +39,10 @@ const FLUXData = () => {
               Yet the latter determines the former.
             </p>
           </div>
-          <p className="text-xs text-gray-400 text-center mb-8">Option 1</p> 
+          <p className="text-xs text-gray-400 text-center mb-8">Option 1</p>  */}
 
           {/* ===== OPTION 2: Left Border Accent ===== */}
-          <div className="border-l-[6px] border-[#0B1F3B] bg-[#f3f1e9] py-10 px-8 mb-4 rounded-r-lg">
+          {/* <div className="border-l-[6px] border-[#0B1F3B] bg-[#f3f1e9] py-10 px-8 mb-4 rounded-r-lg">
             <p className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4">
               Model performance is visible. &nbsp; Data curation is not.
             </p>
@@ -50,10 +50,10 @@ const FLUXData = () => {
               Yet the latter determines the former.
             </p>
           </div>
-          <p className="text-xs text-gray-400 text-center mb-8">Option 2</p>
+          <p className="text-xs text-gray-400 text-center mb-8">Option 2</p> */}
 
           {/* ===== OPTION 3: Dark Background ===== */}
-         <div className="bg-[#0B1F3B] py-12 px-8 mb-4 rounded-lg text-center">
+         {/* <div className="bg-[#0B1F3B] py-12 px-8 mb-4 rounded-lg text-center">
             <p className="text-xl md:text-2xl font-bold text-white tracking-wide mb-5">
               Model performance is visible. &nbsp;&nbsp; Data curation is not.
             </p>
@@ -62,10 +62,10 @@ const FLUXData = () => {
               Yet the latter determines the former.
             </p>
           </div>
-          <p className="text-xs text-gray-400 text-center mb-8">Option 3</p>
+          <p className="text-xs text-gray-400 text-center mb-8">Option 3</p> */}
 
           {/* ===== OPTION 4: Two Columns + Center ===== */}
-         <div className="bg-[#f3f1e9] py-10 px-8 mb-4 rounded-lg">
+         {/* <div className="bg-[#f3f1e9] py-10 px-8 mb-4 rounded-lg">
             <div className="flex justify-between items-center gap-8 mb-6">
               <p className="text-lg md:text-xl font-bold text-[#0B1F3B] mb-0 flex-1 text-center">
                 Model performance is visible.
@@ -79,7 +79,7 @@ const FLUXData = () => {
               "Yet the latter determines the former"
             </p>
           </div>
-          <p className="text-xs text-gray-400 text-center mb-8">Option 4</p> 
+          <p className="text-xs text-gray-400 text-center mb-8">Option 4</p>  */}
 
           {/* ===== OPTION 5: Stacked with Top/Bottom Borders ===== */}
           <div className="border-t-2 border-b-2 border-[#0B1F3B] bg-[#f3f1e9] py-8 px-8 mb-4 text-center">
@@ -90,7 +90,7 @@ const FLUXData = () => {
               "Yet the latter determines the former."
             </p>
           </div>
-          <p className="text-xs text-gray-400 text-center mb-8">Option 5</p>
+         
 
           <p className="mb-6">
             Before parameters are scaled, before benchmarks are reported, and before models are deployed, the training corpus is constructed. That construction process determines what information is preserved, what is filtered out, and what ultimately shapes the model's behavior.
