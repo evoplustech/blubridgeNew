@@ -31,7 +31,7 @@ const FLUXData = () => {
         <div className="prose prose-lg max-w-none text-gray-800" style={{ textAlign: "justify" }}>
           
           {/* Opening Statement - Emphasized */}
-          <div className="bg-[#f3f1e9] py-12 px-6 mb-8 rounded-lg text-center">
+          <div className="bg-[#f3f1e9] py-8 px-6 mb-8 rounded-lg text-center">
             <p className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-6">
               Model performance is visible. &nbsp;&nbsp; Data curation is not.
             </p>
