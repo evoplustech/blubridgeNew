@@ -67,7 +67,7 @@ const Research = () => {
 
             {/* External Link */}
             <a 
-              href="https://arxiv.org/pdf/2603.13972" 
+              href="https://arxiv.org/abs/2603.13972" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[#328CC1] hover:underline text-sm"
