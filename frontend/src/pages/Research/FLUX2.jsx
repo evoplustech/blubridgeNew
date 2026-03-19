@@ -535,7 +535,7 @@ const FLUX2 = () => {
 
           {/* Final Results Box */}
           <div className="bg-[#f3f1e9] text-gray-600 p-6 rounded-lg mb-10">
-            <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results at Scale</h3>
+            <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results at 3B Scale</h3>
             <div className="grid md:grid-cols-2 gap-6 text-center">
               <div>
                 <p className="text-3xl font-bold text-gray-800">51.92%</p>

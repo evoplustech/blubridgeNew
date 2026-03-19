@@ -44,23 +44,23 @@ const FLUXData = () => {
           </div>
 
           <p className="mb-6">
-            Before parameters are scaled, before benchmarks are reported, and before models are deployed, the <strong>training corpus</strong> is constructed. That construction process determines what information is preserved, what is filtered out, and what ultimately shapes the model's behavior.
+            Before parameters are scaled, before benchmarks are reported, and before models are deployed, the training corpus is constructed. That construction process determines what information is preserved, what is filtered out, and what ultimately shapes the model's behavior.
           </p>
 
           <p className="mb-6">
-            Every token retained is a <strong>deliberate choice</strong>. Every token discarded is a <strong>trade-off</strong>. At web scale, those decisions compound — setting the ceiling for what a language model can achieve.
+            Every token retained is a deliberate choice. Every token discarded is a trade-off. At web scale, those decisions compound — setting the ceiling for what a language model can achieve.
           </p>
 
           <p className="mb-6">
-            In recent years, the conversation around large language models has centered on scale — larger architectures, more training tokens, and increasing compute budgets. Model releases are evaluated by parameter counts and benchmark scores. <strong>Data preparation</strong> has quietly become a competitive trade secret — rarely disclosed, minimally examined, and fundamental to performance.
+            In recent years, the conversation around large language models has centered on scale — larger architectures, more training tokens, and increasing compute budgets. Model releases are evaluated by parameter counts and benchmark scores. Data preparation has quietly become a competitive trade secret — rarely disclosed, minimally examined, and fundamental to performance.
           </p>
 
           <p className="mb-6">
-            One reason data curation receives limited scrutiny is the <strong>lack of transparency</strong> around it. Leading LLMs such as <strong>ChatGPT</strong>, <strong>LLaMA</strong>, and <strong>Mistral</strong> have disclosed architectural details and benchmark results, but their data curation pipelines remain largely proprietary.
+            One reason data curation receives limited scrutiny is the lack of transparency around it. Leading LLMs such as ChatGPT, LLaMA, and Mistral have disclosed architectural details and benchmark results, but their data curation pipelines remain largely proprietary.
           </p>
 
           <p className="mb-10">
-            We believe the next phase of LLM progress requires <strong>transparency at the data layer</strong>. At <strong>BluBridge Technologies</strong>, we intend to release FLUX as open source in the future, enabling broader scrutiny, validation, and community-driven improvement.
+            We believe the next phase of LLM progress requires transparency at the data layer. At <strong>BluBridge</strong>, we intend to release FLUX as open source in the future, enabling broader scrutiny, validation, and community-driven improvement.
           </p>
 
           {/* Key Objective Box */}
@@ -535,7 +535,7 @@ const FLUXData = () => {
 
           {/* Final Results Box */}
           <div className="bg-[#f3f1e9] text-gray-600 p-6 rounded-lg mb-10">
-            <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results at Scale</h3>
+            <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results 3B at Scale</h3>
             <div className="grid md:grid-cols-2 gap-6 text-center">
               <div>
                 <p className="text-3xl font-bold text-gray-800">51.92%</p>
