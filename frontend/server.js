@@ -29,6 +29,32 @@ setInterval(() => {
   }
 }, 30000);
 
+// Build version tracking for live reload
+let buildVersion = Date.now().toString();
+fs.watchFile(indexPath, { interval: 2000 }, () => {
+  buildVersion = Date.now().toString();
+  console.log('[live-reload] Build changed, new version:', buildVersion);
+});
+
+app.get('/build-version.json', (req, res) => {
+  res.json({ version: buildVersion });
+});
+
+// Live reload script injected into pages
+const liveReloadScript = `
+<script>
+(function(){
+  var currentVersion = null;
+  setInterval(function(){
+    fetch('/build-version.json').then(function(r){return r.json()}).then(function(d){
+      if(currentVersion && currentVersion !== d.version){ location.reload(); }
+      currentVersion = d.version;
+    }).catch(function(){});
+  }, 3000);
+})();
+</script>
+`;
+
 // SEO Content for each route - EXACT visible content from each page
 const seoContent = {
   '/': {
@@ -1195,6 +1221,9 @@ app.get('/{*splat}', (req, res) => {
       '<div id="root">',
       `<div id="root">${seoHtml}`
     );
+
+    // Inject live reload script before </body>
+    modifiedHtml = modifiedHtml.replace('</body>', liveReloadScript + '</body>');
 
     res.send(modifiedHtml);
   });
