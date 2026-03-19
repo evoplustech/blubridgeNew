@@ -83,7 +83,7 @@ const FLUXData = () => {
 
           {/* ===== OPTION 5: Stacked with Top/Bottom Borders ===== */}
           <div className="border-t-2 border-b-2 border-[#0B1F3B] bg-[#f3f1e9] py-8 px-8 mb-4 text-center">
-            <p className="text-2xl md:text-3xl font-semibold text-[#0B1F3B] mb-8 leading-tight opacity-80">
+            <p className="text-2xl md:text-3xl font-semibold text-[#0B1F3B] mb-8 leading-tight opacity-90">
               Model performance is visible.<br />Data curation is not.
             </p>
             <p className="text-lg md:text-xl italic text-[#0B1F3B] opacity-80">
