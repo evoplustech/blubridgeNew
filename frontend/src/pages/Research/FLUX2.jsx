@@ -90,7 +90,7 @@ const FLUX2 = () => {
           </p>
 
           {/* Key Results Box */}
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
+          <div className="bg-[#f3f1e9] border border-gray-200 rounded-lg p-6 mb-6">
             <h4 className="font-bold text-black-800 mb-3">Key Results at Final Checkpoint:</h4>
             <ul className="list-none space-y-2 mb-0">
               <li className="flex items-start">
@@ -178,7 +178,7 @@ const FLUX2 = () => {
           </div>
 
           {/* Compute Savings Highlight */}
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-10">
+          <div className="bg-[#f3f1e9] border border-gray-200 rounded-lg p-6 mb-10">
             <div className="text-center">
               <p className="text-4xl font-bold text-black-800 mb-2">34.4%</p>
               <p className="text-lg text-black-700 font-medium">Compute Savings</p>
@@ -432,11 +432,11 @@ const FLUX2 = () => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 mb-10">
-            <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+            <div className="bg-[#f3f1e9] border border-gray-200 p-4 rounded-lg">
               <h4 className="font-bold text-black-800 mb-2">BETR Classifier</h4>
               <p className="text-sm text-black-700 mb-0">Introduced in Blu-WERP work</p>
             </div>
-            <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+            <div className="bg-[#f3f1e9] border border-gray-200 p-4 rounded-lg">
               <h4 className="font-bold text-black-800 mb-2">DCLM Classifier</h4>
               <p className="text-sm text-black-700 mb-0">DataComp-LM standard</p>
             </div>
@@ -468,7 +468,7 @@ const FLUX2 = () => {
             />
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 mb-10">
+          <div className="bg[#f3f1e9] rounded-lg p-6 mb-10">
             <h4 className="font-bold text-gray-800 mb-3">Optimal Thresholds Found:</h4>
             <ul className="list-none space-y-2 mb-0">
               <li><strong>BETR threshold:</strong> 0.76</li>
