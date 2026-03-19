@@ -62,7 +62,7 @@ const FLUXData = () => {
 
           {/* Key Objective Box */}
           <div className="bg-[#f3f1e9] p-4 rounded-lg">
-            <h3 className="text-xl font-bold mb-3">FLUX Objective</h3>
+            <h3 className="text-xl font-bold mb-3">FLUX Objective - Section to be more prominent</h3>
             <p className="mb-0 text-gray-600">
               Eliminate the traditional trade-off between <strong>data quality</strong> and <strong>token retention</strong>, while operating with <strong>minimal computational cost</strong>. FLUX achieves this by outperforming DCLM and FineWeb in both Quality and Retention.
             </p>
