@@ -31,16 +31,11 @@ const FLUXData = () => {
         <div className="prose prose-lg max-w-none text-gray-800" style={{ textAlign: "justify" }}>
           
           {/* Opening Statement - Emphasized */}
-          <div className="bg-white py-6 px-6 mb-8 rounded-lg shadow-sm">
-            <div className="flex justify-between items-center mb-3">
-              <p className="text-lg md:text-xl font-bold text-[#0B1F3B] mb-0">
-                Model performance is visible.
-              </p>
-              <p className="text-lg md:text-xl font-bold text-[#0B1F3B] mb-0">
-                Data curation is not.
-              </p>
-            </div>
-            <p className="text-lg md:text-xl italic font-medium text-gray-600 text-center mb-0">
+          <div className="bg-[#f3f1e9] py-12 px-6 mb-8 rounded-lg text-center">
+            <p className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-6">
+              Model performance is visible. &nbsp;&nbsp; Data curation is not.
+            </p>
+            <p className="text-xl md:text-2xl italic font-medium text-[#0B1F3B] mb-0">
               Yet the latter determines the former.
             </p>
           </div>
