@@ -38,7 +38,7 @@ BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 
 # Resend Email Configuration (for form submission notifications)
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 're_BRgjgEiZ_84FFx8t38LomYNBdo28r7WLa')
-RESEND_FROM_EMAIL = "hiring@blubridge.com"
+RESEND_FROM_EMAIL = "contact@blubridge.ai"
 RESEND_TO_EMAIL = "hiring@blubridge.com"
 
 # Create the main app without a prefix
