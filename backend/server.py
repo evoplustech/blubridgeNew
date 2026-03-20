@@ -38,8 +38,8 @@ BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 
 # Resend Email Configuration (for form submission notifications)
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 're_BRgjgEiZ_84FFx8t38LomYNBdo28r7WLa')
-RESEND_FROM_EMAIL = "contact@blubridge.ai"
-RESEND_TO_EMAIL = "contact@blubridge.ai"
+RESEND_FROM_EMAIL = "hiring@blubridge.com"
+RESEND_TO_EMAIL = "hiring@blubridge.com"
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -178,7 +178,7 @@ async def send_email_notification(form_type: str, form_data: dict):
         # Brevo API payload
         email_payload = {
             "sender": {
-                "name": "BluBrg Website",
+                "name": "BluBridge Website",
                 "email": BREVO_SENDER_EMAIL
             },
             "to": [
@@ -190,6 +190,11 @@ async def send_email_notification(form_type: str, form_data: dict):
             "subject": subject,
             "textContent": body
         }
+        
+        # Add Reply-To with user's email if available
+        user_email = form_data.get('email')
+        if user_email and isinstance(user_email, str) and '@' in user_email:
+            email_payload["replyTo"] = {"email": user_email}
         
         # Send email via Brevo API (non-blocking)
         async def send_brevo_email():
@@ -298,6 +303,11 @@ async def send_gmail_notification(form_type: str, form_data: dict, submission_ti
                 "subject": subject,
                 "text": body
             }
+            
+            # Add Reply-To with user's email if available
+            user_email = form_data.get('email')
+            if user_email and isinstance(user_email, str) and '@' in user_email:
+                params["reply_to"] = user_email
             
             resend.Emails.send(params)
             

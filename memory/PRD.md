@@ -9,6 +9,7 @@ Build and maintain the BluBridge corporate website with React frontend + FastAPI
 - SEO-optimized server-side rendering
 - Research paper pages (FLUX series)
 - Careers page with job listings and internal job detail pages
+- Email notifications for form submissions
 
 ## What's Been Implemented
 
@@ -17,7 +18,14 @@ Build and maintain the BluBridge corporate website with React frontend + FastAPI
 - Admin panel with server-side pagination for all data tables
 - Permanent frontend auto-rebuild and live-reload system
 - Multiple research pages (FLUX, FLUX-3, FLUX-4, FLUX-Data)
-- **Careers page job replacement (March 2026)**: Replaced 7 old job listings with 12 new jobs from Excel file. All jobs use internal routing (/careers/job/:slug). Job data sourced from Naukri listings. NO external redirects.
+- **Careers page job replacement (March 2026)**: Replaced 7 old jobs with 12 new jobs from Excel. Internal routing preserved.
+- **Email configuration update (March 2026)**: Updated sender/receiver from contact@blubridge.ai to hiring@blubridge.com. Added Reply-To header with user's email for all form submissions (contact, job applications, newsletter, footer forms). Both Brevo and Resend email functions updated.
+
+### Email Configuration
+- **From**: hiring@blubridge.com
+- **To**: hiring@blubridge.com
+- **Reply-To**: Dynamic — set to the user's email from the submitted form
+- **Note**: blubridge.com domain needs to be verified on Resend dashboard for Resend emails to work. Brevo emails work correctly.
 
 ### 12 Current Job Listings (March 2026)
 1. Administration Executive (Male) - Operations
@@ -39,13 +47,14 @@ Build and maintain the BluBridge corporate website with React frontend + FastAPI
 - Build: CRACO with @ path alias support
 - Server: Custom Express server (server.js) with self-healing + live-reload
 - File watcher: Supervisor-managed inotifywait for auto-rebuild
+- Email: Brevo API + Resend API (dual sending)
 
 ## Key Files
 - `/app/frontend/src/data/jobsData.js` - All 12 job entries with full details
 - `/app/frontend/src/pages/Careers.jsx` - Careers page with job listings
 - `/app/frontend/src/pages/JobDetail.jsx` - Job detail page
 - `/app/frontend/src/App.js` - Routes including /careers/job/:slug
-- `/app/backend/server.py` - Backend with paginated admin endpoints
+- `/app/backend/server.py` - Backend with email, admin, form endpoints
 - `/app/frontend/server.js` - Express server with SEO, self-healing, live-reload
 - `/app/frontend/craco.config.js` - CRACO config with @ alias
 
@@ -66,7 +75,8 @@ Build and maintain the BluBridge corporate website with React frontend + FastAPI
 - Password: admin
 
 ## 3rd Party Integrations
-- Resend API (Email)
+- Resend API (Email) - needs blubridge.com domain verification
+- Brevo API (Email) - working
 - Clicky Analytics
 - MongoDB Atlas
 - inotify-tools (OS dependency)
