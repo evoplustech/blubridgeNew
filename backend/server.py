@@ -409,7 +409,6 @@ async def submit_contact_form(form: ContactForm):
         await db.contact_forms.insert_one(legacy_doc)
         
         # Send email notification (non-blocking)
-        await send_email_notification(form_type, doc)
         await send_gmail_notification(form_type, doc)
         
         return {"message": "Contact form submitted successfully", "id": form.id}
@@ -485,7 +484,6 @@ async def submit_unified_contact(submission: ContactSubmission):
         await db.contacts.insert_one(doc)
         
         # Send email notification (non-blocking)
-        await send_email_notification(submission.type, doc)
         await send_gmail_notification(submission.type, doc)
         
         return {"message": "Form submitted successfully", "id": doc.get("id"), "type": submission.type}
@@ -545,7 +543,6 @@ async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[
         await db.contacts.insert_one(doc)
         
         # Send email notification (non-blocking)
-        await send_email_notification("contact_us", doc)
         await send_gmail_notification("contact_us", doc)
         
         return {"message": "Contact form submitted successfully", "id": doc["id"]}
@@ -799,7 +796,6 @@ async def submit_job_application(
             "resumeFilename": resume.filename,
             "appliedAt": application_doc["appliedAt"]
         }
-        await send_email_notification("job_application", email_data)
         await send_gmail_notification("job_application", email_data)
         
         logging.info(f"Job application submitted: {application_id} for {jobTitle}")
