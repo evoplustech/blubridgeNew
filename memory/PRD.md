@@ -1,106 +1,72 @@
 # BluBridge Website - Product Requirements Document
 
 ## Original Problem Statement
-Build and iteratively refine a corporate website for BluBridge, an AI engineering company. Key objectives include:
-1. Building a `/solutions` page with content from provided documents
-2. Implementing admin panel with password change and data export features
-3. SEO optimization with server-side content injection
-4. Form duplicate prevention and data integrity
-5. Email service migration from Gmail SMTP to Resend API
-6. Research paper pages (FLUX) with multiple design variants
-7. Admin panel pagination for large datasets
+Build and maintain the BluBridge corporate website with React frontend + FastAPI backend + MongoDB. Features include a Solutions page, SEO overhaul, admin panel, research paper pages (FLUX), and careers page with job listings.
 
-## Current State (March 2026)
+## Core Requirements
+- Corporate website with multiple pages (Home, Solutions, Products, Research, About, Careers, Contact)
+- Admin panel for managing submissions (Career Applications, Contact Forms, Footer Submissions)
+- SEO-optimized server-side rendering
+- Research paper pages (FLUX series)
+- Careers page with job listings and internal job detail pages
+
+## What's Been Implemented
 
 ### Completed Features
+- Full website with all major pages
+- Admin panel with server-side pagination for all data tables
+- Permanent frontend auto-rebuild and live-reload system
+- Multiple research pages (FLUX, FLUX-3, FLUX-4, FLUX-Data)
+- **Careers page job replacement (March 2026)**: Replaced 7 old job listings with 12 new jobs from Excel file. All jobs use internal routing (/careers/job/:slug). Job data sourced from Naukri listings. NO external redirects.
 
-#### Core Website
-- Solutions Page, Header, Home, About Us, Careers, Contact pages
-- Global favicon, Clicky analytics, robots.txt, sitemap.xml (9 URLs)
+### 12 Current Job Listings (March 2026)
+1. Administration Executive (Male) - Operations
+2. HR Executive - Talent & People Operations - HR
+3. Business Development - AI Strategy & Partnerships - BD
+4. HR Admin (Male) - HR
+5. Senior Administration Officer (Male) - Operations
+6. Accounts And Compliance Executive (Male) - Finance
+7. AI ML Engineer (Freshers) - Engineering
+8. AI Systems Engineer - Deep Learning Infrastructure (Freshers) - Engineering
+9. Accounts & Finance Executive - Operations & Compliance - Finance
+10. Business Analyst - Global AI Strategy & Solutions - BD
+11. HR Executive (Male) - HR
+12. Infrastructure Monitoring & Governance Executive - IT & Security
 
-#### Research Pages
-- `/Research/FLUX` — Original plain design
-- `/Research/FLUX-Data` — Redesigned with callout boxes, dark table headers, progress bars (separate file FLUXData.jsx)
-- `/Research/FLUX-3` — Polished editorial design with dark hero header, numbered sections
-- `/Research/FLUX-4` — Same content as FLUX with improved readability (bolded key terms)
-- `/Research/Blu-Werp` — Existing research page
+## Architecture
+- Frontend: React (CRA + CRACO) with Shadcn UI components
+- Backend: FastAPI + MongoDB
+- Build: CRACO with @ path alias support
+- Server: Custom Express server (server.js) with self-healing + live-reload
+- File watcher: Supervisor-managed inotifywait for auto-rebuild
 
-#### Admin Panel (`/admin`) — FULLY PAGINATED
-- **Dashboard**: Overview of submissions with correct totals
-- **Career Applications**: Server-side pagination (1051 records), page size 50/100/200, Export All Data / Export Current Page dropdown
-- **Contact Forms**: Server-side pagination (76 records), Export All CSV
-- **Footer Forms**: Server-side pagination (75 records), Export All CSV
-- **Settings Page**: Password change, data exports, DB maintenance
-- **Credentials**: username `admin`, password `admin`
+## Key Files
+- `/app/frontend/src/data/jobsData.js` - All 12 job entries with full details
+- `/app/frontend/src/pages/Careers.jsx` - Careers page with job listings
+- `/app/frontend/src/pages/JobDetail.jsx` - Job detail page
+- `/app/frontend/src/App.js` - Routes including /careers/job/:slug
+- `/app/backend/server.py` - Backend with paginated admin endpoints
+- `/app/frontend/server.js` - Express server with SEO, self-healing, live-reload
+- `/app/frontend/craco.config.js` - CRACO config with @ alias
 
-#### Data Integrity & SEO
-- Frontend double-submit protection on all forms
-- Backend duplicate prevention with time-based cooldowns
-- Custom Express.js server for server-side SEO content injection (40+ pages)
-
-#### Auto-Rebuild & Live Reload
-- File watcher (supervisor-managed `frontend-watcher`) auto-rebuilds on VS Code edits
-- Live reload script auto-refreshes browser when build changes
-- Auto-rebuild on startup if build directory is missing
-
-### Technical Architecture
-```
-/app
-├── backend/
-│   ├── server.py (FastAPI - all routes, paginated admin endpoints)
-│   ├── tests/test_admin_pagination.py
-│   └── .env
-├── frontend/
-│   ├── build/ (production build)
-│   ├── public/ (index.html, favicon, robots.txt, sitemap.xml, images/)
-│   ├── src/
-│   │   ├── pages/
-│   │   │   ├── Research/FLUX.jsx, FLUXData.jsx, FLUX3.jsx, FLUX4.jsx, BluWerp.jsx
-│   │   │   └── admin/
-│   │   │       ├── CareerApplications.jsx (paginated)
-│   │   │       ├── ContactForms.jsx (paginated)
-│   │   │       ├── FooterForms.jsx (paginated)
-│   │   │       ├── Pagination.jsx (shared component)
-│   │   │       ├── AdminDashboard.jsx
-│   │   │       ├── AdminLayout.jsx
-│   │   │       └── Settings.jsx
-│   │   └── App.js
-│   ├── server.js (Express.js - SEO + live reload)
-│   └── watch-rebuild.sh
-└── memory/PRD.md
-```
-
-### Key API Endpoints
-- `POST /api/admin/login` — Admin auth
-- `GET /api/admin/submissions/careers?page=1&limit=50` — Paginated careers
-- `GET /api/admin/submissions/contact?page=1&limit=50` — Paginated contacts
-- `GET /api/admin/submissions/footer?page=1&limit=50` — Paginated footer
-- `GET /api/admin/export/{careers|contact|footer}` — Full CSV export (all records)
-- `POST /api/admin/change-password` — Password change
-
-## Prioritized Backlog
-
-### P1 (High Priority)
-- Apply 3-Grid color scheme to About Page
+## Pending Tasks (Prioritized)
+### P1
+- Apply 3-Grid color theme to About Page
 - Create Individual GPU Node Pages
 
-### P2 (Medium Priority)
-- Refactor `server.py` into proper project structure (routes, models)
-- Refactor large React components
+### P2
+- Add SEO content for research pages (FLUX-3, FLUX-4, FLUX-Data) in server.js
+- Refactor server.py into proper project structure
+- Consolidate duplicated FLUX page components
 - Create Blog/Press Pages
 - Create Contact Sub-pages
-- Add SEO content for FLUX-3, FLUX-4, FLUX-Data in server.js
 
-### P3 (Lower Priority)
-- Consolidate FLUX page variants into reusable components
+## Admin Credentials
+- Username: admin
+- Password: admin
 
 ## 3rd Party Integrations
-- Resend API (Email), Clicky Analytics, MongoDB Atlas
-
-## Known Issues
-- Frontend build directory may be deleted on environment resets (auto-rebuild mitigates this)
-- SEO content in server.js is hardcoded and brittle
-
-## Test Reports
-- `/app/test_reports/iteration_4.json` — Admin Settings page tests
-- `/app/test_reports/iteration_5.json` — Admin Pagination tests (94% backend, 100% frontend)
+- Resend API (Email)
+- Clicky Analytics
+- MongoDB Atlas
+- inotify-tools (OS dependency)
