@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AdminLayout from './AdminLayout';
+import Pagination from './Pagination';
 import { Search, Eye, Trash2, RefreshCw, User, Download, Briefcase, X, FileText, Calendar } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
@@ -15,30 +16,38 @@ const CareerApplications = () => {
   const [endDate, setEndDate] = useState('');
   const [selectedApplication, setSelectedApplication] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(50);
+  const [total, setTotal] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [exporting, setExporting] = useState(false);
 
   useEffect(() => {
     fetchApplications();
-  }, [statusFilter]);
+  }, [statusFilter, page, limit]);
 
   const fetchApplications = async () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('adminToken');
-      let url = `${API_URL}/api/admin/submissions/careers`;
       const params = new URLSearchParams();
+      params.append('page', page);
+      params.append('limit', limit);
       if (search) params.append('search', search);
       if (statusFilter) params.append('status', statusFilter);
       if (startDate) params.append('start_date', startDate);
       if (endDate) params.append('end_date', endDate);
-      if (params.toString()) url += `?${params.toString()}`;
+      const url = `${API_URL}/api/admin/submissions/careers?${params.toString()}`;
       
       const response = await fetch(url, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
       if (response.ok) {
-        const data = await response.json();
-        setApplications(data);
+        const result = await response.json();
+        setApplications(result.data);
+        setTotal(result.total);
+        setTotalPages(result.totalPages);
       }
     } catch (err) {
       console.error('Error fetching applications:', err);
@@ -49,17 +58,29 @@ const CareerApplications = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setPage(1);
     fetchApplications();
   };
 
   const handleDateFilter = () => {
+    setPage(1);
     fetchApplications();
   };
 
   const clearDateFilter = () => {
     setStartDate('');
     setEndDate('');
+    setPage(1);
     setTimeout(() => fetchApplications(), 0);
+  };
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
+
+  const handleLimitChange = (newLimit) => {
+    setLimit(newLimit);
+    setPage(1);
   };
 
   const viewApplication = async (application) => {
@@ -160,55 +181,51 @@ const CareerApplications = () => {
     }
   };
 
-  const exportToCSV = () => {
-    if (applications.length === 0) {
-      alert('No data to export');
-      return;
+  const exportToCSV = async (exportAll = true) => {
+    setExporting(true);
+    try {
+      if (exportAll) {
+        const token = localStorage.getItem('adminToken');
+        const response = await fetch(`${API_URL}/api/admin/export/careers`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          const dateStr = new Date().toISOString().split('T')[0];
+          a.download = `career_applications_all_${dateStr}.csv`;
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          a.remove();
+        }
+      } else {
+        if (applications.length === 0) { alert('No data to export'); setExporting(false); return; }
+        const headers = ['First Name','Last Name','Email','Phone','Job Title','LinkedIn','Portfolio','Status','Applied Date'];
+        const rows = applications.map(app => [
+          app.firstName || '', app.lastName || '', app.email || '', app.phone || '',
+          app.jobTitle || '', app.linkedIn || '', app.portfolio || '',
+          app.status || 'pending', app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : ''
+        ]);
+        const csvContent = [headers.join(','), ...rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))].join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const dateStr = new Date().toISOString().split('T')[0];
+        a.download = `career_applications_page${page}_${dateStr}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+      }
+    } catch (err) {
+      console.error('Error exporting:', err);
+    } finally {
+      setExporting(false);
     }
-
-    // Define CSV headers
-    const headers = [
-      'First Name',
-      'Last Name',
-      'Email',
-      'Phone',
-      'Job Title',
-      'LinkedIn',
-      'Portfolio',
-      'Status',
-      'Applied Date'
-    ];
-
-    // Convert applications to CSV rows
-    const rows = applications.map(app => [
-      app.firstName || '',
-      app.lastName || '',
-      app.email || '',
-      app.phone || '',
-      app.jobTitle || '',
-      app.linkedIn || '',
-      app.portfolio || '',
-      app.status || 'pending',
-      app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : ''
-    ]);
-
-    // Create CSV content
-    const csvContent = [
-      headers.join(','),
-      ...rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
-    ].join('\n');
-
-    // Create and trigger download
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    const dateStr = new Date().toISOString().split('T')[0];
-    a.download = `career_applications_${dateStr}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    window.URL.revokeObjectURL(url);
-    a.remove();
   };
 
   const formatDate = (dateStr) => {
@@ -244,10 +261,20 @@ const CareerApplications = () => {
             <p className="text-[#6B7280] mt-1">Manage job applications and resumes</p>
           </div>
           <div className="flex gap-2">
-            <Button onClick={exportToCSV} variant="outline" size="sm" className="bg-green-50 border-green-200 text-green-700 hover:bg-green-100">
-              <Download className="w-4 h-4 mr-2" />
-              Export CSV
-            </Button>
+            <div className="relative group">
+              <Button variant="outline" size="sm" className="bg-green-50 border-green-200 text-green-700 hover:bg-green-100" disabled={exporting}>
+                <Download className="w-4 h-4 mr-2" />
+                {exporting ? 'Exporting...' : 'Export CSV'}
+              </Button>
+              <div className="absolute right-0 top-full mt-1 bg-white border border-[#E5E7EB] rounded-lg shadow-lg hidden group-hover:block z-10 min-w-[180px]">
+                <button onClick={() => exportToCSV(true)} className="w-full text-left px-4 py-2.5 text-sm text-[#374151] hover:bg-[#F3F4F6] rounded-t-lg" data-testid="export-all-btn">
+                  Export All Data
+                </button>
+                <button onClick={() => exportToCSV(false)} className="w-full text-left px-4 py-2.5 text-sm text-[#374151] hover:bg-[#F3F4F6] rounded-b-lg border-t border-[#E5E7EB]" data-testid="export-page-btn">
+                  Export Current Page
+                </button>
+              </div>
+            </div>
             <Button onClick={fetchApplications} variant="outline" size="sm">
               <RefreshCw className="w-4 h-4 mr-2" />
               Refresh
@@ -326,7 +353,7 @@ const CareerApplications = () => {
 
         {/* Results Count */}
         <div className="text-sm text-[#6B7280]">
-          Showing {applications.length} application{applications.length !== 1 ? 's' : ''}
+          Showing {applications.length} of {total} application{total !== 1 ? 's' : ''}
           {(startDate || endDate) && (
             <span className="ml-2 text-[#328CC1]">
               ({startDate && `From: ${startDate}`}{startDate && endDate && ' - '}{endDate && `To: ${endDate}`})
@@ -426,6 +453,16 @@ const CareerApplications = () => {
             </table>
           </div>
         </div>
+
+        {/* Pagination */}
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          total={total}
+          limit={limit}
+          onPageChange={handlePageChange}
+          onLimitChange={handleLimitChange}
+        />
 
         {/* Detail Modal */}
         {showDetail && selectedApplication && (

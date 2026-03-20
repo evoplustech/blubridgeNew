@@ -988,8 +988,8 @@ async def get_admin_stats(authorization: Optional[str] = Header(None)):
 
 
 @api_router.get("/admin/submissions/footer")
-async def get_footer_submissions(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None):
-    """Get footer form submissions"""
+async def get_footer_submissions(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None):
+    """Get footer form submissions with pagination"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -1003,16 +1003,19 @@ async def get_footer_submissions(authorization: Optional[str] = Header(None), li
                 {"email": {"$regex": search, "$options": "i"}}
             ]
         
-        submissions = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).to_list(limit)
-        return submissions
+        total = await db.contacts.count_documents(query)
+        skip = (page - 1) * limit
+        submissions = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).skip(skip).to_list(limit)
+        total_pages = (total + limit - 1) // limit if limit > 0 else 1
+        return {"data": submissions, "total": total, "page": page, "limit": limit, "totalPages": total_pages}
     except Exception as e:
         logging.error(f"Error fetching footer submissions: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch submissions")
 
 
 @api_router.get("/admin/submissions/contact")
-async def get_contact_submissions_admin(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None):
-    """Get contact form submissions (contact page, sales & general enquiry)"""
+async def get_contact_submissions_admin(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None):
+    """Get contact form submissions (contact page, sales & general enquiry) with pagination"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -1027,16 +1030,19 @@ async def get_contact_submissions_admin(authorization: Optional[str] = Header(No
                 {"company": {"$regex": search, "$options": "i"}}
             ]
         
-        submissions = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).to_list(limit)
-        return submissions
+        total = await db.contacts.count_documents(query)
+        skip = (page - 1) * limit
+        submissions = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).skip(skip).to_list(limit)
+        total_pages = (total + limit - 1) // limit if limit > 0 else 1
+        return {"data": submissions, "total": total, "page": page, "limit": limit, "totalPages": total_pages}
     except Exception as e:
         logging.error(f"Error fetching contact submissions: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch submissions")
 
 
 @api_router.get("/admin/submissions/careers")
-async def get_career_applications_admin(authorization: Optional[str] = Header(None), limit: int = 100, search: Optional[str] = None, status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
-    """Get career applications with optional date range filter"""
+async def get_career_applications_admin(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None, status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
+    """Get career applications with optional date range filter and pagination"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -1063,8 +1069,11 @@ async def get_career_applications_admin(authorization: Optional[str] = Header(No
             if date_query:
                 query["appliedAt"] = date_query
         
-        applications = await db.job_applications.find(query, {"_id": 0}).sort("appliedAt", -1).to_list(limit)
-        return applications
+        total = await db.job_applications.count_documents(query)
+        skip = (page - 1) * limit
+        applications = await db.job_applications.find(query, {"_id": 0}).sort("appliedAt", -1).skip(skip).to_list(limit)
+        total_pages = (total + limit - 1) // limit if limit > 0 else 1
+        return {"data": applications, "total": total, "page": page, "limit": limit, "totalPages": total_pages}
     except Exception as e:
         logging.error(f"Error fetching career applications: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch applications")
@@ -1242,30 +1251,30 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         
         if data_type == "footer":
             # Export footer form submissions
-            data = await db.contacts.find({"type": "footer_form"}, {"_id": 0}).sort("createdAt", -1).to_list(10000)
+            data = await db.contacts.find({"type": "footer_form"}, {"_id": 0}).sort("createdAt", -1).to_list(100000)
             headers = ["First Name", "Last Name", "Email", "Message", "Created At"]
             rows = [[d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("message", ""), d.get("createdAt", "")] for d in data]
             filename = "footer_forms_export.csv"
             
         elif data_type == "contact":
             # Export contact form submissions
-            data = await db.contacts.find({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}, {"_id": 0}).sort("createdAt", -1).to_list(10000)
+            data = await db.contacts.find({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}, {"_id": 0}).sort("createdAt", -1).to_list(100000)
             headers = ["Type", "First Name", "Last Name", "Email", "Company", "Phone", "Message", "Country", "Job Title", "Purpose", "Created At"]
             rows = [[d.get("type", ""), d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("company", ""), d.get("phone", ""), d.get("message", ""), d.get("country", ""), d.get("jobTitle", ""), d.get("purpose", ""), d.get("createdAt", "")] for d in data]
             filename = "contact_forms_export.csv"
             
         elif data_type == "careers":
             # Export job applications
-            data = await db.job_applications.find({}, {"_id": 0}).sort("appliedAt", -1).to_list(10000)
+            data = await db.job_applications.find({}, {"_id": 0}).sort("appliedAt", -1).to_list(100000)
             headers = ["First Name", "Last Name", "Email", "Phone", "Location", "Job Title", "LinkedIn", "Status", "Applied At"]
             rows = [[d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("phone", ""), d.get("location", ""), d.get("jobTitle", ""), d.get("linkedInProfile", ""), d.get("status", ""), d.get("appliedAt", "")] for d in data]
             filename = "career_applications_export.csv"
             
         elif data_type == "all":
             # Export all data combined
-            footer_data = await db.contacts.find({"type": "footer_form"}, {"_id": 0}).to_list(10000)
-            contact_data = await db.contacts.find({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}, {"_id": 0}).to_list(10000)
-            career_data = await db.job_applications.find({}, {"_id": 0}).to_list(10000)
+            footer_data = await db.contacts.find({"type": "footer_form"}, {"_id": 0}).to_list(100000)
+            contact_data = await db.contacts.find({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}, {"_id": 0}).to_list(100000)
+            career_data = await db.job_applications.find({}, {"_id": 0}).to_list(100000)
             
             headers = ["Source", "Type", "First Name", "Last Name", "Email", "Phone", "Company", "Message", "Job Title", "Status", "Created At"]
             rows = []

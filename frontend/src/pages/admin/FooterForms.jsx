@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AdminLayout from './AdminLayout';
-import { Search, Eye, Trash2, RefreshCw, Mail, User, Calendar, X } from 'lucide-react';
+import Pagination from './Pagination';
+import { Search, Eye, Trash2, RefreshCw, Mail, User, Calendar, X, Download } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 
@@ -12,26 +13,35 @@ const FooterForms = () => {
   const [search, setSearch] = useState('');
   const [selectedSubmission, setSelectedSubmission] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(50);
+  const [total, setTotal] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [exporting, setExporting] = useState(false);
 
   useEffect(() => {
     fetchSubmissions();
-  }, []);
+  }, [page, limit]);
 
   const fetchSubmissions = async () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('adminToken');
-      const url = search 
-        ? `${API_URL}/api/admin/submissions/footer?search=${encodeURIComponent(search)}`
-        : `${API_URL}/api/admin/submissions/footer`;
+      const params = new URLSearchParams();
+      params.append('page', page);
+      params.append('limit', limit);
+      if (search) params.append('search', search);
+      const url = `${API_URL}/api/admin/submissions/footer?${params.toString()}`;
       
       const response = await fetch(url, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
       if (response.ok) {
-        const data = await response.json();
-        setSubmissions(data);
+        const result = await response.json();
+        setSubmissions(result.data);
+        setTotal(result.total);
+        setTotalPages(result.totalPages);
       }
     } catch (err) {
       console.error('Error fetching submissions:', err);
@@ -42,7 +52,33 @@ const FooterForms = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setPage(1);
     fetchSubmissions();
+  };
+
+  const handlePageChange = (newPage) => { setPage(newPage); };
+  const handleLimitChange = (newLimit) => { setLimit(newLimit); setPage(1); };
+
+  const exportToCSV = async () => {
+    setExporting(true);
+    try {
+      const token = localStorage.getItem('adminToken');
+      const response = await fetch(`${API_URL}/api/admin/export/footer`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `footer_forms_all_${new Date().toISOString().split('T')[0]}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+      }
+    } catch (err) { console.error('Error exporting:', err); }
+    finally { setExporting(false); }
   };
 
   const viewSubmission = async (submission) => {
@@ -113,10 +149,16 @@ const FooterForms = () => {
             <h1 className="text-2xl font-bold text-[#0B1F3B]">Footer Form Submissions</h1>
             <p className="text-[#6B7280] mt-1">Manage submissions from the global footer form</p>
           </div>
-          <Button onClick={fetchSubmissions} variant="outline" size="sm">
-            <RefreshCw className="w-4 h-4 mr-2" />
-            Refresh
-          </Button>
+          <div className="flex gap-2">
+            <Button onClick={exportToCSV} variant="outline" size="sm" className="bg-green-50 border-green-200 text-green-700 hover:bg-green-100" disabled={exporting}>
+              <Download className="w-4 h-4 mr-2" />
+              {exporting ? 'Exporting...' : 'Export All CSV'}
+            </Button>
+            <Button onClick={fetchSubmissions} variant="outline" size="sm">
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Refresh
+            </Button>
+          </div>
         </div>
 
         {/* Search */}
@@ -209,6 +251,16 @@ const FooterForms = () => {
             </table>
           </div>
         </div>
+
+        {/* Pagination */}
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          total={total}
+          limit={limit}
+          onPageChange={handlePageChange}
+          onLimitChange={handleLimitChange}
+        />
 
         {/* Detail Modal */}
         {showDetail && selectedSubmission && (
