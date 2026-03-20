@@ -25,59 +25,99 @@ import { Link } from 'react-router-dom';
 const jobListings = [
   {
     id: 1,
-    title: 'AI Systems Engineer',
-    department: 'AI Research',
-    team: 'AI Research',
+    title: 'Administration Executive (Male)',
+    department: 'Operations',
+    team: 'Administration',
     location: 'Chennai',
-    slug: 'ai-systems-engineer'
+    slug: 'administration-executive-male'
   },
   {
     id: 2,
-    title: 'AI & ML Engineer – C++ / Java Developer',
-    department: 'AI Research',
-    team: 'Core ML',
+    title: 'HR Executive - Talent & People Operations',
+    department: 'Human Resources',
+    team: 'People & Talent',
     location: 'Chennai',
-    slug: 'ai-ml-engineer-cpp-java'
+    slug: 'hr-executive-talent-people-operations'
   },
   {
     id: 3,
-    title: 'Branding & Communications Lead',
-    department: 'Branding',
-    team: 'Brand',
+    title: 'Business Development - AI Strategy & Partnerships',
+    department: 'Business Development',
+    team: 'Strategy',
     location: 'Chennai',
-    slug: 'branding-communications-lead'
+    slug: 'business-development-ai-strategy'
   },
   {
     id: 4,
-    title: 'Marketing & Growth Lead',
-    department: 'Marketing',
-    team: 'Growth',
+    title: 'HR Admin (Male)',
+    department: 'Human Resources',
+    team: 'HR Operations',
     location: 'Chennai',
-    slug: 'marketing-growth-lead'
+    slug: 'hr-admin-male'
   },
   {
     id: 5,
-    title: 'Process & Operations Intern',
+    title: 'Senior Administration Officer (Male)',
     department: 'Operations',
-    team: 'Internship',
+    team: 'Administration',
     location: 'Chennai',
-    slug: 'process-operations-intern'
+    slug: 'senior-administration-officer-male'
   },
   {
     id: 6,
-    title: 'Office Administration – Male',
-    department: 'Operations',
-    team: 'Admin',
+    title: 'Accounts And Compliance Executive (Male)',
+    department: 'Finance',
+    team: 'Accounts & Compliance',
     location: 'Chennai',
-    slug: 'office-administration'
+    slug: 'accounts-compliance-executive'
   },
   {
     id: 7,
-    title: 'Accountant (Male)',
-    department: 'Finance',
-    team: 'Accounting',
+    title: 'AI ML Engineer (Freshers)',
+    department: 'Engineering',
+    team: 'Core ML',
     location: 'Chennai',
-    slug: 'accountant'
+    slug: 'ai-ml-engineer-freshers'
+  },
+  {
+    id: 8,
+    title: 'AI Systems Engineer - Deep Learning Infrastructure (Freshers)',
+    department: 'Engineering',
+    team: 'AI Infrastructure',
+    location: 'Chennai',
+    slug: 'ai-systems-engineer-dl-infrastructure'
+  },
+  {
+    id: 9,
+    title: 'Accounts & Finance Executive - Operations & Compliance',
+    department: 'Finance',
+    team: 'Finance & Accounts',
+    location: 'Chennai',
+    slug: 'accounts-finance-executive'
+  },
+  {
+    id: 10,
+    title: 'Business Analyst - Global AI Strategy & Solutions',
+    department: 'Business Development',
+    team: 'Strategy & Analytics',
+    location: 'Chennai',
+    slug: 'business-analyst-ai-strategy'
+  },
+  {
+    id: 11,
+    title: 'HR Executive (Male)',
+    department: 'Human Resources',
+    team: 'Recruitment',
+    location: 'Chennai',
+    slug: 'hr-executive-male'
+  },
+  {
+    id: 12,
+    title: 'Infrastructure Monitoring & Governance Executive',
+    department: 'IT & Security',
+    team: 'Infrastructure',
+    location: 'Chennai',
+    slug: 'infrastructure-monitoring-governance'
   }
 ];
 

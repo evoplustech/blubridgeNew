@@ -6,7 +6,7 @@ import pytest
 import requests
 import os
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://flux-page-redesign.preview.emergentagent.com')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://dev-workflow-preview.preview.emergentagent.com')
 
 # Admin credentials
 ADMIN_USERNAME = "admin"
