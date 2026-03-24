@@ -323,6 +323,94 @@ async def send_gmail_notification(form_type: str, form_data: dict, submission_ti
     except Exception as e:
         logging.error(f"Error scheduling Resend notification: {e}")
 
+
+# Separate email sender for Contact & Footer forms — sends to contact@blubridge.ai
+CONTACT_FORM_TO_EMAIL = "contact@blubridge.ai"
+
+async def send_contact_form_email(form_type: str, form_data: dict, submission_timestamp: str = None):
+    """Send email for contact/footer forms to contact@blubridge.ai. Isolated from job application emails."""
+    
+    def _send():
+        try:
+            if not RESEND_API_KEY:
+                logging.warning("RESEND_API_KEY not configured, skipping contact form email")
+                return
+            
+            resend.api_key = RESEND_API_KEY
+            
+            type_labels = {
+                "contact_sales": "Contact Sales",
+                "general_enquiry": "General Enquiry",
+                "contact_us": "Contact Us",
+                "footer_form": "Footer Form",
+                "newsletter": "Newsletter Subscription"
+            }
+            form_type_label = type_labels.get(form_type, form_type.replace("_", " ").title())
+            
+            if submission_timestamp:
+                timestamp_str = submission_timestamp
+            else:
+                timestamp_str = form_data.get('createdAt') or form_data.get('subscribed_at') or datetime.now(timezone.utc).isoformat()
+            
+            try:
+                if isinstance(timestamp_str, str):
+                    dt = datetime.fromisoformat(timestamp_str.replace('Z', '+00:00'))
+                else:
+                    dt = timestamp_str
+                formatted_date = dt.strftime("%Y-%m-%d %H:%M:%S UTC")
+            except Exception:
+                formatted_date = str(timestamp_str)
+            
+            subject = f"{form_type_label} - {formatted_date}"
+            
+            body_lines = [
+                f"Form Type: {form_type_label}",
+                f"Submission Timestamp: {formatted_date}",
+                "",
+                "=" * 50,
+                "SUBMITTED FORM DATA:",
+                "=" * 50,
+                ""
+            ]
+            
+            skip_fields = {'_id', 'id', 'type', 'status', 'viewedAt', 'updatedAt'}
+            
+            for key, value in form_data.items():
+                if key not in skip_fields and value is not None and value != "":
+                    field_name = key.replace('_', ' ').replace('At', ' At')
+                    field_name = ''.join([' ' + c if c.isupper() else c for c in field_name]).strip()
+                    field_name = field_name.title()
+                    body_lines.append(f"{field_name}: {value}")
+            
+            body_lines.append("")
+            body_lines.append("=" * 50)
+            body_lines.append("This is an automated notification from BluBridge website.")
+            
+            body = "\n".join(body_lines)
+            
+            params = {
+                "from": f"BluBridge <{RESEND_FROM_EMAIL}>",
+                "to": [CONTACT_FORM_TO_EMAIL],
+                "subject": subject,
+                "text": body
+            }
+            
+            user_email = form_data.get('email')
+            if user_email and isinstance(user_email, str) and '@' in user_email:
+                params["reply_to"] = user_email
+            
+            resend.Emails.send(params)
+            logging.info(f"Contact form email sent to {CONTACT_FORM_TO_EMAIL} for {form_type_label}")
+            
+        except Exception as e:
+            logging.error(f"Failed to send contact form email: {e}")
+    
+    try:
+        loop = asyncio.get_event_loop()
+        loop.run_in_executor(None, _send)
+    except Exception as e:
+        logging.error(f"Error scheduling contact form email: {e}")
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
@@ -408,8 +496,8 @@ async def submit_contact_form(form: ContactForm):
         legacy_doc['created_at'] = legacy_doc['created_at'].isoformat()
         await db.contact_forms.insert_one(legacy_doc)
         
-        # Send email notification (non-blocking)
-        await send_gmail_notification(form_type, doc)
+        # Send email notification (non-blocking) — to contact@blubridge.ai
+        await send_contact_form_email(form_type, doc)
         
         return {"message": "Contact form submitted successfully", "id": form.id}
     except HTTPException:
@@ -483,8 +571,8 @@ async def submit_unified_contact(submission: ContactSubmission):
         # Save to unified 'contacts' collection
         await db.contacts.insert_one(doc)
         
-        # Send email notification (non-blocking)
-        await send_gmail_notification(submission.type, doc)
+        # Send email notification (non-blocking) — to contact@blubridge.ai
+        await send_contact_form_email(submission.type, doc)
         
         return {"message": "Form submitted successfully", "id": doc.get("id"), "type": submission.type}
     except HTTPException:
@@ -542,8 +630,8 @@ async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[
         # Save to unified 'contacts' collection
         await db.contacts.insert_one(doc)
         
-        # Send email notification (non-blocking)
-        await send_gmail_notification("contact_us", doc)
+        # Send email notification (non-blocking) — to contact@blubridge.ai
+        await send_contact_form_email("contact_us", doc)
         
         return {"message": "Contact form submitted successfully", "id": doc["id"]}
     except HTTPException:
