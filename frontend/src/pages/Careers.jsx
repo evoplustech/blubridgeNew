@@ -170,12 +170,12 @@ const Careers = () => {
       mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=13.0280416,80.2681674&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C13.0280416,80.2681674&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
     },
     {
-      id: 'randolph-nj',
-      address: '2 University Plaza Drive, Suite 100,',
-      area: 'Hackensack,',
-      city: 'NJ 07601',
-      mapUrl: 'https://www.google.com/maps/place/2+University+Plaza+Dr,+Hackensack,+NJ+07601/@40.8891,-74.0465,17z',
-      mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=40.8486,-74.5779&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C40.8486,-74.5779&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
+      id: 'princeton-nj',
+      address: '5 Independence Way, Suite 300,',
+      area: 'Princeton,',
+      city: 'New Jersey – 08540',
+      mapUrl: 'https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z',
+      mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=40.3430,-74.6514&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C40.3430,-74.6514&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
     }
     
   ];

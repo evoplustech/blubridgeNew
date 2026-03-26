@@ -498,8 +498,8 @@ const Contact = () => {
                     lineHeight: '1.6',
                     margin: 0
                   }}>
-                    2 University Plaza Drive, Suite 100,<br />
-                    Hackensack, NJ 07601
+                    5 Independence Way, Suite 300,<br />
+                    Princeton, New Jersey - 08540
                   </p>
                 </div>
                 <div style={{ 
@@ -511,7 +511,7 @@ const Contact = () => {
                 }}>
                   <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
                   <a 
-                    href="https://www.google.com/maps/place/2+University+Plaza+Dr,+Hackensack,+NJ+07601/@40.8891,-74.0465,17z"
+                    href="https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ 
