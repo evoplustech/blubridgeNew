@@ -39,27 +39,14 @@ const faqData = [
     )
   },
   {
-    id: 'must',
-    question: 'What are the primary skills I should have ?',
-    content: (
-      <div className="pl-1">
-        <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
-          <li>You should be possessing strong <strong>Aptitude and Logical Reasoning</strong></li>
-          <li>You should be proficient in <strong>Linear Algebra, Calculus, Probability & Statistics</strong></li>
-          <li>You should be having strong Programming Foundations in <strong>C++ or Java</strong></li>
-        </ul>
-      </div>
-    )
-  },
-  {
     id: 'begin',
     question: 'Where do I begin? What should I study for the interview?',
     content: (
       <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
         <li>Begin by appearing for the <strong className="text-black">initial interview rounds.</strong></li>
-        <li>If selected, you are being invited to a <strong className="text-black">second stage,</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
-        <li>You are getting <strong className="text-black">up to a month</strong> to prepare.</li>
-        <li>Final selection is being based on a <strong className="text-black">Maths for Deep Learning</strong> test.</li>
+        <li>If selected, you'll be invited to a <strong className="text-black">second stage</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
+        <li>You'll get <strong className="text-black">up to a month</strong> to prepare.</li>
+        <li>Final selection is based on a <strong className="text-black">Maths for Deep Learning</strong> test.</li>
       </ul>
     )
   },
@@ -69,25 +56,25 @@ const faqData = [
     content: (
       <div className="pl-1">
         <p className="text-base text-gray-700 leading-relaxed mb-3">
-          We are offering competitive compensation, but asking you to consider:
+          We offer competitive compensation, but ask you to consider:
         </p>
         <ul className="list-disc pl-6 text-base text-gray-700 leading-7 space-y-1.5">
-          <li>You are working on Deep Learning from first principles — how many organizations are offering that?</li>
+          <li>You'll be working on Deep Learning from first principles — how many organizations offer that?</li>
           <li>We are among the very few in India genuinely building a foundation model, not just hyping it.</li>
           <li>Building from "first principles" is not the same as starting "from scratch."</li>
           <li>
             If you were to study this in a university:
             <ul className="pl-6 mt-2 space-y-1 list-none">
-              <li className="text-base">▶ You are likely going abroad (e.g., the US),</li>
-              <li className="text-base">▶ Paying for a Master's degree,</li>
-              <li className="text-base">▶ Learning theory & practical without real-world application.</li>
+              <li className="text-base">▶ You'd likely go abroad (e.g., the US)</li>
+              <li className="text-base">▶ Pay for a Master's degree</li>
+              <li className="text-base">▶ Learn theory without real-world application</li>
             </ul>
           </li>
         </ul>
         <div className="flex items-start gap-2 mt-4 text-base text-gray-700 leading-relaxed">
           <span className="text-base flex-shrink-0">💡</span>
           <span>
-            <strong className="text-black">If compensation is your main driver,</strong> you are finding better-paying jobs. We are seeking <strong className="text-black">like-minded individuals</strong> who are valuing the mission over money.
+            <strong className="text-black">If compensation is your main driver,</strong> you will find better-paying jobs. We are seeking <strong className="text-black">like-minded individuals</strong> who value the mission over money.
           </span>
         </div>
       </div>
@@ -98,9 +85,9 @@ const faqData = [
     question: 'Why is this opportunity unique?',
     content: (
       <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
-        <li>We are offering a <strong className="text-black">rare research environment</strong> focused solely on <strong className="text-black">foundation model development.</strong></li>
+        <li>We offer a <strong className="text-black">rare research environment</strong> focused solely on <strong className="text-black">foundation model development.</strong></li>
         <li>We're assembling a team of <strong className="text-black">passionate, like-minded individuals</strong></li>
-        <li>Whether you're a research scholar or a self-taught enthusiast — if you are having the fire to understand and build <strong className="text-black">Large Language Models,</strong> you're welcome to apply.</li>
+        <li>Whether you're a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong className="text-black">Large Language Models,</strong> you're welcome to apply.</li>
       </ul>
     )
   },
