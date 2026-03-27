@@ -45,8 +45,7 @@ const faqData = [
       <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
         <li>Begin by appearing for the <strong className="text-black">initial interview rounds.</strong></li>
         <li>If selected, you'll be invited to a <strong className="text-black">second stage</strong> where a strong grasp of Mathematics for Machine Learning is essential.</li>
-        <li>You'll get <strong className="text-black">up to a month</strong> to prepare.</li>
-        <li>Final selection is based on a <strong className="text-black">Maths for Deep Learning</strong> test.</li>
+        <li>You’ll get up to a month to prepare. Final selection is based on a <strong className="text-black">Maths for Deep Learning</strong> test.</li>
       </ul>
     )
   },
