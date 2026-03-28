@@ -84,7 +84,7 @@ const faqData = [
     question: 'Why is this opportunity unique?',
     content: (
       <ul className="list-disc pl-7 text-base text-gray-700 leading-7 space-y-1.5">
-        <li>We offer a <strong className="text-black">rare research environment</strong> focused solely on <strong className="text-black">foundation model development.</strong></li>
+        <li>We offer a <strong className="text-black">rare research environment</strong> focused solely on foundation model development.</li>
         <li>We're assembling a team of <strong className="text-black">passionate, like-minded individuals</strong></li>
         <li>Whether you're a research scholar or a self-taught enthusiast — if you have the fire to understand and build <strong className="text-black">Large Language Models,</strong> you're welcome to apply.</li>
       </ul>
