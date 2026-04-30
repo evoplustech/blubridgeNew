@@ -649,7 +649,7 @@ const Home = () => {
               {/* "Beyond the Horizon" - Letter by letter zoom animation */}
               <span className="hero-letter" style={{ animationDelay: '0ms' }}>
                 <img 
-                  src="/images/Beyond-B.png" 
+                  src="https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/g6niy0el_Beyond-B.jpg" 
                   alt="B" 
                   className="hero-b-image"
                   style={{ 
