@@ -645,7 +645,7 @@ const Home = () => {
         {/* LAYER 1: Content (Always on top) */}
         <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full px-4">
           <div className="space-y-6 text-center">
-            <h1 className="leading-[1.08] tracking-tight text-[#000] flex items-baseline justify-center flex-wrap" style={{ fontSize: 'clamp(2rem, 8vw, 4.5rem)', fontWeight: '260', letterSpacing:'3px' }}>
+            <h1 className="leading-[1.08] tracking-tight text-[#0b1f3a] flex items-baseline justify-center flex-wrap" style={{ fontSize: 'clamp(2rem, 8vw, 4.5rem)', fontWeight: '260', letterSpacing:'3px' }}>
               {/* "Beyond the Horizon" - Letter by letter zoom animation */}
               <span className="hero-letter" style={{ animationDelay: '0ms' }}>
                 <img 
