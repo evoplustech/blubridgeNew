@@ -171,7 +171,7 @@ const Careers = () => {
     },
     {
       id: 'princeton-nj',
-      company: 'Zeal Solutions INC',
+      company: 'Zeal Solutions Inc',
       address: '5 Independence Way, Suite 300,',
       area: 'Princeton,',
       city: 'New Jersey – 08540',
