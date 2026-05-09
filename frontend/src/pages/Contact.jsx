@@ -498,6 +498,7 @@ const Contact = () => {
                     lineHeight: '1.6',
                     margin: 0
                   }}>
+                    Zeal Solutions INC<br />
                     5 Independence Way, Suite 300,<br />
                     Princeton, New Jersey - 08540
                   </p>

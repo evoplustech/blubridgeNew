@@ -171,6 +171,7 @@ const Careers = () => {
     },
     {
       id: 'princeton-nj',
+      company: 'Zeal Solutions INC',
       address: '5 Independence Way, Suite 300,',
       area: 'Princeton,',
       city: 'New Jersey – 08540',
@@ -678,6 +679,17 @@ const Careers = () => {
                         className="location-pin-icon"
                       />
                       <div>
+                        {location.company && (
+                          <p style={{ 
+                            fontSize: '15px', 
+                            color: '#1A1A1A', 
+                            lineHeight: '1.5',
+                            margin: 0,
+                            fontWeight: '600'
+                          }}>
+                            {location.company}
+                          </p>
+                        )}
                         <p style={{ 
                           fontSize: '15px', 
                           color: '#333', 
