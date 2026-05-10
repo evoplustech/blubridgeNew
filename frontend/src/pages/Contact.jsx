@@ -617,7 +617,7 @@ const Contact = () => {
                     Email
                   </p>
                   <a 
-                    href="mailto:info.1@blubridge.com" 
+                    href="mailto:info@blubridge.com" 
                     style={{ 
                       fontSize: '14px', 
                       color: '#333333',
@@ -625,7 +625,7 @@ const Contact = () => {
                       fontWeight: '500'
                     }}
                   >
-                    info.1@blubridge.com
+                    info@blubridge.com
                   </a>
                 </div>
               </div>
