@@ -498,7 +498,7 @@ const Contact = () => {
                     lineHeight: '1.6',
                     margin: 0
                   }}>
-                    Zeal Solutions Inc<br />
+                    <strong>Zeal Solutions Inc</strong><br />
                     5 Independence Way, Suite 300,<br />
                     Princeton, New Jersey - 08540
                   </p>
@@ -567,7 +567,7 @@ const Contact = () => {
                     Contact Number
                   </p>
                   <a 
-                    href="tel:+918925987250" 
+                    href="tel:044-466-00222" 
                     style={{ 
                       fontSize: '14px', 
                       color: '#333333',
@@ -575,7 +575,7 @@ const Contact = () => {
                       fontWeight: '500'
                     }}
                   >
-                    +91 8925987250
+                    044-466-00222
                   </a>
                 </div>
               </div>

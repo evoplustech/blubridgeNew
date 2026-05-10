@@ -937,7 +937,7 @@ const seoContent = {
       
       <h2>Contact</h2>
       <ul>
-        <li>Phone: +91 8925987250</li>
+        <li>Phone: 044-466-00222</li>
         <li>Email: careers@blubridge.com</li>
         <li>LinkedIn: linkedin.com/blubridge</li>
         <li>X (Twitter): x.com/BlubridgeAI</li>
@@ -990,7 +990,7 @@ const seoContent = {
       <h2>Contact Information</h2>
       <ul>
         <li>Email: contact@blubridge.ai</li>
-        <li>Phone: +91 8925987250</li>
+        <li>Phone: 044-466-00222</li>
       </ul>
       
       <h2>Contact Form</h2>

@@ -126,7 +126,7 @@ const Careers = () => {
           margin: '0'
         }}>
           <li style={{ marginBottom: '2px' }}>
-            <strong>Contact Number:</strong> +91 8925987250
+            <strong>Contact Number:</strong> 044-466-00222
           </li>
           <li style={{ marginBottom: '2px' }}>
             <strong>Email:</strong> careers.chennai@blubridge.com
