@@ -567,7 +567,7 @@ const Contact = () => {
                     Contact Number
                   </p>
                   <a 
-                    href="tel:044-466-00222" 
+                    href="tel:+91 8925987250" 
                     style={{ 
                       fontSize: '14px', 
                       color: '#333333',
@@ -575,7 +575,7 @@ const Contact = () => {
                       fontWeight: '500'
                     }}
                   >
-                    044-466-00222
+                    +91 8925987250
                   </a>
                 </div>
               </div>
