@@ -574,7 +574,11 @@ async def create_status_check(input: StatusCheckCreate):
     return status_obj
 
 @api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
+async def get_status_checks(authorization: Optional[str] = Header(None)):
+    """Get status checks — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     # Exclude MongoDB's _id field from the query results
     status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
     
@@ -787,8 +791,11 @@ async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[
 
 
 @api_router.get("/contact/submissions")
-async def get_contact_submissions():
-    """Get all submissions from legacy contact_forms collection"""
+async def get_contact_submissions(authorization: Optional[str] = Header(None)):
+    """Get all submissions from legacy contact_forms collection — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     submissions = await db.contact_forms.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
     for submission in submissions:
         if isinstance(submission.get('created_at'), str):
@@ -798,12 +805,15 @@ async def get_contact_submissions():
 
 # NEW: Get all contacts from unified collection
 @api_router.get("/contacts")
-async def get_all_contacts(type: Optional[str] = None, limit: int = 100):
-    """Get contacts from unified collection, optionally filtered by type"""
+async def get_all_contacts(authorization: Optional[str] = Header(None), type: Optional[str] = None, limit: int = 100):
+    """Get contacts from unified collection — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     query = {}
     if type:
         query["type"] = type
-    
+    limit = max(1, min(limit, 200))
     contacts = await db.contacts.find(query, {"_id": 0}).sort("createdAt", -1).to_list(limit)
     return contacts
 
@@ -831,7 +841,11 @@ async def subscribe_newsletter(subscription: NewsletterSubscribe):
         raise HTTPException(status_code=500, detail="Failed to subscribe")
 
 @api_router.get("/newsletter/subscribers")
-async def get_newsletter_subscribers():
+async def get_newsletter_subscribers(authorization: Optional[str] = Header(None)):
+    """Get newsletter subscribers — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     subscribers = await db.newsletter_subscribers.find({}, {"_id": 0}).sort("subscribed_at", -1).to_list(1000)
     for subscriber in subscribers:
         if isinstance(subscriber['subscribed_at'], str):
@@ -840,7 +854,11 @@ async def get_newsletter_subscribers():
 
 # Blog Posts
 @api_router.post("/blog/posts", response_model=BlogPost)
-async def create_blog_post(post: BlogPostCreate):
+async def create_blog_post(post: BlogPostCreate, authorization: Optional[str] = Header(None)):
+    """Create blog post — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     try:
         post_obj = BlogPost(**post.model_dump())
         doc = post_obj.model_dump()
@@ -1063,13 +1081,16 @@ async def submit_job_application(
 
 
 @api_router.get("/job-applications")
-async def get_job_applications(status: Optional[str] = None, limit: int = 100):
-    """Get all job applications, optionally filtered by status"""
+async def get_job_applications(authorization: Optional[str] = Header(None), status: Optional[str] = None, limit: int = 100):
+    """Get all job applications — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     try:
         query = {}
         if status:
             query["status"] = status
-        
+        limit = max(1, min(limit, 200))
         applications = await db.job_applications.find(query, {"_id": 0}).sort("appliedAt", -1).to_list(limit)
         return applications
     except Exception as e:
@@ -1078,8 +1099,11 @@ async def get_job_applications(status: Optional[str] = None, limit: int = 100):
 
 
 @api_router.get("/job-applications/{application_id}")
-async def get_job_application(application_id: str):
-    """Get a single job application by ID"""
+async def get_job_application(application_id: str, authorization: Optional[str] = Header(None)):
+    """Get a single job application by ID — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     try:
         application = await db.job_applications.find_one({"id": application_id}, {"_id": 0})
         if not application:
@@ -1093,7 +1117,11 @@ async def get_job_application(application_id: str):
 
 
 @api_router.patch("/job-applications/{application_id}/status")
-async def update_application_status(application_id: str, status: str):
+async def update_application_status(application_id: str, status: str, authorization: Optional[str] = Header(None)):
+    """Update the status of a job application — ADMIN ONLY"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     """Update the status of a job application"""
     valid_statuses = ["pending", "reviewed", "shortlisted", "rejected", "hired"]
     if status not in valid_statuses:
