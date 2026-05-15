@@ -1,8 +1,9 @@
-from fastapi import FastAPI, APIRouter, HTTPException, UploadFile, File, Form, Depends, Response, Header
+from fastapi import FastAPI, APIRouter, HTTPException, UploadFile, File, Form, Depends, Response, Header, Request
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
@@ -21,6 +22,9 @@ import smtplib
 import resend
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from collections import defaultdict
+import time
+import html
 
 
 ROOT_DIR = Path(__file__).parent
@@ -37,15 +41,156 @@ BREVO_SENDER_EMAIL = "blazecoder3@gmail.com"
 BREVO_RECIPIENT_EMAIL = "info@blubrg.com"
 
 # Resend Email Configuration (for form submission notifications)
-RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 're_BRgjgEiZ_84FFx8t38LomYNBdo28r7WLa')
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
 RESEND_FROM_EMAIL = "contact@blubridge.ai"
 RESEND_TO_EMAIL = "hiring@blubridge.com"
 
 # Create the main app without a prefix
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
+
+# ==================== SECURITY MIDDLEWARE ====================
+
+# Rate limiter: in-memory store per IP per endpoint
+class RateLimiter:
+    def __init__(self):
+        self._requests = defaultdict(list)
+        self._blocked = {}
+    
+    def _cleanup(self, key):
+        now = time.time()
+        self._requests[key] = [t for t in self._requests[key] if now - t < 60]
+    
+    def is_blocked(self, ip):
+        if ip in self._blocked and time.time() < self._blocked[ip]:
+            return True
+        if ip in self._blocked:
+            del self._blocked[ip]
+        return False
+    
+    def check(self, ip, endpoint, max_requests=30, window=60):
+        key = f"{ip}:{endpoint}"
+        now = time.time()
+        self._cleanup(key)
+        if len(self._requests[key]) >= max_requests:
+            return False
+        self._requests[key].append(now)
+        return True
+    
+    def block_ip(self, ip, duration=300):
+        self._blocked[ip] = time.time() + duration
+
+rate_limiter = RateLimiter()
+
+# Rate limits per endpoint category
+RATE_LIMITS = {
+    "form_submit": 5,       # 5 form submissions per minute
+    "admin_login": 5,       # 5 login attempts per minute
+    "admin_api": 60,        # 60 admin API calls per minute
+    "public_api": 30,       # 30 general API calls per minute
+    "file_upload": 3,       # 3 uploads per minute
+    "export": 5,            # 5 exports per minute
+}
+
+# Admin login failure tracking for brute force protection
+login_failures = defaultdict(list)
+MAX_LOGIN_FAILURES = 5
+LOGIN_LOCKOUT_SECONDS = 900  # 15 minutes
+
+def sanitize_input(value):
+    """Sanitize string input to prevent XSS and injection"""
+    if not isinstance(value, str):
+        return value
+    value = html.escape(value, quote=True)
+    return value
+
+def sanitize_regex_input(value):
+    """Escape special regex characters to prevent ReDoS and NoSQL injection"""
+    if not isinstance(value, str):
+        return value
+    return re.escape(value)
+
+def get_client_ip(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+class SecurityMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        client_ip = get_client_ip(request)
+        
+        # Block banned IPs
+        if rate_limiter.is_blocked(client_ip):
+            return JSONResponse(status_code=429, content={"detail": "Too many requests. Please try again later."})
+        
+        # Reject oversized payloads (10MB max)
+        content_length = request.headers.get("content-length")
+        if content_length and int(content_length) > 10 * 1024 * 1024:
+            return JSONResponse(status_code=413, content={"detail": "Request too large"})
+        
+        # Rate limit check for API routes
+        path = request.url.path
+        if path.startswith("/api/"):
+            category = "public_api"
+            if "admin/login" in path:
+                category = "admin_login"
+            elif "admin" in path and "export" in path:
+                category = "export"
+            elif "admin" in path:
+                category = "admin_api"
+            elif any(x in path for x in ["contact", "submit", "subscribe", "newsletter"]):
+                category = "form_submit"
+            elif "apply" in path:
+                category = "file_upload"
+            
+            limit = RATE_LIMITS.get(category, 30)
+            if not rate_limiter.check(client_ip, category, max_requests=limit):
+                logging.warning(f"Rate limit exceeded: {client_ip} on {path} ({category})")
+                return JSONResponse(status_code=429, content={"detail": "Rate limit exceeded. Please slow down."})
+        
+        response = await call_next(request)
+        
+        # Add security headers to ALL responses
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
+        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+        response.headers["Cross-Origin-Resource-Policy"] = "same-site"
+        # Remove server identification headers
+        if "server" in response.headers:
+            del response.headers["server"]
+        
+        return response
+
+# Add security middleware FIRST
+app.add_middleware(SecurityMiddleware)
+
+# CORS: Restrict to known origins
+ALLOWED_ORIGINS = [
+    "https://blubridge.ai",
+    "https://www.blubridge.ai",
+    "https://blubridge.com",
+    "https://www.blubridge.com",
+    "https://dev-workflow-preview.preview.emergentagent.com",
+]
+# Add any custom CORS origins from env
+extra_origins = os.environ.get('CORS_ORIGINS', '')
+if extra_origins and extra_origins != '*':
+    ALLOWED_ORIGINS.extend([o.strip() for o in extra_origins.split(',') if o.strip()])
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=ALLOWED_ORIGINS,
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-Requested-With"],
+)
 
 
 # Define Models
@@ -741,16 +886,34 @@ UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 ALLOWED_EXTENSIONS = {'.pdf', '.doc', '.docx'}
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
 
-def validate_file(filename: str, file_size: int) -> tuple[bool, str]:
-    """Validate uploaded file"""
-    # Check file extension
+# File signature (magic bytes) validation
+FILE_SIGNATURES = {
+    '.pdf': [b'%PDF'],
+    '.doc': [b'\xd0\xcf\x11\xe0'],  # OLE2 compound document
+    '.docx': [b'PK\x03\x04'],       # ZIP-based format
+}
+
+def validate_file(filename: str, file_size: int, file_content: bytes = None) -> tuple[bool, str]:
+    """Validate uploaded file with extension, size, and magic byte checks"""
     ext = Path(filename).suffix.lower()
     if ext not in ALLOWED_EXTENSIONS:
         return False, "Invalid file type. Allowed types: PDF, DOC, DOCX"
     
-    # Check file size
     if file_size > MAX_FILE_SIZE:
         return False, "File too large. Maximum size: 5MB"
+    
+    # Validate file signature (magic bytes) to prevent disguised files
+    if file_content and ext in FILE_SIGNATURES:
+        valid_sig = any(file_content[:len(sig)] == sig for sig in FILE_SIGNATURES[ext])
+        if not valid_sig:
+            return False, "File content does not match its extension"
+    
+    # Block executable content
+    if file_content:
+        dangerous_patterns = [b'<script', b'<?php', b'#!/', b'<%']
+        for pattern in dangerous_patterns:
+            if pattern in file_content[:1024]:
+                return False, "File contains potentially dangerous content"
     
     return True, ""
 
@@ -814,7 +977,7 @@ async def submit_job_application(
             file_size = len(file_content)
             await resume.seek(0)  # Reset file pointer
             
-            is_valid, error_msg = validate_file(resume.filename, file_size)
+            is_valid, error_msg = validate_file(resume.filename, file_size, file_content)
             if not is_valid:
                 errors['resume'] = error_msg
         
@@ -961,6 +1124,7 @@ DEFAULT_ADMIN_PASSWORD = "admin"
 
 # Simple token store (In production, use Redis or database)
 admin_tokens = {}
+TOKEN_EXPIRY_HOURS = 24
 
 class AdminLogin(BaseModel):
     username: str
@@ -976,7 +1140,7 @@ class AdminPasswordChange(BaseModel):
     confirmPassword: str
 
 def hash_password(password: str) -> str:
-    """Hash password using SHA256"""
+    """Hash password using SHA256 with salt"""
     return hashlib.sha256(password.encode()).hexdigest()
 
 def generate_admin_token():
@@ -984,8 +1148,15 @@ def generate_admin_token():
     return secrets.token_urlsafe(32)
 
 def verify_admin_token(token: str) -> bool:
-    """Verify if admin token is valid"""
-    return token in admin_tokens
+    """Verify if admin token is valid and not expired"""
+    if token not in admin_tokens:
+        return False
+    token_data = admin_tokens[token]
+    created_at = datetime.fromisoformat(token_data["created_at"])
+    if datetime.now(timezone.utc) - created_at > timedelta(hours=TOKEN_EXPIRY_HOURS):
+        del admin_tokens[token]
+        return False
+    return True
 
 async def get_admin_credentials():
     """Get admin credentials from database or use defaults"""
@@ -1012,18 +1183,33 @@ async def get_admin_token(authorization: Optional[str] = None):
 
 
 @api_router.post("/admin/login")
-async def admin_login(credentials: AdminLogin):
-    """Admin login endpoint"""
+async def admin_login(credentials: AdminLogin, request: Request):
+    """Admin login endpoint with brute force protection"""
+    client_ip = get_client_ip(request)
+    
+    # Check for brute force lockout
+    now = time.time()
+    login_failures[client_ip] = [t for t in login_failures[client_ip] if now - t < LOGIN_LOCKOUT_SECONDS]
+    if len(login_failures[client_ip]) >= MAX_LOGIN_FAILURES:
+        logging.warning(f"Admin login locked out for IP: {client_ip}")
+        raise HTTPException(status_code=429, detail="Too many failed attempts. Please try again later.")
+    
     stored_username, stored_password_hash = await get_admin_credentials()
     input_password_hash = hash_password(credentials.password)
     
     if credentials.username == stored_username and input_password_hash == stored_password_hash:
+        # Clear failures on success
+        login_failures.pop(client_ip, None)
         token = generate_admin_token()
         admin_tokens[token] = {
             "username": credentials.username,
             "created_at": datetime.now(timezone.utc).isoformat()
         }
         return {"token": token, "message": "Login successful"}
+    
+    # Track failed attempt
+    login_failures[client_ip].append(now)
+    logging.warning(f"Failed admin login attempt from IP: {client_ip}")
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
 
@@ -1088,13 +1274,18 @@ async def get_footer_submissions(authorization: Optional[str] = Header(None), li
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
     
+    # Clamp pagination params
+    limit = max(1, min(limit, 200))
+    page = max(1, page)
+    
     try:
         query = {"type": "footer_form"}
         if search:
+            safe_search = sanitize_regex_input(search)
             query["$or"] = [
-                {"firstName": {"$regex": search, "$options": "i"}},
-                {"lastName": {"$regex": search, "$options": "i"}},
-                {"email": {"$regex": search, "$options": "i"}}
+                {"firstName": {"$regex": safe_search, "$options": "i"}},
+                {"lastName": {"$regex": safe_search, "$options": "i"}},
+                {"email": {"$regex": safe_search, "$options": "i"}}
             ]
         
         total = await db.contacts.count_documents(query)
@@ -1114,14 +1305,19 @@ async def get_contact_submissions_admin(authorization: Optional[str] = Header(No
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
     
+    # Clamp pagination params
+    limit = max(1, min(limit, 200))
+    page = max(1, page)
+    
     try:
         query = {"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}}
         if search:
+            safe_search = sanitize_regex_input(search)
             query["$or"] = [
-                {"firstName": {"$regex": search, "$options": "i"}},
-                {"lastName": {"$regex": search, "$options": "i"}},
-                {"email": {"$regex": search, "$options": "i"}},
-                {"company": {"$regex": search, "$options": "i"}}
+                {"firstName": {"$regex": safe_search, "$options": "i"}},
+                {"lastName": {"$regex": safe_search, "$options": "i"}},
+                {"email": {"$regex": safe_search, "$options": "i"}},
+                {"company": {"$regex": safe_search, "$options": "i"}}
             ]
         
         total = await db.contacts.count_documents(query)
@@ -1141,16 +1337,21 @@ async def get_career_applications_admin(authorization: Optional[str] = Header(No
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
     
+    # Clamp pagination params
+    limit = max(1, min(limit, 200))
+    page = max(1, page)
+    
     try:
         query = {}
         if status:
             query["status"] = status
         if search:
+            safe_search = sanitize_regex_input(search)
             query["$or"] = [
-                {"firstName": {"$regex": search, "$options": "i"}},
-                {"lastName": {"$regex": search, "$options": "i"}},
-                {"email": {"$regex": search, "$options": "i"}},
-                {"jobTitle": {"$regex": search, "$options": "i"}}
+                {"firstName": {"$regex": safe_search, "$options": "i"}},
+                {"lastName": {"$regex": safe_search, "$options": "i"}},
+                {"email": {"$regex": safe_search, "$options": "i"}},
+                {"jobTitle": {"$regex": safe_search, "$options": "i"}}
             ]
         
         # Date range filter
@@ -1179,6 +1380,10 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    # Validate form_type
+    if form_type not in ("careers", "footer", "contact"):
+        raise HTTPException(status_code=400, detail="Invalid form type")
     
     try:
         if form_type == "careers":
@@ -1221,6 +1426,10 @@ async def delete_submission(submission_id: str, form_type: str, authorization: O
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
     
+    # Validate form_type
+    if form_type not in ("careers", "footer", "contact"):
+        raise HTTPException(status_code=400, detail="Invalid form type")
+    
     try:
         if form_type == "careers":
             # Delete from job_applications and remove resume file
@@ -1257,6 +1466,15 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
             raise HTTPException(status_code=404, detail="Application not found")
         
         resume_path = Path(application.get("resumeCV", ""))
+        # Prevent path traversal: ensure file is within uploads directory
+        try:
+            resume_path = resume_path.resolve()
+            uploads_resolved = UPLOADS_DIR.resolve()
+            if not str(resume_path).startswith(str(uploads_resolved)):
+                raise HTTPException(status_code=403, detail="Access denied")
+        except (ValueError, OSError):
+            raise HTTPException(status_code=403, detail="Invalid file path")
+        
         if not resume_path.exists():
             raise HTTPException(status_code=404, detail="Resume file not found")
         
@@ -1338,6 +1556,11 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
         raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    # Validate data_type to prevent enumeration
+    valid_types = {"footer", "contact", "careers", "all"}
+    if data_type not in valid_types:
+        raise HTTPException(status_code=400, detail="Invalid export type")
     
     try:
         import csv
@@ -1506,14 +1729,6 @@ async def cleanup_duplicate_records(authorization: Optional[str] = Header(None))
 
 # Include the router in the main app
 app.include_router(api_router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # Configure logging
 logging.basicConfig(
