@@ -46,10 +46,10 @@ RESEND_FROM_EMAIL = "contact@blubridge.ai"
 RESEND_TO_EMAIL = "hiring@blubridge.com"
 
 # Create the main app without a prefix
-app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None, redirect_slashes=False)
 
 # Create a router with the /api prefix
-api_router = APIRouter(prefix="/api")
+api_router = APIRouter(prefix="/api", redirect_slashes=False)
 
 # ==================== SECURITY MIDDLEWARE ====================
 
@@ -119,21 +119,95 @@ def get_client_ip(request: Request) -> str:
     return request.client.host if request.client else "unknown"
 
 class SecurityMiddleware(BaseHTTPMiddleware):
+    """
+    Enterprise-grade security middleware — FAIL-CLOSED architecture.
+    ALL /api/ requests are validated BEFORE reaching any route handler.
+    """
+    
+    # Explicitly whitelisted public GET paths (health check + public content only)
+    PUBLIC_GET_PATHS = frozenset(["/api", "/api/", "/api/blog/posts"])
+    PUBLIC_GET_PREFIXES = ("/api/blog/posts/",)
+    
+    # Explicitly whitelisted public POST paths (form submissions only)
+    PUBLIC_POST_PATHS = frozenset([
+        "/api/contact",
+        "/api/contacts/submit", 
+        "/api/contact-us",
+        "/api/newsletter/subscribe",
+        "/api/careers/apply",
+        "/api/status",
+        "/api/admin/login",
+    ])
+    
+    # Allowed methods globally
+    ALLOWED_METHODS = frozenset(["GET", "POST", "OPTIONS", "PATCH", "DELETE"])
+    
+    def _extract_token(self, request: Request) -> str:
+        auth = request.headers.get("authorization", "")
+        if auth.startswith("Bearer "):
+            return auth[7:]
+        return ""
+    
     async def dispatch(self, request: Request, call_next):
         client_ip = get_client_ip(request)
+        path = request.url.path.rstrip("/") or "/"
+        method = request.method
         
-        # Block banned IPs
+        # ====== BLOCK BANNED IPs ======
         if rate_limiter.is_blocked(client_ip):
             return JSONResponse(status_code=429, content={"detail": "Too many requests. Please try again later."})
         
-        # Reject oversized payloads (10MB max)
+        # ====== REJECT OVERSIZED PAYLOADS ======
         content_length = request.headers.get("content-length")
-        if content_length and int(content_length) > 10 * 1024 * 1024:
-            return JSONResponse(status_code=413, content={"detail": "Request too large"})
+        if content_length:
+            try:
+                if int(content_length) > 10 * 1024 * 1024:
+                    return JSONResponse(status_code=413, content={"detail": "Request too large"})
+            except ValueError:
+                return JSONResponse(status_code=400, content={"detail": "Invalid request"})
         
-        # Rate limit check for API routes
-        path = request.url.path
-        if path.startswith("/api/"):
+        # ====== API ROUTE SECURITY (fail-closed) ======
+        if path.startswith("/api"):
+            
+            # 1. STRICT METHOD ENFORCEMENT — reject unknown methods
+            if method not in self.ALLOWED_METHODS:
+                logging.warning(f"Blocked invalid method {method} from {client_ip} on {path}")
+                return JSONResponse(status_code=405, content={"detail": "Method Not Allowed"})
+            
+            # 2. OPTIONS always allowed (CORS preflight)
+            if method == "OPTIONS":
+                response = await call_next(request)
+                return response
+            
+            # 3. GET REQUEST SECURITY — Default DENY, explicit allow
+            if method == "GET":
+                is_public = (path in self.PUBLIC_GET_PATHS or 
+                            any(path.startswith(p) for p in self.PUBLIC_GET_PREFIXES))
+                
+                if not is_public:
+                    # GET to a non-public path: MUST have valid admin token
+                    token = self._extract_token(request)
+                    if not token or not verify_admin_token(token):
+                        logging.warning(f"Blocked unauth GET from {client_ip} on {path}")
+                        return JSONResponse(status_code=405, content={"detail": "Method Not Allowed"})
+            
+            # 4. POST REQUEST SECURITY — public form endpoints allowed, others need auth
+            if method == "POST":
+                is_public_post = path in self.PUBLIC_POST_PATHS
+                if not is_public_post:
+                    token = self._extract_token(request)
+                    if not token or not verify_admin_token(token):
+                        logging.warning(f"Blocked unauth POST from {client_ip} on {path}")
+                        return JSONResponse(status_code=401, content={"detail": "Unauthorized"})
+            
+            # 5. PATCH/DELETE — always require admin auth
+            if method in ("PATCH", "DELETE"):
+                token = self._extract_token(request)
+                if not token or not verify_admin_token(token):
+                    logging.warning(f"Blocked unauth {method} from {client_ip} on {path}")
+                    return JSONResponse(status_code=401, content={"detail": "Unauthorized"})
+            
+            # 6. RATE LIMITING
             category = "public_api"
             if "admin/login" in path:
                 category = "admin_login"
@@ -148,12 +222,19 @@ class SecurityMiddleware(BaseHTTPMiddleware):
             
             limit = RATE_LIMITS.get(category, 30)
             if not rate_limiter.check(client_ip, category, max_requests=limit):
-                logging.warning(f"Rate limit exceeded: {client_ip} on {path} ({category})")
+                logging.warning(f"Rate limit hit: {client_ip} on {path} ({category})")
                 return JSONResponse(status_code=429, content={"detail": "Rate limit exceeded. Please slow down."})
         
+        # ====== EXECUTE REQUEST ======
         response = await call_next(request)
         
-        # Add security headers to ALL responses
+        # ====== BLOCK REDIRECT-BASED DATA LEAKS ======
+        # If an /api/ route tries to redirect, block it to prevent redirect-chain attacks
+        if path.startswith("/api") and response.status_code in (301, 302, 307, 308):
+            logging.warning(f"Blocked redirect on API route: {path} -> {response.headers.get('location', 'unknown')}")
+            return JSONResponse(status_code=405, content={"detail": "Method Not Allowed"})
+        
+        # ====== SECURITY HEADERS ON ALL RESPONSES ======
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["X-Frame-Options"] = "DENY"
         response.headers["X-XSS-Protection"] = "1; mode=block"
@@ -162,7 +243,8 @@ class SecurityMiddleware(BaseHTTPMiddleware):
         response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
         response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
         response.headers["Cross-Origin-Resource-Policy"] = "same-site"
-        # Remove server identification headers
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
+        response.headers["Pragma"] = "no-cache"
         if "server" in response.headers:
             del response.headers["server"]
         
