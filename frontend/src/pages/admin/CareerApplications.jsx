@@ -228,6 +228,38 @@ const CareerApplications = () => {
     }
   };
 
+  const exportFilteredData = async () => {
+    setExporting(true);
+    try {
+      const token = localStorage.getItem('adminToken');
+      const params = new URLSearchParams();
+      if (startDate) params.append('start_date', startDate);
+      if (endDate) params.append('end_date', endDate);
+      if (statusFilter) params.append('status', statusFilter);
+      if (search) params.append('search', search);
+      
+      const response = await fetch(`${API_URL}/api/admin/export/careers/filtered?${params.toString()}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const dateStr = new Date().toISOString().split('T')[0];
+        a.download = `career_applications_filtered_${dateStr}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+      }
+    } catch (err) {
+      console.error('Error exporting filtered data:', err);
+    } finally {
+      setExporting(false);
+    }
+  };
+
   const formatDate = (dateStr) => {
     if (!dateStr) return '-';
     const date = new Date(dateStr);
@@ -270,9 +302,14 @@ const CareerApplications = () => {
                 <button onClick={() => exportToCSV(true)} className="w-full text-left px-4 py-2.5 text-sm text-[#374151] hover:bg-[#F3F4F6] rounded-t-lg" data-testid="export-all-btn">
                   Export All Data
                 </button>
-                <button onClick={() => exportToCSV(false)} className="w-full text-left px-4 py-2.5 text-sm text-[#374151] hover:bg-[#F3F4F6] rounded-b-lg border-t border-[#E5E7EB]" data-testid="export-page-btn">
+                <button onClick={() => exportToCSV(false)} className={`w-full text-left px-4 py-2.5 text-sm text-[#374151] hover:bg-[#F3F4F6] border-t border-[#E5E7EB] ${!(startDate || endDate) ? 'rounded-b-lg' : ''}`} data-testid="export-page-btn">
                   Export Current Page
                 </button>
+                {(startDate || endDate) && (
+                  <button onClick={exportFilteredData} className="w-full text-left px-4 py-2.5 text-sm text-[#328CC1] font-medium hover:bg-blue-50 rounded-b-lg border-t border-[#E5E7EB]" data-testid="export-filtered-btn">
+                    Export Filtered Data
+                  </button>
+                )}
               </div>
             </div>
             <Button onClick={fetchApplications} variant="outline" size="sm">

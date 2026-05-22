@@ -1660,6 +1660,66 @@ async def get_admin_settings(authorization: Optional[str] = Header(None)):
         raise HTTPException(status_code=500, detail="Failed to fetch settings")
 
 
+@api_router.get("/admin/export/careers/filtered")
+async def export_filtered_careers(
+    authorization: Optional[str] = Header(None),
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    status: Optional[str] = None,
+    search: Optional[str] = None
+):
+    """Export filtered career applications as CSV"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    
+    try:
+        import csv
+        import io
+        
+        query = {}
+        if status:
+            query["status"] = status
+        if start_date:
+            query["appliedAt"] = query.get("appliedAt", {})
+            query["appliedAt"]["$gte"] = start_date
+        if end_date:
+            query["appliedAt"] = query.get("appliedAt", {})
+            query["appliedAt"]["$lte"] = end_date + "T23:59:59"
+        if search:
+            safe_search = sanitize_regex_input(search)
+            query["$or"] = [
+                {"firstName": {"$regex": safe_search, "$options": "i"}},
+                {"lastName": {"$regex": safe_search, "$options": "i"}},
+                {"email": {"$regex": safe_search, "$options": "i"}},
+                {"jobTitle": {"$regex": safe_search, "$options": "i"}}
+            ]
+        
+        data = await db.job_applications.find(query, {"_id": 0}).sort("appliedAt", -1).to_list(100000)
+        
+        headers = ["First Name", "Last Name", "Email", "Phone", "Location", "Job Title", "LinkedIn", "Status", "Applied At"]
+        rows = [[d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("phone", ""), d.get("location", ""), d.get("jobTitle", ""), d.get("linkedInProfile", ""), d.get("status", ""), d.get("appliedAt", "")] for d in data]
+        
+        filename = f"career_applications_filtered_{datetime.now(timezone.utc).strftime('%Y%m%d')}.csv"
+        
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow(headers)
+        writer.writerows(rows)
+        
+        csv_content = output.getvalue()
+        return Response(
+            content=csv_content,
+            media_type="text/csv",
+            headers={"Content-Disposition": f"attachment; filename={filename}"}
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error exporting filtered careers: {e}")
+        raise HTTPException(status_code=500, detail="Failed to export filtered data")
+
+
 @api_router.get("/admin/export/{data_type}")
 async def export_data(data_type: str, authorization: Optional[str] = Header(None)):
     """Export data as CSV"""
