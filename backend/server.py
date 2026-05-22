@@ -125,7 +125,7 @@ class SecurityMiddleware(BaseHTTPMiddleware):
     """
     
     # Explicitly whitelisted public GET paths (health check + public content only)
-    PUBLIC_GET_PATHS = frozenset(["/api", "/api/", "/api/blog/posts"])
+    PUBLIC_GET_PATHS = frozenset(["/api", "/api/", "/api/health", "/api/blog/posts"])
     PUBLIC_GET_PREFIXES = ("/api/blog/posts/",)
     
     # Explicitly whitelisted public POST paths (form submissions only)
@@ -642,6 +642,12 @@ async def send_contact_form_email(form_type: str, form_data: dict, submission_ti
 @api_router.get("/")
 async def root():
     return {"message": "Hello World"}
+
+
+@api_router.get("/health")
+async def health_check():
+    """Lightweight health-check for external uptime pings. No DB, no auth, no side effects."""
+    return JSONResponse(content={"status": "ok"}, status_code=200)
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
