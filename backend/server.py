@@ -135,6 +135,7 @@ class SecurityMiddleware(BaseHTTPMiddleware):
         "/api/contact-us",
         "/api/newsletter/subscribe",
         "/api/careers/apply",
+        "/api/job-applications/submit",
         "/api/status",
         "/api/admin/login",
     ])
