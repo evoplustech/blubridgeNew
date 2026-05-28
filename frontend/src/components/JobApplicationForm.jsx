@@ -222,12 +222,17 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
         body: formDataToSend
       });
       
-      const responseText = await response.text();
+      // Clone the response so other listeners (analytics, etc.) can't lock the stream
       let data;
       try {
-        data = JSON.parse(responseText);
+        data = await response.clone().json();
       } catch {
-        data = { success: false, detail: 'Server returned an invalid response' };
+        try {
+          const text = await response.clone().text();
+          data = text ? { success: false, detail: text } : { success: false, detail: 'Server returned an invalid response' };
+        } catch {
+          data = { success: false, detail: 'Server returned an invalid response' };
+        }
       }
       
       if (response.ok && data.success) {
