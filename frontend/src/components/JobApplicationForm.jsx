@@ -222,7 +222,13 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
         body: formDataToSend
       });
       
-      const data = await response.json();
+      const responseText = await response.text();
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch {
+        data = { success: false, detail: 'Server returned an invalid response' };
+      }
       
       if (response.ok && data.success) {
         setSubmitStatus('success');
@@ -264,7 +270,11 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitStatus('error');
-      setSubmitMessage('Network error. Please check your connection and try again.');
+      if (error.message && (error.message.includes('Failed to fetch') || error.message.includes('NetworkError'))) {
+        setSubmitMessage('Network error. Please check your connection and try again.');
+      } else {
+        setSubmitMessage('An error occurred while submitting. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
