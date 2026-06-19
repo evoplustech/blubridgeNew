@@ -682,7 +682,7 @@ const Home = () => {
               <span className="hero-letter" style={{ animationDelay: '1920ms' }}>n</span>
             </h1>
             <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto px-4" style={{ fontSize: 'clamp(1rem, 4vw, 1.5rem)' }}>
-              <span className="hero-subheading">An Independent AI Research Lab.</span>
+              <span className="hero-subheading">Frontier AI Research Lab</span>
             </p>
             
             <div className="flex flex-wrap items-center justify-center gap-4 pt-6">

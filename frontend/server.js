@@ -83,7 +83,7 @@ const seoContent = {
     description: 'Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.',
     content: `
       <h1>Beyond the Horizon</h1>
-      <p>An Independent AI Research Lab.</p>
+      <p>Frontier AI Research Lab.</p>
       
       <h2>OUR FRONTIER AI EXPERTISE</h2>
       
