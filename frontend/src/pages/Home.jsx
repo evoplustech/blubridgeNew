@@ -684,14 +684,6 @@ const Home = () => {
             <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto px-4" style={{ fontSize: 'clamp(1rem, 4vw, 1.5rem)' }}>
               <span className="hero-subheading">Frontier AI Research Lab</span>
             </p>
-            
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
-              <Link to="/contact">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 px-8 rounded font-medium text-lg" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }} data-testid="hero-contact-btn">
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
