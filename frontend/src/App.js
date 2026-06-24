@@ -41,6 +41,7 @@ import MediaKit from './pages/MediaKit';
 import Careers from './pages/Careers';
 import Research from './pages/Research';
 import BluWerp from './pages/Research/BluWerp';
+import BluTrain from './pages/Research/BluTrain';
 import FLUX from './pages/Research/FLUX';
 import FLUXData from './pages/Research/FLUXData';
 import FLUX3 from './pages/Research/FLUX3';
@@ -149,6 +150,7 @@ const AppLayout = () => {
           <Route path="/Research/FLUX-3" element={<FLUX3 />} />
           <Route path="/Research/FLUX-4" element={<FLUX4 />} />
           <Route path="/Research/Blu-Werp" element={<BluWerp />} />
+          <Route path="/Research/BluTrain" element={<BluTrain />} />
           
           {/* Contact Routes */}
           <Route path="/contact" element={<Contact />} />

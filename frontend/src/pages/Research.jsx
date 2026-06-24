@@ -22,7 +22,62 @@ const Research = () => {
 
         <div className="max-w-8xl mx-auto px-4 space-y-8">
           
-          {/* Paper Card 1 - FLUX (NEW - TOP) */}
+          {/* Paper Card 1 - BluTrain (NEW - TOP) */}
+          <div 
+            className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
+            style={{ backgroundColor: '#fffdf7' }}
+          >
+            
+            {/* Paper Title */}
+            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
+              BluTrain: A C++/CUDA Framework for AI Systems: Robust, Lightweight, and Architecture-General, Built from First Principles
+            </h2>
+
+            {/* Authors Row */}
+            <div className="flex items-start gap-2 mb-3">
+              <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-0.5" />
+              <span className="text-[#2F3A4A] text-sm">
+                Adhitya Charan, Adwaid Suresh, Anuj Kumar, Aparna A, Dhanakumar K, Dharun MS, Dinesh G, Goutham Kumar Reddy K, Harshini V M, Jenifa D, Jona Delcy C A, Kathirvel S, Killi Uma Maheswara Rao, Kiruthik Kanna M, Kurra Vishnu Sai, Madhumithaa G K, Navin Kumar V, Ram Charan Golla, Revathi T, Rishikkanth R, Sanjay Krishna MV, Surendra Vendra
+              </span>
+            </div>
+
+            {/* Publish Date */}
+            <div className="flex items-center gap-2 mb-6">
+              <Calendar className="w-5 h-5 text-[#6B7280]" />
+              <span className="text-[#6B7280] text-sm">
+                Published: June 2026
+              </span>
+            </div>
+
+            {/* Divider */}
+            <hr className="border-[#E8EDD8] mb-6" />
+
+            {/* Abstract Section */}
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <FileText className="w-5 h-5 text-[#6B7280]" />
+                <span className="text-[#0B1F3B] font-medium">Abstract</span>
+              </div>
+              
+              <p className="text-[#2F3A4A] leading-relaxed text-base">
+                BluTrain is a robust, lightweight, architecture-general training framework built from first principles in C++ and the core CUDA programming model. Every layer is implemented natively — a typed tensor module with reverse-mode autograd, a linear-algebra library (BluBLAS), a caching allocator, a multi-mode distributed-execution module, and an MLIR-based deep-learning compiler. On a 124M-parameter GPT-2 baseline in FP32 across 8 RTX 6000 Ada GPUs, BluTrain sustains 407K tokens/s vs PyTorch's 395K tokens/s and achieves up to a 22% VRAM footprint reduction
+                <a href="Research/BluTrain" className="text-[#328CC1] hover:underline ml-1">More »</a>
+              </p>
+            </div>
+
+            {/* External Link */}
+            <a 
+              href="https://arxiv.org/abs/2606.24780" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#328CC1] hover:underline text-sm"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View on arXiv
+            </a>
+          </div>
+
+          {/* Paper Card 2 - FLUX (NEW - TOP) */}
           <div 
             className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
             style={{ backgroundColor: '#fffdf7' }}
