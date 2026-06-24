@@ -13,12 +13,9 @@ const FLUX_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Ven
 const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
 
 const AuthorPills = ({ authors, paper }) => (
-  <div className="mb-6 mt-4" data-testid={`${paper}-authors`}>
-    <div className="flex items-center gap-2 mb-2">
-      <Users className="w-5 h-5 text-[#0B1F3B]" />
-      <p className="text-[#0B1F3B] font-bold text-sm">Authors:</p>
-    </div>
-    <p className="text-[#2F3A4A] text-sm leading-loose">
+  <div className="flex items-start gap-2 mb-5 mt-4" data-testid={`${paper}-authors`}>
+    <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-0.5" />
+    <p className="text-[#2F3A4A] text-sm leading-relaxed">
       {authors.join(', ')}
     </p>
   </div>
