@@ -14,7 +14,10 @@ const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', '
 
 const AuthorPills = ({ authors, paper }) => (
   <div className="mb-6 mt-4" data-testid={`${paper}-authors`}>
-    <p className="text-[#0B1F3B] font-bold text-sm mb-2">Authors:</p>
+    <div className="flex items-center gap-2 mb-2">
+      <Users className="w-5 h-5 text-[#0B1F3B]" />
+      <p className="text-[#0B1F3B] font-bold text-sm">Authors:</p>
+    </div>
     <p className="text-[#2F3A4A] text-sm leading-loose">
       {authors.join(', ')}
     </p>
@@ -48,7 +51,7 @@ const Research = () => {
             
             {/* Paper Title */}
             <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
-              BluTrain: A C++/CUDA Framework for AI Systems
+              BluTrain: A Robust, Lightweight, and Architecture-General C++/CUDA Framework for AI Systems
             </h2>
 
             {/* Authors Row */}
