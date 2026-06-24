@@ -13,15 +13,14 @@ const FLUX_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Ven
 const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
 
 const AuthorPills = ({ authors, paper }) => (
-  <div className="mb-5 mt-4 overflow-hidden" data-testid={`${paper}-authors`}>
-    <Users
-      className="lucide lucide-users w-[13.5px] h-[13.5px] text-[#6B7280] flex-shrink-0 mt-1"
-      style={{ float: 'left', marginRight: '7px' }}
-    />
+  <div className="mb-5 mt-4" data-testid={`${paper}-authors`}>
     <p
       className="text-[#2F3A4A] leading-relaxed"
-      style={{ fontSize: '13.5px', display: 'inline', float: 'left' }}
+      style={{ fontSize: '13.5px' }}
     >
+      <Users
+        className="lucide lucide-users w-[13.5px] h-[13.5px] text-[#6B7280] inline-block align-middle mr-[7px] -mt-[2px]"
+      />
       {authors.join(', ')}
     </p>
   </div>
