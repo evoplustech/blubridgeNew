@@ -14,8 +14,8 @@ const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', '
 
 const AuthorPills = ({ authors, paper }) => (
   <div className="flex items-start gap-2 mb-5 mt-4" data-testid={`${paper}-authors`}>
-    <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-0.5" />
-    <p className="text-[#2F3A4A] text-sm leading-relaxed">
+    <Users className="w-[13.5px] h-[13.5px] text-[#6B7280] flex-shrink-0 mt-1" />
+    <p className="text-[#2F3A4A] leading-relaxed" style={{ fontSize: '13.5px' }}>
       {authors.join(', ')}
     </p>
   </div>
