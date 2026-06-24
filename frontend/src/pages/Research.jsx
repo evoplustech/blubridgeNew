@@ -14,7 +14,6 @@ const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', '
 
 const AuthorPills = ({ authors, paper }) => (
   <div className="mb-6 mt-4" data-testid={`${paper}-authors`}>
-    <p className="text-[#0B1F3B] font-bold text-sm mb-2">Authors:</p>
     <p className="text-[#2F3A4A] text-sm leading-loose">
       {authors.join(', ')}
     </p>
