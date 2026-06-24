@@ -30,7 +30,7 @@ const Research = () => {
             
             {/* Paper Title */}
             <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
-              BluTrain: A C++/CUDA Framework for AI Systems: Robust, Lightweight, and Architecture-General, Built from First Principles
+              BluTrain: A C++/CUDA Framework for AI Systems
             </h2>
 
             {/* Authors Row */}
@@ -61,7 +61,7 @@ const Research = () => {
               
               <p className="text-[#2F3A4A] leading-relaxed text-base">
                 BluTrain is a robust, lightweight, architecture-general training framework built from first principles in C++ and the core CUDA programming model. Every layer is implemented natively — a typed tensor module with reverse-mode autograd, a linear-algebra library (BluBLAS), a caching allocator, a multi-mode distributed-execution module, and an MLIR-based deep-learning compiler. On a 124M-parameter GPT-2 baseline in FP32 across 8 RTX 6000 Ada GPUs, BluTrain sustains 407K tokens/s vs PyTorch's 395K tokens/s and achieves up to a 22% VRAM footprint reduction
-                <a href="Research/BluTrain" className="text-[#328CC1] hover:underline ml-1">More »</a>
+                <a href="https://arxiv.org/abs/2606.24780" className="text-[#328CC1] hover:underline ml-1">More »</a>
               </p>
             </div>
 
