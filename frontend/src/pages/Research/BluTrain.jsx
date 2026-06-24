@@ -68,12 +68,8 @@ const BluTrain = () => {
           <p className="mb-6">
             BluTrain is organized as a highly modular ecosystem of natively co-designed components (Figure 1). A centralized configuration drives the instantiation of the model from the foundational tensor module and dictates the distributed topology.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/figure1-architecture.png"
-              alt="Figure 1: The modular architecture of the BluTrain framework"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Figure 1: The modular architecture of the BluTrain framework. BluTrain connected to DTMS, Profiler, Tensor &amp; Ops, Tests, Config, and DL Compiler]
           </div>
 
           {/* 2.1 */}
@@ -140,12 +136,8 @@ const BluTrain = () => {
           <p className="mb-6">
             When a bucket saturates, an asynchronous AllReduce collective is dispatched on a secondary, high-priority CUDA stream. This mechanism interleaves dense network transfers with the remaining backward matrix multiplications. To preserve compute/communication overlap without stalling the host, the framework inserts GPU-side cross-stream dependencies using low-overhead CUDA events (cudaEventRecord + cudaStreamWaitEvent): the communication stream waits on the compute stream before each bucket's all-reduce, and the compute stream waits on the communication stream before the optimizer step. All synchronization is strictly stream-to-stream; the host thread never blocks on a barrier. Extended distributed scaling benchmarks, detailing the impact of varying bucket sizes on AllReduce latency and overall throughput, are provided in Appendix B.11.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/algorithm1-ddp.png"
-              alt="Algorithm 1: Distributed Data Parallel Training Step"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Algorithm 1: Distributed Data Parallel Training Step]
           </div>
 
           {/* 4.2 */}
@@ -201,12 +193,8 @@ const BluTrain = () => {
           <p className="mb-6">
             <strong>Data Loader:</strong> The ingestion pipeline is architected to overlap data movement with computation rather than serializing them (Algorithm 2). Token shards are memory-mapped and indexed by a rank-strided cursor, enabling distributed workers to partition the corpus without inter-process coordination. To keep host-to-device (H2D) transfer off the critical path, the loader stages each batch through page-locked (pinned) host buffers and issues an asynchronous cudaMemcpyAsync on a dedicated copy stream, so the next batch is prefetched into device memory while the current batch is being computed. Cross-stream ordering is enforced with CUDA events: one signals when a batch's H2D copy has landed before the compute stream reads it, and a second prevents the copy stream from overwriting a buffer the consumer is still using. As a result, input transfer is hidden whenever per-step compute exceeds per-step transfer; if pinned allocation is unavailable, the loader falls back to a synchronous path with identical results.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/algorithm2-batch.png"
-              alt="Algorithm 2: Double-Buffered Batch Production"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Algorithm 2: Double-Buffered Batch Production]
           </div>
           <p className="mb-10">
             <strong>Build and execution:</strong> The entire architecture compiles into a unified, standalone binary without reliance on extensive external toolchains. Training executes strictly as a native C++ process, entirely eliminating the inherent global interpreter locks and runtime overheads associated with Python environments. High-level scripting languages are deliberately relegated strictly to offline analysis, ensuring the training loop remains a pure, unhindered execution engine.
@@ -220,19 +208,11 @@ const BluTrain = () => {
           <p className="mb-6">
             Our evaluation focuses on the three primary metrics that matter most for a training framework: numerical fidelity (convergence quality), throughput (tokens/s), and memory (footprint). The microbenchmarks in §3 explain the end-to-end speedups that occur.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/figure2-gpt2.png"
-              alt="Figure 2: The GPT-2 decoder-only Transformer architecture"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Figure 2: The GPT-2 decoder-only Transformer architecture]
           </div>
-          <div className="my-6">
-            <img
-              src="/images/blutrain/table1-hyperparams.png"
-              alt="Table 1: Training hyperparameters for the 124M GPT-2 run"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-6 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Hyperparameters — Table 1: Model &amp; Training; Optimization &amp; Initialization]
           </div>
 
           <p className="mb-10">
@@ -244,12 +224,8 @@ const BluTrain = () => {
           <p className="mb-6">
             The central result is that BluTrain reproduces the training trajectory rather than merely approximating it. Figure 3 overlays the validation-loss curves of the two frameworks across the full run. They are visually indistinguishable: the maximum gap between the two curves at any of the 77 logged checkpoints is below 3 × 10<sup>−3</sup>, and both descend monotonically to a final validation loss of ≈ 3.07 (BluTrain 3.0675, PyTorch 3.0695). Minimum training loss likewise matches (2.8771 vs. 2.8793). For a first-principles stack this near-exact agreement is strong evidence that the operator semantics, accumulation orders, and promotion rules are correct. This is a direct consequence of controlling the numerics end to end.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/figure3-loss.png"
-              alt="Figure 3: Training and validation loss over the full 19,073-step run"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Figure 3: Training and validation loss]
           </div>
 
           {/* 6.2 */}
@@ -257,17 +233,8 @@ const BluTrain = () => {
           <p className="mb-6">
             Across the identical 124M, 8-GPU, 19,073-step workload, BluTrain achieves an aggregate throughput of ≈406,600 tokens/s (≈ 1,313 ms/step). This outperforms the PyTorch baseline of ≈394,700 tokens/s (≈ 1,359 ms/step) by a sustained ≈3% margin. In absolute terms, this implies BluTrain processes ≈11,900 more tokens every second than PyTorch during the training runtime. This end-to-end reduction in step time is the direct mathematical product of the kernel-level optimizations. In eager mode on a single GPU, BluTrain sustains ≈54,600 tokens/s, confirming efficient hardware utilization for a dense Transformer training loop at this scale.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/table2-throughput.png"
-              alt="Table 2: End-to-end training comparison on the 124M GPT-2 run"
-              className="w-full rounded-lg border border-gray-200 mb-6"
-            />
-            <img
-              src="/images/blutrain/figure4-throughput.png"
-              alt="Figure 4: Per-step throughput across the full 19,073-step run"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Table 2: End-to-end training comparison] &nbsp;|&nbsp; [Figure 4: Per-step throughput]
           </div>
 
           {/* 6.3 */}
@@ -288,12 +255,8 @@ const BluTrain = () => {
           <p className="mb-6">
             To leverage long-context training, which is bounded by memory rather than by compute, the context length in the existing 124M GPT-2 configuration was increased from 1024 to 16,384 while the batch size was reduced from 16 to 2, as listed in Table 4. On a single RTX 6000 Ada (48 GiB), BluTrain reaches a peak footprint of 40.4 GiB against PyTorch's 47.8 GiB, a 15% footprint reduction at the identical model, batch, sequence length, and precision, and it does so at a higher throughput of 17,784 versus 14,849 tokens/s. PyTorch runs at 99.6% occupancy with roughly 0.2 GiB of headroom, leaving it one allocator-fragmentation spike away from an out-of-memory failure, whereas BluTrain retains a 7.6 GiB reserve on the same card while running faster. It converts directly into reachable sequence length. Modelling the same configuration would demand recomputations at throughput cost, smaller micro-batches that add gradient-accumulation steps and overhead, or sharding the model across multiple GPUs. BluTrain instead fits natively on one device and keeps full single-GPU throughput. Training at 99.6% of VRAM is fragile, turning the training prone to mid-run out-of-memory crashes caused by allocator fragmentation and transient spikes, and a multi-gibibyte reserve keeps runs stable.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/table4-longcontext.png"
-              alt="Table 4: Long-context training of the 124M GPT-2 on a single RTX 6000 Ada"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Table 4: Long-context training]
           </div>
 
           {/* 6.5 */}
@@ -301,12 +264,8 @@ const BluTrain = () => {
           <p className="mb-6">
             The configuration in Table 5 specifies a 2.42-billion-parameter GPT-2-style model. On a single RTX 6000 Ada (48 GiB), neither PyTorch eager mode nor PyTorch compile mode can fit and train this model, both terminating with an out-of-memory failure. As reported in Table 6, BluTrain trains the identical model on the same single chip in eager mode, reaching a peak footprint of 46.9 GiB and sustaining a throughput of 13.6K tokens/s. This establishes a larger trainable-parameter ceiling on fixed hardware. The same 48 GiB device that cannot admit the model under PyTorch trains it natively under BluTrain, without recourse to model parallelism, offloading, or activation checkpointing.
           </p>
-          <div className="my-8">
-            <img
-              src="/images/blutrain/tables5-6-largest.png"
-              alt="Table 5 and Table 6: Largest trainable model configuration and results"
-              className="w-full rounded-lg border border-gray-200"
-            />
+          <div className="my-8 border border-gray-200 rounded-lg p-6 bg-gray-50 text-center text-sm text-gray-500">
+            [Table 5: Model configuration] &nbsp;|&nbsp; [Table 6: Peak memory and throughput]
           </div>
 
           {/* 7 Related Work */}
@@ -435,3 +394,4 @@ const BluTrain = () => {
 };
 
 export default BluTrain;
+luTrain;
