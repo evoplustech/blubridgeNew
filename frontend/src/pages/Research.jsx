@@ -12,30 +12,22 @@ const BLUTRAIN_AUTHORS = [
 const FLUX_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
 const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
 
-const getInitials = (name) => name.split(' ').filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
-
 const AuthorPills = ({ authors, paper }) => (
-  <div className="mb-5" data-testid={`${paper}-authors-pills`}>
-    <div className="flex items-center gap-2 mb-3">
-      <div className="h-px w-8 bg-[#0B1F3B]/20" />
-      <span className="text-xs font-semibold tracking-widest uppercase text-[#0B1F3B]/60">
-        Authors
-      </span>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      {authors.map((name) => (
-        <span
-          key={name}
-          data-testid={`${paper}-author-pill-${name.replace(/\s+/g, '-').toLowerCase()}`}
-          className="inline-flex items-center gap-2 pl-1 pr-3.5 py-1 rounded-full bg-[#f3f1e9] border border-[#E8EDD8] text-[#0B1F3B] text-sm font-medium shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#ebe6d3] hover:border-[#0B1F3B]/30 hover:shadow-md cursor-default"
-        >
-          <span className="w-6 h-6 rounded-full bg-[#0B1F3B] text-white text-[10px] font-semibold flex items-center justify-center tracking-wide">
-            {getInitials(name)}
+  <div className="flex items-start gap-2 mb-5" data-testid={`${paper}-authors`}>
+    <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-0.5" />
+    <p className="text-[#2F3A4A] text-sm leading-relaxed">
+      {authors.map((name, i) => (
+        <React.Fragment key={name}>
+          <span
+            data-testid={`${paper}-author-${name.replace(/\s+/g, '-').toLowerCase()}`}
+            className="hover:text-[#0B1F3B] hover:underline underline-offset-4 decoration-[#0B1F3B]/30 transition-colors cursor-default"
+          >
+            {name}
           </span>
-          {name}
-        </span>
+          {i < authors.length - 1 && <span className="text-[#9CA3AF]">, </span>}
+        </React.Fragment>
       ))}
-    </div>
+    </p>
   </div>
 );
 
@@ -91,7 +83,7 @@ const Research = () => {
               </div>
               
               <p className="text-[#2F3A4A] leading-relaxed text-base">
-                BluTrain is a robust, lightweight, architecture-general training framework built from first principles in C++ and the core CUDA programming model. Every layer is implemented natively — a typed tensor module with reverse-mode autograd, a linear-algebra library (BluBLAS), a caching allocator, a multi-mode distributed-execution module, and an MLIR-based deep-learning compiler. On a 124M-parameter GPT-2 baseline in FP32 across 8 RTX 6000 Ada GPUs, BluTrain sustains 407K tokens/s vs PyTorch's 395K tokens/s and achieves up to a 22% VRAM footprint reduction
+               Progress in deep learning is, at scale, more a matter of systems engineering than of modelling: the behaviour of a model in training (its throughput, its memory footprint, and the numerical fidelity of the result) is determined less by the architecture itself than by how that architecture is expressed on the hardware. To achieve absolute control over this hardware expression while abstracting away systems complexity to make modelling seamless and eliminating the need for repetitive orchestration logic, BluTrain was architected from first principles as a robust, lightweight, and architecture-general training framework in standard C++ and the core CUDA programming model. 
                 <a href="https://arxiv.org/abs/2606.24780" target="_blank" className="text-[#328CC1] hover:underline ml-1">More »</a>
               </p>
             </div>
