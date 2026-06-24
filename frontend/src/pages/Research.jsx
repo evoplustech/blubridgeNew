@@ -81,8 +81,7 @@ const Research = () => {
               </div>
               
               <p className="text-[#2F3A4A] leading-relaxed text-base">
-               Progress in deep learning is, at scale, more a matter of systems engineering than of modelling: the behaviour of a model in training (its throughput, its memory footprint, and the numerical fidelity of the result) is determined less by the architecture itself than by how that architecture is expressed on the hardware. To achieve absolute control over this hardware expression while abstracting away systems complexity to make modelling seamless and eliminating the need for repetitive orchestration logic, BluTrain was architected from first principles as a robust, lightweight, and architecture-general training framework in standard C++ and the core CUDA programming model. 
-                <a href="https://arxiv.org/abs/2606.24780" target="_blank" className="text-[#328CC1] hover:underline ml-1">More »</a>
+               Progress in deep learning is, at scale, more a matter of systems engineering than of modelling: the behaviour of a model in training (its throughput, its memory footprint, and the numerical fidelity of the result) is determined less by the architecture itself than by how that architecture is expressed on the hardware. <a href="https://arxiv.org/abs/2606.24780" target="_blank" className="text-[#328CC1] hover:underline ml-1">More »</a>
               </p>
             </div>
 
