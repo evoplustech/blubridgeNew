@@ -16,17 +16,7 @@ const AuthorPills = ({ authors, paper }) => (
   <div className="flex items-start gap-2 mb-5" data-testid={`${paper}-authors`}>
     <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-0.5" />
     <p className="text-[#2F3A4A] text-sm leading-relaxed">
-      {authors.map((name, i) => (
-        <React.Fragment key={name}>
-          <span
-            data-testid={`${paper}-author-${name.replace(/\s+/g, '-').toLowerCase()}`}
-            className="hover:text-[#0B1F3B] hover:underline underline-offset-4 decoration-[#0B1F3B]/30 transition-colors cursor-default"
-          >
-            {name}
-          </span>
-          {i < authors.length - 1 && <span className="text-[#9CA3AF]">, </span>}
-        </React.Fragment>
-      ))}
+      {authors.join(', ')}
     </p>
   </div>
 );
