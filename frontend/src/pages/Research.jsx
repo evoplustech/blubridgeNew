@@ -19,7 +19,7 @@ const AuthorPills = ({ authors, paper }) => (
     <div className="flex items-center gap-2 mb-3">
       <div className="h-px w-8 bg-[#0B1F3B]/20" />
       <span className="text-xs font-semibold tracking-widest uppercase text-[#0B1F3B]/60">
-        Authors{authors.length > 5 ? ` · ${authors.length}` : ''}
+        Authors
       </span>
     </div>
     <div className="flex flex-wrap gap-2">
