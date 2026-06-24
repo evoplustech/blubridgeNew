@@ -13,19 +13,11 @@ const FLUX_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Ven
 const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
 
 const AuthorPills = ({ authors, paper }) => (
-  <div className="flex items-start gap-2 mb-5" data-testid={`${paper}-authors`}>
-    <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-1" />
-    <div className="flex flex-wrap gap-1.5">
-      {authors.map((name) => (
-        <span
-          key={name}
-          data-testid={`${paper}-author-${name.replace(/\s+/g, '-').toLowerCase()}`}
-          className="inline-block px-2.5 py-0.5 text-sm text-[#2F3A4A] border border-[#D6D3C7] rounded-md bg-transparent"
-        >
-          {name}
-        </span>
-      ))}
-    </div>
+  <div className="mb-6 mt-4" data-testid={`${paper}-authors`}>
+    <p className="text-[#0B1F3B] font-bold text-sm mb-2">Authors:</p>
+    <p className="text-[#2F3A4A] text-sm leading-loose">
+      {authors.join(', ')}
+    </p>
   </div>
 );
 
@@ -63,12 +55,10 @@ const Research = () => {
             <AuthorPills authors={BLUTRAIN_AUTHORS} paper="blutrain" />
 
             {/* Publish Date */}
-            <div className="flex items-center gap-2 mb-6">
-              <Calendar className="w-5 h-5 text-[#6B7280]" />
-              <span className="text-[#6B7280] text-sm">
-                Published: June 2026
-              </span>
-            </div>
+            <p className="text-sm mb-6">
+              <span className="font-bold text-[#0B1F3B]">Published:</span>
+              <span className="text-[#2F3A4A] ml-1">June 2026</span>
+            </p>
 
             {/* Divider */}
             <hr className="border-[#E8EDD8] mb-6" />
@@ -112,12 +102,10 @@ const Research = () => {
             <AuthorPills authors={FLUX_AUTHORS} paper="flux" />
 
             {/* Publish Date */}
-            <div className="flex items-center gap-2 mb-6">
-              <Calendar className="w-5 h-5 text-[#6B7280]" />
-              <span className="text-[#6B7280] text-sm">
-                Published: March 2026
-              </span>
-            </div>
+            <p className="text-sm mb-6">
+              <span className="font-bold text-[#0B1F3B]">Published:</span>
+              <span className="text-[#2F3A4A] ml-1">March 2026</span>
+            </p>
 
             {/* Divider */}
             <hr className="border-[#E8EDD8] mb-6" />
@@ -162,12 +150,10 @@ const Research = () => {
             <AuthorPills authors={BLUWERP_AUTHORS} paper="bluwerp" />
 
             {/* Publish Date */}
-            <div className="flex items-center gap-2 mb-6">
-              <Calendar className="w-5 h-5 text-[#6B7280]" />
-              <span className="text-[#6B7280] text-sm">
-                Published: November 2025
-              </span>
-            </div>
+            <p className="text-sm mb-6">
+              <span className="font-bold text-[#0B1F3B]">Published:</span>
+              <span className="text-[#2F3A4A] ml-1">November 2025</span>
+            </p>
 
             {/* Divider */}
             <hr className="border-[#E8EDD8] mb-6" />
