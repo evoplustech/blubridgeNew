@@ -35,6 +35,13 @@ Build and maintain the BluBridge corporate website with React frontend + FastAPI
 - Permissions-Policy: camera=(), microphone=(), geolocation=()
 - Cross-Origin-Opener-Policy: same-origin
 
+### Research Pages Premium UX (Jun 24, 2026)
+- Premium horizontal pill-shaped author badges on `/Research/FLUX`, `/Research/Blu-Werp`, `/Research/BluTrain`
+- Each pill: dark navy initials avatar + author name, cream bg, hover lift/shadow
+- BluTrain shows "AUTHORS · 22" count label
+- Replaced BluTrain Figure 1 (architecture diagram) with user-uploaded image
+- Production build refreshed and frontend service restarted
+
 ### Previous Features
 - Full website with all major pages
 - Admin panel with server-side pagination

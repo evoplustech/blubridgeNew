@@ -1,13 +1,39 @@
 import React from 'react';
 
+const FLUX_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
+const getInitials = (name) => name.split(' ').filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+
 const FLUX = () => {
   return (
     <div className="min-h-screen bg-[#f3f1e9]">
       <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
           FLUX: Data Worth Training On
         </h1>
+
+        {/* Authors — Premium Pill Badges */}
+        <div className="mb-6" data-testid="flux-authors-section">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="h-px w-8 bg-[#0B1F3B]/20" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#0B1F3B]/60">Authors</span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {FLUX_AUTHORS.map((name) => (
+              <span
+                key={name}
+                data-testid={`author-pill-${name.replace(/\s+/g, '-').toLowerCase()}`}
+                className="inline-flex items-center gap-2 pl-1 pr-3.5 py-1 rounded-full bg-[#f3f1e9] border border-[#E8EDD8] text-[#0B1F3B] text-sm font-medium shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#ebe6d3] hover:border-[#0B1F3B]/30 hover:shadow-md cursor-default"
+              >
+                <span className="w-6 h-6 rounded-full bg-[#0B1F3B] text-white text-[10px] font-semibold flex items-center justify-center tracking-wide">
+                  {getInitials(name)}
+                </span>
+                {name}
+              </span>
+            ))}
+          </div>
+          <p className="text-xs text-[#6B7280] mt-3">BluBridge Research · contact@blubridge.ai</p>
+        </div>
 
         {/* Read the Paper Button */}
         <div className="mb-10">
