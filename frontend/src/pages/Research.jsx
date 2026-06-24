@@ -47,7 +47,7 @@ const Research = () => {
           >
             
             {/* Paper Title */}
-            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
+            <h2 className="text-[1.4rem] font-bold text-[#0B1F3B] leading-tight mb-4">
               BluTrain: A Robust, Lightweight, and Architecture-General C++/CUDA Framework for AI Systems
             </h2>
 
@@ -94,7 +94,7 @@ const Research = () => {
           >
             
             {/* Paper Title */}
-            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
+            <h2 className="text-[1.4rem] font-bold text-[#0B1F3B] leading-tight mb-4">
               FLUX: Data Worth Training On — A Preprocessing Pipeline for Large Language Model Training
             </h2>
 
@@ -142,7 +142,7 @@ const Research = () => {
           >
             
             {/* Paper Title */}
-            <h2 className="text-xl md:text-2xl font-bold text-[#0B1F3B] leading-tight mb-4">
+            <h2 className="text-[1.4rem] font-bold text-[#0B1F3B] leading-tight mb-4">
               Blu-WERP (Web Extraction and Refinement Pipeline): A Scalable Pipeline for Preprocessing Large Language Model Datasets
             </h2>
 
