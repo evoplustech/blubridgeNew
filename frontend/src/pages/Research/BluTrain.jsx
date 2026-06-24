@@ -1,13 +1,5 @@
 import React from 'react';
 
-const BLUTRAIN_AUTHORS = [
-  'Adhitya Charan', 'Adwaid Suresh', 'Anuj Kumar', 'Aparna A', 'Dhanakumar K',
-  'Dharun MS', 'Dinesh G', 'Goutham Kumar Reddy K', 'Harshini V M', 'Jenifa D', 'Jona Delcy C A',
-  'Kathirvel S', 'Killi Uma Maheswara Rao', 'Kiruthik Kanna M', 'Kurra Vishnu Sai', 'Madhumithaa G K',
-  'Navin Kumar V', 'Ram Charan Golla', 'Revathi T', 'Rishikkanth R', 'Sanjay Krishna MV', 'Surendra Vendra'
-];
-const getInitials = (name) => name.split(' ').filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
-
 const BluTrain = () => {
   return (
     <div className="min-h-screen bg-[#f3f1e9]">
@@ -20,30 +12,18 @@ const BluTrain = () => {
           Robust, Lightweight, and Architecture-General, Built from First Principles
         </p>
 
-        {/* Authors — Premium Pill Badges */}
-        <div className="mb-8" data-testid="blutrain-authors-section">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="h-px w-8 bg-[#0B1F3B]/20" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-[#0B1F3B]/60">
-              Authors · {BLUTRAIN_AUTHORS.length}
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {BLUTRAIN_AUTHORS.map((name) => (
-              <span
-                key={name}
-                data-testid={`author-pill-${name.replace(/\s+/g, '-').toLowerCase()}`}
-                className="inline-flex items-center gap-2 pl-1 pr-3.5 py-1 rounded-full bg-[#f3f1e9] border border-[#E8EDD8] text-[#0B1F3B] text-sm font-medium shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#ebe6d3] hover:border-[#0B1F3B]/30 hover:shadow-md cursor-default"
-              >
-                <span className="w-6 h-6 rounded-full bg-[#0B1F3B] text-white text-[10px] font-semibold flex items-center justify-center tracking-wide">
-                  {getInitials(name)}
-                </span>
-                {name}
-              </span>
-            ))}
-          </div>
-          <p className="text-xs text-[#6B7280] mt-3">BluBridge Research · contact@blubridge.ai</p>
+        {/* Authors */}
+        <div className="mb-2 text-sm text-gray-700 leading-relaxed">
+          Adhitya Charan &nbsp; Adwaid Suresh &nbsp; Anuj Kumar &nbsp; Aparna A &nbsp; Dhanakumar K
+          <br />
+          Dharun MS &nbsp; Dinesh G &nbsp; Goutham Kumar Reddy K &nbsp; Harshini V M &nbsp; Jenifa D &nbsp; Jona Delcy C A
+          <br />
+          Kathirvel S &nbsp; Killi Uma Maheswara Rao &nbsp; Kiruthik Kanna M &nbsp; Kurra Vishnu Sai &nbsp; Madhumithaa G K
+          <br />
+          Navin Kumar V &nbsp; Ram Charan Golla &nbsp; Revathi T &nbsp; Rishikkanth R &nbsp; Sanjay Krishna MV &nbsp; Surendra Vendra
         </div>
+        <p className="text-sm text-gray-600 mb-2">BluBridge Research</p>
+        <p className="text-sm text-gray-600 mb-8">contact@blubridge.ai</p>
 
         {/* Read the Paper Button */}
         <div className="mb-10">
