@@ -14,10 +14,18 @@ const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', '
 
 const AuthorPills = ({ authors, paper }) => (
   <div className="flex items-start gap-2 mb-5" data-testid={`${paper}-authors`}>
-    <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-0.5" />
-    <p className="text-[#2F3A4A] text-sm leading-relaxed">
-      {authors.join(', ')}
-    </p>
+    <Users className="w-5 h-5 text-[#6B7280] flex-shrink-0 mt-1" />
+    <div className="flex flex-wrap gap-1.5">
+      {authors.map((name) => (
+        <span
+          key={name}
+          data-testid={`${paper}-author-${name.replace(/\s+/g, '-').toLowerCase()}`}
+          className="inline-block px-2.5 py-0.5 text-sm text-[#2F3A4A] border border-[#D6D3C7] rounded-md bg-transparent"
+        >
+          {name}
+        </span>
+      ))}
+    </div>
   </div>
 );
 
