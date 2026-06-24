@@ -29,6 +29,52 @@ setInterval(() => {
   }
 }, 30000);
 
+// ─── Auto-rebuild watcher: rebuilds whenever src/ changes (debounced) ───
+const srcDir = path.join(__dirname, 'src');
+let rebuildTimer = null;
+let isRebuilding = false;
+let pendingRebuild = false;
+
+function triggerRebuild(reason) {
+  if (isRebuilding) {
+    pendingRebuild = true;
+    return;
+  }
+  isRebuilding = true;
+  console.log(`[auto-rebuild] Change detected (${reason}). Rebuilding...`);
+  try {
+    execSync('cd /app/frontend && yarn build', { stdio: 'inherit', timeout: 180000 });
+    console.log('[auto-rebuild] Rebuild completed.');
+  } catch (e) {
+    console.error('[auto-rebuild] Rebuild failed:', e.message);
+  } finally {
+    isRebuilding = false;
+    if (pendingRebuild) {
+      pendingRebuild = false;
+      setTimeout(() => triggerRebuild('queued'), 500);
+    }
+  }
+}
+
+function scheduleRebuild(filename) {
+  if (rebuildTimer) clearTimeout(rebuildTimer);
+  rebuildTimer = setTimeout(() => triggerRebuild(filename || 'src change'), 2000);
+}
+
+if (fs.existsSync(srcDir)) {
+  try {
+    fs.watch(srcDir, { recursive: true }, (eventType, filename) => {
+      if (!filename) return;
+      if (filename.includes('node_modules') || filename.startsWith('.') || filename.endsWith('~')) return;
+      scheduleRebuild(filename);
+    });
+    console.log('[auto-rebuild] Watching src/ for changes (2s debounce).');
+  } catch (e) {
+    console.error('[auto-rebuild] Failed to start watcher:', e.message);
+  }
+}
+// ─── End auto-rebuild watcher ───
+
 // Build version tracking for live reload
 let buildVersion = Date.now().toString();
 fs.watchFile(indexPath, { interval: 2000 }, () => {
