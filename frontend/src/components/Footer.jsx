@@ -128,7 +128,7 @@ const Footer = () => {
               <li><Link to="/contact" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">Contact</Link></li>
               <li><a href="https://www.linkedin.com/company/blubridge/" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">LinkedIn</a></li>
               <li><a href="https://x.com/BlubridgeAI" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">X (Twitter)</a></li>
-              <li><a href="https://www.youtube.com/@blubridge-ai" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">YouTube</a></li>
+              <li><a href="https://github.com/BlubridgeAI/" target="_blank" rel="noopener noreferrer" className="text-[#243447] hover:text-[#328CC1] transition-colors text-sm">GitHub</a></li>
             </ul>
           </div>
           
