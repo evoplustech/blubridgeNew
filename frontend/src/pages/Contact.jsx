@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, Github } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
@@ -677,6 +677,61 @@ const Contact = () => {
                     }}
                   >
                     linkedin.com/company/blubridge
+                  </a>
+                </div>
+              </div>
+
+              {/* GitHub Box */}
+              <div
+                data-testid="contact-github-card"
+                style={{
+                  flex: 1,
+                  backgroundColor: '#fffdf7',
+                  borderRadius: '10px',
+                  border: '1px solid #e0ded8',
+                  display: 'flex',
+                  alignItems: 'center',
+                  overflow: 'hidden',
+                  paddingLeft: '7px'
+                }}
+              >
+                <div style={{
+                  width: '56px',
+                  height: '56px',
+                  backgroundColor: '#f0efe9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  borderRadius: '10px'
+                }}>
+                  <Github size={22} color="#5a5a5a" aria-hidden="true" />
+                </div>
+                <div style={{ padding: '12px 10px' }}>
+                  <p style={{
+                    fontSize: '11px',
+                    fontWeight: '600',
+                    color: '#888888',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                    margin: 0,
+                    marginBottom: '2px'
+                  }}>
+                    GitHub
+                  </p>
+                  <a
+                    href="https://github.com/BlubridgeAI/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit BluBridge on GitHub (opens in new tab)"
+                    style={{
+                      fontSize: '14px',
+                      color: '#333333',
+                      textDecoration: 'none',
+                      fontWeight: '500'
+                    }}
+                  >
+                    github.com/BlubridgeAI
                   </a>
                 </div>
               </div>

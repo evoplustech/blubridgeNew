@@ -16,7 +16,7 @@ const AuthorPills = ({ authors, paper }) => (
   <div className="mb-5 mt-4" data-testid={`${paper}-authors`}>
     <p
       className="text-[#2F3A4A] leading-relaxed"
-      style={{ fontSize: '13.5px' }}
+      style={{ fontSize: '13.7px' }}
     >
       <Users
         className="lucide lucide-users w-[13.5px] h-[13.5px] text-[#6B7280] inline-block align-middle mr-[7px] -mt-[2px]"
