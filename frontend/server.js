@@ -1222,6 +1222,30 @@ app.use(express.static(path.join(__dirname, 'build'), {
   index: false
 }));
 
+// Explicit favicon handlers with proper Content-Type + cache headers.
+// This guarantees Googlebot receives an actual icon (not the index.html SPA fallback).
+const faviconFiles = {
+  '/favicon.ico': { file: 'favicon.ico', type: 'image/x-icon' },
+  '/favicon.png': { file: 'favicon.png', type: 'image/png' },
+  '/favicon-16x16.png': { file: 'favicon-16x16.png', type: 'image/png' },
+  '/favicon-32x32.png': { file: 'favicon-32x32.png', type: 'image/png' },
+  '/favicon-48x48.png': { file: 'favicon-48x48.png', type: 'image/png' },
+  '/apple-touch-icon.png': { file: 'apple-touch-icon.png', type: 'image/png' },
+  '/android-chrome-192x192.png': { file: 'android-chrome-192x192.png', type: 'image/png' },
+  '/android-chrome-512x512.png': { file: 'android-chrome-512x512.png', type: 'image/png' }
+};
+Object.entries(faviconFiles).forEach(([route, { file, type }]) => {
+  app.get(route, (req, res) => {
+    const fp = path.join(__dirname, 'build', file);
+    if (fs.existsSync(fp)) {
+      res.setHeader('Content-Type', type);
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+      return res.sendFile(fp);
+    }
+    res.status(404).end();
+  });
+});
+
 // Handle all routes
 app.get('/{*splat}', (req, res) => {
   // Check if it's a static file request
