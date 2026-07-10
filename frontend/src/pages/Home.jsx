@@ -649,7 +649,7 @@ const Home = () => {
               {/* "Beyond the Horizon" - Letter by letter zoom animation */}
               <span className="hero-letter" style={{ animationDelay: '0ms' }}>
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_71908e15-ad3d-4447-8e73-2a6e4218da3e/artifacts/qej7eolo_B.png" 
+                  src="/images/hero-b.png" 
                   alt="B" 
                   className="hero-b-image"
                   style={{ 
@@ -1397,7 +1397,7 @@ Engineering-led deployment architectures across cloud, private, and controlled i
                 }}
               />
               <img 
-                src="https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/n1h5oo6n_about.png" 
+                src="/images/bluBridge-team.png" 
                 alt="BluBridge Team" 
                 className="w-full h-auto object-cover rounded-2xl"
                 style={{
