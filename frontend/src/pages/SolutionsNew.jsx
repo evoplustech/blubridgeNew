@@ -139,7 +139,7 @@ const SolutionsNew = () => {
             <span className="bb-caption hidden sm:block">Applied AI · Enterprise</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-center">
             <div className="lg:col-span-8">
               <h1 className="bb-display bb-reveal bb-reveal-1" style={{ fontSize: 'clamp(40px, 6.4vw, 100px)' }}>
                 Engineering AI-Native Systems for Enterprise Frontiers
