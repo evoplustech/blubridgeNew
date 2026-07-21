@@ -1222,6 +1222,14 @@ app.use(express.static(path.join(__dirname, 'build'), {
   index: false
 }));
 
+// Fallback: also serve raw public assets (images, favicons, etc.)
+// This guarantees /images/* remain reachable even if a build somehow
+// skipped copying the public folder.
+app.use(express.static(path.join(__dirname, 'public'), {
+  index: false,
+  maxAge: '1d'
+}));
+
 // Explicit favicon handlers with proper Content-Type + cache headers.
 // This guarantees Googlebot receives an actual icon (not the index.html SPA fallback).
 const faviconFiles = {

@@ -1,0 +1,30 @@
+{
+  "summary": "Verified BluBridge logo asset delivery bug fix on preview URL. Header wordmark /images/blubridge-wordmark.png, scrolled-state /images/b-icon.png, and footer wordmark all load as valid PNGs (content-type image/png; sizes 2622 and 1344 bytes matching /public/). Regression pass on header nav, /research hero + 3 papers, and /contact eyebrow removal all pass.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_results": {
+    "header_wordmark_visible": "PASS (naturalWidth=147, naturalHeight=23, complete=true, visible=true)",
+    "wordmark_fetch": "PASS (status=200, content-type=image/png, size=2622 bytes)",
+    "b_icon_fetch": "PASS (status=200, content-type=image/png, size=1344 bytes)",
+    "footer_wordmark_visible": "PASS (naturalWidth=147, visible=true, inside footer[data-testid=site-footer])",
+    "header_nav_regression": "PASS (Solutions, Products, Research, Company, Contact all visible)",
+    "research_page_regression": "PASS (H1 'Papers & Publications' present, '/ 03 ENTRIES' rendered once, 3 paper elements found)",
+    "contact_page_regression": "PASS (no 'OFFICE LOCATIONS' or 'DIRECT CHANNELS' eyebrows present)"
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "The dual express.static (build/ then public/) fallback in /app/frontend/server.js is defensive and reasonable, but a healthier long-term fix is ensuring `yarn build` reliably copies /public/ (CRA does this by default; investigate why incremental builds skipped it). Consider adding a postbuild verification script that fails CI if /build/images/blubridge-wordmark.png is missing."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Logo delivery bug is fully resolved. Both /images/blubridge-wordmark.png (2622 bytes) and /images/b-icon.png (1344 bytes) serve as image/png from preview URL. Header/footer render logos with naturalWidth=147. Regression items (header nav, /research hero + timeline, /contact eyebrow removal) all still working. No further action needed for this fix.",
+  "rca of the issue": "Bug was static asset delivery: CRA build occasionally not copying /public/images/* into /build/, so requests fell through to SPA catch-all serving index.html. Fix added express.static(public) fallback after express.static(build) — verified via curl and in-browser fetch that /images/*.png now return proper PNG bytes with content-type image/png."
+}
