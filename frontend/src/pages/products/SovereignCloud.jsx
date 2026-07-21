@@ -330,7 +330,7 @@ const services = [
                 {services.map((service, index) => (
                  <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
                     key={index}
-                    className="hover:bg-[#e8e6de] bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
+                    className="hover:bg-[#d4d8e8] bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3 ">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">

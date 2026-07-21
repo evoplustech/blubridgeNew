@@ -109,7 +109,7 @@ const JoinOurTeam = ({ scrollRef }) => {
     <div 
       data-testid="join-our-team-page"
       style={{ 
-        backgroundColor: '#efede5', 
+        backgroundColor: '#f1f2fa', 
         paddingTop: '0', 
         paddingBottom: '50px' 
       }}
@@ -121,10 +121,10 @@ const JoinOurTeam = ({ scrollRef }) => {
       }}>
         {/* Research Team Container */}
         <div style={{
-          backgroundColor: '#f1f2fa',
+          backgroundColor: '#ffffff',
+          border: '1px solid #d4d8e8',
           borderRadius: '12px',
           padding: '40px 50px',
-          borderBottom: '3px solid rgb(211, 205, 185)'
         }}>
           {/* Main Title */}
           <h1 

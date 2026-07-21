@@ -335,7 +335,7 @@ environments seamlessly.
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#efede5] border-t border-[#d4d8e8]">
+      <section className="py-16 bg-[#e8eaf3] border-t border-[#d4d8e8]">
         <div className="container-custom">
           <h2 className="text-center mb-10 text-3xl font-bold">What You Get </h2>
           <div className="grid md:grid-cols-3 gap-10">
@@ -401,11 +401,11 @@ environments seamlessly.
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
               {/* Stage 1 - Build */}
               <div 
-                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                className="bg-[#e8eaf3] rounded-2xl p-6 border border-[#E5E7EB] relative group"
                 style={{ animation: 'pipelineFloat1 5s ease-in-out infinite' }}
               >
                 {/* Step Number */}
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#e8eaf3] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   01
                 </div>
                 {/* Arrow connector (hidden on last item) */}
@@ -432,10 +432,10 @@ environments seamlessly.
               
               {/* Stage 2 - Test */}
               <div 
-                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                className="bg-[#e8eaf3] rounded-2xl p-6 border border-[#E5E7EB] relative group"
                 style={{ animation: 'pipelineFloat2 6s ease-in-out infinite' }}
               >
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#e8eaf3] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   02
                 </div>
                 <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6  border border-[#E5E7EB] rounded-full items-center justify-center z-20">
@@ -461,10 +461,10 @@ environments seamlessly.
               
               {/* Stage 3 - Deploy */}
               <div 
-                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                className="bg-[#e8eaf3] rounded-2xl p-6 border border-[#E5E7EB] relative group"
                 style={{ animation: 'pipelineFloat3 5.5s ease-in-out infinite' }}
               >
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#e8eaf3] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   03
                 </div>
                 <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6  border border-[#E5E7EB] rounded-full items-center justify-center z-20">
@@ -490,10 +490,10 @@ environments seamlessly.
               
               {/* Stage 4 - Scale */}
               <div 
-                className="bg-[#efede5] rounded-2xl p-6 border border-[#E5E7EB] relative group"
+                className="bg-[#e8eaf3] rounded-2xl p-6 border border-[#E5E7EB] relative group"
                 style={{ animation: 'pipelineFloat4 6.5s ease-in-out infinite' }}
               >
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#efede5] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#e8eaf3] rounded-xl flex items-center justify-center text-[#000000] font-bold shadow-lg">
                   04
                 </div>
                 
@@ -517,7 +517,7 @@ environments seamlessly.
           </div>
 
           {/* Bottom Stats Bar */}
-          {/* <div className="mt-16 bg-[#efede5] rounded-2xl p-8 border border-[#E5E7EB]">
+          {/* <div className="mt-16 bg-[#e8eaf3] rounded-2xl p-8 border border-[#E5E7EB]">
             <div className="grid md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-[#E5E7EB]">
               <div className="text-center pt-4 md:pt-0">
                 <div className="text-4xl font-bold text-black mb-1">99.9%</div>
@@ -632,7 +632,7 @@ environments seamlessly.
       </section> */}
 
             {/* SECTION 4: Deployment Stack - Table Format */}
-      <section className="py-20 bg-[#efede5]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Deployment Stack
@@ -741,7 +741,7 @@ environments seamlessly.
           <h2 className="text-3xl lg:text-4xl font-bold text-[#000000] mb-16">Deployment Patterns</h2>
           <div className="grid md:grid-cols-3 gap-8">
            
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+            <div className="text-center p-8 bg-[#e8eaf3] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">210%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Faster to Production</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">
@@ -750,7 +750,7 @@ environments seamlessly.
             </div>
             
             
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+            <div className="text-center p-8 bg-[#e8eaf3] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">88%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Enterprise Deployment</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">
@@ -759,7 +759,7 @@ environments seamlessly.
             </div>
             
           
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+            <div className="text-center p-8 bg-[#e8eaf3] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">50%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Workforce Reach</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">

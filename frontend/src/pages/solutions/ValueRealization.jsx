@@ -588,7 +588,7 @@ perpetual pilot.
       </section>
 
       {/* SECTION 2: Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#efede5] border-t border-[#d4d8e8]">
+      <section className="py-16 bg-[#e8eaf3] border-t border-[#d4d8e8]">
         <div className="container-custom">
         <h2 className="text-center font-bold mb-10 text-3xl ">What You Get</h2>
           <div className="grid md:grid-cols-3 gap-10">
@@ -673,7 +673,7 @@ or customer outcomes.
       </section>
 
       {/* SECTION 4: Value Stack - Table Format */}
-      <section className="py-20 bg-[#efede5]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Value Stack
@@ -746,7 +746,7 @@ or customer outcomes.
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+            <div className="text-center p-8 bg-[#e8eaf3] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">3.7×</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">ROI Per Dollar</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">
@@ -755,7 +755,7 @@ or customer outcomes.
             </div>
             
            
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+            <div className="text-center p-8 bg-[#e8eaf3] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">60%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">ROI & Efficiency Boost</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">
@@ -764,7 +764,7 @@ or customer outcomes.
             </div>
             
             
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+            <div className="text-center p-8 bg-[#e8eaf3] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">72%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Formal ROI Tracking</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">
@@ -773,7 +773,7 @@ or customer outcomes.
             </div>
             
            
-            <div className="text-center p-8 bg-[#efede5] rounded-xl">
+            <div className="text-center p-8 bg-[#e8eaf3] rounded-xl">
               <div className="text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-4">67%</div>
               <h3 className="text-lg font-semibold text-[#328CC1] mb-3 uppercase tracking-wider">Positive AI ROI</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">
