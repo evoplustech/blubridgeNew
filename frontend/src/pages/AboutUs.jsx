@@ -143,7 +143,7 @@ const AboutUs = () => {
             <span className="bb-caption hidden sm:block">/ Page 01</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-center">
             <div className="lg:col-span-8">
               <h1
                 data-testid="hero-heading"

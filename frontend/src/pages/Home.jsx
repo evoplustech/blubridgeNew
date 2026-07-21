@@ -154,92 +154,137 @@ const AIExpertiseOrbit = () => {
   );
 };
 
-/* ==================== VERTICAL TABS (content preserved) ==================== */
+/* ==================== CAPABILITIES INDEX (redesigned) ====================
+   Editorial "chapter index" — no tabs. All 5 capabilities visible as
+   full-width horizontal entries with large outline index numbers.
+   ============================================================ */
 const VerticalTabsSection = () => {
-  const [activeTab, setActiveTab] = useState(0);
-
-  const tabs = [
+  const capabilities = [
     {
       title: "Smart Agents",
-      content: {
-        heading: "Automate tasks with AI agents connected to your apps and workflows.",
-        description: "Build intelligent workflows with AI agents that connect directly to your tools, platforms, and data. We design adaptive systems that work within your existing ecosystem, automating complex tasks while understanding your operational context to drive real, scalable impact."
-      }
+      tag:  "AGENTS",
+      description: "Build intelligent workflows with AI agents that connect directly to your tools, platforms, and data. We design adaptive systems that work within your existing ecosystem, automating complex tasks while understanding your operational context to drive real, scalable impact."
     },
     {
       title: "AI Driven Search",
-      content: {
-        heading: "Deep research capabilities powered by advanced language models.",
-        description: "Safely link your organization’s proprietary knowledge into one intelligent layer and surface insights you can trust. Our AI agents retrieve the most accurate, context-aware answers, ensuring every response is relevant, reliable, and aligned with your enterprise data."
-      }
+      tag:  "SEARCH",
+      description: "Safely link your organization’s proprietary knowledge into one intelligent layer and surface insights you can trust. Our AI agents retrieve the most accurate, context-aware answers, ensuring every response is relevant, reliable, and aligned with your enterprise data."
     },
     {
       title: "In-Depth Research",
-      content: {
-        heading: "Build and deploy purpose-built AI models for your specific needs.",
-        description: "Access insights that are thoroughly researched and distilled from rich, wide-ranging sources. Our AI agents synthesize complex information into clear, actionable summaries, giving you depth, accuracy, and clarity in every result."
-      }
+      tag:  "RESEARCH",
+      description: "Access insights that are thoroughly researched and distilled from rich, wide-ranging sources. Our AI agents synthesize complex information into clear, actionable summaries, giving you depth, accuracy, and clarity in every result."
     },
     {
       title: "Developer APIs",
-      content: {
-        heading: "Build and deploy purpose-built AI models for your specific needs.",
-        description: "Create intelligent applications and products on top of our foundation models. Embed advanced reasoning, generation, and automation into your workflows. Move from concept to production with models engineered for reliability, performance, and real-world impact across enterprise and developer ecosystems."
-      }
+      tag:  "APIS",
+      description: "Create intelligent applications and products on top of our foundation models. Embed advanced reasoning, generation, and automation into your workflows. Move from concept to production with models engineered for reliability, performance, and real-world impact across enterprise and developer ecosystems."
     },
     {
       title: "Custom AI Deployments",
-      content: {
-        heading: "Build and deploy purpose-built AI models for your specific needs.",
-        description: "Shape a truly personalized AI experience through tailored integrations with your enterprise data, platforms, and custom model capabilities, ensuring every system aligns precisely with your operational needs and business objectives."
-      }
+      tag:  "DEPLOYMENTS",
+      description: "Shape a truly personalized AI experience through tailored integrations with your enterprise data, platforms, and custom model capabilities, ensuring every system aligns precisely with your operational needs and business objectives."
     }
   ];
 
   return (
-    <section style={{ background: '#eceefa' }} className="py-24 relative border-y border-bb-line" data-testid="vertical-tabs">
-      <div className="bb-container">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+    <section
+      style={{ background: '#eceefa' }}
+      className="py-24 relative border-y border-bb-line overflow-hidden"
+      data-testid="capabilities-index"
+    >
+      {/* Faint dot grid backdrop */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(10,18,48,0.06) 1px, transparent 1px)',
+          backgroundSize: '22px 22px',
+          maskImage: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%)',
+        }}
+      />
+
+      <div className="bb-container relative">
+        {/* Editorial masthead */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-6 border-b border-bb-line">
           <div>
             <p className="bb-eyebrow mb-4">/ 05 &nbsp;·&nbsp; Capabilities</p>
-            <h2 className="bb-h2" style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}>
+            <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
               What we can do for you
             </h2>
           </div>
+          <span className="bb-caption tracking-[0.14em]">/ INDEX · 05 ENTRIES</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-5">
-            <div className="border border-bb-line rounded-md overflow-hidden bg-white">
-              {tabs.map((tab, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={`w-full text-left px-6 py-5 flex items-center justify-between border-b border-bb-line last:border-b-0 transition-all duration-200 ${
-                    activeTab === index ? 'bg-bb-ink text-white' : 'bg-white text-bb-ink hover:bg-bb-bg-subtle'
-                  }`}
-                  data-testid={`vertical-tab-${index}`}
+        {/* Chapter entries */}
+        <div>
+          {capabilities.map((cap, i) => (
+            <article
+              key={i}
+              className="group relative grid grid-cols-12 items-start py-10 md:py-12 border-b border-bb-line last:border-b-0 transition-colors hover:bg-white/60"
+              data-testid={`capability-entry-${i}`}
+            >
+              {/* Huge outline index number */}
+              <div className="col-span-3 md:col-span-2 pr-2 md:pr-4">
+                <span
+                  aria-hidden
+                  className="block text-bb-ink transition-transform duration-500 group-hover:translate-x-1"
+                  style={{
+                    fontFamily: 'Geist, sans-serif',
+                    fontWeight: 300,
+                    fontSize: 'clamp(56px, 10vw, 144px)',
+                    letterSpacing: '-0.05em',
+                    lineHeight: 0.85,
+                    WebkitTextStroke: '1px #0a1230',
+                    color: 'transparent',
+                  }}
                 >
-                  <span className="flex items-center gap-4">
-                    <span className={`font-mono text-[11px] ${activeTab === index ? 'text-white/60' : 'text-bb-ink-3'}`}>
-                      /{String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-[15px] font-medium" style={{ fontFamily: 'Geist, sans-serif' }}>{tab.title}</span>
-                  </span>
-                  {activeTab === index && <ArrowRight className="w-4 h-4" />}
-                </button>
-              ))}
-            </div>
-          </div>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
 
-          <div className="lg:col-span-7">
-            <div className="p-2 lg:p-8" data-testid="vertical-tab-content">
-              <p className="bb-caption mb-4">/ selected</p>
-              <p className="text-bb-ink text-[19px] leading-[1.65]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                {tabs[activeTab].content.description}
-              </p>
-            </div>
-          </div>
+              {/* Title + technical tag */}
+              <div className="col-span-9 md:col-span-4 pr-4 flex flex-col gap-4 pt-1">
+                <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] text-bb-ink-3 self-start">
+                  <span className="w-6 h-px bg-bb-line-strong" />
+                  {cap.tag}
+                </span>
+                <h3
+                  className="text-bb-ink"
+                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.6vw, 32px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}
+                >
+                  {cap.title}
+                </h3>
+                {/* Animated underline on hover */}
+                <span
+                  aria-hidden
+                  className="block h-px bg-bb-ink transition-all duration-500 group-hover:w-16"
+                  style={{ width: 24 }}
+                />
+              </div>
+
+              {/* Description */}
+              <div className="col-span-12 md:col-span-6 md:pl-8 mt-6 md:mt-0">
+                <p className="bb-caption mb-3" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
+                  / chapter · 0{i + 1}
+                </p>
+                <p
+                  className="text-bb-ink text-[16px] md:text-[17px]"
+                  style={{ fontFamily: 'Inter, sans-serif', lineHeight: 1.65 }}
+                >
+                  {cap.description}
+                </p>
+              </div>
+
+              {/* Right-edge chapter marker */}
+              <span
+                aria-hidden
+                className="absolute right-0 top-10 md:top-12 flex items-center gap-2 font-mono text-[10px] text-bb-ink-3"
+              >
+                <span className="hidden md:inline">▸</span>
+              </span>
+            </article>
+          ))}
         </div>
       </div>
     </section>
