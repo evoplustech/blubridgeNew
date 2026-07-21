@@ -43,13 +43,19 @@ Custom animated SVG per requirements:
 - All lint checks passing
 - Screenshots verified: Home hero, Home industry, Home services, About hero, Contact form, Careers, Footer
 
-## Phase 2 — NEXT (Pending user approval)
-Apply same design system to remaining pages:
-- 10 Product pages (`products/Training`, `Inference`, `FineTuning`, `Serverless`, `SovereignCloud`, `Glomfjord`, `Narvik`, `GPUNodes`, `Marketplace`, `ModelCustomization`)
+## Phase 2 — Partial (2026-02-21)
+Global background sweep + SolutionsNew redesign:
+- Global sed replacement: all `#fffdf7`/`#f3f1e9`/`#faf8f0`/etc → `#f1f2fa`/`#e8eaf3`; `#D6DEC3` border → `#d4d8e8`. Applied to all pages/components except backups. Verified 0 legacy color references remaining.
+- `NeuralBackground.jsx` gradient stops updated to the new palette.
+- `pages/SolutionsNew.jsx` (route `/solutions`) fully rewritten in editorial style — verified by testing_agent iteration_9 (10/10 PASS). All content preserved: hero H1, 3 customization cards with 4/5/5 bullets, Customization Stack table (3 columns × 5 rows), 3 value cards, 3 deployment tabs, all 5 CTAs.
 
-## Phase 3
-- 6 Solution case pages + 8 Solution industry pages
-- `SolutionsNew` landing page
+## Phase 2 — REMAINING (P0 next up)
+Apply full editorial redesign to:
+- 10 Product pages (`products/Training`, `Inference`, `FineTuning`, `Serverless`, `SovereignCloud`, `Glomfjord`, `Narvik`, `GPUNodes`, `Marketplace`, `ModelCustomization`)
+- 6 Solution detail pages (`solutions/Training`, `Inference`, `FineTuning`, `Deployment`, `ValueRealization`, `AIDevelopment`) — these still use the old design layout with the new bg color
+- 8 Solution industry pages (`solutions/industry/*`)
+- Legacy `pages/Solutions.jsx` catch-all (route `/solutions/*` fallback)
+- `pages/Products.jsx` landing
 
 ## Phase 4
 - Research list + 7 detail pages (`FLUX`, `FLUX-Data`, `FLUX-3`, `FLUX-4`, `BluWerp`, `BluTrain`)
