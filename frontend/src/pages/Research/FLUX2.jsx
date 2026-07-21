@@ -7,8 +7,8 @@ const FLUX2 = () => {
   useMetaDescription('FLUX is a preprocessing pipeline designed to eliminate the trade-off between data quality and token retention for large language model training.');
 
   return (
-    <div className="min-h-screen bg-[#f3f1e9]">
-      <div className="max-w-4xl mx-auto px-6 py-12 bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#e8eaf3]">
+      <div className="max-w-4xl mx-auto px-6 py-12 bg-[#f1f2fa]">
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
           FLUX: Data Worth Training On
@@ -31,7 +31,7 @@ const FLUX2 = () => {
         <div className="prose prose-lg max-w-none text-gray-800" style={{ textAlign: "justify" }}>
           
           {/* Opening Statement - Emphasized */}
-          <div className="bg-[#f3f1e9] border-l-4 border-[#0B1F3B] p-6 mb-8 rounded-r-lg">
+          <div className="bg-[#e8eaf3] border-l-4 border-[#0B1F3B] p-6 mb-8 rounded-r-lg">
             <p className="text-xl font-semibold text-gray-900 mb-2 italic">
               Model performance is visible.
             </p>
@@ -64,7 +64,7 @@ const FLUX2 = () => {
           </p>
 
           {/* Key Objective Box */}
-          <div className="bg-[#f3f1e9] p-4 rounded-lg text-center">
+          <div className="bg-[#e8eaf3] p-4 rounded-lg text-center">
             <h3 className="text-xl font-bold mb-3">FLUX Objective</h3>
             <p className="mb-0 text-gray-600">
               Eliminate the traditional trade-off between <strong>data quality</strong> and <strong>token retention</strong>, while operating with <strong>minimal computational cost</strong>. FLUX achieves this by outperforming DCLM and FineWeb in both Quality and Retention.
@@ -90,7 +90,7 @@ const FLUX2 = () => {
           </p>
 
           {/* Key Results Box */}
-          <div className="bg-[#f3f1e9] border border-gray-200 rounded-lg p-6 mb-6">
+          <div className="bg-[#e8eaf3] border border-gray-200 rounded-lg p-6 mb-6">
             <h4 className="font-bold text-black-800 mb-3">Key Results at Final Checkpoint:</h4>
             <ul className="list-none space-y-2 mb-0">
               <li className="flex items-start">
@@ -140,11 +140,11 @@ const FLUX2 = () => {
 
           {/* Comparison Box */}
           <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="bg-[#f3f1e9] p-4 rounded-lg text-center">
+            <div className="bg-[#e8eaf3] p-4 rounded-lg text-center">
               <p className="text-sm text-gray-600 mb-1">FineWeb Retention</p>
               <p className="text-2xl font-bold text-gray-800">170B tokens</p>
             </div>
-            <div className="bg-[#f3f1e9] p-4 rounded-lg text-center">
+            <div className="bg-[#e8eaf3] p-4 rounded-lg text-center">
               <p className="text-sm text-green-700 mb-1">FLUX-Base Retention</p>
               <p className="text-2xl font-bold text-gray-600">192B tokens</p>
               <p className="text-sm text-green-600">(+12% higher)</p>
@@ -178,7 +178,7 @@ const FLUX2 = () => {
           </div>
 
           {/* Compute Savings Highlight */}
-          <div className="bg-[#f3f1e9] border border-gray-200 rounded-lg p-6 mb-10">
+          <div className="bg-[#e8eaf3] border border-gray-200 rounded-lg p-6 mb-10">
             <div className="text-center">
               <p className="text-4xl font-bold text-black-800 mb-2">34.4%</p>
               <p className="text-lg text-black-700 font-medium">Compute Savings</p>
@@ -216,7 +216,7 @@ const FLUX2 = () => {
             A distinguishing characteristic of <strong>APEX</strong> is its departure from fixed semantic tag heuristics in favor of <strong>statistical main-content detection</strong>. Candidate page regions are evaluated through a composite scoring function incorporating three orthogonal signals:
           </p>
 
-          <div className="bg-[#f3f1e9] rounded-lg p-6 mb-8">
+          <div className="bg-[#e8eaf3] rounded-lg p-6 mb-8">
             <ul className="list-none space-y-3 mb-0">
               <li className="flex items-start">
                 <span className="bg-[#0B1F3B] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">1</span>
@@ -432,11 +432,11 @@ const FLUX2 = () => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 mb-10">
-            <div className="bg-[#f3f1e9] border border-gray-200 p-4 rounded-lg">
+            <div className="bg-[#e8eaf3] border border-gray-200 p-4 rounded-lg">
               <h4 className="font-bold text-black-800 mb-2">BETR Classifier</h4>
               <p className="text-sm text-black-700 mb-0">Introduced in Blu-WERP work</p>
             </div>
-            <div className="bg-[#f3f1e9] border border-gray-200 p-4 rounded-lg">
+            <div className="bg-[#e8eaf3] border border-gray-200 p-4 rounded-lg">
               <h4 className="font-bold text-black-800 mb-2">DCLM Classifier</h4>
               <p className="text-sm text-black-700 mb-0">DataComp-LM standard</p>
             </div>
@@ -468,7 +468,7 @@ const FLUX2 = () => {
             />
           </div>
 
-          <div className="bg-[#f3f1e9] rounded-lg p-6 mb-10">
+          <div className="bg-[#e8eaf3] rounded-lg p-6 mb-10">
             <h4 className="font-bold text-gray-800 mb-3">Optimal Thresholds Found:</h4>
             <ul className="list-none space-y-2 mb-0">
               <li><strong>BETR threshold:</strong> 0.76</li>
@@ -534,7 +534,7 @@ const FLUX2 = () => {
           </div>
 
           {/* Final Results Box */}
-          <div className="bg-[#f3f1e9] text-gray-600 p-6 rounded-lg mb-10">
+          <div className="bg-[#e8eaf3] text-gray-600 p-6 rounded-lg mb-10">
             <h3 className="text-xl font-bold mb-4 text-center">Final FLUX Results at 3B Scale</h3>
             <div className="grid md:grid-cols-2 gap-6 text-center">
               <div>

@@ -5,7 +5,7 @@ const TransparencyHumanRights = () => {
   useDocumentTitle('Transparency & Human Rights | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Content Section */}
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Content Section */}
       <section className="py-16">
         <div className="container-custom">
           <div className="max-w-4xl">
@@ -125,7 +125,7 @@ const TransparencyHumanRights = () => {
             </div>
 
             {/* Contact */}
-            <div className="mt-16 pt-8 border-t border-[#D6DEC3]">
+            <div className="mt-16 pt-8 border-t border-[#d4d8e8]">
               <h2 className="text-xl font-medium text-[#0B1F3B] mb-4">Contact Us</h2>
               <p className="text-[#243447] text-base leading-relaxed">
                 If you have any questions about this statement or our human rights practices, please contact us at{' '}

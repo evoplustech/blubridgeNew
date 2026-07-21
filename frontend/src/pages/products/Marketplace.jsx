@@ -56,7 +56,7 @@ const Marketplace = () => {
   useDocumentTitle('AI Marketplace | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Hero Section */}
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero Section */}
       <section className="pt-16 pb-20">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -97,7 +97,7 @@ const Marketplace = () => {
       </section>
 
       {/* Three-Column Highlights Strip */}
-      <section className="py-16 border-t border-[#D6DEC3]">
+      <section className="py-16 border-t border-[#d4d8e8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {/* Access Leading Tools */}
@@ -149,7 +149,7 @@ const Marketplace = () => {
                 Our AI Marketplace offers a curated selection of top AI/ML tools like PyTorch and TensorFlow, optimised for our infrastructure stack. Enhance developer productivity with the best tools available in the industry.
               </p>
               <Link to="/contact">
-                <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white border border-[#D6DEC3] px-6 py-3 text-sm font-medium rounded-lg inline-flex items-center gap-2 mt-4">
+                <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white border border-[#d4d8e8] px-6 py-3 text-sm font-medium rounded-lg inline-flex items-center gap-2 mt-4">
                   Get in Touch <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
@@ -168,13 +168,13 @@ const Marketplace = () => {
       </section>
 
       {/* Models Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {modelCards.map((model, idx) => (
-                <div key={idx} className="bg-white border border-[#D6DEC3] rounded-lg p-4 hover:border-blue-500/30 transition-colors">
+                <div key={idx} className="bg-white border border-[#d4d8e8] rounded-lg p-4 hover:border-blue-500/30 transition-colors">
                   <span className="text-[#6B7280] text-[10px] uppercase tracking-wider">{model.type}</span>
                   <h4 className="text-[#0B1F3B] text-sm font-semibold mt-1 leading-tight">{model.name}</h4>
                   <span className="text-[#6B7280] text-xs mt-1 block">{model.provider}</span>
@@ -217,7 +217,7 @@ const Marketplace = () => {
             {/* Right - Hardware Cards */}
             <div className="space-y-4">
               {/* AI-in-a-Box */}
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-5">
+              <div className="bg-white border border-[#d4d8e8] rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -237,7 +237,7 @@ const Marketplace = () => {
               </div>
 
               {/* Training Compute */}
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-5">
+              <div className="bg-white border border-[#d4d8e8] rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -257,7 +257,7 @@ const Marketplace = () => {
               </div>
 
               {/* Inference Compute */}
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-5">
+              <div className="bg-white border border-[#d4d8e8] rounded-xl p-5">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -281,7 +281,7 @@ const Marketplace = () => {
       </section>
 
       {/* Key Features Section */}
-      <section className="py-16 border-t border-[#D6DEC3]">
+      <section className="py-16 border-t border-[#d4d8e8]">
         <div className="container-custom">
           <h2 className="text-2xl font-light text-[#0B1F3B] mb-10">Key Features</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -321,7 +321,7 @@ const Marketplace = () => {
       </section>
 
       {/* AI Services Integration Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
@@ -342,7 +342,7 @@ const Marketplace = () => {
                 {services.map((service, index) => (
                  <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
                     key={index}
-                    className="hover:bg-[#e8e6de] bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="hover:bg-[#e8e6de] bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3 ">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
@@ -379,7 +379,7 @@ const Marketplace = () => {
           <h2 className="text-3xl font-bold text-[#0B1F3B] mb-10">FAQs</h2>
           <div className="space-y-0">
             {faqs.map((faq, index) => (
-              <div key={index} className="border-b border-[#D6DEC3]">
+              <div key={index} className="border-b border-[#d4d8e8]">
                 <button
                   className="w-full flex items-center justify-between py-5 text-left hover:text-[#328CC1] transition-colors"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}

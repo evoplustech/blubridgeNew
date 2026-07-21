@@ -160,7 +160,7 @@ const services = [
   useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
+    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background Landscape Image with Parallax */}
         <div 
@@ -172,7 +172,7 @@ const services = [
         />
         
         {/* Light Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fffdf7]/90 via-[#f3f1e9]/70 to-[#fffdf7]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f1f2fa]/90 via-[#e8eaf3]/70 to-[#f1f2fa]/50" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -187,7 +187,7 @@ const services = [
             
             <div style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
               <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-3 rounded font-medium">
                   Get In Touch
                 </Button>
               </Link>
@@ -207,7 +207,7 @@ const services = [
       </section>
 
       {/* SECTION 2: Sovereign AI Cloud Intro */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -227,7 +227,7 @@ const services = [
       </section>
 
       {/* SECTION 3: Value Pillars Card Grid (5 Cards) */}
-      <section className="py-12 bg-[#fffdf7]">
+      <section className="py-12 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {valuePillars.map((pillar, i) => (
@@ -246,7 +246,7 @@ const services = [
       </section>
 
       {/* SECTION 4: What We Offer with Video Embed */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
@@ -257,7 +257,7 @@ const services = [
 
          
           <div className="max-w-4xl mx-auto">
-            <div className="relative bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden aspect-video">
+            <div className="relative bg-slate-900/50 rounded-xl border border-[#d4d8e8] overflow-hidden aspect-video">
              
               <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                 <div className="text-center">
@@ -283,13 +283,13 @@ const services = [
       </section> */}
 
       {/* SECTION 5: Related Content */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Related Content</h2>
           
           <div className="grid md:grid-cols-4 gap-6">
             {relatedContent.map((article, i) => (
-              <div key={i} className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 overflow-hidden hover:border-[#D6DEC3]/50 transition-colors cursor-pointer">
+              <div key={i} className="bg-slate-900/50 rounded-xl border border-[#d4d8e8]/30 overflow-hidden hover:border-[#d4d8e8]/50 transition-colors cursor-pointer">
                 <div className="aspect-video bg-slate-800 overflow-hidden">
                   <img 
                     src={article.image} 
@@ -312,7 +312,7 @@ const services = [
       </section> */}
 
       {/* SECTION 6: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -330,7 +330,7 @@ const services = [
                 {services.map((service, index) => (
                  <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
                     key={index}
-                    className="hover:bg-[#e8e6de] bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="hover:bg-[#e8e6de] bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3 ">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
@@ -359,7 +359,7 @@ const services = [
       </section>
 
       {/* SECTION 7: FAQs */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
@@ -367,7 +367,7 @@ const services = [
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-[#D6DEC3] pb-4"
+                className="border-b border-[#d4d8e8] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}

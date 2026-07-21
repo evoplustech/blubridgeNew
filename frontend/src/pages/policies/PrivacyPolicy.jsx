@@ -42,7 +42,7 @@ const PrivacyPolicy = () => {
       }}>
         {/* Main Card */}
         <div style={{
-          backgroundColor: '#fffdf7',
+          backgroundColor: '#f1f2fa',
           borderRadius: '20px',
           padding: '60px',
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)'

@@ -56,7 +56,7 @@ const GeneralEnquiry = () => {
   useDocumentTitle('General Enquiry | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Main Content Section */}
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Main Content Section */}
       <section className="pt-16 pb-24">
         <div className="container-custom">
           {/* Page Title */}
@@ -72,7 +72,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Want a new service or product?</h3>
                     <Link to="/contact">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#f3f1e9] transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#e8eaf3] transition-all group">
                         Contact
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -85,7 +85,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Technical issue or question?</h3>
                     <Link to="/contact/support">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#f3f1e9] transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#e8eaf3] transition-all group">
                         Contact Support
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -98,7 +98,7 @@ const GeneralEnquiry = () => {
                   <div>
                     <h3 className="text-[#0B1F3B] text-lg font-medium mb-3">Interested in investment?</h3>
                     <Link to="/contact/investors">
-                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#f3f1e9] transition-all group">
+                      <button className="inline-flex items-center gap-2 text-white text-sm font-medium px-5 py-2.5 rounded-full border border-white/30 hover:border-white/60 hover:bg-[#e8eaf3] transition-all group">
                         Contact IR Team
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -122,7 +122,7 @@ const GeneralEnquiry = () => {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white border border-[#D6DEC3] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
+                    className="w-full bg-white border border-[#d4d8e8] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
                     placeholder="Enter your first name..."
                   />
                 </div>
@@ -138,7 +138,7 @@ const GeneralEnquiry = () => {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white border border-[#D6DEC3] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
+                    className="w-full bg-white border border-[#d4d8e8] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
                     placeholder=""
                   />
                 </div>
@@ -154,7 +154,7 @@ const GeneralEnquiry = () => {
                     value={formData.workEmail}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white border border-[#D6DEC3] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
+                    className="w-full bg-white border border-[#d4d8e8] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
                     placeholder="name@example.com"
                   />
                 </div>
@@ -170,7 +170,7 @@ const GeneralEnquiry = () => {
                     value={formData.companyName}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white border border-[#D6DEC3] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
+                    className="w-full bg-white border border-[#d4d8e8] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors"
                     placeholder=""
                   />
                 </div>
@@ -185,7 +185,7 @@ const GeneralEnquiry = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={5}
-                    className="w-full bg-white border border-[#D6DEC3] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors resize-none"
+                    className="w-full bg-white border border-[#d4d8e8] rounded-md px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 transition-colors resize-none"
                     placeholder=""
                   />
                 </div>
@@ -204,7 +204,7 @@ const GeneralEnquiry = () => {
                       checked={formData.agreeTerms}
                       onChange={handleInputChange}
                       required
-                      className="w-4 h-4 rounded border-[#D6DEC3] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
+                      className="w-4 h-4 rounded border-[#d4d8e8] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-[#2F3A4A] text-sm">
                       I have read and agree to the <Link to="/terms" className="text-white underline hover:text-[#328CC1]">Terms and Conditions</Link> and <Link to="/privacy" className="text-white underline hover:text-[#328CC1]">Privacy Policy</Link>.*
@@ -216,7 +216,7 @@ const GeneralEnquiry = () => {
                       name="agreeMarketing"
                       checked={formData.agreeMarketing}
                       onChange={handleInputChange}
-                      className="w-4 h-4 rounded border-[#D6DEC3] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
+                      className="w-4 h-4 rounded border-[#d4d8e8] bg-white text-blue-500 focus:ring-blue-500 focus:ring-offset-0 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-[#2F3A4A] text-sm">
                       I agree to receive marketing communications from BluBridge. You can unsubscribe at any time.
@@ -248,7 +248,7 @@ const GeneralEnquiry = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-transparent hover:bg-[#f3f1e9] text-white px-10 py-3 text-sm font-medium rounded-full border border-[#0B1F3B] hover:border-white/60 transition-colors"
+                    className="bg-transparent hover:bg-[#e8eaf3] text-white px-10 py-3 text-sm font-medium rounded-full border border-[#0B1F3B] hover:border-white/60 transition-colors"
                   >
                     Submit
                   </button>
@@ -260,7 +260,7 @@ const GeneralEnquiry = () => {
       </section>
 
       {/* Bottom Promotional Section */}
-            <section className="py-20 bg-[#fffdf7]">
+            <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text */}
@@ -278,7 +278,7 @@ const GeneralEnquiry = () => {
               {/* Services Icons Grid */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {/* Serverless */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
+                <div className="bg-white border border-[#d4d8e8] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
@@ -288,7 +288,7 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* Marketplace */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
+                <div className="bg-white border border-[#d4d8e8] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -298,7 +298,7 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* Inference */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
+                <div className="bg-white border border-[#d4d8e8] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -308,7 +308,7 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* Training */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
+                <div className="bg-white border border-[#d4d8e8] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -318,7 +318,7 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* GPU Nodes */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
+                <div className="bg-white border border-[#d4d8e8] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -328,7 +328,7 @@ const GeneralEnquiry = () => {
                 </div>
 
                 {/* LLM Library */}
-                <div className="bg-white border border-[#D6DEC3] rounded-lg p-4 text-center">
+                <div className="bg-white border border-[#d4d8e8] rounded-lg p-4 text-center">
                   <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
                     <svg className="w-5 h-5 text-[#328CC1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -375,7 +375,7 @@ const GeneralEnquiry = () => {
           </div>
         </div>
       </section>
-      {/* <section className="py-24 border-t border-[#D6DEC3]">
+      {/* <section className="py-24 border-t border-[#d4d8e8]">
         <div className="container-custom">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-light text-[#0B1F3B] mb-6 leading-tight">

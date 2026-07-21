@@ -99,8 +99,8 @@ const GPUNodes = () => {
   useDocumentTitle('GPU Nodes for AI, ML and HPC | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* Hero Section with Animation */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* Hero Section with Animation */}
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f1f2fa]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -123,7 +123,7 @@ const GPUNodes = () => {
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-6 py-3 rounded font-medium">
                   Get Started
                 </Button>
                 </Link>
@@ -147,7 +147,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Performance Metrics Section */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-[#000000] mb-12">Performance</h2>
           
@@ -169,7 +169,7 @@ const GPUNodes = () => {
       </section>
 
       {/* No Frills GPU Compute Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -186,7 +186,7 @@ const GPUNodes = () => {
             
             {/* GPU Nodes Card Visual */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/80 rounded-2xl p-6 border border-[#D6DEC3]">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/80 rounded-2xl p-6 border border-[#d4d8e8]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 rounded-lg bg-[#0B1F3B] flex items-center justify-center">
                     <Server className="w-5 h-5 text-white" />
@@ -216,7 +216,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="pt-15 pb-20 bg-[#fffdf7]">
+      <section className="pt-15 pb-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <img
@@ -232,7 +232,7 @@ const GPUNodes = () => {
                   {[...Array(9)].map((_, i) => (
                     <div 
                       key={i} 
-                      className="aspect-square bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg border border-[#D6DEC3]/50 flex items-center justify-center"
+                      className="aspect-square bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg border border-[#d4d8e8]/50 flex items-center justify-center"
                       style={{ animationDelay: `${i * 0.1}s` }}
                     >
                       <Server className="w-8 h-8 text-slate-500" />
@@ -258,7 +258,7 @@ const GPUNodes = () => {
       </section>
 
       {/* GPU Accelerators Section */}
-      <section className="py-20 bg-[#fffdf7] relative overflow-hidden">
+      <section className="py-20 bg-[#f1f2fa] relative overflow-hidden">
         {/* Background server rack image effect */}
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
           <div className="w-full h-full bg-gradient-to-l from-slate-800/50 to-transparent" />
@@ -276,7 +276,7 @@ const GPUNodes = () => {
             {gpuCards.map((gpu, index) => (
               <div 
                 key={index}
-                className={`relative rounded-2xl p-6 border transition-all duration-300 cursor-pointer border-[#D6DEC3] bg-slate-400/30 hover:border-[#D6DEC3]/50 `}
+                className={`relative rounded-2xl p-6 border transition-all duration-300 cursor-pointer border-[#d4d8e8] bg-slate-400/30 hover:border-[#d4d8e8]/50 `}
                 onClick={() => setActiveGpu(index)}
               >
                 <h3 className="text-xl font-bold mb-3">{gpu.name}</h3>
@@ -291,7 +291,7 @@ const GPUNodes = () => {
       </section>
 
       {/* Integrated AI Services Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
@@ -309,7 +309,7 @@ const GPUNodes = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
@@ -339,7 +339,7 @@ const GPUNodes = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           
@@ -347,7 +347,7 @@ const GPUNodes = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-[#D6DEC3]"
+                className="border-b border-[#d4d8e8]"
               >
                 <button
                   onClick={() => toggleFaq(index)}

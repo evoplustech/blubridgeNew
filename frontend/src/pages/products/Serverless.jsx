@@ -183,8 +183,8 @@ const Serverless = () => {
   useDocumentTitle('Serverless Inference | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* Hero Section with Animated Model Graph - Section 1 */}
-      <section className="relative min-h-[550px] flex items-center overflow-hidden bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* Hero Section with Animated Model Graph - Section 1 */}
+      <section className="relative min-h-[550px] flex items-center overflow-hidden bg-[#f1f2fa]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -204,7 +204,7 @@ const Serverless = () => {
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-6 py-3 rounded font-medium">
                   Talk to Us
                 </Button>
                 </Link>
@@ -234,7 +234,7 @@ const Serverless = () => {
       </section>
 
       {/* Value Proposition Strip - Section 2 */}
-      <section className="py-12 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
+      <section className="py-12 bg-[#e8eaf3] border-t border-b border-[#d4d8e8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center md:text-left">
@@ -254,7 +254,7 @@ const Serverless = () => {
       </section>
 
       {/* Models & Pricing Section - Section 3 */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
@@ -268,11 +268,11 @@ const Serverless = () => {
           </div>
 
           {/* Pricing Table */}
-          <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden">
+          <div className="bg-slate-900/50 rounded-xl border border-[#d4d8e8] overflow-hidden">
             <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
-                  <tr className="border-b border-[#D6DEC3]">
+                  <tr className="border-b border-[#d4d8e8]">
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Serverless Endpoint</th>
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Type</th>
                     <th className="text-right px-6 py-4 text-sm font-semibold text-[#ffffff]">Price</th>
@@ -280,8 +280,8 @@ const Serverless = () => {
                 </thead>
                 <tbody>
                   {pricingModels.map((item, index) => (
-                    // <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
-                    <tr key={index} className="border-b border-[#D6DEC3] bg-white">
+                    // <tr key={index} className="border-b border-[#d4d8e8] hover:bg-[#e8eaf3]/30 transition-colors">
+                    <tr key={index} className="border-b border-[#d4d8e8] bg-white">
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{item.model}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{item.type}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A] text-right">{item.price}</td>
@@ -295,14 +295,14 @@ const Serverless = () => {
       </section>
 
       {/* Savings by Design Section - Section 4 */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Model Icons Grid */}
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral', 'Gemma', 'Flux', 'Actions'].map((name, i) => (
-                  <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 text-center border border-[#D6DEC3]">
+                  <div key={i} className="bg-[#e8eaf3] rounded-xl p-4 text-center border border-[#d4d8e8]">
                     <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
                       <span className="text-xs text-[#328CC1]">{name.charAt(0)}</span>
                     </div>
@@ -329,7 +329,7 @@ const Serverless = () => {
       </section>
 
       {/* Serverless without trade-offs - Section 5 */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -359,7 +359,7 @@ const Serverless = () => {
       </section>
 
       {/* Serverless Without Trade-offs Section */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
@@ -377,8 +377,8 @@ const Serverless = () => {
             
            
             <div className="relative">
-              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-[#D6DEC3]">
-                <div className="aspect-video bg-[#f3f1e9] rounded-xl flex items-center justify-center">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-[#d4d8e8]">
+                <div className="aspect-video bg-[#e8eaf3] rounded-xl flex items-center justify-center">
                   <div className="grid grid-cols-3 gap-4">
                     {[...Array(6)].map((_, i) => (
                       <div key={i} className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center">
@@ -394,7 +394,7 @@ const Serverless = () => {
       </section> */}
 
       {/* Performance Metrics - Section 6 */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#000000]">Performance</h2>
           
@@ -424,7 +424,7 @@ const Serverless = () => {
       </section>
 
       {/* Zero Rate Limits Platform Section */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
            
@@ -446,7 +446,7 @@ const Serverless = () => {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
@@ -476,7 +476,7 @@ const Serverless = () => {
       </section> */}
 
       {/* FAQ Section - Section 7 */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           
@@ -484,7 +484,7 @@ const Serverless = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="border-b border-[#D6DEC3]"
+                className="border-b border-[#d4d8e8]"
               >
                 <button
                   onClick={() => toggleFaq(index)}

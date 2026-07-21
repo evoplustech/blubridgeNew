@@ -133,8 +133,8 @@ const services = [
   useDocumentTitle('AI Inference | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f1f2fa]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -155,7 +155,7 @@ const services = [
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
                 <Link to="/contact">
-                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
+                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-6 py-3 rounded font-medium">
                     Get Started
                   </Button>
                 </Link>
@@ -195,7 +195,7 @@ const services = [
       </section>
 
       {/* SECTION 2: Performance Metrics Strip */}
-      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#e8eaf3] border-t border-b border-[#d4d8e8]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#000000]">Performance</h2>
           <div className="grid md:grid-cols-4 gap-8">
@@ -216,7 +216,7 @@ const services = [
       </section>
 
       {/* SECTION 3: Inference Frameworks Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -246,7 +246,7 @@ const services = [
       </section>
 
       {/* SECTION 4: Model Grid Section */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Model Cards Grid */}
@@ -276,7 +276,7 @@ const services = [
       </section>
 
       {/* SECTION 5: GPU Compute Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -305,7 +305,7 @@ const services = [
                   {/* GPU server rack representation */}
                   {/* <div className="grid grid-cols-4 gap-2 mb-4">
                     {[...Array(16)].map((_, i) => (
-                      <div key={i} className="h-8 bg-slate-700/50 rounded border border-[#D6DEC3]/30 flex items-center justify-center">
+                      <div key={i} className="h-8 bg-slate-700/50 rounded border border-[#d4d8e8]/30 flex items-center justify-center">
                         <div className="flex gap-0.5">
                           <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
                           <div className="w-1 h-1 rounded-full bg-blue-500" />
@@ -322,7 +322,7 @@ const services = [
       </section>
 
       {/* SECTION 6: Feature Strip */}
-      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#e8eaf3] border-t border-b border-[#d4d8e8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, i) => (
@@ -338,7 +338,7 @@ const services = [
 
       {/* SECTION 7: Fully Integrated AI Infrastructure */}
       {/* Integrated AI Services Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
@@ -356,7 +356,7 @@ const services = [
                 {services.map((service, index) => (
                  <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
                     key={index}
-                    className="hover:bg-[#e8e6de] bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="hover:bg-[#e8e6de] bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3 ">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
@@ -387,7 +387,7 @@ const services = [
       </section>
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
@@ -395,7 +395,7 @@ const services = [
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-[#D6DEC3] pb-4"
+                className="border-b border-[#d4d8e8] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}

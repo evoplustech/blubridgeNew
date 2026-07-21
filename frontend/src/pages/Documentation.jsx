@@ -77,9 +77,9 @@ const Documentation = () => {
   useDocumentTitle('Documentation | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa]">
       {/* Hero */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden border-b border-[#D6DEC3]">
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden border-b border-[#d4d8e8]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
@@ -92,7 +92,7 @@ const Documentation = () => {
               <input
                 type="text"
                 placeholder="Search documentation..."
-                className="w-full px-6 py-4 bg-white border border-[#D6DEC3] rounded-lg text-[#0B1F3B] placeholder:text-[#7C8A96] focus:outline-none focus:border-[#328CC1]"
+                className="w-full px-6 py-4 bg-white border border-[#d4d8e8] rounded-lg text-[#0B1F3B] placeholder:text-[#7C8A96] focus:outline-none focus:border-[#328CC1]"
               />
             </div>
           </div>
@@ -100,11 +100,11 @@ const Documentation = () => {
       </section>
 
       {/* Documentation Sections */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sections.map((section, idx) => (
-              <Card key={idx} className="bg-white border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300">
+              <Card key={idx} className="bg-white border-[#d4d8e8] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="text-[#328CC1] mb-4">{section.icon}</div>
                   <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{section.title}</h3>
@@ -126,7 +126,7 @@ const Documentation = () => {
       </section>
 
       {/* Tutorials */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Popular Tutorials</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -152,7 +152,7 @@ const Documentation = () => {
                 time: '12 min read'
               }
             ].map((tutorial, idx) => (
-              <Card key={idx} className="bg-white border-[#D6DEC3] hover:bg-[#f3f1e9] hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <Card key={idx} className="bg-white border-[#d4d8e8] hover:bg-[#e8eaf3] hover:shadow-lg transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">{tutorial.title}</h3>
                   <p className="text-[#2F3A4A] mb-4">{tutorial.description}</p>
@@ -173,7 +173,7 @@ const Documentation = () => {
           <p className="text-xl text-white/80 mb-8">
             Our support team is here to assist you 24/7.
           </p>
-          <Link to="/contact" className="inline-block bg-white hover:bg-[#f3f1e9] text-[#0B1F3B] px-8 py-4 rounded-lg font-semibold transition-colors">
+          <Link to="/contact" className="inline-block bg-white hover:bg-[#e8eaf3] text-[#0B1F3B] px-8 py-4 rounded-lg font-semibold transition-colors">
             Contact Support
           </Link>
         </div>

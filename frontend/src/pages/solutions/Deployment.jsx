@@ -14,11 +14,11 @@ const Deployment = () => {
   useDocumentTitle('AI Deployment & Scalable Model Production | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa]">
       {/* Hero Section - Deployment */}
       <section className="relative flex flex-col overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-[#fffdf7] overflow-hidden" />
+        <div className="absolute inset-0 bg-[#f1f2fa] overflow-hidden" />
 
         {/* Hero content - Two column layout */}
         <div className="container-custom relative z-10 flex-1 flex items-center">
@@ -335,7 +335,7 @@ environments seamlessly.
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#efede5] border-t border-[#d4d8e8]">
         <div className="container-custom">
           <h2 className="text-center mb-10 text-3xl font-bold">What You Get </h2>
           <div className="grid md:grid-cols-3 gap-10">
@@ -345,13 +345,13 @@ environments seamlessly.
                 Deploying models in environments engineered for reliability, consistency, and real-time inference at scale.
               </p>
             </div>
-            <div className="border-l border-[#D6DEC3] pl-12">
+            <div className="border-l border-[#d4d8e8] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Accelerate Time to Market</h3>
               <p className="text-[#4B5563] leading-relaxed text-md">
                 Moving from experimentation to live systems faster with pre-configured pipelines and automated rollout workflows.
               </p>
             </div>
-            <div className="border-l border-[#D6DEC3] pl-12">
+            <div className="border-l border-[#d4d8e8] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Cost-Effective Scalability</h3>
               <p className="text-[#4B5563] leading-relaxed text-md">
                 Scaling inference dynamically with predictable pricing and resource-aware orchestration across GPU clusters.
@@ -362,7 +362,7 @@ environments seamlessly.
       </section>
 
       {/* SECTION 3: Deployment Pipeline - Unique Horizontal Flow Design */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0">
           <div 
@@ -409,7 +409,7 @@ environments seamlessly.
                   01
                 </div>
                 {/* Arrow connector (hidden on last item) */}
-                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#fffdf7] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#f1f2fa] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
                   <ArrowRight className="w-3 h-3 " />
                 </div>
                 
@@ -561,7 +561,7 @@ environments seamlessly.
       </section>
 
       {/* Fast, Efficient Model Fine-tuning Section */}
-      {/* <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -593,7 +593,7 @@ environments seamlessly.
 
             
             <div className="space-y-4">
-              <div className="bg-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-white border border-[#d4d8e8] rounded-xl p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-emerald-500/30 to-green-600/20 rounded-xl flex items-center justify-center">
                     <Zap className="w-6 h-6 text-emerald-400" />
@@ -604,7 +604,7 @@ environments seamlessly.
                   </div>
                 </div>
               </div>
-              <div className=" border border-[#D6DEC3] rounded-xl p-6 bg-[#0B1F3B]  text-white">
+              <div className=" border border-[#d4d8e8] rounded-xl p-6 bg-[#0B1F3B]  text-white">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-rose-400/20 to-slate-900/10 rounded-xl flex items-center justify-center">
                     <LayoutGrid className="w-6 h-6 text-white" />
@@ -615,7 +615,7 @@ environments seamlessly.
                   </div>
                 </div>
               </div>
-              <div className="bg-[#0B1F3B]  text-white border border-[#D6DEC3] rounded-xl p-6">
+              <div className="bg-[#0B1F3B]  text-white border border-[#d4d8e8] rounded-xl p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500/30 to-violet-600/20 rounded-xl flex items-center justify-center">
                     <Zap className="w-6 h-6 text-purple-400" />
@@ -736,7 +736,7 @@ environments seamlessly.
       </section>    
 
       {/* Deployment Statistics Section */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#000000] mb-16">Deployment Patterns</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -771,7 +771,7 @@ environments seamlessly.
       </section> */}
 
       {/* Performance Metrics - 4 Column */}
-      {/* <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -802,7 +802,7 @@ environments seamlessly.
               }
             
             ].map((item, i) => (
-              <div key={i} className="border-l border-[#D6DEC3] pl-6">
+              <div key={i} className="border-l border-[#d4d8e8] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
                 <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
                 <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
@@ -813,13 +813,13 @@ environments seamlessly.
       </section>  */}
 
       {/* Key Services */}
-      {/* <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             
             <Link className="" to="/products/training">
-            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
+            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#d4d8e8] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-emerald-500/30 to-green-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-emerald-400" />
@@ -834,7 +834,7 @@ environments seamlessly.
             </Link> 
            
             <Link className="" to="/products/marketplace">
-            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
+            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#d4d8e8] rounded-xl p-8 hover:border-emerald-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
@@ -852,7 +852,7 @@ environments seamlessly.
       </section> */}
 
       {/* More Solutions */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -864,7 +864,7 @@ environments seamlessly.
           <div className="grid md:grid-cols-3 gap-5">
             
             <Link to="/solutions/training">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">TRAINING</span>
@@ -874,7 +874,7 @@ environments seamlessly.
 
             
             <Link to="/solutions/inference">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">INFERENCE</span>
@@ -884,7 +884,7 @@ environments seamlessly.
 
             
             <Link to="/solutions/ai-development">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">AI DEVELOPMENT</span>
@@ -899,7 +899,7 @@ environments seamlessly.
       </section> */}
 
       {/* FAQs */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
@@ -921,7 +921,7 @@ environments seamlessly.
                 answer: "With pre-configured pipelines and automated workflows, teams are typically moving from a trained model to production in days, not months."
               }
             ].map((faq, i) => (
-              <div key={i} className="border-b border-[#D6DEC3]">
+              <div key={i} className="border-b border-[#d4d8e8]">
                 <button
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-emerald-400 transition-colors"
@@ -955,12 +955,12 @@ environments seamlessly.
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/research">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-4 py-3 rounded font-medium">
                 Explore
               </Button>
             </Link>
             {/* <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

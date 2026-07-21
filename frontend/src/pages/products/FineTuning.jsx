@@ -220,7 +220,7 @@ const FineTuning = () => {
     }, []);
 
     return (
-      <div className="relative bg-white rounded-xl border border-[#D6DEC3] p-4 backdrop-blur-sm">
+      <div className="relative bg-white rounded-xl border border-[#d4d8e8] p-4 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs text-[#2F3A4A]">Training Progress</span>
           <span className="text-xs text-[#328CC1]">Live</span>
@@ -311,17 +311,17 @@ const FineTuning = () => {
   useDocumentTitle('AI Model Fine-tuning | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
+    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Animated Canvas Background - Light theme */}
         <canvas 
           ref={canvasRef} 
           className="absolute inset-0 w-full h-full"
-          style={{ background: 'linear-gradient(135deg, #fffdf7 0%, #f3f1e9 50%, #fffdf7 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #f1f2fa 0%, #e8eaf3 50%, #f1f2fa 100%)' }}
         />
         
         {/* Light overlay for visual depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fffdf7]/90 via-[#f3f1e9]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f1f2fa]/90 via-[#e8eaf3]/70 to-transparent" />
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -342,7 +342,7 @@ const FineTuning = () => {
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
                 <Link to="/contact">
-                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
+                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-6 py-3 rounded font-medium">
                     Start Building
                   </Button>
                 </Link>
@@ -372,7 +372,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 2: Value Proposition Strip */}
-      <section className="py-12 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
+      <section className="py-12 bg-[#f1f2fa] border-t border-b border-[#d4d8e8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -394,7 +394,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 3: Supported Models Table */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Models</h2>
@@ -407,11 +407,11 @@ const FineTuning = () => {
           </div>
 
           {/* Models Table */}
-          <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden">
+          <div className="bg-slate-900/50 rounded-xl border border-[#d4d8e8] overflow-hidden">
             <div className="overflow-x-auto max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-900">
               <table className="w-full">
                 <thead className="sticky top-0 bg-slate-900 z-10">
-                  <tr className="border-b border-[#D6DEC3]">
+                  <tr className="border-b border-[#d4d8e8]">
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Supported Model Name</th>
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Author</th>
                     <th className="text-left px-6 py-4 text-sm font-semibold text-[#ffffff]">Type</th>
@@ -421,8 +421,8 @@ const FineTuning = () => {
                 </thead>
                 <tbody>
                   {supportedModels.map((model, index) => (
-                    // <tr key={index} className="border-b border-[#D6DEC3] hover:bg-[#f3f1e9]/30 transition-colors">
-                      <tr key={index} className="border-b border-[#D6DEC3] bg-white">
+                    // <tr key={index} className="border-b border-[#d4d8e8] hover:bg-[#e8eaf3]/30 transition-colors">
+                      <tr key={index} className="border-b border-[#d4d8e8] bg-white">
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.name}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.author}</td>
                       <td className="px-6 py-4 text-sm text-[#2F3A4A]">{model.type}</td>
@@ -436,7 +436,7 @@ const FineTuning = () => {
           </div>
 
           {/* Fine-tune Pricing Note */}
-          <div className="mt-8 p-6 bg-white rounded-xl border border-[#D6DEC3]/30">
+          <div className="mt-8 p-6 bg-white rounded-xl border border-[#d4d8e8]/30">
             <h3 className="text-xl font-semibold text-black-400 mb-2">Fine-tune Pricing</h3>
             <p className="text-[#2F3A4A] text-sm">
               Costs are determined by model scale and computed using the full volume of tokens handled, covering training data across every epoch along with any validation runs performed during evaluation.
@@ -453,7 +453,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 4: All Designed for Speed & Simplicity */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -466,7 +466,7 @@ const FineTuning = () => {
 
           
           <div className="max-w-4xl mx-auto">
-            <div className="relative bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden aspect-video">
+            <div className="relative bg-slate-900/50 rounded-xl border border-[#d4d8e8] overflow-hidden aspect-video">
              
               <div className="bg-slate-800 px-4 py-2 flex items-center gap-2">
                 <div className="flex gap-1.5">
@@ -485,8 +485,8 @@ const FineTuning = () => {
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center aspect-video">
                 <div className="absolute inset-0 flex">
                  
-                  <div className="w-1/2 p-4 border-r border-[#D6DEC3]">
-                    <div className="bg-[#f3f1e9] rounded p-3 space-y-2">
+                  <div className="w-1/2 p-4 border-r border-[#d4d8e8]">
+                    <div className="bg-[#e8eaf3] rounded p-3 space-y-2">
                       <div className="h-2 bg-blue-500/30 rounded w-3/4" />
                       <div className="h-2 bg-slate-600/50 rounded w-full" />
                       <div className="h-2 bg-slate-600/50 rounded w-5/6" />
@@ -523,7 +523,7 @@ const FineTuning = () => {
       </section> */}
 
       {/* SECTION 5: How it Works */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">How it works</h2>
           
@@ -544,11 +544,11 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 6: Model Ecosystem Strip */}
-      <section className="py-16 bg-[#fffdf7]">
+      <section className="py-16 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
-              <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-[#D6DEC3]/50 transition-colors">
+              <div key={i} className="bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-[#d4d8e8]/50 transition-colors">
                 <div className="text-xs text-[#6B7280] mb-1">TEXT GENERATION</div>
                 <div className="text-[#0B1F3B] font-bold text-sm">{model.name}</div>
                 <div className="text-[#2F3A4A] text-xs">{model.size}</div>
@@ -560,14 +560,14 @@ const FineTuning = () => {
       </section>
 
             {/* Savings by Design Section - Section 4 */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Model Icons Grid */}
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral', 'Gemma', 'Flux', 'Actions'].map((name, i) => (
-                  <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 text-center border border-[#D6DEC3]">
+                  <div key={i} className="bg-[#e8eaf3] rounded-xl p-4 text-center border border-[#d4d8e8]">
                     <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
                       <span className="text-xs text-[#328CC1]">{name.charAt(0)}</span>
                     </div>
@@ -594,13 +594,13 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 7: Savings by Design
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="grid grid-cols-3 gap-4">
                 {['LLaMA', 'Claude', 'Hermes', 'Qwen', 'GPT Plus', 'Mistral'].map((name, i) => (
-                  <div key={i} className="bg-[#f3f1e9] rounded-xl p-4 text-center border border-[#D6DEC3]">
+                  <div key={i} className="bg-[#e8eaf3] rounded-xl p-4 text-center border border-[#d4d8e8]">
                     <div className="w-10 h-10 bg-slate-700 rounded-lg mx-auto mb-2 flex items-center justify-center">
                       <span className="text-xs text-[#2F3A4A]">{name.slice(0, 2)}</span>
                     </div>
@@ -626,7 +626,7 @@ const FineTuning = () => {
       </section> */}
 
       {/* SECTION 8: Serverless without Trade-offs */}
-      <section className="py-15 bg-[#fffdf7]">
+      <section className="py-15 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -661,7 +661,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 9: FAQs */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
@@ -669,7 +669,7 @@ const FineTuning = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-[#D6DEC3] pb-4"
+                className="border-b border-[#d4d8e8] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}

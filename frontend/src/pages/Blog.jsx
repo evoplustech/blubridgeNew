@@ -30,8 +30,8 @@ const Blog = () => {
   useDocumentTitle('Blog | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Hero */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero */}
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
@@ -48,7 +48,7 @@ const Blog = () => {
       </section>
 
       {/* Blog Posts */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           {loading ? (
             <div className="text-center text-white">Loading posts...</div>
@@ -58,7 +58,7 @@ const Blog = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
                 <Link key={post.id} to={`/blog/${post.slug}`}>
-                  <Card className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300 h-full overflow-hidden group">
+                  <Card className="bg-white/5 border-[#d4d8e8] hover:border-[#0066FF]/50 transition-all duration-300 h-full overflow-hidden group">
                     <div className="h-56 overflow-hidden">
                       <img 
                         src={post.image} 

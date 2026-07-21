@@ -294,10 +294,10 @@ const NeuralBackground = () => {
     const animate = () => {
       // Premium light gradient background using specified colors
       const gradient = ctx.createLinearGradient(0, 0, width * 0.5, height);
-      gradient.addColorStop(0, '#f3f1e9');     // Lightest cream
-      gradient.addColorStop(0.4, '#e6e2d4');   // Mid cream
-      gradient.addColorStop(0.7, '#dbd6c4');   // Warm beige
-      gradient.addColorStop(1, '#e6e2d4');     // Back to mid
+      gradient.addColorStop(0, '#f1f2fa');
+      gradient.addColorStop(0.4, '#e8eaf3');
+      gradient.addColorStop(0.7, '#dfe6f5');
+      gradient.addColorStop(1, '#e8eaf3');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
       

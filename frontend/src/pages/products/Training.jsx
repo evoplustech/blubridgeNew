@@ -238,8 +238,8 @@ const Training = () => {
   useDocumentTitle('GPU Clusters for Training AI Models | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f1f2fa]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -260,7 +260,7 @@ const Training = () => {
               
               <div className="flex flex-wrap gap-4 pt-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
                 <Link to="/contact">
-                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
+                  <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-6 py-3 rounded font-medium">
                     Get Started
                   </Button>
                 </Link>
@@ -402,7 +402,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 2: Performance Metrics Strip */}
-      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#e8eaf3] border-t border-b border-[#d4d8e8]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#000000]">Performance</h2>
           <div className="grid md:grid-cols-4 gap-8">
@@ -423,7 +423,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 3: Dynamic Workload Management */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -434,14 +434,14 @@ const Training = () => {
                 Our Managed Kubernetes offering is purpose-built to support LLM training. BluBridge takes care of the underlying platform, allowing teams to concentrate on innovation. Take advantage of automatic capacity adjustment, coordinated workloads, and smooth alignment with existing processes.
               </p>
               <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-6 py-3 rounded font-medium">
                   Get Started <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
               </Link>
             </div>
             
             {/* Workload Management UI Visual */}
-            <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3] p-6">
+            <div className="bg-[#0a0a0f] rounded-xl border border-[#d4d8e8] p-6">
               <div className="flex items-center gap-4 mb-4">
                 <button className="px-4 py-2 bg-[#0B1F3B] text-white text-sm rounded-lg">Queues (3)</button>
                 {/* <button className="px-4 py-2 text-[#2F3A4A] text-sm hover:text-white transition-colors">Nodes</button> */}
@@ -477,11 +477,11 @@ const Training = () => {
       </section>
 
       {/* SECTION 4: Advanced Scheduling */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Node Diagram Visual */}
-            <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6 relative overflow-hidden">
+            <div className="bg-[#0a0a0f] rounded-xl border border-[#d4d8e8]/30 p-6 relative overflow-hidden">
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-[#0B1F3B] text-white text-xs rounded">COMPUTE</span>
                 {/* <span className="text-[#2F3A4A] text-sm">Node allocation</span> */}
@@ -525,7 +525,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 5: Industry-leading GPU Clusters */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -536,7 +536,7 @@ const Training = () => {
                 Our GPU clusters offer adaptability and growth to support training demands across every scale and workload type. From expanding capacity for major initiatives to refining individual models, the clusters deliver the performance and efficiency needed throughout.
               </p>
               <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-6 py-3 rounded font-medium">
                   Reserve GPUs <ArrowRight className="w-4 h-4 ml-2 inline" />
                 </Button>
               </Link>
@@ -571,7 +571,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 6: Feature Strip (Three Columns) */}
-      <section className="py-16 bg-[#f3f1e9] border-t border-b border-[#D6DEC3]">
+      <section className="py-16 bg-[#e8eaf3] border-t border-b border-[#d4d8e8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, i) => (
@@ -586,7 +586,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 7: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -603,7 +603,7 @@ const Training = () => {
                 {services.map((service, index) => (
                  <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
                     key={index}
-                    className="hover:bg-[#e8e6de] bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="hover:bg-[#e8e6de] bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3 ">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
@@ -630,7 +630,7 @@ const Training = () => {
               </div>
             </div>
             {/* Infrastructure Diagram */}
-            {/* <div className="bg-[#0a0a0f] rounded-xl border border-[#D6DEC3]/30 p-6"> */}
+            {/* <div className="bg-[#0a0a0f] rounded-xl border border-[#d4d8e8]/30 p-6"> */}
               {/* Service Flow Diagram */}
               {/* <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-[#1a1a2e] rounded-lg p-3 text-center border border-[#333]/50">
@@ -680,7 +680,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0B1F3B]">FAQs</h2>
           
@@ -688,7 +688,7 @@ const Training = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-[#D6DEC3] pb-4"
+                className="border-b border-[#d4d8e8] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}
@@ -722,7 +722,7 @@ const Training = () => {
           
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

@@ -42,8 +42,8 @@ const Partners = () => {
   useDocumentTitle('Partners | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Hero */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero */}
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
@@ -60,11 +60,11 @@ const Partners = () => {
       </section>
 
       {/* Partner Logos */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid grid-cols-3 md:grid-cols-5 gap-8">
             {partnerLogos.map((partner, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#f3f1e9] transition-all duration-300">
+              <Card key={idx} className="bg-white/5 border-[#d4d8e8] hover:bg-[#e8eaf3] transition-all duration-300">
                 <CardContent className="p-8 flex items-center justify-center">
                   <div className="text-[#2F3A4A] font-bold text-lg text-center">{partner}</div>
                 </CardContent>
@@ -75,12 +75,12 @@ const Partners = () => {
       </section>
 
       {/* Partner Types */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Partnership Ecosystem</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {partnerTypes.map((type, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
+              <Card key={idx} className="bg-white/5 border-[#d4d8e8]">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{type.title}</h3>
                   <p className="text-[#2F3A4A] mb-6">{type.description}</p>
@@ -100,14 +100,14 @@ const Partners = () => {
       </section>
 
       {/* Become a Partner */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-6 text-center">Become a Partner</h2>
             <p className="text-xl text-[#2F3A4A] text-center mb-12">
               Join our partner ecosystem and help shape the future of AI infrastructure.
             </p>
-            <Card className="bg-white/5 border-[#D6DEC3]">
+            <Card className="bg-white/5 border-[#d4d8e8]">
               <CardContent className="p-12">
                 <h3 className="text-2xl font-bold text-[#0B1F3B] mb-6">Partner Benefits</h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-8">

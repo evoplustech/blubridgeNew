@@ -68,8 +68,8 @@ const Pricing = () => {
   useDocumentTitle('Pricing | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Hero */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero */}
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
@@ -86,13 +86,13 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {plans.map((plan, idx) => (
               <Card 
                 key={idx} 
-                className={`bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all duration-300 relative ${
+                className={`bg-white/5 border-[#d4d8e8] hover:border-[#0066FF]/50 transition-all duration-300 relative ${
                   plan.popular ? 'ring-2 ring-[#0066FF]' : ''
                 }`}
               >
@@ -135,13 +135,13 @@ const Pricing = () => {
       </section>
 
       {/* Add-ons */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Add-ons & Services</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {addOns.map((addon, idx) => (
-                <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
+                <Card key={idx} className="bg-white/5 border-[#d4d8e8]">
                   <CardContent className="p-6 flex justify-between items-center">
                     <span className="text-[#0B1F3B] font-semibold">{addon.name}</span>
                     <span className="text-[#328CC1]">{addon.price}</span>
@@ -154,7 +154,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Frequently Asked Questions</h2>
@@ -177,7 +177,7 @@ const Pricing = () => {
                   a: 'Yes, new customers receive $500 in credits to test our platform for 30 days.'
                 }
               ].map((faq, idx) => (
-                <Card key={idx} className="bg-white/5 border-[#D6DEC3]">
+                <Card key={idx} className="bg-white/5 border-[#d4d8e8]">
                   <CardContent className="p-6">
                     <h3 className="text-[#0B1F3B] font-semibold mb-2">{faq.q}</h3>
                     <p className="text-[#2F3A4A]">{faq.a}</p>

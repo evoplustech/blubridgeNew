@@ -321,7 +321,7 @@ useEffect(() => {
   useDocumentTitle('Custom AI Models & LLM Customization | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa]">
       
       {/* SECTION 1: Hero Section - Light cream background like reference */}
       <section className="relative min-h-[580px] overflow-hidden">
@@ -336,7 +336,7 @@ useEffect(() => {
         <div 
           className="absolute inset-0 opacity-60"
           style={{
-            background: '#fffdf7'
+            background: '#f1f2fa'
           }}
         />
         
@@ -382,7 +382,7 @@ reliability.
         </div>
       </section>
       {/* SECTION 2: Value Highlights - 3 Cards */}
-      <section className="py-16 bg-[#f3f1e9] border-b border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#e8eaf3] border-b border-t border-[#d4d8e8]">
         <div className="container-custom">
           <h2 className="text-center font-bold mb-10 text-3xl ">What You Get</h2>
           <div className="grid md:grid-cols-3 gap-10">
@@ -396,7 +396,7 @@ context and expertise.
             </div>
             
             {/* Card 2 */}
-            <div className="border-l border-[#D6DEC3] pl-8">
+            <div className="border-l border-[#d4d8e8] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Faster Adaptation Cycles</h3>
               <p className="text-[#4B5563] leading-relaxed">
                Iterating rapidly with streamlined fine‑tuning pipelines that are reducing experimentation time and accelerating
@@ -405,7 +405,7 @@ deployment.
             </div>
             
             {/* Card 3 */}
-            <div className="border-l border-[#D6DEC3] pl-8">
+            <div className="border-l border-[#d4d8e8] pl-8">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Production-Ready Outputs</h3>
               <p className="text-[#4B5563] leading-relaxed">
                 Shipping models that are performing reliably in real‑world environments, with consistent behavior, safety, and
@@ -417,7 +417,7 @@ performance.
       </section>
 
       {/* SECTION 3: Accelerated Model Customization - Redesigned */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Gradient orbs */}
@@ -470,7 +470,7 @@ production‑ready from day one.
               <div className="space-y-5">
                 {/* Pre-configured Card */}
                 <div 
-                  className="relative bg-[#f3f1e9] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-blue-400/50 transition-all duration-300"
+                  className="relative bg-[#e8eaf3] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-blue-400/50 transition-all duration-300"
                   style={{ animation: 'cardFloat1 6s ease-in-out infinite' }}
                 >
                   <div className="absolute top-6 right-6 w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
@@ -485,7 +485,7 @@ production‑ready from day one.
                 
                 {/* Scalable Card */}
                 <div 
-                  className="relative bg-[#f3f1e9] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-purple-400/50 transition-all duration-300"
+                  className="relative bg-[#e8eaf3] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-purple-400/50 transition-all duration-300"
                   style={{ animation: 'cardFloat2 5s ease-in-out infinite' }}
                 >
                   <div className="absolute top-6 right-6 w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center">
@@ -500,7 +500,7 @@ production‑ready from day one.
                 
                 {/* Secure Card */}
                 <div 
-                  className="relative bg-[#f3f1e9] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-teal-400/50 transition-all duration-300"
+                  className="relative bg-[#e8eaf3] rounded-2xl p-8 border border-[#E5E7EB] group hover:border-teal-400/50 transition-all duration-300"
                   style={{ animation: 'cardFloat3 7s ease-in-out infinite' }}
                 >
                   <div className="absolute top-6 right-6 w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center">
@@ -535,7 +535,7 @@ production‑ready from day one.
       </section>
 
       {/* SECTION 4: Customization Stack - Table Format */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             Customization Stack
@@ -594,7 +594,7 @@ at every layer
       </section>
 
             {/* Performance Metrics - 4 Column */}
-      {/* <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Customizing brings Efficiency and more</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -624,7 +624,7 @@ at every layer
                 linkTo: '/products/gpu-nodes'
               }
             ].map((item, i) => (
-              <div key={i} className="border-l border-[#D6DEC3] pl-6">
+              <div key={i} className="border-l border-[#d4d8e8] pl-6">
                 <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">{item.metric}</div>
                 <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">{item.label}</div>
                 <p className="text-[#000000] text-sm leading-relaxed mb-4">{item.desc}</p>
@@ -636,7 +636,7 @@ at every layer
       </section> */}
 
       {/* SECTION 5: Performance Metrics */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#0B1F3B]">
             Performance
@@ -674,7 +674,7 @@ at every layer
       </section> */}
 
       {/* SECTION 6: Key Services */}
-      {/* <section className="py-20 bg-[#f3f1e9]">
+      {/* <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0B1F3B]">
             Key Services
@@ -708,7 +708,7 @@ at every layer
       </section> */}
 
       {/* SECTION 7: More Solutions */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             More Solutions
@@ -748,14 +748,14 @@ at every layer
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl  font-bold mb-12 text-[#0B1F3B]">
             FAQs
           </h2>
           <div className="max-w-3xl">
             {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-[#D6DEC3]">
+              <div key={i} className="border-b border-[#d4d8e8]">
                 <button
                   onClick={() => toggleFaq(i)}
                   className="w-full py-6 flex items-center justify-between text-left"
@@ -790,12 +790,12 @@ at every layer
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/research">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-4 py-3 rounded font-medium">
                 Explore
               </Button>
             </Link>
             {/* <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

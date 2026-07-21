@@ -34,7 +34,7 @@ const Research = () => {
     <div 
       className="min-h-screen pt-24 pb-16"
       style={{
-        backgroundColor: '#f3f1e9',
+        backgroundColor: '#e8eaf3',
       }}
     >
       <div className="container-custom">
@@ -48,7 +48,7 @@ const Research = () => {
           {/* Paper Card 1 - BluTrain (NEW - TOP) */}
           <div 
             className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
-            style={{ backgroundColor: '#fffdf7' }}
+            style={{ backgroundColor: '#f1f2fa' }}
           >
             
             {/* Paper Title */}
@@ -95,7 +95,7 @@ const Research = () => {
           {/* Paper Card 2 - FLUX (NEW - TOP) */}
           <div 
             className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
-            style={{ backgroundColor: '#fffdf7' }}
+            style={{ backgroundColor: '#f1f2fa' }}
           >
             
             {/* Paper Title */}
@@ -143,7 +143,7 @@ const Research = () => {
           {/* Paper Card 2 - Blu-WERP (Existing) */}
           <div 
             className="backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-sm border border-[#E8EDD8]"
-            style={{ backgroundColor: '#fffdf7' }}
+            style={{ backgroundColor: '#f1f2fa' }}
           >
             
             {/* Paper Title */}

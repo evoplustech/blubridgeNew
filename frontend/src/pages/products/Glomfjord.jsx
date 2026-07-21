@@ -104,7 +104,7 @@ const services = [
   useDocumentTitle('Glomfjord AI Data Centre | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Glomfjord Data Center Background */}
+    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Glomfjord Data Center Background */}
       <section ref={heroRef} className="relative min-h-[650px] flex items-center overflow-hidden">
         {/* Background Image with Parallax */}
         <div 
@@ -125,7 +125,7 @@ const services = [
         />
         
         {/* Light Overlay - adjusted for light theme */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fffdf7]/90 via-[#f3f1e9]/70 to-[#fffdf7]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f1f2fa]/90 via-[#e8eaf3]/70 to-[#f1f2fa]/50" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -143,7 +143,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             
             <div className="flex flex-wrap gap-4" style={{ animation: 'fadeInUp 1s ease-out 0.6s both' }}>
               <Link to="/contact">
-                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+                <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-3 rounded font-medium">
                   Get Started
                 </Button>
               </Link>
@@ -163,7 +163,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 2: Intro Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="max-w-6xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">
@@ -182,13 +182,13 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 3: Embedded Video Section */}
-      {/* <section className="py-16 bg-[#fffdf7]">
+      {/* <section className="py-16 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Transforming Tomorrow</h2>
           
          
           <div className="max-w-4xl">
-            <div className="relative bg-slate-900/50 rounded-xl border border-[#D6DEC3] overflow-hidden aspect-video mb-6">
+            <div className="relative bg-slate-900/50 rounded-xl border border-[#d4d8e8] overflow-hidden aspect-video mb-6">
             
               <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                 <div className="text-center">
@@ -217,7 +217,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section> */}
 
       {/* SECTION 4: About Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -237,7 +237,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             
             {/* About Image */}
             <div className="relative">
-              <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 overflow-hidden aspect-video">
+              <div className="bg-slate-900/50 rounded-xl border border-[#d4d8e8]/30 overflow-hidden aspect-video">
                 <img 
                   src="https://images.unsplash.com/photo-1520769669658-f07657f5a307?w=800&q=80" 
                   alt="Glomfjord Data Center aerial view"
@@ -250,7 +250,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 5: Key Facts Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Key Facts</h2>
           
@@ -267,12 +267,12 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 6: Power Supply Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Power Supply Image */}
             <div className="relative">
-              <div className="bg-slate-900/50 rounded-xl border border-[#D6DEC3]/30 overflow-hidden aspect-video">
+              <div className="bg-slate-900/50 rounded-xl border border-[#d4d8e8]/30 overflow-hidden aspect-video">
                 <img 
                   src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=80" 
                   alt="Hydroelectric dam"
@@ -300,7 +300,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 7: AI Services/Compute Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -318,7 +318,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
                 {services.map((service, index) => (
                  <Link className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm" to={service.link}> <div 
                     key={index}
-                    className="hover:bg-[#e8e6de] bg-[#f3f1e9] rounded-xl p-4 border border-[#D6DEC3] hover:border-blue-500/30 transition-colors"
+                    className="hover:bg-[#e8e6de] bg-[#e8eaf3] rounded-xl p-4 border border-[#d4d8e8] hover:border-blue-500/30 transition-colors"
                   >
                     <div className="flex items-center gap-3 ">
                       <div className="w-10 h-10 rounded-lg bg-[#0B1F3B]/20 flex items-center justify-center">
@@ -348,7 +348,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
 
       
       {/* SECTION 9: FAQ Section */}
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           
@@ -356,7 +356,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-[#D6DEC3] pb-4"
+                className="border-b border-[#d4d8e8] pb-4"
               >
                 <button
                   onClick={() => toggleFaq(index)}

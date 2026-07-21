@@ -318,7 +318,7 @@ const eased = t * t * t; // slow start, strong finish
     }, []);
 
     return (
-      <div className="relative bg-white rounded-xl border border-[#D6DEC3] p-4 backdrop-blur-sm">
+      <div className="relative bg-white rounded-xl border border-[#d4d8e8] p-4 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs text-[#2F3A4A]">Value Growth</span>
           <span className="text-xs text-[#2F3A4A]">Real-Time Impact</span>
@@ -339,14 +339,14 @@ const eased = t * t * t; // slow start, strong finish
   useDocumentTitle('AI Value Realization Solutions & Measurable ROI | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa]">
       {/* SECTION 1: Hero Section */}
       <section className="relative flex flex-col overflow-hidden">
         {/* Background - Horizontal Gradient */}
         <div 
           className="absolute inset-0 overflow-hidden" 
           style={{
-            background: '#fffdf7'
+            background: '#f1f2fa'
           }}
         />
 
@@ -588,7 +588,7 @@ perpetual pilot.
       </section>
 
       {/* SECTION 2: Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#efede5] border-t border-[#D6DEC3]">
+      <section className="py-16 bg-[#efede5] border-t border-[#d4d8e8]">
         <div className="container-custom">
         <h2 className="text-center font-bold mb-10 text-3xl ">What You Get</h2>
           <div className="grid md:grid-cols-3 gap-10">
@@ -599,13 +599,13 @@ perpetual pilot.
 or customer outcomes.
               </p>
             </div>
-            <div className="border-l border-[#D6DEC3] pl-12">
+            <div className="border-l border-[#d4d8e8] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Simplified Execution</h3>
               <p className="text-[#4B5563] text-md leading-relaxed">
                 Streamlining the journey from proof-of-concept to production with guided workflows and built-in best practices.
               </p>
             </div>
-            <div className="border-l border-[#D6DEC3] pl-12">
+            <div className="border-l border-[#d4d8e8] pl-12">
               <h3 className="text-xl font-semibold text-[#0B1F3B] mb-3">Versatile Platform</h3>
               <p className="text-[#4B5563] text-md leading-relaxed">
                 Applying AI across teams, products, and industries using a flexible foundation that is evolving with your needs.
@@ -618,7 +618,7 @@ or customer outcomes.
       {/* ROI Statistics Section */}
       
       {/* SECTION 3: Speed up time-to-value Section */}
-      <section className="bg-[#fffdf7] py-24">
+      <section className="bg-[#f1f2fa] py-24">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -742,7 +742,7 @@ or customer outcomes.
       </section>
 
       {/* SECTION 5: Performance Metrics */}
-{/* <section className="py-20 bg-[#fffdf7]">
+{/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             
@@ -786,26 +786,26 @@ or customer outcomes.
 
 
 
-      {/* <section className="py-24 bg-[#fffdf7]">
+      {/* <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Measurable Impact AI at Scale</h2>
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="border-l border-[#D6DEC3] pl-6">
+            <div className="border-l border-[#d4d8e8] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">3.7×</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">ROI PER DOLLAR</div>
              <p className="text-[#000000] text-sm leading-relaxed">  Enterprises report an average 3.7× return on every dollar invested in AI, with top adopters exceeding 10× ROI.</p> 
             </div>
-            <div className="border-l border-[#D6DEC3] pl-6">
+            <div className="border-l border-[#d4d8e8] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">60%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">ROI & EFFICIENCY BOOST</div>
             <p className="text-[#000000] text-sm leading-relaxed">In a 2025 PwC survey, 60% of executives say AI boosts ROI and operational efficiency. </p>
             </div>
-            <div className="border-l border-[#D6DEC3] pl-6">
+            <div className="border-l border-[#d4d8e8] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">72%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">FORMAL ROI TRACKING</div>
             <p className="text-[#000000] text-sm leading-relaxed">FORMAL ROI TRACKING</p>
             </div>
-           <div className="border-l border-[#D6DEC3] pl-6">
+           <div className="border-l border-[#d4d8e8] pl-6">
               <div className="text-4xl lg:text-5xl font-bold text-[#000000] mb-1">67%</div>
               <div className="text-sm font-semibold text-[#328CC1] uppercase tracking-wider mb-2">POSITIVE AI ROI</div>
              <p className="text-[#000000] text-sm leading-relaxed">In IT-centric studies, 67% of respondents report positive ROI from AI initiatives, with only 3% negative.</p> 
@@ -816,7 +816,7 @@ or customer outcomes.
 
 
       {/* SECTION 7: More Solutions */}
-      {/* <section className="py-20 bg-[#fffdf7]">
+      {/* <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -828,7 +828,7 @@ or customer outcomes.
           <div className="grid md:grid-cols-3 gap-5">
           
             <Link to="/solutions/training">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/tbqd1w9m_Training.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">TRAINING</span>
@@ -838,7 +838,7 @@ or customer outcomes.
 
           
             <Link to="/solutions/ai-development">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">AI DEVELOPMENT</span>
@@ -848,7 +848,7 @@ or customer outcomes.
 
           
             <Link to="/solutions/fine-tuning">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">FINE-TUNING</span>
@@ -860,7 +860,7 @@ or customer outcomes.
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
@@ -882,7 +882,7 @@ or customer outcomes.
                 answer: "We are tying model behavior to business KPIs: efficiency gains, revenue impact, quality improvements, and user outcomes. Every model is being evaluated not just on accuracy, but on real-world effect."
               }
             ].map((faq, i) => (
-              <div key={i} className="border-b border-[#D6DEC3]">
+              <div key={i} className="border-b border-[#d4d8e8]">
                 <button
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-emerald-400 transition-colors"
@@ -917,12 +917,12 @@ or customer outcomes.
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/research">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-4 py-3 rounded font-medium">
                 Explore
               </Button>
             </Link>
             {/* <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-3 rounded font-medium">
+              <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-3 rounded font-medium">
                 Reserve GPUs
               </Button>
             </Link>

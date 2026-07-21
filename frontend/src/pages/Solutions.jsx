@@ -50,8 +50,8 @@ const Solutions = () => {
   useDocumentTitle('Solutions | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Hero */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden">
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero */}
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
@@ -68,13 +68,13 @@ const Solutions = () => {
       </section>
 
       {/* Use Cases */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">By Use Case</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {useCases.map((useCase, idx) => (
               <Link key={idx} to={useCase.link}>
-                <Card className="bg-white/5 border-[#D6DEC3] hover:scale-105 transition-transform duration-300 overflow-hidden">
+                <Card className="bg-white/5 border-[#d4d8e8] hover:scale-105 transition-transform duration-300 overflow-hidden">
                   <div className="h-64 overflow-hidden">
                     <img src={useCase.image} alt={useCase.title} className="w-full h-full object-cover" />
                   </div>
@@ -97,12 +97,12 @@ const Solutions = () => {
       </section>
 
       {/* Industries */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">By Industry</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {industries.map((industry, idx) => (
-              <Card key={idx} className="bg-white/5 border-[#D6DEC3] hover:bg-[#f3f1e9] transition-all duration-300">
+              <Card key={idx} className="bg-white/5 border-[#d4d8e8] hover:bg-[#e8eaf3] transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-4">{industry.icon}</div>
                   <h3 className="text-xl font-semibold text-[#0B1F3B] mb-2">{industry.name}</h3>

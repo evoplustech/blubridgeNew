@@ -9,7 +9,7 @@ const Narvik = () => {
   useDocumentTitle('Narvik AI Data Centre | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">      {/* Hero Section */}
+    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -36,7 +36,7 @@ const Narvik = () => {
                 </Button>
               </Link>
               <Link to="/products/sovereign-cloud">
-                <Button variant="outline" className="border-white text-white hover:bg-[#f3f1e9] px-8 py-6 text-lg">
+                <Button variant="outline" className="border-white text-white hover:bg-[#e8eaf3] px-8 py-6 text-lg">
                   Explore Sovereign Options →
                 </Button>
               </Link>
@@ -46,7 +46,7 @@ const Narvik = () => {
       </section>
 
       {/* Strategic Advantages */}
-      <section className="py-24 bg-[#f3f1e9]">
+      <section className="py-24 bg-[#e8eaf3]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-4 text-center">Why Narvik</h2>
           <p className="text-[#2F3A4A] text-center mb-12 max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ const Narvik = () => {
                 description: 'Designed to host the world\'s largest AI training clusters'
               }
             ].map((item, i) => (
-              <Card key={i} className="bg-white/5 border-[#D6DEC3]">
+              <Card key={i} className="bg-white/5 border-[#d4d8e8]">
                 <CardContent className="p-8 text-center">
                   <div className="flex justify-center text-[#328CC1] mb-4">{item.icon}</div>
                   <div className="text-4xl font-bold text-[#0B1F3B] mb-2">{item.stat}</div>
@@ -93,7 +93,7 @@ const Narvik = () => {
       </section>
 
       {/* Infrastructure Overview */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -124,7 +124,7 @@ const Narvik = () => {
               </div>
             </div>
             <div>
-              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-[#D6DEC3]">
+              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-[#d4d8e8]">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-[#0B1F3B] mb-6">Technical Specifications</h3>
                   <div className="space-y-4">
@@ -138,7 +138,7 @@ const Narvik = () => {
                       { label: 'Security', value: 'Tier III+ certified' },
                       { label: 'Expansion Timeline', value: 'Modular, phased' }
                     ].map((spec, i) => (
-                      <div key={i} className="flex justify-between items-center pb-3 border-b border-[#D6DEC3] last:border-0">
+                      <div key={i} className="flex justify-between items-center pb-3 border-b border-[#d4d8e8] last:border-0">
                         <span className="text-[#2F3A4A] text-sm">{spec.label}</span>
                         <span className="text-[#0B1F3B] font-semibold text-sm">{spec.value}</span>
                       </div>
@@ -152,7 +152,7 @@ const Narvik = () => {
       </section>
 
       {/* Sustainability */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-6 text-center">Sustainable by Design</h2>
@@ -177,7 +177,7 @@ const Narvik = () => {
                   icon: '♻️'
                 }
               ].map((item, i) => (
-                <Card key={i} className="bg-white/5 border-[#D6DEC3]">
+                <Card key={i} className="bg-white/5 border-[#d4d8e8]">
                   <CardContent className="p-8 text-center">
                     <div className="text-5xl mb-4">{item.icon}</div>
                     <h3 className="text-xl font-bold text-[#0B1F3B] mb-3">{item.title}</h3>
@@ -191,7 +191,7 @@ const Narvik = () => {
       </section>
 
       {/* Deployment Options */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Flexible Deployment Models</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -207,7 +207,7 @@ const Narvik = () => {
                 features: ['Pre-configured clusters', 'Kubernetes or SLURM', 'Automatic scaling', 'Included support']
               }
             ].map((model, i) => (
-              <Card key={i} className="bg-white/5 border-[#D6DEC3] hover:border-[#0066FF]/50 transition-all">
+              <Card key={i} className="bg-white/5 border-[#d4d8e8] hover:border-[#0066FF]/50 transition-all">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-[#0B1F3B] mb-3">{model.title}</h3>
                   <p className="text-[#2F3A4A] mb-6">{model.description}</p>
@@ -249,7 +249,7 @@ const Narvik = () => {
               </Button>
             </Link>
             <Link to="/docs">
-              <Button variant="outline" className="border-white text-white hover:bg-[#f3f1e9] px-8 py-6 text-lg">
+              <Button variant="outline" className="border-white text-white hover:bg-[#e8eaf3] px-8 py-6 text-lg">
                 Download Facility Overview
               </Button>
             </Link>

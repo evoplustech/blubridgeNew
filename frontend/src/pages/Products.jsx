@@ -60,9 +60,9 @@ const Products = () => {
   useDocumentTitle('Products | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa]">
       {/* Hero */}
-      <section className="py-24 bg-[#fffdf7] relative overflow-hidden border-b border-[#D6DEC3]">
+      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden border-b border-[#d4d8e8]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
@@ -72,7 +72,7 @@ const Products = () => {
               From serverless endpoints to dedicated GPU clusters, BluBridge provides complete AI infrastructure solutions.
             </p>
             <Link to="/contact">
-              <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-6 text-lg font-semibold">
+              <Button className="bg-white text-[#0B1F3B] border border-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-6 text-lg font-semibold">
                 Talk to Sales
               </Button>
             </Link>
@@ -81,11 +81,11 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, idx) => (
-              <Card key={idx} className="bg-white border-[#D6DEC3] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300 overflow-hidden group">
+              <Card key={idx} className="bg-white border-[#d4d8e8] hover:border-[#328CC1] hover:shadow-lg transition-all duration-300 overflow-hidden group">
                 <div className="h-56 overflow-hidden">
                   <img 
                     src={product.image} 
@@ -123,7 +123,7 @@ const Products = () => {
             Ready to scale your AI infrastructure?
           </h2>
           <Link to="/contact">
-            <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-8 py-6 text-lg font-semibold">
+            <Button className="bg-white text-[#0B1F3B] hover:bg-[#e8eaf3] px-8 py-6 text-lg font-semibold">
               Contact
             </Button>
           </Link>

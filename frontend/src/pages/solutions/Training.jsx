@@ -15,7 +15,7 @@ const Training = () => {
   useDocumentTitle('AI Compute for Training LLMs | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7]">
+    <div className="min-h-screen bg-[#f1f2fa]">
       {/* Hero Section - Model Training Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
@@ -76,7 +76,7 @@ const Training = () => {
       </section>
 
       {/* Value Proposition Strip - Section 2 */}
-      <section className="py-20 bg-[#f3f1e9]">
+      <section className="py-20 bg-[#e8eaf3]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-12">
             {[
@@ -103,7 +103,7 @@ const Training = () => {
       </section>
 
       {/* Accelerated Model Training - Section 3 */}
-      <section className="py-32 bg-[#fffdf7]">
+      <section className="py-32 bg-[#f1f2fa]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
@@ -139,7 +139,7 @@ const Training = () => {
       </section>
 
       {/* Training Stack - Section 4 */}
-      <section className="py-32 bg-[#f3f1e9]">
+      <section className="py-32 bg-[#e8eaf3]">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-5xl font-bold text-[#0B1F3B] mb-8">Training Stack</h2>
@@ -149,7 +149,7 @@ const Training = () => {
             </p>
 
             <div className="space-y-8">
-              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#d4d8e8] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">MARKETPLACE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Jupyter Notebook', 'TensorFlow', 'PyTorch', 'HuggingFace', 'MLflow', 'Ray', 'Weights & Biases'].map((item, i) => (
@@ -161,7 +161,7 @@ const Training = () => {
                 </div>
               </div>
 
-              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#d4d8e8] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">PLATFORM</h3>
                 <div className="flex flex-wrap gap-4">
                   {['Virtual Machines', 'Managed Kubernetes'].map((item, i) => (
@@ -173,7 +173,7 @@ const Training = () => {
                 </div>
               </div>
 
-              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#d4d8e8] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">INFRASTRUCTURE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['GPU Compute', 'Storage', 'Networking'].map((item, i) => (
@@ -185,7 +185,7 @@ const Training = () => {
                 </div>
               </div>
 
-              <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
+              <div className="bg-[#121212] border border-[#d4d8e8] rounded-xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">HARDWARE</h3>
                 <div className="flex flex-wrap gap-4">
                   {['AMD MI300X', 'AMD MI250X', 'NVIDIA GB200', 'NVIDIA H100', 'NVIDIA H200', 'NVIDIA A100', '...'].map((item, i) => (
@@ -198,7 +198,7 @@ const Training = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
+                <div className="bg-[#121212] border border-[#d4d8e8] rounded-xl p-8">
                   <h3 className="text-xl font-bold text-white mb-6">USER EXPERIENCE</h3>
                   <div className="space-y-3">
                     {['Web Console', 'API', 'CLI'].map((item, i) => (
@@ -209,7 +209,7 @@ const Training = () => {
                     ))}
                   </div>
                 </div>
-                <div className="bg-[#121212] border border-[#D6DEC3] rounded-xl p-8">
+                <div className="bg-[#121212] border border-[#d4d8e8] rounded-xl p-8">
                   <h3 className="text-xl font-bold text-white mb-6">DATA CENTRE</h3>
                   <div className="space-y-3">
                     {['Renewable Energy', 'Low-latency Fibre'].map((item, i) => (
@@ -227,7 +227,7 @@ const Training = () => {
       </section>
 
       {/* Performance - Section 5 */}
-      <section className="py-32 bg-[#fffdf7]">
+      <section className="py-32 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-5xl font-bold text-[#0B1F3B] mb-20 text-center">Performance</h2>
           <div className="grid md:grid-cols-4 gap-3 max-w-6xl mx-auto">
@@ -237,7 +237,7 @@ const Training = () => {
               { metric: '40%', label: 'MORE EFFICIENT', desc: 'Increase utilisation and efficiency across GPU training workloads.' },
               { metric: 'UP TO 7.2X', label: 'FASTER INFERENCE', desc: 'Optimised infrastructure enables faster deployment and inference throughput.' }
             ].map((item, i) => (
-              <div key={i} className="bg-white border border-[#D6DEC3] rounded-2xl p-10">
+              <div key={i} className="bg-white border border-[#d4d8e8] rounded-2xl p-10">
                 <div className="text-6xl font-bold text-[#0B1F3B] mb-2">{item.metric}</div>
                 <div className="text-[#0B1F3B] text-lg font-semibold mb-4">{item.label}</div>
                 <p className="text-[#6B7280] leading-relaxed">{item.desc}</p>
@@ -248,13 +248,13 @@ const Training = () => {
       </section>
 
       {/* Key Services - Section 6 */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* AI Compute Training Card */}
             <Link className="" to="/products/training">
-            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#d4d8e8] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-amber-500/30 to-orange-600/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-7 h-7 text-amber-400" />
@@ -270,7 +270,7 @@ const Training = () => {
             </Link>
             {/* AI Marketplace Card */}
              <Link className="" to="/products/marketplace">
-            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#D6DEC3] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
+            <div className="hover:bg-[#f5f4f1] min-h-[300px] hover:text-[#328CC1] bg-white border border-[#d4d8e8] rounded-xl p-8 hover:border-amber-500/30 transition-colors">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500/30 to-indigo-600/20 rounded-xl flex items-center justify-center">
                   <LayoutGrid className="w-7 h-7 text-[#328CC1]" />
@@ -287,7 +287,7 @@ const Training = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-[#fffdf7]">
+      <section className="py-20 bg-[#f1f2fa]">
         <div className="container-custom">
          <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -299,7 +299,7 @@ const Training = () => {
           <div className="grid md:grid-cols-3 gap-5">
             {/* AI & ML Inference Card - Blue Angular */}
             <Link to="/solutions/inference">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/2qvmu3rl_INFERENCE.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">INFERENCE</span>
@@ -309,7 +309,7 @@ const Training = () => {
 
             {/* AI Development Card - Orange/Bronze Wave */}
             <Link to="/solutions/ai-development">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative border border-[#d4d8e8] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/u12c3np1_AI%20Development.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">AI DEVELOPMENT</span>
@@ -319,7 +319,7 @@ const Training = () => {
 
             {/* Model Fine-Tuning Card - Green Wave */}
             <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
+              <div className="relative h-52 border border-[#d4d8e8] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl" style={{ background: '#000' }}>
                 <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.07]" style={{ backgroundImage: `url('https://customer-assets.emergentagent.com/job_cd93f91c-cb8a-4b14-b67f-aec7ee50893c/artifacts/zsuql6xm_Finetuning.avif')` }} />
                 <div className="absolute top-5 left-5 z-10">
                   <span className="text-white font-semibold text-2xl drop-shadow-md">FINE-TUNING</span>
@@ -330,7 +330,7 @@ const Training = () => {
         </div>
       </section>
       {/* Faq */}
-      <section className="py-24 bg-[#fffdf7]">
+      <section className="py-24 bg-[#f1f2fa]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">
@@ -352,7 +352,7 @@ const Training = () => {
                 answer: "By simplifying orchestration and workload management through technologies like Kubernetes and SLURM, the platform makes managing GPU resources easier and more responsive to changing demands."
               }
             ].map((faq, i) => (
-              <div key={i} className="border-b border-[#D6DEC3]">
+              <div key={i} className="border-b border-[#d4d8e8]">
                 <button
                   onClick={() => toggleFaq(i)}
                   className="w-full flex items-center justify-between py-6 text-left hover:text-amber-400 transition-colors"
