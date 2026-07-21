@@ -176,30 +176,116 @@ const SolutionsNew = () => {
             </div>
           </div>
 
-          {/* Three cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Method chapters — full-width editorial spread, no cards */}
+          <div className="border-t border-bb-line">
             {customizationCards.map((card, i) => {
               const Icon = card.icon;
+              const chapterMeta = ['Training', 'Specialization', 'Optimization'][i];
               return (
-                <article key={i} className="bb-panel p-8 flex flex-col" data-testid={`customization-card-${i}`}>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-11 h-11 rounded-md flex items-center justify-center" style={{ background: '#dfe6f5' }}>
-                      <Icon className="w-5 h-5 text-bb-accent" strokeWidth={1.5} />
+                <article
+                  key={i}
+                  data-testid={`customization-card-${i}`}
+                  className="group relative py-14 lg:py-16 border-b border-bb-line last:border-b-0 transition-colors hover:bg-white/40"
+                  style={{ background: i % 2 === 1 ? 'rgba(255,255,255,0.35)' : 'transparent' }}
+                >
+                  {/* Chapter marker with corner brackets */}
+                  <div
+                    aria-hidden
+                    className="absolute top-6 left-0 right-0 flex justify-between items-center pointer-events-none"
+                  >
+                    <div className="flex items-center gap-3">
+                      <svg width="14" height="14" aria-hidden="true">
+                        <path d="M 1 6 L 1 1 L 6 1" fill="none" stroke="#0a1230" strokeWidth="1" />
+                      </svg>
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-bb-ink-3">
+                        METHOD · {chapterMeta.toUpperCase()}
+                      </span>
                     </div>
-                    <span className="font-mono text-[11px] tracking-[0.14em] text-bb-ink-3">/ {String(i + 1).padStart(2, '0')}</span>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-bb-ink-3">FIG. {String(i + 1).padStart(2, '0')}</span>
+                      <svg width="14" height="14" aria-hidden="true">
+                        <path d="M 13 6 L 13 1 L 8 1" fill="none" stroke="#0a1230" strokeWidth="1" />
+                      </svg>
+                    </div>
                   </div>
-                  <h3 className="text-bb-ink mb-4" style={{ fontFamily: 'Geist, sans-serif', fontSize: '20px', fontWeight: 500, letterSpacing: '-0.01em' }}>
-                    {card.title}
-                  </h3>
-                  <p className="text-bb-ink-2 text-[14px] leading-[1.7] mb-6">{card.intro}</p>
-                  <ul className="space-y-3 mt-auto">
-                    {card.bullets.map((b, j) => (
-                      <li key={j} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 text-bb-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-bb-ink text-[13.5px] leading-[1.65]">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  <div className="grid grid-cols-12 gap-6 lg:gap-10 pt-6">
+                    {/* LEFT — Index + Icon + Title */}
+                    <div className="col-span-12 lg:col-span-5 lg:pr-6 lg:border-r lg:border-bb-line">
+                      <div className="flex items-start gap-5">
+                        {/* Huge outline index */}
+                        <span
+                          aria-hidden
+                          className="block transition-transform duration-500 group-hover:-translate-y-1"
+                          style={{
+                            fontFamily: 'Geist, sans-serif',
+                            fontWeight: 300,
+                            fontSize: 'clamp(64px, 8vw, 112px)',
+                            lineHeight: 0.82,
+                            letterSpacing: '-0.05em',
+                            WebkitTextStroke: '1px #0a1230',
+                            color: 'transparent',
+                          }}
+                        >
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+
+                        <div className="pt-2">
+                          <div
+                            className="w-11 h-11 rounded-md flex items-center justify-center mb-5"
+                            style={{ background: '#0a1230' }}
+                          >
+                            <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
+                          </div>
+                          <h3
+                            className="text-bb-ink"
+                            style={{
+                              fontFamily: 'Geist, sans-serif',
+                              fontSize: 'clamp(22px, 2.6vw, 30px)',
+                              fontWeight: 500,
+                              letterSpacing: '-0.02em',
+                              lineHeight: 1.15,
+                            }}
+                          >
+                            {card.title}
+                          </h3>
+                          <span
+                            aria-hidden
+                            className="block mt-4 h-px bg-bb-ink transition-all duration-500 group-hover:w-16"
+                            style={{ width: 28 }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* RIGHT — Intro + numbered method list */}
+                    <div className="col-span-12 lg:col-span-7">
+                      <p className="bb-caption mb-3">/ intent</p>
+                      <p className="text-bb-ink text-[16px] lg:text-[17px] leading-[1.75] mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
+                        {card.intro}
+                      </p>
+
+                      <p className="bb-caption mb-4">/ workstreams · {String(card.bullets.length).padStart(2, '0')}</p>
+                      <ul className="divide-y divide-bb-line border-t border-bb-line">
+                        {card.bullets.map((b, j) => (
+                          <li key={j} className="flex items-start gap-4 py-3 group/item hover:pl-1 transition-all">
+                            <span
+                              className="font-mono text-[11px] text-bb-ink-3 pt-1 flex-shrink-0"
+                              style={{ minWidth: '2.75rem' }}
+                            >
+                              {String(i + 1).padStart(2, '0')}.{String(j + 1).padStart(2, '0')}
+                            </span>
+                            <span
+                              className="block w-2 h-2 mt-[10px] flex-shrink-0 rounded-none rotate-45 border border-bb-ink group-hover/item:bg-bb-ink transition-colors"
+                            />
+                            <span className="text-bb-ink text-[14.5px] leading-[1.65] pt-[2px]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                              {b}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </article>
               );
             })}
