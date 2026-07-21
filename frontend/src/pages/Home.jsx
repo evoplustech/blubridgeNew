@@ -40,10 +40,10 @@ const PipelineDiagram = () => {
         <rect width="500" height="600" fill="url(#bbgrid)" opacity="0.55" />
         <rect width="500" height="600" fill="url(#bbFade)" />
 
-        {/* Axis labels */}
-        <text x="12" y="24" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">01 / SYSTEM MAP</text>
-        <text x="488" y="24" textAnchor="end" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">FIG. i</text>
-        <text x="12" y="590" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">TRAINING → INFERENCE</text>
+        {/* Axis labels — positioned inside safe zone, no bracket collision */}
+        <text x="20" y="42" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">01 / SYSTEM MAP</text>
+        <text x="480" y="42" textAnchor="end" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">FIG. i</text>
+        <text x="20" y="574" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">TRAINING → INFERENCE</text>
 
         {/* Vertical spine */}
         <line x1="250" y1="70" x2="250" y2="540" stroke="#b8bfd6" strokeWidth="1" className="bb-line-draw" style={{ animationDelay: '400ms' }} />
@@ -78,11 +78,11 @@ const PipelineDiagram = () => {
         <path d="M 410 200 Q 460 290 410 380" fill="none" stroke="#2b4c8c" strokeWidth="0.8" opacity="0.55" className="bb-flow-line" />
         <path d="M 90 380 Q 40 460 90 470" fill="none" stroke="#2b4c8c" strokeWidth="0.8" opacity="0.55" className="bb-flow-line" />
 
-        {/* Corner brackets */}
-        <path d="M 20 40 L 20 20 L 40 20" fill="none" stroke="#0a1230" strokeWidth="1" />
-        <path d="M 480 40 L 480 20 L 460 20" fill="none" stroke="#0a1230" strokeWidth="1" />
-        <path d="M 20 560 L 20 580 L 40 580" fill="none" stroke="#0a1230" strokeWidth="1" />
-        <path d="M 480 560 L 480 580 L 460 580" fill="none" stroke="#0a1230" strokeWidth="1" />
+        {/* Corner brackets — small, offset to avoid label collision */}
+        <path d="M 12 22 L 12 12 L 22 12" fill="none" stroke="#0a1230" strokeWidth="1" />
+        <path d="M 488 22 L 488 12 L 478 12" fill="none" stroke="#0a1230" strokeWidth="1" />
+        <path d="M 12 578 L 12 588 L 22 588" fill="none" stroke="#0a1230" strokeWidth="1" />
+        <path d="M 488 578 L 488 588 L 478 588" fill="none" stroke="#0a1230" strokeWidth="1" />
       </svg>
     </div>
   );

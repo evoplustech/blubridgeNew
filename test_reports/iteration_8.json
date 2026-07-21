@@ -1,0 +1,63 @@
+{
+  "summary": "Frontend-only regression + bug fix verification for Phase 1 editorial redesign. Bug fix on hero SVG pipeline diagram (corner labels vs corner brackets overlap) is VERIFIED — 0 bounding-box collisions between axis labels ('01 / SYSTEM MAP', 'FIG. i', 'TRAINING → INFERENCE') and the four 10x10 corner brackets. Visually confirmed via screenshot. Full regression of Home, About, Contact, Careers, Header, Footer completed. All key content, navigation, and form flows work. One UX regression flagged: /contact form has no visible success feedback (toast) after successful submit; Footer form shows toast correctly. Minor DOM nit on hero heading (missing space between Beyond / the Horizon spans).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Contact Us form (/contact)",
+        "issue": "After a successful POST /api/contacts/submit (HTTP 200) with type=contact_us, no success toast / thank-you / status message is shown to the user. Only the form fields clear silently. The Footer form uses a Sonner-style 'Success! Thank you for contacting us.' toast — /contact form should show equivalent feedback.",
+        "selector": "[data-testid=\"contact-submit\"]",
+        "priority": "MEDIUM"
+      },
+      {
+        "component": "Home hero heading",
+        "issue": "The DOM concatenates 'Beyond' and 'the Horizon' spans without a space, so screen readers / innerText reads 'Beyondthe Horizon'. Visually it renders on two lines correctly, but accessibility/SEO is affected. Add a space (or aria-label) between the two spans.",
+        "selector": "h1 (hero)",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Add a success toast / status message to the /contact page form on successful submission (mirror Footer form behaviour).",
+    "Fix DOM space between 'Beyond' and 'the Horizon' spans in Home hero H1 for a11y/SEO."
+  ],
+  "critical_code_review_comments": [
+    "PipelineDiagram fix is minimal and correct: brackets shrunk to 10x10 at offsets 12/488/578/588 and labels moved to y=42 and y=574 with textAnchor=end for the right label. No bbox collision, verified programmatically.",
+    "/contact form submits to /api/contacts/submit with correct payload {type:'contact_us', firstName, lastName, email, phone, enquiryCategory, message} and receives HTTP 200 — but the frontend never surfaces the response to the user. Suggest wiring the same toast mechanism the Footer uses.",
+    "Contact page 'Verify Email' button exists but does not block Submit if unverified — flow should be clarified (either enforce or remove)."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "not tested (frontend only)",
+    "frontend": "95% (16/17 items verified, 1 UX regression)"
+  },
+  "test_credentials": "N/A for this iteration",
+  "seed_data_creation": "None. Test data prefixed with TESTFn/TESTLn/test<ts>@example.com posted via footer + contact forms.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Bug fix on hero-pipeline-visual (corner label / bracket overlap) is FULLY RESOLVED — programmatic bbox check gives 0 collisions. Do not repeat this test unless the SVG changes again. If Contact-form success-toast is added in a future iteration, verify by filling name/email/phone/inquiry/message and clicking [data-testid='contact-submit'] then asserting a visible '[role=status]' or Sonner toast with 'Thank you' text within 5s. All 12 careers job listings, contact form payload (type=contact_us), footer form payload (type=footer_form), header dropdowns, and About typing animation ('It's Our Hunger./Precision.') are all working.",
+  "features_verified": [
+    {"feature": "Hero SVG label/bracket collision bug fix", "status": "PASS", "detail": "3 axis labels + 4 corner brackets; overlap check = 0"},
+    {"feature": "Home hero: Beyond the Horizon, Frontier AI Research Lab, Explore Research CTA, Talk to us CTA", "status": "PASS"},
+    {"feature": "Home sections: Frontier AI Expertise, By Services, Infrastructure, What we can do for you, Work with BluBridge, final CTA", "status": "PASS"},
+    {"feature": "Header: Solutions dropdown (3 items), Products (Coming Soon), Research→/research, Company (About Us + Careers), Contact→/contact", "status": "PASS"},
+    {"feature": "Footer form POST /api/contacts/submit type=footer_form + success toast", "status": "PASS"},
+    {"feature": "/about-us hero + Get in touch + Our Mission + 4-block grid + typing animation", "status": "PASS"},
+    {"feature": "/contact 3 office cards (India/India/USA), direct channels (Phone/Email/LinkedIn), full form fields", "status": "PASS"},
+    {"feature": "/contact form POST /api/contacts/submit type=contact_us returns 200", "status": "PASS"},
+    {"feature": "/contact form visible success feedback on submit", "status": "FAIL - no toast/message shown"},
+    {"feature": "/careers Join Us hero, See open roles → 12 jobs, click job → internal /careers/job/{slug}", "status": "PASS"}
+  ],
+  "rca_of_issue": {
+    "primary_bug": "Corner label overlap on hero SVG",
+    "fix_verified": true,
+    "verification_method": "Programmatic getBBox() intersection check on 3 axis label <text> elements vs 4 corner bracket <path> elements at real DOM in preview URL; result = 0 collisions. Screenshot inspection confirms labels sit inside brackets with clear margin.",
+    "reproduction_before_fix": "Not needed — fix already deployed and verified."
+  }
+}
