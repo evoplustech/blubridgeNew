@@ -1,924 +1,300 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '../components/ui/button';
-import { ArrowRight, Plus, Minus, Linkedin, Zap, Cpu, LayoutGrid, ChevronLeft, ChevronRight, SlidersHorizontal, TrendingUp, Rocket, Database, Brain, Shield, Lightbulb } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
-// Team slug to index mapping
-const teamSlugToIndex = {
-  'data': 0,
-  'tokenizer': 1,
-  'tensor-operations': 2,
-  'computational-graph': 3,
-  'auto-differentiation': 4,
-  'compiler': 5,
-  'quantization': 6,
-  'distributed-training': 7
-};
+/* ------------------------------------------------------------------
+   ABOUT US — Editorial Redesign (light theme #f1f2fa)
+   Content preserved verbatim:
+   • Eyebrow: "About Us"
+   • H1: "Building the Next Frontier of AI"
+   • Hero description paragraph
+   • "Get in touch" CTA
+   • "Our Mission" title + description + "Join us" CTA
+   • "How We Build, Engineer and Validate" section
+   • "Our Purpose" / "How we Build" / "Innovation Through Rigor" / "Our People"
+   • Typing animation: "It's Our " + Hunger. / Precision.
+   • Final CTA "Know more about our Research"
+   ------------------------------------------------------------------ */
 
-// Scroll-triggered animation hook
-const useScrollAnimation = (options = {}) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.15, ...options }
-    );
-
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [options]);
-
-  return [ref, isVisible];
-};
-
-// Scroll-triggered animated item component for How We Build section
-const ScrollAnimatedItem = ({ children, direction = 'left', delay = 0 }) => {
-  const [ref, isVisible] = useScrollAnimation();
-  
-  return (
-    <div
-      ref={ref}
-      className={isVisible ? (direction === 'left' ? 'slide-left-animate' : 'slide-right-animate') : 'scroll-hidden'}
-      style={{ 
-        animationDelay: `${delay}ms`,
-        opacity: isVisible ? undefined : 0
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-// Animated Container Component for "Who We Are" section
-const AnimatedContainer = ({ children, delay = 0, direction = 'up' }) => {
-  const [ref, isVisible] = useScrollAnimation();
-  
-  const getInitialTransform = () => {
-    switch (direction) {
-      case 'left': return 'translateX(-40px)';
-      case 'right': return 'translateX(40px)';
-      case 'up':
-      default: return 'translateY(40px)';
-    }
-  };
-
-  return (
-    <div
-      ref={ref}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translate(0)' : getInitialTransform(),
-        transition: `opacity 0.7s ease-out ${delay}s, transform 0.7s ease-out ${delay}s`,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-// Premium Typing Animation Text Component with Looping Backspace Effect
 const PassionTypingText = () => {
   const [displayText, setDisplayText] = useState('');
   const [cursorVisible, setCursorVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const textRef = useRef(null);
-  const animationRef = useRef(null);
+  const animRef = useRef(null);
   const blinkRef = useRef(null);
-  
+
   const staticText = "It's Our ";
   const words = ["Hunger.", "Precision."];
-  
-  // Intersection Observer to trigger animation when text is in view
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    
-    if (textRef.current) {
-      observer.observe(textRef.current);
-    }
-    
-    return () => {
-      if (textRef.current) {
-        observer.unobserve(textRef.current);
-      }
-    };
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !hasStarted) setHasStarted(true);
+    }, { threshold: 0.3 });
+    if (textRef.current) observer.observe(textRef.current);
+    return () => textRef.current && observer.unobserve(textRef.current);
   }, [hasStarted]);
-  
-  // Smooth cursor blink during typing/erasing
+
   useEffect(() => {
-    if (!isAnimating) {
-      setCursorVisible(false);
-      return;
-    }
-    
-    // Smooth blinking cursor
-    const blink = () => {
-      setCursorVisible(prev => !prev);
-    };
-    
+    if (!isAnimating) { setCursorVisible(false); return; }
     setCursorVisible(true);
-    blinkRef.current = setInterval(blink, 400);
-    
-    return () => {
-      if (blinkRef.current) {
-        clearInterval(blinkRef.current);
-      }
-    };
+    blinkRef.current = setInterval(() => setCursorVisible(prev => !prev), 400);
+    return () => clearInterval(blinkRef.current);
   }, [isAnimating]);
-  
-  // Main looping animation
+
   useEffect(() => {
     if (!hasStarted) return;
-    
-    let isCancelled = false;
-    
-    const delay = (ms) => new Promise(resolve => {
-      animationRef.current = setTimeout(resolve, ms);
-    });
-    
-    const typeWord = async (word) => {
+    let cancelled = false;
+    const delay = (ms) => new Promise(res => { animRef.current = setTimeout(res, ms); });
+    const typeWord = async (w) => {
       setIsAnimating(true);
-      for (let i = 0; i <= word.length; i++) {
-        if (isCancelled) return;
-        setDisplayText(word.slice(0, i));
+      for (let i = 0; i <= w.length; i++) {
+        if (cancelled) return;
+        setDisplayText(w.slice(0, i));
         await delay(70 + Math.random() * 40);
       }
     };
-    
-    const backspaceWord = async (word) => {
+    const back = async (w) => {
       setIsAnimating(true);
-      for (let i = word.length; i >= 0; i--) {
-        if (isCancelled) return;
-        setDisplayText(word.slice(0, i));
+      for (let i = w.length; i >= 0; i--) {
+        if (cancelled) return;
+        setDisplayText(w.slice(0, i));
         await delay(40 + Math.random() * 25);
       }
     };
-    
-    const runLoop = async () => {
-      while (!isCancelled) {
-        // Type "Hunger"
-        await typeWord(words[0]);
-        
-        // Hold for 2 seconds - hide cursor
-        setIsAnimating(false);
-        await delay(2000);
-        
-        // Backspace "Hunger"
-        await backspaceWord(words[0]);
-        
-        // Small pause before typing next word
-        setIsAnimating(false);
-        await delay(80);
-        
-        // Type "Precision"
-        await typeWord(words[1]);
-        
-        // Hold for 2 seconds - hide cursor
-        setIsAnimating(false);
-        await delay(2000);
-        
-        // Backspace "Precision"
-        await backspaceWord(words[1]);
-        
-        // Small pause before looping
-        setIsAnimating(false);
-        await delay(80);
+    const run = async () => {
+      while (!cancelled) {
+        await typeWord(words[0]); setIsAnimating(false); await delay(2000); await back(words[0]); setIsAnimating(false); await delay(80);
+        await typeWord(words[1]); setIsAnimating(false); await delay(2000); await back(words[1]); setIsAnimating(false); await delay(80);
       }
     };
-    
-    // Start animation with initial delay
-    const startTimeout = setTimeout(() => {
-      runLoop();
-    }, 300);
-    
-    return () => {
-      isCancelled = true;
-      clearTimeout(startTimeout);
-      if (animationRef.current) {
-        clearTimeout(animationRef.current);
-      }
-      if (blinkRef.current) {
-        clearInterval(blinkRef.current);
-      }
-    };
+    const t = setTimeout(run, 300);
+    return () => { cancelled = true; clearTimeout(t); clearTimeout(animRef.current); clearInterval(blinkRef.current); };
   }, [hasStarted]);
-  
+
   return (
-    <div 
-      ref={textRef}
-      className="text-center"
-      data-testid="passion-typing-text"
-    >
-      <h2 
-        className="font-bold text-[#0B1F3B] leading-tight"
-        style={{ 
-          fontFamily: "'DM Sans', sans-serif",
-          letterSpacing: '-0.02em',
-          fontSize: 'clamp(2rem, 4vw + 1rem, 6rem)',
-          position: 'relative',
-          top: '-70px'
-        }}
+    <div ref={textRef} data-testid="passion-typing-text">
+      <h3
         data-testid="passion-heading"
+        style={{
+          fontFamily: 'Geist, Inter, sans-serif',
+          fontSize: 'clamp(28px, 3.6vw, 52px)',
+          fontWeight: 500,
+          letterSpacing: '-0.025em',
+          lineHeight: 1.05,
+          color: '#0a1230',
+        }}
       >
         <span>{staticText}</span>
-        <span className="inline">
+        <span style={{ color: '#2b4c8c' }}>
           {displayText}
-          <span 
-            className="inline-block w-[3px] ml-[1px]"
-            style={{ 
-              height: '0.75em',
-              backgroundColor: '#C9A227',
-              verticalAlign: 'middle',
-              marginBottom: '0.05em',
+          <span
+            className="inline-block ml-[1px] align-middle"
+            style={{
+              width: '3px',
+              height: '0.72em',
+              backgroundColor: '#2b4c8c',
               opacity: cursorVisible ? 1 : 0,
-              transition: 'opacity 0.15s ease-in-out'
+              transition: 'opacity 0.15s ease-in-out',
+              marginBottom: '0.05em',
             }}
           />
         </span>
-      </h2>
+      </h3>
     </div>
   );
 };
 
 const AboutUs = () => {
-  const [openFaq, setOpenFaq] = useState(null);
-  const [scrollY, setScrollY] = useState(0);
-  const [heroAnimated, setHeroAnimated] = useState(false);
-  const heroRef = useRef(null);
-  const researchTeamsRef = useRef(null);
   const location = useLocation();
-  const hasHandledTeamParam = useRef(false);
-  
-  // Get initial slide from URL param
-  const getInitialSlide = () => {
-    const params = new URLSearchParams(location.search);
-    const teamParam = params.get('team');
-    if (teamParam && teamSlugToIndex[teamParam] !== undefined) {
-      return teamSlugToIndex[teamParam];
-    }
-    return 0;
-  };
-  
-  // Testimonials carousel state
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(getInitialSlide);
-  
-  // Track slide direction for animation
-  const [slideDirection, setSlideDirection] = useState('next');
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  // Parallax effect for hero
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Trigger hero animation on mount
-  useEffect(() => {
-    const timer = setTimeout(() => setHeroAnimated(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Handle URL parameter for team routing - scroll to section
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const teamParam = params.get('team');
-    
-    if (teamParam && teamSlugToIndex[teamParam] !== undefined && !hasHandledTeamParam.current) {
-      hasHandledTeamParam.current = true;
-      
-      // Scroll to the research teams section after a short delay
-      setTimeout(() => {
-        if (researchTeamsRef.current) {
-          const headerOffset = 100; // Account for fixed header
-          const elementPosition = researchTeamsRef.current.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }, 300);
-    }
-  }, [location.search]);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const leadershipTeam = [
-    { name: 'Josh Payne', title: 'Chief Executive Officer & Founder', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Jake Sherr', title: 'Chief Financial Officer', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Navat Power', title: 'Chief Technology Officer', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Elisabeth Sollar', title: 'Chief Operating Officer', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Philippe Soulin', title: 'VP of Engineering', image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Suneet Aghrera', title: 'VP of Product', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Patrick Baur', title: 'VP of Sales EMEA', image: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Aina Shibuinaa', title: 'Head of Marketing', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Tom Burke', title: 'VP of Business Development', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Phil Stunard', title: 'VP of Operations', image: 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Erik Paloni', title: 'Director of Partnerships', image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Lara Eusenbe', title: 'Chief People Officer', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Steve Jack', title: 'VP of Infrastructure', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Stefan Gravy', title: 'VP Global Engineering', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Andrew Baad', title: 'Senior Solutions Architect', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Peter Trevor', title: 'Director of Data Science', image: 'https://images.unsplash.com/photo-1513910367299-bce8d8a0ebf6?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Jarod Lloyd', title: 'Principal Engineer', image: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Robert W. Jackson-Hall', title: 'VP of Legal Affairs', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Lynne Haggner', title: 'Director of Finance', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Jeffrey Helman', title: 'Head of Investor Relations', image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=200&h=200&fit=crop&crop=face' },
-    { name: 'Yasmil Morold', title: 'VP of Customer Success', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face' }
-  ];
-
-  const investors = [
-    { name: 'AKER', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Aker_ASA_logo.svg/200px-Aker_ASA_logo.svg.png' },
-    { name: 'NVIDIA', logo: 'https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/200px-Nvidia_logo.svg.png' },
-    { name: 'NOKIA', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nokia_wordmark.svg/200px-Nokia_wordmark.svg.png' },
-    { name: 'DELL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/200px-Dell_Logo.svg.png' },
-    { name: 'SANDTON', logo: null },
-    { name: 'Point72', logo: null },
-    { name: 'G SQUARED', logo: null },
-    { name: 'Fidelity', logo: null },
-    { name: 'BLUE OWL', logo: null },
-    { name: 'T', logo: null }
-  ];
-
-  const researchAreas = [
-    {
-      title: "Data",
-      description: "We architect and curate high-quality multilingual and multimodal datasets that power cutting-edge deep learning research. Our team specializes in large-scale data processing, quality filtering and evaluation metrics across text, image, and vision-language domains. From raw data to production-ready training datasets, we build the foundational infrastructure that enables breakthrough AI research.",
-      xProfile: "https://x.com/Data_team89"
-    },
-    {
-      title: "Tokenizer",
-      description: "Our team designs how raw text is broken into machine-understandable units that an LLM can learn from. Our work directly impacts model accuracy, language coverage, and training efficiency. A well-crafted tokenizer ensures the model understands nuance, rare words, and diverse scripts with minimal waste.",
-      xProfile: "https://x.com/Tokenizer89"
-    },
-    {
-      title: "Tensor & Operations",
-      description: "Creating a efficient tensor library that acts as the core of our Deep Learning framework and model training. Allowing training in multiple GPUs and various Datatypes. Core Storage class that manages memory utilization.",
-      xProfile: "https://x.com/Tensorandops"
-    },
-    {
-      title: "Computational Graph",
-      description: "Our team focuses on graph capture, intermediate representation (IR), and graph-level optimizations like fusion and scheduling to maximize hardware utilization. We bridge the gap between flexible eager execution and efficient compiled deployment, ensuring models run at peak performance across diverse accelerators.",
-      xProfile: "https://x.com/CGautodiff"
-    },
-    {
-      title: "Auto Differentiation",
-      description: "We build the mathematical engine that powers model training, delivering a robust and efficient automatic differentiation system. Our team implements precise reverse-mode and forward-mode autodiff mechanisms, ensuring numerical stability and support for complex, dynamic control flows. By abstracting the complexities of gradient computation, we enable researchers to experiment with architectures and loss functions seamlessly.",
-      xProfile: "https://x.com/CGautodiff"
-    },
-    {
-      title: "Compiler",
-      description: "An MLIR-based compiler and runtime that lowers Machine Learning (ML) models to a unified IR. The compiler transforms high-level operations into executable code for both CPU and GPU targets through a multi-stage lowering and optimization pipeline.",
-      xProfile: "https://x.com/Compiler_team"
-    },
-    {
-      title: "Quantization",
-      description: "The Quantization team focuses on making large models faster, lighter, and more deployable without sacrificing quality. They compress model weights and activations so LLMs can run efficiently on real-world hardware. Their work enables high-performance inference at lower cost, power, and latency.",
-      xProfile: "https://x.com/Quantization89"
-    },
-    {
-      title: "Distributed Training",
-      description: "We are building a distributed training framework to train models across multiple nodes by applying different parallelism techniques. We aim to maximize the GPU utilization and speedup model training.",
-      xProfile: "https://x.com/Parallelism89"
-    }
-  ];
-  
-  // Carousel navigation functions - always show 1 slide at a time
-  const visibleCount = 1;
-  const totalSlides = researchAreas.length;
-  
-  const nextTestimonial = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setSlideDirection('next');
-    setCurrentTestimonialIndex(prev => (prev + 1) % totalSlides);
-    setTimeout(() => setIsAnimating(false), 600);
-  };
-  
-  const prevTestimonial = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setSlideDirection('prev');
-    setCurrentTestimonialIndex(prev => (prev - 1 + totalSlides) % totalSlides);
-    setTimeout(() => setIsAnimating(false), 600);
-  };
-
-  const faqs = [
-    {
-      question: "What does BluBridge do?",
-      answer: "BluBridge is a leading AI infrastructure company that provides enterprise-grade GPU compute resources, cloud platforms, and integrated solutions for training, inference, and deploying AI models at scale. We enable organizations worldwide to accelerate their AI initiatives with reliable, high-performance infrastructure."
-    },
-    {
-      question: "What industries does BluBridge serve?",
-      answer: "BluBridge serves a diverse range of industries including technology, finance, healthcare, manufacturing, telecommunications, government, education, and research institutions. Our infrastructure solutions are designed to meet the unique computational demands of each sector."
-    },
-    // {
-    //   question: "Where is BluBridge headquartered?",
-    //   answer: "BluBridge is headquartered in Oslo, Norway, with data centers strategically located across Europe and expanding globally. Our facilities are powered by renewable energy sources, reflecting our commitment to sustainable AI infrastructure."
-    // },
-    {
-      question: "Who are BluBridge's key investors?",
-      answer: "BluBridge is backed by leading global investors including NVIDIA, Aker, Nokia, Dell Technologies, Point72, G Squared, Fidelity, and Blue Owl Capital. This strong investor base reflects confidence in our technology and market position."
-    },
-    {
-      question: "How can partners or customers get in touch?",
-      answer: "Partners and customers can reach out through our Contact page or schedule a consultation through our website. Our team is available to discuss your specific AI infrastructure needs and provide tailored solutions."
-    }
-  ];
-
   useDocumentTitle('About Us | Blubridge');
   useMetaDescription('How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.');
 
-  return (
-    <div className="min-h-screen bg-[#fffdf7] font-['DM_Sans']">
-      {/* Hero Section with Motion */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
-          style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/3g9ggy4y_SA7.jpg')`,
-            transform: `translateY(${scrollY * 0.3}px)`,
-          }}
-        />
-        
-        {/* Dark gradient overlay for text readability - stronger on left side */}
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.7) 100%)',
-          }} 
-        />
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 200);
+    }
+  }, [location]);
 
-        {/* Animated Light Sweep */}
-        <div 
+  return (
+    <div style={{ background: '#f1f2fa' }} className="min-h-screen text-bb-ink" data-testid="about-page">
+
+      {/* ============================================================
+          HERO — Editorial split with technical annotations
+          ============================================================ */}
+      <section className="relative overflow-hidden" style={{ paddingTop: '48px', paddingBottom: '96px' }}>
+        <div
+          aria-hidden
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: `linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, transparent 50%)`,
-            animation: 'lightSweep 8s ease-in-out infinite',
+            backgroundImage:
+              'linear-gradient(to right, rgba(10,18,48,0.04) 1px, transparent 1px), linear-gradient(rgba(10,18,48,0.04) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+            maskImage: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 60%, transparent 100%)',
           }}
         />
-        
-        <style>{`
-          @keyframes lightSweep {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-          }
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
-        
-        <div className="container-custom relative z-10 w-full py-20">
-          {/* Left-aligned content */}
-          <div 
-            className="flex flex-col items-start max-w-2xl"
-            data-testid="hero-title"
-          >
-            {/* "ABOUT US" label */}
-            <p 
-              className="text-[#c9a57e] uppercase tracking-widest mb-6 font-medium"
-              style={{
-                fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)',
-                letterSpacing: '0.2em',
-              }}
-            >
-              About Us
-            </p>
-            
-            {/* Main Heading */}
-            <h1 
-              className="text-white font-bold mb-8"
-              style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: 1.1,
-                letterSpacing: '-0.02em',
-                fontFamily: "'DM Sans', sans-serif",
-              }}
-              data-testid="hero-heading"
-            >
-              Building the Next Frontier of AI
-            </h1>
-            
-            {/* Description */}
-            <p 
-              className="text-white/90 mb-10 leading-relaxed"
-              style={{
-                fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
-                lineHeight: 1.8,
-                maxWidth: '600px',
-              }}
-            >
-             We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.
 
-            </p>
-            
-            {/* Get in touch button */}
-            <Link to="/contact">
-              <button 
-                className="bg-white text-[#0B1F3B] px-8 py-4 rounded font-medium text-base hover:bg-gray-100 transition-colors duration-300"
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                }}
-                data-testid="hero-cta-btn"
+        <div className="bb-container relative">
+          <div className="flex items-center justify-between pb-8 border-b border-bb-line bb-reveal">
+            <span className="bb-eyebrow" data-testid="about-eyebrow">About Us</span>
+            <span className="bb-caption hidden sm:block">/ Page 01</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-end">
+            <div className="lg:col-span-8">
+              <h1
+                data-testid="hero-heading"
+                className="bb-display bb-reveal bb-reveal-1"
+                style={{ fontSize: 'clamp(44px, 7vw, 112px)' }}
               >
-                Get in touch
-              </button>
-            </Link>
+                Building the Next Frontier of AI
+              </h1>
+            </div>
+
+            <div className="lg:col-span-4 space-y-6 bb-reveal bb-reveal-2">
+              <p className="text-bb-ink text-[16px] leading-[1.75]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.
+              </p>
+              <Link to="/contact" className="bb-btn-primary" data-testid="hero-cta-btn">
+                Get in touch <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Full-bleed editorial image strip (existing hero asset, reframed) */}
+          <div className="mt-16 border border-bb-line rounded-md overflow-hidden relative bb-reveal bb-reveal-3">
+            <img
+              src="https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/3g9ggy4y_SA7.jpg"
+              alt="Building the Next Frontier of AI"
+              className="w-full object-cover"
+              style={{ height: 'clamp(200px, 30vh, 340px)' }}
+            />
+            <div className="absolute top-3 left-3 bg-white/85 backdrop-blur px-2.5 py-1 rounded font-mono text-[10px] text-bb-ink-3 tracking-[0.14em]">
+              BLUBRIDGE / FIG. i
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Our Mission Section - Section 2 */}
-      <section className="py-24 bg-[#fffdf7]">
-        {/* Enhanced Wing Glitter Animation Styles - On Bird Wings Only */}
-        <style>{`
-          @keyframes softGlow {
-            0%, 100% {
-              filter: drop-shadow(0 0 8px rgba(100, 180, 255, 0.3)) 
-                      drop-shadow(0 0 20px rgba(100, 180, 255, 0.15))
-                      drop-shadow(0 0 40px rgba(100, 180, 255, 0.08));
-            }
-            50% {
-              filter: drop-shadow(0 0 12px rgba(100, 180, 255, 0.4)) 
-                      drop-shadow(0 0 28px rgba(100, 180, 255, 0.2))
-                      drop-shadow(0 0 50px rgba(100, 180, 255, 0.1));
-            }
-          }
-          
-          @keyframes wingSparkle {
-            0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
-            25% { opacity: 1; transform: scale(1.2) rotate(45deg); }
-            50% { opacity: 0.8; transform: scale(1) rotate(90deg); }
-            75% { opacity: 0.5; transform: scale(0.8) rotate(135deg); }
-            100% { opacity: 0; transform: scale(0.3) rotate(180deg); }
-          }
-          
-          @keyframes wingGlitterPulse {
-            0%, 100% { 
-              opacity: 0.3; 
-              transform: scale(0.8);
-              box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-            }
-            50% { 
-              opacity: 1; 
-              transform: scale(1.3);
-              box-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 20px rgba(100, 200, 255, 0.6);
-            }
-          }
-          
-          @keyframes wingShimmer {
-            0% { 
-              opacity: 0;
-              transform: translateX(-3px) translateY(2px) scale(0.5);
-            }
-            30% { 
-              opacity: 1;
-              transform: translateX(0) translateY(0) scale(1);
-            }
-            70% { 
-              opacity: 0.8;
-              transform: translateX(3px) translateY(-2px) scale(1.1);
-            }
-            100% { 
-              opacity: 0;
-              transform: translateX(6px) translateY(-4px) scale(0.5);
-            }
-          }
-          
-          @keyframes starBurst {
-            0%, 100% { 
-              opacity: 0.2;
-              transform: scale(0.6) rotate(0deg);
-            }
-            50% { 
-              opacity: 1;
-              transform: scale(1.4) rotate(180deg);
-            }
-          }
-          
-          .bird-glow-container {
-            position: relative;
-            animation: softGlow 4s ease-in-out infinite;
-          }
-          
-          /* Wing glitter particles - positioned on actual wings */
-          .wing-glitter {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10;
-          }
-          
-          /* Left wing glitter - positioned on the bird's left wing area */
-          .wing-l1 { top: 32%; left: 22%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #64d2ff 40%, transparent 70%); animation: wingGlitterPulse 2s ease-in-out infinite 0s; }
-          .wing-l2 { top: 38%; left: 26%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #a0e7ff 40%, transparent 70%); animation: wingGlitterPulse 2.3s ease-in-out infinite 0.3s; }
-          .wing-l3 { top: 35%; left: 30%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #7dd3fc 40%, transparent 70%); animation: wingSparkle 3s ease-in-out infinite 0.5s; }
-          .wing-l4 { top: 42%; left: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #bae6fd 40%, transparent 70%); animation: wingGlitterPulse 1.8s ease-in-out infinite 0.2s; }
-          .wing-l5 { top: 30%; left: 34%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #93c5fd 40%, transparent 70%); animation: wingShimmer 2.5s ease-in-out infinite 0.7s; }
-          .wing-l6 { top: 45%; left: 32%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #60a5fa 40%, transparent 70%); animation: wingGlitterPulse 2.1s ease-in-out infinite 0.4s; }
-          .wing-l7 { top: 28%; left: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #38bdf8 40%, transparent 70%); animation: starBurst 2.8s ease-in-out infinite 0.1s; }
-          
-          /* Right wing glitter - positioned on the bird's right wing area */
-          .wing-r1 { top: 32%; right: 22%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #f0abfc 40%, transparent 70%); animation: wingGlitterPulse 2.2s ease-in-out infinite 0.1s; }
-          .wing-r2 { top: 38%; right: 26%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #e879f9 40%, transparent 70%); animation: wingGlitterPulse 1.9s ease-in-out infinite 0.4s; }
-          .wing-r3 { top: 35%; right: 30%; width: 6px; height: 6px; background: radial-gradient(circle, #ffffff 0%, #d946ef 40%, transparent 70%); animation: wingSparkle 2.7s ease-in-out infinite 0.6s; }
-          .wing-r4 { top: 42%; right: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #c084fc 40%, transparent 70%); animation: wingGlitterPulse 2.4s ease-in-out infinite 0.3s; }
-          .wing-r5 { top: 30%; right: 34%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #a855f7 40%, transparent 70%); animation: wingShimmer 2.6s ease-in-out infinite 0.8s; }
-          .wing-r6 { top: 45%; right: 32%; width: 5px; height: 5px; background: radial-gradient(circle, #ffffff 0%, #8b5cf6 40%, transparent 70%); animation: wingGlitterPulse 2s ease-in-out infinite 0.5s; }
-          .wing-r7 { top: 28%; right: 28%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fb7185 40%, transparent 70%); animation: starBurst 3s ease-in-out infinite 0.2s; }
-          
-          /* Wing feather tip glitters */
-          .wing-tip1 { top: 25%; left: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fcd34d 40%, transparent 70%); animation: wingShimmer 3.5s ease-in-out infinite 0s; }
-          .wing-tip2 { top: 25%; right: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #fbbf24 40%, transparent 70%); animation: wingShimmer 3.2s ease-in-out infinite 0.4s; }
-          .wing-tip3 { top: 48%; left: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #34d399 40%, transparent 70%); animation: wingGlitterPulse 2.5s ease-in-out infinite 0.6s; }
-          .wing-tip4 { top: 48%; right: 35%; width: 4px; height: 4px; background: radial-gradient(circle, #ffffff 0%, #2dd4bf 40%, transparent 70%); animation: wingGlitterPulse 2.3s ease-in-out infinite 0.9s; }
-        `}</style>
-        
-        <div style={{ maxWidth: '1261px', margin: '0 auto', padding: '0 24px' }}>
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
-            {/* Left Content - Fixed width 940px */}
-            <div className="order-2 lg:order-1" style={{ width: '940px', maxWidth: '100%' }}>
-              {/* Heading "Our Mission" */}
-              <h2 
-                className="text-[#0B1F3B]"
-                style={{ 
-                  fontSize: 'clamp(32px, 5vw, 42px)', 
-                  fontWeight: '700', 
-                  marginBottom: '24px',
-                  letterSpacing: '-0.5px',
-                  lineHeight: '1.15',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-                data-testid="our-mission-title"
-              >
+      {/* ============================================================
+          OUR MISSION
+          ============================================================ */}
+      <section className="py-24" style={{ background: '#e8eaf3' }}>
+        <div className="bb-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-4">
+              <p className="bb-eyebrow mb-4">/ 01</p>
+              <h2 data-testid="our-mission-title" className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}>
                 Our Mission
               </h2>
-              
-              {/* Description Paragraph */}
-              <p 
-                style={{ 
-                  fontSize: '17px', 
-                  lineHeight: '1.75', 
-                  color: '#4B5563', 
-                  marginBottom: '32px',
-                  fontFamily: "'DM Sans', sans-serif"
-                }}
-                data-testid="our-mission-description"
-              >
-             We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.
-              </p>
-              
-              {/* Read More Button - Highlighted with glow effect */}
-              <Link to="/careers">
-                <Button 
-                  className="bg-gradient-to-r from-[#328CC1] to-[#1a5a8c] text-white hover:from-[#2b7ab0] hover:to-[#164d7a] px-10 py-4 rounded-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 text-base"
-                  style={{
-                    boxShadow: '0 6px 20px rgba(50, 140, 193, 0.4), 0 0 30px rgba(50, 140, 193, 0.2)'
-                  }}
-                >
-                  Join us
-                </Button>
-              </Link>
             </div>
-            
-            {/* Right - Eagle Illustration with Wing Glitter Effects */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end" style={{ maxWidth: '250px', width: '100%' }}>
-              <div className="bird-glow-container relative">
-                {/* Left Wing Glitter Particles - On Wings */}
-                <div className="wing-glitter wing-l1" />
-                <div className="wing-glitter wing-l2" />
-                <div className="wing-glitter wing-l3" />
-                <div className="wing-glitter wing-l4" />
-                <div className="wing-glitter wing-l5" />
-                <div className="wing-glitter wing-l6" />
-                <div className="wing-glitter wing-l7" />
-                
-                {/* Right Wing Glitter Particles - On Wings */}
-                <div className="wing-glitter wing-r1" />
-                <div className="wing-glitter wing-r2" />
-                <div className="wing-glitter wing-r3" />
-                <div className="wing-glitter wing-r4" />
-                <div className="wing-glitter wing-r5" />
-                <div className="wing-glitter wing-r6" />
-                <div className="wing-glitter wing-r7" />
-                
-                {/* Wing Tip Glitters */}
-                <div className="wing-glitter wing-tip1" />
-                <div className="wing-glitter wing-tip2" />
-                <div className="wing-glitter wing-tip3" />
-                <div className="wing-glitter wing-tip4" />
-                
-                {/* Bird Image */}
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_d48a1dae-4c36-4318-b28c-bedd073aa6d3/artifacts/llrlfhzt_toolfk_a_majestic_eagle_in_.png" 
-                  alt="Digital technology eagle representing AI innovation"
-                  style={{
-                    maxWidth: '250px',
-                    width: '100%',
-                    height: 'auto',
-                    objectFit: 'contain'
-                  }}
-                  className="block"
-                  data-testid="our-mission-eagle-image"
-                />
+
+            <div className="lg:col-span-8">
+              <p
+                data-testid="our-mission-description"
+                className="text-bb-ink text-[19px] leading-[1.75] max-w-[720px]"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.
+              </p>
+              <div className="mt-10">
+                <Link to="/careers" className="bb-btn-primary">
+                  Join us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-      
-      {/* What Sets Us Apart Section - Clean Minimalist Design */}
-      <section className="py-24 md:py-32 bg-[#efede5]" data-testid="what-sets-us-apart-section">
-        <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
-          {/* Header */}
-          <div className="text-center mb-8 md:mb-20">
-            <h2 
-              className="text-4xl md:text-5xl font-bold text-[#0B1F3B] mb-6"
-              style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: '-0.02em' }}
-              data-testid="what-sets-us-apart-heading"
-            >
-             How We Build, Engineer and Validate
-            </h2>
-            
-            {/* Mobile Only - Typing Animation below heading */}
-            <div className="block md:hidden mt-4 mb-8" style={{ marginTop: '80px' }}>
+
+      {/* ============================================================
+          HOW WE BUILD — Editorial four-block grid + typing accent
+          ============================================================ */}
+      <section className="py-24" style={{ background: '#f1f2fa' }} data-testid="what-sets-us-apart-section">
+        <div className="bb-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-end">
+            <div className="lg:col-span-8">
+              <p className="bb-eyebrow mb-4">/ 02 &nbsp;·&nbsp; Method</p>
+              <h2 data-testid="what-sets-us-apart-heading" className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}>
+                How We Build, Engineer and Validate
+              </h2>
+            </div>
+            <div className="lg:col-span-4">
               <PassionTypingText />
             </div>
           </div>
-          
-          {/* ========== DESKTOP VIEW (hidden on mobile) ========== */}
-          <div className="hidden md:block space-y-16">
-            {/* Top Row - "Our Purpose" on LEFT + "It's Our Hunger & Precision." on RIGHT */}
-            <div className="grid md:grid-cols-3 gap-6 md:gap-6 items-end">
-              {/* Left Side - Our Purpose */}
-              <div className="flex items-start gap-6 w-sm">
-                <div className="text-left flex-1" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-                  <h3 
-                    className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
-                    Our Purpose
-                  </h3>
-                  <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                    BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.
-                  </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-bb-line">
+            {[
+              {
+                num: '01',
+                title: 'Our Purpose',
+                body: 'BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.'
+              },
+              {
+                num: '02',
+                title: 'How we Build',
+                body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.'
+              },
+              {
+                num: '03',
+                title: 'Innovation Through Rigor',
+                body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.'
+              },
+              {
+                num: '04',
+                title: 'Our People',
+                body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.'
+              }
+            ].map((block, i) => (
+              <article
+                key={block.num}
+                className={`p-8 lg:p-12 border-b border-bb-line ${i % 2 === 0 ? 'md:border-r border-bb-line' : ''}`}
+              >
+                <div className="flex items-baseline gap-4 mb-6">
+                  <span className="font-mono text-[11px] tracking-[0.15em] text-bb-accent">/ {block.num}</span>
+                  <div className="flex-1 h-px bg-bb-line" />
                 </div>
-              </div>
-              
-              {/* Right Side - Typing Animation "It's Our Hunger & Precision." - Desktop only */}
-              <div className="md:col-span-2">
-                <PassionTypingText />
-              </div>
-            </div>
-            
-            {/* Bottom Row - 3 Feature boxes */}
-            <div className="grid md:grid-cols-3 gap-6 md:gap-6" style={{position:'relative', top:'-40px'}}>
-              {/* How we Build */}
-              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-                <h3 
-                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                <h3
+                  className="mb-5 text-bb-ink"
+                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.6vw, 34px)', fontWeight: 500, letterSpacing: '-0.02em' }}
                 >
-                  How we Build
+                  {block.title}
                 </h3>
-                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.
-                </p>
-              </div>
-              
-              {/* Innovation Through Rigor */}
-              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-                <h3 
-                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Innovation Through Rigor
-                </h3>
-                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.
-                </p>
-              </div>
-              
-              {/* Our People */}
-              <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-                <h3 
-                  className="text-xl md:text-2xl font-bold text-[#0B1F3B] mb-4"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Our People
-                </h3>
-                <p className="text-[#4B5563] leading-relaxed text-base md:text-lg">
-                  We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          {/* ========== MOBILE VIEW (hidden on desktop) ========== */}
-          <div className="block md:hidden space-y-4">
-            {/* Our Purpose */}
-            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-              <h3 
-                className="text-xl font-bold text-[#0B1F3B] mb-4"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Our Purpose
-              </h3>
-              <p className="text-[#4B5563] leading-relaxed text-base">
-                We founded Blubridge to advance AI research and deliver powerful, accessible solutions for real-world needs. Everything we build is application-driven, turning AI innovation into tangible value.
-              </p>
-            </div>
-            
-            {/* How We Work */}
-            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-              <h3 
-                className="text-xl font-bold text-[#0B1F3B] mb-4"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                How We Work
-              </h3>
-              <p className="text-[#4B5563] leading-relaxed text-base">
-                Our teams move fast with purpose, combining individual ownership with strong collaboration. We operate with transparency, believing open exchange is key to building better intelligence.
-              </p>
-            </div>
-            
-            {/* Excellence Through Rigor */}
-            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-              <h3 
-                className="text-xl font-bold text-[#0B1F3B] mb-4"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Excellence Through Rigor
-              </h3>
-              <p className="text-[#4B5563] leading-relaxed text-base">
-                Rigor defines our research, ensuring every model is grounded in technical excellence. Creativity drives us to discover new paths toward efficiency and performance.
-              </p>
-            </div>
-            
-            {/* Our People */}
-            <div className="text-left" style={{ backgroundColor:'#fffdf7', padding:'1.5em 1.5em', borderRadius:'10px'}}>
-              <h3 
-                className="text-xl font-bold text-[#0B1F3B] mb-4"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Our People
-              </h3>
-              <p className="text-[#4B5563] leading-relaxed text-base">
-                We are proud to be a diverse team, bringing together people from many backgrounds and perspectives. We are united by a broad and deep range of expertise across the AI landscape.
-              </p>
-            </div>
+                <p className="text-bb-ink-2 text-[16px] leading-[1.75]">{block.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA Strip */}
-      <section className="py-16 bg-[#0B1F3B]">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl text-white md:text-4xl lg:text-5xl font-bold mb-8">
-            {/* Access thousands of GPUs tailored to your requirements. */}
-            Know more about our Research
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/research">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-gray-100 px-4 py-3 rounded font-medium">
+      {/* ============================================================
+          FINAL CTA
+          ============================================================ */}
+      <section className="py-24" style={{ background: '#0a1230' }}>
+        <div className="bb-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8">
+              <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-white/50 mb-6">/ 03 · Continue</p>
+              <h2
+                className="text-white"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(40px, 6vw, 88px)', letterSpacing: '-0.03em', lineHeight: 0.98, fontWeight: 500 }}
+              >
+                Know more about our Research
+              </h2>
+            </div>
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <Link
+                to="/research"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bb-ink rounded-md text-[14px] font-medium hover:bg-bb-bg-subtle transition-colors"
+              >
                 Explore
-              </Button>
-            </Link>
-           
+                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

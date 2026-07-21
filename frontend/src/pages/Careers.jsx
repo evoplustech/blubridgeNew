@@ -1,124 +1,49 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { MapPin, Phone, Mail, Linkedin, ChevronDown, ArrowRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 import JoinOurTeam from './JoinOurTeam';
-import { MapPin, Phone, Mail, Linkedin, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
 
-// Custom X (Twitter) Icon Component
-const XIcon = ({ size = 24, color = "currentColor", ...props }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill={color}
-    {...props}
-  >
+/* ------------------------------------------------------------------
+   CAREERS — Editorial Redesign
+   Content preserved: "Join Us" heading, tagline, job listings (12 roles
+   with title/department/team/location/slug), office locations,
+   "Get in Touch" contact channels, walk-in text, JoinOurTeam section.
+   ------------------------------------------------------------------ */
+
+const XIcon = ({ size = 20, color = 'currentColor', ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill={color} {...props}>
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
-// Job listings data - minimal format (8 jobs from Naukri)
-import { Link } from 'react-router-dom';
-
 const jobListings = [
-  {
-    id: 1,
-    title: 'Administration Executive (Male)',
-    department: 'Operations',
-    team: 'Administration',
-    location: 'Chennai',
-    slug: 'administration-executive-male'
-  },
-  {
-    id: 2,
-    title: 'HR Executive - Talent & People Operations',
-    department: 'Human Resources',
-    team: 'People & Talent',
-    location: 'Chennai',
-    slug: 'hr-executive-talent-people-operations'
-  },
-  {
-    id: 3,
-    title: 'Business Development - AI Strategy & Partnerships',
-    department: 'Business Development',
-    team: 'Strategy',
-    location: 'Chennai',
-    slug: 'business-development-ai-strategy'
-  },
-  {
-    id: 4,
-    title: 'HR Admin (Male)',
-    department: 'Human Resources',
-    team: 'HR Operations',
-    location: 'Chennai',
-    slug: 'hr-admin-male'
-  },
-  {
-    id: 5,
-    title: 'Senior Administration Officer (Male)',
-    department: 'Operations',
-    team: 'Administration',
-    location: 'Chennai',
-    slug: 'senior-administration-officer-male'
-  },
-  {
-    id: 6,
-    title: 'Accounts And Compliance Executive (Male)',
-    department: 'Finance',
-    team: 'Accounts & Compliance',
-    location: 'Chennai',
-    slug: 'accounts-compliance-executive'
-  },
-  {
-    id: 7,
-    title: 'AI ML Engineer (Freshers)',
-    department: 'Engineering',
-    team: 'Core ML',
-    location: 'Chennai',
-    slug: 'ai-ml-engineer-freshers'
-  },
-  {
-    id: 8,
-    title: 'AI Systems Engineer - Deep Learning Infrastructure (Freshers)',
-    department: 'Engineering',
-    team: 'AI Infrastructure',
-    location: 'Chennai',
-    slug: 'ai-systems-engineer-dl-infrastructure'
-  },
-  {
-    id: 9,
-    title: 'Accounts & Finance Executive - Operations & Compliance',
-    department: 'Finance',
-    team: 'Finance & Accounts',
-    location: 'Chennai',
-    slug: 'accounts-finance-executive'
-  },
-  {
-    id: 10,
-    title: 'Business Analyst - Global AI Strategy & Solutions',
-    department: 'Business Development',
-    team: 'Strategy & Analytics',
-    location: 'Chennai',
-    slug: 'business-analyst-ai-strategy'
-  },
-  {
-    id: 11,
-    title: 'HR Executive (Male)',
-    department: 'Human Resources',
-    team: 'Recruitment',
-    location: 'Chennai',
-    slug: 'hr-executive-male'
-  },
-  {
-    id: 12,
-    title: 'Infrastructure Monitoring & Governance Executive',
-    department: 'IT & Security',
-    team: 'Infrastructure',
-    location: 'Chennai',
-    slug: 'infrastructure-monitoring-governance'
-  }
+  { id: 1,  title: 'Administration Executive (Male)',                                      department: 'Operations',            team: 'Administration',        location: 'Chennai', slug: 'administration-executive-male' },
+  { id: 2,  title: 'HR Executive - Talent & People Operations',                            department: 'Human Resources',       team: 'People & Talent',       location: 'Chennai', slug: 'hr-executive-talent-people-operations' },
+  { id: 3,  title: 'Business Development - AI Strategy & Partnerships',                    department: 'Business Development',  team: 'Strategy',              location: 'Chennai', slug: 'business-development-ai-strategy' },
+  { id: 4,  title: 'HR Admin (Male)',                                                      department: 'Human Resources',       team: 'HR Operations',         location: 'Chennai', slug: 'hr-admin-male' },
+  { id: 5,  title: 'Senior Administration Officer (Male)',                                 department: 'Operations',            team: 'Administration',        location: 'Chennai', slug: 'senior-administration-officer-male' },
+  { id: 6,  title: 'Accounts And Compliance Executive (Male)',                             department: 'Finance',               team: 'Accounts & Compliance', location: 'Chennai', slug: 'accounts-compliance-executive' },
+  { id: 7,  title: 'AI ML Engineer (Freshers)',                                            department: 'Engineering',           team: 'Core ML',               location: 'Chennai', slug: 'ai-ml-engineer-freshers' },
+  { id: 8,  title: 'AI Systems Engineer - Deep Learning Infrastructure (Freshers)',        department: 'Engineering',           team: 'AI Infrastructure',     location: 'Chennai', slug: 'ai-systems-engineer-dl-infrastructure' },
+  { id: 9,  title: 'Accounts & Finance Executive - Operations & Compliance',               department: 'Finance',               team: 'Finance & Accounts',    location: 'Chennai', slug: 'accounts-finance-executive' },
+  { id: 10, title: 'Business Analyst - Global AI Strategy & Solutions',                    department: 'Business Development',  team: 'Strategy & Analytics',  location: 'Chennai', slug: 'business-analyst-ai-strategy' },
+  { id: 11, title: 'HR Executive (Male)',                                                  department: 'Human Resources',       team: 'Recruitment',           location: 'Chennai', slug: 'hr-executive-male' },
+  { id: 12, title: 'Infrastructure Monitoring & Governance Executive',                     department: 'IT & Security',         team: 'Infrastructure',        location: 'Chennai', slug: 'infrastructure-monitoring-governance' },
+];
+
+const officeLocations = [
+  { id: 'besant-nagar',    address: 'No. E160 Tiger Varadhachari Road,', area: 'Kalakshetra Colony, Besant Nagar,', city: 'Chennai – 600090',        mapUrl: 'https://www.google.com/maps/place/Blubridge+Technologies/@12.9954492,80.2654151,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267e2599dbced:0xc9079da2f4d833f!8m2!3d12.995444!4d80.26799!16s%2Fg%2F11mry3n8lv' },
+  { id: 'mandavelipakkam', address: '30, Norton Rd, Mandavelipakkam,',   area: 'Raja Annamalai Puram,',             city: 'Chennai, Tamil Nadu – 600028', mapUrl: 'https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z' },
+  { id: 'princeton-nj',    company: 'Zeal Solutions Inc', address: '5 Independence Way, Suite 300,', area: 'Princeton,', city: 'New Jersey – 08540', mapUrl: 'https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z' },
+];
+
+const contactDetails = [
+  { icon: Phone,    label: 'Contact Number', value: '+91 8925987250',           href: 'tel:+91 8925987250' },
+  { icon: Mail,     label: 'Email',          value: 'careers@blubridge.com',    href: 'mailto:careers@blubridge.com' },
+  { icon: Linkedin, label: 'LinkedIn',       value: 'linkedin.com/blubridge',   href: 'https://www.linkedin.com/company/blubridge/' },
+  { icon: XIcon,    label: 'X (Twitter)',    value: 'x.com/BlubridgeAI',         href: 'https://x.com/BlubridgeAI/' },
 ];
 
 const Careers = () => {
@@ -127,879 +52,201 @@ const Careers = () => {
   const joinOurTeamRef = useRef(null);
   const [showJobListings, setShowJobListings] = useState(false);
   const location = useLocation();
-  
-  // Handle hash navigation to join-our-team section
+
   useEffect(() => {
     if (location.hash === '#join-our-team') {
-      setTimeout(() => {
-        joinOurTeamRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }, 100);
+      setTimeout(() => joinOurTeamRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     }
   }, [location]);
-  
-  const handleScrollToJoin = () => {
-    joinOurTeamRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  };
-
-  const toggleJobListings = () => {
-    setShowJobListings(!showJobListings);
-  };
-
-  const officeLocations = [
-  
-    {
-      id: 'besant-nagar',
-      address: 'No. E160 Tiger Varadhachari Road,',
-      area: 'Kalakshetra Colony, Besant Nagar,',
-      city: 'Chennai – 600090',
-      mapUrl: 'https://www.google.com/maps/place/Blubridge+Technologies/@12.9954492,80.2654151,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267e2599dbced:0xc9079da2f4d833f!8m2!3d12.995444!4d80.26799!16s%2Fg%2F11mry3n8lv',
-      mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=12.995444,80.26799&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C12.995444,80.26799&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
-    },
-    {
-      id: 'mandavelipakkam',
-      address: '30, Norton Rd, Mandavelipakkam,',
-      area: 'Raja Annamalai Puram,',
-      city: 'Chennai, Tamil Nadu – 600028',
-      mapUrl: 'https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z',
-      mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=13.0280416,80.2681674&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C13.0280416,80.2681674&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
-    },
-    {
-      id: 'princeton-nj',
-      company: 'Zeal Solutions Inc',
-      address: '5 Independence Way, Suite 300,',
-      area: 'Princeton,',
-      city: 'New Jersey – 08540',
-      mapUrl: 'https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z',
-      mapImage: 'https://maps.googleapis.com/maps/api/staticmap?center=40.3430,-74.6514&zoom=16&size=400x200&maptype=roadmap&markers=color:red%7C40.3430,-74.6514&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&style=feature:all|saturation:-100'
-    }
-    
-  ];
-
-  const mustHaveSkills = [
-    'Aptitude and Logical Reasoning',
-    'Linear Algebra, Calculus, Probability & Statistics',
-    'Strong Programming Foundations in C++ or Java'
-  ];
-
-  const contactDetails = [
-    { icon: Phone, label: 'Contact Number', value: '+91 8925987250', href: 'tel:+91 8925987250' },
-    { icon: Mail, label: 'Email', value: 'careers@blubridge.com', href: 'mailto:careers@blubridge.com' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/blubridge', href: 'https://www.linkedin.com/company/blubridge/' },
-    { icon: XIcon, label: 'X (Twitter)', value: 'x.com/BlubridgeAI', href: 'https://x.com/BlubridgeAI/' }
-  ];
 
   return (
-    <div 
-      data-testid="careers-page"
-      style={{ 
-        backgroundColor: '#efede5', 
-        minHeight: '100vh', 
-        paddingTop: '50px'
-      }}
-    >
-      {/* Responsive Styles */}
-      <style>{`
-        .careers-cta-strip {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          align-items: flex-start;
-        }
-        @media (min-width: 640px) {
-          .careers-cta-strip {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-          }
-        }
-        
-        /* See Open Roles Button Styles */
-        .see-roles-btn {
-          position: relative;
-          overflow: hidden;
-          background: linear-gradient(135deg, #0B1F3B 0%, #1a3a5c 100%);
-          border: none;
-          padding: 14px 28px;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 15px;
-          font-weight: 600;
-          color: #ffffff;
-          border-radius: 10px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 4px 15px rgba(11, 31, 59, 0.3);
-        }
-        
-        .see-roles-btn::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-          transition: left 0.5s ease;
-        }
-        
-        .see-roles-btn:hover {
-          transform: translateY(-3px) scale(1.02);
-          box-shadow: 0 8px 25px rgba(11, 31, 59, 0.4), 0 0 20px rgba(50, 140, 193, 0.3);
-          background: linear-gradient(135deg, #1a3a5c 0%, #328CC1 100%);
-        }
-        
-        .see-roles-btn:hover::before {
-          left: 100%;
-        }
-        
-        .see-roles-btn:active {
-          transform: translateY(-1px) scale(1.01);
-          box-shadow: 0 4px 15px rgba(11, 31, 59, 0.3);
-        }
-        
-        .see-roles-btn .btn-icon {
-          transition: transform 0.3s ease;
-        }
-        
-        .see-roles-btn:hover .btn-icon {
-          transform: translateX(4px);
-        }
-        
-        .see-roles-btn.active {
-          background: linear-gradient(135deg, #1a3a5c 0%, #0B1F3B 100%);
-        }
-        
-        .see-roles-btn.active:hover .btn-icon {
-          transform: rotate(180deg);
-        }
-        
-        .job-row-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 8px;
-          padding: 18px 0;
-        }
-        @media (min-width: 768px) {
-          .job-row-grid {
-            grid-template-columns: 2fr 1fr 1fr 40px;
-            gap: 0;
-          }
-        }
-        .job-row-mobile-meta {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-        @media (min-width: 768px) {
-          .job-row-mobile-meta {
-            display: contents;
-          }
-        }
-        .job-arrow-desktop {
-          display: none;
-        }
-        @media (min-width: 768px) {
-          .job-arrow-desktop {
-            display: flex;
-            justify-content: flex-end;
-          }
-        }
-        .offices-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-        @media (min-width: 768px) {
-          .offices-grid {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-        .contact-grid-4col {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 12px;
-        }
-        @media (min-width: 480px) {
-          .contact-grid-4col {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-        @media (min-width: 900px) {
-          .contact-grid-4col {
-            grid-template-columns: repeat(4, 1fr);
-          }
-        }
-        .join-us-container {
-          padding: 30px 20px;
-        }
-        @media (min-width: 640px) {
-          .join-us-container {
-            padding: 50px;
-          }
-        }
-        .join-us-title {
-          font-size: 28px;
-        }
-        @media (min-width: 640px) {
-          .join-us-title {
-            font-size: 36px;
-          }
-        }
-      `}</style>
-      
-      {/* ======================================== */}
-      {/* HERO HEADER SECTION - BluBridge Careers + CURIOSITY WANTED */}
-      {/* ======================================== */}
-      {/* <div 
-        data-testid="careers-hero"
-        style={{ 
-          textAlign: 'center',
-          paddingTop: '40px',
-          paddingBottom: '50px',
-          maxWidth: '900px',
-          margin: '0 auto',
-          padding: '40px 20px 50px'
-        }}
-       >
-        
-        <p 
-          data-testid="careers-label"
-          style={{ 
-            fontSize: '16px',
-            fontWeight: '500',
-            color: '#161616',
-            marginBottom: '20px',
-            letterSpacing: '0.5px'
-          }}
-        >
-          BluBridge Careers
-        </p>
-        
-     
-        <h1 
-          data-testid="careers-main-title"
-          style={{ 
-            fontFamily: "'Playfair Display', 'Georgia', 'Times New Roman', serif",
-            fontSize: 'clamp(48px, 8vw, 80px)',
-            fontWeight: '400',
-            color: '#1A2F3B',
-            lineHeight: '1.05',
-            letterSpacing: '-0.01em',
-            textTransform: 'uppercase',
-            margin: '0'
-          }}
-        >
-          CURIOSITY<br />WANTED
-        </h1>
-      </div> */}
+    <div style={{ background: '#f1f2fa', paddingTop: '48px', paddingBottom: '48px' }} data-testid="careers-page">
+      <div className="bb-container">
 
-      <div style={{ 
-        maxWidth: '1261px',
-        margin: '0 auto', 
-        padding: '0 20px'
-      }}>
-        {/* Join Us Container - Premium Redesign */}
-        <div 
-          data-testid="join-us-section"
-          className="join-us-container"
-          style={{
-            backgroundColor: '#fffdf7',
-            borderRadius: '12px',
-            marginBottom: '30px',
-            borderBottom: '3px solid rgb(211, 205, 185)'
-          }}
-        >
-          {/* Title */}
-          <h2 
-            data-testid="join-us-title"
-            className="join-us-title"
-            style={{ 
-              fontWeight: '600', 
-              color: '#1A1A1A',
-              marginBottom: '30px',
-              lineHeight: '1.2',
-              letterSpacing: '-0.02em'
-            }}
-          >
-            Join Us
-          </h2>
-           
-          {/* ======================================== */}
-          {/* CAREERS CTA STRIP */}
-          {/* ======================================== */}
-         
-           <div 
-            data-testid="careers-cta-strip"
-            className="careers-cta-strip"
-            style={{
-              background: '#f3f1e9',
-              borderRadius: '14px',
-              padding: '28px 24px',
-              marginBottom: showJobListings ? '0' : '45px',
-              border: '1px solid #e8e6e0',
-              borderBottomLeftRadius: showJobListings ? '0' : '14px',
-              borderBottomRightRadius: showJobListings ? '0' : '14px',
-              transition: 'all 250ms ease-out'
-            }}
-          >
-            <h3 style={{
-              fontSize: '20px',
-              fontWeight: '600',
-              color: '#1a1a1a',
-              margin: 0,
-              lineHeight: '1.4'
-            }}>
-             We Build Intelligence from First Principles, with Precision and Purpose
-            </h3>
-           <button
-              onClick={toggleJobListings}
+        {/* Editorial header */}
+        <div className="pb-8 border-b border-bb-line flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p className="bb-eyebrow mb-3">/ Careers</p>
+            <h1 data-testid="join-us-title" className="bb-display" style={{ fontSize: 'clamp(48px, 8vw, 128px)' }}>
+              Join Us
+            </h1>
+          </div>
+          <p className="bb-caption max-w-md" style={{ paddingBottom: '12px' }}>Chennai · India &nbsp;/&nbsp; Princeton · USA</p>
+        </div>
+
+        {/* Tagline strip */}
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-8">
+            <p className="bb-eyebrow mb-4">/ 01 &nbsp;·&nbsp; Principle</p>
+            <h2
+              className="text-bb-ink"
+              style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(28px, 4vw, 52px)', letterSpacing: '-0.02em', lineHeight: 1.1, fontWeight: 500 }}
+            >
+              We Build Intelligence from First Principles, with Precision and Purpose
+            </h2>
+          </div>
+          <div className="lg:col-span-4 lg:flex lg:justify-end">
+            <button
+              onClick={() => setShowJobListings(!showJobListings)}
               data-testid="see-open-roles-btn"
-              className={`see-roles-btn ${showJobListings ? 'active' : ''}`}
+              className="bb-btn-primary"
             >
               {showJobListings ? 'Hide roles' : 'See open roles'}
-              <ChevronDown 
-                size={18} 
-                className="btn-icon"
-                style={{
-                  transition: 'transform 300ms ease-out',
-                  transform: showJobListings ? 'rotate(180deg)' : 'rotate(0deg)'
-                }}
+              <ChevronDown
+                size={16}
+                style={{ transition: 'transform 300ms ease', transform: showJobListings ? 'rotate(180deg)' : 'rotate(0)' }}
               />
             </button>
-          </div> 
+          </div>
+        </div>
 
-          {/* ======================================== */}
-          {/* INLINE JOB LISTINGS SECTION */}
-          {/* ======================================== */}
-          <div 
-            data-testid="job-listings-section"
-            style={{
-              maxHeight: showJobListings ? '2000px' : '0',
-              opacity: showJobListings ? 1 : 0,
-              overflow: 'hidden',
-              transition: 'max-height 300ms ease-out, opacity 250ms ease-out',
-              marginBottom: showJobListings ? '45px' : '0'
-            }}
-          >
-            <div style={{
-              background: '#f3f1e9',
-              borderRadius: '0 0 14px 14px',
-              padding: showJobListings ? '0 36px 36px 36px' : '0 36px',
-              border: '1px solid #e8e6e0',
-              borderTop: 'none'
-            }}>
-              {/* Job Rows - Minimal Horizontal List (No Header) */}
+        {/* Job listings — editorial ledger table */}
+        <div
+          data-testid="job-listings-section"
+          style={{
+            maxHeight: showJobListings ? '4000px' : '0',
+            opacity: showJobListings ? 1 : 0,
+            overflow: 'hidden',
+            transition: 'max-height 400ms ease-out, opacity 300ms ease-out',
+            marginTop: showJobListings ? '48px' : '0',
+          }}
+        >
+          <div className="border-t border-bb-line">
+            {/* Column header */}
+            <div className="hidden md:grid grid-cols-12 gap-4 py-3 border-b border-bb-line">
+              <span className="col-span-1 bb-caption">#</span>
+              <span className="col-span-6 bb-caption">Role</span>
+              <span className="col-span-2 bb-caption">Department</span>
+              <span className="col-span-2 bb-caption">Location</span>
+              <span className="col-span-1 bb-caption text-right">Apply</span>
+            </div>
 
-              {/* Job Rows - Minimal Horizontal List */}
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                {jobListings.map((job, index) => (
-                  <Link 
-                    key={job.id}
-                    to={`/careers/job/${job.slug}`}
-                    className="job-row job-row-grid"
-                    data-testid={`job-row-${job.id}`}
-                    style={{
-                      borderTop: index === 0 ? '1px solid #e0ded8' : 'none',
-                      borderBottom: '1px solid #e0ded8',
-                      textDecoration: 'none',
-                      cursor: 'pointer',
-                      transition: 'background-color 150ms ease-out'
-                    }}
-                  >
-                    {/* Job Title */}
-                    <span style={{
-                      fontSize: '15px',
-                      fontWeight: '600',
-                      color: '#0B1F3B',
-                      lineHeight: '1.4'
-                    }}>
-                      {job.title}
-                    </span>
+            {jobListings.map((job, i) => (
+              <Link
+                key={job.id}
+                to={`/careers/job/${job.slug}`}
+                data-testid={`job-row-${job.id}`}
+                className="group grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 py-5 border-b border-bb-line hover:bg-bb-bg-subtle transition-colors items-center"
+                style={{ textDecoration: 'none' }}
+              >
+                <span className="md:col-span-1 font-mono text-[12px] text-bb-ink-3">{String(i + 1).padStart(2, '0')}</span>
+                <span className="md:col-span-6 text-[15px] font-medium text-bb-ink" style={{ fontFamily: 'Geist, sans-serif' }}>
+                  {job.title}
+                </span>
+                <span className="md:col-span-2 text-[13px] text-bb-ink-2">{job.department}</span>
+                <span className="md:col-span-2 text-[13px] text-bb-ink-2">{job.location}</span>
+                <span className="md:col-span-1 md:text-right font-mono text-[12px] text-bb-ink-3 group-hover:text-bb-accent transition-colors">
+                  <span className="inline-flex items-center gap-1">
+                    OPEN <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
 
-                    {/* Meta info container for mobile stacking */}
-                    <div className="job-row-mobile-meta">
-                      {/* Department */}
-                      <span style={{
-                        fontSize: '14px',
-                        fontWeight: '400',
-                        color: '#6b7280'
-                      }}>
-                        {job.department}
-                      </span>
+        {/* Offices */}
+        <section data-testid="office-locations-section" className="mt-20">
+          <p className="bb-eyebrow mb-6">/ 02 &nbsp;·&nbsp; Our Offices & Partner Locations</p>
 
-                      {/* Location */}
-                      <span style={{
-                        fontSize: '14px',
-                        fontWeight: '400',
-                        color: '#6b7280'
-                      }}>
-                        {job.location}
-                      </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {officeLocations.map((loc, i) => (
+              <a
+                key={loc.id}
+                href={loc.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid={`location-card-${loc.id}`}
+                className="bb-panel group block hover:border-bb-line-strong transition-all"
+                style={{ textDecoration: 'none', overflow: 'hidden' }}
+              >
+                {/* Editorial map placeholder */}
+                <div style={{ width: '100%', height: '160px', backgroundColor: '#e8eaf3', position: 'relative', overflow: 'hidden' }}>
+                  <svg viewBox="0 0 400 160" width="100%" height="100%" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <pattern id={`grid-${i}`} width="16" height="16" patternUnits="userSpaceOnUse">
+                        <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#c9cde0" strokeWidth="0.5" />
+                      </pattern>
+                    </defs>
+                    <rect width="400" height="160" fill={`url(#grid-${i})`} />
+                    <path d="M 0 100 Q 100 60 200 90 T 400 80" stroke="#b8bfd6" strokeWidth="1.5" fill="none" />
+                    <path d="M 0 130 Q 120 100 240 120 T 400 110" stroke="#b8bfd6" strokeWidth="1" fill="none" opacity="0.6" />
+                    <circle cx="200" cy="80" r="6" fill="#2b4c8c" />
+                    <circle cx="200" cy="80" r="14" fill="none" stroke="#2b4c8c" strokeWidth="1" opacity="0.4">
+                      <animate attributeName="r" values="6;18;6" dur="3s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite" />
+                    </circle>
+                  </svg>
+                  <div className="absolute top-3 left-3 font-mono text-[10px] tracking-[0.14em] text-bb-ink-3 bg-white/80 backdrop-blur px-2 py-0.5 rounded">
+                    {String(i + 1).padStart(2, '0')} · LOCATION
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <div className="flex items-start gap-3">
+                    <MapPin size={18} className="text-bb-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      {loc.company && (
+                        <p style={{ fontSize: '14px', color: '#0a1230', margin: 0, fontWeight: 500, fontFamily: 'Geist, sans-serif' }}>{loc.company}</p>
+                      )}
+                      <p style={{ fontSize: '14px', color: '#3f4966', lineHeight: 1.6, margin: 0 }}>{loc.address}</p>
+                      <p style={{ fontSize: '14px', color: '#3f4966', lineHeight: 1.6, margin: 0 }}>{loc.area}</p>
+                      <p style={{ fontSize: '14px', color: '#0a1230', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>{loc.city}</p>
                     </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
 
-                    {/* Arrow - Desktop only */}
-                    <span 
-                      className="job-arrow job-arrow-desktop"
-                      style={{
-                        color: '#9ca3af',
-                        transition: 'transform 150ms ease-out, color 150ms ease-out'
-                      }}
-                    >
-                      <svg 
-                        width="18" 
-                        height="18" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="1.5" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </span>
-                  </Link>
-                ))}
-              </div>
+        {/* Get in Touch */}
+        <section data-testid="contact-section" className="mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-8">
+            <div className="lg:col-span-8">
+              <p className="bb-eyebrow mb-4">/ 03 &nbsp;·&nbsp; Get in Touch</p>
+              <h2 className="bb-h2" style={{ fontSize: 'clamp(28px, 3.6vw, 44px)' }}>
+                Get in Touch
+              </h2>
+              <p style={{ marginTop: '12px', fontSize: '15px', color: '#3f4966', lineHeight: 1.7, maxWidth: '640px' }}>
+                You are welcome to walk in for an interview on any working day, or you can reach out to us via:
+              </p>
             </div>
           </div>
 
-          {/* ======================================== */}
-          {/* 1. OFFICE LOCATIONS - Visual Grid */}
-          {/* ======================================== */}
-          <section data-testid="office-locations-section" style={{ marginBottom: '50px' }}>
-            <h2 style={{ 
-              fontSize: '20px', 
-              fontWeight: '600', 
-              color: '#1A1A1A',
-              marginBottom: '24px',
-              letterSpacing: '-0.01em'
-            }}>
-              Our Offices & Partner Locations
-            </h2>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '24px'
-            }}>
-              {officeLocations.map((location, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {contactDetails.map((c, i) => {
+              const Icon = c.icon;
+              return (
                 <a
-                  key={location.id}
-                  href={location.mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid={`location-card-${location.id}`}
-                  style={{
-                    display: 'block',
-                    backgroundColor: '#f3f1e9',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    border: '1px solid #e8e6e0',
-                    textDecoration: 'none',
-                    transition: 'all 200ms ease-out',
-                    cursor: 'pointer'
-                  }}
-                  className="location-card"
+                  key={i}
+                  href={c.href}
+                  target={c.href.startsWith('http') ? '_blank' : undefined}
+                  rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  data-testid={`contact-${c.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="bb-panel flex items-center gap-4 p-4 hover:border-bb-line-strong transition-colors"
+                  style={{ textDecoration: 'none' }}
                 >
-                  {/* Map Preview */}
-                  <div style={{
-                    width: '100%',
-                    height: '160px',
-                    backgroundColor: '#e8e6e0',
-                    position: 'relative',
-                    overflow: 'hidden'
-                  }}>
-                    {/* Fallback map visual */}
-                    <div style={{
-                      width: '100%',
-                      height: '100%',
-                      background: 'linear-gradient(135deg, #e8e6e0 0%, #d4d2cc 50%, #c8c6c0 100%)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      position: 'relative'
-                    }}>
-                      {/* Grid pattern for map effect */}
-                      <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        backgroundImage: `
-                          linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)
-                        `,
-                        backgroundSize: '20px 20px'
-                      }} />
-                      {/* Map pin */}
-                      <div style={{
-                        width: '40px',
-                        height: '40px',
-                        backgroundColor: '#c94c4c',
-                        borderRadius: '50% 50% 50% 0',
-                        transform: 'rotate(-45deg)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 4px 12px rgba(201, 76, 76, 0.3)',
-                        transition: 'transform 150ms ease-out'
-                      }} className="map-pin">
-                        <div style={{
-                          width: '12px',
-                          height: '12px',
-                          backgroundColor: 'white',
-                          borderRadius: '50%',
-                          transform: 'rotate(45deg)'
-                        }} />
-                      </div>
-                    </div>
+                  <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ background: '#dfe6f5' }}>
+                    <Icon size={18} color="#2b4c8c" />
                   </div>
-
-                  {/* Address Content */}
-                  <div style={{ padding: '20px' }}>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '12px'
-                    }}>
-                      <MapPin 
-                        size={20} 
-                        style={{ 
-                          color: '#c94c4c', 
-                          flexShrink: 0, 
-                          marginTop: '2px',
-                          transition: 'color 150ms ease-out'
-                        }} 
-                        className="location-pin-icon"
-                      />
-                      <div>
-                        {location.company && (
-                          <p style={{ 
-                            fontSize: '15px', 
-                            color: '#1A1A1A', 
-                            lineHeight: '1.5',
-                            margin: 0,
-                            fontWeight: '600'
-                          }}>
-                            {location.company}
-                          </p>
-                        )}
-                        <p style={{ 
-                          fontSize: '15px', 
-                          color: '#333', 
-                          lineHeight: '1.5',
-                          margin: 0
-                        }}>
-                          {location.address}
-                        </p>
-                        <p style={{ 
-                          fontSize: '15px', 
-                          color: '#333', 
-                          lineHeight: '1.5',
-                          margin: 0
-                        }}>
-                          {location.area}
-                        </p>
-                        <p style={{ 
-                          fontSize: '15px', 
-                          color: '#333', 
-                          lineHeight: '1.5',
-                          margin: 0,
-                          fontWeight: '500'
-                        }}>
-                          {location.city}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="bb-caption !mb-1" style={{ margin: '0 0 4px', fontSize: '10px', letterSpacing: '0.14em' }}>{c.label}</p>
+                    <p style={{ fontSize: '13px', color: '#0a1230', margin: 0, fontFamily: 'Inter, sans-serif', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {c.value}
+                    </p>
                   </div>
                 </a>
-              ))}
-            </div>
-          </section>
-
-          {/* ======================================== */}
-          {/* 2. MUST-HAVE SKILLS - Research Card */}
-          {/* ======================================== */}
-          {/* <section data-testid="must-have-skills-section" style={{ marginBottom: '50px' }}>
-            <div style={{
-              backgroundColor: '#f8f7f3',
-              borderRadius: '12px',
-              padding: '28px 32px',
-              border: '1px solid #e8e6e0'
-            }}>
-              <h2 style={{ 
-                fontSize: '20px', 
-                fontWeight: '600', 
-                color: '#1A1A1A',
-                marginBottom: '20px',
-                letterSpacing: '-0.01em'
-              }}>
-                Must-Have Skills
-              </h2>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                {mustHaveSkills.map((skill, index) => (
-                  <div 
-                    key={index}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px'
-                    }}
-                  >
-                    <CheckCircle2 
-                      size={18} 
-                      style={{ 
-                        color: '#4a7c59', 
-                        flexShrink: 0 
-                      }} 
-                    />
-                    <span style={{ 
-                      fontSize: '15px', 
-                      color: '#333', 
-                      lineHeight: '1.5' 
-                    }}>
-                      {skill}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section> */}
-
-          {/* ======================================== */}
-          {/* 3. HOW TO APPLY - Guided Action Card */}
-          {/* ======================================== */}
-          {/* <section data-testid="how-to-apply-section" style={{ marginBottom: '50px' }}>
-            <div style={{
-              backgroundColor: '#f8f7f3',
-              borderRadius: '12px',
-              padding: '28px 32px',
-              border: '1px solid #e8e6e0'
-            }}>
-              <h2 style={{ 
-                fontSize: '20px', 
-                fontWeight: '600', 
-                color: '#1A1A1A',
-                marginBottom: '20px',
-                letterSpacing: '-0.01em'
-              }}>
-                How to Apply
-              </h2>
-
-              <p style={{ 
-                fontSize: '15px', 
-                color: '#555', 
-                lineHeight: '1.6',
-                marginBottom: '20px'
-              }}>
-                Before applying, please ensure you read this carefully:
-              </p>
-
-             
-              <button
-                onClick={handleScrollToJoin}
-                data-testid="joining-research-unit-link"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  color: '#1a5fb4',
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  background: 'none',
-                  border: 'none',
-                  padding: '8px 0',
-                  cursor: 'pointer',
-                  transition: 'all 150ms ease-out',
-                  position: 'relative'
-                }}
-                className="research-link"
-              >
-                <span style={{ fontSize: '18px' }}>👉</span>
-                <span style={{ 
-                  textDecoration: 'underline',
-                  textUnderlineOffset: '4px'
-                }}>
-                  Joining Our Research Unit
-                </span>
-                <ChevronRight size={18} style={{ marginLeft: '2px' }} />
-              </button>
-            </div>
-          </section> */}
-
-          {/* ======================================== */}
-          {/* 4. CONTACT & WALK-IN DETAILS */}
-          {/* ======================================== */}
-          <section data-testid="contact-section">
-            <div style={{
-              backgroundColor: '#f3f1e9',
-              borderRadius: '12px',
-              padding: '28px 32px',
-              border: '1px solid #e8e6e0'
-            }}>
-              <h2 style={{ 
-                fontSize: '20px', 
-                fontWeight: '600', 
-                color: '#1A1A1A',
-                marginBottom: '16px',
-                letterSpacing: '-0.01em'
-              }}>
-                Get in Touch
-              </h2>
-
-              <p style={{ 
-                fontSize: '15px', 
-                color: '#555', 
-                lineHeight: '1.6',
-                marginBottom: '24px'
-              }}>
-                You are welcome to walk in for an interview on any working day, or you can reach out to us via:
-              </p>
-
-              <div style={{ 
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                gap: '16px'
-              }}>
-                {contactDetails.map((contact, index) => {
-                  const IconComponent = contact.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={contact.href}
-                      target={contact.href.startsWith('http') ? '_blank' : undefined}
-                      rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      data-testid={`contact-${contact.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '14px',
-                        padding: '14px 16px',
-                        backgroundColor: 'white',
-                        borderRadius: '10px',
-                        border: '1px solid #e8e6e0',
-                        textDecoration: 'none',
-                        transition: 'all 150ms ease-out'
-                      }}
-                      className="contact-item"
-                    >
-                      <div style={{
-                        width: '40px',
-                        height: '40px',
-                        borderRadius: '10px',
-                        backgroundColor: '#f0efe9',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
-                      }}>
-                        <IconComponent size={20} style={{ color: '#555' }} />
-                      </div>
-                      <div>
-                        <p style={{ 
-                          fontSize: '12px', 
-                          color: '#888', 
-                          margin: 0,
-                          marginBottom: '2px',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.5px',
-                          fontWeight: '500'
-                        }}>
-                          {contact.label}
-                        </p>
-                        <p style={{ 
-                          fontSize: '14px', 
-                          color: '#333', 
-                          margin: 0,
-                          fontWeight: '500'
-                        }}>
-                          {contact.value}
-                        </p>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-        </div>
+              );
+            })}
+          </div>
+        </section>
       </div>
 
-      {/* Join Our Team Section */}
-      <div id="join-our-team" ref={joinOurTeamRef} style={{ marginTop: '30px', scrollMarginTop: '100px' }}>
+      {/* Join Our Team embedded */}
+      <div id="join-our-team" ref={joinOurTeamRef} style={{ marginTop: '48px', scrollMarginTop: '100px' }}>
         <JoinOurTeam scrollRef={joinOurTeamRef} />
       </div>
-
-      {/* Hover Styles */}
-      <style>{`
-        .location-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-          border-color: #d0cec8;
-        }
-        
-        .location-card:hover .map-pin {
-          transform: rotate(-45deg) scale(1.1);
-        }
-        
-        .location-card:hover .location-pin-icon {
-          color: #a83c3c;
-        }
-        
-        .research-link:hover {
-          color: #144a8f;
-        }
-        
-        .research-link:hover span:nth-child(2) {
-          text-decoration-thickness: 2px;
-        }
-        
-        .contact-item:hover {
-          border-color: #c0beb8;
-          background-color: #fafaf8;
-          transform: translateY(-1px);
-        }
-        
-        .careers-cta-button:hover {
-          transform: translateY(-2px) scale(1.02);
-          box-shadow: 0 6px 16px rgba(11, 31, 59, 0.2);
-          background-color: #162B4D;
-        }
-        
-        .see-roles-link:hover {
-          color: #328CC1;
-        }
-        
-        .job-row:hover {
-          background-color: rgba(0, 0, 0, 0.02);
-        }
-        
-        .job-row:hover .job-arrow {
-          transform: translateX(4px);
-          color: #0B1F3B;
-        }
-        
-        .view-all-link:hover {
-          color: #328CC1;
-        }
-        
-        @media (max-width: 768px) {
-          .location-card {
-            max-width: 100%;
-          }
-          .job-row {
-            grid-template-columns: 1fr !important;
-            gap: 8px;
-          }
-        }
-      `}</style>
     </div>
   );
 };

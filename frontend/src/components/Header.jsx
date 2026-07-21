@@ -1,32 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory,TrendingUp,Rocket } from 'lucide-react';
+import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory, TrendingUp, Rocket } from 'lucide-react';
 
-// Animated Letter Component for "Coming Soon" text with shimmer effect
+/* ------------------------------------------------------------------
+   BluBridge Editorial Header — light theme (#f1f2fa)
+   Content preserved: all nav labels, dropdown structure, CTA text
+   ------------------------------------------------------------------ */
+
 const AnimatedText = ({ text, isVisible }) => {
   const letters = text.split('');
-  
   return (
-    <span className="inline-flex shimmer-text-container">
+    <span className="inline-flex">
       {letters.map((letter, index) => (
         <span
           key={index}
-          className="shimmer-letter"
           style={{
             display: 'inline-block',
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(8px)',
-            transition: `opacity 280ms cubic-bezier(0.4, 0, 0.2, 1), transform 280ms cubic-bezier(0.4, 0, 0.2, 1)`,
-            transitionDelay: isVisible ? `${index * 30}ms` : '0ms',
-            minWidth: letter === ' ' ? '0.3em' : 'auto',
-            // background: 'linear-gradient(90deg, #c9a57e 0%, #bd8346 20%, #e8c9a0 50%, #bd8346 80%, #c9a57e 100%)',
-            background: 'linear-gradient(90deg, #0b1f3b 0%, #081729 20%, #0d2847 50%, #081729 80%, #0b1f3b 100%)',
-            backgroundSize: '200% 100%',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            animation: isVisible ? 'shimmer 2.5s ease-in-out infinite' : 'none',
-            animationDelay: `${index * 50}ms`
+            transform: isVisible ? 'translateY(0)' : 'translateY(6px)',
+            transition: `opacity 260ms ease, transform 260ms ease`,
+            transitionDelay: isVisible ? `${index * 28}ms` : '0ms',
+            minWidth: letter === ' ' ? '0.28em' : 'auto',
+            color: '#0a1230',
+            fontFamily: 'Geist, Inter, sans-serif',
+            fontWeight: 500,
           }}
         >
           {letter}
@@ -41,12 +38,10 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
 
-  // Handle click outside to close dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -54,47 +49,16 @@ const Header = () => {
         setDropdownVisible(false);
       }
     };
-
-    if (activeDropdown) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    if (activeDropdown) document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [activeDropdown]);
 
-  // Handle dropdown toggle
-  const toggleDropdown = (name) => {
-    if (activeDropdown === name) {
-      setDropdownVisible(false);
-      setTimeout(() => setActiveDropdown(null), 250);
-    } else {
-      setActiveDropdown(name);
-      setTimeout(() => setDropdownVisible(true), 10);
-    }
-  };
-
-  // Scroll detection for logo transition
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollThreshold = 100;
-      const scrolled = window.scrollY > scrollThreshold;
-      setIsScrolled(scrolled);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Initial load animation trigger
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setHasAnimated(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Close dropdowns when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileSubmenuOpen(null);
@@ -102,423 +66,282 @@ const Header = () => {
     setDropdownVisible(false);
   }, [location]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [mobileMenuOpen]);
 
-  const products = [
-    {
-      title: 'AI Services',
-      subtitle: 'Develop, train, tune, and deploy AI using our on demand services.',
-      link: '/products/serverless',
-      icon: Sparkles,
-      items: [
-        { name: 'Serverless Inference', link: '/products/serverless', desc: 'API endpoints for instant and scalable AI inference.', icon: Cloud },
-        { name: 'Fine-tuning', link: '/products/fine-tuning', desc: 'On-demand, serverless fine-tuning', icon: SlidersHorizontal }
-      ]
-    },
-    {
-      title: 'AI Private Cloud',
-      subtitle: 'Reserved large scale GPU clusters purpose-built for AI.',
-      link: '/products/training',
-      icon: Building2,
-      items: [
-        { name: 'Training Clusters', link: '/products/training', desc: 'Easy to deploy GPU clusters with SLURM scheduler.', icon: Server },
-        { name: 'Inference Clusters', link: '/products/inference', desc: 'Autoscaling dedicated inference clusters.', icon: Zap },
-        { name: 'Bare metal Clusters', link: '/products/gpu-nodes', desc: 'Scalable, high performance bare metal GPU clusters.', icon: Wrench }
-      ]
-    },
-    {
-      title: 'Infrastructure',
-      subtitle: 'Data centres and sovereign cloud solutions.',
-      link: '/products/sovereign-cloud',
-      icon: Factory,
-      items: [
-        { name: 'Sovereign Cloud', link: '/products/sovereign-cloud', desc: 'Complete jurisdictional control for regulated workloads.', icon: Flag },
-        { name: 'Glomfjord', link: '/products/glomfjord', desc: 'Powered by 100% renewable energy.', icon: MapPin },
-        // { name: 'Narvik Campus', link: '/products/narvik', desc: 'Arctic hyperscale infrastructure powered by renewables.' }
-      ]
-    }
+  const solutionsItems = [
+    { name: 'Model Customization', link: '/solutions#model-customization', Icon: SlidersHorizontal },
+    { name: 'Value Realization',   link: '/solutions#value-realization',   Icon: TrendingUp },
+    { name: 'Deployment',          link: '/solutions#deployment',          Icon: Rocket },
   ];
-
-  const solutions = {
-    useCase: [
-      { name: 'Model Training', link: '/solutions/training' },
-      { name: 'AI & ML Inference', link: '/solutions/inference' },
-      { name: 'AI Development', link: '/solutions/ai-development' },
-      { name: 'Model Fine-Tuning', link: '/solutions/fine-tuning' }
-    ],
-    industry: [
-      { name: 'Telco', link: '/solutions/industry/telco' },
-      { name: 'Software & Technology', link: '/solutions/industry/software-technology' },
-      { name: 'Finance & Insurance', link: '/solutions/industry/finance-insurance' },
-      { name: 'Manufacturing', link: '/solutions/industry/manufacturing' },
-      { name: 'Education', link: '/solutions/industry/education' },
-      { name: 'Government', link: '/solutions/industry/government' },
-      { name: 'Legal', link: '/solutions/industry/legal' },
-      { name: 'Healthcare', link: '/solutions/industry/healthcare' }
-    ]
-  };
 
   const company = [
     { name: 'About Us', link: '/about-us' },
-    // { name: 'Join Our Team', link: '/joinourteam' },
-    { name: 'Careers', link: '/careers' }
+    { name: 'Careers',  link: '/careers' },
   ];
 
   return (
     <>
-    <header className="fixed top-0 left-0 right-0 bg-[#efede5] shadow-sm border-b border-[#D6DEC3]" style={{ zIndex: 1000 }}>
-      {/* Top banner */}
-      <div className="bg-[#0B1F3B] text-white py-2 px-6 text-center text-sm">
-        <span>Building Frontier AI Intelligence capabilities tailored for you</span>
-        {/* <Link to="/contact" className="ml-2 underline hover:no-underline">See More →</Link> */}
-      </div>
+      <header
+        className="fixed top-0 left-0 right-0"
+        style={{
+          zIndex: 1000,
+          backgroundColor: 'rgba(241, 242, 250, 0.86)',
+          backdropFilter: 'saturate(140%) blur(16px)',
+          WebkitBackdropFilter: 'saturate(140%) blur(16px)',
+          borderBottom: `1px solid ${isScrolled ? '#d4d8e8' : 'transparent'}`,
+          transition: 'border-color 300ms ease, background-color 300ms ease',
+        }}
+      >
+        {/* Announcement strip — retains existing text */}
+        <div
+          style={{
+            backgroundColor: '#0a1230',
+            color: '#f1f2fa',
+            fontFamily: 'IBM Plex Mono, monospace',
+            fontSize: '11.5px',
+            letterSpacing: '0.08em',
+            padding: '8px 24px',
+            textAlign: 'center',
+            textTransform: 'uppercase',
+          }}
+        >
+          <span>Building Frontier AI Intelligence capabilities tailored for you</span>
+        </div>
 
-      <div className="container-custom">
-        <nav className="flex items-center justify-between h-20">
-          {/* Logo with scroll-based switch behavior */}
-          <Link to="/" className="relative flex items-center" style={{ width: '180px', height: '40px' }}>
-            {/* Primary BLUBRIDGE wordmark - visible at top */}
-            <div 
-              className="absolute inset-0 flex items-center"
-              style={{
-                opacity: isScrolled ? 0 : (hasAnimated ? 1 : 0),
-                transform: isScrolled 
-                  ? 'translateY(-3px)' 
-                  : (hasAnimated ? 'translateY(0)' : 'translateY(3px)'),
-                transition: 'opacity 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.4, 0, 0.2, 1)',
-                pointerEvents: isScrolled ? 'none' : 'auto'
-              }}
-            >
-              <img 
-                src="/images/blubridge-wordmark.png"
-                alt="BluBridge"
-                style={{ height: '23px', width: 'auto', objectFit: 'contain' }}
-              />
-            </div>
-            
-            {/* Compact B icon - visible on scroll */}
-            <div 
-              className="absolute inset-0 flex items-center"
-              style={{
-                opacity: isScrolled ? 1 : 0,
-                transform: isScrolled ? 'translateY(0)' : 'translateY(3px)',
-                transition: 'opacity 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.4, 0, 0.2, 1)',
-                pointerEvents: isScrolled ? 'auto' : 'none'
-              }}
-            >
-              <img 
-                src="/images/b-icon.png"
-                alt="BluBridge"
-                style={{ height: '23px', width: 'auto', objectFit: 'contain' }}
-              />
-            </div>
-          </Link>
+        <div className="bb-container">
+          <nav
+            className="flex items-center justify-between"
+            style={{ height: isScrolled ? '64px' : '76px', transition: 'height 240ms ease' }}
+          >
+            {/* Logo (untouched) */}
+            <Link to="/" className="relative flex items-center" style={{ width: '160px', height: '32px' }}>
+              <div
+                className="absolute inset-0 flex items-center"
+                style={{
+                  opacity: isScrolled ? 0 : 1,
+                  transform: isScrolled ? 'translateY(-2px)' : 'translateY(0)',
+                  transition: 'opacity 320ms ease, transform 320ms ease',
+                  pointerEvents: isScrolled ? 'none' : 'auto',
+                }}
+              >
+                <img src="/images/blubridge-wordmark.png" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain' }} />
+              </div>
+              <div
+                className="absolute inset-0 flex items-center"
+                style={{
+                  opacity: isScrolled ? 1 : 0,
+                  transform: isScrolled ? 'translateY(0)' : 'translateY(2px)',
+                  transition: 'opacity 320ms ease, transform 320ms ease',
+                  pointerEvents: isScrolled ? 'auto' : 'none',
+                }}
+              >
+                <img src="/images/b-icon.png" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain' }} />
+              </div>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-
-            {/* Solutions Dropdown - Hover-based, links to /solutions anchors */}
-            <div 
-              className="relative"
-              onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
-              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
-            >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-                <span><Link to='/solutions'>Solutions</Link></span>
-                <ChevronDown 
-                  className="w-4 h-4 transition-transform duration-250" 
-                  style={{ transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                />
-              </button>
-              
-              {activeDropdown === 'solutions' && (
-                <div 
-                  className="absolute pt-3" 
-                  style={{ 
-                    width: '320px', 
-                    left: '50%', 
-                    transform: 'translateX(-50%)', 
-                    top: '100%', 
-                    zIndex: 1000 
-                  }}
+            {/* Desktop nav */}
+            <div ref={dropdownRef} className="hidden lg:flex items-center gap-9">
+              {/* Solutions */}
+              <div
+                className="relative"
+                onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
+                onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 220); }}
+              >
+                <button
+                  data-testid="nav-solutions"
+                  className="flex items-center gap-1.5 text-[14px] font-medium text-bb-ink hover:text-bb-accent transition-colors"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
                 >
-                  <div 
-                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] overflow-hidden p-4"
-                    style={{ 
-                      opacity: dropdownVisible ? 1 : 0,
-                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
-                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
-                    }}
-                  >
-                    <div className="space-y-1">
-                      <Link
-                        to="/solutions#model-customization"
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <SlidersHorizontal className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
-                                  Model Customization
-                                </span>
+                  <Link to="/solutions">Solutions</Link>
+                  <ChevronDown className="w-3.5 h-3.5" style={{ transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 200ms ease' }} />
+                </button>
+                {activeDropdown === 'solutions' && (
+                  <div className="absolute pt-4" style={{ width: '320px', left: '50%', transform: 'translateX(-50%)', top: '100%' }}>
+                    <div
+                      className="bb-panel"
+                      style={{
+                        padding: '10px',
+                        opacity: dropdownVisible ? 1 : 0,
+                        transform: dropdownVisible ? 'translateY(0)' : 'translateY(-6px)',
+                        transition: 'opacity 220ms ease, transform 220ms ease',
+                        boxShadow: '0 12px 40px -8px rgba(10, 18, 48, 0.12)',
+                      }}
+                    >
+                      {solutionsItems.map((item) => {
+                        const Icon = item.Icon;
+                        return (
+                          <Link key={item.name} to={item.link} className="group block">
+                            <div
+                              className="flex items-center justify-between gap-3 px-3 py-3 rounded-md transition-colors hover:bg-bb-bg-subtle"
+                              data-testid={`nav-solutions-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: 'var(--bb-accent-soft)' }}>
+                                  <Icon className="w-4 h-4 text-bb-accent" strokeWidth={1.6} />
+                                </div>
+                                <span className="text-[14px] font-medium text-bb-ink">{item.name}</span>
                               </div>
+                              <span className="opacity-0 group-hover:opacity-100 transition-opacity text-bb-accent font-mono text-xs">→</span>
                             </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
-                          </div>
-                        </div>
-                      </Link>
-                      <Link
-                        to="/solutions#value-realization"
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <TrendingUp className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
-                                  Value Realization
-                                </span>
-                              </div>
-                            </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
-                          </div>
-                        </div>
-                      </Link>
-                      <Link
-                        to="/solutions#deployment"
-                      >
-                        <div className="group bg-[#f3f1e9] hover:bg-[#e8e6de] transition-colors rounded-lg px-2 py-2 mb-2">
-                          <div className="font-medium flex items-center py-2 gap-1 justify-between">
-                            <div className="flex items-center gap-1">
-                              <Rocket className="w-4 h-4 text-[#000000]" strokeWidth={1.5} />
-                              <div className="ml-6">
-                                <span className="block text-[#0B1F3B] font-medium text-sm transition-colors group-hover:text-[#328CC1]">
-                                  Deployment
-                                </span>
-                              </div>
-                            </div>
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
-                          </div>
-                        </div>
-                      </Link>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
 
-            {/* Products Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => { setActiveDropdown('products'); setTimeout(() => setDropdownVisible(true), 10); }}
-              onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 250); }}
-            >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-                <span>Products</span>
-                <ChevronDown 
-                  className="w-4 h-4 transition-transform duration-250" 
-                  style={{ transform: activeDropdown === 'products' ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                />
-              </button>
-              
-              {activeDropdown === 'products' && (
-                <div 
-                  className="absolute pt-3" 
-                  style={{ 
-                    width: '500px', 
-                    left: '50%', 
-                    transform: 'translateX(-50%)', 
-                    top: '100%', 
-                    zIndex: 1000 
-                  }}
-                >
-                  <div 
-                    className="bg-[#fffdf7] rounded-xl shadow-lg border border-[#e8e6de] relative overflow-hidden"
-                    style={{ 
-                      height: '200px',
-                      opacity: dropdownVisible ? 1 : 0,
-                      transform: dropdownVisible ? 'translateY(0)' : 'translateY(-10px)',
-                      transition: 'opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1)'
-                    }}
-                  >
-                    {/* Coming Soon Text - Letter by Letter Animation */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-3xl font-medium text-[#0B1F3B]">
+              {/* Products */}
+              <div
+                className="relative"
+                onMouseEnter={() => { setActiveDropdown('products'); setTimeout(() => setDropdownVisible(true), 10); }}
+                onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 220); }}
+              >
+                <button data-testid="nav-products" className="flex items-center gap-1.5 text-[14px] font-medium text-bb-ink hover:text-bb-accent transition-colors">
+                  <span>Products</span>
+                  <ChevronDown className="w-3.5 h-3.5" style={{ transform: activeDropdown === 'products' ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 200ms ease' }} />
+                </button>
+                {activeDropdown === 'products' && (
+                  <div className="absolute pt-4" style={{ width: '420px', left: '50%', transform: 'translateX(-50%)', top: '100%' }}>
+                    <div
+                      className="bb-panel"
+                      style={{
+                        padding: '48px 24px',
+                        textAlign: 'center',
+                        opacity: dropdownVisible ? 1 : 0,
+                        transform: dropdownVisible ? 'translateY(0)' : 'translateY(-6px)',
+                        transition: 'opacity 220ms ease, transform 220ms ease',
+                        boxShadow: '0 12px 40px -8px rgba(10, 18, 48, 0.12)',
+                      }}
+                    >
+                      <span style={{ fontSize: '24px', fontFamily: 'Geist, sans-serif', fontWeight: 500 }}>
                         <AnimatedText text="Coming Soon" isVisible={dropdownVisible} />
                       </span>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
 
-            {/* Research Link */}
-            <Link to="/research" className="text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-              Research
-            </Link>
+              <Link to="/research" data-testid="nav-research" className="text-[14px] font-medium text-bb-ink hover:text-bb-accent transition-colors">
+                Research
+              </Link>
 
-           
-
-            {/* Company Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('company')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center space-x-1 text-[#0B1F3B] hover:text-[#328CC1] transition-colors">
-                <span>Company</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              
-              {activeDropdown === 'company' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[250px]">
-                  <div className="bg-[#fffdf7] rounded-lg shadow-xl border border-[#D6DEC3] p-6">
-                    <div className="space-y-2">
-                      {company.map((item, i) => (
+              {/* Company */}
+              <div
+                className="relative"
+                onMouseEnter={() => setActiveDropdown('company')}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button data-testid="nav-company" className="flex items-center gap-1.5 text-[14px] font-medium text-bb-ink hover:text-bb-accent transition-colors">
+                  <span>Company</span>
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </button>
+                {activeDropdown === 'company' && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4" style={{ width: '220px' }}>
+                    <div className="bb-panel" style={{ padding: '10px', boxShadow: '0 12px 40px -8px rgba(10, 18, 48, 0.12)' }}>
+                      {company.map((item) => (
                         <Link
-                          key={i}
+                          key={item.name}
                           to={item.link}
-                          className="block text-[#243447] hover:text-[#328CC1] transition-colors text-sm py-2 px-3 rounded hover:bg-[#f3f1e9]"
+                          data-testid={`nav-company-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="block px-3 py-2 rounded-md text-[14px] text-bb-ink hover:bg-bb-bg-subtle hover:text-bb-accent transition-colors"
                         >
                           {item.name}
                         </Link>
                       ))}
                     </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-            {/* <Link to="/docs" className="text-white/90 hover:text-white transition-colors">Docs</Link> */}
-          </div>
 
-          {/* Desktop CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Link 
-              to="/contact" 
-              className="px-6 py-2.5 bg-[#0B1F3B] text-white rounded-md font-medium hover:bg-[#162B4D] transition-colors"
+            {/* CTA */}
+            <div className="hidden lg:flex items-center gap-3">
+              <Link to="/contact" data-testid="nav-contact-cta" className="bb-btn-primary">
+                Contact <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', fontSize: '13px' }}>→</span>
+              </Link>
+            </div>
+
+            {/* Mobile toggle */}
+            <button
+              className="lg:hidden text-bb-ink p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+              data-testid="nav-mobile-toggle"
             >
-              Contact
-            </Link>
-            {/* <Link 
-              to="/login" 
-              className="px-6 py-2.5 text-white hover:text-[#0066FF] transition-colors flex items-center space-x-2"
-            >
-              <span>Login</span>
-              <span>→</span>
-            </Link> */}
-          </div>
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </nav>
+        </div>
+      </header>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-[#0B1F3B] p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </nav>
-      </div>
-    </header>
+      {/* Mobile overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 lg:hidden"
+          style={{ zIndex: 9998, top: '104px', background: 'rgba(10, 18, 48, 0.35)' }}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
 
-    {/* Mobile Menu Overlay - Rendered outside header for proper z-index */}
-    {mobileMenuOpen && (
-      <div 
-        className="fixed inset-0 bg-black/30 lg:hidden"
-        style={{ zIndex: 9998, top: '104px' }}
-        onClick={() => setMobileMenuOpen(false)}
-      />
-    )}
-
-    {/* Mobile Menu Panel - Rendered outside header for proper z-index */}
-    <div 
-      className={`fixed top-[104px] right-0 bottom-0 w-80 max-w-[85vw] bg-[#fffdf7] lg:hidden shadow-xl border-l border-[#D6DEC3] transition-transform duration-300 ease-in-out overflow-y-auto ${
-        mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`} 
-      style={{ zIndex: 9999 }}
-    >
-        <div className="p-6 space-y-6">
-          {/* Solutions Menu - Links to /solutions anchors */}
+      {/* Mobile panel */}
+      <div
+        className={`fixed top-[104px] right-0 bottom-0 w-[88vw] max-w-[380px] lg:hidden overflow-y-auto transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        style={{ zIndex: 9999, background: '#ffffff', borderLeft: '1px solid #d4d8e8' }}
+      >
+        <div className="p-7 space-y-6">
+          {/* Solutions */}
           <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'solutions' ? null : 'solutions')}
-              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
+              className="flex items-center justify-between w-full text-bb-ink text-[17px] font-medium"
             >
               <span>Solutions</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'solutions' ? 'rotate-180' : ''}`} />
             </button>
             {mobileSubmenuOpen === 'solutions' && (
-              <div className="mt-4 space-y-2 pl-4">
-                <Link
-                  to="/solutions#model-customization"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm group"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <div className="flex items-center gap-3">
-                    <SlidersHorizontal className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Model Customization</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
-                </Link>
-                <Link
-                  to="/solutions#value-realization"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm group"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <div className="flex items-center gap-3">
-                    <TrendingUp className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Value Realization</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
-                </Link>
-                <Link
-                  to="/solutions#deployment"
-                  className="flex items-center justify-between gap-3 text-[#5B6B7A] hover:text-[#328CC1] py-2 text-sm group"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <div className="flex items-center gap-3">
-                    <Rocket className="w-4 h-4" strokeWidth={1.5} />
-                    <span>Deployment</span>
-                  </div>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[#328CC1]">→</span>
-                </Link>
+              <div className="mt-4 space-y-1 pl-2 border-l border-bb-line">
+                {solutionsItems.map((item) => {
+                  const Icon = item.Icon;
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.link}
+                      className="flex items-center gap-3 py-2.5 pl-3 text-[14px] text-bb-ink-2 hover:text-bb-accent"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <Icon className="w-4 h-4" strokeWidth={1.5} />
+                      <span>{item.name}</span>
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>
-
-          {/* Research Link */}
-         
 
           {/* Products */}
           <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'products' ? null : 'products')}
-              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
+              className="flex items-center justify-between w-full text-bb-ink text-[17px] font-medium"
             >
               <span>Products</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'products' ? 'rotate-180' : ''}`} />
             </button>
             {mobileSubmenuOpen === 'products' && (
-              <div className="mt-4 pl-4">
-                <span className="text-[#5B6B7A] text-sm">Coming Soon</span>
+              <div className="mt-4 pl-2 border-l border-bb-line">
+                <span className="pl-3 text-bb-ink-3 text-[14px] font-mono">Coming Soon</span>
               </div>
             )}
           </div>
 
-          {/* Solutions */}
-           <Link 
-            to="/research" 
-            className="block text-[#0B1F3B] text-lg font-medium hover:text-[#328CC1]"
+          {/* Research */}
+          <Link
+            to="/research"
+            className="block text-bb-ink text-[17px] font-medium hover:text-bb-accent"
             onClick={() => setMobileMenuOpen(false)}
           >
             Research
@@ -528,18 +351,18 @@ const Header = () => {
           <div>
             <button
               onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === 'company' ? null : 'company')}
-              className="flex items-center justify-between w-full text-[#0B1F3B] text-lg font-medium"
+              className="flex items-center justify-between w-full text-bb-ink text-[17px] font-medium"
             >
               <span>Company</span>
               <ChevronDown className={`w-5 h-5 transition-transform ${mobileSubmenuOpen === 'company' ? 'rotate-180' : ''}`} />
             </button>
             {mobileSubmenuOpen === 'company' && (
-              <div className="mt-4 space-y-2 pl-4">
-                {company.map((item, i) => (
+              <div className="mt-4 space-y-1 pl-2 border-l border-bb-line">
+                {company.map((item) => (
                   <Link
-                    key={i}
+                    key={item.name}
                     to={item.link}
-                    className="block text-[#5B6B7A] hover:text-[#328CC1] py-1 text-sm"
+                    className="block py-2 pl-3 text-[14px] text-bb-ink-2 hover:text-bb-accent"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -549,14 +372,10 @@ const Header = () => {
             )}
           </div>
 
-          {/* Mobile CTA Buttons */}
-          <div className="space-y-3 pt-4 border-t border-[#D6DEC3]">
-            <Link 
-              to="/contact" 
-              className="block w-full px-6 py-3 bg-[#0B1F3B] text-white rounded-md font-medium text-center hover:bg-[#162B4D]"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
+          {/* CTA */}
+          <div className="pt-4 border-t border-bb-line">
+            <Link to="/contact" className="bb-btn-primary w-full justify-center" onClick={() => setMobileMenuOpen(false)}>
+              Contact <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>→</span>
             </Link>
           </div>
         </div>

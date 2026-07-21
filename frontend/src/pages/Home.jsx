@@ -1,151 +1,160 @@
-import React, { useState, useCallback, useEffect,useRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { ArrowRight, ArrowLeft, Plus, Minus, Check, ChevronLeft, ChevronRight, Star, Radio, ShieldCheck, GraduationCap, GitBranch, Code2, Factory, Landmark, HeartPulse, Database, Shield, Layers, Terminal, Network, CheckCircle, TrendingUp, Users, Brain, Zap, Scale, Server, SlidersHorizontal, Lightbulb, FlaskConical, Rocket, Smartphone, Laptop, ShoppingCart, Home as HomeIcon } from 'lucide-react';
+import {
+  ArrowRight, Check, Radio, ShieldCheck, GraduationCap, Code2, Factory, Landmark, HeartPulse,
+  Scale, SlidersHorizontal, TrendingUp, Rocket, ShoppingCart, Home as HomeIcon
+} from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-import useEmblaCarousel from 'embla-carousel-react';
-import NodeConnections2 from './NodeConnections2';
-import NeuralBackground from '../components/NeuralBackground';
 
-// Premium Typing Animation Text Component with Looping Backspace Effect
-const PassionTypingText = () => {
-  const [displayText, setDisplayText] = useState('');
-  const [cursorVisible, setCursorVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
-  const textRef = useRef(null);
-  const animationRef = useRef(null);
-  const blinkRef = useRef(null);
-  
-  const staticText = "";
-  const word = "In Progress...";
-  
-  // Intersection Observer to trigger animation when text is in view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    
-    if (textRef.current) {
-      observer.observe(textRef.current);
-    }
-    
-    return () => {
-      if (textRef.current) {
-        observer.unobserve(textRef.current);
-      }
-    };
-  }, [hasStarted]);
-  
-  // Smooth cursor blink during typing/erasing
-  useEffect(() => {
-    if (!isAnimating) {
-      setCursorVisible(false);
-      return;
-    }
-    
-    // Smooth blinking cursor
-    const blink = () => {
-      setCursorVisible(prev => !prev);
-    };
-    
-    setCursorVisible(true);
-    blinkRef.current = setInterval(blink, 400);
-    
-    return () => {
-      if (blinkRef.current) {
-        clearInterval(blinkRef.current);
-      }
-    };
-  }, [isAnimating]);
-  
-  // Main looping animation - Continuous loop
-  useEffect(() => {
-    if (!hasStarted) return;
-    
-    let isCancelled = false;
-    
-    const delay = (ms) => new Promise(resolve => {
-      animationRef.current = setTimeout(resolve, ms);
-    });
-    
-    const typeWord = async () => {
-      setIsAnimating(true);
-      for (let i = 0; i <= word.length; i++) {
-        if (isCancelled) return;
-        setDisplayText(word.slice(0, i));
-        await delay(70 + Math.random() * 40);
-      }
-    };
-    
-    const backspaceWord = async () => {
-      setIsAnimating(true);
-      for (let i = word.length; i >= 0; i--) {
-        if (isCancelled) return;
-        setDisplayText(word.slice(0, i));
-        await delay(40 + Math.random() * 25);
-      }
-    };
-    
-    const runLoop = async () => {
-      while (!isCancelled) {
-        // Type "In Progress)"
-        await typeWord();
-        
-        // Hold for 2 seconds - hide cursor
-        setIsAnimating(false);
-        await delay(2000);
-        
-        // Backspace "In Progress)"
-        await backspaceWord();
-        
-        // Small pause before looping
-        setIsAnimating(false);
-        await delay(500);
-      }
-    };
-    
-    // Start animation with initial delay
-    const startTimeout = setTimeout(() => {
-      runLoop();
-    }, 300);
-    
-    return () => {
-      isCancelled = true;
-      clearTimeout(startTimeout);
-      if (animationRef.current) {
-        clearTimeout(animationRef.current);
-      }
-      if (blinkRef.current) {
-        clearInterval(blinkRef.current);
-      }
-    };
-  }, [hasStarted]);
-  
+/* ------------------------------------------------------------------
+   HOME — Editorial Redesign
+   Content preserved verbatim from previous Home.jsx:
+   • Hero: "Beyond the Horizon" heading + "Frontier AI Research Lab"
+   • "OUR FRONTIER AI EXPERTISE" section with orbit + industry grid
+   • "By Services" cards (Model Customization / Value Realization / Deployment)
+   • Infrastructure tabs with 7 items and their descriptions/features
+   • Vertical tabs "What we can do for you" (5 tabs)
+   • Work with BluBridge team block
+   • Final CTA "Know more about our Research"
+   ------------------------------------------------------------------ */
+
+/* ==================== HERO — BESPOKE PIPELINE DIAGRAM ==================== */
+const PipelineDiagram = () => {
   return (
-    <div 
-      ref={textRef}
-      className="text-center"
-      data-testid="passion-typing-text"
-      style={{ minHeight: '28px' }}
-    >
-      <p 
-        className="font-signature text-lg text-[#0B1F3B] leading-none"
-        data-testid="passion-heading"
-      >
-        {staticText}{displayText}
-      </p>
+    <div className="relative w-full aspect-[5/6] max-w-[560px] mx-auto" data-testid="hero-pipeline-visual">
+      <svg viewBox="0 0 500 600" className="w-full h-full" aria-hidden="true">
+        {/* Coordinate grid */}
+        <defs>
+          <pattern id="bbgrid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#d4d8e8" strokeWidth="0.5" />
+          </pattern>
+          <linearGradient id="bbFade" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stopColor="#f1f2fa" stopOpacity="1" />
+            <stop offset="0.5" stopColor="#f1f2fa" stopOpacity="0" />
+            <stop offset="1" stopColor="#f1f2fa" stopOpacity="1" />
+          </linearGradient>
+        </defs>
+
+        <rect width="500" height="600" fill="url(#bbgrid)" opacity="0.55" />
+        <rect width="500" height="600" fill="url(#bbFade)" />
+
+        {/* Axis labels */}
+        <text x="12" y="24" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">01 / SYSTEM MAP</text>
+        <text x="488" y="24" textAnchor="end" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">FIG. i</text>
+        <text x="12" y="590" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">TRAINING → INFERENCE</text>
+
+        {/* Vertical spine */}
+        <line x1="250" y1="70" x2="250" y2="540" stroke="#b8bfd6" strokeWidth="1" className="bb-line-draw" style={{ animationDelay: '400ms' }} />
+
+        {/* Nodes */}
+        {[
+          { y: 110, label: 'DATA',            n: '00' },
+          { y: 200, label: 'TOKENIZER',       n: '01' },
+          { y: 290, label: 'PRE-TRAINING',    n: '02' },
+          { y: 380, label: 'POST-TRAINING',   n: '03' },
+          { y: 470, label: 'INFERENCE',       n: '04' },
+        ].map((node, i) => (
+          <g key={node.label} style={{ animation: `bbFadeIn 500ms ease ${600 + i * 180}ms forwards`, opacity: 0 }}>
+            {/* Left extension */}
+            <line x1="90" y1={node.y} x2="240" y2={node.y} stroke="#b8bfd6" strokeWidth="0.8" />
+            {/* Right extension */}
+            <line x1="260" y1={node.y} x2="410" y2={node.y} stroke="#b8bfd6" strokeWidth="0.8" />
+            {/* Central node */}
+            <circle cx="250" cy={node.y} r="6" fill="#f1f2fa" stroke="#0a1230" strokeWidth="1.4" className="bb-pulse-node" style={{ animationDelay: `${i * 400}ms` }} />
+            {/* Left mono index */}
+            <text x="60" y={node.y + 3} fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" textAnchor="end">{node.n}</text>
+            {/* Right label */}
+            <text x="290" y={node.y + 3} fontFamily="IBM Plex Mono" fontSize="10" fill="#0a1230" letterSpacing="1.5">{node.label}</text>
+            {/* Tick marks */}
+            <line x1="248" y1={node.y - 2} x2="252" y2={node.y - 2} stroke="#0a1230" strokeWidth="0.8" />
+            <line x1="248" y1={node.y + 2} x2="252" y2={node.y + 2} stroke="#0a1230" strokeWidth="0.8" />
+          </g>
+        ))}
+
+        {/* Animated data flow lines (side branches) */}
+        <path d="M 90 110 Q 40 200 90 290" fill="none" stroke="#2b4c8c" strokeWidth="0.8" opacity="0.55" className="bb-flow-line" />
+        <path d="M 410 200 Q 460 290 410 380" fill="none" stroke="#2b4c8c" strokeWidth="0.8" opacity="0.55" className="bb-flow-line" />
+        <path d="M 90 380 Q 40 460 90 470" fill="none" stroke="#2b4c8c" strokeWidth="0.8" opacity="0.55" className="bb-flow-line" />
+
+        {/* Corner brackets */}
+        <path d="M 20 40 L 20 20 L 40 20" fill="none" stroke="#0a1230" strokeWidth="1" />
+        <path d="M 480 40 L 480 20 L 460 20" fill="none" stroke="#0a1230" strokeWidth="1" />
+        <path d="M 20 560 L 20 580 L 40 580" fill="none" stroke="#0a1230" strokeWidth="1" />
+        <path d="M 480 560 L 480 580 L 460 580" fill="none" stroke="#0a1230" strokeWidth="1" />
+      </svg>
     </div>
   );
 };
-// Testimonials Carousel Component
-// Mistral-style Vertical Tabs Section
+
+/* ==================== INDUSTRY ORBIT (retained visual) ==================== */
+const AIExpertiseOrbit = () => {
+  const rings = [
+    { key: 1, className: 'orbit-1', radius: '105px' },
+    { key: 2, className: 'orbit-2', radius: '155px' },
+    { key: 3, className: 'orbit-3', radius: '212px' }
+  ];
+  const atoms = [
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 255, Icon: Radio, label: 'Telco' },
+    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35,  Icon: ShieldCheck, label: 'Finance' },
+    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 100, Icon: ShoppingCart, label: 'Oil & Gas' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 325, Icon: GraduationCap, label: 'Education' },
+    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 185, Icon: HeartPulse, label: 'Healthcare' },
+    { ring: 2, type: 'dummy', angle: 250, dummyClass: 'dummy-orange' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 60,  Icon: Scale, label: 'Legal' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 230, Icon: Factory, label: 'Manufacturing' },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: HomeIcon, label: <>Construction <br /> & Infra</> },
+    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 370, Icon: Landmark, label: 'Government' },
+    { ring: 3, type: 'dummy', angle: 30,  dummyClass: 'dummy-blue' },
+    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
+  ];
+  return (
+    <div className="orbit-container relative w-[520px] h-[520px]">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
+        <circle className="track" cx="260" cy="260" r="105" />
+        <circle className="track" cx="260" cy="260" r="155" />
+        <circle className="track" cx="260" cy="260" r="212" />
+      </svg>
+      <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ background: '#dfe6f5' }}>
+        <img width="30px" src="/images/b-center.png" alt="" />
+      </div>
+      {rings.map((ring) => (
+        <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
+          {atoms.filter((a) => a.ring === ring.key).map((a, idx) => {
+            const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
+            if (a.type === 'dummy') {
+              return (
+                <div key={idx} className={`atom dummy ${a.dummyClass}`} style={styleVars} aria-hidden="true">
+                  <div className="atom-anchor"><div className="dummy-dot" /></div>
+                </div>
+              );
+            }
+            const Icon = a.Icon;
+            return (
+              <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
+                <div className="atom-anchor">
+                  <div className="atom-angle-fix">
+                    <div className="atom-spin-fix">
+                      <div className="atom-content">
+                        <div className="atom-icon"><Icon className="atom-icon-svg" strokeWidth={1.5} /></div>
+                        <div className="atom-label">{a.label}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+/* ==================== VERTICAL TABS (content preserved) ==================== */
 const VerticalTabsSection = () => {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -188,54 +197,45 @@ const VerticalTabsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#fffdf7] relative">
-      {/* Grid Background */}
-      <div 
-        className="absolute inset-0 opacity-60"
-        style={{
-          backgroundColor: '#efede5',
-          backgroundImage: 'linear-gradient(to right, #e4dfcf 1px, transparent 1px), linear-gradient( #e4dfcf 1px, transparent 1px)',
-          backgroundSize: '37px 37px'
-        }}
-      />
-      <div className="max-w-5xl mx-auto px-4 relative z-10">
-        {/* Section Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0B1F3B] mb-16">
-          What we can do for you
-        </h2>
-        
-        {/* Two Column Layout */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-          {/* Left Column - Vertical Tabs */}
-          <div className="lg:w-[340px] flex-shrink-0">
-            <div className="border border-[#E5E7EB] rounded-lg overflow-hidden">
+    <section style={{ background: '#eceefa' }} className="py-24 relative border-y border-bb-line" data-testid="vertical-tabs">
+      <div className="bb-container">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <p className="bb-eyebrow mb-4">/ 05 &nbsp;·&nbsp; Capabilities</p>
+            <h2 className="bb-h2" style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}>
+              What we can do for you
+            </h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-5">
+            <div className="border border-bb-line rounded-md overflow-hidden bg-white">
               {tabs.map((tab, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveTab(index)}
-                  className={`w-full text-left px-6 py-5 flex items-center justify-between border-b border-[#E5E7EB] last:border-b-0 transition-all duration-200 ${
-                    activeTab === index 
-                      ? 'bg-[#0B1F3B] text-white' 
-                      : 'bg-[#fffdf7] text-[#1A1A1A] hover:bg-gray-50'
+                  className={`w-full text-left px-6 py-5 flex items-center justify-between border-b border-bb-line last:border-b-0 transition-all duration-200 ${
+                    activeTab === index ? 'bg-bb-ink text-white' : 'bg-white text-bb-ink hover:bg-bb-bg-subtle'
                   }`}
                   data-testid={`vertical-tab-${index}`}
                 >
-                  <span className="font-medium text-base">{tab.title}</span>
-                  {activeTab === index && (
-                    <ArrowRight className="w-5 h-5 text-[#FF6B35]" />
-                  )}
+                  <span className="flex items-center gap-4">
+                    <span className={`font-mono text-[11px] ${activeTab === index ? 'text-white/60' : 'text-bb-ink-3'}`}>
+                      /{String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-[15px] font-medium" style={{ fontFamily: 'Geist, sans-serif' }}>{tab.title}</span>
+                  </span>
+                  {activeTab === index && <ArrowRight className="w-4 h-4" />}
                 </button>
               ))}
             </div>
           </div>
-          
-          {/* Right Column - Content Panel */}
-          <div className="flex-1 flex items-start" data-testid="vertical-tab-content">
-            <div className="min-h-[200px]">
-              {/* <h3 className="text-2xl md:text-3xl font-medium text-[#0B1F3B] mb-6 leading-snug">
-                {tabs[activeTab].content.heading}
-              </h3> */}
-              <p className="text-[#4B5563] text-lg leading-relaxed mt-24">
+
+          <div className="lg:col-span-7">
+            <div className="p-2 lg:p-8" data-testid="vertical-tab-content">
+              <p className="bb-caption mb-4">/ selected</p>
+              <p className="text-bb-ink text-[19px] leading-[1.65]" style={{ fontFamily: 'Inter, sans-serif' }}>
                 {tabs[activeTab].content.description}
               </p>
             </div>
@@ -246,643 +246,130 @@ const VerticalTabsSection = () => {
   );
 };
 
-const AIExpertiseOrbit = () => {
-  const rings = [
-    { key: 1, className: 'orbit-1', radius: '105px' },
-    { key: 2, className: 'orbit-2', radius: '155px' },
-    { key: 3, className: 'orbit-3', radius: '212px' }
-  ];
-
-  const atoms = [
-    // INNER ring: 2 features + 1 dummy
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 255, Icon: Radio, label: 'Telco' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35, Icon: ShieldCheck, label: 'Finance' },
-    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
-
-    // MIDDLE ring: 2 features + 1 dummy
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 100, Icon: ShoppingCart, label: 'Oil & Gas' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 325, Icon: GraduationCap, label: 'Education' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 185, Icon: HeartPulse, label: 'Healthcare' },
-    { ring: 2, type: 'dummy', angle: 250, dummyClass: 'dummy-orange' },
-
-    // OUTER ring: 4 features + 2 dummies
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 60, Icon: Scale, label: 'Legal' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 230, Icon: Factory, label: 'Manufacturing' },
-     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: HomeIcon, label: <>Construction <br /> & Infra</> },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 370, Icon: Landmark, label: 'Government' },
-    { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
-    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
-  ];
-
-  return (
-    <div className="orbit-container relative w-[520px] h-[520px]">
-      {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
-        <circle className="track" cx="260" cy="260" r="105" />
-        <circle className="track" cx="260" cy="260" r="155" />
-        <circle className="track" cx="260" cy="260" r="212" />
-      </svg>
-
-      {/* Center badge */}
-      <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#DBD6C4]">
-        <span className="text-white text-xs font-medium text-center leading-tight">
-        <img width="30px" src="/images/b-center.png"/>
-        </span>
-      </div>
-
-      {/* Rings + atoms */}
-      {rings.map((ring) => (
-        <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
-          {atoms
-            .filter((a) => a.ring === ring.key)
-            .map((a, idx) => {
-              const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
-
-              if (a.type === 'dummy') {
-                return (
-                  <div
-                    key={idx}
-                    className={`atom dummy ${a.dummyClass}`}
-                    style={styleVars}
-                    aria-hidden="true"
-                  >
-                    <div className="atom-anchor">
-                      <div className="dummy-dot" />
-                    </div>
-                  </div>
-                );
-              }
-
-              const Icon = a.Icon;
-              return (
-                <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
-                  <div className="atom-anchor">
-                    <div className="atom-angle-fix">
-                      {/* This inner node counter-rotates via CSS so labels stay upright */}
-                      <div className="atom-spin-fix">
-                        <div className="atom-content">
-                          <div className="atom-icon">
-                            <Icon className="atom-icon-svg" strokeWidth={1.5} />
-                          </div>
-                          <div className="atom-label">{a.label}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-        </div>
-      ))}
-    </div>
-  );
-};
-
-// const AIExpertiseOrbit = () => {
-//   const rings = [
-//     { key: 1, className: 'orbit-1', radius: '105px' },
-//     { key: 2, className: 'orbit-2', radius: '155px' },
-//     { key: 3, className: 'orbit-3', radius: '212px' }
-//   ];
-
-//   const atoms = [
-//     // INNER ring: Data (9 o'clock position)
-//     { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 180, Icon: Database, label: 'Data' },
-//     { ring: 1, type: 'dummy', angle: 0, dummyClass: 'dummy-blue' },
-
-//     // MIDDLE ring: Distributed Training, CGAD, Compiler
-//     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 315, Icon: Network, label: 'Distributed Training' },
-//     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 135, Icon: GitBranch, label: 'CGAD' },
-//     { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 210, Icon: Terminal, label: 'Compiler' },
-//     { ring: 2, type: 'dummy', angle: 45, dummyClass: 'dummy-orange' },
-
-//     // OUTER ring: Tokenizer, Tensor & Operations
-//     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 240, Icon: CheckCircle, label: 'Tokenizer' },
-//     { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: Layers, label: 'Tensor & Operations' },
-//     { ring: 3, type: 'dummy', angle: 30, dummyClass: 'dummy-blue' },
-//     { ring: 3, type: 'dummy', angle: 120, dummyClass: 'dummy-orange' }
-//   ];
-
-//   return (
-//     <div className="orbit-container relative w-[520px] h-[520px]">
-//       {/* SVG tracks (must match 520x520 viewBox to avoid drift) */}
-//       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
-//         <circle className="track" cx="260" cy="260" r="105" />
-//         <circle className="track" cx="260" cy="260" r="155" />
-//         <circle className="track" cx="260" cy="260" r="212" />
-//       </svg>
-
-//       {/* Center badge */}
-//       <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#DBD6C4]">
-//         <span className="text-white text-xs font-medium text-center leading-tight">
-//         <img width="30px" src="/images/b-center.png"/>
-//         </span>
-//       </div>
-
-//       {/* Rings + atoms */}
-//       {rings.map((ring) => (
-//         <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
-//           {atoms
-//             .filter((a) => a.ring === ring.key)
-//             .map((a, idx) => {
-//               const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
-
-//               if (a.type === 'dummy') {
-//                 return (
-//                   <div
-//                     key={idx}
-//                     className={`atom dummy ${a.dummyClass}`}
-//                     style={styleVars}
-//                     aria-hidden="true"
-//                   >
-//                     <div className="atom-anchor">
-//                       <div className="dummy-dot" />
-//                     </div>
-//                   </div>
-//                 );
-//               }
-
-//               const Icon = a.Icon;
-//               return (
-//                 <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
-//                   <div className="atom-anchor">
-//                     <div className="atom-angle-fix">
-//                       {/* This inner node counter-rotates via CSS so labels stay upright */}
-//                       <div className="atom-spin-fix">
-//                         <div className="atom-content">
-//                           <div className="atom-icon">
-//                             <Icon className="atom-icon-svg" strokeWidth={1.5} />
-//                           </div>
-//                           <div className="atom-label">{a.label}</div>
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               );
-//             })}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
+/* ==================== HOME PAGE ==================== */
 const Home = () => {
-   const [openFaq, setOpenFaq] = useState(null);
   const [activeInfraTab, setActiveInfraTab] = useState(0);
-  const [expandedAboutCards, setExpandedAboutCards] = useState({
-    whoWeAre: false,
-    whatWeAim: false
-  });
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  // Redirect hash links to appropriate pages
-  useEffect(() => {
-    if (location.hash === '#join-our-team') {
-      window.location.href = 'https://blubridge.com/careers#join-our-team';
-    }
-  }, [location]);
-
-  const toggleAboutCard = (cardId) => {
-    setExpandedAboutCards(prev => ({
-      ...prev,
-      [cardId]: !prev[cardId]
-    }));
-  };
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const newsItems = [
-    {
-      date: "01 June, 2025",
-      title: "BluBridge Closes Oversubscribed $500M Series B to Scale AI Infrastructure",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80"
-    },
-    {
-      date: "21 May, 2025",
-      title: "BluBridge Expands European Operations with New Data Center in Norway",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80"
-    },
-    {
-      date: "15 May, 2025",
-      title: "BluBridge Named NVIDIA Inception Partner for AI Cloud Infrastructure",
-      image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&q=80"
-    }
-  ];
 
   const infraTabs = [
-    {
-      name: "Data",
-      title: "Data",
-      description: "We help you design & build custom datasets for your bespoke requirement.",
-      features: ["Efficient Data Pipeline", "Multimodal & Multilinguistic Dataset", "Synthetic data generation", "Domain Specific Dataset curation"],
-      link : '/research'
-    },
-    {
-      name: "Pre-training",
-      title: "Pre-training",
-      description: "We are building a series of pre-trained models uniquely suited for different work loads.",
-      features: ["Natural Language Processing", "Speech Recognition & Generation", "Sequence Models & Visual Models", "Recommender Systems"],
-      link : '/research'
-    },
-    {
-      name: "Mid-training",
-      title: "Mid-training",
-      description: "A custom mid-training for domain specific requirement.",
-      features: ["Curriculum-based refinement", "Domain-specific mid-training", "Stability and bias control", "Performance shaping"],
-      link : '/research'
-    },
-    {
-      name: "Post-training",
-      title: "Post-training",
-      description: "Enhanced model readiness through targeted refinement, evaluation, and optimization for real-world performance.",
-      features: ["Fine-tuning for accuracy", "Safety and quality checks", "Inference optimization", "Production readiness"],
-      link : '/research'
-    },
-    {
-      name: "Agent Build",
-      title: "Agent Build",
-      description: "Design intelligent agents that reason, act, and adapt across real workflows, turning models into autonomous systems.",
-      features: ["Task-aware agent design", "Tool and API integration", "Multi-step reasoning flows", "Production-grade orchestration"],
-      link : '/research'
-    },
-    {
-      name: "Inference Optimization",
-      title: "Inference Optimization",
-      description: "Optimizing models for fast, reliable, and cost-efficient execution in real-world environments.",
-      features: ["Low-latency execution", "Memory-efficient serving", "Hardware-level tuning", "Scalable inference pipelines"],
-      link : '/research'
-    },
-    {
-      name: "Infrastructure Scaling",
-      title: "Infrastructure Scaling",
-      description: "Expanding AI systems seamlessly, ensuring performance is remaining consistent as demand and complexity grow.",
-      features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"],
-      link : '/research'
-    }
-  ];
-
-  const useCases = [
-    {
-      title: "TRAINING",
-      metrics: [{ value: "80%", label: "Lower Cost" }, { value: "30%", label: "Faster" }],
-      gradient: "from-purple-800/60 via-violet-900/50 to-indigo-900/60",
-      link: "/solutions/training"
-    },
-    {
-      title: "INFERENCE",
-      metrics: [{ value: "7.2X", label: "Performance" }, { value: "+40%", label: "Efficiency" }],
-      gradient: "from-slate-800/60 via-gray-900/50 to-zinc-900/60",
-      link: "/solutions/inference"
-    },
-    {
-      title: "FINE-TUNING",
-      metrics: [{ value: "+40%", label: "Efficiency" }, { value: "30%", label: "Faster" }],
-      gradient: "from-emerald-800/60 via-teal-900/50 to-green-900/60",
-      link: "/solutions/fine-tuning"
-    },
-    {
-      title: "AI DEVELOPMENT",
-      metrics: [{ value: "80%", label: "Lower Cost" }, { value: "30%", label: "Faster" }],
-      gradient: "from-amber-800/60 via-orange-900/50 to-yellow-900/60",
-      link: "/solutions/ai-development"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "What makes BluBridge different from other cloud providers?",
-      answer: "BluBridge is purpose-built for AI from the ground up. Unlike general-purpose cloud providers, our infrastructure is optimized specifically for AI workloads with latest NVIDIA GPUs, high-bandwidth networking, and 100% renewable energy. We offer up to 80% cost savings and zero rate limits."
-    },
-    {
-      question: "What GPU options are available?",
-      answer: "We offer the latest NVIDIA GPUs including H100, H200, and the new GB200 NVL72 Blackwell architecture. All GPUs are available on-demand with bare-metal performance and can scale from single GPUs to thousands of nodes."
-    },
-    {
-      question: "How does BluBridge ensure sustainability?",
-      answer: "All our data centers are powered by 100% renewable hydroelectric energy in Norway. Our Arctic location provides natural cooling advantages, significantly reducing our environmental footprint compared to traditional data centers."
-    },
-    {
-      question: "What support is available for enterprise customers?",
-      answer: "Enterprise customers receive dedicated support including 24/7 technical assistance, dedicated account management, custom SLAs, and access to our AI solutions architects for architecture review and optimization."
-    },
-    {
-      question: "Can I try BluBridge before committing?",
-      answer: "Yes! We offer free trials and proof-of-concept deployments. Contact our sales team to discuss your specific requirements and get started with a customized evaluation plan."
-    }
+    { name: "Data",                     title: "Data",                     description: "We help you design & build custom datasets for your bespoke requirement.", features: ["Efficient Data Pipeline", "Multimodal & Multilinguistic Dataset", "Synthetic data generation", "Domain Specific Dataset curation"], link: '/research' },
+    { name: "Pre-training",             title: "Pre-training",             description: "We are building a series of pre-trained models uniquely suited for different work loads.", features: ["Natural Language Processing", "Speech Recognition & Generation", "Sequence Models & Visual Models", "Recommender Systems"], link: '/research' },
+    { name: "Mid-training",             title: "Mid-training",             description: "A custom mid-training for domain specific requirement.", features: ["Curriculum-based refinement", "Domain-specific mid-training", "Stability and bias control", "Performance shaping"], link: '/research' },
+    { name: "Post-training",            title: "Post-training",            description: "Enhanced model readiness through targeted refinement, evaluation, and optimization for real-world performance.", features: ["Fine-tuning for accuracy", "Safety and quality checks", "Inference optimization", "Production readiness"], link: '/research' },
+    { name: "Agent Build",              title: "Agent Build",              description: "Design intelligent agents that reason, act, and adapt across real workflows, turning models into autonomous systems.", features: ["Task-aware agent design", "Tool and API integration", "Multi-step reasoning flows", "Production-grade orchestration"], link: '/research' },
+    { name: "Inference Optimization",   title: "Inference Optimization",   description: "Optimizing models for fast, reliable, and cost-efficient execution in real-world environments.", features: ["Low-latency execution", "Memory-efficient serving", "Hardware-level tuning", "Scalable inference pipelines"], link: '/research' },
+    { name: "Infrastructure Scaling",   title: "Infrastructure Scaling",   description: "Expanding AI systems seamlessly, ensuring performance is remaining consistent as demand and complexity grow.", features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"], link: '/research' }
   ];
 
   useDocumentTitle('Frontier AI Research and Enterprise Solutions | Blubridge');
   useMetaDescription('Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.');
 
   return (
-    <div className="min-h-screen bg-[#fffdf7] text-[#0B1F3B] font-['DM_Sans']">
-      {/* Hero Section - Neural Network Background */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-neural-section" data-testid="hero-section" style={{ zIndex: 100 }}>
-        {/* LAYER 0: Neural Network Animation Background */}
-        <NeuralBackground />
-        
-        {/* Luxury letter-by-letter zoom animation - no blur, slow & refined, no layout shift */}
-        <style>{`
-          @keyframes heroLetterZoom {
-            0% {
-              opacity: 0;
-              transform: scale(1);
-            }
-            20% {
-              opacity: 1;
-              transform: scale(1.22);
-            }
-            100% {
-              opacity: 1;
-              transform: scale(1);
-            }
-          }
-          
-          .hero-letter {
-            display: inline-block;
-            opacity: 0;
-            transform-origin: center bottom;
-            animation: heroLetterZoom 0.9s cubic-bezier(0.33, 1, 0.68, 1) forwards;
-            animation-iteration-count: 1;
-          }
-          
-          .hero-space {
-            display: inline-block;
-            width: 0.3em;
-          }
-          
-          /* Collapsed-to-Rejoin animation for subheading */
-          @keyframes subheadingExpand {
-            0% {
-              opacity: 0;
-              letter-spacing: -0.4em;
-              transform: scaleX(0.7);
-            }
-            30% {
-              opacity: 1;
-            }
-            100% {
-              opacity: 1;
-              letter-spacing: 0.02em;
-              transform: scaleX(1);
-            }
-          }
-          
-          .hero-subheading {
-            opacity: 0;
-            display: inline-block;
-            animation: subheadingExpand 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-            animation-delay: 2.2s;
-            animation-iteration-count: 1;
-          }
-        `}</style>
-        
-        {/* LAYER 1: Content (Always on top) */}
-        <div className="container-custom relative my-24 z-10 flex items-center justify-center w-full px-4">
-          <div className="space-y-6 text-center">
-            <h1 className="leading-[1.08] tracking-tight text-[#0b1f3a] flex items-baseline justify-center flex-wrap" style={{ fontSize: 'clamp(2rem, 8vw, 4.5rem)', fontWeight: '260', letterSpacing:'3px' }}>
-              {/* "Beyond the Horizon" - Letter by letter zoom animation */}
-              <span className="hero-letter" style={{ animationDelay: '0ms' }}>
-                <img 
-                  src="/images/hero-b.png" 
-                  alt="B" 
-                  className="hero-b-image"
-                  style={{ 
-                  position:'relative',
-                    width: 'auto', 
-                    maxHeight: 'clamp(40px, 10vw, 72px)',
-                    display: 'inline-block',
-                    verticalAlign: 'baseline',
-                    marginRight: '0em',
-                    top:'6px'
-                  }} 
-                />
-              </span>
-              <span className="hero-letter" style={{ animationDelay: '120ms' }}>e</span>
-              <span className="hero-letter" style={{ animationDelay: '240ms' }}>y</span>
-              <span className="hero-letter" style={{ animationDelay: '360ms' }}>o</span>
-              <span className="hero-letter" style={{ animationDelay: '480ms' }}>n</span>
-              <span className="hero-letter" style={{ animationDelay: '600ms' }}>d</span>
-              <span className="hero-space"></span>
-              <span className="hero-letter" style={{ animationDelay: '780ms' }}>t</span>
-              <span className="hero-letter" style={{ animationDelay: '900ms' }}>h</span>
-              <span className="hero-letter" style={{ animationDelay: '1020ms' }}>e</span>
-              <span className="hero-space"></span>
-              <span className="hero-letter" style={{ animationDelay: '1200ms' }}>H</span>
-              <span className="hero-letter" style={{ animationDelay: '1320ms' }}>o</span>
-              <span className="hero-letter" style={{ animationDelay: '1440ms' }}>r</span>
-              <span className="hero-letter" style={{ animationDelay: '1560ms' }}>i</span>
-              <span className="hero-letter" style={{ animationDelay: '1680ms' }}>z</span>
-              <span className="hero-letter" style={{ animationDelay: '1800ms' }}>o</span>
-              <span className="hero-letter" style={{ animationDelay: '1920ms' }}>n</span>
-            </h1>
-            <p className="text-[#0B1F3B]/80 font-light leading-relaxed mx-auto px-4" style={{ fontSize: 'clamp(1rem, 4vw, 1.5rem)' }}>
-              <span className="hero-subheading">Frontier AI Research Lab</span>
-            </p>
+    <div style={{ background: '#f1f2fa' }} className="min-h-screen text-bb-ink" data-testid="home-page">
+
+      {/* ============================================================
+          HERO — Editorial asymmetric split with SVG pipeline diagram
+          ============================================================ */}
+      <section className="relative overflow-hidden" data-testid="hero-section" style={{ paddingTop: '48px', paddingBottom: '96px' }}>
+        {/* Faint diagonal grid backdrop */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, rgba(10,18,48,0.04) 1px, transparent 1px), linear-gradient(rgba(10,18,48,0.04) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+            maskImage: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)',
+          }}
+        />
+
+        <div className="bb-container relative">
+          {/* Top meta bar */}
+          <div className="flex items-center justify-between pb-10 border-b border-bb-line bb-reveal">
+            <span className="bb-eyebrow">Blubridge / Independent AI Research Lab</span>
+            <span className="bb-caption hidden sm:block">EST. 2024 · CHENNAI · PRINCETON</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-16 lg:pt-20 items-start">
+            {/* LEFT — editorial copy (asymmetric 7 cols) */}
+            <div className="lg:col-span-7 lg:pr-6">
+              <p className="bb-eyebrow mb-6 bb-reveal bb-reveal-1">/ 00 &nbsp;·&nbsp; Frontier AI</p>
+
+              <h1
+                className="bb-display bb-reveal bb-reveal-2"
+                style={{ fontSize: 'clamp(48px, 8vw, 118px)', lineHeight: 0.95 }}
+                data-testid="hero-heading"
+              >
+                <span className="block">Beyond</span>
+                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>the Horizon</span>
+              </h1>
+
+              <div className="mt-10 max-w-[520px] bb-reveal bb-reveal-3">
+                <p
+                  data-testid="hero-subtitle"
+                  className="text-[19px] leading-[1.6] text-bb-ink"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  Frontier AI Research Lab
+                </p>
+              </div>
+
+              <div className="mt-12 flex flex-wrap items-center gap-4 bb-reveal bb-reveal-4">
+                <Link to="/research" className="bb-btn-primary" data-testid="hero-research-cta">
+                  Explore Research <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+                </Link>
+                <Link to="/contact" className="bb-btn-ghost" data-testid="hero-contact-cta">
+                  Talk to us
+                </Link>
+              </div>
+
+              {/* Data strip (uses existing labels only) */}
+              <dl className="mt-16 grid grid-cols-3 border-t border-bb-line pt-6 bb-reveal bb-reveal-4">
+                {[
+                  { k: 'MODE',   v: 'Research' },
+                  { k: 'FOCUS',  v: 'Frontier AI' },
+                  { k: 'STATE',  v: 'In Progress' },
+                ].map((item) => (
+                  <div key={item.k}>
+                    <dt className="bb-caption">{item.k}</dt>
+                    <dd className="text-[15px] mt-1 text-bb-ink" style={{ fontFamily: 'Geist, sans-serif' }}>{item.v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            {/* RIGHT — bespoke pipeline diagram (5 cols) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end bb-reveal bb-reveal-3">
+              <PipelineDiagram />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 360° Rotating Circular Expertise Section - Below Hero */}
-    
-        
-        <style>{`
-          .rotating-expertise-ring {
-            animation: rotateExpertiseRing 50s linear infinite;
-          }
-          
-          @keyframes rotateExpertiseRing {
-            from {
-              transform: rotate(0deg);
-            }
-            to {
-              transform: rotate(360deg);
-            }
-          }
-          
-          /* Counter-rotate labels to keep them upright */
-          .rotating-expertise-label {
-            animation: counterRotateLabel 50s linear infinite;
-          }
-          
-          @keyframes counterRotateLabel {
-            from {
-              transform: translate(-50%, -50%) rotate(0deg);
-            }
-            to {
-              transform: translate(-50%, -50%) rotate(-360deg);
-            }
-          }
-        `}</style>
-     
-      {/* Who We Are & What We Aim To Do Section - NEW */}
-{/* Who We Are & What We Aim To Do Section - Interactive Collapsible */}
-      {/* <section className="py-20 bg-[#fffdf7]">
-        <div className="mx-auto px-6" style={{ maxWidth: '1261px' }}>
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-          
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
-              data-testid="who-we-are-card"
-            >
-              
-              <button
-                onClick={() => toggleAboutCard('whoWeAre')}
-                className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
-                data-testid="who-we-are-trigger"
-              >
-                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
-                  <span className="relative">
-                    Who We Are?
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
-                  </span>
-                  <span 
-                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
-                      expandedAboutCards.whoWeAre ? 'rotate-180' : ''
-                    }`}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </span>
-                </h3>
-              </button>
-              
-              
-              <div 
-                className={`overflow-hidden transition-all duration-400 ease-out ${
-                  expandedAboutCards.whoWeAre 
-                    ? 'min-h-[200px] opacity-100' 
-                    : 'max-h-0 opacity-0'
-                }`}
-                data-testid="who-we-are-content"
-              >
-                <div className="px-12 pb-12 transform transition-all duration-400">
-                  <p className="text-[#4b5563] leading-relaxed text-base">
-                    BluBridge is an early-stage AI research company focused on advancing probabilistic and predictive modeling—building next-generation Artificial Intelligence from the ground up. We are assembling a team of passionate, driven researchers and engineers committed to pushing the boundaries of machine learning.
-                  </p>
-                </div>
-              </div>
+      {/* ============================================================
+          SECTION 01 — OUR FRONTIER AI EXPERTISE + BY INDUSTRY
+          ============================================================ */}
+      <section className="relative pt-24 pb-20" style={{ background: '#e8eaf3' }}>
+        <div className="bb-container">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <p className="bb-eyebrow mb-4">/ 01 &nbsp;·&nbsp; Expertise</p>
+              <h2 className="bb-h2 capitalize" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
+                Our Frontier AI Expertise
+              </h2>
             </div>
-            
-           
-            <div 
-              className="bg-[#f3f1e9] rounded-2xl shadow-sm border overflow-hidden transition-all duration-400"
-              data-testid="what-we-aim-card"
-            >
-             
-              <button
-                onClick={() => toggleAboutCard('whatWeAim')}
-                className="w-full p-12 text-left cursor-pointer group transition-all duration-300 hover:bg-[#eae8e0]"
-                data-testid="what-we-aim-trigger"
-              >
-                <h3 className="text-2xl text-[#0f172a] font-['Inter'] flex items-center justify-between group-hover:text-[#0b1f3b] transition-colors duration-300">
-                  <span className="relative">
-                    What We Aim to Do?
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0b1f3b] group-hover:w-full transition-all duration-300"></span>
-                  </span>
-                  <span 
-                    className={`transform transition-transform duration-300 text-[#6b7280] group-hover:text-[#1e40af] ${
-                      expandedAboutCards.whatWeAim ? 'rotate-180' : ''
-                    }`}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </span>
-                </h3>
-              </button>
-              
-              
-              <div 
-                className={`overflow-hidden transition-all duration-400 ease-out ${
-                  expandedAboutCards.whatWeAim 
-                    ? 'min-h-[204px] opacity-100' 
-                    : 'max-h-0 opacity-0'
-                }`}
-                data-testid="what-we-aim-content"
-              >
-                <div className="px-12 pb-12 transform transition-all duration-400">
-                  <p className="text-[#4b5563] leading-relaxed text-base">
-                    Our immediate goal is to develop a state-of-the-art 70-billion-parameter (dense) Large Language Model, establishing a strong foundation for future innovations in AI systems, its applications, and research.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p className="max-w-md text-bb-ink-2 text-[15px]">
+              <span className="font-mono text-bb-ink-3 text-[12px]">// STATUS </span> In Progress...
+            </p>
           </div>
-        </div>
-      </section> */}
 
-      {/* News/Updates Strip (commented out)
-        <section className="py-12 bg-[#fffdf7] border-t border-[#D6DEC3]">
-        <div className="container-custom">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-lg font-medium text-[#0B1F3B]">Latest News</h3>
-            <div className="flex gap-2">
-              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
-                <ChevronLeft className="w-5 h-5 text-[#0B1F3B]" />
-              </button>
-              <button className="w-10 h-10 rounded-full border border-[#D6DEC3] flex items-center justify-center hover:bg-[#f3f1e9] transition-colors">
-                <ChevronRight className="w-5 h-5 text-[#0B1F3B]" />
-              </button>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-6 relative flex items-center justify-center overflow-hidden">
+              <AIExpertiseOrbit />
             </div>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {newsItems.map((item, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="aspect-video rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <p className="text-sm text-[#5B6B7A] mb-2">{item.date}</p>
-                <h4 className="text-[#0B1F3B] font-medium group-hover:text-[#328CC1] transition-colors">{item.title}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-     
-       
-      
-      {/* Our AI Expertise Section - Section 2 (EVEN) */}
-      <section 
-        className="pt-20 pb-0 relative"
-        style={{
-          backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {/* Light overlay for readability */}
-       
-        
-        <div className="container-custom relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 capitalize" style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 55, 132, 1) 53%, rgba(0, 55, 132, 1) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>OUR FRONTIER AI EXPERTISE</h2>
-            {/*<p className="font-signature text-lg text-[#0B1F3B] leading-none">(In Progress)</p>*/}
-            <div className="font-sans text-lg text-[#0B1F3B] leading-none" style={{ minHeight: '28px' }}><PassionTypingText /></div>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-              
-            {/* Left - Circular Diagram */}
-            <div className="relative flex items-center justify-center overflow-hidden">
-              <AIExpertiseOrbit />    
-            </div>
-            
-            {/* Right - AI Expertise Grid (8 tabs) */}
-            <div className="px-4 lg:px-0">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B] mb-8 text-center lg:relative lg:top-[-40px]">By Industry</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:relative lg:top-[-10px]">
+
+            <div className="lg:col-span-6">
+              <p className="bb-eyebrow mb-6">By Industry</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
                   { icon: Radio, title: "Telco" },
                   { icon: ShieldCheck, title: "Finance & Insurance" },
@@ -894,625 +381,244 @@ const Home = () => {
                   { icon: HeartPulse, title: "Healthcare" },
                   { icon: ShoppingCart, title: "Oil & Gas" },
                   { icon: HomeIcon, title: "Construction & Infra" }
-                 ].map((service, index) => {
+                ].map((service, index) => {
                   const IconComponent = service.icon;
                   return (
-                  <div 
-                    key={index}
-                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-[#E8E4D9] shadow-sm"
-                    data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    <div
+                      key={index}
+                      className="group flex items-center gap-3 p-4 bg-white border border-bb-line rounded-md hover:border-bb-line-strong hover:bg-bb-bg-subtle transition-colors"
+                      data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
-                    <IconComponent className="w-6 h-6 text-[#328CC1]" strokeWidth={1.5} />
-                    <span className="text-[#0B1F3B] font-medium text-sm">{service.title}</span>
-                  </div>
-                )})}
+                      <span className="font-mono text-[11px] text-bb-ink-3 group-hover:text-bb-accent transition-colors">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <IconComponent className="w-4 h-4 text-bb-accent" strokeWidth={1.5} />
+                      <span className="text-bb-ink text-[14px]" style={{ fontFamily: 'Inter, sans-serif' }}>{service.title}</span>
+                    </div>
+                  );
+                })}
               </div>
-              {/* <p className="text-center text-black text-2xl mt-1 font-bold text-[#1180c1]">&amp; More</p> */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Solutions Section - Premium Animated Hexagonal Design */}
-      <section 
-        className="pt-5 pb-20 relative overflow-hidden"
-        style={{
-          backgroundImage: `url('https://customer-assets.emergentagent.com/job_1fd7472a-340f-4005-9a67-9f0abccc7eec/artifacts/bqgzgesb_bg.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        
-        
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
-          {/* Floating gradient orbs */}
-          <div 
-            className="absolute w-96 h-96 rounded-full opacity-[0.04] blur-3xl"
-            style={{ 
-              background: 'radial-gradient(circle, #0B1F3B 0%, transparent 70%)',
-              top: '10%',
-              left: '-10%',
-              animation: 'floatOrb1 20s ease-in-out infinite'
-            }}
-          />
-          <div 
-            className="absolute w-80 h-80 rounded-full opacity-[0.03] blur-3xl"
-            style={{ 
-              background: 'radial-gradient(circle, #328CC1 0%, transparent 70%)',
-              bottom: '5%',
-              right: '-5%',
-              animation: 'floatOrb2 25s ease-in-out infinite'
-            }}
-          />
-          {/* Subtle grid pattern */}
-          <div 
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: 'radial-gradient(circle at 1px 1px, #0B1F3B 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }}
-          />
-        </div>
-        
-        {/* Animation Keyframes */}
-        <style>{`
-          @keyframes floatOrb1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, 30px) scale(1.1); }
-          }
-          @keyframes floatOrb2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-40px, -20px) scale(1.05); }
-          }
-          @keyframes solutionCardFloat1 {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-          }
-          @keyframes solutionCardFloat2 {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-          }
-          @keyframes solutionCardFloat3 {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-14px); }
-          }
-          @keyframes pulseRing {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.05); opacity: 0.5; }
-          }
-          @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-          }
-          @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-          }
-        `}</style>
-
-        <div className="container-custom relative z-10">
-          {/* Section Header with Decorative Line */}
-          <div className="text-center mb-10">
-            {/* <div className="inline-flex items-center gap-4 mb-6">
-              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#0B1F3B]/30" />
-              <span className="text-[#6B7280] text-sm font-medium uppercase tracking-widest">Our Capabilities</span>
-              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#0B1F3B]/30" />
-            </div> */}
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F3B]" >
+      {/* ============================================================
+          SECTION 02 — BY SERVICES (Model Customization / Value Realization / Deployment)
+          Editorial 3-row layout with technical annotations
+          ============================================================ */}
+      <section className="py-24 relative" style={{ background: '#f1f2fa' }}>
+        <div className="bb-container">
+          <div className="mb-16">
+            <p className="bb-eyebrow mb-4">/ 02 &nbsp;·&nbsp; Services</p>
+            <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
               By Services
             </h2>
           </div>
-          
-          {/* Premium 3-Column Animated Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            
-            {/* Card 1: Model Customization - Floating Animation 1 */}
-            <Link to="/solutions#model-customization" className="group block" style={{ animation: 'solutionCardFloat1 6s ease-in-out infinite' }}>
-              <div 
-                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
-                data-testid="solution-model-customization"
-              >
-                {/* Decorative Corner Accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
-                  <div 
-                    className="absolute -top-12 -right-12 w-24 h-24"
-                  />
-                </div>
-                
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
-                  Model Customization
-                </h3>
-                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-                 Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.
-                </p>
-                
-                {/* Learn More Link */}
-                <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </div>
-            </Link>
 
-            {/* Card 2: Value Realization - Floating Animation 2 */}
-            <Link to="/solutions#value-realization" className="group block" style={{ animation: 'solutionCardFloat2 7s ease-in-out infinite' }}>
-              <div 
-                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
-                data-testid="solution-value-realization"
+          <div className="space-y-0 border-t border-bb-line">
+            {[
+              {
+                num: '01',
+                title: 'Model Customization',
+                link: '/solutions#model-customization',
+                body: 'Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.',
+                testid: 'solution-model-customization'
+              },
+              {
+                num: '02',
+                title: 'Value Realization',
+                link: '/solutions#value-realization',
+                body: 'From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.',
+                testid: 'solution-value-realization'
+              },
+              {
+                num: '03',
+                title: 'Deployment',
+                link: '/solutions#deployment',
+                body: 'Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.',
+                testid: 'solution-deployment'
+              }
+            ].map((s) => (
+              <Link
+                key={s.num}
+                to={s.link}
+                data-testid={s.testid}
+                className="group block border-b border-bb-line py-10 lg:py-14 hover:bg-white transition-colors"
               >
-                {/* Decorative Corner Accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
-                  <div 
-                    className="absolute -top-12 -right-12 w-24 h-24"
-                  />
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+                  <div className="lg:col-span-1">
+                    <span className="bb-caption">/ {s.num}</span>
+                  </div>
+                  <div className="lg:col-span-5">
+                    <h3
+                      className="text-bb-ink"
+                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(28px, 3.6vw, 44px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.05 }}
+                    >
+                      {s.title}
+                    </h3>
+                  </div>
+                  <div className="lg:col-span-5">
+                    <p className="text-bb-ink-2 text-[16px] leading-[1.7]">{s.body}</p>
+                  </div>
+                  <div className="lg:col-span-1 flex lg:justify-end items-center">
+                    <span className="inline-flex items-center gap-2 text-bb-ink font-mono text-[12px] group-hover:text-bb-accent transition-colors">
+                      OPEN <span className="transition-transform group-hover:translate-x-1">↗</span>
+                    </span>
+                  </div>
                 </div>
-                
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
-                  Value Realization
-                </h3>
-                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.
-</p>
-                
-                {/* Learn More Link */}
-                <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
+          </div>
 
-            {/* Card 3: Deployment - Floating Animation 3 */}
-            <Link to="/solutions#deployment" className="group block" style={{ animation: 'solutionCardFloat3 5.5s ease-in-out infinite' }}>
-              <div 
-                className="relative bg-[#f3f1e9] rounded-3xl p-8 border border-[#E8E4D9] transition-all duration-500 group-hover:shadow-2xl group-hover:border-[#0B1F3B]/20 group-hover:bg-[#efede3] h-full"
-                data-testid="solution-deployment"
-              >
-                {/* Decorative Corner Accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden rounded-tr-3xl">
-                  <div 
-                    className="absolute -top-12 -right-12 w-24 h-24"
-                  />
-                </div>
-                
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-[#0B1F3B] mb-4 group-hover:text-[#328CC1] transition-colors duration-300">
-                  Deployment
-                </h3>
-                <p className="text-[#4b5563] leading-relaxed text-base mb-6">
-Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.</p>
-                
-                {/* Learn More Link */}
-                <div className="flex items-center gap-2 text-[#328CC1] font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </div>
+          <div className="mt-14 flex justify-center">
+            <Link to="/contact" className="bb-btn-primary" data-testid="support-talk-to-us-btn">
+              Talk To Us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
             </Link>
           </div>
-          
-        </div>
-        
-        {/* Talk To Us Button */}
-        <div className="text-center relative z-10">
-          <Link to="/contact">
-            <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-8 py-6 mt-20 text-base font-medium rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-105" data-testid="support-talk-to-us-btn">
-              Talk To Us
-            </Button>
-          </Link>
         </div>
       </section>
 
-      {/* Our Primary Areas of Research and Engineering Section - Section 3 (ODD) */}
-       {/* <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F3B] mb-4">Our Primary Areas of Research and Engineering</h2>
+      {/* ============================================================
+          SECTION 03 — INFRASTRUCTURE
+          "BluBridge Infrastructure for custom AI deployment Solutions"
+          ============================================================ */}
+      <section className="py-24 relative" style={{ background: '#eceefa' }} data-testid="infrastructure-section">
+        <div className="bb-container">
+          <div className="mb-14">
+            <p className="bb-eyebrow mb-4">/ 03 &nbsp;·&nbsp; Infrastructure</p>
+            <h2 className="bb-h2" style={{ fontSize: 'clamp(32px, 4.2vw, 56px)' }}>
+              BluBridge Infrastructure for custom AI deployment Solutions
+            </h2>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/d9mbefc0_icon4.png",
-                title: "Scaling Laws"
-              },
-              {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/no96kn3y_icon3.png",
-                title: "Human Work Optimization"
-              },
-              {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/gpekkfp1_icon2.png",
-                title: "Multimodal Agents"
-              },
-              {
-                image: "https://customer-assets.emergentagent.com/job_a6e87c37-8b79-4764-8332-87fbbbf97ef0/artifacts/z0syfeo4_icon1.png",
-                title: "Reinforcement Learning"
-              }
-            ].map((card, index) => (
-              <div 
-                key={index}
-                className="bg-[#f3f1e9] rounded-2xl p-8 border border-[#e8e8e8] shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
-              >
-                <div className="w-24 h-24 mb-6 flex items-center justify-center">
-                  <img 
-                    src={card.image} 
-                    alt={card.title}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <h3 className="text-base font-semibold text-[#0B1F3B]">{card.title}</h3>
-              </div>
-            ))}
-          </div>
-          
-           CTA Button 
-           <div className="text-center">
-            <Link to="/contact">
-              <Button className="bg-[#0B1F3B] hover:bg-[#162B4D] text-white px-6 py-4 text-base font-medium rounded-lg">
-                Talk To Us
-              </Button>
-            </Link>
-          </div> 
-        </div>
-      </section>  */}
 
-      {/* BluBridge Infrastructure Section - Section 4 (EVEN) */}
-      {/* <section className="py-20 relative overflow-hidden bg-[#f3f1e9]">
-       
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f3f1e9]/95 via-[#f3f1e9]/80 to-[#f3f1e9]/60" />
-        
-        <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols gap-12">
-           
-            <div>
-              <h2 className="text-4xl font-light mb-6 text-[#0B1F3B]">BluBridge's Infrastructure</h2>
-              <p className="text-[#243447] mb-8 leading-relaxed">
-                BluBridge manages the full AI infrastructure stack, from energy-efficient data centres in Norway to advanced compute clusters and software setups. Every component is thoughtfully chosen and engineered to support the demanding requirements of AI.
-              </p>
-              
-            
-              <div className="flex flex-wrap gap-2 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Left: tab list */}
+            <div className="lg:col-span-4">
+              <div className="border-t border-bb-line">
                 {infraTabs.map((tab, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveInfraTab(index)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                      activeInfraTab === index 
-                        ? 'bg-[#0B1F3B] text-white' 
-                        : 'bg-white/80 text-[#243447] border border-[#D6DEC3] hover:bg-[#f3f1e9]'
+                    data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    className={`w-full text-left flex items-center justify-between gap-4 py-4 px-2 border-b border-bb-line transition-colors ${
+                      activeInfraTab === index ? 'bg-white' : 'hover:bg-white/60'
                     }`}
                   >
-                    {tab.name}
+                    <span className="flex items-center gap-4">
+                      <span className={`font-mono text-[11px] ${activeInfraTab === index ? 'text-bb-accent' : 'text-bb-ink-3'}`}>
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span
+                        className={`text-[15px] ${activeInfraTab === index ? 'text-bb-ink font-medium' : 'text-bb-ink-2'}`}
+                        style={{ fontFamily: 'Geist, sans-serif' }}
+                      >
+                        {tab.name}
+                      </span>
+                    </span>
+                    {activeInfraTab === index && <span className="font-mono text-[11px] text-bb-accent">●</span>}
                   </button>
                 ))}
               </div>
-              
-           
-              <div className="bg-white rounded-xl p-6 border border-[#D6DEC3] shadow-sm">
-                <h3 className="text-xl font-medium mb-3 text-[#0B1F3B]">{infraTabs[activeInfraTab].title}</h3>
-                <p className="text-[#243447] mb-4 text-sm leading-relaxed">{infraTabs[activeInfraTab].description}</p>
-                <div className="grid grid-cols-2 gap-2">
+            </div>
+
+            {/* Right: content panel */}
+            <div className="lg:col-span-8">
+              <div className="bb-panel p-8 lg:p-10" data-testid="infra-content-card">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="bb-caption">/ 0{activeInfraTab + 1}</span>
+                  <div className="flex-1 h-px bg-bb-line" />
+                </div>
+                <h3
+                  className="mb-4 text-bb-ink"
+                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}
+                >
+                  {infraTabs[activeInfraTab].title}
+                </h3>
+                <p className="text-bb-ink-2 text-[16px] leading-[1.7] mb-8">{infraTabs[activeInfraTab].description}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {infraTabs[activeInfraTab].features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm">
-                      <Check className="w-4 h-4 text-[#328CC1] flex-shrink-0" />
-                      <span className="text-[#243447]">{feature}</span>
+                    <div key={i} className="flex items-center gap-3 py-3 border-t border-bb-line">
+                      <Check className="w-4 h-4 text-bb-accent flex-shrink-0" />
+                      <span className="text-bb-ink text-[14px]">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-            
-            
-            <div />
-          </div>
-        </div>
-      </section> */}
-
-      {/* New Testimonials Carousel Section - HIDDEN */}
-      {/* <TestimonialsCarousel /> */}
-
-      {/* Use Cases Grid */}
-      {/* <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom">
-          <div className="mb-12">
-            <h2 className="text-4xl mb-4 font-bold text-[#0B1F3B]">Use cases</h2>
-            <p className="text-[#243447] max-w-2xl">
-              End-to-end AI solutions covering model training, fine-tuning, inference, and development, all built to accelerate your AI initiatives.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-5">
-            
-            <Link to="/solutions/training">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
-                <div 
-                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
-                  style={{ 
-                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/e3q02b44_Training.avif)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-                <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl drop-shadow-lg">TRAINING</span>
-                </div>
-              </div>
-            </Link>
-
-            
-            <Link to="/solutions/inference">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
-                <div 
-                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
-                  style={{ 
-                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/cod8cw4n_INFERENCE.avif)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-                <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl drop-shadow-lg">INFERENCE</span>
-                </div>
-              </div>
-            </Link>
-
-            
-            <Link to="/solutions/ai-development">
-              <div className="relative border border-[#D6DEC3] h-52 rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
-                <div 
-                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
-                  style={{ 
-                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/az864l7b_AI%20Development.avif)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-                <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl drop-shadow-lg">AI DEVELOPMENT</span>
-                </div>
-              </div>
-            </Link>
-
-            
-            <Link to="/solutions/fine-tuning">
-              <div className="relative h-52 border border-[#D6DEC3] rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl">
-                <div 
-                  className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
-                  style={{ 
-                    backgroundImage: 'url(https://customer-assets.emergentagent.com/job_blubrg-webdev/artifacts/g9zwqz1g_Finetuning.avif)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-                <div className="absolute top-5 left-5 z-10">
-                  <span className="text-white font-semibold text-2xl drop-shadow-lg">FINE-TUNING</span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section> */}
-
-
-      {/* BluBridge's Infrastructure Section - Arctic Background */}
-      <section className="py-20 relative overflow-hidden" data-testid="infrastructure-section">
-        {/* Arctic Mountain Background Image with 0.3 opacity */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80')`,
-          }}
-        />
-        {/* Base background color visible through the semi-transparent image */}
-        <div className="absolute inset-0 bg-[#fffdf7] -z-10" />
-        
-        <div className="container-custom relative z-10">
-          {/* Section Title & Description */}
-          <div className="mb-10">
-            <h2 className="text-3xl md:text-4xl font-light mb-6 text-[#0B1F3B]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
-              BluBridge Infrastructure for custom AI deployment Solutions
-            </h2>
-            {/* <p className="text-[#243447] max-w-4xl leading-relaxed text-lg">
-              Blubridge provides a secure, scalable foundation to run bespoke AI systems in real-world environments. It bridges research and production by delivering performance-optimized, sovereign, and enterprise-ready AI infrastructure.
-            </p> */}
-          </div>
-          
-          {/* Infrastructure Tabs */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {infraTabs.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveInfraTab(index)}
-                className={`px-5 py-3 rounded-lg text-sm font-medium transition-all ${
-                  activeInfraTab === index 
-                    ? 'bg-[#0B1F3B] text-white shadow-lg' 
-                    : 'bg-[#fffdf7] text-[#243447] border border-[#D6DEC3] hover:bg-white hover:shadow-md'
-                }`}
-                data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </div>
-          
-          {/* Tab Content Card */}
-          <div className="bg-[#fffdf7] rounded-2xl p-8 border border-[#E8E4D9] shadow-lg max-w-5xl" data-testid="infra-content-card">
-            <h3 className="text-2xl font-medium mb-4 text-[#0B1F3B]">{infraTabs[activeInfraTab].title}</h3>
-            <p className="text-[#243447] mb-6 leading-relaxed">{infraTabs[activeInfraTab].description}</p>
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              {infraTabs[activeInfraTab].features.map((feature, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-[#328CC1] flex-shrink-0" />
-                  <span className="text-[#243447]">{feature}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Vertical Tabs Section (Mistral-style) */}
+      {/* ============================================================
+          SECTION 04 — Vertical Tabs "What we can do for you"
+          ============================================================ */}
       <VerticalTabsSection />
 
-      {/* Work with BluBridge Section */}
-      <section className="py-20 bg-[#efede5]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left - Text Content */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">Work with BluBridge</h2>
-              <p className="text-black leading-relaxed mb-8">
+      {/* ============================================================
+          SECTION 05 — WORK WITH BLUBRIDGE (team)
+          ============================================================ */}
+      <section className="py-24" style={{ background: '#f1f2fa' }} data-testid="work-with-blubridge">
+        <div className="bb-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-6 order-2 lg:order-1">
+              <p className="bb-eyebrow mb-6">/ 06 &nbsp;·&nbsp; Team</p>
+              <h2 className="bb-h2 mb-8" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
+                Work with BluBridge
+              </h2>
+              <p className="text-bb-ink-2 text-[17px] leading-[1.75] mb-10 max-w-[540px]">
                 We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
               </p>
-              <Link to="/careers">
-                <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
-                  Join us
-                </Button>
+              <Link to="/careers" className="bb-btn-primary" data-testid="work-join-cta">
+                Join us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
               </Link>
             </div>
-            
-            {/* Right - Team Image */}
-            <div className="relative rounded-2xl overflow-hidden">
-              {/* Gradient overlay for blending */}
-              <div 
-                className="absolute inset-0 pointer-events-none z-10"
-                style={{
-                  background: `
-                    linear-gradient(to right, rgba(239, 237, 229, 0.3) 0%, transparent 15%),
-                    linear-gradient(to left, rgba(239, 237, 229, 0.3) 0%, transparent 15%),
-                    linear-gradient(to bottom, rgba(239, 237, 229, 0.25) 0%, transparent 12%),
-                    linear-gradient(to top, rgba(239, 237, 229, 0.25) 0%, transparent 12%)
-                  `,
-                  borderRadius: '1rem'
-                }}
-              />
-              <img 
-                src="/images/bluBridge-team.png" 
-                alt="BluBridge Team" 
-                className="w-full h-auto object-cover rounded-2xl"
-                style={{
-                  filter: 'saturate(0.92) contrast(0.96)',
-                  mixBlendMode: 'normal'
-                }}
-              />
+
+            <div className="lg:col-span-6 order-1 lg:order-2 relative">
+              <div className="relative border border-bb-line rounded-md overflow-hidden bg-white">
+                <img
+                  src="/images/bluBridge-team.png"
+                  alt="BluBridge Team"
+                  className="w-full h-auto object-cover block"
+                  style={{ filter: 'saturate(0.95) contrast(0.98)' }}
+                />
+                {/* Editorial caption strip */}
+                <div className="absolute top-3 left-3 flex items-center gap-2 bg-white/85 backdrop-blur px-2.5 py-1 rounded font-mono text-[10px] text-bb-ink-3">
+                  <span>FIG. ii</span>
+                  <span className="opacity-40">|</span>
+                  <span>BLUBRIDGE / TEAM</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Curious About BluBridge Section */}
-      {/* <section className="pb-16 pt-2 bg-[#efede5]">
-        <div className="max-w-xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#0B1F3B]">Curious About BluBridge?</h2>
-            <Link to="/contact">
-              <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-8 py-3 rounded-md font-medium">
-                Contact
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section> */}
-
-      {/* NVIDIA Partner Strip - Section 6 (EVEN) */}
-      {/* <section className="py-16 bg-[#fffdf7] border-t border-b border-[#D6DEC3]">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">
-                BluBridge is now an NVIDIA Inception Partner
-              </h2>
-              <p className="text-[#243447] mb-6">
-                 Access thousands of GPUs tailored to your requirements. 
-                Know more about our Research
-              </p>
-             <div className="flex gap-4">
-                <Link to="/contact">
-                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-4 py-3">
-                    Contact Us
-                  </Button>
-                </Link>
-                 <Link to="/contact">
-                  <Button className="bg-[#0B1F3B] text-white hover:bg-[#162B4D] px-6 py-3">
-                    Reserve GPUs
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button variant="outline" className="border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#f3f1e9] px-6 py-3">
-                    Contact
-                  </Button>
-                </Link> 
-              </div>
-            </div>
-            <div className="flex items-center justify-center lg:justify-end gap-8">
-              <span className="text-5xl font-bold text-[#0B1F3B]/20 tracking-tight">NVIDIA</span>
-              <div className="text-sm text-[#5B6B7A]">Inception Partner</div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* FAQ Section */}
-      {/* <section className="py-20 bg-[#fffdf7]">
-        <div className="container-custom max-w-4xl">
-          <h2 className="text-3xl font-light mb-12 text-[#0B1F3B]">Frequently Asked Questions</h2>
-          
-          <div className="space-y-4 max-w-4xl">
-            {faqs.map((faq, index) => (
-              <div 
-                key={index}
-                className="border-b border-[#D6DEC3]"
+      {/* ============================================================
+          FINAL CTA — Know more about our Research
+          ============================================================ */}
+      <section className="py-24" style={{ background: '#0a1230' }} data-testid="final-cta">
+        <div className="bb-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8">
+              <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-white/50 mb-6">/ 07 · Continue</p>
+              <h2
+                className="text-white"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(40px, 6vw, 88px)', letterSpacing: '-0.03em', lineHeight: 0.98, fontWeight: 500 }}
               >
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 text-left text-[#0B1F3B] hover:text-[#328CC1] transition-colors"
-                >
-                  <span className="text-lg font-medium pr-8">{faq.question}</span>
-                  <div className="flex-shrink-0">
-                    {openFaq === index ? (
-                      <Minus className="w-5 h-5 text-[#328CC1]" />
-                    ) : (
-                      <Plus className="w-5 h-5 text-[#328CC1]" />
-                    )}
-                  </div>
-                </button>
-                
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openFaq === index ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <p className="text-[#243447] leading-relaxed">{faq.answer}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Final CTA Strip */}
-      <section className="py-16 bg-[#0B1F3B]">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
-            Know more about our Research 
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/research">
-              <Button className="bg-white text-[#0B1F3B] hover:bg-[#f3f1e9] px-4 py-3 rounded font-medium">
+                Know more about our Research
+              </h2>
+            </div>
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <Link
+                to="/research"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bb-ink rounded-md text-[14px] font-medium hover:bg-bb-bg-subtle transition-colors"
+                data-testid="final-cta-explore"
+              >
                 Explore
-              </Button>
-            </Link>
+                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

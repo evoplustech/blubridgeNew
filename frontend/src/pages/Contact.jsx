@@ -5,7 +5,14 @@ import useMetaDescription from '../hooks/useMetaDescription';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
-// Country codes with flags and names
+/* ------------------------------------------------------------------
+   CONTACT — Editorial Redesign (light theme #f1f2fa)
+   All existing content preserved: office cards (INDIA / INDIA / USA),
+   phone, email, LinkedIn, form fields (First/Last/Email/Verify/
+   Phone Code+Number/Inquiry Type/Message), inquiry options,
+   submit button, error/success behavior, backend endpoint.
+   ------------------------------------------------------------------ */
+
 const countryCodes = [
   { code: '+1', flag: '🇺🇸', name: 'United States' },
   { code: '+1', flag: '🇨🇦', name: 'Canada' },
@@ -125,13 +132,9 @@ const countryCodes = [
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneCode: '+91',
-    phoneNumber: '',
-    inquiryType: '',
-    message: ''
+    firstName: '', lastName: '', email: '',
+    phoneCode: '+91', phoneNumber: '',
+    inquiryType: '', message: ''
   });
   const [emailVerified, setEmailVerified] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -141,37 +144,19 @@ const Contact = () => {
   useDocumentTitle('Contact us | Blubridge');
   useMetaDescription('Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.');
 
-  // Get the selected country info for display
-  const getSelectedCountry = () => {
-    return countryCodes.find(c => c.code === formData.phoneCode) || countryCodes.find(c => c.code === '+91');
-  };
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validatePhone = (phone) => {
-    const phoneRegex = /^[0-9]{6,15}$/;
-    return phoneRegex.test(phone.replace(/\s/g, ''));
-  };
+  const validateEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  const validatePhone = (p) => /^[0-9]{6,15}$/.test(p.replace(/\s/g, ''));
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Clear validation error when user starts typing
-    if (validationErrors[name]) {
-      setValidationErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    if (validationErrors[name]) setValidationErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, ''); // Only allow numbers
+    const value = e.target.value.replace(/[^0-9]/g, '');
     setFormData(prev => ({ ...prev, phoneNumber: value }));
-    if (validationErrors.phoneNumber) {
-      setValidationErrors(prev => ({ ...prev, phoneNumber: '' }));
-    }
+    if (validationErrors.phoneNumber) setValidationErrors(prev => ({ ...prev, phoneNumber: '' }));
   };
 
   const handleVerifyEmail = () => {
@@ -185,62 +170,29 @@ const Contact = () => {
 
   const validateForm = () => {
     const errors = {};
-    
-    if (!formData.firstName.trim()) {
-      errors.firstName = 'First name is required';
-    }
-    
-    if (!formData.lastName.trim()) {
-      errors.lastName = 'Last name is required';
-    }
-    
-    if (!formData.email.trim()) {
-      errors.email = 'Email is required';
-    } else if (!validateEmail(formData.email)) {
-      errors.email = 'Please enter a valid email address';
-    }
-    
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = 'Phone number is required';
-    } else if (!validatePhone(formData.phoneNumber)) {
-      errors.phoneNumber = 'Please enter a valid phone number (6-15 digits)';
-    }
-    
-    if (!formData.inquiryType) {
-      errors.inquiryType = 'Please select an inquiry type';
-    }
-    
-    if (!formData.message.trim()) {
-      errors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      errors.message = 'Message must be at least 10 characters';
-    }
-    
+    if (!formData.firstName.trim()) errors.firstName = 'First name is required';
+    if (!formData.lastName.trim()) errors.lastName = 'Last name is required';
+    if (!formData.email.trim()) errors.email = 'Email is required';
+    else if (!validateEmail(formData.email)) errors.email = 'Please enter a valid email address';
+    if (!formData.phoneNumber.trim()) errors.phoneNumber = 'Phone number is required';
+    else if (!validatePhone(formData.phoneNumber)) errors.phoneNumber = 'Please enter a valid phone number (6-15 digits)';
+    if (!formData.inquiryType) errors.inquiryType = 'Please select an inquiry type';
+    if (!formData.message.trim()) errors.message = 'Message is required';
+    else if (formData.message.trim().length < 10) errors.message = 'Message must be at least 10 characters';
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Prevent double submission
-    if (isSubmitting) {
-      return;
-    }
-    
-    if (!validateForm()) {
-      return;
-    }
-    
+    if (isSubmitting) return;
+    if (!validateForm()) return;
     setIsSubmitting(true);
     setSubmitError('');
-
     try {
       const response = await fetch(`${API_URL}/api/contacts/submit`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           type: 'contact_us',
           firstName: formData.firstName.trim(),
@@ -251,759 +203,294 @@ const Contact = () => {
           message: formData.message.trim()
         }),
       });
-
       if (response.ok) {
         alert('Thank you for your inquiry. We will get back to you soon!');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phoneCode: '+91',
-          phoneNumber: '',
-          inquiryType: '',
-          message: ''
-        });
+        setFormData({ firstName: '', lastName: '', email: '', phoneCode: '+91', phoneNumber: '', inquiryType: '', message: '' });
         setEmailVerified(false);
         setValidationErrors({});
       } else if (response.status === 409) {
-        // Duplicate submission
         setSubmitError('You have already submitted this form recently. Please wait a moment before trying again.');
       } else {
         const errorData = await response.json();
         setSubmitError(errorData.detail || 'Failed to submit form. Please try again.');
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
       setSubmitError('Failed to submit form. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const inputBase = {
+    width: '100%',
+    padding: '12px 14px',
+    border: '1px solid #d4d8e8',
+    borderRadius: '6px',
+    backgroundColor: '#ffffff',
+    fontSize: '14px',
+    fontFamily: 'Inter, sans-serif',
+    color: '#0a1230',
+    outline: 'none',
+    boxSizing: 'border-box',
+  };
+  const errBorder = { border: '1px solid #dc2626' };
+  const labelStyle = {
+    display: 'block',
+    fontFamily: 'IBM Plex Mono, monospace',
+    fontSize: '11px',
+    fontWeight: 500,
+    letterSpacing: '0.12em',
+    textTransform: 'uppercase',
+    color: '#3f4966',
+    marginBottom: '8px',
+  };
+
+  const offices = [
+    { region: 'India', address: 'Plot #E160 Tiger Varadhachari Road,', line2: 'Kalakshetra Colony, Besant Nagar,', line3: 'Chennai – 600090', map: 'https://maps.google.com/?q=Plot+E160+Tiger+Varadhachari+Road+Kalakshetra+Colony+Besant+Nagar+Chennai+600090' },
+    { region: 'India', address: '30, Norton Rd, Mandavelipakkam,', line2: 'Raja Annamalai Puram,', line3: 'Chennai, Tamil Nadu 600028', map: 'https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028' },
+    { region: 'USA', address: 'Zeal Solutions Inc', line2: '5 Independence Way, Suite 300,', line3: 'Princeton, New Jersey - 08540', map: 'https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z' },
+  ];
+
   return (
-    <div 
-      data-testid="contact-page"
-      className="contact-page-container"
-      style={{
-        paddingTop: '60px',
-        paddingBottom: '60px',
-        backgroundColor: 'rgb(255, 253, 247)'
-      }}
-    >
-      <style>{`
-        .contact-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-        @media (min-width: 900px) {
-          .contact-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        .contact-form-row {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-        @media (min-width: 640px) {
-          .contact-form-row {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-        .email-row {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-        @media (min-width: 480px) {
-          .email-row {
-            flex-direction: row;
-          }
-        }
-        .email-row input {
-          flex: 1;
-        }
-        .email-row button {
-          width: 100%;
-        }
-        @media (min-width: 480px) {
-          .email-row button {
-            width: auto;
-          }
-        }
-      `}</style>
-      <div style={{
-        maxWidth: '1261px',
-        margin: '0 auto',
-        padding: '0 24px'
-      }}>
-        <div className="contact-grid">
-          
-          {/* Left Column - Our Offices */}
-          <div 
-            data-testid="offices-card"
-            style={{
-              backgroundColor: 'rgb(239, 237, 229)',
-              borderRadius: '16px',
-              padding: '36px 32px',
-              border: '1px solid #e8e6e0'
-            }}
-          >
-            <h2 style={{ 
-              fontSize: '28px', 
-              fontWeight: '700', 
-              color: '#0B1F3B',
-              marginBottom: '28px',
-              textAlign: 'center',
-              letterSpacing: '-0.02em'
-            }}>
-              Office Locations
-            </h2>
-            
-            {/* Office Card 1 */}
-            <div style={{
-              backgroundColor: '#fffdf7',
-              border: '1px solid #e0ded8',
-              borderLeft: '3px solid #0b1f3b',
-              borderRadius: '12px',
-              padding: '20px 24px',
-              marginBottom: '16px'
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div style={{ flex: 1 }}>
-                   <h3 style={{
-                    fontWeight: '600',
-                    color: '#0B1F3B',
-                    fontSize: '16px',
-                    marginBottom: '8px',
-                    lineHeight: '1.3'
-                  }}>
-                   INDIA
-                  </h3>
-                  <p style={{
-                    color: '#4a5568',
-                    fontSize: '14px',
-                    lineHeight: '1.6',
-                    margin: 0
-                  }}>
-                    Plot #E160 Tiger Varadhachari Road,<br />
-                    Kalakshetra Colony, Besant Nagar,<br />
-                    Chennai – 600090
-                  </p>
+    <div style={{ background: '#f1f2fa', paddingTop: '48px', paddingBottom: '96px' }} data-testid="contact-page">
+      <div className="bb-container">
+        {/* Editorial header row */}
+        <div className="pb-8 border-b border-bb-line flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p className="bb-eyebrow mb-3">/ Contact</p>
+            <h1 className="bb-display" style={{ fontSize: 'clamp(44px, 6.5vw, 96px)' }}>
+              Contact Us
+            </h1>
+          </div>
+          <p className="bb-caption max-w-sm">Reach out about research collaboration, engineering programs, or applied AI initiatives.</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mt-14">
+          {/* LEFT — Offices + contact info */}
+          <div className="lg:col-span-5" data-testid="offices-card">
+            <p className="bb-eyebrow mb-6">/ 01 &nbsp;·&nbsp; Office Locations</p>
+
+            <div className="space-y-4 mb-10">
+              {offices.map((o, i) => (
+                <div
+                  key={i}
+                  className="bb-panel"
+                  data-testid={`office-card-${i}`}
+                  style={{ padding: '20px 24px' }}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-baseline gap-3 mb-3">
+                        <span className="font-mono text-[10px] tracking-[0.14em] text-bb-accent">{String(i + 1).padStart(2, '0')}</span>
+                        <h3 style={{ fontFamily: 'Geist, sans-serif', fontSize: '17px', fontWeight: 500, letterSpacing: '-0.01em', color: '#0a1230' }}>
+                          {o.region}
+                        </h3>
+                      </div>
+                      <p style={{ color: '#3f4966', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
+                        {o.address}<br />{o.line2}<br />{o.line3}
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 pl-4 border-l border-bb-line">
+                      <MapPin size={18} color="#0a1230" />
+                      <a href={o.map} target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] text-bb-accent hover:text-bb-ink whitespace-nowrap">
+                        Map ↗
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div style={{ 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  alignItems: 'center',
-                  marginLeft: '16px',
-                  paddingTop: '22px'
-                }}>
-                  <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
-                  <a 
-                    href="https://maps.google.com/?q=Plot+E160+Tiger+Varadhachari+Road+Kalakshetra+Colony+Besant+Nagar+Chennai+600090"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ 
-                      color: '#3b82f6', 
-                      fontSize: '13px',
-                      textDecoration: 'none',
-                      whiteSpace: 'nowrap'
-                    }}
-                  >
-                    View on Map »
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Office Card 2 */}
-            <div style={{
-              backgroundColor: '#fffdf7',
-              border: '1px solid #e0ded8',
-              borderLeft: '3px solid #0b1f3b',
-              borderRadius: '12px',
-              padding: '20px 24px',
-              marginBottom: '15px'
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div style={{ flex: 1 }}>
-                 <h3 style={{
-                    fontWeight: '600',
-                    color: '#0B1F3B',
-                    fontSize: '16px',
-                    marginBottom: '8px',
-                    lineHeight: '1.3'
-                  }}>
-                   INDIA
-                  </h3> 
-                  <p style={{
-                    color: '#4a5568',
-                    fontSize: '14px',
-                    lineHeight: '1.6',
-                    margin: 0
-                  }}>
-                    30, Norton Rd, Mandavelipakkam,<br />
-                    Raja Annamalai Puram,<br />
-                    Chennai, Tamil Nadu 600028
-                  </p>
-                </div>
-                <div style={{ 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  alignItems: 'center',
-                  marginLeft: '16px',
-                  paddingTop: '22px'
-                }}>
-                  <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
-                  <a 
-                    href="https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ 
-                      color: '#3b82f6', 
-                      fontSize: '13px',
-                      textDecoration: 'none',
-                      whiteSpace: 'nowrap'
-                    }}
-                  >
-                    View on Map »
-                  </a>
-                </div>
-              </div>
-            </div>
-            {/* Office Card 2 */}
-            <div style={{
-              backgroundColor: '#fffdf7',
-              border: '1px solid #e0ded8',
-              borderLeft: '3px solid #0b1f3b',
-              borderRadius: '12px',
-              padding: '20px 24px',
-              marginBottom: '15px'
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div style={{ flex: 1 }}>
-                 <h3 style={{
-                    fontWeight: '600',
-                    color: '#0B1F3B',
-                    fontSize: '16px',
-                    marginBottom: '8px',
-                    lineHeight: '1.3'
-                  }}>
-                    USA
-                  </h3> 
-                  <p style={{
-                    color: '#4a5568',
-                    fontSize: '14px',
-                    lineHeight: '1.6',
-                    margin: 0
-                  }}>
-                    <strong>Zeal Solutions Inc</strong><br />
-                    5 Independence Way, Suite 300,<br />
-                    Princeton, New Jersey - 08540
-                  </p>
-                </div>
-                <div style={{ 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  alignItems: 'center',
-                  marginLeft: '16px',
-                  paddingTop: '22px'
-                }}>
-                  <MapPin size={22} color="#0B1F3B" style={{ marginBottom: '8px' }} />
-                  <a 
-                    href="https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ 
-                      color: '#3b82f6', 
-                      fontSize: '13px',
-                      textDecoration: 'none',
-                      whiteSpace: 'nowrap'
-                    }}
-                  >
-                    View on Map »
-                  </a>
-                </div>
-              </div>
-            </div>
+            <p className="bb-eyebrow mb-6">/ 02 &nbsp;·&nbsp; Direct Channels</p>
 
-            {/* Contact Info Boxes - Exact Design Match */}
-            <div style={{ }}>
-              {/* Contact Number Box */}
-              <div style={{
-                flex: 1,
-                backgroundColor: '#fffdf7',
-                borderRadius: '10px',
-                border: '1px solid #e0ded8',
-                display: 'flex',
-                alignItems: 'center',
-                overflow: 'hidden',
-                paddingLeft:'7px',
-                marginBottom:'15px'
-              }}>
-                <div style={{
-                  width: '56px',
-                  height: '56px',
-                  backgroundColor: '#f0efe9',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  borderRadius: '10px'
-                }}>
-                  <Phone size={22} color="#5a5a5a" />
-                </div>
-                <div style={{ padding: '12px 10px' }}>
-                  <p style={{ 
-                    fontSize: '11px', 
-                    fontWeight: '600', 
-                    color: '#888888',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    margin: 0,
-                    marginBottom: '2px'
-                  }}>
-                    Contact Number
-                  </p>
-                  <a 
-                    href="tel:+91 8925987250" 
-                    style={{ 
-                      fontSize: '14px', 
-                      color: '#333333',
-                      textDecoration: 'none',
-                      fontWeight: '500'
-                    }}
+            <div className="space-y-3">
+              {[
+                { icon: Phone,    label: 'Contact Number', value: '+91 8925987250',           href: 'tel:+91 8925987250' },
+                { icon: Mail,     label: 'Email',          value: 'info@blubridge.com',        href: 'mailto:info@blubridge.com' },
+                { icon: Linkedin, label: 'LinkedIn',       value: 'linkedin.com/company/blubridge', href: 'https://www.linkedin.com/company/blubridge/' },
+              ].map((c, i) => {
+                const Icon = c.icon;
+                return (
+                  <a
+                    key={i}
+                    href={c.href}
+                    target={c.href.startsWith('http') ? '_blank' : undefined}
+                    rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="bb-panel flex items-center gap-4 p-4 hover:border-bb-line-strong transition-colors"
+                    data-testid={`channel-${c.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    style={{ textDecoration: 'none' }}
                   >
-                    +91 8925987250
+                    <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ background: '#dfe6f5' }}>
+                      <Icon size={18} color="#2b4c8c" />
+                    </div>
+                    <div className="flex-1">
+                      <p style={labelStyle} className="!mb-1">{c.label}</p>
+                      <p style={{ fontSize: '14px', color: '#0a1230', margin: 0, fontFamily: 'Inter, sans-serif' }}>{c.value}</p>
+                    </div>
+                    <span className="font-mono text-[11px] text-bb-ink-3">↗</span>
                   </a>
-                </div>
-              </div>
-
-              {/* Email Box */}
-              <div style={{
-                flex: 1,
-                backgroundColor: '#fffdf7',
-                borderRadius: '10px',
-                border: '1px solid #e0ded8',
-                display: 'flex',
-                alignItems: 'center',
-                overflow: 'hidden',
-                paddingLeft:'7px',
-                marginBottom:'15px'
-              }}>
-                <div style={{
-                  width: '56px',
-                  height: '56px',
-                  backgroundColor: '#f0efe9',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  borderRadius: '10px'
-                }}>
-                  <Mail size={22} color="#5a5a5a" />
-                </div>
-                <div style={{ padding: '12px 10px' }}>
-                  <p style={{ 
-                    fontSize: '11px', 
-                    fontWeight: '600', 
-                    color: '#888888',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    margin: 0,
-                    marginBottom: '2px'
-                  }}>
-                    Email
-                  </p>
-                  <a 
-                    href="mailto:info@blubridge.com" 
-                    style={{ 
-                      fontSize: '14px', 
-                      color: '#333333',
-                      textDecoration: 'none',
-                      fontWeight: '500'
-                    }}
-                  >
-                    info@blubridge.com
-                  </a>
-                </div>
-              </div>
-
-              {/* LinkedIn Box */}
-              <div style={{
-                flex: 1,
-                backgroundColor: '#fffdf7',
-                borderRadius: '10px',
-                border: '1px solid #e0ded8',
-                display: 'flex',
-                alignItems: 'center',
-                overflow: 'hidden',
-                paddingLeft:'7px'
-              }}>
-                <div style={{
-                  width: '56px',
-                  height: '56px',
-                  backgroundColor: '#f0efe9',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  borderRadius: '10px'
-                }}>
-                  <Linkedin size={22} color="#5a5a5a" />
-                </div>
-                <div style={{ padding: '12px 10px' }}>
-                  <p style={{ 
-                    fontSize: '11px', 
-                    fontWeight: '600', 
-                    color: '#888888',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    margin: 0,
-                    marginBottom: '2px'
-                  }}>
-                    LinkedIn
-                  </p>
-                  <a 
-                    href="https://www.linkedin.com/company/blubridge/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ 
-                      fontSize: '14px', 
-                      color: '#333333',
-                      textDecoration: 'none',
-                      fontWeight: '500'
-                    }}
-                  >
-                    linkedin.com/company/blubridge
-                  </a>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Right Column - Contact Us Form */}
-          <div 
-            data-testid="contact-form-card"
-            style={{
-              backgroundColor: 'rgb(239, 237, 229)',
-              borderRadius: '16px',
-              padding: '36px 32px',
-              border: '1px solid #e8e6e0'
-            }}
-          >
-            <h1 style={{ 
-              fontSize: '28px', 
-              fontWeight: '700', 
-              color: '#0B1F3B',
-              marginBottom: '28px',
-              textAlign: 'center',
-              letterSpacing: '-0.02em'
-            }}>
-              Contact Us
-            </h1>
-            
-            <form onSubmit={handleSubmit}>
-              {/* First Name & Last Name */}
-              <div className="contact-form-row" style={{ marginBottom: '20px' }}>
-                <div>
-                  <label style={{
-                    display: 'block',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    color: '#0B1F3B',
-                    marginBottom: '8px'
-                  }}>
-                    First Name<span style={{ color: '#ef4444' }}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    style={{
-                      width: '100%',
-                      padding: '12px 16px',
-                      border: validationErrors.firstName ? '1px solid #ef4444' : '1px solid #d4d4d4',
-                      borderRadius: '8px',
-                      backgroundColor: '#fffdf7',
-                      fontSize: '14px',
-                      outline: 'none',
-                      boxSizing: 'border-box'
-                    }}
-                  />
-                  {validationErrors.firstName && (
-                    <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', marginBottom: 0 }}>
-                      {validationErrors.firstName}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label style={{
-                    display: 'block',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    color: '#0B1F3B',
-                    marginBottom: '8px'
-                  }}>
-                    Last Name<span style={{ color: '#ef4444' }}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    style={{
-                      width: '100%',
-                      padding: '12px 16px',
-                      border: validationErrors.lastName ? '1px solid #ef4444' : '1px solid #d4d4d4',
-                      borderRadius: '8px',
-                      backgroundColor: '#fffdf7',
-                      fontSize: '14px',
-                      outline: 'none',
-                      boxSizing: 'border-box'
-                    }}
-                  />
-                  {validationErrors.lastName && (
-                    <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', marginBottom: 0 }}>
-                      {validationErrors.lastName}
-                    </p>
-                  )}
-                </div>
-              </div>
+          {/* RIGHT — Form */}
+          <div className="lg:col-span-7">
+            <div className="bb-panel p-8 lg:p-10" data-testid="contact-form-card">
+              <p className="bb-eyebrow mb-6">/ 03 &nbsp;·&nbsp; Send a Message</p>
 
-              {/* Email with Verify Button */}
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{
-                  display: 'block',
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  color: '#0B1F3B',
-                  marginBottom: '8px'
-                }}>
-                  Email<span style={{ color: '#ef4444' }}>*</span>
-                </label>
-                <div className="email-row">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    style={{
-                      flex: 1,
-                      padding: '12px 16px',
-                      border: validationErrors.email ? '1px solid #ef4444' : '1px solid #d4d4d4',
-                      borderRadius: '8px',
-                      backgroundColor: '#fffdf7',
-                      fontSize: '14px',
-                      outline: 'none'
-                    }}
-                  />
-                  <button
-                    type="button"
-                    onClick={handleVerifyEmail}
-                    style={{
-                      padding: '12px 20px',
-                      borderRadius: '24px',
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                      whiteSpace: 'nowrap',
-                      backgroundColor: emailVerified ? '#16a34a' : '#fffdf7',
-                      color: emailVerified ? '#fffdf7' : '#0B1F3B',
-                      border: emailVerified ? 'none' : '1px solid #0B1F3B'
-                    }}
-                  >
-                    {emailVerified ? 'Verified ✓' : 'Verify Email'}
-                  </button>
+              <form onSubmit={handleSubmit}>
+                {/* First / Last Name */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                  <div>
+                    <label style={labelStyle}>First Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}
+                      style={{ ...inputBase, ...(validationErrors.firstName ? errBorder : {}) }} />
+                    {validationErrors.firstName && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.firstName}</p>}
+                  </div>
+                  <div>
+                    <label style={labelStyle}>Last Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}
+                      style={{ ...inputBase, ...(validationErrors.lastName ? errBorder : {}) }} />
+                    {validationErrors.lastName && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.lastName}</p>}
+                  </div>
                 </div>
-                {validationErrors.email && (
-                  <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', marginBottom: 0 }}>
-                    {validationErrors.email}
-                  </p>
-                )}
-              </div>
 
-              {/* Phone Number & Inquiry Type */}
-              <div className="contact-form-row" style={{ marginBottom: '20px' }}>
-                <div>
-                  <label style={{
-                    display: 'block',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    color: '#0B1F3B',
-                    marginBottom: '8px'
-                  }}>
-                    Phone No<span style={{ color: '#ef4444' }}>*</span>
-                  </label>
-                  <div style={{ display: 'flex' }}>
-                    <select
-                      name="phoneCode"
-                      value={formData.phoneCode}
+                {/* Email + verify */}
+                <div style={{ marginBottom: '20px' }}>
+                  <label style={labelStyle}>Email<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleInputChange}
+                      style={{ ...inputBase, ...(validationErrors.email ? errBorder : {}), flex: '1 1 220px' }}
+                    />
+                    <button
+                      type="button"
+                      onClick={handleVerifyEmail}
                       style={{
-                        padding: '12px 8px',
-                        backgroundColor: '#f5f5f4',
-                        border: validationErrors.phoneNumber ? '1px solid #ef4444' : '1px solid #d4d4d4',
-                        borderRight: 'none',
-                        borderRadius: '8px 0 0 8px',
-                        fontSize: '14px',
-                        color: '#0B1F3B',
-                        outline: 'none',
+                        padding: '12px 20px',
+                        borderRadius: '6px',
+                        fontSize: '13px',
+                        fontFamily: 'IBM Plex Mono, monospace',
+                        letterSpacing: '0.08em',
                         cursor: 'pointer',
-                        minWidth: '91px'
+                        whiteSpace: 'nowrap',
+                        backgroundColor: emailVerified ? '#16a34a' : '#0a1230',
+                        color: '#ffffff',
+                        border: 'none',
                       }}
                     >
-                      {countryCodes.map((country, index) => (
-                        <option key={`${country.code}-${index}`} value={country.code}>
-                          {country.flag} {country.code}
-                        </option>
-                      ))}
-                    </select>
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handlePhoneChange}
-                      placeholder="Enter phone number"
-                      maxLength={15}
-                      style={{
-                        flex: 1,
-                        padding: '12px 16px',
-                        border: validationErrors.phoneNumber ? '1px solid #ef4444' : '1px solid #d4d4d4',
-                        borderRadius: '0 8px 8px 0',
-                        backgroundColor: '#fffdf7',
-                        fontSize: '14px',
-                        outline: 'none'
-                      }}
-                    />
+                      {emailVerified ? 'VERIFIED ✓' : 'VERIFY EMAIL'}
+                    </button>
                   </div>
-                  {validationErrors.phoneNumber && (
-                    <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', marginBottom: 0 }}>
-                      {validationErrors.phoneNumber}
-                    </p>
-                  )}
+                  {validationErrors.email && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.email}</p>}
                 </div>
-                <div>
-                  <label style={{
-                    display: 'block',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    color: '#0B1F3B',
-                    marginBottom: '8px'
-                  }}>
-                    Inquiry Type<span style={{ color: '#ef4444' }}>*</span>
-                  </label>
-                  <select
-                    name="inquiryType"
-                    value={formData.inquiryType}
+
+                {/* Phone + Inquiry */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                  <div>
+                    <label style={labelStyle}>Phone No<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                    <div style={{ display: 'flex' }}>
+                      <select
+                        name="phoneCode"
+                        value={formData.phoneCode}
+                        onChange={handleInputChange}
+                        style={{
+                          padding: '12px 8px',
+                          backgroundColor: '#e8eaf3',
+                          border: '1px solid #d4d8e8',
+                          borderRight: 'none',
+                          borderRadius: '6px 0 0 6px',
+                          fontSize: '14px',
+                          color: '#0a1230',
+                          outline: 'none',
+                          cursor: 'pointer',
+                          minWidth: '96px',
+                        }}
+                      >
+                        {countryCodes.map((c, i) => (
+                          <option key={`${c.code}-${i}`} value={c.code}>{c.flag} {c.code}</option>
+                        ))}
+                      </select>
+                      <input
+                        type="tel"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handlePhoneChange}
+                        placeholder="Enter phone number"
+                        maxLength={15}
+                        style={{
+                          flex: 1,
+                          padding: '12px 14px',
+                          border: '1px solid #d4d8e8',
+                          borderRadius: '0 6px 6px 0',
+                          backgroundColor: '#ffffff',
+                          fontSize: '14px',
+                          outline: 'none',
+                          fontFamily: 'Inter, sans-serif',
+                          ...(validationErrors.phoneNumber ? { borderColor: '#dc2626' } : {}),
+                        }}
+                      />
+                    </div>
+                    {validationErrors.phoneNumber && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.phoneNumber}</p>}
+                  </div>
+                  <div>
+                    <label style={labelStyle}>Inquiry Type<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                    <select
+                      name="inquiryType"
+                      value={formData.inquiryType}
+                      onChange={handleInputChange}
+                      style={{ ...inputBase, cursor: 'pointer', color: formData.inquiryType ? '#0a1230' : '#7c86a2', ...(validationErrors.inquiryType ? errBorder : {}) }}
+                    >
+                      <option value="" disabled>Select</option>
+                      <option value="sales">Sales Inquiry</option>
+                      <option value="support">Technical Support</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="careers">Careers</option>
+                      <option value="other">Other</option>
+                    </select>
+                    {validationErrors.inquiryType && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.inquiryType}</p>}
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div style={{ marginBottom: '24px' }}>
+                  <label style={labelStyle}>How can we help you?<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleInputChange}
-                    style={{
-                      width: '100%',
-                      padding: '12px 16px',
-                      border: validationErrors.inquiryType ? '1px solid #ef4444' : '1px solid #d4d4d4',
-                      borderRadius: '8px',
-                      backgroundColor: '#fffdf7',
-                      fontSize: '14px',
-                      color: formData.inquiryType ? '#0B1F3B' : '#9ca3af',
-                      outline: 'none',
-                      cursor: 'pointer',
-                      boxSizing: 'border-box'
-                    }}
-                  >
-                    <option value="" disabled>Select</option>
-                    <option value="sales">Sales Inquiry</option>
-                    <option value="support">Technical Support</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="careers">Careers</option>
-                    <option value="other">Other</option>
-                  </select>
-                  {validationErrors.inquiryType && (
-                    <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', marginBottom: 0 }}>
-                      {validationErrors.inquiryType}
-                    </p>
-                  )}
+                    rows={9}
+                    style={{ ...inputBase, resize: 'none', ...(validationErrors.message ? errBorder : {}) }}
+                  />
+                  {validationErrors.message && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.message}</p>}
                 </div>
-              </div>
 
-              {/* Message */}
-              <div style={{ marginBottom: '28px' }}>
-                <label style={{
-                  display: 'block',
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  color: '#0B1F3B',
-                  marginBottom: '8px'
-                }}>
-                  How can we help you?<span style={{ color: '#ef4444' }}>*</span>
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={11}
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    border: validationErrors.message ? '1px solid #ef4444' : '1px solid #d4d4d4',
-                    borderRadius: '8px',
-                    backgroundColor: '#fffdf7',
-                    fontSize: '14px',
-                    outline: 'none',
-                    resize: 'none',
-                    boxSizing: 'border-box'
-                  }}
-                />
-                {validationErrors.message && (
-                  <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', marginBottom: 0 }}>
-                    {validationErrors.message}
-                  </p>
+                {submitError && (
+                  <div style={{ padding: '12px 16px', backgroundColor: '#fef2f2', border: '1px solid #fecaca', borderRadius: '6px', marginBottom: '18px' }}>
+                    <p style={{ color: '#dc2626', fontSize: '13px', margin: 0 }}>{submitError}</p>
+                  </div>
                 )}
-              </div>
 
-              {/* Error Message */}
-              {submitError && (
-                <div style={{
-                  padding: '12px 16px',
-                  backgroundColor: '#fef2f2',
-                  border: '1px solid #fecaca',
-                  borderRadius: '8px',
-                  marginBottom: '20px'
-                }}>
-                  <p style={{ color: '#dc2626', fontSize: '14px', margin: 0 }}>
-                    {submitError}
-                  </p>
+                <div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bb-btn-primary"
+                    style={{ width: '100%', justifyContent: 'center', padding: '14px 32px', opacity: isSubmitting ? 0.7 : 1 }}
+                    data-testid="contact-submit"
+                  >
+                    {isSubmitting ? 'Submitting…' : 'Submit'} <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+                  </button>
                 </div>
-              )}
-
-              {/* Submit Button */}
-              <div style={{ textAlign: 'center' }}>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  style={{
-                    padding: '14px 48px',
-                    backgroundColor: '#0B1F3B',
-                    color: '#ffffff',
-                    fontSize: '15px',
-                    fontWeight: '500',
-                    borderRadius: '8px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    opacity: isSubmitting ? 0.7 : 1
-                  }}
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit'}
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Map Section */}
-      
     </div>
   );
 };

@@ -1,70 +1,84 @@
-# BluBridge Website - Product Requirements Document
+# BluBridge — PRD & Redesign Status
 
 ## Original Problem Statement
-Build and maintain the BluBridge corporate website with React frontend + FastAPI backend + MongoDB.
+Complete visual & structural redesign of the BluBridge website to a premium, light-theme, editorial, research-led aesthetic (Soket/Sakana-quality but not copied). **Strict content-lock**: every existing heading, paragraph, CTA, link, form field, image, and route must be preserved verbatim. Primary background color `#f1f2fa`. Logo untouched. Completely different hero.
 
-## What's Been Implemented
+## Design System (LOCKED)
+- Fonts: **Geist** (headings) · **Inter** (body) · **IBM Plex Mono** (technical labels/eyebrows/data captions)
+- Palette (light theme)
+  - `--bb-bg` `#f1f2fa` (main), `--bb-bg-subtle` `#e8eaf3`, `--bb-bg-panel` `#eceefa`, `--bb-bg-elevated` `#ffffff`
+  - `--bb-ink` `#0a1230`, `--bb-ink-2` `#3f4966`, `--bb-ink-3` `#7c86a2`
+  - `--bb-line` `#d4d8e8`, `--bb-line-strong` `#b8bfd6`
+  - Accent `--bb-accent` `#2b4c8c`, soft `#dfe6f5`, signal `#4a7bd6`
+- Grid: 12 col, max width 1320px, editorial asymmetric layouts, mono captions, thin borders, no rounded pills, no glassmorphism, no gradients on hero.
 
-### Security Hardening (May 2026) - COMPLETE
-**Backend Security:**
-- SecurityMiddleware: rate limiting per IP/endpoint, security headers on all responses
-- CORS restricted to known origins (blubridge.ai, blubridge.com, preview URL)
-- NoSQL injection prevention: all search queries use `sanitize_regex_input()`
-- Admin brute force protection: 5 failed attempts = 15min lockout
-- Admin token expiration: 24-hour TTL
-- File upload hardening: magic byte validation, executable content blocking
-- Path traversal prevention on resume downloads
-- Query param clamping (limit 1-200, page >= 1)
-- Export type validation
-- Form type validation on detail/delete endpoints
-- API docs/OpenAPI schema disabled in production
-- Resend API key moved from source code to .env
+## Phase 1 — COMPLETE (2026-02-21) ✅
+Files rewritten (backups saved as `_*_backup.jsx` alongside):
+1. `frontend/src/index.css` — new design tokens, fonts, editorial utilities (`.bb-eyebrow`, `.bb-display`, `.bb-h2`, `.bb-panel`, `.bb-btn-primary`, `.bb-btn-ghost`, `.bb-line-draw`, `.bb-pulse-node`, `.bb-flow-line`) + `prefers-reduced-motion` support
+2. `frontend/tailwind.config.js` — added `bb-*` color tokens + `geist` / `inter` / `mono` font families
+3. `components/Header.jsx` — light editorial fixed header, translucent bg with blur, mono announcement strip, hover mega-menu with icon-tile items, mono chevrons, shrink-on-scroll (logo swap preserved wordmark → B icon)
+4. `components/Footer.jsx` — editorial 12-col grid, IBM Plex Mono column headings, form retained (First/Last/Email/Message + Contact Now), all links preserved (About, Careers, Contact, LinkedIn, X, GitHub), copyright + legal
+5. `pages/Home.jsx` — 8 sections, all content preserved:
+   - **Hero**: asymmetric split — big `"Beyond / the Horizon"` display type + bespoke animated SVG pipeline diagram (DATA → TOKENIZER → PRE-TRAINING → POST-TRAINING → INFERENCE) with animated data-flow curves and corner brackets
+   - **/01 Expertise** — orbit visual + industry grid (10 industries) with mono numbers
+   - **/02 Services** — 3 editorial row items (Model Customization / Value Realization / Deployment) linking to /solutions#anchors, hover-reveal `OPEN ↗`
+   - **/03 Infrastructure** — sidebar tabs (7 tabs: Data / Pre-training / Mid-training / Post-training / Agent Build / Inference Optimization / Infrastructure Scaling) with detail panel and 4 features each
+   - **/05 What we can do for you** — vertical tabs (Smart Agents, AI Driven Search, In-Depth Research, Developer APIs, Custom AI Deployments)
+   - **/06 Work with BluBridge** — team image with `FIG. ii` overlay + "Join us" CTA
+   - **/07 Know more about our Research** — dark navy final CTA on `#0a1230`
+6. `pages/AboutUs.jsx` — Hero (About Us eyebrow → "Building the Next Frontier of AI") + reframed hero image + Our Mission + 4-block editorial grid (Our Purpose / How we Build / Innovation Through Rigor / Our People) + typing animation "It's Our Hunger. / Precision." + final dark CTA
+7. `pages/Contact.jsx` — Editorial header + 3 office cards (INDIA/INDIA/USA with map links) + Direct Channels (Phone/Email/LinkedIn) + full form (all fields, verify email, phone country codes with all 100+ options, inquiry types, validation, backend submit unchanged)
+8. `pages/Careers.jsx` — Editorial Join Us hero, principle tagline, expandable 12-role ledger table with mono index/dept/location, editorial map cards for 3 offices with animated pulsing pin, 4 direct channels, JoinOurTeam sub-component embedded
 
-**Frontend Security:**
-- Security headers middleware in server.js (X-Frame-Options, CSP, HSTS, etc.)
-- Source map generation disabled (`GENERATE_SOURCEMAP=false`)
-- Source map requests blocked (404)
-- X-Powered-By header removed
+## Hero — Bespoke Pipeline Diagram
+Custom animated SVG per requirements:
+- 500×600 viewBox, coordinate grid backdrop with fade mask
+- Vertical spine, 5 nodes (DATA/TOKENIZER/PRE-TRAINING/POST-TRAINING/INFERENCE) with pulse animation
+- Side data-flow curves with animated `stroke-dasharray`
+- Mono index labels (00-04), corner brackets, FIG. i annotation
+- No particles, no brains, no robots — pure editorial technical illustration
 
-**Security Headers (both layers):**
-- X-Content-Type-Options: nosniff
-- X-Frame-Options: DENY
-- X-XSS-Protection: 1; mode=block
-- Strict-Transport-Security: max-age=31536000; includeSubDomains
-- Referrer-Policy: strict-origin-when-cross-origin
-- Permissions-Policy: camera=(), microphone=(), geolocation=()
-- Cross-Origin-Opener-Policy: same-origin
+## Verified
+- `yarn build` compiles cleanly (295 kB JS, 22.5 kB CSS)
+- All lint checks passing
+- Screenshots verified: Home hero, Home industry, Home services, About hero, Contact form, Careers, Footer
 
-### Research Pages Premium UX (Jun 24, 2026)
-- Premium horizontal pill-shaped author badges on `/Research/FLUX`, `/Research/Blu-Werp`, `/Research/BluTrain`
-- Each pill: dark navy initials avatar + author name, cream bg, hover lift/shadow
-- BluTrain shows "AUTHORS · 22" count label
-- Replaced BluTrain Figure 1 (architecture diagram) with user-uploaded image
-- Production build refreshed and frontend service restarted
+## Phase 2 — NEXT (Pending user approval)
+Apply same design system to remaining pages:
+- 10 Product pages (`products/Training`, `Inference`, `FineTuning`, `Serverless`, `SovereignCloud`, `Glomfjord`, `Narvik`, `GPUNodes`, `Marketplace`, `ModelCustomization`)
 
-### Previous Features
-- Full website with all major pages
-- Admin panel with server-side pagination
-- 12 career job listings from Excel data
-- Email config: contact@blubridge.ai (from) → hiring@blubridge.com (to) for jobs, contact@blubridge.ai for contact/footer forms
-- Reply-To set to user's email on all forms
-- US address: 5 Independence Way, Suite 300, Princeton, NJ 08540
+## Phase 3
+- 6 Solution case pages + 8 Solution industry pages
+- `SolutionsNew` landing page
 
-## Architecture
-- Frontend: React (CRA + CRACO) with Shadcn UI
-- Backend: FastAPI + MongoDB + SecurityMiddleware
-- Email: Resend API (isolated functions for job vs contact forms)
-- Build: CRACO with @ alias, no source maps in production
+## Phase 4
+- Research list + 7 detail pages (`FLUX`, `FLUX-Data`, `FLUX-3`, `FLUX-4`, `BluWerp`, `BluTrain`)
 
-## Admin Credentials
-- Username: admin, Password: admin
+## Phase 5
+- Blog, Pricing, Documentation, Partners, MediaKit, JobDetail, ContactSales, GeneralEnquiry, Policy pages, JoinOurTeam
+- Admin pages left untouched per user
 
-## Pending Tasks
-### P1
-- Apply 3-Grid color theme to About Page
-- Create Individual GPU Node Pages
-### P2
-- Add SEO content for FLUX-3, FLUX-4, FLUX-Data pages
-- Refactor server.py into routes/models
-- Consolidate FLUX page components
-- Blog/Press Pages, Contact Sub-pages
+## Content-Lock Rule (ACTIVE)
+- Every heading, paragraph, CTA label, link, product/research/solution name, form field, footer item preserved verbatim.
+- No paraphrasing, no shortening, no marketing copy added.
+- Same content on desktop / tablet / mobile.
+- Backups exist as `_Home_backup_v2.jsx`, `_AboutUs_backup.jsx`, `_Contact_backup.jsx`, `_Careers_backup.jsx`, `_Header_backup.jsx`, `_Footer_backup.jsx` (deleteable once user validates).
+
+## Environment
+- Frontend: React + CRA (craco), Tailwind, Shadcn UI, Express-served build
+- Backend: FastAPI + MongoDB (untouched)
+- Backend URL: `REACT_APP_BACKEND_URL` (Kubernetes ingress → /api)
+- Admin: `/admin` route — untouched per user's Phase 1 scope
+
+## 3rd Party Integrations
+- Resend (Emails) — user API key
+- Clicky Analytics — user ID
+- MongoDB — user connection string
+- Backend contact endpoint: `POST /api/contacts/submit` (types: `footer_form`, `contact_us`)
+
+## Testing Credentials
+- Admin: `/admin` — user `admin` / pass `admin`
+
+## Known Non-Issues
+- The `JoinOurTeam` sub-component (embedded on Careers) retains its previous styling — will be redesigned in Phase 5.
+- Other pages (Research, Products, Solutions, Blog, Pricing, Docs, Partners, MediaKit, Policies) still use previous styling — Phase 2–5 work.
