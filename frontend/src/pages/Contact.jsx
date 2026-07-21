@@ -268,8 +268,6 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mt-14">
           {/* LEFT — Offices + contact info */}
           <div className="lg:col-span-5" data-testid="offices-card">
-            <p className="bb-eyebrow mb-6">/ 01 &nbsp;·&nbsp; Office Locations</p>
-
             <div className="space-y-4 mb-10">
               {offices.map((o, i) => (
                 <div
@@ -300,8 +298,6 @@ const Contact = () => {
                 </div>
               ))}
             </div>
-
-            <p className="bb-eyebrow mb-6">/ 02 &nbsp;·&nbsp; Direct Channels</p>
 
             <div className="space-y-3">
               {[

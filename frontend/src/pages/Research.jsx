@@ -106,7 +106,7 @@ const Research = () => {
             <span className="bb-caption hidden sm:block">VOL. 2026 · ARCHIVE</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 pt-14 lg:pt-16 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 pt-14 lg:pt-16 items-center">
             <div className="lg:col-span-8">
               <h1 className="bb-display" style={{ fontSize: 'clamp(42px, 7vw, 112px)' }}>
                 Papers &amp; Publications
