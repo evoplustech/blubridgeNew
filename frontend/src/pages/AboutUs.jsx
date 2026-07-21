@@ -80,11 +80,12 @@ const PassionTypingText = () => {
         data-testid="passion-heading"
         style={{
           fontFamily: 'Geist, Inter, sans-serif',
-          fontSize: 'clamp(28px, 3.6vw, 52px)',
+          fontSize: 'clamp(24px, 3vw, 44px)',
           fontWeight: 500,
           letterSpacing: '-0.025em',
           lineHeight: 1.05,
           color: '#0a1230',
+          whiteSpace: 'nowrap',
         }}
       >
         <span>{staticText}</span>
