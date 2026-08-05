@@ -224,40 +224,39 @@ const AboutUs = () => {
               </div>
             </div>
 
-            {/* Four passages — staggered editorial reading column */}
+            {/* Four passages — offset editorial grid */}
             <div className="lg:col-span-7">
-              {[
-                {
-                  title: 'Our Purpose',
-                  body: 'BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.'
-                },
-                {
-                  title: 'How we Build',
-                  body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.'
-                },
-                {
-                  title: 'Innovation Through Rigor',
-                  body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.'
-                },
-                {
-                  title: 'Our People',
-                  body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.'
-                }
-              ].map((block, i) => (
-                <article
-                  key={block.title}
-                  className={i % 2 === 1 ? 'lg:pl-16' : ''}
-                  style={{ paddingTop: i === 0 ? '8px' : '64px' }}
-                >
-                  <h3
-                    className="text-bb-ink"
-                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em', margin: 0 }}
-                  >
-                    {block.title}
-                  </h3>
-                  <p className="text-bb-ink-2 text-[15px] leading-[1.8] max-w-[560px]" style={{ fontFamily: 'Inter, sans-serif', margin: '18px 0 0' }}>{block.body}</p>
-                </article>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-2" style={{ columnGap: 'clamp(40px, 5vw, 80px)', rowGap: 'clamp(52px, 6vw, 80px)' }}>
+                {[
+                  {
+                    title: 'Our Purpose',
+                    body: 'BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.'
+                  },
+                  {
+                    title: 'How we Build',
+                    body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.'
+                  },
+                  {
+                    title: 'Innovation Through Rigor',
+                    body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.'
+                  },
+                  {
+                    title: 'Our People',
+                    body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.'
+                  }
+                ].map((block, i) => (
+                  <article key={block.title} className={i % 2 === 1 ? 'md:mt-16' : ''}>
+                    <div aria-hidden style={{ width: '36px', height: '1px', background: '#b8bfd6', marginBottom: '20px' }} />
+                    <h3
+                      className="text-bb-ink"
+                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(21px, 2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em', margin: 0 }}
+                    >
+                      {block.title}
+                    </h3>
+                    <p className="text-bb-ink-2 text-[15px] leading-[1.8]" style={{ fontFamily: 'Inter, sans-serif', margin: '16px 0 0' }}>{block.body}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </div>
