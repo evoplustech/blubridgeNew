@@ -226,7 +226,10 @@ const Contact = () => {
     { region: 'USA', address: 'Zeal Solutions Inc', line2: '5 Independence Way, Suite 300,', line3: 'Princeton, New Jersey - 08540', map: 'https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z' },
   ];
 
-  /* --- Editorial ledger form styles (no card, underline inputs) --- */
+  /* ==============================================================
+     CORRESPONDENCE SHEET — form control styles
+     Compact surfaces: fill #fbfaf5, 1px border #d8d5ca, radius 3px.
+     ============================================================== */
   const labelStyle = {
     display: 'block',
     fontFamily: 'IBM Plex Mono, monospace',
@@ -234,53 +237,76 @@ const Contact = () => {
     fontWeight: 500,
     letterSpacing: '0.18em',
     textTransform: 'uppercase',
-    color: '#0a1230',
-    marginBottom: '10px',
+    color: '#3a3a2e',
+    marginBottom: '8px',
   };
   const inputBase = {
     width: '100%',
-    padding: '10px 0',
-    border: 'none',
-    borderBottom: '1px solid #c9cee0',
-    background: 'transparent',
-    fontSize: '16px',
+    padding: '11px 14px',
+    border: '1px solid #d8d5ca',
+    borderRadius: '3px',
+    background: '#fbfaf5',
+    fontSize: '15px',
     fontFamily: 'Inter, sans-serif',
     color: '#0a1230',
     outline: 'none',
     boxSizing: 'border-box',
-    borderRadius: 0,
-    transition: 'border-color 200ms ease',
+    transition: 'border-color 180ms ease, background 180ms ease',
   };
-  const errBorder = { borderBottom: '1px solid #dc2626' };
-  const errText = { color: '#dc2626', fontSize: '12px', marginTop: '6px', margin: '6px 0 0', fontFamily: 'Inter, sans-serif' };
+  const errBorder = { border: '1px solid #dc2626' };
+  const errText = { color: '#dc2626', fontSize: '12px', margin: '6px 0 0', fontFamily: 'Inter, sans-serif' };
 
   return (
-    <div style={{ background: '#f0f1f9' }} data-testid="contact-page">
+    <div style={{ background: '#f5f3e9' }} data-testid="contact-page">
 
-      {/* ============================================================
-          OPENING — Contact Us title + 2×2 contact directory  (#f0f1f9)
-          ============================================================ */}
-      <section style={{ background: '#f0f1f9', paddingTop: '80px', paddingBottom: '96px' }}>
-        <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+      {/* ==============================================================
+          SECTION 1 — CORRESPONDENCE SHEET
+          Centred wrapper (max 1240px, w calc(100% - 96px))
+          with ONE outer 1px #d8d5ca frame. Title + 2×2 directory in
+          the header, one hairline, form workspace below.
+          ============================================================== */}
+      <section style={{ background: '#f5f3e9', paddingTop: '72px', paddingBottom: '96px' }}>
+        <div
+          style={{
+            maxWidth: '1240px',
+            width: 'calc(100% - 96px)',
+            margin: '0 auto',
+            border: '1px solid #d8d5ca',
+            background: '#f5f3e9',
+            padding: 'clamp(28px, 3.4vw, 56px)',
+          }}
+        >
+          {/* HEADER — "Contact Us" col 1-5, 2×2 directory col 7-12 */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
             <div className="lg:col-span-5">
               <h1
                 data-testid="contact-heading"
-                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(52px, 8vw, 128px)', lineHeight: 0.94, letterSpacing: '-0.045em', fontWeight: 500, color: '#0a1230' }}
+                style={{
+                  fontFamily: 'Geist, sans-serif',
+                  fontSize: 'clamp(46px, 6vw, 94px)',
+                  fontWeight: 500,
+                  letterSpacing: '-0.035em',
+                  lineHeight: 1,
+                  color: '#0a1230',
+                  margin: 0,
+                  whiteSpace: 'nowrap',
+                }}
               >
                 Contact Us
               </h1>
             </div>
 
-            <div className="lg:col-span-7 lg:pl-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8" data-testid="contact-directory">
+            <div className="lg:col-span-1" />
+
+            <div className="lg:col-span-6" data-testid="contact-directory">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
                 {[
-                  { label: 'Contact Number', value: '+91 8925987250',                    href: 'tel:+91 8925987250',                                testId: 'channel-contact-number' },
-                  { label: 'Email',          value: 'info@blubridge.com',                href: 'mailto:info@blubridge.com',                          testId: 'channel-email' },
-                  { label: 'LinkedIn',       value: 'linkedin.com/company/blubridge',    href: 'https://www.linkedin.com/company/blubridge/',       testId: 'channel-linkedin' },
-                ].map((c, i) => (
+                  { label: 'Contact Number', value: '+91 8925987250',                 href: 'tel:+91 8925987250',                          testId: 'channel-contact-number' },
+                  { label: 'Email',          value: 'info@blubridge.com',             href: 'mailto:info@blubridge.com',                    testId: 'channel-email' },
+                  { label: 'LinkedIn',       value: 'linkedin.com/company/blubridge', href: 'https://www.linkedin.com/company/blubridge/', testId: 'channel-linkedin' },
+                ].map((c) => (
                   <a
-                    key={i}
+                    key={c.testId}
                     href={c.href}
                     target={c.href.startsWith('http') ? '_blank' : undefined}
                     rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -288,12 +314,12 @@ const Contact = () => {
                     className="group block"
                     style={{ textDecoration: 'none' }}
                   >
-                    <p style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '10.5px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7a7461', margin: 0 }}>
+                    <p style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '10px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#8a8471', margin: 0 }}>
                       {c.label}
                     </p>
                     <p
-                      className="mt-3 group-hover:opacity-70 transition-opacity"
-                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(18px, 1.8vw, 22px)', letterSpacing: '-0.015em', color: '#0a1230', margin: 0, wordBreak: 'break-word' }}
+                      className="mt-2 group-hover:opacity-70 transition-opacity"
+                      style={{ fontFamily: 'Geist, sans-serif', fontSize: '17px', letterSpacing: '-0.01em', color: '#0a1230', margin: '6px 0 0', lineHeight: 1.3, wordBreak: 'break-word' }}
                     >
                       {c.value}
                     </p>
@@ -302,86 +328,99 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ============================================================
-          FORM LEDGER — labels left / controls right, no card  (#e8eaf3)
-          ============================================================ */}
-      <section style={{ background: '#e8eaf3', paddingTop: '80px', paddingBottom: '112px' }}>
-        <div className="bb-container">
+          {/* ONE structural hairline */}
+          <div style={{ borderTop: '1px solid #d8d5ca', marginTop: '40px', marginBottom: '32px' }} />
+
+          {/* FORM WORKSPACE */}
           <form onSubmit={handleSubmit} data-testid="contact-form-card" noValidate>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-5">
 
-            {/* ROW 1 — First Name / Last Name */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
-              <div>
+              {/* Row 1: First Name (1-6) / Last Name (7-12) */}
+              <div className="lg:col-span-6">
                 <label style={labelStyle}>First Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
                 <input
                   type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}
                   style={{ ...inputBase, ...(validationErrors.firstName ? errBorder : {}) }}
+                  onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.firstName ? '#dc2626' : '#d8d5ca'; }}
                 />
                 {validationErrors.firstName && <p style={errText}>{validationErrors.firstName}</p>}
               </div>
-              <div>
+              <div className="lg:col-span-6">
                 <label style={labelStyle}>Last Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
                 <input
                   type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}
                   style={{ ...inputBase, ...(validationErrors.lastName ? errBorder : {}) }}
+                  onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.lastName ? '#dc2626' : '#d8d5ca'; }}
                 />
                 {validationErrors.lastName && <p style={errText}>{validationErrors.lastName}</p>}
               </div>
-            </div>
 
-            {/* ROW 2 — Email + Verify Email */}
-            <div className="py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
-              <label style={labelStyle}>Email<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+              {/* Row 2: Email (1-9) / Verify Email (10-12) */}
+              <div className="lg:col-span-9">
+                <label style={labelStyle}>Email<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
                 <input
                   type="email" name="email" value={formData.email} onChange={handleInputChange}
-                  style={{ ...inputBase, ...(validationErrors.email ? errBorder : {}), flex: '1 1 260px' }}
+                  style={{ ...inputBase, ...(validationErrors.email ? errBorder : {}) }}
+                  onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.email ? '#dc2626' : '#d8d5ca'; }}
                 />
+                {validationErrors.email && <p style={errText}>{validationErrors.email}</p>}
+              </div>
+              <div className="lg:col-span-3 flex flex-col">
+                <label style={{ ...labelStyle, visibility: 'hidden' }}>Verify</label>
                 <button
                   type="button"
                   onClick={handleVerifyEmail}
                   style={{
-                    padding: '10px 20px',
+                    width: '100%',
+                    padding: '11px 12px',
                     fontSize: '11px',
                     fontFamily: 'IBM Plex Mono, monospace',
-                    letterSpacing: '0.18em',
+                    letterSpacing: '0.14em',
                     cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                    backgroundColor: emailVerified ? '#0a5231' : 'transparent',
+                    background: emailVerified ? '#0a5231' : '#fbfaf5',
                     color: emailVerified ? '#ffffff' : '#0a1230',
-                    border: emailVerified ? 'none' : '1px solid #0a1230',
-                    borderRadius: '999px',
+                    border: '1px solid ' + (emailVerified ? '#0a5231' : '#0a1230'),
+                    borderRadius: '3px',
                     textTransform: 'uppercase',
+                    boxSizing: 'border-box',
+                    transition: 'background 180ms ease',
                   }}
                 >
                   {emailVerified ? 'Verified ✓' : 'Verify Email'}
                 </button>
               </div>
-              {validationErrors.email && <p style={errText}>{validationErrors.email}</p>}
-            </div>
 
-            {/* ROW 3 — Phone (+code) / Inquiry Type */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
-              <div>
+              {/* Row 3: Phone (1-6) / Inquiry (7-12) */}
+              <div className="lg:col-span-6">
                 <label style={labelStyle}>Phone No<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                <div style={{ display: 'flex', alignItems: 'flex-end', gap: '10px', borderBottom: validationErrors.phoneNumber ? '1px solid #dc2626' : '1px solid #c9cee0' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'stretch',
+                    background: '#fbfaf5',
+                    border: validationErrors.phoneNumber ? '1px solid #dc2626' : '1px solid #d8d5ca',
+                    borderRadius: '3px',
+                    overflow: 'hidden',
+                  }}
+                >
                   <select
                     name="phoneCode"
                     value={formData.phoneCode}
                     onChange={handleInputChange}
                     style={{
-                      padding: '10px 6px 10px 0',
+                      padding: '11px 10px 11px 12px',
                       background: 'transparent',
                       border: 'none',
+                      borderRight: '1px solid #d8d5ca',
                       fontSize: '15px',
                       fontFamily: 'Inter, sans-serif',
                       color: '#0a1230',
                       outline: 'none',
                       cursor: 'pointer',
-                      minWidth: '78px',
                     }}
                   >
                     {countryCodes.map((c, i) => (
@@ -397,10 +436,10 @@ const Contact = () => {
                     maxLength={15}
                     style={{
                       flex: 1,
-                      padding: '10px 0',
-                      border: 'none',
+                      padding: '11px 12px',
                       background: 'transparent',
-                      fontSize: '16px',
+                      border: 'none',
+                      fontSize: '15px',
                       outline: 'none',
                       fontFamily: 'Inter, sans-serif',
                       color: '#0a1230',
@@ -409,7 +448,7 @@ const Contact = () => {
                 </div>
                 {validationErrors.phoneNumber && <p style={errText}>{validationErrors.phoneNumber}</p>}
               </div>
-              <div>
+              <div className="lg:col-span-6">
                 <label style={labelStyle}>Inquiry Type<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
                 <select
                   name="inquiryType"
@@ -421,6 +460,8 @@ const Contact = () => {
                     color: formData.inquiryType ? '#0a1230' : '#8a8471',
                     ...(validationErrors.inquiryType ? errBorder : {}),
                   }}
+                  onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.inquiryType ? '#dc2626' : '#d8d5ca'; }}
                 >
                   <option value="" disabled>Select</option>
                   <option value="sales">Sales Inquiry</option>
@@ -431,104 +472,260 @@ const Contact = () => {
                 </select>
                 {validationErrors.inquiryType && <p style={errText}>{validationErrors.inquiryType}</p>}
               </div>
-            </div>
 
-            {/* ROW 4 — Message */}
-            <div className="py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
-              <label style={labelStyle}>How can we help you?<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                rows={7}
-                style={{
-                  ...inputBase,
-                  resize: 'vertical',
-                  minHeight: '180px',
-                  ...(validationErrors.message ? errBorder : {}),
-                }}
-              />
-              {validationErrors.message && <p style={errText}>{validationErrors.message}</p>}
-            </div>
-
-            {submitError && (
-              <div style={{ marginTop: '20px', padding: '12px 0', borderBottom: '1px solid #fecaca' }}>
-                <p style={{ color: '#dc2626', fontSize: '13px', margin: 0, fontFamily: 'Inter, sans-serif' }}>{submitError}</p>
+              {/* Row 4: Message (1-12) */}
+              <div className="lg:col-span-12">
+                <label style={labelStyle}>How can we help you?<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={5}
+                  style={{
+                    ...inputBase,
+                    padding: '12px 14px',
+                    resize: 'vertical',
+                    minHeight: '132px',
+                    lineHeight: 1.6,
+                    ...(validationErrors.message ? errBorder : {}),
+                  }}
+                  onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.message ? '#dc2626' : '#d8d5ca'; }}
+                />
+                {validationErrors.message && <p style={errText}>{validationErrors.message}</p>}
               </div>
-            )}
 
-            {/* ROW 5 — Submit */}
-            <div className="pt-10">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                data-testid="contact-submit"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '16px 36px',
-                  background: '#0a1230',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '999px',
-                  fontFamily: 'Geist, sans-serif',
-                  fontSize: '15px',
-                  fontWeight: 500,
-                  letterSpacing: '-0.005em',
-                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                  opacity: isSubmitting ? 0.7 : 1,
-                  transition: 'background 200ms ease',
-                }}
-              >
-                {isSubmitting ? 'Submitting…' : 'Submit'}
-                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-              </button>
+              {submitError && (
+                <div className="lg:col-span-12">
+                  <p style={{ color: '#dc2626', fontSize: '13px', margin: 0, fontFamily: 'Inter, sans-serif' }}>{submitError}</p>
+                </div>
+              )}
+
+              {/* Row 5: Submit (controlled width, aligned to form axis) */}
+              <div className="lg:col-span-12" style={{ marginTop: '4px' }}>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  data-testid="contact-submit"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px',
+                    minWidth: '196px',
+                    padding: '13px 28px',
+                    background: '#0a1230',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '3px',
+                    fontFamily: 'Geist, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    letterSpacing: '-0.005em',
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                    opacity: isSubmitting ? 0.7 : 1,
+                    transition: 'background 200ms ease',
+                  }}
+                >
+                  {isSubmitting ? 'Submitting…' : 'Submit'}
+                  <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+                </button>
+              </div>
             </div>
-
           </form>
         </div>
       </section>
 
-      {/* ============================================================
-          OFFICE REGISTER — vertical, one row per office  (#f0f1f9)
-          ============================================================ */}
-      <section style={{ background: '#f0f1f9', paddingTop: '96px', paddingBottom: '128px' }} data-testid="offices-card">
+      {/* ==============================================================
+          SECTION 2 — GEOGRAPHIC FOLIO (Our Offices)
+          Heading col 1-4. Office 1 upper (col 5-9). Office 2 lower-
+          left (col 5-8). Office 3 lower-right (col 9-12). No cards,
+          no repeated ledger rows, only ONE top boundary line.
+          ============================================================== */}
+      <section
+        style={{ background: '#f5f3e9', paddingTop: '48px', paddingBottom: '128px' }}
+        data-testid="offices-card"
+      >
         <div className="bb-container">
-          <div style={{ borderTop: '1px solid #c9cee0' }}>
-            {offices.map((o, i) => (
-              <div
-                key={i}
-                data-testid={`office-card-${i}`}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 items-start"
-                style={{ borderBottom: '1px solid #c9cee0' }}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 gap-x-10 lg:gap-x-14" style={{ borderTop: '1px solid #d8d5ca', paddingTop: '56px' }}>
+
+            {/* Heading — col 1-4 */}
+            <div className="lg:col-span-4">
+              <h2
+                style={{
+                  fontFamily: 'Geist, sans-serif',
+                  fontSize: 'clamp(32px, 4vw, 56px)',
+                  fontWeight: 500,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1,
+                  color: '#0a1230',
+                  margin: 0,
+                  maxWidth: '260px',
+                }}
               >
-                <div className="lg:col-span-3">
-                  <h3
-                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.4vw, 32px)', letterSpacing: '-0.025em', fontWeight: 500, color: '#0a1230', margin: 0 }}
+                Our Offices
+              </h2>
+            </div>
+
+            {/* Offices region — 8 cols with an internal 8-col grid */}
+            <div className="lg:col-span-8">
+              <div className="grid grid-cols-1 lg:grid-cols-8 gap-y-16 gap-x-10">
+
+                {/* Office 1 — larger, upper, cols 1-5 (of the 8-col sub-grid, ≈ cols 5-9 of the full 12) */}
+                <div
+                  className="lg:col-start-1 lg:col-span-5"
+                  data-testid="office-card-0"
+                >
+                  <p
+                    style={{
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fontSize: '11px',
+                      letterSpacing: '0.22em',
+                      textTransform: 'uppercase',
+                      color: '#8a8471',
+                      margin: 0,
+                    }}
                   >
-                    {o.region}
-                  </h3>
-                </div>
-                <div className="lg:col-span-7">
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', lineHeight: 1.7, color: '#2a3352', margin: 0 }}>
-                    {o.address}<br />{o.line2}<br />{o.line3}
+                    {offices[0].region}
                   </p>
-                </div>
-                <div className="lg:col-span-2 lg:text-right">
+                  <p
+                    className="mt-4"
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: 'clamp(20px, 1.7vw, 24px)',
+                      lineHeight: 1.5,
+                      letterSpacing: '-0.015em',
+                      color: '#0a1230',
+                      margin: '16px 0 0',
+                    }}
+                  >
+                    {offices[0].address}<br />{offices[0].line2}<br />{offices[0].line3}
+                  </p>
                   <a
-                    href={o.map}
+                    href={offices[0].map}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 group"
-                    style={{ fontFamily: 'Geist, sans-serif', fontSize: '14px', fontWeight: 500, color: '#0a1230', borderBottom: '1px solid #0a1230', paddingBottom: '3px', textDecoration: 'none' }}
+                    className="inline-flex items-center gap-2 mt-6 group"
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: '14px',
+                      fontWeight: 500,
+                      color: '#0a1230',
+                      borderBottom: '1px solid #0a1230',
+                      paddingBottom: '3px',
+                      textDecoration: 'none',
+                      marginTop: '24px',
+                    }}
                   >
                     View on Google Maps
                     <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
                   </a>
                 </div>
+
+                {/* Office 2 — lower-left, cols 1-4 (≈ cols 5-8 of the full 12) */}
+                <div
+                  className="lg:col-start-1 lg:col-span-4"
+                  data-testid="office-card-1"
+                >
+                  <p
+                    style={{
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fontSize: '11px',
+                      letterSpacing: '0.22em',
+                      textTransform: 'uppercase',
+                      color: '#8a8471',
+                      margin: 0,
+                    }}
+                  >
+                    {offices[1].region}
+                  </p>
+                  <p
+                    className="mt-4"
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: '18px',
+                      lineHeight: 1.55,
+                      letterSpacing: '-0.01em',
+                      color: '#0a1230',
+                      margin: '16px 0 0',
+                    }}
+                  >
+                    {offices[1].address}<br />{offices[1].line2}<br />{offices[1].line3}
+                  </p>
+                  <a
+                    href={offices[1].map}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 group"
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: '14px',
+                      fontWeight: 500,
+                      color: '#0a1230',
+                      borderBottom: '1px solid #0a1230',
+                      paddingBottom: '3px',
+                      textDecoration: 'none',
+                      marginTop: '20px',
+                    }}
+                  >
+                    View on Google Maps
+                    <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                  </a>
+                </div>
+
+                {/* Office 3 — lower-right, cols 5-8 (≈ cols 9-12 of the full 12) */}
+                <div
+                  className="lg:col-start-5 lg:col-span-4"
+                  data-testid="office-card-2"
+                >
+                  <p
+                    style={{
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fontSize: '11px',
+                      letterSpacing: '0.22em',
+                      textTransform: 'uppercase',
+                      color: '#8a8471',
+                      margin: 0,
+                    }}
+                  >
+                    {offices[2].region}
+                  </p>
+                  <p
+                    className="mt-4"
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: '18px',
+                      lineHeight: 1.55,
+                      letterSpacing: '-0.01em',
+                      color: '#0a1230',
+                      margin: '16px 0 0',
+                    }}
+                  >
+                    {offices[2].address}<br />{offices[2].line2}<br />{offices[2].line3}
+                  </p>
+                  <a
+                    href={offices[2].map}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 group"
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: '14px',
+                      fontWeight: 500,
+                      color: '#0a1230',
+                      borderBottom: '1px solid #0a1230',
+                      paddingBottom: '3px',
+                      textDecoration: 'none',
+                      marginTop: '20px',
+                    }}
+                  >
+                    View on Google Maps
+                    <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                  </a>
+                </div>
+
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

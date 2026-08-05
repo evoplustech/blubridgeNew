@@ -84,7 +84,6 @@ const industries = [
 
 const ExpertiseSection = () => {
   const [activeIndustry, setActiveIndustry] = useState(0);
-  const Active = industries[activeIndustry].Icon;
 
   return (
     <section className="relative pt-24 pb-24 overflow-hidden" style={{ background: '#f5f3e9' }} data-testid="expertise-section">
@@ -103,58 +102,21 @@ const ExpertiseSection = () => {
           </div>
         </div>
 
-        {/* ------ HERO DISPLAY ------
-            Small "Frontier AI Focus" eyebrow with icon-as-glyph, followed by
-            a monster editorial display of the active industry. No cards. */}
+        {/* ------ COMPRESSED FOCAL LIST ------
+            Every industry lives in the same vertical stack. The active
+            row swells into a display-scale title and reveals a small
+            "Frontier AI Focus" eyebrow with an inline icon glyph. All
+            other rows collapse to a compact single-line label. There is
+            no split, no side-panel, no separate hero. */}
         <div
-          className="relative pt-10 pb-8"
-          style={{ borderTop: '1px solid #d8d5ca' }}
-          data-testid="industry-spotlight"
-        >
-          <div className="flex items-center gap-4 mb-8">
-            <span
-              key={`icon-${activeIndustry}`}
-              aria-hidden
-              className="inline-flex"
-              style={{ animation: 'bbFadeIn 400ms ease forwards', color: '#0a1230' }}
-            >
-              <Active style={{ width: '20px', height: '20px' }} strokeWidth={1.5} />
-            </span>
-            <p className="bb-caption" style={{ margin: 0 }}>Frontier AI Focus</p>
-          </div>
-
-          <h3
-            key={`title-${activeIndustry}`}
-            data-testid="industry-spotlight-title"
-            className="text-bb-ink"
-            style={{
-              fontFamily: 'Geist, sans-serif',
-              fontSize: 'clamp(40px, 7vw, 110px)',
-              fontWeight: 500,
-              letterSpacing: '-0.05em',
-              lineHeight: 1,
-              animation: 'bbFadeIn 450ms ease forwards',
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'clip',
-              margin: 0,
-            }}
-          >
-            {industries[activeIndustry].title}
-          </h3>
-        </div>
-
-        {/* ------ INDEX RAIL ------
-            Full-width horizontal wrapping list of every industry with a
-            leading arrow revealed only on the active item. Underline the active
-            label. Hover / click to switch. */}
-        <div
-          className="mt-10 flex flex-wrap items-baseline"
+          className="relative"
           role="tablist"
-          style={{ borderTop: '1px solid #d8d5ca', paddingTop: '18px', columnGap: '22px', rowGap: '6px' }}
+          data-testid="industry-focal-list"
+          style={{ borderTop: '1px solid #d8d5ca' }}
         >
           {industries.map((ind, i) => {
             const active = activeIndustry === i;
+            const IconEl = ind.Icon;
             return (
               <button
                 key={ind.title}
@@ -163,35 +125,50 @@ const ExpertiseSection = () => {
                 data-testid={`industry-item-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
                 role="tab"
                 aria-selected={active}
-                className="inline-flex items-baseline gap-2 py-2 transition-colors whitespace-nowrap"
+                className="w-full text-left block transition-colors group"
                 style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '14.5px',
-                  lineHeight: 1.2,
-                  color: active ? '#0a1230' : '#5f6a89',
-                  fontWeight: active ? 500 : 400,
-                  borderBottom: active ? '2px solid #0a1230' : '2px solid transparent',
+                  borderBottom: '1px solid #d8d5ca',
+                  padding: active ? 'clamp(28px, 4vw, 56px) 0' : '18px 0',
                   cursor: 'pointer',
                   background: 'transparent',
-                  padding: '6px 0',
                 }}
               >
+                {active && (
+                  <div className="flex items-center gap-3 mb-4" style={{ animation: 'bbFadeIn 300ms ease forwards' }}>
+                    <span aria-hidden style={{ display: 'inline-flex', color: '#0a1230' }}>
+                      <IconEl style={{ width: '18px', height: '18px' }} strokeWidth={1.6} />
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'IBM Plex Mono, monospace',
+                        fontSize: '11px',
+                        letterSpacing: '0.22em',
+                        textTransform: 'uppercase',
+                        color: '#8a8471',
+                      }}
+                    >
+                      Frontier AI Focus
+                    </span>
+                  </div>
+                )}
                 <span
-                  aria-hidden
+                  data-testid={active ? 'industry-spotlight-title' : undefined}
                   style={{
-                    fontFamily: 'IBM Plex Mono, monospace',
-                    fontSize: '13px',
-                    color: '#0a1230',
-                    width: active ? '14px' : '0px',
-                    overflow: 'hidden',
-                    display: 'inline-block',
-                    transition: 'width 200ms ease',
+                    fontFamily: 'Geist, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: active ? '-0.05em' : '-0.02em',
+                    lineHeight: 1,
+                    color: active ? '#0a1230' : '#7c86a2',
+                    fontSize: active ? 'clamp(46px, 7.4vw, 116px)' : 'clamp(15px, 1.15vw, 17px)',
+                    display: 'block',
                     whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'clip',
+                    transition: 'color 200ms ease, letter-spacing 250ms ease',
                   }}
                 >
-                  →
+                  {ind.title}
                 </span>
-                {ind.title}
               </button>
             );
           })}
