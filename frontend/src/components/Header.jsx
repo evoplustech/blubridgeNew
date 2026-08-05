@@ -89,7 +89,7 @@ const Header = () => {
         className="fixed top-0 left-0 right-0"
         style={{
           zIndex: 1000,
-          backgroundColor: 'rgba(240, 241, 249, 0.86)',
+          backgroundColor: isCareers ? 'rgba(245, 243, 233, 0.92)' : 'rgba(240, 241, 249, 0.86)',
           backdropFilter: 'saturate(140%) blur(16px)',
           WebkitBackdropFilter: 'saturate(140%) blur(16px)',
           borderBottom: isCareers ? '1px solid transparent' : `1px solid ${isScrolled ? '#d4d8e8' : 'transparent'}`,
@@ -99,7 +99,7 @@ const Header = () => {
         {/* Announcement strip — retains existing text */}
         <div
           style={{
-            backgroundColor: '#f0f1f9',
+            backgroundColor: isCareers ? '#f5f3e9' : '#f0f1f9',
             color: '#0a1230',
             borderBottom: isCareers ? 'none' : '1px solid #d4d8e8',
             fontFamily: 'IBM Plex Mono, monospace',
