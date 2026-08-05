@@ -86,7 +86,7 @@ const ExpertiseSection = () => {
   const [activeIndustry, setActiveIndustry] = useState(0);
 
   return (
-    <section className="relative pt-24 pb-24 overflow-hidden" style={{ background: '#f5f3e9' }} data-testid="expertise-section">
+    <section className="relative pt-24 pb-24 overflow-hidden" style={{ background: '#e8eaf3' }} data-testid="expertise-section">
       <div className="bb-container">
         {/* Masthead */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
@@ -112,7 +112,7 @@ const ExpertiseSection = () => {
           className="relative"
           role="tablist"
           data-testid="industry-focal-list"
-          style={{ borderTop: '1px solid #d8d5ca' }}
+          style={{ borderTop: '1px solid #d4d8e8' }}
         >
           {industries.map((ind, i) => {
             const active = activeIndustry === i;
@@ -127,7 +127,7 @@ const ExpertiseSection = () => {
                 aria-selected={active}
                 className="w-full text-left block transition-colors group"
                 style={{
-                  borderBottom: '1px solid #d8d5ca',
+                  borderBottom: '1px solid #d4d8e8',
                   padding: active ? 'clamp(28px, 4vw, 56px) 0' : '18px 0',
                   cursor: 'pointer',
                   background: 'transparent',
@@ -144,7 +144,7 @@ const ExpertiseSection = () => {
                         fontSize: '11px',
                         letterSpacing: '0.22em',
                         textTransform: 'uppercase',
-                        color: '#8a8471',
+                        color: '#7c86a2',
                       }}
                     >
                       Frontier AI Focus
@@ -208,112 +208,102 @@ const capabilities = [
 ];
 
 const CapabilitiesAccordion = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [activeCap, setActiveCap] = useState(0);
+  const cap = capabilities[activeCap];
 
   return (
-    <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="capabilities-index">
+    <section style={{ background: '#f0f1f9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="capabilities-index">
       <div className="bb-container">
-        <div className="mb-16">
-          <h2
-            style={{
-              fontFamily: 'Geist, sans-serif',
-              fontSize: 'clamp(36px, 5vw, 64px)',
-              letterSpacing: '-0.03em',
-              lineHeight: 1,
-              fontWeight: 500,
-              color: '#0a1230',
-              margin: 0,
-              maxWidth: '780px',
-            }}
-          >
-            What we can do for you
-          </h2>
-        </div>
+        <h2
+          data-testid="capabilities-heading"
+          style={{
+            fontFamily: 'Geist, sans-serif',
+            fontSize: 'clamp(36px, 5vw, 64px)',
+            letterSpacing: '-0.03em',
+            lineHeight: 1,
+            fontWeight: 500,
+            color: '#0a1230',
+            margin: 0,
+            maxWidth: '780px',
+          }}
+        >
+          What we can do for you
+        </h2>
 
-        <div style={{ borderTop: '1px solid #d8d5ca' }}>
-          {capabilities.map((cap, i) => {
-            const isOpen = openIndex === i;
+        {/* Inline contents line — flowing selector of capability titles */}
+        <div
+          className="flex flex-wrap items-baseline"
+          role="tablist"
+          data-testid="capabilities-selector"
+          style={{ marginTop: '56px', columnGap: 'clamp(28px, 4vw, 64px)', rowGap: '14px' }}
+        >
+          {capabilities.map((c, i) => {
+            const active = activeCap === i;
             return (
-              <div
-                key={cap.title}
-                data-testid={`capability-entry-${i}`}
-                style={{ borderBottom: '1px solid #d8d5ca' }}
+              <button
+                key={c.title}
+                role="tab"
+                aria-selected={active}
+                data-testid={`capability-toggle-${i}`}
+                onClick={() => setActiveCap(i)}
+                style={{
+                  fontFamily: 'Geist, sans-serif',
+                  fontSize: 'clamp(17px, 1.6vw, 21px)',
+                  fontWeight: 500,
+                  letterSpacing: '-0.01em',
+                  color: active ? '#0a1230' : '#7c86a2',
+                  background: 'transparent',
+                  padding: '6px 0',
+                  borderBottom: active ? '1px solid #0a1230' : '1px solid transparent',
+                  transition: 'color 200ms ease, border-color 200ms ease',
+                  cursor: 'pointer',
+                }}
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                  data-testid={`capability-toggle-${i}`}
-                  aria-expanded={isOpen}
-                  className="w-full flex items-baseline justify-between gap-6 text-left group"
-                  style={{ padding: '32px 0 32px 0' }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'Geist, sans-serif',
-                      fontSize: 'clamp(26px, 3.6vw, 48px)',
-                      fontWeight: 500,
-                      letterSpacing: '-0.03em',
-                      lineHeight: 1,
-                      color: isOpen ? '#0a1230' : '#3a3f52',
-                      transition: 'color 200ms ease',
-                    }}
-                  >
-                    {cap.title}
-                  </span>
-                  <span
-                    aria-hidden
-                    style={{
-                      fontFamily: 'IBM Plex Mono, monospace',
-                      fontSize: '13px',
-                      letterSpacing: '0.15em',
-                      color: '#8a8471',
-                      textTransform: 'uppercase',
-                      flexShrink: 0,
-                    }}
-                  >
-                    {isOpen ? 'Close' : 'Read'}
-                  </span>
-                </button>
-
-                {isOpen && (
-                  <div
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14"
-                    style={{ paddingBottom: '48px', animation: 'bbFadeIn 350ms ease forwards' }}
-                  >
-                    <div className="lg:col-span-5">
-                      <h3
-                        style={{
-                          fontFamily: 'Geist, sans-serif',
-                          fontSize: 'clamp(20px, 2.2vw, 26px)',
-                          fontWeight: 500,
-                          letterSpacing: '-0.015em',
-                          lineHeight: 1.25,
-                          color: '#0a1230',
-                          margin: 0,
-                          maxWidth: '420px',
-                        }}
-                      >
-                        {cap.heading}
-                      </h3>
-                    </div>
-                    <div className="lg:col-span-7">
-                      <p
-                        style={{
-                          fontFamily: 'Inter, sans-serif',
-                          fontSize: '16px',
-                          lineHeight: 1.8,
-                          color: '#2a3352',
-                          margin: 0,
-                          maxWidth: '640px',
-                        }}
-                      >
-                        {cap.description}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
+                {c.title}
+              </button>
             );
           })}
+        </div>
+
+        {/* Reading stage — indented editorial passage for the active capability */}
+        <div
+          key={activeCap}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-y-8"
+          data-testid="capability-stage"
+          style={{ marginTop: 'clamp(48px, 6vw, 88px)', animation: 'bbFadeIn 350ms ease forwards' }}
+        >
+          <div className="lg:col-span-9 lg:col-start-4">
+            <h3
+              data-testid="capability-active-heading"
+              style={{
+                fontFamily: 'Geist, sans-serif',
+                fontSize: 'clamp(26px, 3.4vw, 46px)',
+                fontWeight: 500,
+                letterSpacing: '-0.025em',
+                lineHeight: 1.12,
+                color: '#0a1230',
+                margin: 0,
+                maxWidth: '760px',
+              }}
+            >
+              {cap.heading}
+            </h3>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-5">
+            <p
+              data-testid="capability-active-description"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '16.5px',
+                lineHeight: 1.8,
+                color: '#2a3352',
+                margin: 0,
+                maxWidth: '640px',
+              }}
+            >
+              {cap.description}
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -428,17 +418,17 @@ const Home = () => {
           Editorial vertical stack: narrow title / wider prose per row,
           hairline separators, closing action at the right.
           ============================================================ */}
-      <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="services-section">
+      <section style={{ background: '#f0f1f9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="services-section">
         <div className="bb-container">
           <p className="bb-eyebrow" style={{ color: '#0a1230' }}>By Services</p>
 
-          <div className="mt-14" style={{ borderTop: '1px solid #d8d5ca' }}>
+          <div className="mt-14" style={{ borderTop: '1px solid #d4d8e8' }}>
             {services.map((s, i) => (
               <div
                 key={s.title}
                 data-testid={s.testid}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 py-14"
-                style={{ borderBottom: '1px solid #d8d5ca' }}
+                style={{ borderBottom: '1px solid #d4d8e8' }}
               >
                 <div className="lg:col-span-4">
                   <h3
@@ -529,7 +519,7 @@ const Home = () => {
           Below, full-width content: description spanning wide, features
           arranged as a 2-column typographic matrix.
           ============================================================ */}
-      <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="infrastructure-section">
+      <section style={{ background: '#e8eaf3', paddingTop: '112px', paddingBottom: '128px' }} data-testid="infrastructure-section">
         <div className="bb-container">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
@@ -553,7 +543,7 @@ const Home = () => {
               <div
                 className="flex flex-col"
                 role="tablist"
-                style={{ borderTop: '1px solid #d8d5ca' }}
+                style={{ borderTop: '1px solid #d4d8e8' }}
               >
                 {infraTabs.map((tab, index) => {
                   const active = activeInfraTab === index;
@@ -566,10 +556,10 @@ const Home = () => {
                       aria-selected={active}
                       className="flex items-center justify-between gap-4 py-3 transition-colors text-left"
                       style={{
-                        borderBottom: '1px solid #d8d5ca',
+                        borderBottom: '1px solid #d4d8e8',
                         fontFamily: 'Geist, sans-serif',
                         fontSize: '14.5px',
-                        color: active ? '#0a1230' : '#6b6a5c',
+                        color: active ? '#0a1230' : '#7c86a2',
                         fontWeight: active ? 500 : 400,
                       }}
                     >
@@ -629,7 +619,7 @@ const Home = () => {
             {/* Features matrix — 2-column typographic list */}
             <div
               className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-x-16"
-              style={{ borderTop: '1px solid #d8d5ca', paddingTop: '24px' }}
+              style={{ borderTop: '1px solid #d4d8e8', paddingTop: '24px' }}
             >
               {infraTabs[activeInfraTab].features.map((feature, i) => (
                 <div
@@ -639,7 +629,7 @@ const Home = () => {
                 >
                   <span
                     aria-hidden
-                    style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: '#8a8471', letterSpacing: '0.14em' }}
+                    style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: '#7c86a2', letterSpacing: '0.14em' }}
                   >
                     ——
                   </span>
@@ -671,9 +661,9 @@ const Home = () => {
           title (col 1-4) / description (col 5-9) / action (col 10-12).
           No card frame, no shadow, no cropping.
           ============================================================ */}
-      <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="work-with-blubridge">
+      <section style={{ background: '#e8eaf3', paddingTop: '112px', paddingBottom: '128px' }} data-testid="work-with-blubridge">
         <div className="bb-container">
-          <div style={{ borderTop: '1px solid #d8d5ca', paddingTop: '48px' }}>
+          <div>
             <img
               src="/images/bluBridge-team.png"
               alt="BluBridge Team"

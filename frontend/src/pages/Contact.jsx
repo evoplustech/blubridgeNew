@@ -228,7 +228,7 @@ const Contact = () => {
 
   /* ==============================================================
      CORRESPONDENCE SHEET — form control styles
-     Compact surfaces: fill #fbfaf5, 1px border #d8d5ca, radius 3px.
+     Compact surfaces: fill #ffffff, 1px border #d4d8e8, radius 3px.
      ============================================================== */
   const labelStyle = {
     display: 'block',
@@ -237,15 +237,15 @@ const Contact = () => {
     fontWeight: 500,
     letterSpacing: '0.18em',
     textTransform: 'uppercase',
-    color: '#3a3a2e',
+    color: '#3f4966',
     marginBottom: '8px',
   };
   const inputBase = {
     width: '100%',
     padding: '11px 14px',
-    border: '1px solid #d8d5ca',
+    border: '1px solid #d4d8e8',
     borderRadius: '3px',
-    background: '#fbfaf5',
+    background: '#ffffff',
     fontSize: '15px',
     fontFamily: 'Inter, sans-serif',
     color: '#0a1230',
@@ -257,22 +257,22 @@ const Contact = () => {
   const errText = { color: '#dc2626', fontSize: '12px', margin: '6px 0 0', fontFamily: 'Inter, sans-serif' };
 
   return (
-    <div style={{ background: '#f5f3e9' }} data-testid="contact-page">
+    <div style={{ background: '#f0f1f9' }} data-testid="contact-page">
 
       {/* ==============================================================
           SECTION 1 — CORRESPONDENCE SHEET
           Centred wrapper (max 1240px, w calc(100% - 96px))
-          with ONE outer 1px #d8d5ca frame. Title + 2×2 directory in
+          with ONE outer 1px #d4d8e8 frame. Title + 2×2 directory in
           the header, one hairline, form workspace below.
           ============================================================== */}
-      <section style={{ background: '#f5f3e9', paddingTop: '72px', paddingBottom: '96px' }}>
+      <section style={{ background: '#f0f1f9', paddingTop: '72px', paddingBottom: '96px' }}>
         <div
           style={{
             maxWidth: '1240px',
             width: 'calc(100% - 96px)',
             margin: '0 auto',
-            border: '1px solid #d8d5ca',
-            background: '#f5f3e9',
+            border: '1px solid #d4d8e8',
+            background: '#f0f1f9',
             padding: 'clamp(28px, 3.4vw, 56px)',
           }}
         >
@@ -314,7 +314,7 @@ const Contact = () => {
                     className="group block"
                     style={{ textDecoration: 'none' }}
                   >
-                    <p style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '10px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#8a8471', margin: 0 }}>
+                    <p style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '10px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#7c86a2', margin: 0 }}>
                       {c.label}
                     </p>
                     <p
@@ -330,7 +330,7 @@ const Contact = () => {
           </div>
 
           {/* ONE structural hairline */}
-          <div style={{ borderTop: '1px solid #d8d5ca', marginTop: '40px', marginBottom: '32px' }} />
+          <div style={{ borderTop: '1px solid #d4d8e8', marginTop: '40px', marginBottom: '32px' }} />
 
           {/* FORM WORKSPACE */}
           <form onSubmit={handleSubmit} data-testid="contact-form-card" noValidate>
@@ -343,7 +343,7 @@ const Contact = () => {
                   type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}
                   style={{ ...inputBase, ...(validationErrors.firstName ? errBorder : {}) }}
                   onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
-                  onBlur={(e) => { e.target.style.borderColor = validationErrors.firstName ? '#dc2626' : '#d8d5ca'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.firstName ? '#dc2626' : '#d4d8e8'; }}
                 />
                 {validationErrors.firstName && <p style={errText}>{validationErrors.firstName}</p>}
               </div>
@@ -353,7 +353,7 @@ const Contact = () => {
                   type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}
                   style={{ ...inputBase, ...(validationErrors.lastName ? errBorder : {}) }}
                   onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
-                  onBlur={(e) => { e.target.style.borderColor = validationErrors.lastName ? '#dc2626' : '#d8d5ca'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.lastName ? '#dc2626' : '#d4d8e8'; }}
                 />
                 {validationErrors.lastName && <p style={errText}>{validationErrors.lastName}</p>}
               </div>
@@ -365,7 +365,7 @@ const Contact = () => {
                   type="email" name="email" value={formData.email} onChange={handleInputChange}
                   style={{ ...inputBase, ...(validationErrors.email ? errBorder : {}) }}
                   onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
-                  onBlur={(e) => { e.target.style.borderColor = validationErrors.email ? '#dc2626' : '#d8d5ca'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.email ? '#dc2626' : '#d4d8e8'; }}
                 />
                 {validationErrors.email && <p style={errText}>{validationErrors.email}</p>}
               </div>
@@ -381,7 +381,7 @@ const Contact = () => {
                     fontFamily: 'IBM Plex Mono, monospace',
                     letterSpacing: '0.14em',
                     cursor: 'pointer',
-                    background: emailVerified ? '#0a5231' : '#fbfaf5',
+                    background: emailVerified ? '#0a5231' : '#ffffff',
                     color: emailVerified ? '#ffffff' : '#0a1230',
                     border: '1px solid ' + (emailVerified ? '#0a5231' : '#0a1230'),
                     borderRadius: '3px',
@@ -401,8 +401,8 @@ const Contact = () => {
                   style={{
                     display: 'flex',
                     alignItems: 'stretch',
-                    background: '#fbfaf5',
-                    border: validationErrors.phoneNumber ? '1px solid #dc2626' : '1px solid #d8d5ca',
+                    background: '#ffffff',
+                    border: validationErrors.phoneNumber ? '1px solid #dc2626' : '1px solid #d4d8e8',
                     borderRadius: '3px',
                     overflow: 'hidden',
                   }}
@@ -415,7 +415,7 @@ const Contact = () => {
                       padding: '11px 10px 11px 12px',
                       background: 'transparent',
                       border: 'none',
-                      borderRight: '1px solid #d8d5ca',
+                      borderRight: '1px solid #d4d8e8',
                       fontSize: '15px',
                       fontFamily: 'Inter, sans-serif',
                       color: '#0a1230',
@@ -457,11 +457,11 @@ const Contact = () => {
                   style={{
                     ...inputBase,
                     cursor: 'pointer',
-                    color: formData.inquiryType ? '#0a1230' : '#8a8471',
+                    color: formData.inquiryType ? '#0a1230' : '#7c86a2',
                     ...(validationErrors.inquiryType ? errBorder : {}),
                   }}
                   onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
-                  onBlur={(e) => { e.target.style.borderColor = validationErrors.inquiryType ? '#dc2626' : '#d8d5ca'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.inquiryType ? '#dc2626' : '#d4d8e8'; }}
                 >
                   <option value="" disabled>Select</option>
                   <option value="sales">Sales Inquiry</option>
@@ -490,7 +490,7 @@ const Contact = () => {
                     ...(validationErrors.message ? errBorder : {}),
                   }}
                   onFocus={(e) => { e.target.style.borderColor = '#0a1230'; }}
-                  onBlur={(e) => { e.target.style.borderColor = validationErrors.message ? '#dc2626' : '#d8d5ca'; }}
+                  onBlur={(e) => { e.target.style.borderColor = validationErrors.message ? '#dc2626' : '#d4d8e8'; }}
                 />
                 {validationErrors.message && <p style={errText}>{validationErrors.message}</p>}
               </div>
@@ -543,11 +543,11 @@ const Contact = () => {
           no repeated ledger rows, only ONE top boundary line.
           ============================================================== */}
       <section
-        style={{ background: '#f5f3e9', paddingTop: '48px', paddingBottom: '128px' }}
+        style={{ background: '#e8eaf3', paddingTop: '48px', paddingBottom: '128px' }}
         data-testid="offices-card"
       >
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 gap-x-10 lg:gap-x-14" style={{ borderTop: '1px solid #d8d5ca', paddingTop: '56px' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 gap-x-10 lg:gap-x-14" style={{ borderTop: '1px solid #d4d8e8', paddingTop: '56px' }}>
 
             {/* Heading — col 1-4 */}
             <div className="lg:col-span-4">
@@ -582,7 +582,7 @@ const Contact = () => {
                       fontSize: '11px',
                       letterSpacing: '0.22em',
                       textTransform: 'uppercase',
-                      color: '#8a8471',
+                      color: '#7c86a2',
                       margin: 0,
                     }}
                   >
@@ -633,7 +633,7 @@ const Contact = () => {
                       fontSize: '11px',
                       letterSpacing: '0.22em',
                       textTransform: 'uppercase',
-                      color: '#8a8471',
+                      color: '#7c86a2',
                       margin: 0,
                     }}
                   >
@@ -684,7 +684,7 @@ const Contact = () => {
                       fontSize: '11px',
                       letterSpacing: '0.22em',
                       textTransform: 'uppercase',
-                      color: '#8a8471',
+                      color: '#7c86a2',
                       margin: 0,
                     }}
                   >

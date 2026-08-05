@@ -1,0 +1,46 @@
+{
+  "summary": "Frontend regression + Careers rebuild test on preview URL. Ran 3 Playwright suites: Careers page (21/21 pass), Home page sections & CapabilitiesAccordion (14/15 - one minor content note), and Regression (Solutions/Research/About-Us/Contact + mobile /careers, 14/14 pass). Footer form e2e POST /api/contacts/submit returned 200 with type=footer_form on /careers.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [],
+    "content_notes": [
+      {
+        "component": "Home CapabilitiesAccordion",
+        "issue": "capability-active-heading testid renders the LONG description sentence rather than the short capability title (e.g. 'Smart Agents'). Default active toggle IS index 0 (Smart Agents), but the element the review expected to read 'Smart Agents' actually contains 'Automate tasks with AI agents connected to your apps and workflows.' Also observed toggles 2, 3, 4 all showed similar starting text 'Build and deploy purpose-built AI models...' as the active heading — description bodies differ (lens 229/302/231) so switch works, but the heading text may be miswired. Verify whether the review spec expected the short title in capability-active-heading vs. current implementation's use of the tagline as heading.",
+        "priority": "LOW",
+        "selector": "[data-testid='capability-active-heading']"
+      }
+    ]
+  },
+  "verified": {
+    "careers_masthead_and_toggle": "PASS - See open roles button toggles job-listings-section (chevron area); ledger hidden by default, opens on click",
+    "twelve_job_rows": "PASS - job-row-1..12 all present when expanded",
+    "job_row_navigation": "PASS - clicking row-1 navigates to /careers/job/administration-executive-male (note: review request example URL '/careers/job/cdn-migration-2' appears to be a preview-slug typo; actual slugs are role-based which is correct)",
+    "role_cards": "PASS - role-card-0/1/2 all present",
+    "office_locations": "PASS - besant-nagar, mandavelipakkam, newark-de; 'BLUBRIDGE INC' present on Newark; 3 map-link-* with target=_blank and valid Google Maps hrefs",
+    "careers_footer_variant_bg": "PASS - rgb(245,243,233) = #f5f3e9 on /careers",
+    "careers_header_bg": "PASS - rgba(245,243,233,0.92) cream on /careers; rgba(240,241,249,0.86) on /, /solutions, /research, /about-us, /contact",
+    "footer_form_submit": "PASS - POST /api/contacts/submit returned 200 with unique email; success toast shown",
+    "home_section_backgrounds": "PASS - expertise-section rgb(232,234,243), services-section rgb(240,241,249), infrastructure-section rgb(232,234,243), capabilities-index rgb(240,241,249), work-with-blubridge rgb(232,234,243). Hero section not found via data-testid='hero' selector but visual inspection matches spec.",
+    "capabilities_toggles": "PASS - 5 toggles (0..4) present, all clickable, description updates on each click",
+    "industry_and_infra": "PASS - 10 industry-item-*, 7 infra-tab-* present and interactive",
+    "regression_pages": "PASS - /solutions, /research, /about-us, /contact all load without blank screen; footer bg on all = rgb(232,234,243) #e8eaf3 (non-careers variant); contact form has 9 inputs",
+    "mobile_390_careers": "PASS - scrollWidth == clientWidth (390px), no horizontal scroll"
+  },
+  "test_report_links": [],
+  "action_items": [
+    "OPTIONAL/LOW: Verify Home CapabilitiesAccordion — data-testid='capability-active-heading' currently renders the long tagline; if the intent was to show the short title ('Smart Agents', 'Deep Research', etc.), swap the bindings. Toggles work correctly, so behavior is fine; only the semantic heading text may need review."
+  ],
+  "critical_code_review_comments": [
+    "Multiple *_backup.jsx / Careers_Backup.jsx / Home_backup.jsx / Home1.jsx files clutter /app/frontend/src/pages/. Recommend deleting or moving to an /archive folder to keep the src tree focused on live routes.",
+    "Note: review_request stated all job rows link to '/careers/job/cdn-migration-2' — actual behavior uses role-slug URLs like '/careers/job/administration-executive-male' which is correct; the review text was misleading."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (1/1 endpoint - footer_form submit)", "frontend": "98% (49/50 checks; 1 content note LOW)"},
+  "seed_data_creation": "None (unique test emails were sent through footer form)",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Static Express build is live and correctly serving the new Careers page + Home background alternation. Only observation: capabilities-index heading testid returns tagline text rather than short title — confirm intent with product before treating as bug."
+}
