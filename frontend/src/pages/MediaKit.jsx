@@ -7,7 +7,7 @@ const MediaKit = () => {
   useDocumentTitle('Media Kit | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-[#f0f1f9]">      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1F3D] to-white" />
         <div className="container-custom relative z-10 text-center py-20">
           <h1 className="text-5xl sm:text-6xl font-bold text-[#0B1F3B] mb-6">Media Kit</h1>
@@ -38,8 +38,8 @@ const MediaKit = () => {
                 </Button>
               </div>
 
-              <div className="bg-[#f1f2fa] border border-[#d4d8e8] rounded-2xl p-10 hover:border-[#0066FF]/50 transition-all">
-                <div className="bg-[#f1f2fa] rounded-xl h-48 flex items-center justify-center mb-6">
+              <div className="bg-[#f0f1f9] border border-[#d4d8e8] rounded-2xl p-10 hover:border-[#0066FF]/50 transition-all">
+                <div className="bg-[#f0f1f9] rounded-xl h-48 flex items-center justify-center mb-6">
                   <div className="text-4xl font-bold text-white">BluBridge</div>
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3B] mb-2">Dark Background Logo</h3>
@@ -78,7 +78,7 @@ const MediaKit = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0B1F3B] mb-6">Company Overview</h2>

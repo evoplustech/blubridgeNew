@@ -14,7 +14,7 @@ const FineTuning = () => {
   useDocumentTitle('AI Cloud Platform for Model Fine-Tuning | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9]">
       {/* Hero Section - Model Fine-Tuning Background with Wave Animation */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Animated Background Image */}
@@ -75,7 +75,7 @@ const FineTuning = () => {
       </section>
 
       {/* Value Highlights - 3 Column Strip */}
-      <section className="py-16 bg-[#f1f2fa] border-t border-[#d4d8e8]">
+      <section className="py-16 bg-[#f0f1f9] border-t border-[#d4d8e8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-10 text-center">
             <div>
@@ -101,7 +101,7 @@ const FineTuning = () => {
       </section>
 
       {/* Fast, Efficient Model Fine-tuning Section */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -173,7 +173,7 @@ const FineTuning = () => {
       </section>
 
       {/* Fine-Tuning Stack - Two column layout */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-4">Fine-Tuning Stack</h2>
@@ -269,7 +269,7 @@ const FineTuning = () => {
       </section>
 
       {/* Performance Metrics - 4 Column */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Performance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -321,7 +321,7 @@ const FineTuning = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -360,7 +360,7 @@ const FineTuning = () => {
       </section>
 
       {/* More Solutions */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -407,7 +407,7 @@ const FineTuning = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

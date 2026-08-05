@@ -133,8 +133,8 @@ const services = [
   useDocumentTitle('AI Inference | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Inference Visual */}
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f0f1f9]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -216,7 +216,7 @@ const services = [
       </section>
 
       {/* SECTION 3: Inference Frameworks Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -276,7 +276,7 @@ const services = [
       </section>
 
       {/* SECTION 5: GPU Compute Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -338,7 +338,7 @@ const services = [
 
       {/* SECTION 7: Fully Integrated AI Infrastructure */}
       {/* Integrated AI Services Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">

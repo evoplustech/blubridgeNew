@@ -311,17 +311,17 @@ const FineTuning = () => {
   useDocumentTitle('AI Model Fine-tuning | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
+    <div className="min-h-screen bg-[#f0f1f9] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated Orange Background */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Animated Canvas Background - Light theme */}
         <canvas 
           ref={canvasRef} 
           className="absolute inset-0 w-full h-full"
-          style={{ background: 'linear-gradient(135deg, #f1f2fa 0%, #e8eaf3 50%, #f1f2fa 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #f0f1f9 0%, #e8eaf3 50%, #f0f1f9 100%)' }}
         />
         
         {/* Light overlay for visual depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f1f2fa]/90 via-[#e8eaf3]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f0f1f9]/90 via-[#e8eaf3]/70 to-transparent" />
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -372,7 +372,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 2: Value Proposition Strip */}
-      <section className="py-12 bg-[#f1f2fa] border-t border-b border-[#d4d8e8]">
+      <section className="py-12 bg-[#f0f1f9] border-t border-b border-[#d4d8e8]">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -394,7 +394,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 3: Supported Models Table */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Models</h2>
@@ -453,7 +453,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 4: All Designed for Speed & Simplicity */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -523,7 +523,7 @@ const FineTuning = () => {
       </section> */}
 
       {/* SECTION 5: How it Works */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">How it works</h2>
           
@@ -544,7 +544,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 6: Model Ecosystem Strip */}
-      <section className="py-16 bg-[#f1f2fa]">
+      <section className="py-16 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {modelEcosystem.map((model, i) => (
@@ -560,7 +560,7 @@ const FineTuning = () => {
       </section>
 
             {/* Savings by Design Section - Section 4 */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Model Icons Grid */}
@@ -594,7 +594,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 7: Savings by Design
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
@@ -626,7 +626,7 @@ const FineTuning = () => {
       </section> */}
 
       {/* SECTION 8: Serverless without Trade-offs */}
-      <section className="py-15 bg-[#f1f2fa]">
+      <section className="py-15 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -661,7 +661,7 @@ const FineTuning = () => {
       </section>
 
       {/* SECTION 9: FAQs */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           

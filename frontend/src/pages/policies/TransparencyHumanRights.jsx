@@ -5,7 +5,7 @@ const TransparencyHumanRights = () => {
   useDocumentTitle('Transparency & Human Rights | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">      {/* Content Section */}
+    <div className="min-h-screen bg-[#f0f1f9]">      {/* Content Section */}
       <section className="py-16">
         <div className="container-custom">
           <div className="max-w-4xl">

@@ -56,7 +56,7 @@ const GeneralEnquiry = () => {
   useDocumentTitle('General Enquiry | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">      {/* Main Content Section */}
+    <div className="min-h-screen bg-[#f0f1f9]">      {/* Main Content Section */}
       <section className="pt-16 pb-24">
         <div className="container-custom">
           {/* Page Title */}
@@ -260,7 +260,7 @@ const GeneralEnquiry = () => {
       </section>
 
       {/* Bottom Promotional Section */}
-            <section className="py-20 bg-[#f1f2fa]">
+            <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text */}

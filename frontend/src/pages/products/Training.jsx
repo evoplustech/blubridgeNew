@@ -238,8 +238,8 @@ const Training = () => {
   useDocumentTitle('GPU Clusters for Training AI Models | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Animated 3D Geometric Visual */}
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-[#f0f1f9]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -423,7 +423,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 3: Dynamic Workload Management */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -525,7 +525,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 5: Industry-leading GPU Clusters */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -586,7 +586,7 @@ const Training = () => {
       </section>
 
       {/* SECTION 7: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

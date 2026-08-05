@@ -56,7 +56,7 @@ const Marketplace = () => {
   useDocumentTitle('AI Marketplace | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero Section */}
+    <div className="min-h-screen bg-[#f0f1f9]">      {/* Hero Section */}
       <section className="pt-16 pb-20">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -168,7 +168,7 @@ const Marketplace = () => {
       </section>
 
       {/* Models Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}
@@ -321,7 +321,7 @@ const Marketplace = () => {
       </section>
 
       {/* AI Services Integration Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left - Text */}

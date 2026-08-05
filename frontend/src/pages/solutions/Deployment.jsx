@@ -14,11 +14,11 @@ const Deployment = () => {
   useDocumentTitle('AI Deployment & Scalable Model Production | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9]">
       {/* Hero Section - Deployment */}
       <section className="relative flex flex-col overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-[#f1f2fa] overflow-hidden" />
+        <div className="absolute inset-0 bg-[#f0f1f9] overflow-hidden" />
 
         {/* Hero content - Two column layout */}
         <div className="container-custom relative z-10 flex-1 flex items-center">
@@ -362,7 +362,7 @@ environments seamlessly.
       </section>
 
       {/* SECTION 3: Deployment Pipeline - Unique Horizontal Flow Design */}
-      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
+      <section className="py-24 bg-[#f0f1f9] relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0">
           <div 
@@ -409,7 +409,7 @@ environments seamlessly.
                   01
                 </div>
                 {/* Arrow connector (hidden on last item) */}
-                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#f1f2fa] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#f0f1f9] border border-[#E5E7EB] rounded-full items-center justify-center z-20">
                   <ArrowRight className="w-3 h-3 " />
                 </div>
                 
@@ -561,7 +561,7 @@ environments seamlessly.
       </section>
 
       {/* Fast, Efficient Model Fine-tuning Section */}
-      {/* <section className="py-24 bg-[#f1f2fa]">
+      {/* <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -736,7 +736,7 @@ environments seamlessly.
       </section>    
 
       {/* Deployment Statistics Section */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#000000] mb-16">Deployment Patterns</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -771,7 +771,7 @@ environments seamlessly.
       </section> */}
 
       {/* Performance Metrics - 4 Column */}
-      {/* <section className="py-24 bg-[#f1f2fa]">
+      {/* <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -813,7 +813,7 @@ environments seamlessly.
       </section>  */}
 
       {/* Key Services */}
-      {/* <section className="py-24 bg-[#f1f2fa]">
+      {/* <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -852,7 +852,7 @@ environments seamlessly.
       </section> */}
 
       {/* More Solutions */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -899,7 +899,7 @@ environments seamlessly.
       </section> */}
 
       {/* FAQs */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

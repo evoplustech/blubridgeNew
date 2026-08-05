@@ -14,7 +14,7 @@ const Manufacturing = () => {
   useDocumentTitle('Enabling AI for Manufacturing with High Performance GPUs | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9]">
       {/* HERO SECTION with Background Image */}
       <section className="relative min-h-[85vh] flex flex-col overflow-hidden">
         {/* Background Image */}
@@ -77,7 +77,7 @@ const Manufacturing = () => {
       </section>
 
       {/* Example Uses Section */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-12">
             <p className="text-amber-500 text-sm font-medium mb-3 uppercase tracking-wider">STREAMLINE OPERATIONS</p>
@@ -128,7 +128,7 @@ const Manufacturing = () => {
       </section>
 
       {/* Key Services */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">Key Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -183,7 +183,7 @@ const Manufacturing = () => {
       </section>
 
       {/* More Solutions */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-[#0B1F3B]">More solutions</h2>
@@ -237,7 +237,7 @@ const Manufacturing = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

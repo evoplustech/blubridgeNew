@@ -16,7 +16,7 @@
    BASE
    ============================================================ */
 html, body {
-  background-color: #f1f2fa;
+  background-color: #f0f1f9;
 }
 
 body {
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
     --radius: 0.375rem;
 
     /* BluBridge editorial tokens */
-    --bb-bg: #f1f2fa;
+    --bb-bg: #f0f1f9;
     --bb-bg-elevated: #ffffff;
     --bb-bg-subtle: #e8eaf3;
     --bb-bg-panel: #eceefa;
@@ -278,9 +278,9 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================================
    MISC — legacy classes retained where existing pages depend on them
    ============================================================ */
-.bg-section-hero { background-color: #f1f2fa !important; }
+.bg-section-hero { background-color: #f0f1f9 !important; }
 .bg-section-alt  { background-color: #e8eaf3 !important; }
-.bg-section-default { background-color: #f1f2fa !important; }
+.bg-section-default { background-color: #f0f1f9 !important; }
 
 /* Marquee scroll (used by carousels) */
 @keyframes scroll {

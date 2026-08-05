@@ -160,7 +160,7 @@ const services = [
   useDocumentTitle('Sovereign AI Cloud made for Europe, by Europe | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
+    <div className="min-h-screen bg-[#f0f1f9] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Landscape Background and Parallax */}
       <section ref={heroRef} className="relative min-h-[600px] flex items-center overflow-hidden">
         {/* Background Landscape Image with Parallax */}
         <div 
@@ -172,7 +172,7 @@ const services = [
         />
         
         {/* Light Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f1f2fa]/90 via-[#e8eaf3]/70 to-[#f1f2fa]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f0f1f9]/90 via-[#e8eaf3]/70 to-[#f0f1f9]/50" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -207,7 +207,7 @@ const services = [
       </section>
 
       {/* SECTION 2: Sovereign AI Cloud Intro */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -227,7 +227,7 @@ const services = [
       </section>
 
       {/* SECTION 3: Value Pillars Card Grid (5 Cards) */}
-      <section className="py-12 bg-[#f1f2fa]">
+      <section className="py-12 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {valuePillars.map((pillar, i) => (
@@ -246,7 +246,7 @@ const services = [
       </section>
 
       {/* SECTION 4: What We Offer with Video Embed */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What we offer</h2>
@@ -283,7 +283,7 @@ const services = [
       </section> */}
 
       {/* SECTION 5: Related Content */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Related Content</h2>
           
@@ -312,7 +312,7 @@ const services = [
       </section> */}
 
       {/* SECTION 6: Fully Integrated AI Infrastructure */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -359,7 +359,7 @@ const services = [
       </section>
 
       {/* SECTION 7: FAQs */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           

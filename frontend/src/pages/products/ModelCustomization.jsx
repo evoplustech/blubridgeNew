@@ -321,7 +321,7 @@ useEffect(() => {
   useDocumentTitle('Custom AI Models & LLM Customization | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9]">
       
       {/* SECTION 1: Hero Section - Light cream background like reference */}
       <section className="relative min-h-[580px] overflow-hidden">
@@ -336,7 +336,7 @@ useEffect(() => {
         <div 
           className="absolute inset-0 opacity-60"
           style={{
-            background: '#f1f2fa'
+            background: '#f0f1f9'
           }}
         />
         
@@ -417,7 +417,7 @@ performance.
       </section>
 
       {/* SECTION 3: Accelerated Model Customization - Redesigned */}
-      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
+      <section className="py-24 bg-[#f0f1f9] relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Gradient orbs */}
@@ -594,7 +594,7 @@ at every layer
       </section>
 
             {/* Performance Metrics - 4 Column */}
-      {/* <section className="py-24 bg-[#f1f2fa]">
+      {/* <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Customizing brings Efficiency and more</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -636,7 +636,7 @@ at every layer
       </section> */}
 
       {/* SECTION 5: Performance Metrics */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#0B1F3B]">
             Performance
@@ -708,7 +708,7 @@ at every layer
       </section> */}
 
       {/* SECTION 7: More Solutions */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0B1F3B]">
             More Solutions
@@ -748,7 +748,7 @@ at every layer
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl  font-bold mb-12 text-[#0B1F3B]">
             FAQs

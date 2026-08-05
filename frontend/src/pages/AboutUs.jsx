@@ -4,7 +4,7 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
 /* ------------------------------------------------------------------
-   ABOUT US — Editorial Redesign (light theme #f1f2fa)
+   ABOUT US — Editorial Redesign (light theme #f0f1f9)
    Content preserved verbatim:
    • Eyebrow: "About Us"
    • H1: "Building the Next Frontier of AI"
@@ -121,7 +121,7 @@ const AboutUs = () => {
   }, [location]);
 
   return (
-    <div style={{ background: '#f1f2fa' }} className="min-h-screen text-bb-ink" data-testid="about-page">
+    <div style={{ background: '#f0f1f9' }} className="min-h-screen text-bb-ink" data-testid="about-page">
 
       {/* ============================================================
           HERO — Editorial split with technical annotations
@@ -209,7 +209,7 @@ const AboutUs = () => {
       {/* ============================================================
           HOW WE BUILD — Editorial four-block grid + typing accent
           ============================================================ */}
-      <section className="py-24" style={{ background: '#f1f2fa' }} data-testid="what-sets-us-apart-section">
+      <section className="py-24" style={{ background: '#f0f1f9' }} data-testid="what-sets-us-apart-section">
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-end">
             <div className="lg:col-span-8">

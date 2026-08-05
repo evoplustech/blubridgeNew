@@ -6,7 +6,7 @@ import useMetaDescription from '../hooks/useMetaDescription';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 /* ------------------------------------------------------------------
-   CONTACT — Editorial Redesign (light theme #f1f2fa)
+   CONTACT — Editorial Redesign (light theme #f0f1f9)
    All existing content preserved: office cards (INDIA / INDIA / USA),
    phone, email, LinkedIn, form fields (First/Last/Email/Verify/
    Phone Code+Number/Inquiry Type/Message), inquiry options,
@@ -252,7 +252,7 @@ const Contact = () => {
   ];
 
   return (
-    <div style={{ background: '#f1f2fa', paddingTop: '48px', paddingBottom: '96px' }} data-testid="contact-page">
+    <div style={{ background: '#f0f1f9', paddingTop: '48px', paddingBottom: '96px' }} data-testid="contact-page">
       <div className="bb-container">
         {/* Editorial header row */}
         <div className="pb-8 border-b border-bb-line flex flex-col md:flex-row md:items-end md:justify-between gap-4">

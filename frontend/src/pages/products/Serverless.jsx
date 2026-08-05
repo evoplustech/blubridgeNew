@@ -183,8 +183,8 @@ const Serverless = () => {
   useDocumentTitle('Serverless Inference | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* Hero Section with Animated Model Graph - Section 1 */}
-      <section className="relative min-h-[550px] flex items-center overflow-hidden bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9] font-['DM_Sans']">      {/* Hero Section with Animated Model Graph - Section 1 */}
+      <section className="relative min-h-[550px] flex items-center overflow-hidden bg-[#f0f1f9]">
         
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -254,7 +254,7 @@ const Serverless = () => {
       </section>
 
       {/* Models & Pricing Section - Section 3 */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Models & Pricing</h2>
@@ -329,7 +329,7 @@ const Serverless = () => {
       </section>
 
       {/* Serverless without trade-offs - Section 5 */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -359,7 +359,7 @@ const Serverless = () => {
       </section>
 
       {/* Serverless Without Trade-offs Section */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
@@ -424,7 +424,7 @@ const Serverless = () => {
       </section>
 
       {/* Zero Rate Limits Platform Section */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
            
@@ -476,7 +476,7 @@ const Serverless = () => {
       </section> */}
 
       {/* FAQ Section - Section 7 */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">FAQs</h2>
           

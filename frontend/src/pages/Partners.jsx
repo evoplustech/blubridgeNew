@@ -42,8 +42,8 @@ const Partners = () => {
   useDocumentTitle('Partners | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">      {/* Hero */}
-      <section className="py-24 bg-[#f1f2fa] relative overflow-hidden">
+    <div className="min-h-screen bg-[#f0f1f9]">      {/* Hero */}
+      <section className="py-24 bg-[#f0f1f9] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#328CC1] rounded-full filter blur-[120px]" />
         </div>
@@ -60,7 +60,7 @@ const Partners = () => {
       </section>
 
       {/* Partner Logos */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid grid-cols-3 md:grid-cols-5 gap-8">
             {partnerLogos.map((partner, idx) => (
@@ -75,7 +75,7 @@ const Partners = () => {
       </section>
 
       {/* Partner Types */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl font-bold text-[#0B1F3B] mb-12 text-center">Partnership Ecosystem</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -100,7 +100,7 @@ const Partners = () => {
       </section>
 
       {/* Become a Partner */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-[#0B1F3B] mb-6 text-center">Become a Partner</h2>

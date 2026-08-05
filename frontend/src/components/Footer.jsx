@@ -53,28 +53,14 @@ const Footer = () => {
 
   return (
     <footer
-      style={{ backgroundColor: '#eceefa', color: '#0a1230', borderTop: '1px solid #d4d8e8' }}
+      style={{ backgroundColor: '#e8eaf3', color: '#0a1230', borderTop: '1px solid #d4d8e8' }}
       data-testid="site-footer"
     >
       <div className="bb-container" style={{ paddingTop: '72px', paddingBottom: '48px' }}>
-        {/* Top: large editorial masthead */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-bb-line">
-          {/* Wordmark + editorial line */}
-          <div className="lg:col-span-4">
-            <img
-              src="/images/blubridge-wordmark.png"
-              alt="BluBridge"
-              style={{ height: '26px', width: 'auto', objectFit: 'contain', marginBottom: '24px' }}
-            />
-            <p className="bb-caption" style={{ maxWidth: '340px', lineHeight: 1.65 }}>
-              BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
-            </p>
-          </div>
-
-          {/* Contact form (fields preserved exactly) */}
-          <div className="lg:col-span-8">
-            <h3 className="bb-eyebrow mb-5">Contact Us</h3>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* Top: contact form */}
+        <div className="pb-16 border-b border-bb-line">
+          <h3 className="bb-eyebrow mb-5">Contact Us</h3>
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Input
                 type="text"
                 placeholder="First name"
@@ -117,11 +103,20 @@ const Footer = () => {
                 {loading ? 'Submitting...' : 'Contact Now'}
               </Button>
             </form>
-          </div>
         </div>
 
-        {/* Middle: nav columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 py-14 border-b border-bb-line">
+        {/* Middle: 4-column layout — brand + nav */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-14 border-b border-bb-line">
+          <div className="col-span-2 md:col-span-1">
+            <img
+              src="/images/blubridge-logo.svg"
+              alt="BluBridge"
+              style={{ height: '22px', width: 'auto', objectFit: 'contain', marginBottom: '20px' }}
+            />
+            <p className="bb-caption" style={{ maxWidth: '300px', lineHeight: 1.65 }}>
+              BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
+            </p>
+          </div>
           <div>
             <h4 className="bb-eyebrow mb-5">Product</h4>
             <ul className="space-y-3">

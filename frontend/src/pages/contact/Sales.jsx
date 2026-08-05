@@ -79,7 +79,7 @@ const Sales = () => {
   useDocumentTitle('Contact | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">      {/* Main Contact Section */}
+    <div className="min-h-screen bg-[#f0f1f9]">      {/* Main Contact Section */}
       <section className="pt-32 pb-20">
         <div className="container-custom">
           <div className="grid lg:grid-cols-12 gap-16">
@@ -435,7 +435,7 @@ const Sales = () => {
       </section>
 
       {/* Get Access Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text */}

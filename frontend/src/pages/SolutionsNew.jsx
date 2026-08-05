@@ -5,7 +5,7 @@ import useMetaDescription from '../hooks/useMetaDescription';
 import { Database, Sparkles, Zap, Check, TrendingUp, PenTool, Users } from 'lucide-react';
 
 /* ------------------------------------------------------------------
-   SOLUTIONS — Editorial Redesign (light theme #f1f2fa)
+   SOLUTIONS — Editorial Redesign (light theme #f0f1f9)
    Content preserved verbatim from previous SolutionsNew.jsx:
    • Hero H1, paragraph, "Talk to our Experts" CTA
    • Section /01 Model Customization: heading, paragraph,
@@ -116,7 +116,7 @@ const SolutionsNew = () => {
   const activeTab = deploymentTabs.find((t) => t.id === activeDeploymentTab) || deploymentTabs[0];
 
   return (
-    <div style={{ background: '#f1f2fa' }} className="min-h-screen text-bb-ink" data-testid="solutions-page">
+    <div style={{ background: '#f0f1f9' }} className="min-h-screen text-bb-ink" data-testid="solutions-page">
 
       {/* ============================================================
           HERO
@@ -290,7 +290,7 @@ const SolutionsNew = () => {
       {/* ============================================================
           SECTION /02 — VALUE REALIZATION
           ============================================================ */}
-      <section id="value-realization" className="py-24" style={{ background: '#f1f2fa' }}>
+      <section id="value-realization" className="py-24" style={{ background: '#f0f1f9' }}>
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-5">
@@ -335,7 +335,7 @@ const SolutionsNew = () => {
       {/* ============================================================
           SECTION /03 — DEPLOYMENT
           ============================================================ */}
-      <section id="deployment" className="py-24" style={{ background: '#eceefa' }}>
+      <section id="deployment" className="py-24" style={{ background: '#e8eaf3' }}>
         <div className="bb-container">
           <div className="mb-14 max-w-4xl">
             <p className="bb-eyebrow mb-4">Deployment</p>

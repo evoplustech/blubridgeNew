@@ -339,14 +339,14 @@ const eased = t * t * t; // slow start, strong finish
   useDocumentTitle('AI Value Realization Solutions & Measurable ROI | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa]">
+    <div className="min-h-screen bg-[#f0f1f9]">
       {/* SECTION 1: Hero Section */}
       <section className="relative flex flex-col overflow-hidden">
         {/* Background - Horizontal Gradient */}
         <div 
           className="absolute inset-0 overflow-hidden" 
           style={{
-            background: '#f1f2fa'
+            background: '#f0f1f9'
           }}
         />
 
@@ -618,7 +618,7 @@ or customer outcomes.
       {/* ROI Statistics Section */}
       
       {/* SECTION 3: Speed up time-to-value Section */}
-      <section className="bg-[#f1f2fa] py-24">
+      <section className="bg-[#f0f1f9] py-24">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -742,7 +742,7 @@ or customer outcomes.
       </section>
 
       {/* SECTION 5: Performance Metrics */}
-{/* <section className="py-20 bg-[#f1f2fa]">
+{/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             
@@ -786,7 +786,7 @@ or customer outcomes.
 
 
 
-      {/* <section className="py-24 bg-[#f1f2fa]">
+      {/* <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#000000] mb-16">Measurable Impact AI at Scale</h2>
           <div className="grid md:grid-cols-4 gap-8">
@@ -816,7 +816,7 @@ or customer outcomes.
 
 
       {/* SECTION 7: More Solutions */}
-      {/* <section className="py-20 bg-[#f1f2fa]">
+      {/* <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl font-light mb-4 text-[#0B1F3B]">More Solutions</h2>
@@ -860,7 +860,7 @@ or customer outcomes.
       </section> */}
 
       {/* SECTION 8: FAQs */}
-      <section className="py-24 bg-[#f1f2fa]">
+      <section className="py-24 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1F3B] mb-12">FAQs</h2>
           <div className="max-w-4xl space-y-3">

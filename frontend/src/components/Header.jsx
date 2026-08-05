@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory, TrendingUp, Rocket } from 'lucide-react';
 
 /* ------------------------------------------------------------------
-   BluBridge Editorial Header — light theme (#f1f2fa)
+   BluBridge Editorial Header — light theme (#f0f1f9)
    Content preserved: all nav labels, dropdown structure, CTA text
    ------------------------------------------------------------------ */
 
@@ -88,7 +88,7 @@ const Header = () => {
         className="fixed top-0 left-0 right-0"
         style={{
           zIndex: 1000,
-          backgroundColor: 'rgba(241, 242, 250, 0.86)',
+          backgroundColor: 'rgba(240, 241, 249, 0.86)',
           backdropFilter: 'saturate(140%) blur(16px)',
           WebkitBackdropFilter: 'saturate(140%) blur(16px)',
           borderBottom: `1px solid ${isScrolled ? '#d4d8e8' : 'transparent'}`,
@@ -98,8 +98,9 @@ const Header = () => {
         {/* Announcement strip — retains existing text */}
         <div
           style={{
-            backgroundColor: '#0a1230',
-            color: '#f1f2fa',
+            backgroundColor: '#f0f1f9',
+            color: '#0a1230',
+            borderBottom: '1px solid #d4d8e8',
             fontFamily: 'IBM Plex Mono, monospace',
             fontSize: '11.5px',
             letterSpacing: '0.08em',
@@ -127,7 +128,7 @@ const Header = () => {
                   pointerEvents: isScrolled ? 'none' : 'auto',
                 }}
               >
-                <img src="/images/blubridge-wordmark.png" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain' }} />
+                <img src="/images/blubridge-logo.svg" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain' }} />
               </div>
               <div
                 className="absolute inset-0 flex items-center"

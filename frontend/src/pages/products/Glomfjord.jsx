@@ -104,7 +104,7 @@ const services = [
   useDocumentTitle('Glomfjord AI Data Centre | BluBridge');
 
   return (
-    <div className="min-h-screen bg-[#f1f2fa] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Glomfjord Data Center Background */}
+    <div className="min-h-screen bg-[#f0f1f9] font-['DM_Sans']">      {/* SECTION 1: Hero Section with Glomfjord Data Center Background */}
       <section ref={heroRef} className="relative min-h-[650px] flex items-center overflow-hidden">
         {/* Background Image with Parallax */}
         <div 
@@ -125,7 +125,7 @@ const services = [
         />
         
         {/* Light Overlay - adjusted for light theme */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f1f2fa]/90 via-[#e8eaf3]/70 to-[#f1f2fa]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f0f1f9]/90 via-[#e8eaf3]/70 to-[#f0f1f9]/50" />
         
         <div className="container-custom relative z-10">
           <div className="max-w-3xl" style={{ animation: 'fadeInUp 1s ease-out' }}>
@@ -163,7 +163,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 2: Intro Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="max-w-6xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#0B1F3B]">
@@ -182,7 +182,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 3: Embedded Video Section */}
-      {/* <section className="py-16 bg-[#f1f2fa]">
+      {/* <section className="py-16 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Transforming Tomorrow</h2>
           
@@ -217,7 +217,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section> */}
 
       {/* SECTION 4: About Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -250,7 +250,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 5: Key Facts Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Key Facts</h2>
           
@@ -267,7 +267,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 6: Power Supply Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Power Supply Image */}
@@ -300,7 +300,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
       </section>
 
       {/* SECTION 7: AI Services/Compute Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -348,7 +348,7 @@ Our Glomfjord AI data centre, positioned in northern Norway, runs entirely on re
 
       
       {/* SECTION 9: FAQ Section */}
-      <section className="py-20 bg-[#f1f2fa]">
+      <section className="py-20 bg-[#f0f1f9]">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">FAQs</h2>
           

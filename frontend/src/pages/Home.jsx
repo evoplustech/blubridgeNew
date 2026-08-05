@@ -1,24 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../components/ui/button';
 import {
-  ArrowRight, Check, Radio, ShieldCheck, GraduationCap, Code2, Factory, Landmark, HeartPulse,
-  Scale, SlidersHorizontal, TrendingUp, Rocket, ShoppingCart, Home as HomeIcon
+  Radio, ShieldCheck, GraduationCap, Code2, Factory, Landmark, HeartPulse,
+  Scale, ShoppingCart, Home as HomeIcon, Plus, Minus
 } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-
-/* ------------------------------------------------------------------
-   HOME — Editorial Redesign
-   Content preserved verbatim from previous Home.jsx:
-   • Hero: "Beyond the Horizon" heading + "Frontier AI Research Lab"
-   • "OUR FRONTIER AI EXPERTISE" section with orbit + industry grid
-   • "By Services" cards (Model Customization / Value Realization / Deployment)
-   • Infrastructure tabs with 7 items and their descriptions/features
-   • Vertical tabs "What we can do for you" (5 tabs)
-   • Work with BluBridge team block
-   • Final CTA "Know more about our Research"
-   ------------------------------------------------------------------ */
 
 /* ==================== HERO — BESPOKE PIPELINE DIAGRAM ==================== */
 const PipelineDiagram = () => {
@@ -31,9 +18,9 @@ const PipelineDiagram = () => {
             <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#d4d8e8" strokeWidth="0.5" />
           </pattern>
           <linearGradient id="bbFade" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stopColor="#f1f2fa" stopOpacity="1" />
-            <stop offset="0.5" stopColor="#f1f2fa" stopOpacity="0" />
-            <stop offset="1" stopColor="#f1f2fa" stopOpacity="1" />
+            <stop offset="0" stopColor="#f0f1f9" stopOpacity="1" />
+            <stop offset="0.5" stopColor="#f0f1f9" stopOpacity="0" />
+            <stop offset="1" stopColor="#f0f1f9" stopOpacity="1" />
           </linearGradient>
         </defs>
 
@@ -57,7 +44,7 @@ const PipelineDiagram = () => {
             {/* Right extension */}
             <line x1="260" y1={node.y} x2="410" y2={node.y} stroke="#b8bfd6" strokeWidth="0.8" />
             {/* Central node */}
-            <circle cx="250" cy={node.y} r="6" fill="#f1f2fa" stroke="#0a1230" strokeWidth="1.4" className="bb-pulse-node" style={{ animationDelay: `${i * 400}ms` }} />
+            <circle cx="250" cy={node.y} r="6" fill="#f0f1f9" stroke="#0a1230" strokeWidth="1.4" className="bb-pulse-node" style={{ animationDelay: `${i * 400}ms` }} />
             {/* Right label */}
             <text x="290" y={node.y + 3} fontFamily="IBM Plex Mono" fontSize="10" fill="#0a1230" letterSpacing="1.5">{node.label}</text>
             {/* Tick marks */}
@@ -81,165 +68,179 @@ const PipelineDiagram = () => {
   );
 };
 
-/* ==================== INDUSTRY ORBIT (retained visual) ==================== */
-const AIExpertiseOrbit = () => {
-  const rings = [
-    { key: 1, className: 'orbit-1', radius: '105px' },
-    { key: 2, className: 'orbit-2', radius: '155px' },
-    { key: 3, className: 'orbit-3', radius: '212px' }
-  ];
-  const atoms = [
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 255, Icon: Radio, label: 'Telco' },
-    { ring: 1, type: 'feature', sizeClass: 'atom--inner', angle: 35,  Icon: ShieldCheck, label: 'Finance' },
-    { ring: 1, type: 'dummy', angle: 135, dummyClass: 'dummy-blue' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 100, Icon: ShoppingCart, label: 'Oil & Gas' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 325, Icon: GraduationCap, label: 'Education' },
-    { ring: 2, type: 'feature', sizeClass: 'atom--mid', angle: 185, Icon: HeartPulse, label: 'Healthcare' },
-    { ring: 2, type: 'dummy', angle: 250, dummyClass: 'dummy-orange' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 60,  Icon: Scale, label: 'Legal' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 140, Icon: Code2, label: 'Software' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 230, Icon: Factory, label: 'Manufacturing' },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 280, Icon: HomeIcon, label: <>Construction <br /> & Infra</> },
-    { ring: 3, type: 'feature', sizeClass: 'atom--outer', angle: 370, Icon: Landmark, label: 'Government' },
-    { ring: 3, type: 'dummy', angle: 30,  dummyClass: 'dummy-blue' },
-    { ring: 3, type: 'dummy', angle: 215, dummyClass: 'dummy-orange' }
-  ];
+/* ==================== EXPERTISE — INDUSTRY SPOTLIGHT ==================== */
+const industries = [
+  { Icon: Radio,          title: 'Telco' },
+  { Icon: ShieldCheck,    title: 'Finance & Insurance' },
+  { Icon: GraduationCap,  title: 'Education' },
+  { Icon: Scale,          title: 'Legal' },
+  { Icon: Code2,          title: 'Software & Technology' },
+  { Icon: Factory,        title: 'Manufacturing' },
+  { Icon: Landmark,       title: 'Government' },
+  { Icon: HeartPulse,     title: 'Healthcare' },
+  { Icon: ShoppingCart,   title: 'Oil & Gas' },
+  { Icon: HomeIcon,       title: 'Construction & Infra' },
+];
+
+const ExpertiseSection = () => {
+  const [activeIndustry, setActiveIndustry] = useState(0);
+  const Active = industries[activeIndustry].Icon;
+
   return (
-    <div className="orbit-container relative w-[520px] h-[520px]">
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" aria-hidden="true">
-        <circle className="track" cx="260" cy="260" r="105" />
-        <circle className="track" cx="260" cy="260" r="155" />
-        <circle className="track" cx="260" cy="260" r="212" />
-      </svg>
-      <div className="center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ background: '#dfe6f5' }}>
-        <img width="30px" src="/images/b-center.png" alt="" />
-      </div>
-      {rings.map((ring) => (
-        <div key={ring.key} className={`orbit ${ring.className}`} style={{ '--radius': ring.radius }}>
-          {atoms.filter((a) => a.ring === ring.key).map((a, idx) => {
-            const styleVars = { '--angle': `${a.angle}deg`, '--angleNeg': `${-a.angle}deg` };
-            if (a.type === 'dummy') {
-              return (
-                <div key={idx} className={`atom dummy ${a.dummyClass}`} style={styleVars} aria-hidden="true">
-                  <div className="atom-anchor"><div className="dummy-dot" /></div>
-                </div>
-              );
-            }
-            const Icon = a.Icon;
-            return (
-              <div key={idx} className={`atom ${a.sizeClass}`} style={styleVars}>
-                <div className="atom-anchor">
-                  <div className="atom-angle-fix">
-                    <div className="atom-spin-fix">
-                      <div className="atom-content">
-                        <div className="atom-icon"><Icon className="atom-icon-svg" strokeWidth={1.5} /></div>
-                        <div className="atom-label">{a.label}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+    <section className="relative pt-24 pb-24" style={{ background: '#e8eaf3' }} data-testid="expertise-section">
+      <div className="bb-container">
+        {/* Masthead */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <h2 className="bb-h2 capitalize" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
+            Our Frontier AI Expertise
+          </h2>
+          <div className="flex flex-col md:items-end gap-1">
+            <span className="bb-caption inline-flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-bb-accent animate-pulse" />
+              In Progress...
+            </span>
+            <span className="bb-caption">By Industry</span>
+          </div>
         </div>
-      ))}
-    </div>
+
+        {/* Spotlight split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-bb-line-strong pt-12 gap-10 lg:gap-0">
+          {/* LEFT — active industry spotlight */}
+          <div className="lg:col-span-5 lg:pr-12 lg:border-r lg:border-bb-line flex flex-col justify-center" data-testid="industry-spotlight">
+            <div
+              className="w-14 h-14 rounded-md border border-bb-line-strong bg-white/60 flex items-center justify-center mb-8"
+              key={`icon-${activeIndustry}`}
+              style={{ animation: 'bbFadeIn 400ms ease forwards' }}
+            >
+              <Active className="w-6 h-6 text-bb-ink" strokeWidth={1.4} />
+            </div>
+            <p className="bb-caption mb-4">Frontier AI Focus</p>
+            <h3
+              key={`title-${activeIndustry}`}
+              className="text-bb-ink"
+              data-testid="industry-spotlight-title"
+              style={{
+                fontFamily: 'Geist, sans-serif',
+                fontSize: 'clamp(40px, 5vw, 72px)',
+                fontWeight: 500,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.02,
+                animation: 'bbFadeIn 400ms ease forwards',
+              }}
+            >
+              {industries[activeIndustry].title}
+            </h3>
+          </div>
+
+          {/* RIGHT — industry index */}
+          <div className="lg:col-span-7 lg:pl-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
+              {industries.map((ind, i) => (
+                <button
+                  key={ind.title}
+                  onClick={() => setActiveIndustry(i)}
+                  onMouseEnter={() => setActiveIndustry(i)}
+                  data-testid={`industry-item-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
+                  className="group flex items-center gap-3 py-4 text-left border-b border-bb-line last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0 transition-colors"
+                >
+                  <span
+                    className="w-[7px] h-[7px] flex-shrink-0 transition-colors"
+                    style={{ background: activeIndustry === i ? '#0a1230' : 'transparent', outline: activeIndustry === i ? 'none' : '1px solid transparent' }}
+                  />
+                  <span
+                    className={`text-[15px] transition-colors ${activeIndustry === i ? 'text-bb-ink font-medium' : 'text-bb-ink-2 group-hover:text-bb-ink'}`}
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {ind.title}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
-/* ==================== CAPABILITIES INDEX (redesigned) ====================
-   Editorial "chapter index" — no tabs. All 5 capabilities visible as
-   full-width horizontal entries with large outline index numbers.
-   ============================================================ */
-const VerticalTabsSection = () => {
-  const capabilities = [
-    {
-      title: "Smart Agents",
-      tag:  "AGENTS",
-      description: "Build intelligent workflows with AI agents that connect directly to your tools, platforms, and data. We design adaptive systems that work within your existing ecosystem, automating complex tasks while understanding your operational context to drive real, scalable impact."
-    },
-    {
-      title: "AI Driven Search",
-      tag:  "SEARCH",
-      description: "Safely link your organization’s proprietary knowledge into one intelligent layer and surface insights you can trust. Our AI agents retrieve the most accurate, context-aware answers, ensuring every response is relevant, reliable, and aligned with your enterprise data."
-    },
-    {
-      title: "In-Depth Research",
-      tag:  "RESEARCH",
-      description: "Access insights that are thoroughly researched and distilled from rich, wide-ranging sources. Our AI agents synthesize complex information into clear, actionable summaries, giving you depth, accuracy, and clarity in every result."
-    },
-    {
-      title: "Developer APIs",
-      tag:  "APIS",
-      description: "Create intelligent applications and products on top of our foundation models. Embed advanced reasoning, generation, and automation into your workflows. Move from concept to production with models engineered for reliability, performance, and real-world impact across enterprise and developer ecosystems."
-    },
-    {
-      title: "Custom AI Deployments",
-      tag:  "DEPLOYMENTS",
-      description: "Shape a truly personalized AI experience through tailored integrations with your enterprise data, platforms, and custom model capabilities, ensuring every system aligns precisely with your operational needs and business objectives."
-    }
-  ];
+/* ==================== CAPABILITIES — ACCORDION ==================== */
+const capabilities = [
+  {
+    title: 'Smart Agents',
+    heading: 'Automate tasks with AI agents connected to your apps and workflows.',
+    description: 'Build intelligent workflows with AI agents that connect directly to your tools, platforms, and data. We design adaptive systems that work within your existing ecosystem, automating complex tasks while understanding your operational context to drive real, scalable impact.'
+  },
+  {
+    title: 'AI Driven Search',
+    heading: 'Deep research capabilities powered by advanced language models.',
+    description: 'Safely link your organization’s proprietary knowledge into one intelligent layer and surface insights you can trust. Our AI agents retrieve the most accurate, context-aware answers, ensuring every response is relevant, reliable, and aligned with your enterprise data.'
+  },
+  {
+    title: 'In-Depth Research',
+    heading: 'Build and deploy purpose-built AI models for your specific needs.',
+    description: 'Access insights that are thoroughly researched and distilled from rich, wide-ranging sources. Our AI agents synthesize complex information into clear, actionable summaries, giving you depth, accuracy, and clarity in every result.'
+  },
+  {
+    title: 'Developer APIs',
+    heading: 'Build and deploy purpose-built AI models for your specific needs.',
+    description: 'Create intelligent applications and products on top of our foundation models. Embed advanced reasoning, generation, and automation into your workflows. Move from concept to production with models engineered for reliability, performance, and real-world impact across enterprise and developer ecosystems.'
+  },
+  {
+    title: 'Custom AI Deployments',
+    heading: 'Build and deploy purpose-built AI models for your specific needs.',
+    description: 'Shape a truly personalized AI experience through tailored integrations with your enterprise data, platforms, and custom model capabilities, ensuring every system aligns precisely with your operational needs and business objectives.'
+  }
+];
+
+const CapabilitiesAccordion = () => {
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section
-      style={{ background: '#eceefa' }}
-      className="py-24 relative border-y border-bb-line overflow-hidden"
-      data-testid="capabilities-index"
-    >
-      {/* Faint dot grid backdrop */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(rgba(10,18,48,0.06) 1px, transparent 1px)',
-          backgroundSize: '22px 22px',
-          maskImage: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%)',
-        }}
-      />
-
-      <div className="bb-container relative">
-        {/* Editorial masthead */}
-        <div className="mb-16 pb-6 border-b border-bb-line">
+    <section style={{ background: '#f0f1f9' }} className="py-24 relative" data-testid="capabilities-index">
+      <div className="bb-container">
+        <div className="mb-10 pb-8 border-b border-bb-line">
           <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
             What we can do for you
           </h2>
         </div>
 
-        {/* Chapter entries */}
         <div>
-          {capabilities.map((cap, i) => (
-            <article
-              key={i}
-              className="group relative grid grid-cols-12 items-start py-10 md:py-12 border-b border-bb-line last:border-b-0 transition-colors hover:bg-white/60"
-              data-testid={`capability-entry-${i}`}
-            >
-              {/* Title */}
-              <div className="col-span-12 md:col-span-5 pr-4 flex flex-col gap-4 pt-1">
-                <h3
-                  className="text-bb-ink"
-                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.6vw, 32px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}
+          {capabilities.map((cap, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div key={cap.title} className="border-b border-bb-line" data-testid={`capability-entry-${i}`}>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? -1 : i)}
+                  data-testid={`capability-toggle-${i}`}
+                  className="w-full flex items-center justify-between gap-6 py-7 text-left group"
                 >
-                  {cap.title}
-                </h3>
-                {/* Animated underline on hover */}
-                <span
-                  aria-hidden
-                  className="block h-px bg-bb-ink transition-all duration-500 group-hover:w-16"
-                  style={{ width: 24 }}
-                />
-              </div>
+                  <span
+                    className="text-bb-ink"
+                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.4vw, 28px)', fontWeight: 500, letterSpacing: '-0.02em' }}
+                  >
+                    {cap.title}
+                  </span>
+                  <span className="flex-shrink-0 text-bb-ink-2 group-hover:text-bb-ink transition-colors">
+                    {isOpen ? <Minus className="w-5 h-5" strokeWidth={1.5} /> : <Plus className="w-5 h-5" strokeWidth={1.5} />}
+                  </span>
+                </button>
 
-              {/* Description */}
-              <div className="col-span-12 md:col-span-7 md:pl-8 mt-6 md:mt-0">
-                <p
-                  className="text-bb-ink text-[16px] md:text-[17px]"
-                  style={{ fontFamily: 'Inter, sans-serif', lineHeight: 1.65 }}
-                >
-                  {cap.description}
-                </p>
+                {isOpen && (
+                  <div className="pb-10 md:pl-[28%] max-w-3xl" style={{ animation: 'bbFadeIn 350ms ease forwards' }}>
+                    <h3
+                      className="text-bb-ink mb-5"
+                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.015em', lineHeight: 1.25 }}
+                    >
+                      {cap.heading}
+                    </h3>
+                    <p className="text-bb-ink-2 text-[15.5px] leading-[1.75]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      {cap.description}
+                    </p>
+                  </div>
+                )}
               </div>
-            </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -260,16 +261,37 @@ const Home = () => {
     { name: "Infrastructure Scaling",   title: "Infrastructure Scaling",   description: "Expanding AI systems seamlessly, ensuring performance is remaining consistent as demand and complexity grow.", features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"], link: '/research' }
   ];
 
+  const services = [
+    {
+      title: 'Model Customization',
+      link: '/solutions#model-customization',
+      body: 'Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.',
+      testid: 'solution-model-customization'
+    },
+    {
+      title: 'Value Realization',
+      link: '/solutions#value-realization',
+      body: 'From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.',
+      testid: 'solution-value-realization'
+    },
+    {
+      title: 'Deployment',
+      link: '/solutions#deployment',
+      body: 'Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.',
+      testid: 'solution-deployment'
+    }
+  ];
+
   useDocumentTitle('Frontier AI Research and Enterprise Solutions | Blubridge');
   useMetaDescription('Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.');
 
   return (
-    <div style={{ background: '#f1f2fa' }} className="min-h-screen text-bb-ink" data-testid="home-page">
+    <div style={{ background: '#f0f1f9' }} className="min-h-screen text-bb-ink" data-testid="home-page">
 
       {/* ============================================================
-          HERO — Editorial asymmetric split with SVG pipeline diagram
+          SECTION 1 — HERO (#f0f1f9)
           ============================================================ */}
-      <section className="relative overflow-hidden" data-testid="hero-section" style={{ paddingTop: '48px', paddingBottom: '96px' }}>
+      <section className="relative overflow-hidden" data-testid="hero-section" style={{ paddingTop: '48px', paddingBottom: '96px', background: '#f0f1f9' }}>
         {/* Faint diagonal grid backdrop */}
         <div
           aria-hidden
@@ -324,124 +346,41 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          SECTION 01 — OUR FRONTIER AI EXPERTISE + BY INDUSTRY
+          SECTION 2 — OUR FRONTIER AI EXPERTISE (#e8eaf3)
           ============================================================ */}
-      <section className="relative pt-24 pb-20" style={{ background: '#e8eaf3' }}>
-        <div className="bb-container">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <div>
-              <h2 className="bb-h2 capitalize" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
-                Our Frontier AI Expertise
-              </h2>
-            </div>
-            <p className="max-w-md text-bb-ink-2 text-[15px]">
-              In Progress...
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-6 relative flex items-center justify-center overflow-hidden">
-              <AIExpertiseOrbit />
-            </div>
-
-            <div className="lg:col-span-6">
-              <p className="bb-eyebrow mb-6">By Industry</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {[
-                  { icon: Radio, title: "Telco" },
-                  { icon: ShieldCheck, title: "Finance & Insurance" },
-                  { icon: GraduationCap, title: "Education" },
-                  { icon: Scale, title: "Legal" },
-                  { icon: Code2, title: "Software & Technology" },
-                  { icon: Factory, title: "Manufacturing" },
-                  { icon: Landmark, title: "Government" },
-                  { icon: HeartPulse, title: "Healthcare" },
-                  { icon: ShoppingCart, title: "Oil & Gas" },
-                  { icon: HomeIcon, title: "Construction & Infra" }
-                ].map((service, index) => {
-                  const IconComponent = service.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="group flex items-center gap-3 p-4 bg-white border border-bb-line rounded-md hover:border-bb-line-strong hover:bg-bb-bg-subtle transition-colors"
-                      data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      <IconComponent className="w-4 h-4 text-bb-accent" strokeWidth={1.5} />
-                      <span className="text-bb-ink text-[14px]" style={{ fontFamily: 'Inter, sans-serif' }}>{service.title}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ExpertiseSection />
 
       {/* ============================================================
-          SECTION 02 — BY SERVICES (Model Customization / Value Realization / Deployment)
-          Editorial 3-row layout with technical annotations
+          SECTION 3 — BY SERVICES (#f0f1f9)
           ============================================================ */}
-      <section className="py-24 relative" style={{ background: '#f1f2fa' }}>
+      <section className="py-24 relative" style={{ background: '#f0f1f9' }} data-testid="services-section">
         <div className="bb-container">
-          <div className="mb-16">
-            <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
-              By Services
-            </h2>
-          </div>
+          <p className="bb-eyebrow mb-12">By Services</p>
 
-          <div className="space-y-0 border-t border-bb-line">
-            {[
-              {
-                num: '01',
-                title: 'Model Customization',
-                link: '/solutions#model-customization',
-                body: 'Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.',
-                testid: 'solution-model-customization'
-              },
-              {
-                num: '02',
-                title: 'Value Realization',
-                link: '/solutions#value-realization',
-                body: 'From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.',
-                testid: 'solution-value-realization'
-              },
-              {
-                num: '03',
-                title: 'Deployment',
-                link: '/solutions#deployment',
-                body: 'Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.',
-                testid: 'solution-deployment'
-              }
-            ].map((s) => (
-              <Link
-                key={s.num}
-                to={s.link}
-                data-testid={s.testid}
-                className="group block border-b border-bb-line py-10 lg:py-14 hover:bg-white transition-colors"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-                  <div className="lg:col-span-6">
-                    <h3
-                      className="text-bb-ink"
-                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(28px, 3.6vw, 44px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.05 }}
-                    >
-                      {s.title}
-                    </h3>
-                  </div>
-                  <div className="lg:col-span-5">
-                    <p className="text-bb-ink-2 text-[16px] leading-[1.7]">{s.body}</p>
-                  </div>
-                  <div className="lg:col-span-1 flex lg:justify-end items-center">
-                    <span className="inline-flex items-center gap-2 text-bb-ink font-mono text-[14px] group-hover:text-bb-accent transition-colors">
-                      <span className="transition-transform group-hover:translate-x-1">↗</span>
-                    </span>
-                  </div>
-                </div>
-              </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 border-t border-bb-line pt-12">
+            {services.map((s) => (
+              <div key={s.title} data-testid={s.testid}>
+                <h3
+                  className="text-bb-ink mb-5"
+                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.4vw, 28px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.15 }}
+                >
+                  {s.title}
+                </h3>
+                <p className="text-bb-ink-2 text-[14.5px] leading-[1.75] mb-7" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  {s.body}
+                </p>
+                <Link
+                  to={s.link}
+                  className="inline-flex items-center gap-2 font-mono text-[11.5px] tracking-[0.14em] uppercase text-bb-ink hover:text-bb-accent transition-colors group"
+                  data-testid={`${s.testid}-learn-more`}
+                >
+                  Learn More <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                </Link>
+              </div>
             ))}
           </div>
 
-          <div className="mt-14 flex justify-center">
+          <div className="mt-16 flex justify-end">
             <Link to="/contact" className="bb-btn-primary" data-testid="support-talk-to-us-btn">
               Talk To Us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
             </Link>
@@ -450,62 +389,56 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          SECTION 03 — INFRASTRUCTURE
-          "BluBridge Infrastructure for custom AI deployment Solutions"
+          SECTION 4 — INFRASTRUCTURE (#e8eaf3)
           ============================================================ */}
-      <section className="py-24 relative" style={{ background: '#eceefa' }} data-testid="infrastructure-section">
+      <section className="py-24 relative" style={{ background: '#e8eaf3' }} data-testid="infrastructure-section">
         <div className="bb-container">
-          <div className="mb-14">
-            <h2 className="bb-h2" style={{ fontSize: 'clamp(32px, 4.2vw, 56px)' }}>
+          <div className="mb-12">
+            <h2 className="bb-h2 max-w-3xl" style={{ fontSize: 'clamp(32px, 4.2vw, 56px)' }}>
               BluBridge Infrastructure for custom AI deployment Solutions
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left: tab list */}
-            <div className="lg:col-span-4">
-              <div className="border-t border-bb-line">
-                {infraTabs.map((tab, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveInfraTab(index)}
-                    data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    className={`w-full text-left flex items-center justify-between gap-4 py-4 px-2 border-b border-bb-line transition-colors ${
-                      activeInfraTab === index ? 'bg-white' : 'hover:bg-white/60'
-                    }`}
-                  >
-                    <span className="flex items-center gap-4">
-                      <span
-                        className={`text-[15px] ${activeInfraTab === index ? 'text-bb-ink font-medium' : 'text-bb-ink-2'}`}
-                        style={{ fontFamily: 'Geist, sans-serif' }}
-                      >
-                        {tab.name}
-                      </span>
-                    </span>
-                    {activeInfraTab === index && <span className="font-mono text-[11px] text-bb-accent">●</span>}
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Horizontal tab bar */}
+          <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-bb-line" role="tablist">
+            {infraTabs.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveInfraTab(index)}
+                data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
+                className={`pb-3 -mb-px text-[14px] transition-colors border-b-2 ${
+                  activeInfraTab === index
+                    ? 'border-bb-ink text-bb-ink font-medium'
+                    : 'border-transparent text-bb-ink-2 hover:text-bb-ink'
+                }`}
+                style={{ fontFamily: 'Geist, sans-serif' }}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </div>
 
-            {/* Right: content panel */}
+          {/* Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pt-12" data-testid="infra-content-card">
+            <div className="lg:col-span-4">
+              <h3
+                className="text-bb-ink"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(28px, 3.4vw, 44px)', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: 1.05 }}
+              >
+                {infraTabs[activeInfraTab].title}
+              </h3>
+            </div>
             <div className="lg:col-span-8">
-              <div className="bb-panel p-8 lg:p-10" data-testid="infra-content-card">
-                <h3
-                  className="mb-4 text-bb-ink"
-                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}
-                >
-                  {infraTabs[activeInfraTab].title}
-                </h3>
-                <p className="text-bb-ink-2 text-[16px] leading-[1.7] mb-8">{infraTabs[activeInfraTab].description}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {infraTabs[activeInfraTab].features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3 py-3 border-t border-bb-line">
-                      <Check className="w-4 h-4 text-bb-accent flex-shrink-0" />
-                      <span className="text-bb-ink text-[14px]">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+              <p className="text-bb-ink text-[16px] leading-[1.7] mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
+                {infraTabs[activeInfraTab].description}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
+                {infraTabs[activeInfraTab].features.map((feature, i) => (
+                  <div key={i} className="flex items-center gap-4 py-3.5 border-b border-bb-line">
+                    <span aria-hidden className="font-mono text-bb-ink-3 text-[13px]">—</span>
+                    <span className="text-bb-ink text-[14px]" style={{ fontFamily: 'Inter, sans-serif' }}>{feature}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -513,21 +446,21 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          SECTION 04 — Vertical Tabs "What we can do for you"
+          SECTION 5 — WHAT WE CAN DO FOR YOU (#f0f1f9)
           ============================================================ */}
-      <VerticalTabsSection />
+      <CapabilitiesAccordion />
 
       {/* ============================================================
-          SECTION 05 — WORK WITH BLUBRIDGE (team)
+          SECTION 6 — WORK WITH BLUBRIDGE (#e8eaf3)
           ============================================================ */}
-      <section className="py-24" style={{ background: '#f1f2fa' }} data-testid="work-with-blubridge">
+      <section className="py-24" style={{ background: '#e8eaf3' }} data-testid="work-with-blubridge">
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div className="lg:col-span-6 order-2 lg:order-1">
+            <div className="lg:col-span-5 order-2 lg:order-1">
               <h2 className="bb-h2 mb-8" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
                 Work with BluBridge
               </h2>
-              <p className="text-bb-ink-2 text-[17px] leading-[1.75] mb-10 max-w-[540px]">
+              <p className="text-bb-ink-2 text-[16px] leading-[1.75] mb-10 max-w-[480px]">
                 We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
               </p>
               <Link to="/careers" className="bb-btn-primary" data-testid="work-join-cta">
@@ -535,8 +468,8 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className="lg:col-span-6 order-1 lg:order-2 relative">
-              <div className="relative border border-bb-line rounded-md overflow-hidden bg-white">
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <div className="bg-white p-3 border border-bb-line rounded-sm" style={{ boxShadow: '0 18px 48px -18px rgba(10, 18, 48, 0.18)' }}>
                 <img
                   src="/images/bluBridge-team.png"
                   alt="BluBridge Team"

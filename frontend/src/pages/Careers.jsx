@@ -60,7 +60,7 @@ const Careers = () => {
   }, [location]);
 
   return (
-    <div style={{ background: '#f1f2fa', paddingTop: '48px', paddingBottom: '48px' }} data-testid="careers-page">
+    <div style={{ background: '#f0f1f9', paddingTop: '48px', paddingBottom: '48px' }} data-testid="careers-page">
       <div className="bb-container">
 
         {/* Editorial header */}
