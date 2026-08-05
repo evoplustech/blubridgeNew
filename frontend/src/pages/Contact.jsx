@@ -592,7 +592,7 @@ const Contact = () => {
                     className="mt-4"
                     style={{
                       fontFamily: 'Geist, sans-serif',
-                      fontSize: 'clamp(20px, 1.7vw, 24px)',
+                      fontSize: '18px',
                       lineHeight: 1.5,
                       letterSpacing: '-0.015em',
                       color: '#0a1230',

@@ -715,10 +715,10 @@ const Home = () => {
             <div className="lg:col-span-7">
               <div style={{ overflow: 'hidden', borderRadius: '2px' }}>
                 <img
-                  src="/images/bluBridge-team.png"
+                  src="/images/blubridge-team-photo.png"
                   alt="BluBridge Team"
                   className="w-full block"
-                  style={{ aspectRatio: '4 / 3', objectFit: 'cover', transform: 'scale(1.14)' }}
+                  style={{ aspectRatio: '4 / 3', objectFit: 'cover' }}
                 />
               </div>
             </div>
