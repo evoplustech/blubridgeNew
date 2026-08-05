@@ -170,9 +170,9 @@ const Careers = () => {
       </section>
 
       {/* ============================================================
-          SECTION 2 — WHAT ARE WE? + ROLE CARDS (#f0f1f9)
+          SECTION 2 — WHAT ARE WE? + ROLE CARDS (#e8eaf3)
           ============================================================ */}
-      <section className="pt-24 pb-24" data-testid="what-are-we-section">
+      <section className="pt-24 pb-24" style={{ background: '#e8eaf3' }} data-testid="what-are-we-section">
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start mb-14">
             <div className="lg:col-span-4">
@@ -231,9 +231,9 @@ const Careers = () => {
       </section>
 
       {/* ============================================================
-          SECTION 3 — OUR OFFICES (#e8eaf3)
+          SECTION 3 — OUR OFFICES (#f0f1f9)
           ============================================================ */}
-      <section className="py-24" style={{ background: '#e8eaf3' }} data-testid="office-locations-section">
+      <section className="py-24" data-testid="office-locations-section">
         <div className="bb-container">
           <h2 className="bb-h2 uppercase mb-14" style={{ fontSize: 'clamp(30px, 3.8vw, 52px)' }}>
             Our Offices
