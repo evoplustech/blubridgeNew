@@ -57,10 +57,55 @@ const Footer = () => {
       data-testid="site-footer"
     >
       <div className="bb-container" style={{ paddingTop: '72px', paddingBottom: '48px' }}>
-        {/* Top: contact form */}
-        <div className="pb-16 border-b border-bb-line">
-          <h3 className="bb-eyebrow mb-5">Contact Us</h3>
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* 5-column layout — brand + nav + contact form */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 pb-14 border-b border-bb-line">
+          {/* 1 — Brand */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-3">
+            <img
+              src="/images/blubridge-logo.svg"
+              alt="BluBridge"
+              style={{ height: '22px', width: 'auto', objectFit: 'contain', marginBottom: '20px' }}
+            />
+            <p className="bb-caption" style={{ maxWidth: '280px', lineHeight: 1.65 }}>
+              BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
+            </p>
+          </div>
+
+          {/* 2 — Product */}
+          <div className="lg:col-span-2">
+            <h4 className="bb-eyebrow mb-5">Product</h4>
+            <ul className="space-y-3">
+              <li className="text-bb-ink-2 text-[13.5px] font-mono">Coming Soon</li>
+            </ul>
+          </div>
+
+          {/* 3 — Solutions */}
+          <div className="lg:col-span-2">
+            <h4 className="bb-eyebrow mb-5">Solutions</h4>
+            <ul className="space-y-3">
+              <li><Link to="/solutions#model-customization" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Model Customization</Link></li>
+              <li><Link to="/solutions#value-realization"   className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Value Realization</Link></li>
+              <li><Link to="/solutions#deployment"          className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Deployment</Link></li>
+            </ul>
+          </div>
+
+          {/* 4 — Company */}
+          <div className="lg:col-span-2">
+            <h4 className="bb-eyebrow mb-5">Company</h4>
+            <ul className="space-y-3">
+              <li><Link to="/about-us" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">About Us</Link></li>
+              <li><Link to="/careers"  className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Careers</Link></li>
+              <li><Link to="/contact"  className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Contact</Link></li>
+              <li><a href="https://www.linkedin.com/company/blubridge/" target="_blank" rel="noopener noreferrer" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">LinkedIn</a></li>
+              <li><a href="https://x.com/BlubridgeAI" target="_blank" rel="noopener noreferrer" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">X (Twitter)</a></li>
+              <li><a href="https://github.com/BlubridgeAI/" target="_blank" rel="noopener noreferrer" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">GitHub</a></li>
+            </ul>
+          </div>
+
+          {/* 5 — Contact form */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-3">
+            <h4 className="bb-eyebrow mb-5">Contact Us</h4>
+            <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-2.5">
               <Input
                 type="text"
                 placeholder="First name"
@@ -82,7 +127,7 @@ const Footer = () => {
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`${inputStyle} sm:col-span-2`}
+                className={`${inputStyle} col-span-2`}
                 required
                 data-testid="footer-email"
               />
@@ -91,56 +136,18 @@ const Footer = () => {
                 placeholder="Message (optional)"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className={`${inputStyle} sm:col-span-2`}
+                className={`${inputStyle} col-span-2`}
                 data-testid="footer-message"
               />
               <Button
                 type="submit"
                 disabled={loading}
-                className="sm:col-span-2 bg-bb-ink hover:bg-[#172449] text-white rounded-md h-11"
+                className="col-span-2 bg-bb-ink hover:bg-[#172449] text-white rounded-md h-10"
                 data-testid="footer-submit"
               >
                 {loading ? 'Submitting...' : 'Contact Now'}
               </Button>
             </form>
-        </div>
-
-        {/* Middle: 4-column layout — brand + nav */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-14 border-b border-bb-line">
-          <div className="col-span-2 md:col-span-1">
-            <img
-              src="/images/blubridge-logo.svg"
-              alt="BluBridge"
-              style={{ height: '22px', width: 'auto', objectFit: 'contain', marginBottom: '20px' }}
-            />
-            <p className="bb-caption" style={{ maxWidth: '300px', lineHeight: 1.65 }}>
-              BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
-            </p>
-          </div>
-          <div>
-            <h4 className="bb-eyebrow mb-5">Product</h4>
-            <ul className="space-y-3">
-              <li className="text-bb-ink-2 text-[13.5px] font-mono">Coming Soon</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="bb-eyebrow mb-5">Solutions</h4>
-            <ul className="space-y-3">
-              <li><Link to="/solutions#model-customization" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Model Customization</Link></li>
-              <li><Link to="/solutions#value-realization"   className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Value Realization</Link></li>
-              <li><Link to="/solutions#deployment"          className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Deployment</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="bb-eyebrow mb-5">Company</h4>
-            <ul className="space-y-3">
-              <li><Link to="/about-us" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">About Us</Link></li>
-              <li><Link to="/careers"  className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Careers</Link></li>
-              <li><Link to="/contact"  className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">Contact</Link></li>
-              <li><a href="https://www.linkedin.com/company/blubridge/" target="_blank" rel="noopener noreferrer" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">LinkedIn</a></li>
-              <li><a href="https://x.com/BlubridgeAI" target="_blank" rel="noopener noreferrer" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">X (Twitter)</a></li>
-              <li><a href="https://github.com/BlubridgeAI/" target="_blank" rel="noopener noreferrer" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">GitHub</a></li>
-            </ul>
           </div>
         </div>
 

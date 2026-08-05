@@ -1,0 +1,30 @@
+{
+  "summary": "Frontend-only smoke + content-lock verification for BluBridge marketing site editorial redesign. Verified purge of decorative numberings/labels across Home (below hero), Solutions, Research, About Us, Contact and Careers pages while confirming intentionally-kept Home hero decorations remain intact ('01 / SYSTEM MAP', 'FIG. i', '/ 00 · Frontier AI', 'EST. 2024 · CHENNAI · PRINCETON', MODE/FOCUS/STATE strip, SVG pipeline). Tested interactive flows: Home Infrastructure tab switching, Careers 'See open roles' toggle, Contact form submission via POST /api/contacts/submit.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/test_reports/iteration_12.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Solutions hero briefly still contained '/ Solutions' eyebrow and 'Applied AI · Enterprise' caption when initial testing started (visible at ~15:25 UTC); build at ~15:48 UTC purged them. Confirming current state is clean.",
+    "Contact form works end-to-end (200 OK, success alert 'Thank you for your inquiry...') via POST /api/contacts/submit with 'type: contact_us'. Frontend sends the required type field correctly."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (not tested)", "frontend": "100%"},
+  "verification_details": {
+    "home": "Below-hero purge confirmed: no '/ 01·Expertise', no '// STATUS', no service '/ 0N' numbers, no 'OPEN' text, no '/ 03·Infrastructure', no '/ 05·Capabilities' / '/ INDEX' / AGENTS/SEARCH/APIS/DEPLOYMENTS tags, no '/ chapter', no '/ 06·Team', no 'FIG. ii', no '/ 07·Continue'. Hero retained: '01 / SYSTEM MAP', 'FIG. i', '/ 00 · Frontier AI' (upper-cased '/ 00 · FRONTIER AI'), 'EST. 2024 · CHENNAI · PRINCETON', MODE/FOCUS/STATE, SVG pipeline. Infrastructure tab click on 'Post-training' switches panel correctly.",
+    "solutions": "Hero cleanly shows only H1 + description + CTA (no '/ Solutions', no 'Applied AI · Enterprise' after 15:48 rebuild). Section eyebrows read 'Model Customization', 'Value Realization', 'Deployment'. No METHOD·TRAINING/FIG. 01/intent/workstreams/01.01 numbering. Table headers DATA / PLATFORM / INFRASTRUCTURE present without '/ 01' prefixes. Deployment tab switching operational.",
+    "research": "Masthead H1 'Papers & Publications' only — no eyebrow, no VOL. 2026, no '/ 03 ENTRIES', no ticker strip. All 3 papers present: BluTrain, FLUX, Blu-WERP. 3 'View on arXiv' anchor links + 4 total arxiv.org hrefs (one likely inline). No 'arxiv:2606.24780' label text, no '/ Access', '/ Contributors', 'Abstract' captions.",
+    "about": "Purged: no '/ Page 01', no 'BLUBRIDGE / FIG. i' image badge, no '/ 01' or '/ 02·Method' or '/ 03·Continue' or '/ 04'. Note: page shows a plain 'ABOUT US' eyebrow above H1 which is not in the forbidden list — treating as acceptable section identifier.",
+    "contact": "Purged: no '/ Contact', no '/ 03·Send a Message', no office 01/02/03 numbers. Form submission: fields firstName/lastName/email/phoneNumber/inquiryType/message all fillable; POST /api/contacts/submit returned HTTP 200 with success alert 'Thank you for your inquiry. We will get back to you soon!'.",
+    "careers": "Purged: no '/ Careers', no 'Chennai · India / Princeton · USA' caption, no '/ 01·Principle', '/ 02·Method', '/ 03·', no '01 · LOCATION' badges. 'See open roles' toggle opens job table without 'OPEN' text (verified — arrow only). No '#' column."
+  },
+  "test_credentials": "N/A",
+  "seed_data_creation": "Created 1 contact submission (email test_bb_<timestamp>@example.com) via UI POST test — safe TEST_ prefixed dummy data.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All decorative-label purge requirements met as of build 15:48 UTC. Home hero intentionally retains editorial numberings. Contact form endpoint /api/contacts/submit requires 'type':'contact_us' in payload (frontend already sends this)."
+}

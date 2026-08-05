@@ -134,25 +134,47 @@ const SolutionsNew = () => {
         />
 
         <div className="bb-container relative">
-          <div className="flex items-center justify-between pb-8 border-b border-bb-line bb-reveal">
-            <span className="bb-eyebrow">/ Solutions</span>
-            <span className="bb-caption hidden sm:block">Applied AI · Enterprise</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-10 lg:pt-12 items-center">
             <div className="lg:col-span-8">
-              <h1 className="bb-display bb-reveal bb-reveal-1" style={{ fontSize: 'clamp(40px, 6.4vw, 100px)' }}>
-                Engineering AI-Native Systems for Enterprise Frontiers
+              <h1 className="bb-display bb-reveal bb-reveal-1" style={{ fontSize: 'clamp(40px, 6vw, 92px)', lineHeight: 1.02 }}>
+                <span className="block">Engineering</span>
+                <span className="block">AI-Native Systems</span>
+                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400, fontStyle: 'italic' }}>for Enterprise Frontiers</span>
               </h1>
             </div>
-            <div className="lg:col-span-4 space-y-6 bb-reveal bb-reveal-2">
-              <p className="text-bb-ink text-[16px] leading-[1.75]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Partnering with ambitious organizations from model development to production grade deployment through research-driven, system-level AI engineering.
-              </p>
-              <Link to="/contact" className="bb-btn-primary" data-testid="hero-talk-cta">
-                Talk to our Experts <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-              </Link>
+            <div className="lg:col-span-4 bb-reveal bb-reveal-2">
+              <div className="pl-6 border-l border-bb-line-strong space-y-6">
+                <p className="text-bb-ink text-[16px] leading-[1.75]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Partnering with ambitious organizations from model development to production grade deployment through research-driven, system-level AI engineering.
+                </p>
+                <Link to="/contact" className="bb-btn-primary" data-testid="hero-talk-cta">
+                  Talk to our Experts <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+                </Link>
+              </div>
             </div>
+          </div>
+
+          {/* Stepped node path */}
+          <div className="mt-16 lg:mt-20 bb-reveal bb-reveal-3" aria-hidden>
+            <svg viewBox="0 0 1200 130" className="w-full h-auto" fill="none">
+              <path
+                d="M 12 22 H 540 L 585 62 H 930 L 972 100 H 1195"
+                stroke="#c9cde0"
+                strokeWidth="1.2"
+              />
+              <line x1="30" y1="52" x2="380" y2="52" stroke="#dde0ec" strokeWidth="1" />
+              {[
+                { cx: 12,  cy: 22 },
+                { cx: 540, cy: 22 },
+                { cx: 585, cy: 62 },
+                { cx: 930, cy: 62 },
+                { cx: 972, cy: 100 },
+                { cx: 1195, cy: 100 },
+              ].map((n, i) => (
+                <circle key={i} cx={n.cx} cy={n.cy} r="5" fill="#f0f1f9" stroke="#0a1230" strokeWidth="1.3" />
+              ))}
+              <circle cx="100" cy="22" r="3.5" fill="#2b4c8c" />
+            </svg>
           </div>
         </div>
       </section>
