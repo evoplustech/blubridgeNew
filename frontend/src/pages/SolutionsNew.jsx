@@ -164,7 +164,7 @@ const SolutionsNew = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
             <div className="lg:col-span-6">
-              <p className="bb-eyebrow mb-4">/ 01 &nbsp;·&nbsp; Model Customization</p>
+              <p className="bb-eyebrow mb-4">Model Customization</p>
               <h2 className="bb-h2" style={{ fontSize: 'clamp(30px, 4vw, 52px)' }}>
                 Domain-Specialized Models, Engineered on Proprietary Data
               </h2>
@@ -180,7 +180,6 @@ const SolutionsNew = () => {
           <div className="border-t border-bb-line">
             {customizationCards.map((card, i) => {
               const Icon = card.icon;
-              const chapterMeta = ['Training', 'Specialization', 'Optimization'][i];
               return (
                 <article
                   key={i}
@@ -188,48 +187,10 @@ const SolutionsNew = () => {
                   className="group relative py-14 lg:py-16 border-b border-bb-line last:border-b-0 transition-colors hover:bg-white/40"
                   style={{ background: i % 2 === 1 ? 'rgba(255,255,255,0.35)' : 'transparent' }}
                 >
-                  {/* Chapter marker with corner brackets */}
-                  <div
-                    aria-hidden
-                    className="absolute top-6 left-0 right-0 flex justify-between items-center pointer-events-none"
-                  >
-                    <div className="flex items-center gap-3">
-                      <svg width="14" height="14" aria-hidden="true">
-                        <path d="M 1 6 L 1 1 L 6 1" fill="none" stroke="#0a1230" strokeWidth="1" />
-                      </svg>
-                      <span className="font-mono text-[10px] tracking-[0.18em] text-bb-ink-3">
-                        METHOD · {chapterMeta.toUpperCase()}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-[10px] tracking-[0.18em] text-bb-ink-3">FIG. {String(i + 1).padStart(2, '0')}</span>
-                      <svg width="14" height="14" aria-hidden="true">
-                        <path d="M 13 6 L 13 1 L 8 1" fill="none" stroke="#0a1230" strokeWidth="1" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-12 gap-6 lg:gap-10 pt-6">
-                    {/* LEFT — Index + Icon + Title */}
+                  <div className="grid grid-cols-12 gap-6 lg:gap-10">
+                    {/* LEFT — Icon + Title */}
                     <div className="col-span-12 lg:col-span-5 lg:pr-6 lg:border-r lg:border-bb-line">
                       <div className="flex items-start gap-5">
-                        {/* Huge outline index */}
-                        <span
-                          aria-hidden
-                          className="block transition-transform duration-500 group-hover:-translate-y-1"
-                          style={{
-                            fontFamily: 'Geist, sans-serif',
-                            fontWeight: 300,
-                            fontSize: 'clamp(64px, 8vw, 112px)',
-                            lineHeight: 0.82,
-                            letterSpacing: '-0.05em',
-                            WebkitTextStroke: '1px #0a1230',
-                            color: 'transparent',
-                          }}
-                        >
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-
                         <div className="pt-2">
                           <div
                             className="w-11 h-11 rounded-md flex items-center justify-center mb-5"
@@ -258,23 +219,15 @@ const SolutionsNew = () => {
                       </div>
                     </div>
 
-                    {/* RIGHT — Intro + numbered method list */}
+                    {/* RIGHT — Intro + method list */}
                     <div className="col-span-12 lg:col-span-7">
-                      <p className="bb-caption mb-3">/ intent</p>
                       <p className="text-bb-ink text-[16px] lg:text-[17px] leading-[1.75] mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
                         {card.intro}
                       </p>
 
-                      <p className="bb-caption mb-4">/ workstreams · {String(card.bullets.length).padStart(2, '0')}</p>
                       <ul className="divide-y divide-bb-line border-t border-bb-line">
                         {card.bullets.map((b, j) => (
                           <li key={j} className="flex items-start gap-4 py-3 group/item hover:pl-1 transition-all">
-                            <span
-                              className="font-mono text-[11px] text-bb-ink-3 pt-1 flex-shrink-0"
-                              style={{ minWidth: '2.75rem' }}
-                            >
-                              {String(i + 1).padStart(2, '0')}.{String(j + 1).padStart(2, '0')}
-                            </span>
                             <span
                               className="block w-2 h-2 mt-[10px] flex-shrink-0 rounded-none rotate-45 border border-bb-ink group-hover/item:bg-bb-ink transition-colors"
                             />
@@ -294,7 +247,6 @@ const SolutionsNew = () => {
           {/* Customization Stack table */}
           <div className="mt-20">
             <div className="mb-8 max-w-3xl">
-              <p className="bb-eyebrow mb-3">/ 01a &nbsp;·&nbsp; Reference</p>
               <h3 className="text-bb-ink mb-3" style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.8vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}>
                 Customization Stack
               </h3>
@@ -308,7 +260,7 @@ const SolutionsNew = () => {
               <div className="grid grid-cols-3" style={{ background: '#0a1230' }}>
                 {['DATA', 'PLATFORM', 'INFRASTRUCTURE & HARDWARE'].map((col, i) => (
                   <div key={i} className="px-6 py-4 border-r border-white/10 last:border-r-0">
-                    <span className="text-white font-mono text-[11px] tracking-[0.18em]">/ {String(i + 1).padStart(2, '0')} &nbsp; {col}</span>
+                    <span className="text-white font-mono text-[11px] tracking-[0.18em]">{col}</span>
                   </div>
                 ))}
               </div>
@@ -318,7 +270,6 @@ const SolutionsNew = () => {
                 <div key={r} className="grid grid-cols-3 border-t border-bb-line" data-testid={`stack-row-${r}`}>
                   {row.map((cell, c) => (
                     <div key={c} className="px-6 py-4 flex items-center gap-3 border-r border-bb-line last:border-r-0">
-                      <span className="font-mono text-[10px] text-bb-ink-3">{String(r + 1).padStart(2, '0')}.{c + 1}</span>
                       <span className="w-1.5 h-1.5 rounded-full bg-bb-accent flex-shrink-0" />
                       <span className="text-bb-ink text-[14px]">{cell}</span>
                     </div>
@@ -343,7 +294,7 @@ const SolutionsNew = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-5">
-              <p className="bb-eyebrow mb-4">/ 02 &nbsp;·&nbsp; Value Realization</p>
+              <p className="bb-eyebrow mb-4">Value Realization</p>
               <h2 className="bb-h2" style={{ fontSize: 'clamp(28px, 3.8vw, 44px)' }}>
                 We start from your current AI maturity and engineer toward deployable systems.
               </h2>
@@ -367,7 +318,6 @@ const SolutionsNew = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-baseline gap-3 mb-2">
-                        <span className="font-mono text-[11px] text-bb-ink-3">/ 0{i + 1}</span>
                         <h3 className="text-bb-ink" style={{ fontFamily: 'Geist, sans-serif', fontSize: '18px', fontWeight: 500 }}>
                           {card.title}
                         </h3>
@@ -388,7 +338,7 @@ const SolutionsNew = () => {
       <section id="deployment" className="py-24" style={{ background: '#eceefa' }}>
         <div className="bb-container">
           <div className="mb-14 max-w-4xl">
-            <p className="bb-eyebrow mb-4">/ 03 &nbsp;·&nbsp; Deployment</p>
+            <p className="bb-eyebrow mb-4">Deployment</p>
             <h2 className="bb-h2" style={{ fontSize: 'clamp(28px, 3.8vw, 48px)' }}>
               What self-deployment capabilities are under development?
             </h2>
@@ -408,9 +358,6 @@ const SolutionsNew = () => {
                     }`}
                   >
                     <span className="flex items-center gap-4">
-                      <span className={`font-mono text-[11px] ${activeDeploymentTab === tab.id ? 'text-bb-accent' : 'text-bb-ink-3'}`}>
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
                       <span
                         className={`text-[15px] ${activeDeploymentTab === tab.id ? 'text-bb-ink font-medium' : 'text-bb-ink-2'}`}
                         style={{ fontFamily: 'Geist, sans-serif' }}
@@ -427,10 +374,6 @@ const SolutionsNew = () => {
             {/* Content */}
             <div className="lg:col-span-8">
               <div className="bb-panel p-8 lg:p-10 min-h-[320px]" data-testid={`deployment-content-${activeTab.id.split('-')[0]}`}>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="bb-caption">/ 0{deploymentTabs.findIndex((t) => t.id === activeTab.id) + 1}</span>
-                  <div className="flex-1 h-px bg-bb-line" />
-                </div>
                 <h3
                   className="mb-6 text-bb-ink"
                   style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}
@@ -457,7 +400,6 @@ const SolutionsNew = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-8">
-              <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-white/50 mb-6">/ 04 · Continue</p>
               <h2
                 className="text-white"
                 style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(36px, 5.5vw, 84px)', letterSpacing: '-0.03em', lineHeight: 0.98, fontWeight: 500 }}

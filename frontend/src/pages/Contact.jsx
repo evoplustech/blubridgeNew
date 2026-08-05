@@ -257,12 +257,10 @@ const Contact = () => {
         {/* Editorial header row */}
         <div className="pb-8 border-b border-bb-line flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <p className="bb-eyebrow mb-3">/ Contact</p>
             <h1 className="bb-display" style={{ fontSize: 'clamp(44px, 6.5vw, 96px)' }}>
               Contact Us
             </h1>
           </div>
-          <p className="bb-caption max-w-sm">Reach out about research collaboration, engineering programs, or applied AI initiatives.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mt-14">
@@ -279,7 +277,6 @@ const Contact = () => {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-baseline gap-3 mb-3">
-                        <span className="font-mono text-[10px] tracking-[0.14em] text-bb-accent">{String(i + 1).padStart(2, '0')}</span>
                         <h3 style={{ fontFamily: 'Geist, sans-serif', fontSize: '17px', fontWeight: 500, letterSpacing: '-0.01em', color: '#0a1230' }}>
                           {o.region}
                         </h3>
@@ -333,8 +330,6 @@ const Contact = () => {
           {/* RIGHT — Form */}
           <div className="lg:col-span-7">
             <div className="bb-panel p-8 lg:p-10" data-testid="contact-form-card">
-              <p className="bb-eyebrow mb-6">/ 03 &nbsp;·&nbsp; Send a Message</p>
-
               <form onSubmit={handleSubmit}>
                 {/* First / Last Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">

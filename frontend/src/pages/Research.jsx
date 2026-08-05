@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, FileText, ExternalLink } from 'lucide-react';
+import { Users, ExternalLink } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
@@ -101,37 +101,10 @@ const Research = () => {
         />
 
         <div className="bb-container relative">
-          <div className="flex items-center justify-between pb-6 border-b border-bb-line">
-            <span className="bb-eyebrow">/ Papers &amp; Publications</span>
-            <span className="bb-caption hidden sm:block">VOL. 2026 · ARCHIVE</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 pt-14 lg:pt-16 items-center">
-            <div className="lg:col-span-8">
-              <h1 className="bb-display" style={{ fontSize: 'clamp(42px, 7vw, 112px)' }}>
-                Papers &amp; Publications
-              </h1>
-            </div>
-            <div className="lg:col-span-4 space-y-3">
-              <p className="bb-caption">/ 03 ENTRIES</p>
-              <p className="text-bb-ink-2 text-[15px] leading-[1.7]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Research from BluBridge across systems engineering, training frameworks, and data pipelines. Chronicled newest first.
-              </p>
-            </div>
-          </div>
-
-          {/* Ticker strip */}
-          <div className="mt-14 grid grid-cols-3 border-t border-bb-line pt-5">
-            {[
-              { k: 'LATEST',   v: 'June 2026' },
-              { k: 'DOMAIN',   v: 'Deep Learning · Systems' },
-              { k: 'ACCESS',   v: 'Open · arXiv' },
-            ].map((it) => (
-              <div key={it.k}>
-                <dt className="bb-caption">{it.k}</dt>
-                <dd className="text-[14px] mt-1 text-bb-ink" style={{ fontFamily: 'Geist, sans-serif' }}>{it.v}</dd>
-              </div>
-            ))}
+          <div className="pt-14 lg:pt-16">
+            <h1 className="bb-display" style={{ fontSize: 'clamp(42px, 7vw, 112px)' }}>
+              Papers &amp; Publications
+            </h1>
           </div>
         </div>
       </section>
@@ -158,7 +131,6 @@ const Research = () => {
                 {/* Year label + node on spine (desktop) */}
                 <div className="hidden md:block absolute left-0 top-14" style={{ width: '116px', paddingRight: '24px' }}>
                   <span className="bb-caption block">{p.date.toUpperCase()}</span>
-                  <span className="font-mono text-[10px] text-bb-ink-3 mt-1 block">{p.tag}</span>
                 </div>
 
                 {/* Node dot on spine */}
@@ -175,19 +147,6 @@ const Research = () => {
                   {/* Mobile meta */}
                   <div className="flex items-center gap-3 md:hidden mb-4">
                     <span className="bb-caption">{p.date.toUpperCase()}</span>
-                    <span className="w-6 h-px bg-bb-line-strong" />
-                    <span className="font-mono text-[10px] text-bb-ink-3">{p.tag}</span>
-                  </div>
-
-                  {/* Header row */}
-                  <div className="flex items-baseline gap-4 mb-4">
-                    <span
-                      className="font-mono text-[13px] text-bb-ink-3 select-none"
-                      style={{ letterSpacing: '0.12em' }}
-                    >
-                      / {p.idx}
-                    </span>
-                    <span className="hidden md:inline font-mono text-[11px] text-bb-ink-3">{p.arxivId}</span>
                   </div>
 
                   {/* Title */}
@@ -209,32 +168,21 @@ const Research = () => {
                   {/* Abstract + links */}
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     <div className="lg:col-span-8">
-                      <div className="flex items-center gap-2 mb-3">
-                        <FileText className="w-4 h-4 text-bb-ink-3" strokeWidth={1.5} />
-                        <span className="bb-caption">Abstract</span>
-                      </div>
                       <p className="text-bb-ink text-[16px] leading-[1.75]" style={{ fontFamily: 'Inter, sans-serif' }}>
                         {p.abstract}
                       </p>
                     </div>
 
                     <div className="lg:col-span-4 lg:pl-6 lg:border-l lg:border-bb-line">
-                      <p className="bb-caption mb-3">/ Access</p>
                       <a
                         href={p.arxiv}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-bb-ink hover:text-bb-accent transition-colors group"
                       >
-                        <span className="font-mono text-[13px]">{p.arxivId}</span>
+                        <span className="font-mono text-[13px]">View on arXiv</span>
                         <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </a>
-                      <div className="mt-6 pt-6 border-t border-bb-line">
-                        <p className="bb-caption mb-2">/ Contributors</p>
-                        <p className="font-mono text-[12px] text-bb-ink-2">
-                          {p.authors.length.toString().padStart(2, '0')} named
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>

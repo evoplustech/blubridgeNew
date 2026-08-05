@@ -40,21 +40,16 @@ const PipelineDiagram = () => {
         <rect width="500" height="600" fill="url(#bbgrid)" opacity="0.55" />
         <rect width="500" height="600" fill="url(#bbFade)" />
 
-        {/* Axis labels — positioned inside safe zone, no bracket collision */}
-        <text x="20" y="42" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">01 / SYSTEM MAP</text>
-        <text x="480" y="42" textAnchor="end" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">FIG. i</text>
-        <text x="20" y="574" fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" letterSpacing="1.5">TRAINING → INFERENCE</text>
-
         {/* Vertical spine */}
         <line x1="250" y1="70" x2="250" y2="540" stroke="#b8bfd6" strokeWidth="1" className="bb-line-draw" style={{ animationDelay: '400ms' }} />
 
         {/* Nodes */}
         {[
-          { y: 110, label: 'DATA',            n: '00' },
-          { y: 200, label: 'TOKENIZER',       n: '01' },
-          { y: 290, label: 'PRE-TRAINING',    n: '02' },
-          { y: 380, label: 'POST-TRAINING',   n: '03' },
-          { y: 470, label: 'INFERENCE',       n: '04' },
+          { y: 110, label: 'DATA' },
+          { y: 200, label: 'TOKENIZER' },
+          { y: 290, label: 'PRE-TRAINING' },
+          { y: 380, label: 'POST-TRAINING' },
+          { y: 470, label: 'INFERENCE' },
         ].map((node, i) => (
           <g key={node.label} style={{ animation: `bbFadeIn 500ms ease ${600 + i * 180}ms forwards`, opacity: 0 }}>
             {/* Left extension */}
@@ -63,8 +58,6 @@ const PipelineDiagram = () => {
             <line x1="260" y1={node.y} x2="410" y2={node.y} stroke="#b8bfd6" strokeWidth="0.8" />
             {/* Central node */}
             <circle cx="250" cy={node.y} r="6" fill="#f1f2fa" stroke="#0a1230" strokeWidth="1.4" className="bb-pulse-node" style={{ animationDelay: `${i * 400}ms` }} />
-            {/* Left mono index */}
-            <text x="60" y={node.y + 3} fontFamily="IBM Plex Mono" fontSize="9" fill="#7c86a2" textAnchor="end">{node.n}</text>
             {/* Right label */}
             <text x="290" y={node.y + 3} fontFamily="IBM Plex Mono" fontSize="10" fill="#0a1230" letterSpacing="1.5">{node.label}</text>
             {/* Tick marks */}
@@ -206,14 +199,10 @@ const VerticalTabsSection = () => {
 
       <div className="bb-container relative">
         {/* Editorial masthead */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-6 border-b border-bb-line">
-          <div>
-            <p className="bb-eyebrow mb-4">/ 05 &nbsp;·&nbsp; Capabilities</p>
-            <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
-              What we can do for you
-            </h2>
-          </div>
-          <span className="bb-caption tracking-[0.14em]">/ INDEX · 05 ENTRIES</span>
+        <div className="mb-16 pb-6 border-b border-bb-line">
+          <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
+            What we can do for you
+          </h2>
         </div>
 
         {/* Chapter entries */}
@@ -224,31 +213,8 @@ const VerticalTabsSection = () => {
               className="group relative grid grid-cols-12 items-start py-10 md:py-12 border-b border-bb-line last:border-b-0 transition-colors hover:bg-white/60"
               data-testid={`capability-entry-${i}`}
             >
-              {/* Huge outline index number */}
-              <div className="col-span-3 md:col-span-2 pr-2 md:pr-4">
-                <span
-                  aria-hidden
-                  className="block text-bb-ink transition-transform duration-500 group-hover:translate-x-1"
-                  style={{
-                    fontFamily: 'Geist, sans-serif',
-                    fontWeight: 300,
-                    fontSize: 'clamp(56px, 10vw, 144px)',
-                    letterSpacing: '-0.05em',
-                    lineHeight: 0.85,
-                    WebkitTextStroke: '1px #0a1230',
-                    color: 'transparent',
-                  }}
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-              </div>
-
-              {/* Title + technical tag */}
-              <div className="col-span-9 md:col-span-4 pr-4 flex flex-col gap-4 pt-1">
-                <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.18em] text-bb-ink-3 self-start">
-                  <span className="w-6 h-px bg-bb-line-strong" />
-                  {cap.tag}
-                </span>
+              {/* Title */}
+              <div className="col-span-12 md:col-span-5 pr-4 flex flex-col gap-4 pt-1">
                 <h3
                   className="text-bb-ink"
                   style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.6vw, 32px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}
@@ -264,10 +230,7 @@ const VerticalTabsSection = () => {
               </div>
 
               {/* Description */}
-              <div className="col-span-12 md:col-span-6 md:pl-8 mt-6 md:mt-0">
-                <p className="bb-caption mb-3" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
-                  / chapter · 0{i + 1}
-                </p>
+              <div className="col-span-12 md:col-span-7 md:pl-8 mt-6 md:mt-0">
                 <p
                   className="text-bb-ink text-[16px] md:text-[17px]"
                   style={{ fontFamily: 'Inter, sans-serif', lineHeight: 1.65 }}
@@ -275,14 +238,6 @@ const VerticalTabsSection = () => {
                   {cap.description}
                 </p>
               </div>
-
-              {/* Right-edge chapter marker */}
-              <span
-                aria-hidden
-                className="absolute right-0 top-10 md:top-12 flex items-center gap-2 font-mono text-[10px] text-bb-ink-3"
-              >
-                <span className="hidden md:inline">▸</span>
-              </span>
             </article>
           ))}
         </div>
@@ -328,17 +283,9 @@ const Home = () => {
         />
 
         <div className="bb-container relative">
-          {/* Top meta bar */}
-          <div className="flex items-center justify-between pb-10 border-b border-bb-line bb-reveal">
-            <span className="bb-eyebrow">Blubridge / Independent AI Research Lab</span>
-            <span className="bb-caption hidden sm:block">EST. 2024 · CHENNAI · PRINCETON</span>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-16 lg:pt-20 items-start">
             {/* LEFT — editorial copy (asymmetric 7 cols) */}
             <div className="lg:col-span-7 lg:pr-6">
-              <p className="bb-eyebrow mb-6 bb-reveal bb-reveal-1">/ 00 &nbsp;·&nbsp; Frontier AI</p>
-
               <h1
                 className="bb-display bb-reveal bb-reveal-2"
                 style={{ fontSize: 'clamp(48px, 8vw, 118px)', lineHeight: 0.95 }}
@@ -366,20 +313,6 @@ const Home = () => {
                   Talk to us
                 </Link>
               </div>
-
-              {/* Data strip (uses existing labels only) */}
-              <dl className="mt-16 grid grid-cols-3 border-t border-bb-line pt-6 bb-reveal bb-reveal-4">
-                {[
-                  { k: 'MODE',   v: 'Research' },
-                  { k: 'FOCUS',  v: 'Frontier AI' },
-                  { k: 'STATE',  v: 'In Progress' },
-                ].map((item) => (
-                  <div key={item.k}>
-                    <dt className="bb-caption">{item.k}</dt>
-                    <dd className="text-[15px] mt-1 text-bb-ink" style={{ fontFamily: 'Geist, sans-serif' }}>{item.v}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
 
             {/* RIGHT — bespoke pipeline diagram (5 cols) */}
@@ -397,13 +330,12 @@ const Home = () => {
         <div className="bb-container">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <p className="bb-eyebrow mb-4">/ 01 &nbsp;·&nbsp; Expertise</p>
               <h2 className="bb-h2 capitalize" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
                 Our Frontier AI Expertise
               </h2>
             </div>
             <p className="max-w-md text-bb-ink-2 text-[15px]">
-              <span className="font-mono text-bb-ink-3 text-[12px]">// STATUS </span> In Progress...
+              In Progress...
             </p>
           </div>
 
@@ -434,9 +366,6 @@ const Home = () => {
                       className="group flex items-center gap-3 p-4 bg-white border border-bb-line rounded-md hover:border-bb-line-strong hover:bg-bb-bg-subtle transition-colors"
                       data-testid={`expertise-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
-                      <span className="font-mono text-[11px] text-bb-ink-3 group-hover:text-bb-accent transition-colors">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
                       <IconComponent className="w-4 h-4 text-bb-accent" strokeWidth={1.5} />
                       <span className="text-bb-ink text-[14px]" style={{ fontFamily: 'Inter, sans-serif' }}>{service.title}</span>
                     </div>
@@ -455,7 +384,6 @@ const Home = () => {
       <section className="py-24 relative" style={{ background: '#f1f2fa' }}>
         <div className="bb-container">
           <div className="mb-16">
-            <p className="bb-eyebrow mb-4">/ 02 &nbsp;·&nbsp; Services</p>
             <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
               By Services
             </h2>
@@ -492,10 +420,7 @@ const Home = () => {
                 className="group block border-b border-bb-line py-10 lg:py-14 hover:bg-white transition-colors"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-                  <div className="lg:col-span-1">
-                    <span className="bb-caption">/ {s.num}</span>
-                  </div>
-                  <div className="lg:col-span-5">
+                  <div className="lg:col-span-6">
                     <h3
                       className="text-bb-ink"
                       style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(28px, 3.6vw, 44px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.05 }}
@@ -507,8 +432,8 @@ const Home = () => {
                     <p className="text-bb-ink-2 text-[16px] leading-[1.7]">{s.body}</p>
                   </div>
                   <div className="lg:col-span-1 flex lg:justify-end items-center">
-                    <span className="inline-flex items-center gap-2 text-bb-ink font-mono text-[12px] group-hover:text-bb-accent transition-colors">
-                      OPEN <span className="transition-transform group-hover:translate-x-1">↗</span>
+                    <span className="inline-flex items-center gap-2 text-bb-ink font-mono text-[14px] group-hover:text-bb-accent transition-colors">
+                      <span className="transition-transform group-hover:translate-x-1">↗</span>
                     </span>
                   </div>
                 </div>
@@ -531,7 +456,6 @@ const Home = () => {
       <section className="py-24 relative" style={{ background: '#eceefa' }} data-testid="infrastructure-section">
         <div className="bb-container">
           <div className="mb-14">
-            <p className="bb-eyebrow mb-4">/ 03 &nbsp;·&nbsp; Infrastructure</p>
             <h2 className="bb-h2" style={{ fontSize: 'clamp(32px, 4.2vw, 56px)' }}>
               BluBridge Infrastructure for custom AI deployment Solutions
             </h2>
@@ -551,9 +475,6 @@ const Home = () => {
                     }`}
                   >
                     <span className="flex items-center gap-4">
-                      <span className={`font-mono text-[11px] ${activeInfraTab === index ? 'text-bb-accent' : 'text-bb-ink-3'}`}>
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
                       <span
                         className={`text-[15px] ${activeInfraTab === index ? 'text-bb-ink font-medium' : 'text-bb-ink-2'}`}
                         style={{ fontFamily: 'Geist, sans-serif' }}
@@ -570,10 +491,6 @@ const Home = () => {
             {/* Right: content panel */}
             <div className="lg:col-span-8">
               <div className="bb-panel p-8 lg:p-10" data-testid="infra-content-card">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="bb-caption">/ 0{activeInfraTab + 1}</span>
-                  <div className="flex-1 h-px bg-bb-line" />
-                </div>
                 <h3
                   className="mb-4 text-bb-ink"
                   style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}
@@ -607,7 +524,6 @@ const Home = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-6 order-2 lg:order-1">
-              <p className="bb-eyebrow mb-6">/ 06 &nbsp;·&nbsp; Team</p>
               <h2 className="bb-h2 mb-8" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
                 Work with BluBridge
               </h2>
@@ -627,12 +543,6 @@ const Home = () => {
                   className="w-full h-auto object-cover block"
                   style={{ filter: 'saturate(0.95) contrast(0.98)' }}
                 />
-                {/* Editorial caption strip */}
-                <div className="absolute top-3 left-3 flex items-center gap-2 bg-white/85 backdrop-blur px-2.5 py-1 rounded font-mono text-[10px] text-bb-ink-3">
-                  <span>FIG. ii</span>
-                  <span className="opacity-40">|</span>
-                  <span>BLUBRIDGE / TEAM</span>
-                </div>
               </div>
             </div>
           </div>
@@ -646,7 +556,6 @@ const Home = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-8">
-              <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-white/50 mb-6">/ 07 · Continue</p>
               <h2
                 className="text-white"
                 style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(40px, 6vw, 88px)', letterSpacing: '-0.03em', lineHeight: 0.98, fontWeight: 500 }}

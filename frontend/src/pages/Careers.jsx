@@ -66,18 +66,15 @@ const Careers = () => {
         {/* Editorial header */}
         <div className="pb-8 border-b border-bb-line flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <p className="bb-eyebrow mb-3">/ Careers</p>
             <h1 data-testid="join-us-title" className="bb-display" style={{ fontSize: 'clamp(48px, 8vw, 128px)' }}>
               Join Us
             </h1>
           </div>
-          <p className="bb-caption max-w-md" style={{ paddingBottom: '12px' }}>Chennai · India &nbsp;/&nbsp; Princeton · USA</p>
         </div>
 
         {/* Tagline strip */}
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-8">
-            <p className="bb-eyebrow mb-4">/ 01 &nbsp;·&nbsp; Principle</p>
             <h2
               className="text-bb-ink"
               style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(28px, 4vw, 52px)', letterSpacing: '-0.02em', lineHeight: 1.1, fontWeight: 500 }}
@@ -114,8 +111,7 @@ const Careers = () => {
           <div className="border-t border-bb-line">
             {/* Column header */}
             <div className="hidden md:grid grid-cols-12 gap-4 py-3 border-b border-bb-line">
-              <span className="col-span-1 bb-caption">#</span>
-              <span className="col-span-6 bb-caption">Role</span>
+              <span className="col-span-7 bb-caption">Role</span>
               <span className="col-span-2 bb-caption">Department</span>
               <span className="col-span-2 bb-caption">Location</span>
               <span className="col-span-1 bb-caption text-right">Apply</span>
@@ -129,15 +125,14 @@ const Careers = () => {
                 className="group grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 py-5 border-b border-bb-line hover:bg-bb-bg-subtle transition-colors items-center"
                 style={{ textDecoration: 'none' }}
               >
-                <span className="md:col-span-1 font-mono text-[12px] text-bb-ink-3">{String(i + 1).padStart(2, '0')}</span>
-                <span className="md:col-span-6 text-[15px] font-medium text-bb-ink" style={{ fontFamily: 'Geist, sans-serif' }}>
+                <span className="md:col-span-7 text-[15px] font-medium text-bb-ink" style={{ fontFamily: 'Geist, sans-serif' }}>
                   {job.title}
                 </span>
                 <span className="md:col-span-2 text-[13px] text-bb-ink-2">{job.department}</span>
                 <span className="md:col-span-2 text-[13px] text-bb-ink-2">{job.location}</span>
                 <span className="md:col-span-1 md:text-right font-mono text-[12px] text-bb-ink-3 group-hover:text-bb-accent transition-colors">
                   <span className="inline-flex items-center gap-1">
-                    OPEN <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </span>
               </Link>
@@ -147,7 +142,7 @@ const Careers = () => {
 
         {/* Offices */}
         <section data-testid="office-locations-section" className="mt-20">
-          <p className="bb-eyebrow mb-6">/ 02 &nbsp;·&nbsp; Our Offices & Partner Locations</p>
+          <p className="bb-eyebrow mb-6">Our Offices &amp; Partner Locations</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {officeLocations.map((loc, i) => (
@@ -177,9 +172,6 @@ const Careers = () => {
                       <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite" />
                     </circle>
                   </svg>
-                  <div className="absolute top-3 left-3 font-mono text-[10px] tracking-[0.14em] text-bb-ink-3 bg-white/80 backdrop-blur px-2 py-0.5 rounded">
-                    {String(i + 1).padStart(2, '0')} · LOCATION
-                  </div>
                 </div>
 
                 <div className="p-5">
@@ -204,7 +196,6 @@ const Careers = () => {
         <section data-testid="contact-section" className="mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-8">
             <div className="lg:col-span-8">
-              <p className="bb-eyebrow mb-4">/ 03 &nbsp;·&nbsp; Get in Touch</p>
               <h2 className="bb-h2" style={{ fontSize: 'clamp(28px, 3.6vw, 44px)' }}>
                 Get in Touch
               </h2>

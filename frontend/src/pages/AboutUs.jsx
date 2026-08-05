@@ -141,7 +141,6 @@ const AboutUs = () => {
         <div className="bb-container relative">
           <div className="flex items-center justify-between pb-8 border-b border-bb-line bb-reveal">
             <span className="bb-eyebrow" data-testid="about-eyebrow">About Us</span>
-            <span className="bb-caption hidden sm:block">/ Page 01</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-center">
@@ -173,9 +172,6 @@ const AboutUs = () => {
               className="w-full object-cover"
               style={{ height: 'clamp(200px, 30vh, 340px)' }}
             />
-            <div className="absolute top-3 left-3 bg-white/85 backdrop-blur px-2.5 py-1 rounded font-mono text-[10px] text-bb-ink-3 tracking-[0.14em]">
-              BLUBRIDGE / FIG. i
-            </div>
           </div>
         </div>
       </section>
@@ -187,7 +183,6 @@ const AboutUs = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div className="lg:col-span-4">
-              <p className="bb-eyebrow mb-4">/ 01</p>
               <h2 data-testid="our-mission-title" className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}>
                 Our Mission
               </h2>
@@ -218,7 +213,6 @@ const AboutUs = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-end">
             <div className="lg:col-span-8">
-              <p className="bb-eyebrow mb-4">/ 02 &nbsp;·&nbsp; Method</p>
               <h2 data-testid="what-sets-us-apart-heading" className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}>
                 How We Build, Engineer and Validate
               </h2>
@@ -255,10 +249,6 @@ const AboutUs = () => {
                 key={block.num}
                 className={`p-8 lg:p-12 border-b border-bb-line ${i % 2 === 0 ? 'md:border-r border-bb-line' : ''}`}
               >
-                <div className="flex items-baseline gap-4 mb-6">
-                  <span className="font-mono text-[11px] tracking-[0.15em] text-bb-accent">/ {block.num}</span>
-                  <div className="flex-1 h-px bg-bb-line" />
-                </div>
                 <h3
                   className="mb-5 text-bb-ink"
                   style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.6vw, 34px)', fontWeight: 500, letterSpacing: '-0.02em' }}
@@ -279,7 +269,6 @@ const AboutUs = () => {
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-8">
-              <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-white/50 mb-6">/ 03 · Continue</p>
               <h2
                 className="text-white"
                 style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(40px, 6vw, 88px)', letterSpacing: '-0.03em', lineHeight: 0.98, fontWeight: 500 }}
