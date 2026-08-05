@@ -129,12 +129,14 @@ const ExpertiseSection = () => {
             className="text-bb-ink"
             style={{
               fontFamily: 'Geist, sans-serif',
-              fontSize: 'clamp(56px, 13vw, 200px)',
+              fontSize: 'clamp(40px, 7vw, 110px)',
               fontWeight: 500,
-              letterSpacing: '-0.055em',
-              lineHeight: 0.9,
+              letterSpacing: '-0.05em',
+              lineHeight: 1,
               animation: 'bbFadeIn 450ms ease forwards',
-              wordBreak: 'break-word',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'clip',
               margin: 0,
             }}
           >
@@ -149,7 +151,7 @@ const ExpertiseSection = () => {
         <div
           className="mt-10 flex flex-wrap items-baseline"
           role="tablist"
-          style={{ borderTop: '1px solid #d3d7e6', paddingTop: '18px', columnGap: '28px', rowGap: '6px' }}
+          style={{ borderTop: '1px solid #d3d7e6', paddingTop: '18px', columnGap: '22px', rowGap: '6px' }}
         >
           {industries.map((ind, i) => {
             const active = activeIndustry === i;
@@ -161,10 +163,10 @@ const ExpertiseSection = () => {
                 data-testid={`industry-item-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
                 role="tab"
                 aria-selected={active}
-                className="inline-flex items-baseline gap-2 py-2 transition-colors"
+                className="inline-flex items-baseline gap-2 py-2 transition-colors whitespace-nowrap"
                 style={{
                   fontFamily: 'Inter, sans-serif',
-                  fontSize: '16px',
+                  fontSize: '14.5px',
                   lineHeight: 1.2,
                   color: active ? '#0a1230' : '#5f6a89',
                   fontWeight: active ? 500 : 400,
