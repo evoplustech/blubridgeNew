@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-import { Database, Sparkles, Zap, Check, TrendingUp, PenTool, Users } from 'lucide-react';
+
 
 /* ------------------------------------------------------------------
    SOLUTIONS — Editorial Redesign (light theme #f0f1f9)
@@ -24,7 +24,6 @@ import { Database, Sparkles, Zap, Check, TrendingUp, PenTool, Users } from 'luci
 
 const customizationCards = [
   {
-    icon: Database,
     title: 'Custom Pre-Training',
     intro: 'We are building and validating domain oriented pre-training and continued training pipelines using customized datasets and controlled training configurations. Current capability development includes:',
     bullets: [
@@ -35,7 +34,6 @@ const customizationCards = [
     ],
   },
   {
-    icon: Sparkles,
     title: 'Specialized Model Capabilities',
     intro: 'Specialization workflows are in prototype and validation stages to adapt model behavior and task performance through structured fine-tuning and alignment methods. Current engineering directions include:',
     bullets: [
@@ -47,7 +45,6 @@ const customizationCards = [
     ],
   },
   {
-    icon: Zap,
     title: 'Inference & Deployment Optimization',
     intro: 'Inference and deployment optimization capabilities are under development to support efficient and reliable model serving. Active workstreams include:',
     bullets: [
@@ -69,9 +66,9 @@ const stackRows = [
 ];
 
 const valueCards = [
-  { icon: TrendingUp, title: 'Proof of Value',        body: 'Find pain points that can be AI adopted in your business & help you build use case exclusively based on your organization type, business goals and data.' },
-  { icon: PenTool,    title: 'Custom Training',       body: 'Build domain-customized models developed using your proprietary datasets through training workflows and structured fine-tuning aligned with defined business success metrics.' },
-  { icon: Users,      title: 'Deployment Engineering', body: 'Model deployment architectures designed and implemented across managed cloud platforms (including hyperscalers), private infrastructure, and controlled on-prem environments based on performance, security, and operational constraints.' },
+  { title: 'Proof of Value',        body: 'Find pain points that can be AI adopted in your business & help you build use case exclusively based on your organization type, business goals and data.' },
+  { title: 'Custom Training',       body: 'Build domain-customized models developed using your proprietary datasets through training workflows and structured fine-tuning aligned with defined business success metrics.' },
+  { title: 'Deployment Engineering', body: 'Model deployment architectures designed and implemented across managed cloud platforms (including hyperscalers), private infrastructure, and controlled on-prem environments based on performance, security, and operational constraints.' },
 ];
 
 const deploymentTabs = [
@@ -180,105 +177,110 @@ const SolutionsNew = () => {
       </section>
 
       {/* ============================================================
-          SECTION /01 — MODEL CUSTOMIZATION
+          SECTION 01 — MODEL CUSTOMIZATION
+          Editorial reading intro → Vertical capability blocks →
+          Open technical matrix (no table chrome)
           ============================================================ */}
-      <section id="model-customization" className="py-24" style={{ background: '#e8eaf3' }}>
+      <section id="model-customization" style={{ background: '#f5f3e9', paddingTop: '128px', paddingBottom: '112px' }}>
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
-            <div className="lg:col-span-6">
-              <p className="bb-eyebrow mb-4">Model Customization</p>
-              <h2 className="bb-h2" style={{ fontSize: 'clamp(30px, 4vw, 52px)' }}>
+
+          {/* Editorial reading — narrow heading / wide reading column */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <p className="bb-eyebrow" style={{ color: '#0a1230' }}>Model Customization</p>
+              <h2
+                className="mt-6"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(32px, 4.2vw, 60px)', lineHeight: 1.02, letterSpacing: '-0.03em', fontWeight: 500, color: '#0a1230', maxWidth: '520px' }}
+              >
                 Domain-Specialized Models, Engineered on Proprietary Data
               </h2>
             </div>
-            <div className="lg:col-span-6 lg:pl-8">
-              <p className="text-bb-ink-2 text-[16px] leading-[1.75]">
+            <div className="lg:col-span-7 lg:pt-4">
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '17px', lineHeight: 1.75, color: '#2a3352', maxWidth: '640px' }}>
                 Adapt general-purpose foundation models into domain-aligned systems through research-driven training and controlled model engineering. Model customization capabilities are under active development across training, specialization, and inference optimization workflows. This track focuses on repeatable training discipline, evaluation rigor, and system-level correctness.
               </p>
             </div>
           </div>
 
-          {/* Method columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 border-t border-bb-line-strong">
-            {customizationCards.map((card, i) => {
-              const Icon = card.icon;
-              return (
-                <article
-                  key={i}
-                  data-testid={`customization-card-${i}`}
-                  className={`py-12 lg:pr-10 ${i > 0 ? 'lg:pl-10 lg:border-l lg:border-bb-line' : ''} ${i > 0 ? 'border-t lg:border-t-0 border-bb-line' : ''}`}
-                >
-                  <div
-                    className="w-11 h-11 rounded-md flex items-center justify-center mb-6"
-                    style={{ background: '#0a1230' }}
-                  >
-                    <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
-                  </div>
+          {/* Vertical capability blocks — no cards, hairline separators, staggered typography */}
+          <div className="mt-28" style={{ borderTop: '1px solid #d8d5ca' }}>
+            {customizationCards.map((card, i) => (
+              <article
+                key={i}
+                data-testid={`customization-card-${i}`}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 py-16"
+                style={i < customizationCards.length - 1 ? { borderBottom: '1px solid #d8d5ca' } : {}}
+              >
+                <div className="lg:col-span-4">
                   <h3
-                    className="text-bb-ink mb-5"
-                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(21px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.2 }}
+                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.6vw, 34px)', lineHeight: 1.1, letterSpacing: '-0.025em', fontWeight: 500, color: '#0a1230', maxWidth: '320px' }}
                   >
                     {card.title}
                   </h3>
-                  <p className="text-bb-ink-2 text-[14.5px] leading-[1.7] mb-7" style={{ fontFamily: 'Inter, sans-serif' }}>
+                </div>
+                <div className="lg:col-span-8">
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', lineHeight: 1.75, color: '#2a3352', maxWidth: '680px' }}>
                     {card.intro}
                   </p>
-                  <ul>
+                  <ul className="mt-8 space-y-4">
                     {card.bullets.map((b, j) => (
-                      <li key={j} className="flex items-start gap-3.5 py-3 border-t border-bb-line">
-                        <span aria-hidden className="font-mono text-bb-ink-3 text-[13px] leading-[1.6]">—</span>
-                        <span className="text-bb-ink text-[14px] leading-[1.65]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                          {b}
-                        </span>
+                      <li key={j} className="flex gap-5" style={{ maxWidth: '700px' }}>
+                        <span aria-hidden style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '13px', color: '#8a8471', paddingTop: '2px', flexShrink: 0 }}>—</span>
+                        <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', lineHeight: 1.7, color: '#0a1230' }}>{b}</span>
                       </li>
                     ))}
                   </ul>
-                </article>
-              );
-            })}
+                </div>
+              </article>
+            ))}
           </div>
 
-          {/* Customization Stack table */}
-          <div className="mt-24">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10 items-end">
-              <div className="lg:col-span-6">
-                <h3 className="text-bb-ink" style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.8vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}>
+          {/* Open technical matrix — Customization Stack (no header bar, no stripes) */}
+          <div className="mt-32">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-baseline">
+              <div className="lg:col-span-5">
+                <h3 style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(26px, 2.8vw, 36px)', letterSpacing: '-0.025em', lineHeight: 1.05, fontWeight: 500, color: '#0a1230' }}>
                   Customization Stack
                 </h3>
               </div>
-              <div className="lg:col-span-6 lg:pl-8">
-                <p className="text-bb-ink-2 text-[15px] leading-[1.7]">
+              <div className="lg:col-span-7">
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', lineHeight: 1.75, color: '#2a3352', maxWidth: '600px' }}>
                   Our comprehensive customization stack gives you full control from data to deployment, with flexibility at every layer
                 </p>
               </div>
             </div>
 
-            <div className="border border-bb-line-strong rounded-sm overflow-hidden bg-white">
-              {/* Header */}
-              <div className="grid grid-cols-3" style={{ background: '#0a1230' }}>
-                {['DATA', 'PLATFORM', 'INFRASTRUCTURE & HARDWARE'].map((col, i) => (
-                  <div key={i} className="px-6 py-4 border-r border-white/10 last:border-r-0">
-                    <span className="text-white font-mono text-[11px] tracking-[0.18em]">{col}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Rows */}
-              {stackRows.map((row, r) => (
-                <div key={r} className={`grid grid-cols-3 border-t border-bb-line ${r % 2 === 1 ? 'bg-[#f7f8fc]' : 'bg-white'}`} data-testid={`stack-row-${r}`}>
-                  {row.map((cell, c) => (
-                    <div key={c} className="px-6 py-4 flex items-center gap-3 border-r border-bb-line last:border-r-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-bb-accent flex-shrink-0" />
-                      <span className="text-bb-ink text-[14px]">{cell}</span>
-                    </div>
-                  ))}
+            <div
+              className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12"
+              style={{ borderTop: '1px solid #d8d5ca', paddingTop: '32px' }}
+            >
+              {['DATA', 'PLATFORM', 'INFRASTRUCTURE & HARDWARE'].map((col, ci) => (
+                <div key={ci}>
+                  <span style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '11px', letterSpacing: '0.22em', color: '#8a8471' }}>{col}</span>
+                  <ul className="mt-6 space-y-4">
+                    {stackRows.map((row, ri) => (
+                      <li
+                        key={ri}
+                        data-testid={ci === 0 ? `stack-row-${ri}` : undefined}
+                        style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', lineHeight: 1.5, color: '#0a1230' }}
+                      >
+                        {row[ci]}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 flex justify-center">
-              <Link to="/contact" className="bb-btn-primary" data-testid="customize-model-cta">
-                Customize Your Model <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+            <div className="mt-16">
+              <Link
+                to="/contact"
+                data-testid="customize-model-cta"
+                className="inline-flex items-center gap-2.5 group"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: '15px', fontWeight: 500, color: '#0a1230', borderBottom: '1px solid #0a1230', paddingBottom: '4px' }}
+              >
+                Customize Your Model
+                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
               </Link>
             </div>
           </div>
@@ -286,128 +288,188 @@ const SolutionsNew = () => {
       </section>
 
       {/* ============================================================
-          SECTION /02 — VALUE REALIZATION
+          SECTION 02 — VALUE REALIZATION
+          Process progression — asymmetric staggered stack, no icons
           ============================================================ */}
-      <section id="value-realization" className="py-24" style={{ background: '#f0f1f9' }}>
+      <section id="value-realization" style={{ background: '#f5f3e9', paddingTop: '96px', paddingBottom: '128px' }}>
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-5">
-              <p className="bb-eyebrow mb-4">Value Realization</p>
-              <h2 className="bb-h2" style={{ fontSize: 'clamp(28px, 3.8vw, 44px)' }}>
-                We start from your current AI maturity and engineer toward deployable systems.
-              </h2>
-              <p className="text-bb-ink-2 text-[16px] leading-[1.75] mt-8">
-                From use-case discovery through model development and deployment validation, our engineering teams remain directly engaged across the full lifecycle.
-              </p>
-              <div className="mt-10">
-                <Link to="/contact" className="bb-btn-primary" data-testid="request-assessment-cta">
-                  Request Assessment <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-                </Link>
-              </div>
-            </div>
 
-            <div className="lg:col-span-7 lg:pl-10">
-              <div className="border-t border-bb-line-strong">
-                {valueCards.map((card, i) => {
-                  const Icon = card.icon;
-                  return (
-                    <div key={i} className="flex items-start gap-6 py-8 border-b border-bb-line" data-testid={`value-card-${i}`}>
-                      <div className="w-11 h-11 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: '#0a1230' }}>
-                        <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-bb-ink mb-3" style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 500, letterSpacing: '-0.015em' }}>
-                          {card.title}
-                        </h3>
-                        <p className="text-bb-ink-2 text-[14.5px] leading-[1.7] max-w-[560px]">{card.body}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          SECTION /03 — DEPLOYMENT
-          ============================================================ */}
-      <section id="deployment" className="py-24" style={{ background: '#e8eaf3' }}>
-        <div className="bb-container">
-          <div className="mb-14 max-w-4xl">
-            <p className="bb-eyebrow mb-4">Deployment</p>
-            <h2 className="bb-h2" style={{ fontSize: 'clamp(28px, 3.8vw, 48px)' }}>
-              What self-deployment capabilities are under development?
-            </h2>
-          </div>
-
-          {/* Horizontal tab bar */}
-          <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-bb-line" role="tablist">
-            {deploymentTabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveDeploymentTab(tab.id)}
-                data-testid={`deployment-tab-${tab.id.split('-')[0]}`}
-                className={`pb-3 -mb-px text-[14px] transition-colors border-b-2 ${
-                  activeDeploymentTab === tab.id
-                    ? 'border-bb-ink text-bb-ink font-medium'
-                    : 'border-transparent text-bb-ink-2 hover:text-bb-ink'
-                }`}
-                style={{ fontFamily: 'Geist, sans-serif' }}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pt-12" data-testid={`deployment-content-${activeTab.id.split('-')[0]}`}>
-            <div className="lg:col-span-4">
-              <h3
-                className="text-bb-ink"
-                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(26px, 3.2vw, 40px)', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: 1.1 }}
-              >
-                {activeTab.heading}
-              </h3>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
             <div className="lg:col-span-8">
-              <p className="text-bb-ink text-[16px] leading-[1.8]" style={{ fontFamily: 'Inter, sans-serif' }}>{activeTab.body}</p>
-            </div>
-          </div>
-
-          <div className="mt-16 flex justify-end">
-            <Link to="/contact" className="bb-btn-primary" data-testid="deployment-talk-cta">
-              Talk to Us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          FINAL CTA — Research & Publications
-          ============================================================ */}
-      <section className="py-24" style={{ background: '#0a1230' }}>
-        <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-            <div className="lg:col-span-8">
+              <p className="bb-eyebrow" style={{ color: '#0a1230' }}>Value Realization</p>
               <h2
-                className="text-white"
-                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(36px, 5.5vw, 84px)', letterSpacing: '-0.03em', lineHeight: 0.98, fontWeight: 500 }}
+                className="mt-6"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(32px, 4.6vw, 64px)', lineHeight: 1.02, letterSpacing: '-0.03em', fontWeight: 500, color: '#0a1230', maxWidth: '820px' }}
               >
-                Research &amp; Publications
+                We start from your current AI maturity and engineer toward deployable systems.
               </h2>
             </div>
             <div className="lg:col-span-4 flex lg:justify-end">
               <Link
-                to="/research"
-                data-testid="research-explore-cta"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bb-ink rounded-md text-[14px] font-medium hover:bg-bb-bg-subtle transition-colors"
+                to="/contact"
+                data-testid="request-assessment-cta"
+                className="inline-flex items-center gap-2.5 group"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: '15px', fontWeight: 500, color: '#0a1230', borderBottom: '1px solid #0a1230', paddingBottom: '4px' }}
               >
-                Explore
-                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+                Request Assessment
+                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
               </Link>
             </div>
+          </div>
+
+          <p
+            className="mt-10"
+            style={{ fontFamily: 'Inter, sans-serif', fontSize: '17px', lineHeight: 1.7, color: '#2a3352', maxWidth: '640px' }}
+          >
+            From use-case discovery through model development and deployment validation, our engineering teams remain directly engaged across the full lifecycle.
+          </p>
+
+          {/* Staggered progression — each block indented deeper than the last */}
+          <div className="mt-24" style={{ borderTop: '1px solid #d8d5ca', paddingTop: '56px' }}>
+            <div className="space-y-20">
+              {valueCards.map((card, i) => {
+                const stagger = i === 0 ? '' : i === 1 ? 'lg:ml-[16%]' : 'lg:ml-[32%]';
+                return (
+                  <div
+                    key={i}
+                    data-testid={`value-card-${i}`}
+                    className={stagger}
+                    style={{ maxWidth: '640px' }}
+                  >
+                    <h3
+                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.8vw, 34px)', lineHeight: 1.1, letterSpacing: '-0.025em', fontWeight: 500, color: '#0a1230' }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p
+                      className="mt-5"
+                      style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', lineHeight: 1.75, color: '#2a3352' }}
+                    >
+                      {card.body}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          SECTION 03 — DEPLOYMENT
+          Vertical left-nav tabs + reading pane (preserves tab interaction)
+          ============================================================ */}
+      <section id="deployment" style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }}>
+        <div className="bb-container">
+          <div className="max-w-4xl">
+            <p className="bb-eyebrow" style={{ color: '#0a1230' }}>Deployment</p>
+            <h2
+              className="mt-6"
+              style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(32px, 4vw, 56px)', lineHeight: 1.05, letterSpacing: '-0.03em', fontWeight: 500, color: '#0a1230' }}
+            >
+              What self-deployment capabilities are under development?
+            </h2>
+          </div>
+
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            {/* Vertical tab list */}
+            <div className="lg:col-span-4" role="tablist">
+              <div style={{ borderTop: '1px solid #d8d5ca' }}>
+                {deploymentTabs.map((tab) => {
+                  const active = activeDeploymentTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveDeploymentTab(tab.id)}
+                      data-testid={`deployment-tab-${tab.id.split('-')[0]}`}
+                      role="tab"
+                      aria-selected={active}
+                      className="w-full text-left flex items-center gap-4 transition-colors"
+                      style={{
+                        borderBottom: '1px solid #d8d5ca',
+                        paddingTop: '20px',
+                        paddingBottom: '20px',
+                        fontFamily: 'Geist, sans-serif',
+                        fontSize: '17px',
+                        letterSpacing: '-0.01em',
+                        color: active ? '#0a1230' : '#6b6a5c',
+                        fontWeight: active ? 500 : 400,
+                      }}
+                    >
+                      <span
+                        aria-hidden
+                        style={{
+                          width: '9px',
+                          height: '9px',
+                          borderRadius: '999px',
+                          background: active ? '#0a1230' : 'transparent',
+                          border: active ? 'none' : '1px solid #b8b3a3',
+                          display: 'inline-block',
+                          flexShrink: 0,
+                        }}
+                      />
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Reading pane */}
+            <div
+              className="lg:col-span-8"
+              data-testid={`deployment-content-${activeTab.id.split('-')[0]}`}
+              role="tabpanel"
+            >
+              <h3
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(26px, 3.2vw, 40px)', lineHeight: 1.1, letterSpacing: '-0.025em', fontWeight: 500, color: '#0a1230' }}
+              >
+                {activeTab.heading}
+              </h3>
+              <p
+                className="mt-6"
+                style={{ fontFamily: 'Inter, sans-serif', fontSize: '17px', lineHeight: 1.8, color: '#2a3352', maxWidth: '680px' }}
+              >
+                {activeTab.body}
+              </p>
+              <div className="mt-12">
+                <Link
+                  to="/contact"
+                  data-testid="deployment-talk-cta"
+                  className="inline-flex items-center gap-2.5 group"
+                  style={{ fontFamily: 'Geist, sans-serif', fontSize: '15px', fontWeight: 500, color: '#0a1230', borderBottom: '1px solid #0a1230', paddingBottom: '4px' }}
+                >
+                  Talk to Us
+                  <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          SECTION 04 — CLOSING TRANSITION
+          Oversized restrained typography, no dark block, no decorative art
+          ============================================================ */}
+      <section style={{ background: '#f5f3e9', paddingTop: '96px', paddingBottom: '160px', borderTop: '1px solid #d8d5ca' }}>
+        <div className="bb-container">
+          <h2
+            style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(46px, 9vw, 148px)', lineHeight: 0.94, letterSpacing: '-0.045em', fontWeight: 500, color: '#0a1230' }}
+          >
+            Research &amp; Publications
+          </h2>
+          <div className="mt-12">
+            <Link
+              to="/research"
+              data-testid="research-explore-cta"
+              className="inline-flex items-center gap-3 group"
+              style={{ fontFamily: 'Geist, sans-serif', fontSize: '18px', fontWeight: 500, color: '#0a1230', borderBottom: '1px solid #0a1230', paddingBottom: '6px' }}
+            >
+              Explore
+              <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+            </Link>
           </div>
         </div>
       </section>
