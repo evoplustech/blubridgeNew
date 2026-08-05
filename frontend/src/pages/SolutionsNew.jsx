@@ -198,86 +198,62 @@ const SolutionsNew = () => {
             </div>
           </div>
 
-          {/* Method chapters — full-width editorial spread, no cards */}
-          <div className="border-t border-bb-line">
+          {/* Method columns */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 border-t border-bb-line-strong">
             {customizationCards.map((card, i) => {
               const Icon = card.icon;
               return (
                 <article
                   key={i}
                   data-testid={`customization-card-${i}`}
-                  className="group relative py-14 lg:py-16 border-b border-bb-line last:border-b-0 transition-colors hover:bg-white/40"
-                  style={{ background: i % 2 === 1 ? 'rgba(255,255,255,0.35)' : 'transparent' }}
+                  className={`py-12 lg:pr-10 ${i > 0 ? 'lg:pl-10 lg:border-l lg:border-bb-line' : ''} ${i > 0 ? 'border-t lg:border-t-0 border-bb-line' : ''}`}
                 >
-                  <div className="grid grid-cols-12 gap-6 lg:gap-10">
-                    {/* LEFT — Icon + Title */}
-                    <div className="col-span-12 lg:col-span-5 lg:pr-6 lg:border-r lg:border-bb-line">
-                      <div className="flex items-start gap-5">
-                        <div className="pt-2">
-                          <div
-                            className="w-11 h-11 rounded-md flex items-center justify-center mb-5"
-                            style={{ background: '#0a1230' }}
-                          >
-                            <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
-                          </div>
-                          <h3
-                            className="text-bb-ink"
-                            style={{
-                              fontFamily: 'Geist, sans-serif',
-                              fontSize: 'clamp(22px, 2.6vw, 30px)',
-                              fontWeight: 500,
-                              letterSpacing: '-0.02em',
-                              lineHeight: 1.15,
-                            }}
-                          >
-                            {card.title}
-                          </h3>
-                          <span
-                            aria-hidden
-                            className="block mt-4 h-px bg-bb-ink transition-all duration-500 group-hover:w-16"
-                            style={{ width: 28 }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* RIGHT — Intro + method list */}
-                    <div className="col-span-12 lg:col-span-7">
-                      <p className="text-bb-ink text-[16px] lg:text-[17px] leading-[1.75] mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
-                        {card.intro}
-                      </p>
-
-                      <ul className="divide-y divide-bb-line border-t border-bb-line">
-                        {card.bullets.map((b, j) => (
-                          <li key={j} className="flex items-start gap-4 py-3 group/item hover:pl-1 transition-all">
-                            <span
-                              className="block w-2 h-2 mt-[10px] flex-shrink-0 rounded-none rotate-45 border border-bb-ink group-hover/item:bg-bb-ink transition-colors"
-                            />
-                            <span className="text-bb-ink text-[14.5px] leading-[1.65] pt-[2px]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                              {b}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div
+                    className="w-11 h-11 rounded-md flex items-center justify-center mb-6"
+                    style={{ background: '#0a1230' }}
+                  >
+                    <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
                   </div>
+                  <h3
+                    className="text-bb-ink mb-5"
+                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(21px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.2 }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p className="text-bb-ink-2 text-[14.5px] leading-[1.7] mb-7" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    {card.intro}
+                  </p>
+                  <ul>
+                    {card.bullets.map((b, j) => (
+                      <li key={j} className="flex items-start gap-3.5 py-3 border-t border-bb-line">
+                        <span aria-hidden className="font-mono text-bb-ink-3 text-[13px] leading-[1.6]">—</span>
+                        <span className="text-bb-ink text-[14px] leading-[1.65]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                          {b}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               );
             })}
           </div>
 
           {/* Customization Stack table */}
-          <div className="mt-20">
-            <div className="mb-8 max-w-3xl">
-              <h3 className="text-bb-ink mb-3" style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.8vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}>
-                Customization Stack
-              </h3>
-              <p className="text-bb-ink-2 text-[15px] leading-[1.7]">
-                Our comprehensive customization stack gives you full control from data to deployment, with flexibility at every layer
-              </p>
+          <div className="mt-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10 items-end">
+              <div className="lg:col-span-6">
+                <h3 className="text-bb-ink" style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.8vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}>
+                  Customization Stack
+                </h3>
+              </div>
+              <div className="lg:col-span-6 lg:pl-8">
+                <p className="text-bb-ink-2 text-[15px] leading-[1.7]">
+                  Our comprehensive customization stack gives you full control from data to deployment, with flexibility at every layer
+                </p>
+              </div>
             </div>
 
-            <div className="border border-bb-line rounded-md overflow-hidden bg-white">
+            <div className="border border-bb-line-strong rounded-sm overflow-hidden bg-white">
               {/* Header */}
               <div className="grid grid-cols-3" style={{ background: '#0a1230' }}>
                 {['DATA', 'PLATFORM', 'INFRASTRUCTURE & HARDWARE'].map((col, i) => (
@@ -289,7 +265,7 @@ const SolutionsNew = () => {
 
               {/* Rows */}
               {stackRows.map((row, r) => (
-                <div key={r} className="grid grid-cols-3 border-t border-bb-line" data-testid={`stack-row-${r}`}>
+                <div key={r} className={`grid grid-cols-3 border-t border-bb-line ${r % 2 === 1 ? 'bg-[#f7f8fc]' : 'bg-white'}`} data-testid={`stack-row-${r}`}>
                   {row.map((cell, c) => (
                     <div key={c} className="px-6 py-4 flex items-center gap-3 border-r border-bb-line last:border-r-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-bb-accent flex-shrink-0" />
@@ -300,7 +276,7 @@ const SolutionsNew = () => {
               ))}
             </div>
 
-            <div className="mt-10 flex justify-center">
+            <div className="mt-12 flex justify-center">
               <Link to="/contact" className="bb-btn-primary" data-testid="customize-model-cta">
                 Customize Your Model <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
               </Link>
@@ -330,25 +306,25 @@ const SolutionsNew = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-3">
-              {valueCards.map((card, i) => {
-                const Icon = card.icon;
-                return (
-                  <div key={i} className="bb-panel p-6 flex items-start gap-5" data-testid={`value-card-${i}`}>
-                    <div className="w-12 h-12 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: '#0a1230' }}>
-                      <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-baseline gap-3 mb-2">
-                        <h3 className="text-bb-ink" style={{ fontFamily: 'Geist, sans-serif', fontSize: '18px', fontWeight: 500 }}>
+            <div className="lg:col-span-7 lg:pl-10">
+              <div className="border-t border-bb-line-strong">
+                {valueCards.map((card, i) => {
+                  const Icon = card.icon;
+                  return (
+                    <div key={i} className="flex items-start gap-6 py-8 border-b border-bb-line" data-testid={`value-card-${i}`}>
+                      <div className="w-11 h-11 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: '#0a1230' }}>
+                        <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-bb-ink mb-3" style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 500, letterSpacing: '-0.015em' }}>
                           {card.title}
                         </h3>
+                        <p className="text-bb-ink-2 text-[14.5px] leading-[1.7] max-w-[560px]">{card.body}</p>
                       </div>
-                      <p className="text-bb-ink-2 text-[14px] leading-[1.7]">{card.body}</p>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -366,48 +342,41 @@ const SolutionsNew = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Tab list */}
-            <div className="lg:col-span-4">
-              <div className="border-t border-bb-line">
-                {deploymentTabs.map((tab, i) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveDeploymentTab(tab.id)}
-                    data-testid={`deployment-tab-${tab.id.split('-')[0]}`}
-                    className={`w-full text-left flex items-center justify-between gap-4 py-4 px-2 border-b border-bb-line transition-colors ${
-                      activeDeploymentTab === tab.id ? 'bg-white' : 'hover:bg-white/60'
-                    }`}
-                  >
-                    <span className="flex items-center gap-4">
-                      <span
-                        className={`text-[15px] ${activeDeploymentTab === tab.id ? 'text-bb-ink font-medium' : 'text-bb-ink-2'}`}
-                        style={{ fontFamily: 'Geist, sans-serif' }}
-                      >
-                        {tab.label}
-                      </span>
-                    </span>
-                    {activeDeploymentTab === tab.id && <span className="font-mono text-[11px] text-bb-accent">●</span>}
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Horizontal tab bar */}
+          <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-bb-line" role="tablist">
+            {deploymentTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveDeploymentTab(tab.id)}
+                data-testid={`deployment-tab-${tab.id.split('-')[0]}`}
+                className={`pb-3 -mb-px text-[14px] transition-colors border-b-2 ${
+                  activeDeploymentTab === tab.id
+                    ? 'border-bb-ink text-bb-ink font-medium'
+                    : 'border-transparent text-bb-ink-2 hover:text-bb-ink'
+                }`}
+                style={{ fontFamily: 'Geist, sans-serif' }}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-            {/* Content */}
+          {/* Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pt-12" data-testid={`deployment-content-${activeTab.id.split('-')[0]}`}>
+            <div className="lg:col-span-4">
+              <h3
+                className="text-bb-ink"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(26px, 3.2vw, 40px)', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: 1.1 }}
+              >
+                {activeTab.heading}
+              </h3>
+            </div>
             <div className="lg:col-span-8">
-              <div className="bb-panel p-8 lg:p-10 min-h-[320px]" data-testid={`deployment-content-${activeTab.id.split('-')[0]}`}>
-                <h3
-                  className="mb-6 text-bb-ink"
-                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 500, letterSpacing: '-0.02em' }}
-                >
-                  {activeTab.heading}
-                </h3>
-                <p className="text-bb-ink-2 text-[16px] leading-[1.75]">{activeTab.body}</p>
-              </div>
+              <p className="text-bb-ink text-[16px] leading-[1.8]" style={{ fontFamily: 'Inter, sans-serif' }}>{activeTab.body}</p>
             </div>
           </div>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-16 flex justify-end">
             <Link to="/contact" className="bb-btn-primary" data-testid="deployment-talk-cta">
               Talk to Us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
             </Link>

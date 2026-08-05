@@ -80,7 +80,7 @@ const PassionTypingText = () => {
         data-testid="passion-heading"
         style={{
           fontFamily: 'Geist, Inter, sans-serif',
-          fontSize: 'clamp(24px, 3vw, 44px)',
+          fontSize: 'clamp(17px, 1.6vw, 21px)',
           fontWeight: 500,
           letterSpacing: '-0.025em',
           lineHeight: 1.05,
@@ -143,35 +143,41 @@ const AboutUs = () => {
             <span className="bb-eyebrow" data-testid="about-eyebrow">About Us</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16 items-center">
-            <div className="lg:col-span-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16">
+            <div className="lg:col-span-7">
               <h1
                 data-testid="hero-heading"
                 className="bb-display bb-reveal bb-reveal-1"
-                style={{ fontSize: 'clamp(44px, 7vw, 112px)' }}
+                style={{ fontSize: 'clamp(38px, 6vw, 80px)' }}
               >
                 Building the Next Frontier of AI
               </h1>
+
+              <div className="mt-12 max-w-[620px] bb-reveal bb-reveal-3">
+                <div className="border border-bb-line rounded-sm overflow-hidden bg-white p-2">
+                  <img
+                    src="/images/bluBridge-team.png"
+                    alt="Building the Next Frontier of AI"
+                    className="w-full h-auto object-cover block"
+                    style={{ filter: 'saturate(0.95) contrast(0.98)' }}
+                  />
+                </div>
+              </div>
             </div>
 
-            <div className="lg:col-span-4 space-y-6 bb-reveal bb-reveal-2">
-              <p className="text-bb-ink text-[16px] leading-[1.75]" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <div className="lg:col-span-5 lg:pl-10 flex flex-col justify-center bb-reveal bb-reveal-2">
+              <p className="text-bb-ink text-[16px] leading-[1.8]" style={{ fontFamily: 'Inter, sans-serif' }}>
                 We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.
               </p>
-              <Link to="/contact" className="bb-btn-primary" data-testid="hero-cta-btn">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 mt-8 pb-2 border-b border-bb-ink text-bb-ink text-[15px] font-medium hover:text-bb-accent hover:border-bb-accent transition-colors self-start"
+                style={{ fontFamily: 'Geist, sans-serif' }}
+                data-testid="hero-cta-btn"
+              >
                 Get in touch <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
               </Link>
             </div>
-          </div>
-
-          {/* Full-bleed editorial image strip (existing hero asset, reframed) */}
-          <div className="mt-16 border border-bb-line rounded-md overflow-hidden relative bb-reveal bb-reveal-3">
-            <img
-              src="https://customer-assets.emergentagent.com/job_ui-interactive-nav/artifacts/3g9ggy4y_SA7.jpg"
-              alt="Building the Next Frontier of AI"
-              className="w-full object-cover"
-              style={{ height: 'clamp(200px, 30vh, 340px)' }}
-            />
           </div>
         </div>
       </section>
@@ -181,27 +187,22 @@ const AboutUs = () => {
           ============================================================ */}
       <section className="py-24" style={{ background: '#e8eaf3' }}>
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-4">
-              <h2 data-testid="our-mission-title" className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}>
-                Our Mission
-              </h2>
-            </div>
-
-            <div className="lg:col-span-8">
-              <p
-                data-testid="our-mission-description"
-                className="text-bb-ink text-[19px] leading-[1.75] max-w-[720px]"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.
-              </p>
-              <div className="mt-10">
-                <Link to="/careers" className="bb-btn-primary">
-                  Join us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-                </Link>
-              </div>
-            </div>
+          <p data-testid="our-mission-title" className="bb-eyebrow mb-10">Our Mission</p>
+          <p
+            data-testid="our-mission-description"
+            className="text-bb-ink max-w-[1080px]"
+            style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.6vw, 34px)', fontWeight: 400, letterSpacing: '-0.015em', lineHeight: 1.45 }}
+          >
+            We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.
+          </p>
+          <div className="mt-12">
+            <Link
+              to="/careers"
+              className="inline-flex items-center gap-2 pb-2 border-b border-bb-ink text-bb-ink text-[15px] font-medium hover:text-bb-accent hover:border-bb-accent transition-colors"
+              style={{ fontFamily: 'Geist, sans-serif' }}
+            >
+              Join us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -211,51 +212,49 @@ const AboutUs = () => {
           ============================================================ */}
       <section className="py-24" style={{ background: '#f0f1f9' }} data-testid="what-sets-us-apart-section">
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-end">
-            <div className="lg:col-span-8">
-              <h2 data-testid="what-sets-us-apart-heading" className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}>
-                How We Build, Engineer and Validate
-              </h2>
-            </div>
-            <div className="lg:col-span-4">
+          <div className="mb-16">
+            <h2 data-testid="what-sets-us-apart-heading" className="bb-h2 max-w-3xl" style={{ fontSize: 'clamp(36px, 4.5vw, 64px)' }}>
+              How We Build, Engineer and Validate
+            </h2>
+            <div className="mt-8">
               <PassionTypingText />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-bb-line">
+          <div className="border-t border-bb-line">
             {[
               {
-                num: '01',
                 title: 'Our Purpose',
                 body: 'BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.'
               },
               {
-                num: '02',
                 title: 'How we Build',
                 body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.'
               },
               {
-                num: '03',
                 title: 'Innovation Through Rigor',
                 body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.'
               },
               {
-                num: '04',
                 title: 'Our People',
                 body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.'
               }
-            ].map((block, i) => (
+            ].map((block) => (
               <article
-                key={block.num}
-                className={`p-8 lg:p-12 border-b border-bb-line ${i % 2 === 0 ? 'md:border-r border-bb-line' : ''}`}
+                key={block.title}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 py-10 border-b border-bb-line"
               >
-                <h3
-                  className="mb-5 text-bb-ink"
-                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.6vw, 34px)', fontWeight: 500, letterSpacing: '-0.02em' }}
-                >
-                  {block.title}
-                </h3>
-                <p className="text-bb-ink-2 text-[16px] leading-[1.75]">{block.body}</p>
+                <div className="lg:col-span-4">
+                  <h3
+                    className="text-bb-ink"
+                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em' }}
+                  >
+                    {block.title}
+                  </h3>
+                </div>
+                <div className="lg:col-span-8">
+                  <p className="text-bb-ink-2 text-[15px] leading-[1.8] max-w-[680px]" style={{ fontFamily: 'Inter, sans-serif' }}>{block.body}</p>
+                </div>
               </article>
             ))}
           </div>
