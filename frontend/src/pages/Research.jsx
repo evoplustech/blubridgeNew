@@ -16,10 +16,24 @@ const BLUTRAIN_AUTHORS = [
   'Kathirvel S', 'Killi Uma Maheswara Rao', 'Kiruthik Kanna M', 'Kurra Vishnu Sai', 'Madhumithaa G K',
   'Navin Kumar V', 'Ram Charan Golla', 'Revathi T', 'Rishikkanth R', 'Sanjay Krishna MV', 'Surendra Vendra'
 ];
+const NOVA_AUTHORS = ['Adwaid Suresh', 'Aparna A', 'Harshini V M', 'Jona Delcy C A', 'Killi Uma Maheswara Rao', 'Ram Charan Golla', 'Surendra Vendra'];
 const FLUX_AUTHORS    = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
 const BLUWERP_AUTHORS = ['Gowtham', 'Sai Rupesh', 'Sanjay Kumar', 'Saravanan', 'Venkata Chaithanya'];
 
 const papers = [
+  {
+    id: 'nova',
+    date: 'July 2026',
+    title: 'Nova: An End-to-End MLIR Compiler for Deep Learning',
+    authors: NOVA_AUTHORS,
+    abstract: (
+      <>
+        The performance of deep learning models at scale relies heavily on how effectively high-level mathematical operations are mapped to underlying physical hardware. While high-level tensor frameworks provide flexible abstractions for model design, their eager execution models inherently lack the whole-graph visibility and granular control over hardware and memory required to maximize physical hardware utilization natively. To bridge this gap, we designed Nova, an automated end-to-end JIT compiler whose defining purpose is to achieve absolute control over this hardware mapping: fusing operations across operation boundaries, optimizing complex memory hierarchies, and tuning execution down to the register level
+        <a href="https://arxiv.org/abs/2608.00029" target="_blank" rel="noopener noreferrer" style={{ color: '#0a1230', marginLeft: '4px', borderBottom: '1px solid #0a1230' }}>More »</a>
+      </>
+    ),
+    arxiv: 'https://arxiv.org/abs/2608.00029',
+  },
   {
     id: 'blutrain',
     date: 'June 2026',

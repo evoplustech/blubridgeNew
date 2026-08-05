@@ -121,3 +121,6 @@ Apply full editorial redesign to:
 - **Custom moving cursor** (ref: premium-ui-build-6 site): New `components/CustomCursor.jsx` mounted in App.js — instant 6px dot + 34px trailing ring (lerp 0.18, rAF), mix-blend-mode: difference, hover grow to 46px on interactive elements, pressed shrink, hidden on touch/coarse pointers. Replaced old static SVG data-URL cursor CSS in index.css with .mscur-* rules + `html.mscur-active { cursor: none }`.
 - NOTE: frontend-watcher inotify sometimes misses changes — run `yarn build` manually + `sudo supervisorctl restart frontend` if build stale.
 - Verified via screenshots: 4 job rows, new job detail page renders, cursor dot+ring trailing and hover states working.
+
+## 2026-06 (fork 3, cont.) — Latest research paper
+- Added "Nova: An End-to-End MLIR Compiler for Deep Learning" (July 2026, arXiv 2608.00029, 7 authors) as the newest entry at the top of Research.jsx papers list, content copied verbatim from reference site (dev-workflow-preview /research). Page now lists 4 papers. Verified via screenshot.
