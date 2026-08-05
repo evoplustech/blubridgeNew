@@ -181,7 +181,7 @@ const SolutionsNew = () => {
           Editorial reading intro → Vertical capability blocks →
           Open technical matrix (no table chrome)
           ============================================================ */}
-      <section id="model-customization" style={{ background: '#f5f3e9', paddingTop: '128px', paddingBottom: '112px' }}>
+      <section id="model-customization" style={{ background: '#e8eaf3', paddingTop: '128px', paddingBottom: '112px' }}>
         <div className="bb-container">
 
           {/* Editorial reading — narrow heading / wide reading column */}
@@ -291,7 +291,7 @@ const SolutionsNew = () => {
           SECTION 02 — VALUE REALIZATION
           Process progression — asymmetric staggered stack, no icons
           ============================================================ */}
-      <section id="value-realization" style={{ background: '#f5f3e9', paddingTop: '96px', paddingBottom: '128px' }}>
+      <section id="value-realization" style={{ background: '#f0f1f9', paddingTop: '96px', paddingBottom: '128px' }}>
         <div className="bb-container">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
@@ -359,7 +359,7 @@ const SolutionsNew = () => {
           SECTION 03 — DEPLOYMENT
           Vertical left-nav tabs + reading pane (preserves tab interaction)
           ============================================================ */}
-      <section id="deployment" style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }}>
+      <section id="deployment" style={{ background: '#e8eaf3', paddingTop: '112px', paddingBottom: '128px' }}>
         <div className="bb-container">
           <div className="max-w-4xl">
             <p className="bb-eyebrow" style={{ color: '#0a1230' }}>Deployment</p>
@@ -450,26 +450,29 @@ const SolutionsNew = () => {
       </section>
 
       {/* ============================================================
-          SECTION 04 — CLOSING TRANSITION
-          Oversized restrained typography, no dark block, no decorative art
+          FINAL CTA — Know more about our Research (dark navy)
           ============================================================ */}
-      <section style={{ background: '#f5f3e9', paddingTop: '96px', paddingBottom: '160px', borderTop: '1px solid #d8d5ca' }}>
+      <section className="py-24" style={{ background: '#0a1230' }} data-testid="final-cta">
         <div className="bb-container">
-          <h2
-            style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(46px, 9vw, 148px)', lineHeight: 0.94, letterSpacing: '-0.045em', fontWeight: 500, color: '#0a1230' }}
-          >
-            Research &amp; Publications
-          </h2>
-          <div className="mt-12">
-            <Link
-              to="/research"
-              data-testid="research-explore-cta"
-              className="inline-flex items-center gap-3 group"
-              style={{ fontFamily: 'Geist, sans-serif', fontSize: '18px', fontWeight: 500, color: '#0a1230', borderBottom: '1px solid #0a1230', paddingBottom: '6px' }}
-            >
-              Explore
-              <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-            </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8">
+              <h2
+                className="text-white"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(40px, 6vw, 88px)', letterSpacing: '-0.03em', lineHeight: 0.98, fontWeight: 500 }}
+              >
+                Know more about our Research
+              </h2>
+            </div>
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <Link
+                to="/research"
+                data-testid="research-explore-cta"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-bb-ink rounded-md text-[14px] font-medium hover:bg-bb-bg-subtle transition-colors"
+              >
+                Explore
+                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

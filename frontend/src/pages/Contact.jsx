@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
@@ -221,267 +220,318 @@ const Contact = () => {
     }
   };
 
-  const inputBase = {
-    width: '100%',
-    padding: '12px 14px',
-    border: '1px solid #d4d8e8',
-    borderRadius: '6px',
-    backgroundColor: '#ffffff',
-    fontSize: '14px',
-    fontFamily: 'Inter, sans-serif',
-    color: '#0a1230',
-    outline: 'none',
-    boxSizing: 'border-box',
-  };
-  const errBorder = { border: '1px solid #dc2626' };
-  const labelStyle = {
-    display: 'block',
-    fontFamily: 'IBM Plex Mono, monospace',
-    fontSize: '11px',
-    fontWeight: 500,
-    letterSpacing: '0.12em',
-    textTransform: 'uppercase',
-    color: '#3f4966',
-    marginBottom: '8px',
-  };
-
   const offices = [
     { region: 'India', address: 'Plot #E160 Tiger Varadhachari Road,', line2: 'Kalakshetra Colony, Besant Nagar,', line3: 'Chennai – 600090', map: 'https://maps.google.com/?q=Plot+E160+Tiger+Varadhachari+Road+Kalakshetra+Colony+Besant+Nagar+Chennai+600090' },
     { region: 'India', address: '30, Norton Rd, Mandavelipakkam,', line2: 'Raja Annamalai Puram,', line3: 'Chennai, Tamil Nadu 600028', map: 'https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028' },
     { region: 'USA', address: 'Zeal Solutions Inc', line2: '5 Independence Way, Suite 300,', line3: 'Princeton, New Jersey - 08540', map: 'https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z' },
   ];
 
-  return (
-    <div style={{ background: '#f0f1f9', paddingTop: '48px', paddingBottom: '96px' }} data-testid="contact-page">
-      <div className="bb-container">
-        {/* Editorial header row */}
-        <div className="pb-8 border-b border-bb-line flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <h1 className="bb-display" style={{ fontSize: 'clamp(44px, 6.5vw, 96px)' }}>
-              Contact Us
-            </h1>
-          </div>
-        </div>
+  /* --- Editorial ledger form styles (no card, underline inputs) --- */
+  const labelStyle = {
+    display: 'block',
+    fontFamily: 'IBM Plex Mono, monospace',
+    fontSize: '10.5px',
+    fontWeight: 500,
+    letterSpacing: '0.18em',
+    textTransform: 'uppercase',
+    color: '#0a1230',
+    marginBottom: '10px',
+  };
+  const inputBase = {
+    width: '100%',
+    padding: '10px 0',
+    border: 'none',
+    borderBottom: '1px solid #d8d5ca',
+    background: 'transparent',
+    fontSize: '16px',
+    fontFamily: 'Inter, sans-serif',
+    color: '#0a1230',
+    outline: 'none',
+    boxSizing: 'border-box',
+    borderRadius: 0,
+    transition: 'border-color 200ms ease',
+  };
+  const errBorder = { borderBottom: '1px solid #dc2626' };
+  const errText = { color: '#dc2626', fontSize: '12px', marginTop: '6px', margin: '6px 0 0', fontFamily: 'Inter, sans-serif' };
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mt-14">
-          {/* LEFT — Offices + contact info */}
-          <div className="lg:col-span-5" data-testid="offices-card">
-            <div className="space-y-4 mb-10">
-              {offices.map((o, i) => (
-                <div
-                  key={i}
-                  className="bb-panel"
-                  data-testid={`office-card-${i}`}
-                  style={{ padding: '20px 24px' }}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-baseline gap-3 mb-3">
-                        <h3 style={{ fontFamily: 'Geist, sans-serif', fontSize: '17px', fontWeight: 500, letterSpacing: '-0.01em', color: '#0a1230' }}>
-                          {o.region}
-                        </h3>
-                      </div>
-                      <p style={{ color: '#3f4966', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
-                        {o.address}<br />{o.line2}<br />{o.line3}
-                      </p>
-                    </div>
-                    <div className="flex flex-col items-center gap-2 pl-4 border-l border-bb-line">
-                      <MapPin size={18} color="#0a1230" />
-                      <a href={o.map} target="_blank" rel="noopener noreferrer" className="font-mono text-[11px] text-bb-accent hover:text-bb-ink whitespace-nowrap">
-                        Map ↗
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
+  return (
+    <div style={{ background: '#f5f3e9' }} data-testid="contact-page">
+
+      {/* ============================================================
+          OPENING — Contact Us title + 2×2 contact directory
+          ============================================================ */}
+      <section style={{ paddingTop: '80px', paddingBottom: '96px' }}>
+        <div className="bb-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-5">
+              <h1
+                data-testid="contact-heading"
+                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(52px, 8vw, 128px)', lineHeight: 0.94, letterSpacing: '-0.045em', fontWeight: 500, color: '#0a1230' }}
+              >
+                Contact Us
+              </h1>
             </div>
 
-            <div className="space-y-3">
-              {[
-                { icon: Phone,    label: 'Contact Number', value: '+91 8925987250',           href: 'tel:+91 8925987250' },
-                { icon: Mail,     label: 'Email',          value: 'info@blubridge.com',        href: 'mailto:info@blubridge.com' },
-                { icon: Linkedin, label: 'LinkedIn',       value: 'linkedin.com/company/blubridge', href: 'https://www.linkedin.com/company/blubridge/' },
-              ].map((c, i) => {
-                const Icon = c.icon;
-                return (
+            <div className="lg:col-span-7 lg:pl-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8" data-testid="contact-directory">
+                {[
+                  { label: 'Contact Number', value: '+91 8925987250',                    href: 'tel:+91 8925987250',                                testId: 'channel-contact-number' },
+                  { label: 'Email',          value: 'info@blubridge.com',                href: 'mailto:info@blubridge.com',                          testId: 'channel-email' },
+                  { label: 'LinkedIn',       value: 'linkedin.com/company/blubridge',    href: 'https://www.linkedin.com/company/blubridge/',       testId: 'channel-linkedin' },
+                ].map((c, i) => (
                   <a
                     key={i}
                     href={c.href}
                     target={c.href.startsWith('http') ? '_blank' : undefined}
                     rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="bb-panel flex items-center gap-4 p-4 hover:border-bb-line-strong transition-colors"
-                    data-testid={`channel-${c.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    data-testid={c.testId}
+                    className="group block"
                     style={{ textDecoration: 'none' }}
                   >
-                    <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ background: '#dfe6f5' }}>
-                      <Icon size={18} color="#2b4c8c" />
-                    </div>
-                    <div className="flex-1">
-                      <p style={labelStyle} className="!mb-1">{c.label}</p>
-                      <p style={{ fontSize: '14px', color: '#0a1230', margin: 0, fontFamily: 'Inter, sans-serif' }}>{c.value}</p>
-                    </div>
-                    <span className="font-mono text-[11px] text-bb-ink-3">↗</span>
+                    <p style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '10.5px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7a7461', margin: 0 }}>
+                      {c.label}
+                    </p>
+                    <p
+                      className="mt-3 group-hover:opacity-70 transition-opacity"
+                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(18px, 1.8vw, 22px)', letterSpacing: '-0.015em', color: '#0a1230', margin: 0, wordBreak: 'break-word' }}
+                    >
+                      {c.value}
+                    </p>
                   </a>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* RIGHT — Form */}
-          <div className="lg:col-span-7">
-            <div className="bb-panel p-8 lg:p-10" data-testid="contact-form-card">
-              <form onSubmit={handleSubmit}>
-                {/* First / Last Name */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-                  <div>
-                    <label style={labelStyle}>First Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                    <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}
-                      style={{ ...inputBase, ...(validationErrors.firstName ? errBorder : {}) }} />
-                    {validationErrors.firstName && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.firstName}</p>}
-                  </div>
-                  <div>
-                    <label style={labelStyle}>Last Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                    <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}
-                      style={{ ...inputBase, ...(validationErrors.lastName ? errBorder : {}) }} />
-                    {validationErrors.lastName && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.lastName}</p>}
-                  </div>
-                </div>
-
-                {/* Email + verify */}
-                <div style={{ marginBottom: '20px' }}>
-                  <label style={labelStyle}>Email<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      style={{ ...inputBase, ...(validationErrors.email ? errBorder : {}), flex: '1 1 220px' }}
-                    />
-                    <button
-                      type="button"
-                      onClick={handleVerifyEmail}
-                      style={{
-                        padding: '12px 20px',
-                        borderRadius: '6px',
-                        fontSize: '13px',
-                        fontFamily: 'IBM Plex Mono, monospace',
-                        letterSpacing: '0.08em',
-                        cursor: 'pointer',
-                        whiteSpace: 'nowrap',
-                        backgroundColor: emailVerified ? '#16a34a' : '#0a1230',
-                        color: '#ffffff',
-                        border: 'none',
-                      }}
-                    >
-                      {emailVerified ? 'VERIFIED ✓' : 'VERIFY EMAIL'}
-                    </button>
-                  </div>
-                  {validationErrors.email && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.email}</p>}
-                </div>
-
-                {/* Phone + Inquiry */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-                  <div>
-                    <label style={labelStyle}>Phone No<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                    <div style={{ display: 'flex' }}>
-                      <select
-                        name="phoneCode"
-                        value={formData.phoneCode}
-                        onChange={handleInputChange}
-                        style={{
-                          padding: '12px 8px',
-                          backgroundColor: '#e8eaf3',
-                          border: '1px solid #d4d8e8',
-                          borderRight: 'none',
-                          borderRadius: '6px 0 0 6px',
-                          fontSize: '14px',
-                          color: '#0a1230',
-                          outline: 'none',
-                          cursor: 'pointer',
-                          minWidth: '96px',
-                        }}
-                      >
-                        {countryCodes.map((c, i) => (
-                          <option key={`${c.code}-${i}`} value={c.code}>{c.flag} {c.code}</option>
-                        ))}
-                      </select>
-                      <input
-                        type="tel"
-                        name="phoneNumber"
-                        value={formData.phoneNumber}
-                        onChange={handlePhoneChange}
-                        placeholder="Enter phone number"
-                        maxLength={15}
-                        style={{
-                          flex: 1,
-                          padding: '12px 14px',
-                          border: '1px solid #d4d8e8',
-                          borderRadius: '0 6px 6px 0',
-                          backgroundColor: '#ffffff',
-                          fontSize: '14px',
-                          outline: 'none',
-                          fontFamily: 'Inter, sans-serif',
-                          ...(validationErrors.phoneNumber ? { borderColor: '#dc2626' } : {}),
-                        }}
-                      />
-                    </div>
-                    {validationErrors.phoneNumber && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.phoneNumber}</p>}
-                  </div>
-                  <div>
-                    <label style={labelStyle}>Inquiry Type<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                    <select
-                      name="inquiryType"
-                      value={formData.inquiryType}
-                      onChange={handleInputChange}
-                      style={{ ...inputBase, cursor: 'pointer', color: formData.inquiryType ? '#0a1230' : '#7c86a2', ...(validationErrors.inquiryType ? errBorder : {}) }}
-                    >
-                      <option value="" disabled>Select</option>
-                      <option value="sales">Sales Inquiry</option>
-                      <option value="support">Technical Support</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="careers">Careers</option>
-                      <option value="other">Other</option>
-                    </select>
-                    {validationErrors.inquiryType && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.inquiryType}</p>}
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div style={{ marginBottom: '24px' }}>
-                  <label style={labelStyle}>How can we help you?<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={9}
-                    style={{ ...inputBase, resize: 'none', ...(validationErrors.message ? errBorder : {}) }}
-                  />
-                  {validationErrors.message && <p style={{ color: '#dc2626', fontSize: '12px', marginTop: '4px', margin: '4px 0 0' }}>{validationErrors.message}</p>}
-                </div>
-
-                {submitError && (
-                  <div style={{ padding: '12px 16px', backgroundColor: '#fef2f2', border: '1px solid #fecaca', borderRadius: '6px', marginBottom: '18px' }}>
-                    <p style={{ color: '#dc2626', fontSize: '13px', margin: 0 }}>{submitError}</p>
-                  </div>
-                )}
-
-                <div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bb-btn-primary"
-                    style={{ width: '100%', justifyContent: 'center', padding: '14px 32px', opacity: isSubmitting ? 0.7 : 1 }}
-                    data-testid="contact-submit"
-                  >
-                    {isSubmitting ? 'Submitting…' : 'Submit'} <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-                  </button>
-                </div>
-              </form>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* ============================================================
+          FORM LEDGER — labels left / controls right, no card
+          ============================================================ */}
+      <section style={{ paddingTop: '32px', paddingBottom: '112px', borderTop: '1px solid #d8d5ca' }}>
+        <div className="bb-container">
+          <form onSubmit={handleSubmit} data-testid="contact-form-card" noValidate>
+
+            {/* ROW 1 — First Name / Last Name */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+              <div>
+                <label style={labelStyle}>First Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                <input
+                  type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}
+                  style={{ ...inputBase, ...(validationErrors.firstName ? errBorder : {}) }}
+                />
+                {validationErrors.firstName && <p style={errText}>{validationErrors.firstName}</p>}
+              </div>
+              <div>
+                <label style={labelStyle}>Last Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                <input
+                  type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}
+                  style={{ ...inputBase, ...(validationErrors.lastName ? errBorder : {}) }}
+                />
+                {validationErrors.lastName && <p style={errText}>{validationErrors.lastName}</p>}
+              </div>
+            </div>
+
+            {/* ROW 2 — Email + Verify Email */}
+            <div className="py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+              <label style={labelStyle}>Email<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+                <input
+                  type="email" name="email" value={formData.email} onChange={handleInputChange}
+                  style={{ ...inputBase, ...(validationErrors.email ? errBorder : {}), flex: '1 1 260px' }}
+                />
+                <button
+                  type="button"
+                  onClick={handleVerifyEmail}
+                  style={{
+                    padding: '10px 20px',
+                    fontSize: '11px',
+                    fontFamily: 'IBM Plex Mono, monospace',
+                    letterSpacing: '0.18em',
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    backgroundColor: emailVerified ? '#0a5231' : 'transparent',
+                    color: emailVerified ? '#ffffff' : '#0a1230',
+                    border: emailVerified ? 'none' : '1px solid #0a1230',
+                    borderRadius: '999px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {emailVerified ? 'Verified ✓' : 'Verify Email'}
+                </button>
+              </div>
+              {validationErrors.email && <p style={errText}>{validationErrors.email}</p>}
+            </div>
+
+            {/* ROW 3 — Phone (+code) / Inquiry Type */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+              <div>
+                <label style={labelStyle}>Phone No<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                <div style={{ display: 'flex', alignItems: 'flex-end', gap: '10px', borderBottom: validationErrors.phoneNumber ? '1px solid #dc2626' : '1px solid #d8d5ca' }}>
+                  <select
+                    name="phoneCode"
+                    value={formData.phoneCode}
+                    onChange={handleInputChange}
+                    style={{
+                      padding: '10px 6px 10px 0',
+                      background: 'transparent',
+                      border: 'none',
+                      fontSize: '15px',
+                      fontFamily: 'Inter, sans-serif',
+                      color: '#0a1230',
+                      outline: 'none',
+                      cursor: 'pointer',
+                      minWidth: '78px',
+                    }}
+                  >
+                    {countryCodes.map((c, i) => (
+                      <option key={`${c.code}-${i}`} value={c.code}>{c.flag} {c.code}</option>
+                    ))}
+                  </select>
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handlePhoneChange}
+                    placeholder="Enter phone number"
+                    maxLength={15}
+                    style={{
+                      flex: 1,
+                      padding: '10px 0',
+                      border: 'none',
+                      background: 'transparent',
+                      fontSize: '16px',
+                      outline: 'none',
+                      fontFamily: 'Inter, sans-serif',
+                      color: '#0a1230',
+                    }}
+                  />
+                </div>
+                {validationErrors.phoneNumber && <p style={errText}>{validationErrors.phoneNumber}</p>}
+              </div>
+              <div>
+                <label style={labelStyle}>Inquiry Type<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+                <select
+                  name="inquiryType"
+                  value={formData.inquiryType}
+                  onChange={handleInputChange}
+                  style={{
+                    ...inputBase,
+                    cursor: 'pointer',
+                    color: formData.inquiryType ? '#0a1230' : '#8a8471',
+                    ...(validationErrors.inquiryType ? errBorder : {}),
+                  }}
+                >
+                  <option value="" disabled>Select</option>
+                  <option value="sales">Sales Inquiry</option>
+                  <option value="support">Technical Support</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="careers">Careers</option>
+                  <option value="other">Other</option>
+                </select>
+                {validationErrors.inquiryType && <p style={errText}>{validationErrors.inquiryType}</p>}
+              </div>
+            </div>
+
+            {/* ROW 4 — Message */}
+            <div className="py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+              <label style={labelStyle}>How can we help you?<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows={7}
+                style={{
+                  ...inputBase,
+                  resize: 'vertical',
+                  minHeight: '180px',
+                  ...(validationErrors.message ? errBorder : {}),
+                }}
+              />
+              {validationErrors.message && <p style={errText}>{validationErrors.message}</p>}
+            </div>
+
+            {submitError && (
+              <div style={{ marginTop: '20px', padding: '12px 0', borderBottom: '1px solid #fecaca' }}>
+                <p style={{ color: '#dc2626', fontSize: '13px', margin: 0, fontFamily: 'Inter, sans-serif' }}>{submitError}</p>
+              </div>
+            )}
+
+            {/* ROW 5 — Submit */}
+            <div className="pt-10">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                data-testid="contact-submit"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '16px 36px',
+                  background: '#0a1230',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '999px',
+                  fontFamily: 'Geist, sans-serif',
+                  fontSize: '15px',
+                  fontWeight: 500,
+                  letterSpacing: '-0.005em',
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                  opacity: isSubmitting ? 0.7 : 1,
+                  transition: 'background 200ms ease',
+                }}
+              >
+                {isSubmitting ? 'Submitting…' : 'Submit'}
+                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+      {/* ============================================================
+          OFFICE REGISTER — vertical, one row per office
+          ============================================================ */}
+      <section style={{ paddingTop: '96px', paddingBottom: '128px' }} data-testid="offices-card">
+        <div className="bb-container">
+          <div style={{ borderTop: '1px solid #d8d5ca' }}>
+            {offices.map((o, i) => (
+              <div
+                key={i}
+                data-testid={`office-card-${i}`}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 items-start"
+                style={{ borderBottom: '1px solid #d8d5ca' }}
+              >
+                <div className="lg:col-span-3">
+                  <h3
+                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(24px, 2.4vw, 32px)', letterSpacing: '-0.025em', fontWeight: 500, color: '#0a1230', margin: 0 }}
+                  >
+                    {o.region}
+                  </h3>
+                </div>
+                <div className="lg:col-span-7">
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px', lineHeight: 1.7, color: '#2a3352', margin: 0 }}>
+                    {o.address}<br />{o.line2}<br />{o.line3}
+                  </p>
+                </div>
+                <div className="lg:col-span-2 lg:text-right">
+                  <a
+                    href={o.map}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 group"
+                    style={{ fontFamily: 'Geist, sans-serif', fontSize: '14px', fontWeight: 500, color: '#0a1230', borderBottom: '1px solid #0a1230', paddingBottom: '3px', textDecoration: 'none' }}
+                  >
+                    View on Google Maps
+                    <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
