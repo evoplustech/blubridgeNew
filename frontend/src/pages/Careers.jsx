@@ -87,7 +87,7 @@ const Careers = () => {
       {/* ============================================================
           SECTION 1 — HERO (#f0f1f9)
           ============================================================ */}
-      <section style={{ paddingTop: '64px' }}>
+      <section style={{ paddingTop: '64px', paddingBottom: '96px' }}>
         <div className="bb-container">
           <span
             className="inline-flex items-center gap-2 rounded-full border border-bb-line-strong bg-white/60 px-4 py-1.5 font-mono text-[10.5px] tracking-[0.16em] uppercase text-bb-ink"
@@ -172,7 +172,7 @@ const Careers = () => {
       {/* ============================================================
           SECTION 2 — WHAT ARE WE? + ROLE CARDS (#e8eaf3)
           ============================================================ */}
-      <section className="pt-24 pb-24" style={{ background: '#e8eaf3' }} data-testid="what-are-we-section">
+      <section className="pt-28 pb-28" style={{ background: '#e8eaf3' }} data-testid="what-are-we-section">
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start mb-14">
             <div className="lg:col-span-4">
