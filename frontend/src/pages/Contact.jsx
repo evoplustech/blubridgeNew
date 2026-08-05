@@ -241,7 +241,7 @@ const Contact = () => {
     width: '100%',
     padding: '10px 0',
     border: 'none',
-    borderBottom: '1px solid #d8d5ca',
+    borderBottom: '1px solid #c9cee0',
     background: 'transparent',
     fontSize: '16px',
     fontFamily: 'Inter, sans-serif',
@@ -255,12 +255,12 @@ const Contact = () => {
   const errText = { color: '#dc2626', fontSize: '12px', marginTop: '6px', margin: '6px 0 0', fontFamily: 'Inter, sans-serif' };
 
   return (
-    <div style={{ background: '#f5f3e9' }} data-testid="contact-page">
+    <div style={{ background: '#f0f1f9' }} data-testid="contact-page">
 
       {/* ============================================================
-          OPENING — Contact Us title + 2×2 contact directory
+          OPENING — Contact Us title + 2×2 contact directory  (#f0f1f9)
           ============================================================ */}
-      <section style={{ paddingTop: '80px', paddingBottom: '96px' }}>
+      <section style={{ background: '#f0f1f9', paddingTop: '80px', paddingBottom: '96px' }}>
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-5">
@@ -306,14 +306,14 @@ const Contact = () => {
       </section>
 
       {/* ============================================================
-          FORM LEDGER — labels left / controls right, no card
+          FORM LEDGER — labels left / controls right, no card  (#e8eaf3)
           ============================================================ */}
-      <section style={{ paddingTop: '32px', paddingBottom: '112px', borderTop: '1px solid #d8d5ca' }}>
+      <section style={{ background: '#e8eaf3', paddingTop: '80px', paddingBottom: '112px' }}>
         <div className="bb-container">
           <form onSubmit={handleSubmit} data-testid="contact-form-card" noValidate>
 
             {/* ROW 1 — First Name / Last Name */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
               <div>
                 <label style={labelStyle}>First Name<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
                 <input
@@ -333,7 +333,7 @@ const Contact = () => {
             </div>
 
             {/* ROW 2 — Email + Verify Email */}
-            <div className="py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+            <div className="py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
               <label style={labelStyle}>Email<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
                 <input
@@ -364,10 +364,10 @@ const Contact = () => {
             </div>
 
             {/* ROW 3 — Phone (+code) / Inquiry Type */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
               <div>
                 <label style={labelStyle}>Phone No<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
-                <div style={{ display: 'flex', alignItems: 'flex-end', gap: '10px', borderBottom: validationErrors.phoneNumber ? '1px solid #dc2626' : '1px solid #d8d5ca' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-end', gap: '10px', borderBottom: validationErrors.phoneNumber ? '1px solid #dc2626' : '1px solid #c9cee0' }}>
                   <select
                     name="phoneCode"
                     value={formData.phoneCode}
@@ -434,7 +434,7 @@ const Contact = () => {
             </div>
 
             {/* ROW 4 — Message */}
-            <div className="py-10" style={{ borderBottom: '1px solid #d8d5ca' }}>
+            <div className="py-10" style={{ borderBottom: '1px solid #c9cee0' }}>
               <label style={labelStyle}>How can we help you?<span style={{ color: '#dc2626', marginLeft: 4 }}>*</span></label>
               <textarea
                 name="message"
@@ -491,17 +491,17 @@ const Contact = () => {
       </section>
 
       {/* ============================================================
-          OFFICE REGISTER — vertical, one row per office
+          OFFICE REGISTER — vertical, one row per office  (#f0f1f9)
           ============================================================ */}
-      <section style={{ paddingTop: '96px', paddingBottom: '128px' }} data-testid="offices-card">
+      <section style={{ background: '#f0f1f9', paddingTop: '96px', paddingBottom: '128px' }} data-testid="offices-card">
         <div className="bb-container">
-          <div style={{ borderTop: '1px solid #d8d5ca' }}>
+          <div style={{ borderTop: '1px solid #c9cee0' }}>
             {offices.map((o, i) => (
               <div
                 key={i}
                 data-testid={`office-card-${i}`}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 items-start"
-                style={{ borderBottom: '1px solid #d8d5ca' }}
+                style={{ borderBottom: '1px solid #c9cee0' }}
               >
                 <div className="lg:col-span-3">
                   <h3

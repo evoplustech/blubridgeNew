@@ -87,10 +87,10 @@ const ExpertiseSection = () => {
   const Active = industries[activeIndustry].Icon;
 
   return (
-    <section className="relative pt-24 pb-24" style={{ background: '#e8eaf3' }} data-testid="expertise-section">
+    <section className="relative pt-24 pb-24 overflow-hidden" style={{ background: '#e8eaf3' }} data-testid="expertise-section">
       <div className="bb-container">
         {/* Masthead */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <h2 className="bb-h2 capitalize" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
             Our Frontier AI Expertise
           </h2>
@@ -103,60 +103,96 @@ const ExpertiseSection = () => {
           </div>
         </div>
 
-        {/* Spotlight split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-bb-line-strong pt-12 gap-10 lg:gap-0">
-          {/* LEFT — active industry spotlight */}
-          <div className="lg:col-span-5 lg:pr-12 lg:border-r lg:border-bb-line flex flex-col justify-center" data-testid="industry-spotlight">
-            <div
-              className="w-14 h-14 rounded-md border border-bb-line-strong bg-white/60 flex items-center justify-center mb-8"
+        {/* ------ HERO DISPLAY ------
+            Small "Frontier AI Focus" eyebrow with icon-as-glyph, followed by
+            a monster editorial display of the active industry. No cards. */}
+        <div
+          className="relative pt-10 pb-8"
+          style={{ borderTop: '1px solid #a8b0c8' }}
+          data-testid="industry-spotlight"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <span
               key={`icon-${activeIndustry}`}
-              style={{ animation: 'bbFadeIn 400ms ease forwards' }}
+              aria-hidden
+              className="inline-flex"
+              style={{ animation: 'bbFadeIn 400ms ease forwards', color: '#0a1230' }}
             >
-              <Active className="w-6 h-6 text-bb-ink" strokeWidth={1.4} />
-            </div>
-            <p className="bb-caption mb-4">Frontier AI Focus</p>
-            <h3
-              key={`title-${activeIndustry}`}
-              className="text-bb-ink"
-              data-testid="industry-spotlight-title"
-              style={{
-                fontFamily: 'Geist, sans-serif',
-                fontSize: 'clamp(40px, 5vw, 72px)',
-                fontWeight: 500,
-                letterSpacing: '-0.03em',
-                lineHeight: 1.02,
-                animation: 'bbFadeIn 400ms ease forwards',
-              }}
-            >
-              {industries[activeIndustry].title}
-            </h3>
+              <Active style={{ width: '20px', height: '20px' }} strokeWidth={1.5} />
+            </span>
+            <p className="bb-caption" style={{ margin: 0 }}>Frontier AI Focus</p>
           </div>
 
-          {/* RIGHT — industry index */}
-          <div className="lg:col-span-7 lg:pl-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
-              {industries.map((ind, i) => (
-                <button
-                  key={ind.title}
-                  onClick={() => setActiveIndustry(i)}
-                  onMouseEnter={() => setActiveIndustry(i)}
-                  data-testid={`industry-item-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
-                  className="group flex items-center gap-3 py-4 text-left border-b border-bb-line last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0 transition-colors"
+          <h3
+            key={`title-${activeIndustry}`}
+            data-testid="industry-spotlight-title"
+            className="text-bb-ink"
+            style={{
+              fontFamily: 'Geist, sans-serif',
+              fontSize: 'clamp(56px, 13vw, 200px)',
+              fontWeight: 500,
+              letterSpacing: '-0.055em',
+              lineHeight: 0.9,
+              animation: 'bbFadeIn 450ms ease forwards',
+              wordBreak: 'break-word',
+              margin: 0,
+            }}
+          >
+            {industries[activeIndustry].title}
+          </h3>
+        </div>
+
+        {/* ------ INDEX RAIL ------
+            Full-width horizontal wrapping list of every industry with a
+            leading arrow revealed only on the active item. Underline the active
+            label. Hover / click to switch. */}
+        <div
+          className="mt-10 flex flex-wrap items-baseline"
+          role="tablist"
+          style={{ borderTop: '1px solid #d3d7e6', paddingTop: '18px', columnGap: '28px', rowGap: '6px' }}
+        >
+          {industries.map((ind, i) => {
+            const active = activeIndustry === i;
+            return (
+              <button
+                key={ind.title}
+                onClick={() => setActiveIndustry(i)}
+                onMouseEnter={() => setActiveIndustry(i)}
+                data-testid={`industry-item-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
+                role="tab"
+                aria-selected={active}
+                className="inline-flex items-baseline gap-2 py-2 transition-colors"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '16px',
+                  lineHeight: 1.2,
+                  color: active ? '#0a1230' : '#5f6a89',
+                  fontWeight: active ? 500 : 400,
+                  borderBottom: active ? '2px solid #0a1230' : '2px solid transparent',
+                  cursor: 'pointer',
+                  background: 'transparent',
+                  padding: '6px 0',
+                }}
+              >
+                <span
+                  aria-hidden
+                  style={{
+                    fontFamily: 'IBM Plex Mono, monospace',
+                    fontSize: '13px',
+                    color: '#0a1230',
+                    width: active ? '14px' : '0px',
+                    overflow: 'hidden',
+                    display: 'inline-block',
+                    transition: 'width 200ms ease',
+                    whiteSpace: 'nowrap',
+                  }}
                 >
-                  <span
-                    className="w-[7px] h-[7px] flex-shrink-0 transition-colors"
-                    style={{ background: activeIndustry === i ? '#0a1230' : 'transparent', outline: activeIndustry === i ? 'none' : '1px solid transparent' }}
-                  />
-                  <span
-                    className={`text-[15px] transition-colors ${activeIndustry === i ? 'text-bb-ink font-medium' : 'text-bb-ink-2 group-hover:text-bb-ink'}`}
-                    style={{ fontFamily: 'Inter, sans-serif' }}
-                  >
-                    {ind.title}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
+                  →
+                </span>
+                {ind.title}
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
