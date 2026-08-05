@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Radio, ShieldCheck, GraduationCap, Code2, Factory, Landmark, HeartPulse,
-  Scale, ShoppingCart, Home as HomeIcon, Plus, Minus
+  Scale, ShoppingCart, Home as HomeIcon
 } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
@@ -87,7 +87,7 @@ const ExpertiseSection = () => {
   const Active = industries[activeIndustry].Icon;
 
   return (
-    <section className="relative pt-24 pb-24 overflow-hidden" style={{ background: '#e8eaf3' }} data-testid="expertise-section">
+    <section className="relative pt-24 pb-24 overflow-hidden" style={{ background: '#f5f3e9' }} data-testid="expertise-section">
       <div className="bb-container">
         {/* Masthead */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
@@ -108,7 +108,7 @@ const ExpertiseSection = () => {
             a monster editorial display of the active industry. No cards. */}
         <div
           className="relative pt-10 pb-8"
-          style={{ borderTop: '1px solid #a8b0c8' }}
+          style={{ borderTop: '1px solid #d8d5ca' }}
           data-testid="industry-spotlight"
         >
           <div className="flex items-center gap-4 mb-8">
@@ -151,7 +151,7 @@ const ExpertiseSection = () => {
         <div
           className="mt-10 flex flex-wrap items-baseline"
           role="tablist"
-          style={{ borderTop: '1px solid #d3d7e6', paddingTop: '18px', columnGap: '22px', rowGap: '6px' }}
+          style={{ borderTop: '1px solid #d8d5ca', paddingTop: '18px', columnGap: '22px', rowGap: '6px' }}
         >
           {industries.map((ind, i) => {
             const active = activeIndustry === i;
@@ -234,46 +234,104 @@ const CapabilitiesAccordion = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section style={{ background: '#f0f1f9' }} className="py-24 relative" data-testid="capabilities-index">
+    <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="capabilities-index">
       <div className="bb-container">
-        <div className="mb-10 pb-8 border-b border-bb-line">
-          <h2 className="bb-h2" style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}>
+        <div className="mb-16">
+          <h2
+            style={{
+              fontFamily: 'Geist, sans-serif',
+              fontSize: 'clamp(36px, 5vw, 64px)',
+              letterSpacing: '-0.03em',
+              lineHeight: 1,
+              fontWeight: 500,
+              color: '#0a1230',
+              margin: 0,
+              maxWidth: '780px',
+            }}
+          >
             What we can do for you
           </h2>
         </div>
 
-        <div>
+        <div style={{ borderTop: '1px solid #d8d5ca' }}>
           {capabilities.map((cap, i) => {
             const isOpen = openIndex === i;
             return (
-              <div key={cap.title} className="border-b border-bb-line" data-testid={`capability-entry-${i}`}>
+              <div
+                key={cap.title}
+                data-testid={`capability-entry-${i}`}
+                style={{ borderBottom: '1px solid #d8d5ca' }}
+              >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : i)}
                   data-testid={`capability-toggle-${i}`}
-                  className="w-full flex items-center justify-between gap-6 py-7 text-left group"
+                  aria-expanded={isOpen}
+                  className="w-full flex items-baseline justify-between gap-6 text-left group"
+                  style={{ padding: '32px 0 32px 0' }}
                 >
                   <span
-                    className="text-bb-ink"
-                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.4vw, 28px)', fontWeight: 500, letterSpacing: '-0.02em' }}
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: 'clamp(26px, 3.6vw, 48px)',
+                      fontWeight: 500,
+                      letterSpacing: '-0.03em',
+                      lineHeight: 1,
+                      color: isOpen ? '#0a1230' : '#3a3f52',
+                      transition: 'color 200ms ease',
+                    }}
                   >
                     {cap.title}
                   </span>
-                  <span className="flex-shrink-0 text-bb-ink-2 group-hover:text-bb-ink transition-colors">
-                    {isOpen ? <Minus className="w-5 h-5" strokeWidth={1.5} /> : <Plus className="w-5 h-5" strokeWidth={1.5} />}
+                  <span
+                    aria-hidden
+                    style={{
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fontSize: '13px',
+                      letterSpacing: '0.15em',
+                      color: '#8a8471',
+                      textTransform: 'uppercase',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {isOpen ? 'Close' : 'Read'}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="pb-10 md:pl-[28%] max-w-3xl" style={{ animation: 'bbFadeIn 350ms ease forwards' }}>
-                    <h3
-                      className="text-bb-ink mb-5"
-                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.015em', lineHeight: 1.25 }}
-                    >
-                      {cap.heading}
-                    </h3>
-                    <p className="text-bb-ink-2 text-[15.5px] leading-[1.75]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      {cap.description}
-                    </p>
+                  <div
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14"
+                    style={{ paddingBottom: '48px', animation: 'bbFadeIn 350ms ease forwards' }}
+                  >
+                    <div className="lg:col-span-5">
+                      <h3
+                        style={{
+                          fontFamily: 'Geist, sans-serif',
+                          fontSize: 'clamp(20px, 2.2vw, 26px)',
+                          fontWeight: 500,
+                          letterSpacing: '-0.015em',
+                          lineHeight: 1.25,
+                          color: '#0a1230',
+                          margin: 0,
+                          maxWidth: '420px',
+                        }}
+                      >
+                        {cap.heading}
+                      </h3>
+                    </div>
+                    <div className="lg:col-span-7">
+                      <p
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: '16px',
+                          lineHeight: 1.8,
+                          color: '#2a3352',
+                          margin: 0,
+                          maxWidth: '640px',
+                        }}
+                      >
+                        {cap.description}
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
@@ -389,95 +447,237 @@ const Home = () => {
       <ExpertiseSection />
 
       {/* ============================================================
-          SECTION 3 — BY SERVICES (#f0f1f9)
+          SECTION 3 — BY SERVICES  (warm #f5f3e9)
+          Editorial vertical stack: narrow title / wider prose per row,
+          hairline separators, closing action at the right.
           ============================================================ */}
-      <section className="py-24 relative" style={{ background: '#f0f1f9' }} data-testid="services-section">
+      <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="services-section">
         <div className="bb-container">
-          <p className="bb-eyebrow mb-12">By Services</p>
+          <p className="bb-eyebrow" style={{ color: '#0a1230' }}>By Services</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 border-t border-bb-line pt-12">
-            {services.map((s) => (
-              <div key={s.title} data-testid={s.testid}>
-                <h3
-                  className="text-bb-ink mb-5"
-                  style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.4vw, 28px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.15 }}
-                >
-                  {s.title}
-                </h3>
-                <p className="text-bb-ink-2 text-[14.5px] leading-[1.75] mb-7" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  {s.body}
-                </p>
-                <Link
-                  to={s.link}
-                  className="inline-flex items-center gap-2 font-mono text-[11.5px] tracking-[0.14em] uppercase text-bb-ink hover:text-bb-accent transition-colors group"
-                  data-testid={`${s.testid}-learn-more`}
-                >
-                  Learn More <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-                </Link>
+          <div className="mt-14" style={{ borderTop: '1px solid #d8d5ca' }}>
+            {services.map((s, i) => (
+              <div
+                key={s.title}
+                data-testid={s.testid}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 py-14"
+                style={{ borderBottom: '1px solid #d8d5ca' }}
+              >
+                <div className="lg:col-span-4">
+                  <h3
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: 'clamp(28px, 3.2vw, 44px)',
+                      fontWeight: 500,
+                      letterSpacing: '-0.025em',
+                      lineHeight: 1.05,
+                      color: '#0a1230',
+                      margin: 0,
+                      maxWidth: '320px',
+                    }}
+                  >
+                    {s.title}
+                  </h3>
+                </div>
+                <div className="lg:col-span-8">
+                  <p
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '16px',
+                      lineHeight: 1.75,
+                      color: '#2a3352',
+                      margin: 0,
+                      maxWidth: '640px',
+                    }}
+                  >
+                    {s.body}
+                  </p>
+                  <div className="mt-8">
+                    <Link
+                      to={s.link}
+                      data-testid={`${s.testid}-learn-more`}
+                      className="inline-flex items-center gap-2 group"
+                      style={{
+                        fontFamily: 'IBM Plex Mono, monospace',
+                        fontSize: '11.5px',
+                        letterSpacing: '0.18em',
+                        textTransform: 'uppercase',
+                        color: '#0a1230',
+                        borderBottom: '1px solid #0a1230',
+                        paddingBottom: '3px',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      Learn More
+                      <span
+                        aria-hidden
+                        style={{ transition: 'transform 200ms ease' }}
+                        className="inline-block group-hover:translate-x-1"
+                      >
+                        ↗
+                      </span>
+                    </Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
 
           <div className="mt-16 flex justify-end">
-            <Link to="/contact" className="bb-btn-primary" data-testid="support-talk-to-us-btn">
-              Talk To Us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
+            <Link
+              to="/contact"
+              data-testid="support-talk-to-us-btn"
+              className="inline-flex items-center gap-3 group"
+              style={{
+                background: '#0a1230',
+                color: '#ffffff',
+                fontFamily: 'Geist, sans-serif',
+                fontSize: '14px',
+                fontWeight: 500,
+                padding: '14px 28px',
+                borderRadius: '999px',
+                textDecoration: 'none',
+              }}
+            >
+              Talk To Us
+              <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* ============================================================
-          SECTION 4 — INFRASTRUCTURE (#e8eaf3)
+          SECTION 4 — INFRASTRUCTURE  (warm #f5f3e9)
+          Big title (col 1-7) with tab index on the right (col 8-12).
+          Below, full-width content: description spanning wide, features
+          arranged as a 2-column typographic matrix.
           ============================================================ */}
-      <section className="py-24 relative" style={{ background: '#e8eaf3' }} data-testid="infrastructure-section">
+      <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="infrastructure-section">
         <div className="bb-container">
-          <div className="mb-12">
-            <h2 className="bb-h2 max-w-3xl" style={{ fontSize: 'clamp(32px, 4.2vw, 56px)' }}>
-              BluBridge Infrastructure for custom AI deployment Solutions
-            </h2>
-          </div>
 
-          {/* Horizontal tab bar */}
-          <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-bb-line" role="tablist">
-            {infraTabs.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveInfraTab(index)}
-                data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
-                className={`pb-3 -mb-px text-[14px] transition-colors border-b-2 ${
-                  activeInfraTab === index
-                    ? 'border-bb-ink text-bb-ink font-medium'
-                    : 'border-transparent text-bb-ink-2 hover:text-bb-ink'
-                }`}
-                style={{ fontFamily: 'Geist, sans-serif' }}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-7">
+              <h2
+                style={{
+                  fontFamily: 'Geist, sans-serif',
+                  fontSize: 'clamp(34px, 4.4vw, 60px)',
+                  lineHeight: 1.02,
+                  letterSpacing: '-0.03em',
+                  fontWeight: 500,
+                  color: '#0a1230',
+                  margin: 0,
+                  maxWidth: '760px',
+                }}
               >
-                {tab.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pt-12" data-testid="infra-content-card">
-            <div className="lg:col-span-4">
-              <h3
-                className="text-bb-ink"
-                style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(28px, 3.4vw, 44px)', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: 1.05 }}
-              >
-                {infraTabs[activeInfraTab].title}
-              </h3>
+                BluBridge Infrastructure for custom AI deployment Solutions
+              </h2>
             </div>
-            <div className="lg:col-span-8">
-              <p className="text-bb-ink text-[16px] leading-[1.7] mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
-                {infraTabs[activeInfraTab].description}
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
-                {infraTabs[activeInfraTab].features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-4 py-3.5 border-b border-bb-line">
-                    <span aria-hidden className="font-mono text-bb-ink-3 text-[13px]">—</span>
-                    <span className="text-bb-ink text-[14px]" style={{ fontFamily: 'Inter, sans-serif' }}>{feature}</span>
-                  </div>
-                ))}
+            <div className="lg:col-span-5">
+              <div
+                className="flex flex-col"
+                role="tablist"
+                style={{ borderTop: '1px solid #d8d5ca' }}
+              >
+                {infraTabs.map((tab, index) => {
+                  const active = activeInfraTab === index;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setActiveInfraTab(index)}
+                      data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      role="tab"
+                      aria-selected={active}
+                      className="flex items-center justify-between gap-4 py-3 transition-colors text-left"
+                      style={{
+                        borderBottom: '1px solid #d8d5ca',
+                        fontFamily: 'Geist, sans-serif',
+                        fontSize: '14.5px',
+                        color: active ? '#0a1230' : '#6b6a5c',
+                        fontWeight: active ? 500 : 400,
+                      }}
+                    >
+                      <span>{tab.name}</span>
+                      <span
+                        aria-hidden
+                        style={{
+                          fontFamily: 'IBM Plex Mono, monospace',
+                          fontSize: '13px',
+                          color: active ? '#0a1230' : 'transparent',
+                          transition: 'color 200ms ease',
+                        }}
+                      >
+                        →
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
+            </div>
+          </div>
+
+          {/* Active tab content — full-width composition */}
+          <div className="mt-20" data-testid="infra-content-card">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-baseline">
+              <div className="lg:col-span-4">
+                <h3
+                  style={{
+                    fontFamily: 'Geist, sans-serif',
+                    fontSize: 'clamp(32px, 3.8vw, 52px)',
+                    fontWeight: 500,
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1,
+                    color: '#0a1230',
+                    margin: 0,
+                  }}
+                >
+                  {infraTabs[activeInfraTab].title}
+                </h3>
+              </div>
+              <div className="lg:col-span-8">
+                <p
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '16.5px',
+                    lineHeight: 1.75,
+                    color: '#2a3352',
+                    margin: 0,
+                    maxWidth: '680px',
+                  }}
+                >
+                  {infraTabs[activeInfraTab].description}
+                </p>
+              </div>
+            </div>
+
+            {/* Features matrix — 2-column typographic list */}
+            <div
+              className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-x-16"
+              style={{ borderTop: '1px solid #d8d5ca', paddingTop: '24px' }}
+            >
+              {infraTabs[activeInfraTab].features.map((feature, i) => (
+                <div
+                  key={i}
+                  className="flex items-baseline gap-5 py-4"
+                  style={{ borderBottom: i < infraTabs[activeInfraTab].features.length - 1 && i !== 0 ? 'none' : 'none' }}
+                >
+                  <span
+                    aria-hidden
+                    style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: '#8a8471', letterSpacing: '0.14em' }}
+                  >
+                    ——
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '15.5px',
+                      lineHeight: 1.55,
+                      color: '#0a1230',
+                    }}
+                  >
+                    {feature}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -489,32 +689,71 @@ const Home = () => {
       <CapabilitiesAccordion />
 
       {/* ============================================================
-          SECTION 6 — WORK WITH BLUBRIDGE (#e8eaf3)
+          SECTION 6 — WORK WITH BLUBRIDGE  (warm #f5f3e9)
+          Full-width photograph on top, then 3-part text row below:
+          title (col 1-4) / description (col 5-9) / action (col 10-12).
+          No card frame, no shadow, no cropping.
           ============================================================ */}
-      <section className="py-24" style={{ background: '#e8eaf3' }} data-testid="work-with-blubridge">
+      <section style={{ background: '#f5f3e9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="work-with-blubridge">
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1">
-              <h2 className="bb-h2 mb-8" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
+          <div style={{ borderTop: '1px solid #d8d5ca', paddingTop: '48px' }}>
+            <img
+              src="/images/bluBridge-team.png"
+              alt="BluBridge Team"
+              className="w-full h-auto object-cover block"
+              style={{ display: 'block', maxWidth: '100%' }}
+            />
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="lg:col-span-4">
+              <h2
+                style={{
+                  fontFamily: 'Geist, sans-serif',
+                  fontSize: 'clamp(34px, 4.6vw, 60px)',
+                  lineHeight: 1,
+                  letterSpacing: '-0.03em',
+                  fontWeight: 500,
+                  color: '#0a1230',
+                  margin: 0,
+                }}
+              >
                 Work with BluBridge
               </h2>
-              <p className="text-bb-ink-2 text-[16px] leading-[1.75] mb-10 max-w-[480px]">
+            </div>
+            <div className="lg:col-span-5">
+              <p
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '16px',
+                  lineHeight: 1.8,
+                  color: '#2a3352',
+                  margin: 0,
+                  maxWidth: '520px',
+                }}
+              >
                 We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
               </p>
-              <Link to="/careers" className="bb-btn-primary" data-testid="work-join-cta">
-                Join us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-              </Link>
             </div>
-
-            <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="bg-white p-3 border border-bb-line rounded-sm" style={{ boxShadow: '0 18px 48px -18px rgba(10, 18, 48, 0.18)' }}>
-                <img
-                  src="/images/bluBridge-team.png"
-                  alt="BluBridge Team"
-                  className="w-full h-auto object-cover block"
-                  style={{ filter: 'saturate(0.95) contrast(0.98)' }}
-                />
-              </div>
+            <div className="lg:col-span-3 lg:flex lg:justify-end lg:pt-2">
+              <Link
+                to="/careers"
+                data-testid="work-join-cta"
+                className="inline-flex items-center gap-3 group"
+                style={{
+                  background: '#0a1230',
+                  color: '#ffffff',
+                  fontFamily: 'Geist, sans-serif',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  padding: '14px 28px',
+                  borderRadius: '999px',
+                  textDecoration: 'none',
+                }}
+              >
+                Join us
+                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+              </Link>
             </div>
           </div>
         </div>
