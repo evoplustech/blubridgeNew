@@ -41,7 +41,6 @@ const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
-  const isCareers = location.pathname === '/careers';
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -89,19 +88,19 @@ const Header = () => {
         className="fixed top-0 left-0 right-0"
         style={{
           zIndex: 1000,
-          backgroundColor: isCareers ? 'rgba(245, 243, 233, 0.92)' : 'rgba(240, 241, 249, 0.86)',
+          backgroundColor: 'rgba(240, 241, 249, 0.86)',
           backdropFilter: 'saturate(140%) blur(16px)',
           WebkitBackdropFilter: 'saturate(140%) blur(16px)',
-          borderBottom: isCareers ? '1px solid transparent' : `1px solid ${isScrolled ? '#d4d8e8' : 'transparent'}`,
+          borderBottom: `1px solid ${isScrolled ? '#d4d8e8' : 'transparent'}`,
           transition: 'border-color 300ms ease, background-color 300ms ease',
         }}
       >
         {/* Announcement strip — retains existing text */}
         <div
           style={{
-            backgroundColor: isCareers ? '#f5f3e9' : '#f0f1f9',
+            backgroundColor: '#f0f1f9',
             color: '#0a1230',
-            borderBottom: isCareers ? 'none' : '1px solid #d4d8e8',
+            borderBottom: '1px solid #d4d8e8',
             fontFamily: 'IBM Plex Mono, monospace',
             fontSize: '11.5px',
             letterSpacing: '0.08em',
@@ -262,7 +261,7 @@ const Header = () => {
 
             {/* CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link to="/contact" data-testid="nav-contact-cta" className="bb-btn-primary" style={isCareers ? { borderRadius: '3px' } : undefined}>
+              <Link to="/contact" data-testid="nav-contact-cta" className="bb-btn-primary">
                 Contact <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', fontSize: '13px' }}>→</span>
               </Link>
             </div>

@@ -77,16 +77,14 @@ const offices = [
 ];
 
 const INK = '#0a1230';
-const MUTED = '#4a5578';
-const FAINT = '#8b93ad';
-const LINE = '#d8d5ca';
+const MUTED = '#3f4966';
+const FAINT = '#7c86a2';
+const LINE = '#d4d8e8';
 const geist = 'Geist, sans-serif';
 const inter = 'Inter, sans-serif';
 const mono = 'IBM Plex Mono, monospace';
 
 const thStyle = { fontFamily: mono, fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: FAINT };
-const bodyLine = { fontFamily: inter, fontSize: '16.5px', lineHeight: 1.7, color: '#232c4d', margin: 0 };
-const hiringIndents = ['', 'md:ml-8', 'md:ml-16'];
 
 const Careers = () => {
   useDocumentTitle('Careers | Blubridge');
@@ -94,45 +92,49 @@ const Careers = () => {
   const [showJobListings, setShowJobListings] = useState(false);
 
   return (
-    <div style={{ background: '#f5f3e9' }} data-testid="careers-page">
+    <div style={{ background: '#f0f1f9' }} data-testid="careers-page">
 
-      {/* ============ MASTHEAD — asymmetric editorial recruitment masthead ============ */}
-      <section data-testid="careers-masthead" style={{ paddingTop: '52px', paddingBottom: '88px' }}>
+      {/* ============ SECTION 1 — HERO (#f0f1f9) ============ */}
+      <section data-testid="careers-masthead" style={{ paddingTop: '64px', paddingBottom: '96px' }}>
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8">
-            <div className="lg:col-span-2" style={{ paddingTop: '20px' }}>
-              <span data-testid="hiring-badge" style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.24em', textTransform: 'uppercase', color: MUTED }}>
-                We're Hiring
-              </span>
-            </div>
-            <div className="lg:col-span-10">
-              <h1
-                data-testid="join-us-title"
-                style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(60px, 10.5vw, 164px)', lineHeight: 0.92, letterSpacing: '-0.05em', margin: 0 }}
-              >
-                Join Us
-              </h1>
-            </div>
-          </div>
+          <span
+            data-testid="hiring-badge"
+            className="inline-flex items-center gap-2"
+            style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: MUTED }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-bb-accent animate-pulse" />
+            We're Hiring
+          </span>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8" style={{ marginTop: 'clamp(40px, 5vw, 72px)' }}>
-            <div className="lg:col-span-5 lg:col-start-7">
-              <h2 style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(20px, 2vw, 26px)', lineHeight: 1.4, letterSpacing: '-0.015em', margin: 0, maxWidth: '420px' }}>
+          <h1
+            data-testid="join-us-title"
+            style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(56px, 9vw, 140px)', lineHeight: 0.95, letterSpacing: '-0.04em', margin: '32px 0 0' }}
+          >
+            Join Us
+          </h1>
+
+          <div aria-hidden style={{ marginTop: '40px', borderTop: `1px solid ${LINE}` }} />
+
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div className="lg:col-span-7">
+              <h2 style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(26px, 3vw, 40px)', letterSpacing: '-0.02em', lineHeight: 1.2, margin: 0 }}>
                 We Build Intelligence from First Principles, with Precision and Purpose.
               </h2>
+            </div>
+            <div className="lg:col-span-5 flex lg:justify-end">
               <button
                 onClick={() => setShowJobListings(!showJobListings)}
                 data-testid="see-open-roles-btn"
-                className="inline-flex items-center gap-2.5 text-white transition-colors hover:bg-[#172449]"
-                style={{ background: INK, fontFamily: geist, fontSize: '14px', fontWeight: 500, padding: '12px 24px', borderRadius: '3px', minHeight: '44px', marginTop: '32px' }}
+                className="inline-flex items-center gap-2.5 rounded-full text-white transition-colors hover:bg-[#172449]"
+                style={{ background: INK, fontFamily: geist, fontSize: '14px', fontWeight: 500, padding: '14px 28px', minHeight: '44px' }}
               >
                 See open roles
-                <ChevronDown size={15} style={{ transition: 'transform 300ms ease', transform: showJobListings ? 'rotate(180deg)' : 'rotate(0)' }} />
+                <ChevronDown size={16} style={{ transition: 'transform 300ms ease', transform: showJobListings ? 'rotate(180deg)' : 'rotate(0)' }} />
               </button>
             </div>
           </div>
 
-          {/* Open roles — expandable index */}
+          {/* Open roles — expandable ledger */}
           <div
             data-testid="job-listings-section"
             style={{
@@ -140,7 +142,7 @@ const Careers = () => {
               opacity: showJobListings ? 1 : 0,
               overflow: 'hidden',
               transition: 'max-height 400ms ease-out, opacity 300ms ease-out',
-              marginTop: showJobListings ? '64px' : '0',
+              marginTop: showJobListings ? '48px' : '0',
             }}
           >
             <div style={{ borderTop: `1px solid ${LINE}` }}>
@@ -155,7 +157,7 @@ const Careers = () => {
                   key={job.id}
                   to={`/careers/job/${job.slug}`}
                   data-testid={`job-row-${job.id}`}
-                  className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 items-center transition-colors hover:bg-[#efecdf]"
+                  className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 items-center transition-colors hover:bg-[#e6e8f4]"
                   style={{ padding: '19px 0', borderBottom: `1px solid ${LINE}`, textDecoration: 'none' }}
                 >
                   <span className="md:col-span-7" style={{ fontFamily: geist, fontSize: '15px', fontWeight: 500, color: INK }}>{job.title}</span>
@@ -169,149 +171,96 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* ============ WHAT ARE WE? — compact editorial hinge ============ */}
-      <section data-testid="what-are-we-section" style={{ paddingTop: '4px', paddingBottom: '92px' }}>
+      {/* ============ SECTION 2 — WHAT ARE WE? + CANDIDATURE BRIEF (#e8eaf3) ============ */}
+      <section className="pt-28 pb-28" style={{ background: '#e8eaf3' }} data-testid="what-are-we-section">
         <div className="bb-container">
-          <div className="lg:ml-[8.333%]" style={{ maxWidth: '760px' }}>
-            <h2 style={{ fontFamily: geist, fontWeight: 600, fontSize: '17px', letterSpacing: '-0.005em', color: INK, margin: 0 }}>
-              What are we?
-            </h2>
-            <p style={{ fontFamily: geist, fontWeight: 500, fontSize: 'clamp(26px, 3.2vw, 42px)', lineHeight: 1.28, letterSpacing: '-0.02em', color: INK, margin: '26px 0 0' }}>
-              We are a frontier AI research company building Large Language Models &amp; Domain Specific Models
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start mb-14">
+            <div className="lg:col-span-4">
+              <h2 style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(30px, 3.6vw, 48px)', letterSpacing: '-0.025em', lineHeight: 1.05, margin: 0 }}>
+                What are we?
+              </h2>
+            </div>
+            <div className="lg:col-span-8 lg:pt-2">
+              <p style={{ fontFamily: inter, fontSize: '17px', lineHeight: 1.75, color: INK, margin: 0, maxWidth: '620px' }}>
+                We are a frontier AI research company building Large Language Models &amp; Domain Specific Models
+              </p>
+            </div>
           </div>
 
           <h3
             data-testid="roles-heading"
-            className="lg:ml-[25%]"
-            style={{ fontFamily: geist, fontWeight: 500, fontSize: 'clamp(28px, 3.8vw, 54px)', letterSpacing: '-0.03em', lineHeight: 1.08, color: INK, marginBottom: 0, marginTop: 'clamp(76px, 9vw, 132px)', maxWidth: '860px' }}
+            style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(19px, 2vw, 24px)', letterSpacing: '-0.015em', margin: '0 0 32px' }}
           >
             Research &amp; Engineering Roles - Interns &amp; Fresh Graduates
           </h3>
+
+          {/* Three groups — divider-separated passages, no boxes */}
+          <div style={{ borderTop: `1px solid ${LINE}` }}>
+            {roleCards.map((card, i) => (
+              <div
+                key={i}
+                data-testid={`role-card-${i}`}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10"
+                style={{ padding: '48px 0', borderBottom: `1px solid ${LINE}` }}
+              >
+                <div className="lg:col-span-4">
+                  <h4 style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(19px, 2vw, 23px)', letterSpacing: '-0.015em', lineHeight: 1.35, margin: 0, maxWidth: '360px' }}>
+                    {card.title}
+                  </h4>
+                </div>
+                <div className="lg:col-span-8">
+                  <ul className="space-y-3.5" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                    {card.items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-3.5">
+                        <span aria-hidden style={{ fontFamily: mono, fontSize: '13px', lineHeight: 1.6, color: FAINT, flexShrink: 0 }}>→</span>
+                        <span style={{ fontFamily: inter, fontSize: '15px', lineHeight: 1.65, color: INK }}>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ============ CAREER INFORMATION — one continuous candidature brief ============ */}
-      <section data-testid="career-brief-section" style={{ paddingBottom: '104px' }}>
+      {/* ============ SECTION 3 — OUR OFFICES (#f0f1f9) ============ */}
+      <section className="py-24" data-testid="office-locations-section">
         <div className="bb-container">
+          <h2 className="uppercase" style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(30px, 3.8vw, 52px)', letterSpacing: '-0.02em', lineHeight: 1.05, margin: '0 0 56px' }}>
+            Our Offices
+          </h2>
 
-          {/* Eligibility — narrow heading column, wider reading field */}
-          <div data-testid="role-card-0" className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8 gap-y-6">
-            <div className="lg:col-span-3">
-              <h4 style={{ fontFamily: geist, fontWeight: 500, fontSize: 'clamp(19px, 1.8vw, 23px)', lineHeight: 1.35, letterSpacing: '-0.015em', color: INK, margin: 0, maxWidth: '280px' }}>
-                {roleCards[0].title}
-              </h4>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-5">
-              <div aria-hidden style={{ width: '40px', height: '1px', background: LINE, marginBottom: '20px' }} />
-              <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-                {roleCards[0].items.map((item, j) => (
-                  <li key={j} style={{ ...bodyLine, padding: '8px 0' }}>{item}</li>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-14">
+            {offices.map((office) => (
+              <div key={office.id} data-testid={`location-card-${office.id}`} className="flex flex-col">
+                <h3 className="uppercase" style={{ fontFamily: geist, fontWeight: 600, fontSize: '21px', letterSpacing: '0.02em', color: INK, margin: 0 }}>
+                  {office.city}
+                </h3>
+                <p style={{ fontFamily: mono, fontSize: '10.5px', letterSpacing: '0.16em', textTransform: 'uppercase', color: FAINT, margin: '6px 0 20px' }}>{office.region}</p>
+
+                {office.company && (
+                  <p style={{ fontFamily: inter, fontSize: '14px', fontWeight: 600, color: INK, margin: '0 0 4px' }}>{office.company}</p>
+                )}
+                {office.lines.map((line, i) => (
+                  <p key={i} style={{ fontFamily: inter, fontSize: '14px', lineHeight: 1.7, color: MUTED, margin: 0 }}>{line}</p>
                 ))}
-              </ul>
-            </div>
-          </div>
 
-          {/* Hiring & onboarding — heading above, staggered indented two-column reading */}
-          <div data-testid="role-card-1" style={{ marginTop: 'clamp(84px, 9vw, 128px)' }}>
-            <h4 style={{ fontFamily: geist, fontWeight: 500, fontSize: 'clamp(19px, 1.8vw, 23px)', lineHeight: 1.4, letterSpacing: '-0.015em', color: INK, margin: 0, maxWidth: '680px' }}>
-              {roleCards[1].title}
-            </h4>
-            <div
-              className="grid grid-cols-1 md:grid-cols-2"
-              style={{ marginTop: '40px', columnGap: 'clamp(56px, 8vw, 140px)', rowGap: '34px', maxWidth: '980px' }}
-            >
-              {roleCards[1].items.map((item, j) => (
-                <p
-                  key={j}
-                  className={`${j % 2 === 1 ? 'md:mt-10 ' : ''}${hiringIndents[Math.floor(j / 2)]}`}
-                  style={{ ...bodyLine, maxWidth: '380px' }}
-                >
-                  {item}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          {/* What we offer — large typographic anchor, benefit cluster lower right */}
-          <div data-testid="role-card-2" className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8 gap-y-8" style={{ marginTop: 'clamp(92px, 10vw, 140px)' }}>
-            <div className="lg:col-span-5">
-              <h4 style={{ fontFamily: geist, fontWeight: 500, fontSize: 'clamp(34px, 4.4vw, 62px)', letterSpacing: '-0.03em', lineHeight: 1, color: INK, margin: 0 }}>
-                {roleCards[2].title}
-              </h4>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7" style={{ paddingTop: 'clamp(16px, 5vw, 84px)' }}>
-              {roleCards[2].items.map((item, j) => (
-                <p key={j} style={{ fontFamily: inter, fontSize: '17.5px', lineHeight: 1.75, color: '#232c4d', margin: 0, padding: '8px 0' }}>{item}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ OFFICES — geographic colophon ============ */}
-      <section data-testid="office-locations-section" style={{ paddingBottom: '116px' }}>
-        <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8 gap-y-10">
-            <div className="lg:col-span-2">
-              <div aria-hidden style={{ width: '40px', height: '1px', background: LINE, marginBottom: '24px' }} />
-              <h2
-                className="hidden lg:block"
-                style={{ fontFamily: geist, fontWeight: 500, fontSize: 'clamp(38px, 3.4vw, 54px)', letterSpacing: '0.02em', textTransform: 'uppercase', color: INK, margin: 0, writingMode: 'vertical-rl', transform: 'rotate(180deg)', lineHeight: 1 }}
-              >
-                Our Offices
-              </h2>
-              <h2
-                className="lg:hidden"
-                style={{ fontFamily: geist, fontWeight: 500, fontSize: 'clamp(32px, 6vw, 44px)', letterSpacing: '0.02em', textTransform: 'uppercase', color: INK, margin: 0, lineHeight: 1 }}
-              >
-                Our Offices
-              </h2>
-            </div>
-
-            <div className="lg:col-span-10">
-              <div className="grid grid-cols-1 lg:grid-cols-10 lg:gap-x-8">
-                {/* First Chennai office — upper middle */}
-                <div data-testid="location-card-besant-nagar" className="lg:col-span-3 lg:col-start-2">
-                  <h3 style={{ fontFamily: geist, fontWeight: 600, fontSize: '20px', letterSpacing: '0.02em', textTransform: 'uppercase', color: INK, margin: 0 }}>{offices[0].city}</h3>
-                  <p style={{ fontFamily: mono, fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: FAINT, margin: '6px 0 16px' }}>{offices[0].region}</p>
-                  {offices[0].lines.map((line, k) => (
-                    <p key={k} style={{ fontFamily: inter, fontSize: '14.5px', lineHeight: 1.7, color: MUTED, margin: 0 }}>{line}</p>
-                  ))}
-                  <a href={offices[0].mapUrl} target="_blank" rel="noopener noreferrer" data-testid="map-link-besant-nagar" className="hover:text-bb-accent transition-colors"
-                    style={{ display: 'inline-block', marginTop: '16px', fontFamily: geist, fontSize: '13.5px', fontWeight: 500, color: INK, textDecoration: 'underline', textUnderlineOffset: '5px', textDecorationThickness: '1px', textDecorationColor: '#a8a291' }}>
+                <div className="mt-auto pt-6">
+                  <a
+                    href={office.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={`map-link-${office.id}`}
+                    className="flex items-center justify-between hover:text-bb-accent transition-colors"
+                    style={{ borderTop: `1px solid ${LINE}`, paddingTop: '16px', fontFamily: geist, fontSize: '13.5px', fontWeight: 500, color: INK, textDecoration: 'none', minHeight: '44px' }}
+                  >
                     View on Google Maps
-                  </a>
-                </div>
-
-                {/* Second Chennai office — lower, farther right */}
-                <div data-testid="location-card-mandavelipakkam" className="lg:col-span-3 lg:col-start-7 mt-14 lg:mt-28 pl-5 lg:pl-0">
-                  <h3 style={{ fontFamily: geist, fontWeight: 600, fontSize: '20px', letterSpacing: '0.02em', textTransform: 'uppercase', color: INK, margin: 0 }}>{offices[1].city}</h3>
-                  <p style={{ fontFamily: mono, fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: FAINT, margin: '6px 0 16px' }}>{offices[1].region}</p>
-                  {offices[1].lines.map((line, k) => (
-                    <p key={k} style={{ fontFamily: inter, fontSize: '14.5px', lineHeight: 1.7, color: MUTED, margin: 0 }}>{line}</p>
-                  ))}
-                  <a href={offices[1].mapUrl} target="_blank" rel="noopener noreferrer" data-testid="map-link-mandavelipakkam" className="hover:text-bb-accent transition-colors"
-                    style={{ display: 'inline-block', marginTop: '16px', fontFamily: geist, fontSize: '13.5px', fontWeight: 500, color: INK, textDecoration: 'underline', textUnderlineOffset: '5px', textDecorationThickness: '1px', textDecorationColor: '#a8a291' }}>
-                    View on Google Maps
-                  </a>
-                </div>
-
-                {/* Newark — separate baseline */}
-                <div data-testid="location-card-newark-de" className="lg:col-span-4 lg:col-start-3 mt-14 lg:mt-24 pl-2 lg:pl-0">
-                  <h3 style={{ fontFamily: geist, fontWeight: 600, fontSize: '20px', letterSpacing: '0.02em', textTransform: 'uppercase', color: INK, margin: 0 }}>{offices[2].city}</h3>
-                  <p style={{ fontFamily: mono, fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: FAINT, margin: '6px 0 16px' }}>{offices[2].region}</p>
-                  <p style={{ fontFamily: inter, fontSize: '14px', fontWeight: 600, color: INK, margin: '0 0 4px' }}>{offices[2].company}</p>
-                  {offices[2].lines.map((line, k) => (
-                    <p key={k} style={{ fontFamily: inter, fontSize: '14.5px', lineHeight: 1.7, color: MUTED, margin: 0 }}>{line}</p>
-                  ))}
-                  <a href={offices[2].mapUrl} target="_blank" rel="noopener noreferrer" data-testid="map-link-newark-de" className="hover:text-bb-accent transition-colors"
-                    style={{ display: 'inline-block', marginTop: '16px', fontFamily: geist, fontSize: '13.5px', fontWeight: 500, color: INK, textDecoration: 'underline', textUnderlineOffset: '5px', textDecorationThickness: '1px', textDecorationColor: '#a8a291' }}>
-                    View on Google Maps
+                    <span aria-hidden style={{ fontFamily: mono }}>↗</span>
                   </a>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

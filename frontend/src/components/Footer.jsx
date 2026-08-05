@@ -16,9 +16,7 @@ const API = `${BACKEND_URL}/api`;
 
 const Footer = () => {
   const location = useLocation();
-  const isCareers = location.pathname === '/careers';
-  const footerBg = isCareers ? '#f5f3e9' : location.pathname === '/contact' ? '#f0f1f9' : '#e8eaf3';
-  const footerLine = isCareers ? '#d8d5ca' : '#d4d8e8';
+  const footerBg = location.pathname === '/contact' ? '#f0f1f9' : '#e8eaf3';
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -53,7 +51,7 @@ const Footer = () => {
     } finally { setLoading(false); }
   };
 
-  const footerInput = `bg-transparent border-0 border-b ${isCareers ? 'border-[#d8d5ca]' : 'border-[#d4d8e8]'} rounded-none px-0 h-11 text-[#0a1230] placeholder:text-[#8b93ad] focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-[#0a1230]`;
+  const footerInput = "bg-transparent border-0 border-b border-[#d4d8e8] rounded-none px-0 h-11 text-[#0a1230] placeholder:text-[#8b93ad] focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-[#0a1230]";
   const indexLabel = { fontFamily: 'IBM Plex Mono, monospace', fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8b93ad' };
   const indexLink = "text-[14px] text-[#0a1230] hover:text-bb-accent transition-colors";
 
@@ -120,7 +118,7 @@ const Footer = () => {
         </div>
 
         {/* Final baseline */}
-        <div className="mt-12 pt-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3" style={{ borderTop: `1px solid ${footerLine}` }}>
+        <div className="mt-12 pt-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3" style={{ borderTop: '1px solid #d4d8e8' }}>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '12.5px', color: '#4a5578', margin: 0 }}>©2026 BluBridge Technologies Private Limited. All rights reserved</p>
           <div className="flex flex-wrap gap-6">
             <Link to="/policies/privacy-policy" className="text-[13px] text-[#4a5578] hover:text-bb-accent transition-colors">Privacy Policy</Link>

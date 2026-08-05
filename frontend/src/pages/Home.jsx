@@ -663,17 +663,8 @@ const Home = () => {
           ============================================================ */}
       <section style={{ background: '#e8eaf3', paddingTop: '112px', paddingBottom: '128px' }} data-testid="work-with-blubridge">
         <div className="bb-container">
-          <div>
-            <img
-              src="/images/bluBridge-team.png"
-              alt="BluBridge Team"
-              className="w-full h-auto object-cover block"
-              style={{ display: 'block', maxWidth: '100%' }}
-            />
-          </div>
-
-          <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            <div className="lg:col-span-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-x-16 items-center">
+            <div className="lg:col-span-5">
               <h2
                 style={{
                   fontFamily: 'Geist, sans-serif',
@@ -687,40 +678,49 @@ const Home = () => {
               >
                 Work with BluBridge
               </h2>
-            </div>
-            <div className="lg:col-span-5">
               <p
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '16px',
                   lineHeight: 1.8,
                   color: '#2a3352',
-                  margin: 0,
-                  maxWidth: '520px',
+                  margin: '32px 0 0',
+                  maxWidth: '460px',
                 }}
               >
                 We are a small creative group driven by rigorous scientific thinking. Our work blends deep research with real-world execution, building AI models that are efficient, practical, and powerful, guided by both academic excellence and an agile, business-ready approach.
               </p>
+              <div style={{ marginTop: '40px' }}>
+                <Link
+                  to="/careers"
+                  data-testid="work-join-cta"
+                  className="inline-flex items-center gap-3 group"
+                  style={{
+                    background: '#0a1230',
+                    color: '#ffffff',
+                    fontFamily: 'Geist, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    padding: '14px 28px',
+                    borderRadius: '999px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Join us
+                  <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                </Link>
+              </div>
             </div>
-            <div className="lg:col-span-3 lg:flex lg:justify-end lg:pt-2">
-              <Link
-                to="/careers"
-                data-testid="work-join-cta"
-                className="inline-flex items-center gap-3 group"
-                style={{
-                  background: '#0a1230',
-                  color: '#ffffff',
-                  fontFamily: 'Geist, sans-serif',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  padding: '14px 28px',
-                  borderRadius: '999px',
-                  textDecoration: 'none',
-                }}
-              >
-                Join us
-                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-              </Link>
+
+            <div className="lg:col-span-7">
+              <div style={{ overflow: 'hidden', borderRadius: '2px' }}>
+                <img
+                  src="/images/bluBridge-team.png"
+                  alt="BluBridge Team"
+                  className="w-full block"
+                  style={{ aspectRatio: '4 / 3', objectFit: 'cover', transform: 'scale(1.14)' }}
+                />
+              </div>
             </div>
           </div>
         </div>
