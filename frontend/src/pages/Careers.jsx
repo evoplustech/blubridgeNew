@@ -5,18 +5,10 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
 const jobListings = [
-  { id: 1,  title: 'Administration Executive (Male)',                                      department: 'Operations',            team: 'Administration',        location: 'Chennai', slug: 'administration-executive-male' },
-  { id: 2,  title: 'HR Executive - Talent & People Operations',                            department: 'Human Resources',       team: 'People & Talent',       location: 'Chennai', slug: 'hr-executive-talent-people-operations' },
-  { id: 3,  title: 'Business Development - AI Strategy & Partnerships',                    department: 'Business Development',  team: 'Strategy',              location: 'Chennai', slug: 'business-development-ai-strategy' },
-  { id: 4,  title: 'HR Admin (Male)',                                                      department: 'Human Resources',       team: 'HR Operations',         location: 'Chennai', slug: 'hr-admin-male' },
-  { id: 5,  title: 'Senior Administration Officer (Male)',                                 department: 'Operations',            team: 'Administration',        location: 'Chennai', slug: 'senior-administration-officer-male' },
-  { id: 6,  title: 'Accounts And Compliance Executive (Male)',                             department: 'Finance',               team: 'Accounts & Compliance', location: 'Chennai', slug: 'accounts-compliance-executive' },
-  { id: 7,  title: 'AI ML Engineer (Freshers)',                                            department: 'Engineering',           team: 'Core ML',               location: 'Chennai', slug: 'ai-ml-engineer-freshers' },
-  { id: 8,  title: 'AI Systems Engineer - Deep Learning Infrastructure (Freshers)',        department: 'Engineering',           team: 'AI Infrastructure',     location: 'Chennai', slug: 'ai-systems-engineer-dl-infrastructure' },
-  { id: 9,  title: 'Accounts & Finance Executive - Operations & Compliance',               department: 'Finance',               team: 'Finance & Accounts',    location: 'Chennai', slug: 'accounts-finance-executive' },
-  { id: 10, title: 'Business Analyst - Global AI Strategy & Solutions',                    department: 'Business Development',  team: 'Strategy & Analytics',  location: 'Chennai', slug: 'business-analyst-ai-strategy' },
-  { id: 11, title: 'HR Executive (Male)',                                                  department: 'Human Resources',       team: 'Recruitment',           location: 'Chennai', slug: 'hr-executive-male' },
-  { id: 12, title: 'Infrastructure Monitoring & Governance Executive',                     department: 'IT & Security',         team: 'Infrastructure',        location: 'Chennai', slug: 'infrastructure-monitoring-governance' },
+  { id: 1, title: 'Data Science / AI ML Engineer',                          department: 'Research & Development',      team: 'Core ML',                location: 'Chennai', slug: 'data-science-ai-ml-engineer' },
+  { id: 2, title: 'Business Development - AI Strategy & Partnerships',      department: 'Business Development',        team: 'Strategy',               location: 'Chennai', slug: 'business-development-ai-strategy' },
+  { id: 3, title: 'Social Media Growth Manager (AI / Deep Tech)',           department: 'Marketing & Communication',   team: 'Brand & Digital Growth', location: 'Chennai', slug: 'social-media-growth-manager-ai-deep-tech' },
+  { id: 4, title: 'Social Media Growth Specialist - Freelancer',            department: 'Marketing & Communication',   team: 'Digital Marketing',      location: 'Chennai', slug: 'social-media-growth-specialist-freelancer' },
 ];
 
 const roleCards = [

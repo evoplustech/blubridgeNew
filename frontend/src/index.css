@@ -355,17 +355,85 @@ h1, h2, h3, h4, h5, h6 {
 .card-content-reveal { animation: slideReveal 0.4s ease-out forwards; }
 .duration-400 { transition-duration: 400ms; }
 
-/* ============ Custom cursor — circle with center dot ============ */
-html,
-body {
-  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='12.5' fill='rgba(255,255,255,0.25)' stroke='%230a1230' stroke-width='1'/%3E%3Ccircle cx='15' cy='15' r='2.2' fill='%230a1230'/%3E%3C/svg%3E") 15 15, auto;
+/* ============ Custom moving cursor — dot + trailing ring ============ */
+html.mscur-active,
+html.mscur-active *,
+html.mscur-active ::after,
+html.mscur-active ::before,
+html.mscur-active body {
+  cursor: none !important;
 }
 
-a,
-button,
-[role='button'],
-select,
-summary,
-label[for] {
-  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='12.5' fill='rgba(43,76,140,0.12)' stroke='%232b4c8c' stroke-width='1.2'/%3E%3Ccircle cx='15' cy='15' r='3' fill='%232b4c8c'/%3E%3C/svg%3E") 15 15, pointer;
+.mscur-dot,
+.mscur-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  mix-blend-mode: difference;
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+}
+
+.mscur-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: width 0.22s cubic-bezier(0.22, 1, 0.36, 1), height 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s, background-color 0.2s;
+}
+
+.mscur-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  transition: width 0.26s cubic-bezier(0.22, 1, 0.36, 1), height 0.26s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.22s, background-color 0.22s, opacity 0.22s;
+}
+
+.mscur-ring.is-hover {
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+}
+
+.mscur-dot.is-hover {
+  width: 4px;
+  height: 4px;
+}
+
+.mscur-ring.is-pressed {
+  width: 26px;
+  height: 26px;
+}
+
+.mscur-dot.is-pressed {
+  width: 8px;
+  height: 8px;
+}
+
+.mscur-dot.is-hidden,
+.mscur-ring.is-hidden {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mscur-dot,
+  .mscur-ring {
+    transition: opacity 0.12s;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  html.mscur-active,
+  html.mscur-active *,
+  html.mscur-active body {
+    cursor: auto !important;
+  }
+  .mscur-dot,
+  .mscur-ring {
+    display: none !important;
+  }
 }

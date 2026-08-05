@@ -57,6 +57,7 @@ import Government from './pages/solutions/industry/Government';
 import Legal from './pages/solutions/industry/Legal';
 import Healthcare from './pages/solutions/industry/Healthcare';
 import ScrollToTop from './components/ScrollToTop';
+import CustomCursor from './components/CustomCursor';
 
 // Contact Sub-pages
 import ContactSales from './pages/contact/Sales';
@@ -88,6 +89,7 @@ const AppLayout = () => {
   return (
     <>
       <ScrollToTop />
+      <CustomCursor />
       {!isAdminRoute && <Header />}
       <main className={isAdminRoute ? "" : "pt-32"} style={isAdminRoute ? {} : { paddingTop: "7rem" }}>
         <Routes>

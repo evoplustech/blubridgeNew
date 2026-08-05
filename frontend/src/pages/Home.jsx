@@ -717,8 +717,7 @@ const Home = () => {
                 <img
                   src="/images/blubridge-team-photo.png"
                   alt="BluBridge Team"
-                  className="w-full block"
-                  style={{ aspectRatio: '4 / 3', objectFit: 'cover' }}
+                  className="w-full h-auto block"
                 />
               </div>
             </div>

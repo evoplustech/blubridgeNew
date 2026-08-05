@@ -115,3 +115,9 @@ Apply full editorial redesign to:
 - Home "What we can do for you" redesigned (was accordion → now inline flowing title selector + indented reading stage, testids capability-toggle-0..4, capability-active-heading/description). Content verbatim.
 - Full frontend regression by testing agent iteration_13.json — 49/50 PASS (98%); footer form e2e 200; mobile 390px no h-scroll; only note is intentional (stage heading shows original tagline content). PENDING REGRESSION DEBT FROM PRIOR SESSION CLEARED.
 - Note: frontend-watcher (inotify) did not trigger; manual `yarn build && sudo supervisorctl restart frontend` was needed after src edits.
+
+## 2026-06 (fork 3) — Latest jobs sync + moving cursor
+- **Careers latest jobs**: Synced job listings with live blubridge.com/careers (4 open roles): Data Science / AI ML Engineer, Business Development - AI Strategy & Partnerships, Social Media Growth Manager (AI / Deep Tech), Social Media Growth Specialist - Freelancer. Rewrote `src/data/jobsData.js` with full detail content scraped from live site (exact content lock); updated `jobListings` in `Careers.jsx`. Old 12-job list removed (old slugs redirect to /careers via JobDetail Navigate fallback).
+- **Custom moving cursor** (ref: premium-ui-build-6 site): New `components/CustomCursor.jsx` mounted in App.js — instant 6px dot + 34px trailing ring (lerp 0.18, rAF), mix-blend-mode: difference, hover grow to 46px on interactive elements, pressed shrink, hidden on touch/coarse pointers. Replaced old static SVG data-URL cursor CSS in index.css with .mscur-* rules + `html.mscur-active { cursor: none }`.
+- NOTE: frontend-watcher inotify sometimes misses changes — run `yarn build` manually + `sudo supervisorctl restart frontend` if build stale.
+- Verified via screenshots: 4 job rows, new job detail page renders, cursor dot+ring trailing and hover states working.
