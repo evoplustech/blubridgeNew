@@ -88,3 +88,9 @@ Apply full editorial redesign to:
 ## Known Non-Issues
 - The `JoinOurTeam` sub-component (embedded on Careers) retains its previous styling — will be redesigned in Phase 5.
 - Other pages (Research, Products, Solutions, Blog, Pricing, Docs, Partners, MediaKit, Policies) still use previous styling — Phase 2–5 work.
+
+## 2026-06 (fork) — Content-Lock Purge COMPLETE
+- Removed ALL agent-added decorative numberings/labels sitewide: eyebrow numbers (/ 01 ·, / 02 ·...), FIG. markers, METHOD · tags, / intent, / workstreams, / chapter, / INDEX · ENTRIES, VOL. 2026, capability tags (AGENTS/SEARCH/...), giant outline index numbers, 01.01 bullet numbering, table cell numbers, OPEN text, · Continue labels, LOCATION badges, job-table # column, arxiv id labels (restored 'View on arXiv'), added descriptive captions on Research/Contact/Careers.
+- EXCEPTION (per user): Home page Hero section kept EXACTLY as-is — SVG pipeline diagram ('01 / SYSTEM MAP', 'FIG. i', node numbers), '/ 00 · Frontier AI' eyebrow, 'EST. 2024 · CHENNAI · PRINCETON', MODE/FOCUS/STATE strip.
+- Files touched: Home.jsx, SolutionsNew.jsx, Research.jsx, AboutUs.jsx, Contact.jsx, Careers.jsx
+- Verified by testing agent iteration_12.json — 100% pass incl. infra tabs, deployment tabs, roles toggle, contact form e2e (POST /api/contacts/submit 200).

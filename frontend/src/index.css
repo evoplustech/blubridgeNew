@@ -354,3 +354,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 .card-content-reveal { animation: slideReveal 0.4s ease-out forwards; }
 .duration-400 { transition-duration: 400ms; }
+
+/* ============ Custom cursor — circle with center dot ============ */
+html,
+body {
+  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='12.5' fill='rgba(255,255,255,0.25)' stroke='%230a1230' stroke-width='1'/%3E%3Ccircle cx='15' cy='15' r='2.2' fill='%230a1230'/%3E%3C/svg%3E") 15 15, auto;
+}
+
+a,
+button,
+[role='button'],
+select,
+summary,
+label[for] {
+  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='12.5' fill='rgba(43,76,140,0.12)' stroke='%232b4c8c' stroke-width='1.2'/%3E%3Ccircle cx='15' cy='15' r='3' fill='%232b4c8c'/%3E%3C/svg%3E") 15 15, pointer;
+}
