@@ -190,7 +190,7 @@ const AboutUs = () => {
           <p data-testid="our-mission-title" className="bb-eyebrow mb-10">Our Mission</p>
           <p
             data-testid="our-mission-description"
-            className="text-bb-ink max-w-[1080px]"
+            className="text-bb-ink max-w-[1225px]"
             style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.6vw, 34px)', fontWeight: 400, letterSpacing: '-0.015em', lineHeight: 1.45 }}
           >
             We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.
