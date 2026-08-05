@@ -80,7 +80,7 @@ const PassionTypingText = () => {
         data-testid="passion-heading"
         style={{
           fontFamily: 'Geist, Inter, sans-serif',
-          fontSize: 'clamp(54px, 1.6vw, 54px)',
+          fontSize: 'clamp(30px, 3.2vw, 46px)',
           fontWeight: 500,
           letterSpacing: '-0.025em',
           lineHeight: 1.05,
@@ -212,51 +212,53 @@ const AboutUs = () => {
           ============================================================ */}
       <section className="py-24" style={{ background: '#f0f1f9' }} data-testid="what-sets-us-apart-section">
         <div className="bb-container">
-          <div className="mb-16">
-            <h2 data-testid="what-sets-us-apart-heading" className="bb-h2 max-w-3xl" style={{ fontSize: 'clamp(36px, 4.5vw, 64px)' }}>
-              How We Build, Engineer and Validate
-            </h2>
-            <div className="mt-8">
-              <PassionTypingText />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-14 lg:gap-x-16">
+            {/* Sticky thesis rail — heading + Hunger/Precision statement */}
+            <div className="lg:col-span-5">
+              <div className="lg:sticky" style={{ top: '150px' }}>
+                <h2 data-testid="what-sets-us-apart-heading" className="bb-h2" style={{ fontSize: 'clamp(34px, 4vw, 56px)', maxWidth: '480px' }}>
+                  How We Build, Engineer and Validate
+                </h2>
+                <div aria-hidden style={{ width: '44px', height: '1px', background: '#d4d8e8', margin: '36px 0' }} />
+                <PassionTypingText />
+              </div>
             </div>
-          </div>
 
-          <div className="border-t border-bb-line">
-            {[
-              {
-                title: 'Our Purpose',
-                body: 'BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.'
-              },
-              {
-                title: 'How we Build',
-                body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.'
-              },
-              {
-                title: 'Innovation Through Rigor',
-                body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.'
-              },
-              {
-                title: 'Our People',
-                body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.'
-              }
-            ].map((block) => (
-              <article
-                key={block.title}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 py-10 border-b border-bb-line"
-              >
-                <div className="lg:col-span-4">
+            {/* Four passages — staggered editorial reading column */}
+            <div className="lg:col-span-7">
+              {[
+                {
+                  title: 'Our Purpose',
+                  body: 'BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.'
+                },
+                {
+                  title: 'How we Build',
+                  body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.'
+                },
+                {
+                  title: 'Innovation Through Rigor',
+                  body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.'
+                },
+                {
+                  title: 'Our People',
+                  body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.'
+                }
+              ].map((block, i) => (
+                <article
+                  key={block.title}
+                  className={i % 2 === 1 ? 'lg:pl-16' : ''}
+                  style={{ paddingTop: i === 0 ? '8px' : '64px' }}
+                >
                   <h3
                     className="text-bb-ink"
-                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em' }}
+                    style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em', margin: 0 }}
                   >
                     {block.title}
                   </h3>
-                </div>
-                <div className="lg:col-span-8">
-                  <p className="text-bb-ink-2 text-[15px] leading-[1.8] max-w-[680px]" style={{ fontFamily: 'Inter, sans-serif' }}>{block.body}</p>
-                </div>
-              </article>
-            ))}
+                  <p className="text-bb-ink-2 text-[15px] leading-[1.8] max-w-[560px]" style={{ fontFamily: 'Inter, sans-serif', margin: '18px 0 0' }}>{block.body}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

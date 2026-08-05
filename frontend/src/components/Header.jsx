@@ -119,7 +119,7 @@ const Header = () => {
             style={{ height: isScrolled ? '64px' : '76px', transition: 'height 240ms ease' }}
           >
             {/* Logo (untouched) */}
-            <Link to="/" className="relative flex items-center" style={{ width: '160px', height: '32px' }}>
+            <Link to="/" className="relative flex items-center" style={{ width: '225px', height: '31px' }}>
               <div
                 className="absolute inset-0 flex items-center"
                 style={{
@@ -129,7 +129,7 @@ const Header = () => {
                   pointerEvents: isScrolled ? 'none' : 'auto',
                 }}
               >
-                <img src="/images/blubridge-logo.svg" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain' }} />
+                <img src="/images/blubridge-logo.svg" alt="BluBridge" style={{ width: '225px', height: '31px', objectFit: 'contain' }} />
               </div>
               <div
                 className="absolute inset-0 flex items-center"
@@ -140,7 +140,7 @@ const Header = () => {
                   pointerEvents: isScrolled ? 'auto' : 'none',
                 }}
               >
-                <img src="/images/b-icon.png" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain' }} />
+                <img src="/images/b-icon.svg" alt="BluBridge" style={{ height: '31px', width: 'auto', objectFit: 'contain' }} />
               </div>
             </Link>
 

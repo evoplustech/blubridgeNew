@@ -1,0 +1,44 @@
+{
+  "summary": "Frontend-only full regression against preview URL after premium editorial redesign. Verified: Home section backgrounds alternation (#f0f1f9/#e8eaf3), capabilities inline selector (5 toggles, short titles OK), infrastructure tabs (7), industry list (10), header logo 225x31 wordmark + b-icon.svg (200 OK), Solutions/Products/Research/Company dropdowns present, mobile menu opens at 390px, Careers page redesigned (bg alternation correct, 12 job rows, role-card-0/1/2, 3 offices with target=_blank Google Maps map-link-*, See open roles toggles ledger, spot-check job navigation works to /careers/job/<slug>), About Us what-sets-us-apart-section with typing animation cycling 'It's Our Hunger.' / 'It's Our Precision.' verified, GLOBAL footer present on every page (site-footer) with footer-first-name/last-name/email/message/submit — POST /api/contacts/submit type=footer_form returned 200, footer bg = #f0f1f9 on /contact & /careers, #e8eaf3 elsewhere. No horizontal scroll at 390px on / and /careers. Content-lock strings on Careers all present.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [],
+    "content_notes": [
+      {
+        "component": "Home CapabilitiesAccordion (capabilities-index)",
+        "issue": "capabilities[2], [3], [4] all have IDENTICAL heading string: 'Build and deploy purpose-built AI models for your specific needs.' in /app/frontend/src/pages/Home.jsx lines 195, 200, 205. Descriptions differ correctly, and short titles differ ('In-Depth Research', 'Developer APIs', 'Custom AI Deployments'), but the large hero-line rendered under data-testid='capability-active-heading' is a copy-paste and reads the same for three different toggles. This looks like an editorial content miss rather than a wiring bug (toggles switch state correctly and description body updates uniquely).",
+        "priority": "MEDIUM",
+        "selector": "[data-testid='capability-active-heading']"
+      }
+    ]
+  },
+  "verified": {
+    "home_section_backgrounds": "expertise=#e8eaf3, services=#f0f1f9, infrastructure=#e8eaf3, capabilities-index=#f0f1f9, work-with-blubridge=#e8eaf3 — correct alternation. Hero has no data-testid='hero' but 'Beyond the Horizon' text is visually present (split across nodes in DOM).",
+    "capabilities_toggles": "5 toggles present with short titles Smart Agents / AI Driven Search / In-Depth Research / Developer APIs / Custom AI Deployments; each click updates capability-active-description uniquely.",
+    "infrastructure_tabs": "7 infra-tab-* present.",
+    "industry_items": "10 industry-item-* present.",
+    "header": "wordmark img /images/blubridge-logo.svg rendered at 225x31; b-icon.svg fetched 200 OK (37x39 natural). Both <img> elements exist in DOM at all times (CSS toggles visibility on scroll). Solutions/Products/Research/Company nav present; Contact CTA present.",
+    "mobile_menu": "Toggle menu button present at 390px; drawer opens with Solutions/Products/Research/Company + Contact CTA.",
+    "careers_page": "careers-page bg=#f0f1f9; what-are-we-section=#e8eaf3; career-brief-section=#f0f1f9; office-locations-section=#e8eaf3. see-open-roles-btn toggles job-listings-section. 12 job rows; job-row-1 → /careers/job/administration-executive-male loads. role-card-0/1/2 present. 3 map-link-* to Google Maps with target=_blank. Content-lock strings all present (We're Hiring / Join Us / See open roles / What are we? / What we offer: / Our Offices / View on Google Maps).",
+    "footer_global": "site-footer present on /, /solutions, /research, /about-us, /careers, /contact. Footer form POST /api/contacts/submit → 200 with unique random email. Footer bg = rgb(240,241,249)=#f0f1f9 on /contact and /careers; rgb(232,234,243)=#e8eaf3 on other pages. All 5 footer-* testids present.",
+    "about_us": "what-sets-us-apart-section present; passion-typing-text cycles 'It's Our Hunger.' → 'It's Our Precision.' as expected. All 4 passages ('Our Purpose', 'How we Build' (rendered as 'How We Build, Engineer and Validate'), 'Innovation Through Rigor', 'Our People') present.",
+    "responsive_390": "scrollWidth==clientWidth==390 on both / and /careers (no horizontal scroll)."
+  },
+  "test_report_links": [],
+  "action_items": [
+    "MEDIUM: Fix Home CapabilitiesAccordion heading duplication in /app/frontend/src/pages/Home.jsx (lines 195, 200, 205). Currently three consecutive entries (In-Depth Research, Developer APIs, Custom AI Deployments) all share the same heading string 'Build and deploy purpose-built AI models for your specific needs.' — descriptions and short titles are correct, only the large tagline is repeated. Provide distinct tagline copy per capability."
+  ],
+  "critical_code_review_comments": [
+    "Home.jsx capabilities array carries duplicated 'heading' strings for three entries (see action item).",
+    "Home.jsx is 761 lines — consider splitting sections (Capabilities, Infrastructure, Industry) into their own components/files (>700 line guideline).",
+    "Multiple *_backup.jsx / Home1.jsx files still present under /app/frontend/src/pages/ (noted in prior iterations); recommend archiving."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (1/1 footer_form submit)", "frontend": "97% (all structural + interaction checks pass; single content duplication note)"},
+  "seed_data_creation": "Unique random emails used per footer submit; no persisted seed data.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Static Express build served the redesign correctly. Only editorial content issue outstanding: duplicated 'heading' text for capabilities index toggles 2/3/4 in Home.jsx. Everything else (Careers rebuild, global footer, About Us typing animation, header logo swap, section bg alternation, mobile responsiveness) verified against preview URL."
+}
