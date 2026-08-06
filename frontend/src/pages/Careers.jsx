@@ -274,20 +274,6 @@ const Careers = () => {
                 We are a frontier AI research company building Large Language Models &amp; Domain Specific Models
               </p>
             </div>
-            <div className="cr-what-visual" aria-hidden="true">
-              <svg viewBox="0 0 420 260" fill="none">
-                <g className="cr-orbit">
-                  <ellipse cx="210" cy="130" rx="190" ry="78" stroke="#2b4c8c" strokeOpacity="0.22" strokeWidth="1" />
-                  <ellipse cx="210" cy="130" rx="150" ry="58" stroke="#2b4c8c" strokeOpacity="0.16" strokeWidth="1" strokeDasharray="3 6" />
-                  <ellipse cx="210" cy="130" rx="104" ry="38" stroke="#2b4c8c" strokeOpacity="0.28" strokeWidth="1" />
-                </g>
-                <circle cx="210" cy="130" r="4" fill="#0a1230" />
-                <circle className="cr-orbit-dot cr-orbit-dot-1" cx="400" cy="130" r="4.5" fill="#2b4c8c" />
-                <circle className="cr-orbit-dot cr-orbit-dot-2" cx="106" cy="164" r="3.5" fill="#8fa3dc" />
-                <line x1="210" y1="130" x2="392" y2="72" stroke="#2b4c8c" strokeOpacity="0.25" strokeWidth="1" />
-                <circle cx="392" cy="72" r="3" fill="#2b4c8c" fillOpacity="0.6" />
-              </svg>
-            </div>
           </div>
 
           <h3 data-testid="roles-heading" className="cr-roles-heading">
