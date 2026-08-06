@@ -54,3 +54,10 @@
 ## 2026-08-06 (fork 2, cont.) — Contact details updated
 - USA office corrected to: BLUBRIDGE INC, 254 Chapman Rd, STE 208 #28314, Newark, Delaware 19702 USA (+ updated maps link).
 - Added X (Twitter) channel card below LinkedIn: x.com/BlubridgeAI → https://x.com/BlubridgeAI (testid channel-twitter). Verified via screenshot.
+
+## 2026-08-06 (fork 2, cont.) — batch: careers, footer, home industry, logo, spacing
+- Careers page rebuilt: hero kept then restyled per violet reference (lavender bg + purple glow, white WE'RE HIRING pill, bold Join Us + gradient underline, violet See open roles pill — toggle/jobs logic intact); offices section moved BELOW hero in screenshot-1 design (our navy theme: MapPin tiles, centered columns w/ dividers, Let's Connect dark rounded bar w/ phone/careers@blubridge.com/LinkedIn/X); "What are we?" re-laid out per screenshot-3 (heading+desc left, animated navy orbital SVG right, roles heading, 3 icon columns with dividers) — ALL existing content preserved (job rows verified = 4).
+- Footer.jsx replaced globally with exact copy of premium-pages-ui footer (logo col, Product/Pages/Connect, Contact Us mini-form wired to existing /api/contacts/submit footer_form + toasts, privacy note, © bar with Privacy Policy/Terms Of Use).
+- Home "By Industry" replaced with exact reference copy (fx-label big label row, fxi-grid 2-col bordered cells 01-10, hover #ffffff73, testids expertise-telco…expertise-construction-infra). fxi/fx-head CSS added.
+- ORIGINAL BluBridge vector logo restored from git (aa726a5) after it was accidentally overwritten by reference's plain-text SVG — header+footer both use /images/blubridge-logo.svg.
+- Removed gap between industry grid and By Services (fx-industry margin 0, bys-scope marginTop 0) and set services section bg to #f0f1f9 per user annotation.

@@ -83,113 +83,26 @@ const industries = [
 ];
 
 const ExpertiseSection = () => {
-  const INK = '#0a1230';
-  const MUTE = '#5c6684';
-  const ACCENT = '#2b4c8c';
-  const RULE = 'rgba(10, 18, 48, 0.10)';
-
+  const slugs = ['telco', 'finance-insurance', 'education', 'legal', 'software-technology', 'manufacturing', 'government', 'healthcare', 'oil-gas', 'construction-infra'];
   return (
-    <section
-      className="relative pt-24 pb-24 overflow-hidden"
-      style={{ background: '#e8eaf3' }}
-      data-testid="frontier-expertise-section"
-      aria-labelledby="frontier-expertise-heading"
-    >
+    <section className="fx-section" style={{ paddingBottom: '72px' }} data-testid="frontier-expertise-section" aria-labelledby="frontier-expertise-heading">
       <div className="bb-container">
-        {/* Heading */}
-        <h2
-          id="frontier-expertise-heading"
-          style={{
-            fontFamily: 'Geist, sans-serif',
-            fontSize: 'clamp(34px, 4.4vw, 56px)',
-            fontWeight: 600,
-            letterSpacing: '-0.028em',
-            lineHeight: 1.05,
-            color: INK,
-            margin: 0,
-          }}
-        >
-          Our Frontier AI Expertise
-        </h2>
-
-        {/* By Industry label row */}
-        <div className="flex items-center gap-4 mt-10 mb-4" data-testid="frontier-industries">
-          <h3
-            style={{
-              fontFamily: 'Geist, sans-serif',
-              fontSize: '17px',
-              fontWeight: 600,
-              color: INK,
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            <span>By </span>
-            <span style={{ color: ACCENT }}>Industry</span>
-          </h3>
-          <span aria-hidden style={{ flex: 1, height: '1px', background: RULE }} />
+        <div className="fx-head">
+          <h2 id="frontier-expertise-heading" className="fx-heading">Our Frontier AI Expertise</h2>
         </div>
-
-        {/* 2-column × 5-row compact list (Ref 2 layout) */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2"
-          data-testid="industry-grid"
-          style={{ columnGap: '20px' }}
-        >
-          {industries.map((ind, i) => {
-            const testid = `expertise-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`;
-            return (
-              <div
-                key={ind.title}
-                tabIndex={0}
-                data-testid={testid}
-                className="group relative flex items-center gap-5 transition-colors rounded"
-                style={{
-                  padding: '18px 20px',
-                  borderBottom: `1px solid ${RULE}`,
-                  cursor: 'default',
-                  background: 'transparent',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(218,225,248,0.6)';
-                  e.currentTarget.querySelector('.fxi-name').style.color = ACCENT;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.querySelector('.fxi-name').style.color = INK;
-                }}
-              >
-                <span
-                  aria-hidden
-                  style={{
-                    fontFamily: 'IBM Plex Mono, monospace',
-                    fontSize: '11px',
-                    letterSpacing: '0.08em',
-                    color: MUTE,
-                    fontWeight: 500,
-                    width: '20px',
-                    flexShrink: 0,
-                  }}
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span
-                  className="fxi-name"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '16.5px',
-                    fontWeight: 500,
-                    letterSpacing: '-0.005em',
-                    lineHeight: 1.3,
-                    color: INK,
-                    transition: 'color 180ms ease',
-                  }}
-                >
-                  {ind.title}
-                </span>
+        <div className="fx-industry" style={{ marginBottom: 0 }} data-testid="frontier-industries">
+          <div className="fx-label-row">
+            <h3 className="fx-label"><span className="fx-label-prefix">By</span> <span className="fx-label-accent">Industry</span></h3>
+            <span className="fx-label-rule" aria-hidden="true"></span>
+          </div>
+          <div className="fxi-grid" data-testid="industry-grid">
+            {industries.map((ind, i) => (
+              <div key={ind.title} className="fxi-cell" tabIndex={0} data-testid={`expertise-${slugs[i]}`}>
+                <span className="fxi-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <span className="fxi-name">{ind.title}</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -422,9 +335,9 @@ const Home = () => {
       {/* ============================================================
           SECTION 3 — BY SERVICES (exact copy from premium-pages-ui reference)
           ============================================================ */}
-      <section style={{ background: '#e8eaf4', padding: '0 0 112px', overflow: 'hidden' }} data-testid="services-section">
+      <section style={{ background: '#f0f1f9', padding: '0 0 112px', overflow: 'hidden' }} data-testid="services-section">
         <div className="bb-container">
-          <div className="fx-services bys-scope" data-testid="frontier-services">
+          <div className="fx-services bys-scope" style={{ marginTop: 0 }} data-testid="frontier-services">
             <span className="bys-bg-lines" aria-hidden="true"></span>
             <div className="fx-label-row bys-label-row">
               <h3 className="fx-label"><span className="fx-label-prefix">By</span> <span className="fx-label-accent">Services</span></h3>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MapPin, Phone, Mail, Linkedin, Twitter, GraduationCap, Users, Sparkles } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
@@ -13,6 +13,7 @@ const jobListings = [
 
 const roleCards = [
   {
+    Icon: GraduationCap,
     title: 'Eligibility criteria for research & engineering positions',
     items: [
       'Mathematics,',
@@ -23,6 +24,7 @@ const roleCards = [
     ],
   },
   {
+    Icon: Users,
     title: 'Hiring & Onboarding Process for research & engineering role, once an “invite” is received:',
     items: [
       'Logical, aptitude, mathematics & programming (3-5 rounds),',
@@ -33,6 +35,7 @@ const roleCards = [
     ],
   },
   {
+    Icon: Sparkles,
     title: 'What we offer:',
     items: [
       'A space in AI field like none other in the country,',
@@ -68,6 +71,13 @@ const offices = [
   },
 ];
 
+const connectChannels = [
+  { label: 'Phone',       value: '+91 8925987250',                 href: 'tel:+91 8925987250',                          Icon: Phone,    testId: 'connect-phone' },
+  { label: 'Email',       value: 'careers@blubridge.com',          href: 'mailto:careers@blubridge.com',                 Icon: Mail,     testId: 'connect-email' },
+  { label: 'LinkedIn',    value: 'linkedin.com/company/blubridge', href: 'https://www.linkedin.com/company/blubridge/', Icon: Linkedin, testId: 'connect-linkedin' },
+  { label: 'X (Twitter)', value: 'x.com/BlubridgeAI',              href: 'https://x.com/BlubridgeAI',                    Icon: Twitter,  testId: 'connect-twitter' },
+];
+
 const INK = '#0a1230';
 const MUTED = '#3f4966';
 const FAINT = '#7c86a2';
@@ -86,30 +96,56 @@ const Careers = () => {
   return (
     <div style={{ background: '#f0f1f9' }} data-testid="careers-page">
 
-      {/* ============ SECTION 1 — HERO (#f0f1f9) ============ */}
-      <section data-testid="careers-masthead" style={{ paddingTop: '64px', paddingBottom: '96px' }}>
-        <div className="bb-container">
+      {/* ============ SECTION 1 — HERO (violet reference design) ============ */}
+      <section
+        data-testid="careers-masthead"
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          paddingTop: '72px',
+          paddingBottom: '96px',
+          background: 'radial-gradient(ellipse 40% 55% at 88% 18%, rgba(167, 139, 250, 0.28), transparent 70%), radial-gradient(ellipse 30% 40% at 8% 90%, rgba(196, 181, 253, 0.18), transparent 70%), #f4f3fb',
+        }}
+      >
+        {/* decorative marks */}
+        <span aria-hidden style={{ position: 'absolute', top: '18px', left: '31%', width: '30px', height: '30px', border: '1.5px solid #1f2330', borderRadius: '50%' }} />
+        <span aria-hidden style={{ position: 'absolute', top: '48px', left: '25.5%', width: '5px', height: '5px', background: '#1f2330', borderRadius: '50%' }} />
+
+        <div className="bb-container" style={{ position: 'relative' }}>
           <span
             data-testid="hiring-badge"
             className="inline-flex items-center gap-2"
-            style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: MUTED }}
+            style={{
+              background: '#ffffff',
+              borderRadius: '999px',
+              boxShadow: '0 6px 18px -8px rgba(88, 63, 200, 0.35)',
+              padding: '10px 18px',
+              fontFamily: inter,
+              fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: '#6d28d9',
+            }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-bb-accent animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
             We're Hiring
           </span>
 
           <h1
             data-testid="join-us-title"
-            style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(56px, 9vw, 140px)', lineHeight: 0.95, letterSpacing: '-0.04em', margin: '32px 0 0' }}
+            style={{ fontFamily: geist, fontWeight: 700, color: '#181c2a', fontSize: 'clamp(56px, 9vw, 130px)', lineHeight: 0.95, letterSpacing: '-0.04em', margin: '40px 0 0' }}
           >
             Join Us
           </h1>
 
-          <div aria-hidden style={{ marginTop: '40px', borderTop: `1px solid ${LINE}` }} />
+          <span aria-hidden style={{ display: 'block', width: '88px', height: '3px', borderRadius: '2px', marginTop: '30px', background: 'linear-gradient(90deg, #8b5cf6, #ec4899)' }} />
 
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+          <div aria-hidden style={{ marginTop: '44px', borderTop: '1px solid #dcdaeb' }} />
+
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <h2 style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(26px, 3vw, 40px)', letterSpacing: '-0.02em', lineHeight: 1.2, margin: 0 }}>
+              <h2 style={{ fontFamily: geist, fontWeight: 400, color: '#2b3040', fontSize: 'clamp(19px, 1.8vw, 24px)', letterSpacing: '-0.01em', lineHeight: 1.45, margin: 0, maxWidth: '520px' }}>
                 We Build Intelligence from First Principles, with Precision and Purpose.
               </h2>
             </div>
@@ -117,8 +153,18 @@ const Careers = () => {
               <button
                 onClick={() => setShowJobListings(!showJobListings)}
                 data-testid="see-open-roles-btn"
-                className="inline-flex items-center gap-2.5 rounded-full text-white transition-colors hover:bg-[#172449]"
-                style={{ background: INK, fontFamily: geist, fontSize: '14px', fontWeight: 500, padding: '14px 28px', minHeight: '44px' }}
+                className="inline-flex items-center gap-2.5 rounded-full text-white transition-colors"
+                style={{
+                  background: '#8b5cf6',
+                  boxShadow: '0 14px 30px -12px rgba(124, 58, 237, 0.55)',
+                  fontFamily: geist,
+                  fontSize: '14.5px',
+                  fontWeight: 600,
+                  padding: '15px 30px',
+                  minHeight: '48px',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = '#7c4ce8'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = '#8b5cf6'; }}
               >
                 See open roles
                 <ChevronDown size={16} style={{ transition: 'transform 300ms ease', transform: showJobListings ? 'rotate(180deg)' : 'rotate(0)' }} />
@@ -163,94 +209,108 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* ============ SECTION 2 — WHAT ARE WE? + CANDIDATURE BRIEF (#e8eaf3) ============ */}
-      <section className="pt-28 pb-28" style={{ background: '#e8eaf3' }} data-testid="what-are-we-section">
+      {/* ============ SECTION 2 — OUR OFFICES + LET'S CONNECT (below hero, screenshot-1 design, our theme) ============ */}
+      <section className="cr-offices" data-testid="office-locations-section">
         <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start mb-14">
-            <div className="lg:col-span-4">
-              <h2 style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(30px, 3.6vw, 48px)', letterSpacing: '-0.025em', lineHeight: 1.05, margin: 0 }}>
-                What are we?
-              </h2>
-            </div>
-            <div className="lg:col-span-8 lg:pt-2">
-              <p style={{ fontFamily: inter, fontSize: '17px', lineHeight: 1.75, color: INK, margin: 0, maxWidth: '620px' }}>
-                We are a frontier AI research company building Large Language Models &amp; Domain Specific Models
-              </p>
-            </div>
-          </div>
+          <h2 className="cr-offices-title">Our Offices</h2>
 
-          <h3
-            data-testid="roles-heading"
-            style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(19px, 2vw, 24px)', letterSpacing: '-0.015em', margin: '0 0 32px' }}
-          >
-            Research &amp; Engineering Roles - Interns &amp; Fresh Graduates
-          </h3>
-
-          {/* Three groups — divider-separated passages, no boxes */}
-          <div style={{ borderTop: `1px solid ${LINE}` }}>
-            {roleCards.map((card, i) => (
-              <div
-                key={i}
-                data-testid={`role-card-${i}`}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10"
-                style={{ padding: '48px 0', borderBottom: `1px solid ${LINE}` }}
-              >
-                <div className="lg:col-span-4">
-                  <h4 style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(19px, 2vw, 23px)', letterSpacing: '-0.015em', lineHeight: 1.35, margin: 0, maxWidth: '360px' }}>
-                    {card.title}
-                  </h4>
-                </div>
-                <div className="lg:col-span-8">
-                  <ul className="space-y-3.5" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-                    {card.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-3.5">
-                        <span aria-hidden style={{ fontFamily: mono, fontSize: '13px', lineHeight: 1.6, color: FAINT, flexShrink: 0 }}>→</span>
-                        <span style={{ fontFamily: inter, fontSize: '15px', lineHeight: 1.65, color: INK }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div className="cr-off-row">
+            {offices.map((office) => (
+              <div key={office.id} data-testid={`location-card-${office.id}`} className="cr-off-col">
+                <span className="cr-off-pin" aria-hidden="true"><MapPin strokeWidth={1.5} /></span>
+                <h3 className="cr-off-city">{office.city}, {office.region.split(', ')[1] === 'IN' ? 'India' : 'USA'}</h3>
+                <p className="cr-off-region">{office.region}</p>
+                {office.company && <p className="cr-off-company">{office.company}</p>}
+                <p className="cr-off-lines">
+                  {office.lines.map((line, i) => (
+                    <React.Fragment key={i}>{line}{i < office.lines.length - 1 && <br />}</React.Fragment>
+                  ))}
+                </p>
+                <a
+                  href={office.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid={`map-link-${office.id}`}
+                  className="cr-off-map group"
+                >
+                  View on Google Maps
+                  <span aria-hidden style={{ fontFamily: mono, transition: 'transform 200ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                </a>
               </div>
             ))}
+          </div>
+
+          {/* Let's Connect bar */}
+          <div className="cr-connect" data-testid="lets-connect-bar">
+            <div className="cr-connect-intro">
+              <h3 className="cr-connect-title">Let's Connect</h3>
+              <p className="cr-connect-sub">We are always open to conversations with exceptional minds.</p>
+            </div>
+            <div className="cr-connect-channels">
+              {connectChannels.map((c) => (
+                <a
+                  key={c.testId}
+                  href={c.href}
+                  target={c.href.startsWith('http') ? '_blank' : undefined}
+                  rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  data-testid={c.testId}
+                  className="cr-connect-item"
+                >
+                  <span className="cr-connect-icon" aria-hidden="true"><c.Icon strokeWidth={1.6} /></span>
+                  <span className="cr-connect-text">
+                    <span className="cr-connect-label">{c.label}</span>
+                    <span className="cr-connect-value">{c.value}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ============ SECTION 3 — OUR OFFICES (#f0f1f9) ============ */}
-      <section className="py-24" data-testid="office-locations-section">
+      {/* ============ SECTION 3 — WHAT ARE WE? (screenshot-3 design, existing content) ============ */}
+      <section className="cr-what" data-testid="what-are-we-section">
         <div className="bb-container">
-          <h2 className="uppercase" style={{ fontFamily: geist, fontWeight: 500, color: INK, fontSize: 'clamp(30px, 3.8vw, 52px)', letterSpacing: '-0.02em', lineHeight: 1.05, margin: '0 0 56px' }}>
-            Our Offices
-          </h2>
+          <div className="cr-what-head">
+            <div className="cr-what-head-left">
+              <h2 className="cr-what-title">What are we?</h2>
+              <p className="cr-what-desc">
+                We are a frontier AI research company building Large Language Models &amp; Domain Specific Models
+              </p>
+            </div>
+            <div className="cr-what-visual" aria-hidden="true">
+              <svg viewBox="0 0 420 260" fill="none">
+                <g className="cr-orbit">
+                  <ellipse cx="210" cy="130" rx="190" ry="78" stroke="#2b4c8c" strokeOpacity="0.22" strokeWidth="1" />
+                  <ellipse cx="210" cy="130" rx="150" ry="58" stroke="#2b4c8c" strokeOpacity="0.16" strokeWidth="1" strokeDasharray="3 6" />
+                  <ellipse cx="210" cy="130" rx="104" ry="38" stroke="#2b4c8c" strokeOpacity="0.28" strokeWidth="1" />
+                </g>
+                <circle cx="210" cy="130" r="4" fill="#0a1230" />
+                <circle className="cr-orbit-dot cr-orbit-dot-1" cx="400" cy="130" r="4.5" fill="#2b4c8c" />
+                <circle className="cr-orbit-dot cr-orbit-dot-2" cx="106" cy="164" r="3.5" fill="#8fa3dc" />
+                <line x1="210" y1="130" x2="392" y2="72" stroke="#2b4c8c" strokeOpacity="0.25" strokeWidth="1" />
+                <circle cx="392" cy="72" r="3" fill="#2b4c8c" fillOpacity="0.6" />
+              </svg>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-14">
-            {offices.map((office) => (
-              <div key={office.id} data-testid={`location-card-${office.id}`} className="flex flex-col">
-                <h3 className="uppercase" style={{ fontFamily: geist, fontWeight: 600, fontSize: '21px', letterSpacing: '0.02em', color: INK, margin: 0 }}>
-                  {office.city}
-                </h3>
-                <p style={{ fontFamily: mono, fontSize: '10.5px', letterSpacing: '0.16em', textTransform: 'uppercase', color: FAINT, margin: '6px 0 20px' }}>{office.region}</p>
+          <h3 data-testid="roles-heading" className="cr-roles-heading">
+            Research &amp; Engineering Roles - Interns &amp; Fresh Graduates
+          </h3>
 
-                {office.company && (
-                  <p style={{ fontFamily: inter, fontSize: '14px', fontWeight: 600, color: INK, margin: '0 0 4px' }}>{office.company}</p>
-                )}
-                {office.lines.map((line, i) => (
-                  <p key={i} style={{ fontFamily: inter, fontSize: '14px', lineHeight: 1.7, color: MUTED, margin: 0 }}>{line}</p>
-                ))}
-
-                <div className="mt-auto pt-6">
-                  <a
-                    href={office.mapUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid={`map-link-${office.id}`}
-                    className="flex items-center justify-between hover:text-bb-accent transition-colors"
-                    style={{ borderTop: `1px solid ${LINE}`, paddingTop: '16px', fontFamily: geist, fontSize: '13.5px', fontWeight: 500, color: INK, textDecoration: 'none', minHeight: '44px' }}
-                  >
-                    View on Google Maps
-                    <span aria-hidden style={{ fontFamily: mono }}>↗</span>
-                  </a>
-                </div>
+          <div className="cr-what-cols">
+            {roleCards.map((card, i) => (
+              <div key={i} data-testid={`role-card-${i}`} className="cr-what-col">
+                <span className="cr-what-icon" aria-hidden="true"><card.Icon strokeWidth={1.5} /></span>
+                <h4 className="cr-what-col-title">{card.title}</h4>
+                <ul className="cr-what-list">
+                  {card.items.map((item, j) => (
+                    <li key={j} className="cr-what-item">
+                      <span aria-hidden className="cr-what-bullet"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
