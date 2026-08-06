@@ -292,9 +292,8 @@ export default function SolutionsNew() {
               </div>
             </div>
           </div>
-          <div className="sxp-foot sxp-reveal sxp-d3">
+          <div className="sxp-foot sxp-reveal sxp-d3 sxp-foot-raised">
             <Link className="sxh-cta" data-testid="deployment-talk-cta" to="/contact" style={{ fontSize: '16px', minHeight: '56px', padding: '1.1rem 2.2rem' }}>Talk to Us <span aria-hidden="true" className="sxh-cta-arrow" style={{ fontFamily: '"IBM Plex Mono"' }}>↗</span></Link>
-            <span className="sxp-foot-rule" aria-hidden="true"></span>
           </div>
         </div>
       </section>
