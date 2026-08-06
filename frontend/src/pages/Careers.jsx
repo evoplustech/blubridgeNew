@@ -104,13 +104,9 @@ const Careers = () => {
           overflow: 'hidden',
           paddingTop: '72px',
           paddingBottom: '96px',
-          background: 'radial-gradient(ellipse 40% 55% at 88% 18%, rgba(167, 139, 250, 0.28), transparent 70%), radial-gradient(ellipse 30% 40% at 8% 90%, rgba(196, 181, 253, 0.18), transparent 70%), #f4f3fb',
+          background: 'radial-gradient(ellipse 40% 55% at 88% 18%, rgba(43, 76, 140, 0.22), transparent 70%), radial-gradient(ellipse 30% 40% at 8% 90%, rgba(43, 76, 140, 0.12), transparent 70%), #f0f1f9',
         }}
       >
-        {/* decorative marks */}
-        <span aria-hidden style={{ position: 'absolute', top: '18px', left: '31%', width: '30px', height: '30px', border: '1.5px solid #1f2330', borderRadius: '50%' }} />
-        <span aria-hidden style={{ position: 'absolute', top: '48px', left: '25.5%', width: '5px', height: '5px', background: '#1f2330', borderRadius: '50%' }} />
-
         <div className="bb-container" style={{ position: 'relative' }}>
           <span
             data-testid="hiring-badge"
@@ -118,17 +114,17 @@ const Careers = () => {
             style={{
               background: '#ffffff',
               borderRadius: '999px',
-              boxShadow: '0 6px 18px -8px rgba(88, 63, 200, 0.35)',
+              boxShadow: '0 6px 18px -8px rgba(10, 18, 48, 0.35)',
               padding: '10px 18px',
               fontFamily: inter,
               fontSize: '12px',
               fontWeight: 700,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#6d28d9',
+              color: '#0a1230',
             }}
           >
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#2b4c8c' }} />
             We're Hiring
           </span>
 
@@ -139,7 +135,7 @@ const Careers = () => {
             Join Us
           </h1>
 
-          <span aria-hidden style={{ display: 'block', width: '88px', height: '3px', borderRadius: '2px', marginTop: '30px', background: 'linear-gradient(90deg, #8b5cf6, #ec4899)' }} />
+          <span aria-hidden style={{ display: 'block', width: '88px', height: '3px', borderRadius: '2px', marginTop: '30px', background: 'linear-gradient(90deg, #0a1230, #2b4c8c)' }} />
 
           <div aria-hidden style={{ marginTop: '44px', borderTop: '1px solid #dcdaeb' }} />
 
@@ -149,22 +145,22 @@ const Careers = () => {
                 We Build Intelligence from First Principles, with Precision and Purpose.
               </h2>
             </div>
-            <div className="lg:col-span-5 flex lg:justify-end">
+            <div className="lg:col-span-5 flex items-center lg:justify-end">
               <button
                 onClick={() => setShowJobListings(!showJobListings)}
                 data-testid="see-open-roles-btn"
                 className="inline-flex items-center gap-2.5 rounded-full text-white transition-colors"
                 style={{
-                  background: '#8b5cf6',
-                  boxShadow: '0 14px 30px -12px rgba(124, 58, 237, 0.55)',
+                  background: '#0a1230',
+                  boxShadow: '0 14px 30px -12px rgba(10, 18, 48, 0.55)',
                   fontFamily: geist,
                   fontSize: '14.5px',
                   fontWeight: 600,
                   padding: '15px 30px',
                   minHeight: '48px',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = '#7c4ce8'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = '#8b5cf6'; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = '#2b4c8c'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = '#0a1230'; }}
               >
                 See open roles
                 <ChevronDown size={16} style={{ transition: 'transform 300ms ease', transform: showJobListings ? 'rotate(180deg)' : 'rotate(0)' }} />
