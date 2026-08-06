@@ -494,17 +494,16 @@ const Home = () => {
             <h2
               style={{
                 fontFamily: 'Geist, sans-serif',
-                fontSize: '27px',
-                fontWeight: 600,
-                letterSpacing: '0.04em',
+                fontSize: 'clamp(44px, 6vw, 92px)',
+                fontWeight: 500,
+                letterSpacing: '-0.035em',
+                lineHeight: 0.98,
                 color: '#0a1230',
                 margin: 0,
-                whiteSpace: 'nowrap',
               }}
             >
-              BY SERVICES
+              By Services
             </h2>
-            <span aria-hidden style={{ display: 'block', width: '56px', height: '2px', background: '#0a1230', marginTop: '14px' }} />
           </div>
 
           {(() => {
@@ -529,123 +528,82 @@ const Home = () => {
               },
             ];
             const INK = '#0a1230';
-            const BG = '#f0f1f9';
+            const RULE = '#8b93ad';
             return (
-              <div className="mt-16 lg:mt-20">
-                {/* Row 1 — top dashes + headings (min-height keeps titles baseline-aligned) */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:gap-12">
-                  {services.map((s) => (
-                    <div key={`h-${s.title}`} className="relative" data-testid={s.testid}>
-                      {/* Top hairline dash */}
-                      <span
-                        aria-hidden
-                        style={{ display: 'block', width: '58px', height: '1px', background: INK, marginBottom: '26px' }}
-                      />
+              <div
+                className="mt-12 lg:mt-16"
+                style={{ borderTop: `1px solid ${RULE}` }}
+                data-testid="services-list"
+              >
+                {services.map((s) => (
+                  <Link
+                    key={s.title}
+                    to={s.link}
+                    data-testid={s.testid}
+                    className="group block relative no-underline"
+                    style={{
+                      borderBottom: `1px solid ${RULE}`,
+                      padding: 'clamp(36px, 4.6vw, 68px) 0',
+                      color: INK,
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
+                      {/* Heading — left half */}
                       <h3
+                        className="col-span-12 lg:col-span-6"
                         style={{
                           fontFamily: 'Geist, sans-serif',
-                          fontSize: 'clamp(36px, 3.6vw, 54px)',
-                          fontWeight: 600,
+                          fontSize: 'clamp(36px, 4.2vw, 64px)',
+                          fontWeight: 500,
                           letterSpacing: '-0.03em',
-                          lineHeight: 1.02,
+                          lineHeight: 1,
                           color: INK,
                           margin: 0,
-                          maxWidth: '340px',
-                          minHeight: 'clamp(80px, 7.4vw, 112px)',
+                          transition: 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)',
                         }}
                       >
-                        {s.title}
+                        <span
+                          className="inline-block group-hover:translate-x-2"
+                          style={{ transition: 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)' }}
+                        >
+                          {s.title}
+                        </span>
                       </h3>
-                    </div>
-                  ))}
-                </div>
 
-                {/* Row 2 — continuous timeline hairline with two joint circle nodes */}
-                <div
-                  aria-hidden
-                  className="relative hidden lg:grid grid-cols-3"
-                  style={{ marginTop: '18px', marginBottom: '36px', height: '18px' }}
-                >
-                  {/* Full-width hairline */}
-                  <div
-                    className="absolute left-0 right-0"
-                    style={{ top: '50%', height: '1px', background: INK, transform: 'translateY(-50%)' }}
-                  />
-                  {/* Column 1: empty */}
-                  <div />
-                  {/* Column 2: circle sits at its LEFT edge = joint between col1|col2 */}
-                  <div className="relative">
-                    <span
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: '50%',
-                        width: '16px',
-                        height: '16px',
-                        borderRadius: '50%',
-                        border: `1px solid ${INK}`,
-                        background: BG,
-                        transform: 'translate(-50%, -50%)',
-                      }}
-                    />
-                  </div>
-                  {/* Column 3: circle at its LEFT edge = joint between col2|col3 */}
-                  <div className="relative">
-                    <span
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: '50%',
-                        width: '16px',
-                        height: '16px',
-                        borderRadius: '50%',
-                        border: `1px solid ${INK}`,
-                        background: BG,
-                        transform: 'translate(-50%, -50%)',
-                      }}
-                    />
-                  </div>
-                </div>
-
-                {/* Row 3 — body copy + Learn More */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:gap-12">
-                  {services.map((s) => (
-                    <div key={`b-${s.title}`} className="relative">
+                      {/* Body — right column */}
                       <p
+                        className="col-span-11 lg:col-span-5 lg:pt-2"
                         style={{
                           fontFamily: 'Inter, sans-serif',
-                          fontSize: '16px',
-                          lineHeight: 1.65,
+                          fontSize: '15.5px',
+                          lineHeight: 1.7,
                           color: '#3f4966',
                           margin: 0,
-                          maxWidth: '380px',
+                          maxWidth: '440px',
                         }}
                       >
                         {s.body}
                       </p>
-                      <div style={{ marginTop: '30px' }}>
-                        <Link
-                          to={s.link}
-                          data-testid={`${s.testid}-learn-more`}
-                          className="inline-flex items-center gap-2 group"
+
+                      {/* Arrow — far right */}
+                      <div className="col-span-1 flex justify-end lg:pt-2" aria-hidden>
+                        <span
+                          className="inline-block group-hover:translate-x-1 group-hover:-translate-y-1"
                           style={{
-                            fontFamily: 'IBM Plex Mono, monospace',
-                            fontSize: '12px',
-                            letterSpacing: '0.18em',
-                            textTransform: 'uppercase',
+                            fontFamily: 'Geist, sans-serif',
+                            fontSize: '22px',
+                            lineHeight: 1,
                             color: INK,
-                            borderBottom: `1px solid ${INK}`,
-                            paddingBottom: '3px',
-                            textDecoration: 'none',
+                            transition: 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)',
                           }}
                         >
-                          Learn More
-                          <span aria-hidden style={{ transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-                        </Link>
+                          ↗
+                        </span>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </Link>
+                ))}
               </div>
             );
           })()}
