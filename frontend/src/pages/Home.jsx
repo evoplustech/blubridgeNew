@@ -203,7 +203,6 @@ const capabilities = [
 const CapabilitiesAccordion = () => {
   const [activeCap, setActiveCap] = useState(0);
   const tabRefs = useRef([]);
-  const cap = capabilities[activeCap];
 
   const onTablistKeyDown = (e) => {
     let next = null;
@@ -220,135 +219,125 @@ const CapabilitiesAccordion = () => {
 
   return (
     <section style={{ background: '#f0f1f9', paddingTop: '96px', paddingBottom: '104px' }} data-testid="capabilities-index">
-      <div style={{ maxWidth: '1260px', width: 'calc(100% - 48px)', margin: '0 auto' }} className="lg:!w-[calc(100%-96px)]">
+      <div style={{ maxWidth: '1280px', width: 'calc(100% - 44px)', margin: '0 auto' }} className="lg:!w-[calc(100%-96px)]">
 
         <h2
           data-testid="capabilities-heading"
           style={{
             fontFamily: 'Geist, sans-serif',
-            fontSize: 'clamp(40px, 5.2vw, 74px)',
+            fontSize: 'clamp(42px, 5vw, 76px)',
             letterSpacing: '-0.03em',
             lineHeight: 1.04,
             fontWeight: 500,
             color: '#0a1230',
             margin: 0,
-            maxWidth: '820px',
+            maxWidth: '850px',
           }}
         >
           What we can do for you
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12" style={{ marginTop: 'clamp(48px, 5vw, 72px)' }}>
-
-          {/* Capability index — vertical on desktop, wrapped typographic rows below lg */}
-          <div className="lg:col-span-4">
-            <div
-              role="tablist"
-              aria-orientation="vertical"
-              aria-label="What we can do for you"
-              data-testid="capabilities-selector"
-              className="flex flex-row flex-wrap lg:flex-col gap-x-8 gap-y-2 lg:gap-y-1"
-              onKeyDown={onTablistKeyDown}
-            >
-              {capabilities.map((c, i) => {
-                const active = activeCap === i;
-                return (
-                  <button
-                    key={c.title}
-                    ref={(el) => (tabRefs.current[i] = el)}
-                    role="tab"
-                    id={`capability-tab-${i}`}
-                    aria-selected={active}
-                    aria-controls="capability-panel"
-                    tabIndex={active ? 0 : -1}
-                    data-testid={`capability-toggle-${i}`}
-                    onClick={() => setActiveCap(i)}
-                    className="flex items-center text-left w-auto lg:w-full"
+        {/* Capability aperture — one continuous horizontal editorial field */}
+        <div
+          role="tablist"
+          aria-label="What we can do for you"
+          data-testid="capabilities-selector"
+          onKeyDown={onTablistKeyDown}
+          className="flex flex-col lg:flex-row lg:h-[500px]"
+          style={{ marginTop: 'clamp(44px, 4.5vw, 64px)', borderTop: '1px solid #d4d8e8', borderBottom: '1px solid #d4d8e8' }}
+        >
+          {capabilities.map((c, i) => {
+            const active = activeCap === i;
+            return (
+              <div
+                key={c.title}
+                data-active={active}
+                onClick={() => setActiveCap(i)}
+                className="bb-aperture relative overflow-hidden cursor-pointer border-t border-[#d4d8e8] first:border-t-0 lg:border-t-0 lg:border-l lg:border-[#d4d8e8] lg:first:border-l-0"
+              >
+                <button
+                  ref={(el) => (tabRefs.current[i] = el)}
+                  role="tab"
+                  id={`capability-tab-${i}`}
+                  aria-selected={active}
+                  aria-controls="capability-panel"
+                  tabIndex={active ? 0 : -1}
+                  data-testid={`capability-toggle-${i}`}
+                  onClick={(e) => { e.stopPropagation(); setActiveCap(i); }}
+                  className="block w-full text-left"
+                  style={{
+                    background: 'transparent',
+                    cursor: 'pointer',
+                    minHeight: '48px',
+                    padding: active
+                      ? 'clamp(24px, 2.6vw, 36px) clamp(20px, 3vw, 42px) 0'
+                      : 'clamp(18px, 2vw, 24px) clamp(20px, 1.8vw, 22px)',
+                  }}
+                >
+                  <span
                     style={{
-                      minHeight: '44px',
-                      background: 'transparent',
-                      cursor: 'pointer',
-                      padding: 0,
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: active ? '17px' : '15.5px',
+                      fontWeight: active ? 600 : 400,
+                      letterSpacing: '-0.01em',
+                      lineHeight: 1.35,
+                      color: active ? '#0a1230' : '#68718c',
+                      transition: 'color 180ms ease',
+                      display: 'block',
                     }}
                   >
-                    <span
+                    {c.title}
+                  </span>
+                  {active && (
+                    <span aria-hidden style={{ display: 'block', width: '30px', height: '2px', background: '#0a1230', marginTop: '12px' }} />
+                  )}
+                </button>
+
+                {active && (
+                  <div
+                    key={i}
+                    role="tabpanel"
+                    id="capability-panel"
+                    aria-labelledby={`capability-tab-${i}`}
+                    data-testid="capability-stage"
+                    style={{
+                      padding: 'clamp(20px, 2.2vw, 28px) clamp(20px, 3vw, 42px) clamp(28px, 3vw, 42px)',
+                      animation: 'bbCapReveal 180ms ease forwards',
+                    }}
+                  >
+                    <h3
+                      data-testid="capability-active-heading"
                       style={{
                         fontFamily: 'Geist, sans-serif',
-                        fontSize: 'clamp(17px, 1.4vw, 20px)',
-                        fontWeight: active ? 600 : 400,
-                        letterSpacing: '-0.01em',
-                        lineHeight: 1.3,
-                        color: active ? '#0a1230' : '#68718c',
-                        paddingLeft: active ? '10px' : '0px',
-                        transition: 'color 190ms ease, padding-left 190ms ease',
-                        whiteSpace: 'nowrap',
+                        fontSize: 'clamp(27px, 2.6vw, 46px)',
+                        fontWeight: 500,
+                        letterSpacing: '-0.025em',
+                        lineHeight: 1.12,
+                        color: '#0a1230',
+                        margin: 0,
+                        maxWidth: '620px',
                       }}
-                      className={active ? 'bb-cap-label-active' : ''}
                     >
-                      {c.title}
-                    </span>
-                    {/* Registration rule — active tab only, runs toward the binding line */}
-                    <span
-                      aria-hidden
-                      className="hidden lg:block flex-1"
+                      {c.heading}
+                    </h3>
+                    <p
+                      data-testid="capability-active-description"
                       style={{
-                        height: '1px',
-                        background: active ? '#0a1230' : 'transparent',
-                        marginLeft: '18px',
-                        transition: 'background-color 190ms ease',
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '16.5px',
+                        lineHeight: 1.65,
+                        color: '#3f4966',
+                        margin: '28px 0 0',
+                        maxWidth: '600px',
                       }}
-                    />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Structural binding line */}
-          <div className="hidden lg:flex lg:col-span-1 justify-center self-stretch" aria-hidden>
-            <span style={{ width: '1px', background: '#d4d8e8', display: 'block' }} />
-          </div>
-
-          {/* Active capability reading area */}
-          <div
-            key={activeCap}
-            role="tabpanel"
-            id="capability-panel"
-            aria-labelledby={`capability-tab-${activeCap}`}
-            className="lg:col-span-7 mt-12 lg:mt-0"
-            data-testid="capability-stage"
-            style={{ animation: 'bbCapReveal 190ms ease forwards' }}
-          >
-            <h3
-              data-testid="capability-active-heading"
-              style={{
-                fontFamily: 'Geist, sans-serif',
-                fontSize: 'clamp(30px, 4vw, 54px)',
-                fontWeight: 500,
-                letterSpacing: '-0.025em',
-                lineHeight: 1.1,
-                color: '#0a1230',
-                margin: 0,
-                maxWidth: '720px',
-              }}
-            >
-              {cap.heading}
-            </h3>
-            <p
-              data-testid="capability-active-description"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '17px',
-                lineHeight: 1.65,
-                color: '#3f4966',
-                margin: '32px 0 0',
-                maxWidth: '660px',
-              }}
-            >
-              {cap.description}
-            </p>
-          </div>
-
+                    >
+                      {c.description}
+                    </p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
