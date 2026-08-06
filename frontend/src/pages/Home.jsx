@@ -98,7 +98,7 @@ const ExpertiseSection = () => {
               className="inline-flex items-center gap-3"
               style={{
                 fontFamily: 'IBM Plex Mono, monospace',
-                fontSize: 'clamp(15px, 1.15vw, 18px)',
+                fontSize: '24px',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
                 color: '#0a1230',
