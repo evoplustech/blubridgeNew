@@ -95,10 +95,9 @@ const ExpertiseSection = () => {
           </h2>
           <div className="flex flex-col md:items-end gap-1">
             <span className="bb-caption inline-flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-bb-accent animate-pulse" />
-              In Progress...
+              <span className="w-6 h-px bg-bb-ink/60" />
+              By Industry
             </span>
-            <span className="bb-caption">By Industry</span>
           </div>
         </div>
 
@@ -116,7 +115,6 @@ const ExpertiseSection = () => {
         >
           {industries.map((ind, i) => {
             const active = activeIndustry === i;
-            const IconEl = ind.Icon;
             return (
               <button
                 key={ind.title}
@@ -134,22 +132,7 @@ const ExpertiseSection = () => {
                 }}
               >
                 {active && (
-                  <div className="flex items-center gap-3 mb-4" style={{ animation: 'bbFadeIn 300ms ease forwards' }}>
-                    <span aria-hidden style={{ display: 'inline-flex', color: '#0a1230' }}>
-                      <IconEl style={{ width: '18px', height: '18px' }} strokeWidth={1.6} />
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'IBM Plex Mono, monospace',
-                        fontSize: '11px',
-                        letterSpacing: '0.22em',
-                        textTransform: 'uppercase',
-                        color: '#7c86a2',
-                      }}
-                    >
-                      Frontier AI Focus
-                    </span>
-                  </div>
+                  <div className="mb-4" style={{ animation: 'bbFadeIn 300ms ease forwards' }} />
                 )}
                 <span
                   data-testid={active ? 'industry-spotlight-title' : undefined}
