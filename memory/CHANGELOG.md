@@ -47,3 +47,6 @@
 ## 2026-08-06 (fork 2, cont.) — About Us fixes
 - Our Mission rebuilt as 3-column editorial row per user screenshot: "Our Mission" title + dash (left), vertical hairlines, mission paragraph (middle), circled → arrow + "Join us" link to /careers (right). Same content, testids preserved. Responsive stack <1024px.
 - Fixed typing animation bug in PassionTypingText: word-switch branch never re-triggered the effect (text stayed ''), so animation stalled after first cycle. Now types/deletes "Hunger." ↔ "Precision." continuously — verified via sampled inner_text.
+
+## 2026-08-06 (fork 2, cont.) — Contact page redesigned from user's two design references
+- `pages/Contact.jsx` re-skinned (content + logic 100% preserved: same 3 channels, form fields, validation, verify email, /api/contacts/submit, offices data, testids): left rail = Contact Us title + accent dash + white channel cards (icon tile, mono label, value, chevron, hover lift) + dot-grid accent; right = floating white form card (16px radius, soft shadow) over blue blob accent, full-width dark Submit; OUR OFFICES = centered tick + heading + single white card with 3 hairline-divided columns (circle Building2 icon, region title, address, maps link). All cx-* CSS in index.css. Form submit verified via curl (HTTP 200).
