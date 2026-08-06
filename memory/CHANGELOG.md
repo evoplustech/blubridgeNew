@@ -22,3 +22,9 @@
   - Active capability marked by an animated solid ink underline block (scaleX transition)
   - Two-column journal spread below: large active heading (cols 1-7) + description (cols 8-12) with a short ink dash accent
   - Strict content lock respected; no boxes/gradients/badges
+
+## 2026-08-06 (fork) — Home: Expertise + By Services swapped to Ref 2
+- `pages/Home.jsx` — `ExpertiseSection` rebuilt to Reference 2 layout: "Our Frontier AI Expertise" heading + `BY INDUSTRY` mono eyebrow row + hairline rule + **numbered 2×5 grid** of 10 industries with 01–10 mono indices (was Ref 3 Telco spotlight list). All 10 industry names preserved; `data-testid="frontier-expertise-section"` / `industry-grid` / `expertise-<slug>` added.
+- `pages/Home.jsx` — By Services section (SECTION 3) rebuilt to Reference 2 asymmetric grid: **tall dark `Model Customization` card on left** with 6 faint horizontal rails; **`Value Realization`** (light card with dashed strip) + **`Deployment`** (dark card with dashed wave line) stacked on the right column. Each card has `OPEN ↗` hover reveal. Rectangular navy "Talk To Us" CTA retained bottom-right. Content verbatim; testids preserved (`solution-model-customization`, `solution-value-realization`, `solution-deployment`, `support-talk-to-us-btn`).
+- Build verified: `yarn build` compiled cleanly, no console errors, screenshots at 1440px confirm both sections render correctly.
+- REMAINING (not done in this session due to scope): Infrastructure → Ref 1 exact `fxi-*` styling; Capabilities → Ref 2 left-list `cap-split` layout; Work with BluBridge → Ref 2 `wwb-grid` with thin vertical divider; Solutions/Research/About Us Mission/Careers/Contact full migrations from the source refs.

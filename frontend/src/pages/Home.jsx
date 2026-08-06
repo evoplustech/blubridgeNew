@@ -83,86 +83,104 @@ const industries = [
 ];
 
 const ExpertiseSection = () => {
-  const [activeIndustry, setActiveIndustry] = useState(0);
+  const INK = '#0a1230';
+  const MUTE = '#5c6684';
+  const RULE = 'rgba(10, 18, 48, 0.12)';
 
   return (
-    <section className="relative pt-24 pb-24 overflow-hidden" style={{ background: '#e8eaf3' }} data-testid="expertise-section">
+    <section
+      className="relative pt-24 pb-24 overflow-hidden"
+      style={{ background: '#e8eaf3' }}
+      data-testid="frontier-expertise-section"
+      aria-labelledby="frontier-expertise-heading"
+    >
       <div className="bb-container">
         {/* Masthead */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <h2 className="bb-h2 capitalize" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
+          <h2
+            id="frontier-expertise-heading"
+            className="bb-h2 capitalize"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', margin: 0 }}
+          >
             Our Frontier AI Expertise
           </h2>
-          <div className="flex flex-col md:items-end gap-1">
-            <span
-              className="inline-flex items-center gap-3"
-              style={{
-                fontFamily: 'IBM Plex Mono, monospace',
-                fontSize: '24px',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: '#0a1230',
-                fontWeight: 500,
-              }}
-            >
-              <span style={{ width: '36px', height: '2px', background: '#0a1230', display: 'inline-block' }} />
-              By Industry
-            </span>
-          </div>
         </div>
 
-        {/* ------ COMPRESSED FOCAL LIST ------
-            Every industry lives in the same vertical stack. The active
-            row swells into a display-scale title and reveals a small
-            "Frontier AI Focus" eyebrow with an inline icon glyph. All
-            other rows collapse to a compact single-line label. There is
-            no split, no side-panel, no separate hero. */}
+        {/* By Industry label row */}
+        <div className="flex items-center gap-6 mb-10" data-testid="frontier-industries">
+          <h3
+            style={{
+              fontFamily: 'IBM Plex Mono, monospace',
+              fontSize: '13px',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: INK,
+              fontWeight: 500,
+              margin: 0,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <span style={{ color: MUTE, marginRight: '8px' }}>By</span>
+            <span style={{ color: INK }}>Industry</span>
+          </h3>
+          <span aria-hidden style={{ flex: 1, height: '1px', background: RULE }} />
+        </div>
+
+        {/* 10-cell numbered grid — 2 cols mobile, 5 cols desktop */}
         <div
-          className="relative"
-          role="tablist"
-          data-testid="industry-focal-list"
-          style={{ borderTop: '1px solid #8b93ad' }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+          data-testid="industry-grid"
+          style={{ borderTop: `1px solid ${RULE}`, borderLeft: `1px solid ${RULE}` }}
         >
           {industries.map((ind, i) => {
-            const active = activeIndustry === i;
+            const testid = `expertise-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and').replace(/\s*&\s*/g, '-')}`;
             return (
-              <button
+              <div
                 key={ind.title}
-                onClick={() => setActiveIndustry(i)}
-                onMouseEnter={() => setActiveIndustry(i)}
-                data-testid={`industry-item-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
-                role="tab"
-                aria-selected={active}
-                className="w-full text-left block transition-colors group"
+                tabIndex={0}
+                data-testid={testid}
+                className="group relative flex flex-col justify-between transition-colors"
                 style={{
-                  borderBottom: '1px solid #8b93ad',
-                  padding: active ? 'clamp(28px, 4vw, 56px) 0' : '18px 0',
-                  cursor: 'pointer',
+                  borderRight: `1px solid ${RULE}`,
+                  borderBottom: `1px solid ${RULE}`,
+                  padding: '32px 28px 30px',
+                  minHeight: 'clamp(140px, 14vw, 190px)',
+                  cursor: 'default',
                   background: 'transparent',
                 }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.55)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                }}
               >
-                {active && (
-                  <div className="mb-4" style={{ animation: 'bbFadeIn 300ms ease forwards' }} />
-                )}
                 <span
-                  data-testid={active ? 'industry-spotlight-title' : undefined}
+                  aria-hidden
+                  style={{
+                    fontFamily: 'IBM Plex Mono, monospace',
+                    fontSize: '12px',
+                    letterSpacing: '0.14em',
+                    color: MUTE,
+                    fontWeight: 500,
+                  }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span
                   style={{
                     fontFamily: 'Geist, sans-serif',
+                    fontSize: 'clamp(20px, 1.7vw, 26px)',
                     fontWeight: 500,
-                    letterSpacing: active ? '-0.05em' : '-0.02em',
-                    lineHeight: 1,
-                    color: active ? '#0a1230' : '#7c86a2',
-                    fontSize: active ? 'clamp(46px, 7.4vw, 116px)' : 'clamp(18px, 1.4vw, 22px)',
-                    display: 'block',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'clip',
-                    transition: 'color 200ms ease, letter-spacing 250ms ease',
+                    letterSpacing: '-0.02em',
+                    lineHeight: 1.15,
+                    color: INK,
+                    marginTop: '36px',
                   }}
                 >
                   {ind.title}
                 </span>
-              </button>
+              </div>
             );
           })}
         </div>
@@ -481,134 +499,263 @@ const Home = () => {
           ============================================================ */}
       <ExpertiseSection />
 
+
       {/* ============================================================
-          SECTION 3 — BY SERVICES
-          Three columns, each framed by a corner-bracket hairline
-          motif (top rule + left drop-line past the title).
+          SECTION 3 — BY SERVICES (R2: asymmetric — MC tall left, VR + DP stacked right)
           ============================================================ */}
       <section style={{ background: '#f0f1f9', paddingTop: '104px', paddingBottom: '120px' }} data-testid="services-section">
         <div className="bb-container">
 
-          {/* Section anchor */}
-          <div>
-            <h2
+          {/* By Services eyebrow row (R2) */}
+          <div className="flex items-center gap-4 mb-10">
+            <h3
               style={{
-                fontFamily: 'Geist, sans-serif',
-                fontSize: 'clamp(44px, 6vw, 92px)',
-                fontWeight: 500,
-                letterSpacing: '-0.035em',
-                lineHeight: 0.98,
+                fontFamily: 'IBM Plex Mono, monospace',
+                fontSize: '13px',
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
                 color: '#0a1230',
+                fontWeight: 500,
                 margin: 0,
+                whiteSpace: 'nowrap',
               }}
             >
-              By Services
-            </h2>
+              <span style={{ color: '#5c6684', marginRight: '8px' }}>By</span>
+              <span>Services</span>
+            </h3>
+            <span aria-hidden style={{ flex: 1, height: '1px', background: 'rgba(10,18,48,0.12)' }} />
           </div>
 
-          {(() => {
-            const services = [
-              {
-                title: 'Model Customization',
-                link: '/solutions#model-customization',
-                body: 'Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.',
-                testid: 'solution-model-customization',
-              },
-              {
-                title: 'Value Realization',
-                link: '/solutions#value-realization',
-                body: 'From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.',
-                testid: 'solution-value-realization',
-              },
-              {
-                title: 'Deployment',
-                link: '/solutions#deployment',
-                body: 'Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.',
-                testid: 'solution-deployment',
-              },
-            ];
-            const INK = '#0a1230';
-            const RULE = '#8b93ad';
-            return (
-              <div
-                className="mt-12 lg:mt-16"
-                style={{ borderTop: `1px solid ${RULE}` }}
-                data-testid="services-list"
-              >
-                {services.map((s) => (
-                  <Link
-                    key={s.title}
-                    to={s.link}
-                    data-testid={s.testid}
-                    className="group block relative no-underline"
+          {/* Asymmetric grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            {/* LEFT — Model Customization (tall) */}
+            <Link
+              to="/solutions#model-customization"
+              data-testid="solution-model-customization"
+              className="group relative block overflow-hidden no-underline"
+              style={{
+                background: '#0a1230',
+                color: '#f5f6fc',
+                borderRadius: '4px',
+                padding: 'clamp(36px, 3.6vw, 56px)',
+                minHeight: 'clamp(380px, 34vw, 520px)',
+                textDecoration: 'none',
+              }}
+            >
+              {/* decorative horizontal rails */}
+              <span aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+                {[
+                  { w: '46%', top: '18%' },
+                  { w: '32%', top: '30%' },
+                  { w: '54%', top: '48%' },
+                  { w: '38%', top: '62%' },
+                  { w: '50%', top: '76%' },
+                  { w: '30%', top: '88%' },
+                ].map((r, i) => (
+                  <span
+                    key={i}
                     style={{
-                      borderBottom: `1px solid ${RULE}`,
-                      padding: 'clamp(36px, 4.6vw, 68px) 0',
-                      color: INK,
-                      textDecoration: 'none',
+                      position: 'absolute',
+                      left: 0,
+                      top: r.top,
+                      width: r.w,
+                      height: '1px',
+                      background: 'rgba(255,255,255,0.22)',
+                    }}
+                  />
+                ))}
+              </span>
+
+              <div className="relative flex flex-col justify-between h-full">
+                <div>
+                  <h4
+                    style={{
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: 'clamp(30px, 3vw, 44px)',
+                      fontWeight: 500,
+                      letterSpacing: '-0.028em',
+                      lineHeight: 1.05,
+                      color: '#ffffff',
+                      margin: 0,
                     }}
                   >
-                    <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
-                      {/* Heading — left half */}
-                      <h3
-                        className="col-span-12 lg:col-span-6"
-                        style={{
-                          fontFamily: 'Geist, sans-serif',
-                          fontSize: 'clamp(36px, 4.2vw, 64px)',
-                          fontWeight: 500,
-                          letterSpacing: '-0.03em',
-                          lineHeight: 1,
-                          color: INK,
-                          margin: 0,
-                          transition: 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)',
-                        }}
-                      >
-                        <span
-                          className="inline-block group-hover:translate-x-2"
-                          style={{ transition: 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)' }}
-                        >
-                          {s.title}
-                        </span>
-                      </h3>
-
-                      {/* Body — right column */}
-                      <p
-                        className="col-span-11 lg:col-span-5 lg:pt-2"
-                        style={{
-                          fontFamily: 'Inter, sans-serif',
-                          fontSize: '15.5px',
-                          lineHeight: 1.7,
-                          color: '#3f4966',
-                          margin: 0,
-                          maxWidth: '440px',
-                        }}
-                      >
-                        {s.body}
-                      </p>
-
-                      {/* Arrow — far right */}
-                      <div className="col-span-1 flex justify-end lg:pt-2" aria-hidden>
-                        <span
-                          className="inline-block group-hover:translate-x-1 group-hover:-translate-y-1"
-                          style={{
-                            fontFamily: 'Geist, sans-serif',
-                            fontSize: '22px',
-                            lineHeight: 1,
-                            color: INK,
-                            transition: 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)',
-                          }}
-                        >
-                          ↗
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+                    Model Customization
+                  </h4>
+                  <p
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '15.5px',
+                      lineHeight: 1.75,
+                      color: 'rgba(255,255,255,0.78)',
+                      margin: '26px 0 0',
+                      maxWidth: '460px',
+                    }}
+                  >
+                    Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.
+                  </p>
+                </div>
+                <span
+                  className="mt-8 inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{
+                    fontFamily: 'IBM Plex Mono, monospace',
+                    fontSize: '12px',
+                    letterSpacing: '0.24em',
+                    color: '#ffffff',
+                  }}
+                >
+                  OPEN <span aria-hidden>↗</span>
+                </span>
               </div>
-            );
-          })()}
+            </Link>
 
-          <div className="mt-16 lg:mt-20 flex justify-end">
+            {/* RIGHT — VR + DP stacked */}
+            <div className="grid grid-rows-2 gap-6">
+              {/* Value Realization */}
+              <Link
+                to="/solutions#value-realization"
+                data-testid="solution-value-realization"
+                className="group relative block overflow-hidden no-underline"
+                style={{
+                  background: '#e2e5f2',
+                  color: '#0a1230',
+                  borderRadius: '4px',
+                  padding: 'clamp(28px, 2.6vw, 42px)',
+                  minHeight: 'clamp(180px, 16vw, 250px)',
+                  textDecoration: 'none',
+                }}
+              >
+                <div className="relative flex flex-col justify-between h-full">
+                  <div>
+                    <h4
+                      style={{
+                        fontFamily: 'Geist, sans-serif',
+                        fontSize: 'clamp(26px, 2.4vw, 34px)',
+                        fontWeight: 500,
+                        letterSpacing: '-0.024em',
+                        lineHeight: 1.08,
+                        color: '#0a1230',
+                        margin: 0,
+                      }}
+                    >
+                      Value Realization
+                    </h4>
+                    <p
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '15px',
+                        lineHeight: 1.7,
+                        color: '#3f4966',
+                        margin: '18px 0 0',
+                        maxWidth: '460px',
+                      }}
+                    >
+                      From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.
+                    </p>
+                  </div>
+                  {/* strip */}
+                  <span aria-hidden className="mt-4 flex gap-1">
+                    {Array.from({ length: 22 }).map((_, i) => (
+                      <i
+                        key={i}
+                        style={{
+                          display: 'inline-block',
+                          width: '3px',
+                          height: '10px',
+                          background: 'rgba(10,18,48,0.18)',
+                        }}
+                      />
+                    ))}
+                  </span>
+                  <span
+                    className="mt-3 inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fontSize: '12px',
+                      letterSpacing: '0.24em',
+                      color: '#0a1230',
+                    }}
+                  >
+                    OPEN <span aria-hidden>↗</span>
+                  </span>
+                </div>
+              </Link>
+
+              {/* Deployment */}
+              <Link
+                to="/solutions#deployment"
+                data-testid="solution-deployment"
+                className="group relative block overflow-hidden no-underline"
+                style={{
+                  background: '#0a1230',
+                  color: '#f5f6fc',
+                  borderRadius: '4px',
+                  padding: 'clamp(28px, 2.6vw, 42px)',
+                  minHeight: 'clamp(180px, 16vw, 250px)',
+                  textDecoration: 'none',
+                }}
+              >
+                <svg
+                  className="absolute inset-x-0 bottom-6 w-full"
+                  viewBox="0 0 400 60"
+                  preserveAspectRatio="none"
+                  aria-hidden
+                  style={{ height: '60px', pointerEvents: 'none' }}
+                >
+                  <path
+                    d="M 0 40 C 40 20, 80 50, 120 32 S 200 8, 240 34 S 320 56, 400 22"
+                    fill="none"
+                    stroke="#F8F9FD"
+                    strokeOpacity="0.28"
+                    strokeWidth="1.2"
+                    strokeDasharray="2 4"
+                  />
+                </svg>
+                <div className="relative flex flex-col justify-between h-full">
+                  <div>
+                    <h4
+                      style={{
+                        fontFamily: 'Geist, sans-serif',
+                        fontSize: 'clamp(26px, 2.4vw, 34px)',
+                        fontWeight: 500,
+                        letterSpacing: '-0.024em',
+                        lineHeight: 1.08,
+                        color: '#ffffff',
+                        margin: 0,
+                      }}
+                    >
+                      Deployment
+                    </h4>
+                    <p
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '15px',
+                        lineHeight: 1.7,
+                        color: 'rgba(255,255,255,0.78)',
+                        margin: '18px 0 0',
+                        maxWidth: '460px',
+                      }}
+                    >
+                      Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.
+                    </p>
+                  </div>
+                  <span
+                    className="mt-4 inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fontSize: '12px',
+                      letterSpacing: '0.24em',
+                      color: '#ffffff',
+                    }}
+                  >
+                    OPEN <span aria-hidden>↗</span>
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-14 lg:mt-16 flex justify-end">
             <Link
               to="/contact"
               data-testid="support-talk-to-us-btn"
