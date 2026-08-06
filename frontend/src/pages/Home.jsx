@@ -291,11 +291,11 @@ const Home = () => {
             <div className="lg:col-span-7 lg:pr-6 flex flex-col justify-center">
               <h1
                 className="bb-display bb-reveal bb-reveal-2"
-                style={{ fontSize: 'clamp(48px, 8vw, 118px)', lineHeight: 0.95 }}
+                style={{ fontSize: 'clamp(40px, 5.2vw, 76px)', lineHeight: 1.02 }}
                 data-testid="hero-heading"
               >
-                <span className="block">Beyond</span>
-                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>the Horizon</span>
+                <span className="block">Building Tailored AI Systems</span>
+                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>for Hard Problems</span>
               </h1>
 
               <div className="mt-10 max-w-[520px] bb-reveal bb-reveal-3">
