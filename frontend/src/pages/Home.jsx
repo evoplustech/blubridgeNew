@@ -227,196 +227,108 @@ const capabilities = [
 
 const CapabilitiesAccordion = () => {
   const [activeCap, setActiveCap] = useState(0);
-  const tabRefs = useRef([]);
-
-  const onTablistKeyDown = (e) => {
-    let next = null;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (activeCap + 1) % capabilities.length;
-    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (activeCap - 1 + capabilities.length) % capabilities.length;
-    else if (e.key === 'Home') next = 0;
-    else if (e.key === 'End') next = capabilities.length - 1;
-    if (next !== null) {
-      e.preventDefault();
-      setActiveCap(next);
-      tabRefs.current[next]?.focus();
-    }
-  };
-
   const cap = capabilities[activeCap];
-  const INK = '#0a1230';
-  const MUTE = '#7a8299';
-  const RULE = 'rgba(10, 18, 48, 0.14)';
 
   return (
-    <section
-      style={{ background: '#f0f1f9', paddingTop: '110px', paddingBottom: '120px' }}
-      data-testid="capabilities-index"
-    >
-      <div
-        style={{ maxWidth: '1320px', width: 'calc(100% - 44px)', margin: '0 auto' }}
-        className="lg:!w-[calc(100%-96px)]"
-      >
-        {/* --- HEADER: title left-anchored, hairline continues right --- */}
-        <div className="flex items-end gap-8">
-          <h2
-            data-testid="capabilities-heading"
-            style={{
-              fontFamily: 'Geist, sans-serif',
-              fontSize: 'clamp(44px, 6vw, 92px)',
-              letterSpacing: '-0.035em',
-              lineHeight: 0.98,
-              fontWeight: 500,
-              color: INK,
-              margin: 0,
-              maxWidth: '780px',
-              flexShrink: 0,
-            }}
-          >
-            What we can do <br className="hidden sm:block" /> for you
-          </h2>
-          <div
-            aria-hidden="true"
-            className="hidden lg:block"
-            style={{ flex: 1, height: '1px', background: RULE, marginBottom: '18px' }}
-          />
-        </div>
-
-        {/* --- INDEX BAR: 5 titles in a single row, thin vertical hairline separators --- */}
-        <div
-          role="tablist"
-          aria-label="What we can do for you"
-          data-testid="capabilities-selector"
-          onKeyDown={onTablistKeyDown}
-          style={{
-            marginTop: 'clamp(56px, 6vw, 90px)',
-            borderTop: `1px solid ${RULE}`,
-            borderBottom: `1px solid ${RULE}`,
-          }}
-          className="grid grid-cols-2 md:grid-cols-5"
-        >
-          {capabilities.map((c, i) => {
-            const active = activeCap === i;
-            return (
+    <section className="py-24" data-testid="vertical-tabs" style={{ background: 'rgb(243, 244, 250)' }}>
+      <style>{`
+        .cap-split {
+          display: grid;
+          grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+          align-items: stretch;
+        }
+        .cap-index { border-top: 1px solid #d4d8e8; align-self: stretch; }
+        .cap-row {
+          display: flex; align-items: center; justify-content: flex-start;
+          gap: 14px; width: 100%; text-align: left;
+          padding: 22px 28px 22px 4px;
+          border-bottom: 1px solid #d4d8e8;
+          background: transparent;
+          transition: background-color 160ms ease;
+        }
+        .cap-row:hover { background: rgba(255,255,255,0.6); }
+        .cap-marker {
+          order: 1;
+          width: 8px; height: 8px; flex: 0 0 8px;
+          border: 1px solid #7c86a2; background: transparent;
+          transition: background-color 160ms ease, border-color 160ms ease;
+        }
+        .cap-name {
+          order: 2;
+          font-family: 'Geist', sans-serif; font-size: 17px; letter-spacing: -0.01em;
+          color: #3f4966; transition: color 160ms ease; flex: 1; line-height: 1.3;
+        }
+        .cap-row:hover .cap-name { color: #0a1230; }
+        .cap-row[aria-selected="true"] .cap-name { color: #0a1230; font-weight: 500; }
+        .cap-row[aria-selected="true"] .cap-marker { background: #2b4c8c; border-color: #2b4c8c; }
+        .cap-row:focus-visible { outline: 1px solid #4a7bd6; outline-offset: 2px; }
+        .cap-detail {
+          border-left: 1px solid #d4d8e8;
+          padding: 0 0 0 56px;
+          display: grid;
+          grid-template-rows: auto minmax(0, 1fr) auto;
+          height: 100%;
+          min-height: 100%;
+        }
+        .cap-eyebrow {
+          font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em;
+          text-transform: uppercase; color: #2b4c8c;
+          margin: 22px 0 20px;
+          align-self: start;
+        }
+        .cap-detail-body {
+          align-self: start;
+          padding-top: 4px;
+        }
+        .cap-cta-row {
+          align-self: end;
+          padding-bottom: 22px;
+        }
+        .cap-fade { animation: capFade 240ms ease both; }
+        @keyframes capFade { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 1023px) {
+          .cap-split { grid-template-columns: 1fr; align-items: start; }
+          .cap-detail {
+            border-left: none;
+            padding: 32px 0 0;
+            display: block;
+            height: auto;
+            min-height: 0;
+          }
+          .cap-eyebrow { margin: 0 0 20px; }
+          .cap-cta-row { padding-bottom: 0; margin-top: 30px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .cap-fade { animation: none; }
+          .cap-row, .cap-name, .cap-marker { transition: none; }
+        }
+      `}</style>
+      <div className="bb-container">
+        <h2 className="bb-h2 mb-14" style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}>What we can do for you</h2>
+        <div className="cap-split">
+          <div className="cap-index" role="tablist" aria-orientation="vertical" aria-label="Capabilities">
+            {capabilities.map((c, i) => (
               <button
                 key={c.title}
-                ref={(el) => (tabRefs.current[i] = el)}
                 role="tab"
-                id={`capability-tab-${i}`}
-                aria-selected={active}
-                aria-controls="capability-panel"
-                tabIndex={active ? 0 : -1}
-                data-testid={`capability-toggle-${i}`}
+                aria-selected={activeCap === i}
+                className="cap-row"
+                data-testid={`vertical-tab-${i}`}
                 onClick={() => setActiveCap(i)}
-                className="bb-cap-cell text-left"
-                style={{
-                  position: 'relative',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  padding: '22px 22px 22px 0',
-                  minHeight: '78px',
-                  color: active ? INK : MUTE,
-                  transition: 'color 200ms ease',
-                }}
               >
-                {/* vertical hairline separator (all except last) */}
-                {i > 0 && (
-                  <span
-                    aria-hidden="true"
-                    style={{
-                      position: 'absolute',
-                      left: 0,
-                      top: '18%',
-                      bottom: '18%',
-                      width: '1px',
-                      background: RULE,
-                    }}
-                    className="hidden md:block"
-                  />
-                )}
-                <span
-                  style={{
-                    fontFamily: 'Geist, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: active ? 600 : 500,
-                    letterSpacing: '-0.005em',
-                    lineHeight: 1.3,
-                    color: 'inherit',
-                    display: 'block',
-                    paddingLeft: 'clamp(14px, 1.4vw, 22px)',
-                  }}
-                >
-                  {c.title}
-                </span>
-                {/* Active solid underline block bleeding to the bottom rule */}
-                <span
-                  aria-hidden="true"
-                  style={{
-                    position: 'absolute',
-                    left: 'clamp(14px, 1.4vw, 22px)',
-                    right: '22px',
-                    bottom: '-1px',
-                    height: '3px',
-                    background: INK,
-                    transformOrigin: 'left center',
-                    transform: active ? 'scaleX(1)' : 'scaleX(0)',
-                    transition: 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)',
-                  }}
-                />
+                <span className="cap-marker" aria-hidden="true"></span>
+                <span className="cap-name">{c.title}</span>
               </button>
-            );
-          })}
-        </div>
-
-        {/* --- JOURNAL SPREAD: active heading (left, extra large) + description (right, generous leading) --- */}
-        <div
-          key={activeCap}
-          role="tabpanel"
-          id="capability-panel"
-          aria-labelledby={`capability-tab-${activeCap}`}
-          data-testid="capability-stage"
-          className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-10"
-          style={{
-            marginTop: 'clamp(56px, 6vw, 92px)',
-            animation: 'bbCapReveal 220ms ease forwards',
-          }}
-        >
-          <div className="lg:col-span-7">
-            <h3
-              data-testid="capability-active-heading"
-              style={{
-                fontFamily: 'Geist, sans-serif',
-                fontSize: 'clamp(30px, 3.6vw, 52px)',
-                fontWeight: 500,
-                letterSpacing: '-0.028em',
-                lineHeight: 1.08,
-                color: INK,
-                margin: 0,
-                maxWidth: '640px',
-              }}
-            >
-              {cap.heading}
-            </h3>
+            ))}
           </div>
-
-          <div className="lg:col-span-5 lg:pt-4">
-            <div
-              aria-hidden="true"
-              style={{ width: '44px', height: '2px', background: INK, marginBottom: '24px' }}
-              className="hidden lg:block"
-            />
-            <p
-              data-testid="capability-active-description"
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '16.5px',
-                lineHeight: 1.72,
-                color: '#3f4966',
-                margin: 0,
-                maxWidth: '520px',
-              }}
-            >
-              {cap.description}
-            </p>
+          <div className="cap-detail" data-testid="vertical-tab-content">
+            <p key={`e-${activeCap}`} className="cap-eyebrow cap-fade">{cap.title}</p>
+            <div key={`b-${activeCap}`} className="cap-detail-body cap-fade">
+              <p className="text-bb-ink-2 text-[16px] leading-[1.75] max-w-[560px]" style={{ fontFamily: 'Inter, sans-serif' }}>{cap.description}</p>
+            </div>
+            <div className="cap-cta-row">
+              <Link className="bb-btn-primary" data-testid="capabilities-explore-solutions" to="/solutions">Explore Solutions <span aria-hidden="true" style={{ fontFamily: '"IBM Plex Mono"' }}>↗</span></Link>
+            </div>
           </div>
         </div>
       </div>
@@ -508,284 +420,62 @@ const Home = () => {
 
 
       {/* ============================================================
-          SECTION 3 — BY SERVICES (R2: asymmetric — MC tall left, VR + DP stacked right)
+          SECTION 3 — BY SERVICES (exact copy from premium-pages-ui reference)
           ============================================================ */}
-      <section style={{ background: '#f0f1f9', paddingTop: '104px', paddingBottom: '120px' }} data-testid="services-section">
+      <section style={{ background: '#e8eaf4', padding: '0 0 112px', overflow: 'hidden' }} data-testid="services-section">
         <div className="bb-container">
-
-          {/* By Services eyebrow row (R2) */}
-          <div className="flex items-center gap-4 mb-10">
-            <h3
-              style={{
-                fontFamily: 'IBM Plex Mono, monospace',
-                fontSize: '13px',
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase',
-                color: '#0a1230',
-                fontWeight: 500,
-                margin: 0,
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <span style={{ color: '#5c6684', marginRight: '8px' }}>By</span>
-              <span>Services</span>
-            </h3>
-            <span aria-hidden style={{ flex: 1, height: '1px', background: 'rgba(10,18,48,0.12)' }} />
-          </div>
-
-          {/* Asymmetric grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-            {/* LEFT — Model Customization (tall) */}
-            <Link
-              to="/solutions#model-customization"
-              data-testid="solution-model-customization"
-              className="group relative block overflow-hidden no-underline"
-              style={{
-                background: '#0a1230',
-                color: '#f5f6fc',
-                borderRadius: '4px',
-                padding: 'clamp(36px, 3.6vw, 56px)',
-                minHeight: 'clamp(380px, 34vw, 520px)',
-                textDecoration: 'none',
-              }}
-            >
-              {/* decorative horizontal rails */}
-              <span aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-                {[
-                  { w: '46%', top: '18%' },
-                  { w: '32%', top: '30%' },
-                  { w: '54%', top: '48%' },
-                  { w: '38%', top: '62%' },
-                  { w: '50%', top: '76%' },
-                  { w: '30%', top: '88%' },
-                ].map((r, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      position: 'absolute',
-                      left: 0,
-                      top: r.top,
-                      width: r.w,
-                      height: '1px',
-                      background: 'rgba(255,255,255,0.22)',
-                    }}
-                  />
-                ))}
-              </span>
-
-              <div className="relative flex flex-col justify-between h-full">
-                <div>
-                  <h4
-                    style={{
-                      fontFamily: 'Geist, sans-serif',
-                      fontSize: 'clamp(30px, 3vw, 44px)',
-                      fontWeight: 500,
-                      letterSpacing: '-0.028em',
-                      lineHeight: 1.05,
-                      color: '#ffffff',
-                      margin: 0,
-                    }}
-                  >
-                    Model Customization
-                  </h4>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '15.5px',
-                      lineHeight: 1.75,
-                      color: 'rgba(255,255,255,0.78)',
-                      margin: '26px 0 0',
-                      maxWidth: '460px',
-                    }}
-                  >
-                    Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.
-                  </p>
-                </div>
-                <span
-                  className="mt-8 inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{
-                    fontFamily: 'IBM Plex Mono, monospace',
-                    fontSize: '12px',
-                    letterSpacing: '0.24em',
-                    color: '#ffffff',
-                  }}
-                >
-                  OPEN <span aria-hidden>↗</span>
+          <div className="fx-services bys-scope" data-testid="frontier-services">
+            <span className="bys-bg-lines" aria-hidden="true"></span>
+            <div className="fx-label-row bys-label-row">
+              <h3 className="fx-label"><span className="fx-label-prefix">By</span> <span className="fx-label-accent">Services</span></h3>
+              <span className="fx-label-rule" aria-hidden="true"></span>
+            </div>
+            <div className="bys-grid">
+              <Link className="bys-card bys-card-mc" data-testid="solution-model-customization" to="/solutions#model-customization">
+                <span className="bys-rails" aria-hidden="true">
+                  <span style={{ width: '46%', top: '18%' }}></span>
+                  <span style={{ width: '32%', top: '30%' }}></span>
+                  <span style={{ width: '54%', top: '48%' }}></span>
+                  <span style={{ width: '38%', top: '62%' }}></span>
+                  <span style={{ width: '50%', top: '76%' }}></span>
+                  <span style={{ width: '30%', top: '88%' }}></span>
                 </span>
+                <div className="bys-card-body">
+                  <h4 className="bys-title bys-title-mc">Model Customization</h4>
+                  <p className="bys-desc bys-desc-mc">Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.</p>
+                </div>
+                <span className="bys-open bys-open-mc">OPEN <span aria-hidden="true">↗</span></span>
+              </Link>
+              <div className="bys-right">
+                <Link className="bys-card bys-card-vr" data-testid="solution-value-realization" to="/solutions#value-realization">
+                  <div className="bys-card-body">
+                    <h4 className="bys-title bys-title-vr">Value Realization</h4>
+                    <p className="bys-desc bys-desc-vr">From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.</p>
+                    <span className="bys-strip" aria-hidden="true">
+                      {Array.from({ length: 22 }).map((_, i) => (<i key={i}></i>))}
+                    </span>
+                  </div>
+                  <span className="bys-open bys-open-vr">OPEN <span aria-hidden="true">↗</span></span>
+                </Link>
+                <Link className="bys-card bys-card-dp" data-testid="solution-deployment" to="/solutions#deployment">
+                  <svg className="bys-wave" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M 0 40 C 40 20, 80 50, 120 32 S 200 8, 240 34 S 320 56, 400 22" fill="none" stroke="#F8F9FD" strokeOpacity="0.28" strokeWidth="1.2" strokeDasharray="2 4"></path>
+                  </svg>
+                  <div className="bys-card-body">
+                    <h4 className="bys-title bys-title-dp">Deployment</h4>
+                    <p className="bys-desc bys-desc-dp">Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.</p>
+                  </div>
+                  <span className="bys-open bys-open-dp">OPEN <span aria-hidden="true">↗</span></span>
+                </Link>
               </div>
-            </Link>
-
-            {/* RIGHT — VR + DP stacked */}
-            <div className="grid grid-rows-2 gap-6">
-              {/* Value Realization */}
-              <Link
-                to="/solutions#value-realization"
-                data-testid="solution-value-realization"
-                className="group relative block overflow-hidden no-underline"
-                style={{
-                  background: '#e2e5f2',
-                  color: '#0a1230',
-                  borderRadius: '4px',
-                  padding: 'clamp(28px, 2.6vw, 42px)',
-                  minHeight: 'clamp(180px, 16vw, 250px)',
-                  textDecoration: 'none',
-                }}
-              >
-                <div className="relative flex flex-col justify-between h-full">
-                  <div>
-                    <h4
-                      style={{
-                        fontFamily: 'Geist, sans-serif',
-                        fontSize: 'clamp(26px, 2.4vw, 34px)',
-                        fontWeight: 500,
-                        letterSpacing: '-0.024em',
-                        lineHeight: 1.08,
-                        color: '#0a1230',
-                        margin: 0,
-                      }}
-                    >
-                      Value Realization
-                    </h4>
-                    <p
-                      style={{
-                        fontFamily: 'Inter, sans-serif',
-                        fontSize: '15px',
-                        lineHeight: 1.7,
-                        color: '#3f4966',
-                        margin: '18px 0 0',
-                        maxWidth: '460px',
-                      }}
-                    >
-                      From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.
-                    </p>
-                  </div>
-                  {/* strip */}
-                  <span aria-hidden className="mt-4 flex gap-1">
-                    {Array.from({ length: 22 }).map((_, i) => (
-                      <i
-                        key={i}
-                        style={{
-                          display: 'inline-block',
-                          width: '3px',
-                          height: '10px',
-                          background: 'rgba(10,18,48,0.18)',
-                        }}
-                      />
-                    ))}
-                  </span>
-                  <span
-                    className="mt-3 inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{
-                      fontFamily: 'IBM Plex Mono, monospace',
-                      fontSize: '12px',
-                      letterSpacing: '0.24em',
-                      color: '#0a1230',
-                    }}
-                  >
-                    OPEN <span aria-hidden>↗</span>
-                  </span>
-                </div>
-              </Link>
-
-              {/* Deployment */}
-              <Link
-                to="/solutions#deployment"
-                data-testid="solution-deployment"
-                className="group relative block overflow-hidden no-underline"
-                style={{
-                  background: '#0a1230',
-                  color: '#f5f6fc',
-                  borderRadius: '4px',
-                  padding: 'clamp(28px, 2.6vw, 42px)',
-                  minHeight: 'clamp(180px, 16vw, 250px)',
-                  textDecoration: 'none',
-                }}
-              >
-                <svg
-                  className="absolute inset-x-0 bottom-6 w-full"
-                  viewBox="0 0 400 60"
-                  preserveAspectRatio="none"
-                  aria-hidden
-                  style={{ height: '60px', pointerEvents: 'none' }}
-                >
-                  <path
-                    d="M 0 40 C 40 20, 80 50, 120 32 S 200 8, 240 34 S 320 56, 400 22"
-                    fill="none"
-                    stroke="#F8F9FD"
-                    strokeOpacity="0.28"
-                    strokeWidth="1.2"
-                    strokeDasharray="2 4"
-                  />
-                </svg>
-                <div className="relative flex flex-col justify-between h-full">
-                  <div>
-                    <h4
-                      style={{
-                        fontFamily: 'Geist, sans-serif',
-                        fontSize: 'clamp(26px, 2.4vw, 34px)',
-                        fontWeight: 500,
-                        letterSpacing: '-0.024em',
-                        lineHeight: 1.08,
-                        color: '#ffffff',
-                        margin: 0,
-                      }}
-                    >
-                      Deployment
-                    </h4>
-                    <p
-                      style={{
-                        fontFamily: 'Inter, sans-serif',
-                        fontSize: '15px',
-                        lineHeight: 1.7,
-                        color: 'rgba(255,255,255,0.78)',
-                        margin: '18px 0 0',
-                        maxWidth: '460px',
-                      }}
-                    >
-                      Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.
-                    </p>
-                  </div>
-                  <span
-                    className="mt-4 inline-flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{
-                      fontFamily: 'IBM Plex Mono, monospace',
-                      fontSize: '12px',
-                      letterSpacing: '0.24em',
-                      color: '#ffffff',
-                    }}
-                  >
-                    OPEN <span aria-hidden>↗</span>
-                  </span>
-                </div>
-              </Link>
+            </div>
+            <div className="bys-talk-row">
+              <Link className="bb-btn-primary" data-testid="support-talk-to-us-btn" to="/contact">Talk To Us <span aria-hidden="true" style={{ fontFamily: '"IBM Plex Mono"' }}>↗</span></Link>
             </div>
           </div>
-
-          <div className="mt-14 lg:mt-16 flex justify-end">
-            <Link
-              to="/contact"
-              data-testid="support-talk-to-us-btn"
-              className="inline-flex items-center gap-3 group"
-              style={{
-                background: '#0a1230',
-                color: '#ffffff',
-                fontFamily: 'Geist, sans-serif',
-                fontSize: '14px',
-                fontWeight: 500,
-                padding: '15px 30px',
-                borderRadius: '3px',
-                textDecoration: 'none',
-                minHeight: '48px',
-              }}
-            >
-              Talk To Us
-              <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-            </Link>
-          </div>
-
         </div>
       </section>
+
 
       {/* ============================================================
           SECTION 4 — INFRASTRUCTURE  (warm #f5f3e9)
