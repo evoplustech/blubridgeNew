@@ -1288,6 +1288,7 @@ app.get('/{*splat}', (req, res) => {
           '<div id="root">',
           `<div id="root">${seoHtml}`
         );
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         return res.send(modifiedHtml);
       } catch (rebuildErr) {
         return res.status(503).send('<html><body><h1>Site is rebuilding, please refresh in 30 seconds...</h1></body></html>');
@@ -1324,6 +1325,7 @@ app.get('/{*splat}', (req, res) => {
     // Inject live reload script before </body>
     modifiedHtml = modifiedHtml.replace('</body>', liveReloadScript + '</body>');
 
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.send(modifiedHtml);
   });
 });
