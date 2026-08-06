@@ -507,8 +507,8 @@ const Home = () => {
             <span aria-hidden style={{ display: 'block', width: '56px', height: '2px', background: '#0a1230', marginTop: '14px' }} />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:gap-12 mt-16 lg:mt-20">
-            {[
+          {(() => {
+            const services = [
               {
                 title: 'Model Customization',
                 link: '/solutions#model-customization',
@@ -527,63 +527,128 @@ const Home = () => {
                 body: 'Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.',
                 testid: 'solution-deployment',
               },
-            ].map((s) => (
-              <div key={s.title} className="relative" data-testid={s.testid}>
-                {/* Corner-bracket hairlines: top rule + left drop-line */}
-                <span aria-hidden className="absolute pointer-events-none" style={{ top: 0, left: 0, right: 0, height: '1px', background: '#c9cede' }} />
-                <span aria-hidden className="absolute pointer-events-none" style={{ top: 0, left: 0, width: '1px', height: '160px', background: '#c9cede' }} />
+            ];
+            const INK = '#0a1230';
+            const BG = '#f0f1f9';
+            return (
+              <div className="mt-16 lg:mt-20">
+                {/* Row 1 — top dashes + headings (min-height keeps titles baseline-aligned) */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:gap-12">
+                  {services.map((s) => (
+                    <div key={`h-${s.title}`} className="relative" data-testid={s.testid}>
+                      {/* Top hairline dash */}
+                      <span
+                        aria-hidden
+                        style={{ display: 'block', width: '58px', height: '1px', background: INK, marginBottom: '26px' }}
+                      />
+                      <h3
+                        style={{
+                          fontFamily: 'Geist, sans-serif',
+                          fontSize: 'clamp(36px, 3.6vw, 54px)',
+                          fontWeight: 600,
+                          letterSpacing: '-0.03em',
+                          lineHeight: 1.02,
+                          color: INK,
+                          margin: 0,
+                          maxWidth: '340px',
+                          minHeight: 'clamp(80px, 7.4vw, 112px)',
+                        }}
+                      >
+                        {s.title}
+                      </h3>
+                    </div>
+                  ))}
+                </div>
 
-                <div style={{ paddingTop: '44px', paddingLeft: '28px' }}>
-                  <h3
-                    style={{
-                      fontFamily: 'Geist, sans-serif',
-                      fontSize: 'clamp(36px, 3.4vw, 48px)',
-                      fontWeight: 500,
-                      letterSpacing: '-0.03em',
-                      lineHeight: 1.08,
-                      color: '#0a1230',
-                      margin: 0,
-                      maxWidth: '320px',
-                    }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '16px',
-                      lineHeight: 1.65,
-                      color: '#3f4966',
-                      margin: '30px 0 0',
-                      maxWidth: '380px',
-                    }}
-                  >
-                    {s.body}
-                  </p>
-                  <div style={{ marginTop: '30px' }}>
-                    <Link
-                      to={s.link}
-                      data-testid={`${s.testid}-learn-more`}
-                      className="inline-flex items-center gap-2 group"
+                {/* Row 2 — continuous timeline hairline with two joint circle nodes */}
+                <div
+                  aria-hidden
+                  className="relative hidden lg:grid grid-cols-3"
+                  style={{ marginTop: '18px', marginBottom: '36px', height: '18px' }}
+                >
+                  {/* Full-width hairline */}
+                  <div
+                    className="absolute left-0 right-0"
+                    style={{ top: '50%', height: '1px', background: INK, transform: 'translateY(-50%)' }}
+                  />
+                  {/* Column 1: empty */}
+                  <div />
+                  {/* Column 2: circle sits at its LEFT edge = joint between col1|col2 */}
+                  <div className="relative">
+                    <span
                       style={{
-                        fontFamily: 'IBM Plex Mono, monospace',
-                        fontSize: '12px',
-                        letterSpacing: '0.18em',
-                        textTransform: 'uppercase',
-                        color: '#0a1230',
-                        borderBottom: '1px solid #0a1230',
-                        paddingBottom: '3px',
-                        textDecoration: 'none',
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        width: '16px',
+                        height: '16px',
+                        borderRadius: '50%',
+                        border: `1px solid ${INK}`,
+                        background: BG,
+                        transform: 'translate(-50%, -50%)',
                       }}
-                    >
-                      Learn More
-                      <span aria-hidden style={{ transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-                    </Link>
+                    />
+                  </div>
+                  {/* Column 3: circle at its LEFT edge = joint between col2|col3 */}
+                  <div className="relative">
+                    <span
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        width: '16px',
+                        height: '16px',
+                        borderRadius: '50%',
+                        border: `1px solid ${INK}`,
+                        background: BG,
+                        transform: 'translate(-50%, -50%)',
+                      }}
+                    />
                   </div>
                 </div>
+
+                {/* Row 3 — body copy + Learn More */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:gap-12">
+                  {services.map((s) => (
+                    <div key={`b-${s.title}`} className="relative">
+                      <p
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: '16px',
+                          lineHeight: 1.65,
+                          color: '#3f4966',
+                          margin: 0,
+                          maxWidth: '380px',
+                        }}
+                      >
+                        {s.body}
+                      </p>
+                      <div style={{ marginTop: '30px' }}>
+                        <Link
+                          to={s.link}
+                          data-testid={`${s.testid}-learn-more`}
+                          className="inline-flex items-center gap-2 group"
+                          style={{
+                            fontFamily: 'IBM Plex Mono, monospace',
+                            fontSize: '12px',
+                            letterSpacing: '0.18em',
+                            textTransform: 'uppercase',
+                            color: INK,
+                            borderBottom: `1px solid ${INK}`,
+                            paddingBottom: '3px',
+                            textDecoration: 'none',
+                          }}
+                        >
+                          Learn More
+                          <span aria-hidden style={{ transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })()}
 
           <div className="mt-16 lg:mt-20 flex justify-end">
             <Link
