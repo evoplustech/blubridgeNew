@@ -104,8 +104,8 @@ const AboutUs = () => {
             <div className="au-hero-photo-col bb-reveal bb-reveal-2">
               <img alt="The BluBridge team" className="au-hero-photo" data-testid="hero-photo" width="7008" height="4411" src="/images/cdn/183b87_3g9ggy4y_SA7.jpg" />
             </div>
-            <div className="au-hero-side-col bb-reveal bb-reveal-3">
-              <p className="au-hero-para" data-testid="hero-paragraph">We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.</p>
+            <div className="au-hero-side-col bb-reveal bb-reveal-3 ">
+              <p className="au-hero-para pt-[50px]" data-testid="hero-paragraph" >We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.</p>
               <Link className="bb-btn-primary au-hero-cta" data-testid="hero-cta-btn" to="/contact">Get in touch <span aria-hidden="true" style={{ fontFamily: '"IBM Plex Mono"' }}>↗</span></Link>
             </div>
           </div>

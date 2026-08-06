@@ -304,7 +304,7 @@ const Home = () => {
                   className="text-[19px] leading-[1.6] text-bb-ink"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
-                  Frontier AI Research Lab
+                  a Frontier AI Research company
                 </p>
               </div>
 
