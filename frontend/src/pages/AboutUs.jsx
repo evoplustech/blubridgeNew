@@ -1,270 +1,165 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import useDocumentTitle from '../hooks/useDocumentTitle';
-import useMetaDescription from '../hooks/useMetaDescription';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
-/* ------------------------------------------------------------------
-   ABOUT US — Editorial Redesign (light theme #f0f1f9)
-   Content preserved verbatim:
-   • Eyebrow: "About Us"
-   • H1: "Building the Next Frontier of AI"
-   • Hero description paragraph
-   • "Get in touch" CTA
-   • "Our Mission" title + description + "Join us" CTA
-   • "How We Build, Engineer and Validate" section
-   • "Our Purpose" / "How we Build" / "Innovation Through Rigor" / "Our People"
-   • Typing animation: "It's Our " + Hunger. / Precision.
-   • Final CTA "Know more about our Research"
-   ------------------------------------------------------------------ */
+const PHRASE_WORDS = ['Hunger.', 'Precision.'];
 
 const PassionTypingText = () => {
-  const [displayText, setDisplayText] = useState('');
-  const [cursorVisible, setCursorVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
-  const textRef = useRef(null);
-  const animRef = useRef(null);
-  const blinkRef = useRef(null);
-
-  const staticText = "It's Our ";
-  const words = ["Hunger.", "Precision."];
+  const [text, setText] = useState('');
+  const [caretOn, setCaretOn] = useState(true);
+  const stateRef = useRef({ wordIndex: 0, deleting: false });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !hasStarted) setHasStarted(true);
-    }, { threshold: 0.3 });
-    if (textRef.current) observer.observe(textRef.current);
-    return () => textRef.current && observer.unobserve(textRef.current);
-  }, [hasStarted]);
+    const blink = setInterval(() => setCaretOn((c) => !c), 500);
+    return () => clearInterval(blink);
+  }, []);
 
   useEffect(() => {
-    if (!isAnimating) { setCursorVisible(false); return; }
-    setCursorVisible(true);
-    blinkRef.current = setInterval(() => setCursorVisible(prev => !prev), 400);
-    return () => clearInterval(blinkRef.current);
-  }, [isAnimating]);
-
-  useEffect(() => {
-    if (!hasStarted) return;
-    let cancelled = false;
-    const delay = (ms) => new Promise(res => { animRef.current = setTimeout(res, ms); });
-    const typeWord = async (w) => {
-      setIsAnimating(true);
-      for (let i = 0; i <= w.length; i++) {
-        if (cancelled) return;
-        setDisplayText(w.slice(0, i));
-        await delay(70 + Math.random() * 40);
+    const s = stateRef.current;
+    const word = PHRASE_WORDS[s.wordIndex];
+    let delay;
+    if (!s.deleting) {
+      if (text.length < word.length) delay = 70;
+      else { delay = 1500; }
+    } else {
+      delay = 45;
+    }
+    const t = setTimeout(() => {
+      if (!s.deleting) {
+        if (text.length < word.length) setText(word.slice(0, text.length + 1));
+        else { s.deleting = true; setText(word.slice(0, text.length - 1)); }
+      } else {
+        if (text.length > 0) setText(word.slice(0, text.length - 1));
+        else { s.deleting = false; s.wordIndex = (s.wordIndex + 1) % PHRASE_WORDS.length; }
       }
-    };
-    const back = async (w) => {
-      setIsAnimating(true);
-      for (let i = w.length; i >= 0; i--) {
-        if (cancelled) return;
-        setDisplayText(w.slice(0, i));
-        await delay(40 + Math.random() * 25);
-      }
-    };
-    const run = async () => {
-      while (!cancelled) {
-        await typeWord(words[0]); setIsAnimating(false); await delay(2000); await back(words[0]); setIsAnimating(false); await delay(80);
-        await typeWord(words[1]); setIsAnimating(false); await delay(2000); await back(words[1]); setIsAnimating(false); await delay(80);
-      }
-    };
-    const t = setTimeout(run, 300);
-    return () => { cancelled = true; clearTimeout(t); clearTimeout(animRef.current); clearInterval(blinkRef.current); };
-  }, [hasStarted]);
+    }, delay);
+    return () => clearTimeout(t);
+  }, [text]);
 
   return (
-    <div ref={textRef} data-testid="passion-typing-text">
-      <h3
-        data-testid="passion-heading"
-        style={{
-          fontFamily: 'Geist, Inter, sans-serif',
-          fontSize: 'clamp(30px, 3.2vw, 46px)',
-          fontWeight: 500,
-          letterSpacing: '-0.025em',
-          lineHeight: 1.05,
-          color: '#0a1230',
-          whiteSpace: 'nowrap',
-        }}
-      >
-        <span>{staticText}</span>
-        <span style={{ color: '#2b4c8c' }}>
-          {displayText}
-          <span
-            className="inline-block ml-[1px] align-middle"
-            style={{
-              width: '3px',
-              height: '0.72em',
-              backgroundColor: '#2b4c8c',
-              opacity: cursorVisible ? 1 : 0,
-              transition: 'opacity 0.15s ease-in-out',
-              marginBottom: '0.05em',
-            }}
-          />
-        </span>
+    <div className="au-phrase-stage" data-testid="passion-typing-text">
+      <h3 className="au-phrase" data-testid="passion-heading">
+        <span className="au-phrase-static">It's Our </span>
+        <span className="au-phrase-anim">{text}<span aria-hidden="true" className="au-phrase-caret" style={{ opacity: caretOn ? 1 : 0 }}></span></span>
       </h3>
     </div>
   );
 };
 
+const methodCells = [
+  {
+    title: 'How we Build',
+    body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.',
+    emphasis: false,
+  },
+  {
+    title: 'Innovation Through Rigor',
+    body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.',
+    emphasis: true,
+  },
+  {
+    title: 'Our People',
+    body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.',
+    emphasis: false,
+  },
+];
+
 const AboutUs = () => {
-  const location = useLocation();
-  useDocumentTitle('About Us | Blubridge');
-  useMetaDescription('How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.');
+  const rootRef = useRef(null);
 
   useEffect(() => {
-    if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 200);
-    }
-  }, [location]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    rootRef.current?.querySelectorAll('.in-rev').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div style={{ background: '#f0f1f9' }} className="min-h-screen text-bb-ink" data-testid="about-page">
+    <div className="internal-site min-h-screen text-bb-ink au-root" data-testid="about-page" ref={rootRef}>
 
-      {/* ============================================================
-          HERO — Editorial split with technical annotations
-          ============================================================ */}
-      <section className="relative overflow-hidden" style={{ paddingTop: '48px', paddingBottom: '96px' }}>
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, rgba(10,18,48,0.04) 1px, transparent 1px), linear-gradient(rgba(10,18,48,0.04) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-            maskImage: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 60%, transparent 100%)',
-          }}
-        />
-
-        <div className="bb-container relative">
-          <div className="flex items-center justify-between pb-8 border-b border-bb-line bb-reveal">
-            <span className="bb-eyebrow" data-testid="about-eyebrow">About Us</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-14 lg:pt-16">
-            <div className="lg:col-span-7">
-              <h1
-                data-testid="hero-heading"
-                className="bb-display bb-reveal bb-reveal-1"
-                style={{ fontSize: 'clamp(38px, 6vw, 80px)' }}
-              >
-                Building the Next Frontier of AI
-              </h1>
-
-              <div className="mt-12 max-w-[620px] bb-reveal bb-reveal-3">
-                <div className="border border-bb-line rounded-sm overflow-hidden bg-white p-2">
-                  <img
-                    src="/images/bluBridge-team.png"
-                    alt="Building the Next Frontier of AI"
-                    className="w-full h-auto object-cover block"
-                    style={{ filter: 'saturate(0.95) contrast(0.98)' }}
-                  />
-                </div>
-              </div>
+      {/* ===== HERO ===== */}
+      <section className="au-hero" data-testid="about-hero">
+        <div className="bb-container au-hero-inner">
+          <div aria-hidden="true" className="au-hero-rule au-hero-rule-top"></div>
+          <div className="au-hero-row-1">
+            <div className="au-hero-heading-block">
+              <span className="bb-eyebrow au-hero-eyebrow" data-testid="about-eyebrow">About Us</span>
+              <h1 data-testid="hero-heading" className="au-hero-heading bb-reveal bb-reveal-1">Building the Next Frontier of AI</h1>
             </div>
-
-            <div className="lg:col-span-5 lg:pl-10 flex flex-col justify-center bb-reveal bb-reveal-2">
-              <p className="text-bb-ink text-[16px] leading-[1.8]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 mt-8 pb-2 border-b border-bb-ink text-bb-ink text-[15px] font-medium hover:text-bb-accent hover:border-bb-accent transition-colors self-start"
-                style={{ fontFamily: 'Geist, sans-serif' }}
-                data-testid="hero-cta-btn"
-              >
-                Get in touch <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>↗</span>
-              </Link>
+          </div>
+          <div className="au-hero-row-2">
+            <div className="au-hero-photo-col bb-reveal bb-reveal-2">
+              <img alt="The BluBridge team" className="au-hero-photo" data-testid="hero-photo" width="7008" height="4411" src="/images/cdn/183b87_3g9ggy4y_SA7.jpg" />
+            </div>
+            <div className="au-hero-side-col bb-reveal bb-reveal-3">
+              <p className="au-hero-para" data-testid="hero-paragraph">We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.</p>
+              <Link className="bb-btn-primary au-hero-cta" data-testid="hero-cta-btn" to="/contact">Get in touch <span aria-hidden="true" style={{ fontFamily: '"IBM Plex Mono"' }}>↗</span></Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============================================================
-          OUR MISSION
-          ============================================================ */}
-      <section className="py-24" style={{ background: '#e8eaf3' }}>
+      {/* ===== OUR MISSION ===== */}
+      <section className="au-mission" data-testid="about-mission">
+        <svg aria-hidden="true" className="au-mission-paths" viewBox="0 0 1440 620" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="au-mission-line" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0a1230" stopOpacity="0"></stop>
+              <stop offset="60%" stopColor="#0a1230" stopOpacity="1"></stop>
+              <stop offset="100%" stopColor="#0a1230" stopOpacity="1"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M 0,120 C 380,120 700,420 1180,520" stroke="url(#au-mission-line)" strokeWidth="1" fill="none"></path>
+          <path d="M 0,380 C 460,380 820,500 1180,520" stroke="url(#au-mission-line)" strokeWidth="1" fill="none"></path>
+          <path d="M 0,600 C 500,600 900,540 1180,520" stroke="url(#au-mission-line)" strokeWidth="1" fill="none"></path>
+          <rect x="1176" y="516" width="8" height="8" fill="#0a1230" fillOpacity="0.35"></rect>
+        </svg>
+        <div className="bb-container au-mission-inner">
+          <div className="au-mission-head">
+            <h2 data-testid="our-mission-title" className="au-mission-title">Our Mission</h2>
+          </div>
+          <div className="au-mission-statement-wrap">
+            <p data-testid="our-mission-description" className="au-mission-statement">We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.</p>
+            <div className="au-mission-cta-row">
+              <Link className="bb-btn-primary au-mission-cta" data-testid="mission-cta-btn" to="/careers">Join us <span aria-hidden="true" style={{ fontFamily: '"IBM Plex Mono"' }}>↗</span></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== HOW WE BUILD, ENGINEER AND VALIDATE ===== */}
+      <section className="au-method" data-testid="what-sets-us-apart-section">
         <div className="bb-container">
-          <p data-testid="our-mission-title" className="bb-eyebrow mb-10">Our Mission</p>
-          <p
-            data-testid="our-mission-description"
-            className="text-bb-ink max-w-[1225px]"
-            style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(22px, 2.6vw, 34px)', fontWeight: 400, letterSpacing: '-0.015em', lineHeight: 1.45 }}
-          >
-            We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.
-          </p>
-          <div className="mt-12">
-            <Link
-              to="/careers"
-              className="inline-flex items-center gap-2 pb-2 border-b border-bb-ink text-bb-ink text-[15px] font-medium hover:text-bb-accent hover:border-bb-accent transition-colors"
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
-              Join us <span aria-hidden style={{ fontFamily: 'IBM Plex Mono' }}>→</span>
-            </Link>
+          <h2 data-testid="what-sets-us-apart-heading" className="au-method-heading">How We Build, Engineer and Validate</h2>
+          <div className="au-method-upper">
+            <article className="in-rev au-method-cell au-method-cell-purpose" data-testid="method-cell-0">
+              <h4 className="au-method-cell-title">Our Purpose</h4>
+              <p className="au-method-cell-body">BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.</p>
+            </article>
+            <div className="au-method-phrase-slot" data-testid="method-phrase-slot">
+              <PassionTypingText />
+            </div>
+          </div>
+          <div className="au-method-lower">
+            {methodCells.map((cell, i) => (
+              <article key={cell.title} className={`in-rev au-method-cell${cell.emphasis ? ' au-method-cell-emphasis' : ''}`} data-testid={`method-cell-${i + 1}`}>
+                <h4 className="au-method-cell-title">{cell.title}</h4>
+                <p className="au-method-cell-body">{cell.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ============================================================
-          HOW WE BUILD — Editorial four-block grid + typing accent
-          ============================================================ */}
-      <section className="py-24" style={{ background: '#f0f1f9' }} data-testid="what-sets-us-apart-section">
-        <div className="bb-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-14 lg:gap-x-16">
-            {/* Sticky thesis rail — heading + Hunger/Precision statement */}
-            <div className="lg:col-span-5">
-              <div className="lg:sticky" style={{ top: '150px' }}>
-                <h2 data-testid="what-sets-us-apart-heading" className="bb-h2" style={{ fontSize: 'clamp(34px, 4vw, 56px)', maxWidth: '480px' }}>
-                  How We Build, Engineer and Validate
-                </h2>
-                <div aria-hidden style={{ width: '44px', height: '1px', background: '#d4d8e8', margin: '36px 0' }} />
-                <PassionTypingText />
-              </div>
-            </div>
-
-            {/* Four passages — offset editorial grid */}
-            <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 md:grid-cols-2" style={{ columnGap: 'clamp(40px, 5vw, 80px)', rowGap: 'clamp(52px, 6vw, 80px)' }}>
-                {[
-                  {
-                    title: 'Our Purpose',
-                    body: 'BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.'
-                  },
-                  {
-                    title: 'How we Build',
-                    body: 'We build through structured experimentation, measurable evaluation, and system-level engineering. Development follows reproducible workflows, deployment-aware design criteria, and staged productionization.'
-                  },
-                  {
-                    title: 'Innovation Through Rigor',
-                    body: 'Research is guided by technical depth, metric-based evaluation, and failure-mode analysis. Models and systems are validated for correctness, efficiency, and operating limits before broader deployment and operational use.'
-                  },
-                  {
-                    title: 'Our People',
-                    body: 'We bring together expertise across model research, systems engineering, and AI infrastructure. Work is cross-stack, with end-to-end technical responsibility across training, runtime behavior, deployment systems, and applied AI solution programs.'
-                  }
-                ].map((block, i) => (
-                  <article key={block.title} className={i % 2 === 1 ? 'md:mt-16' : ''}>
-                    <div aria-hidden style={{ width: '36px', height: '1px', background: '#b8bfd6', marginBottom: '20px' }} />
-                    <h3
-                      className="text-bb-ink"
-                      style={{ fontFamily: 'Geist, sans-serif', fontSize: 'clamp(21px, 2vw, 26px)', fontWeight: 500, letterSpacing: '-0.02em', margin: 0 }}
-                    >
-                      {block.title}
-                    </h3>
-                    <p className="text-bb-ink-2 text-[15px] leading-[1.8]" style={{ fontFamily: 'Inter, sans-serif', margin: '16px 0 0' }}>{block.body}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          FINAL CTA
-          ============================================================ */}
+      {/* ===== FINAL CTA (kept from existing page — excluded from copy) ===== */}
       <section className="py-24" style={{ background: '#0a1230' }}>
         <div className="bb-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
