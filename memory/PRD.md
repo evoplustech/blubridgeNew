@@ -125,5 +125,8 @@ Apply full editorial redesign to:
 ## 2026-06 (fork 4) — BY SERVICES final: three-column corner-bracket layout
 - User supplied a reference mock (corner-bracket columns); the foldout was replaced by three equal columns, each framed by a hairline corner motif (full-width top rule + 160px left drop-line, #c9cede), title clamp(36-48px), 16px desc, LEARN MORE mono link. BY SERVICES anchor + rectangular Talk To Us (3px radius, lower-right) retained. Content verbatim, links/testids intact. Verified via 1440px screenshot; mobile stacks via grid-cols-1.
 
+## 2026-06 (fork 4) — Infrastructure section: reference-mock rebuild
+- Home `infrastructure-section` rebuilt to match user screenshot: heading top-left (clamp 32-44px, 3-line, 520px max), left vertical tab list with 9px dot indicators (filled navy when active, hollow ring inactive) and white gradient active bar (fades right, 6px radius), right elevated card (#fbfbfd, 14px radius, soft layered shadow) containing tab title, description, and 2×2 feature grid with circled-check icons and hairline top rules. Content/tab names/testids (infra-tab-*, infra-content-card) unchanged. Verified via 1440px screenshot (Post-training tab).
+
 ## 2026-06 (fork 3, cont.) — Latest research paper
 - Added "Nova: An End-to-End MLIR Compiler for Deep Learning" (July 2026, arXiv 2608.00029, 7 authors) as the newest entry at the top of Research.jsx papers list, content copied verbatim from reference site (dev-workflow-preview /research). Page now lists 4 papers. Verified via screenshot.

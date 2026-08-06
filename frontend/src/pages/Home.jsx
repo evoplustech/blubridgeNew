@@ -523,130 +523,137 @@ const Home = () => {
       <section style={{ background: '#e8eaf3', paddingTop: '112px', paddingBottom: '128px' }} data-testid="infrastructure-section">
         <div className="bb-container">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-7">
-              <h2
-                style={{
-                  fontFamily: 'Geist, sans-serif',
-                  fontSize: 'clamp(34px, 4.4vw, 60px)',
-                  lineHeight: 1.02,
-                  letterSpacing: '-0.03em',
-                  fontWeight: 500,
-                  color: '#0a1230',
-                  margin: 0,
-                  maxWidth: '760px',
-                }}
-              >
-                BluBridge Infrastructure for custom AI deployment Solutions
-              </h2>
-            </div>
-            <div className="lg:col-span-5">
-              <div
-                className="flex flex-col"
-                role="tablist"
-                style={{ borderTop: '1px solid #d4d8e8' }}
-              >
-                {infraTabs.map((tab, index) => {
-                  const active = activeInfraTab === index;
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => setActiveInfraTab(index)}
-                      data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      role="tab"
-                      aria-selected={active}
-                      className="flex items-center justify-between gap-4 py-3 transition-colors text-left"
+          <h2
+            style={{
+              fontFamily: 'Geist, sans-serif',
+              fontSize: 'clamp(32px, 3.4vw, 44px)',
+              lineHeight: 1.14,
+              letterSpacing: '-0.025em',
+              fontWeight: 600,
+              color: '#0a1230',
+              margin: 0,
+              maxWidth: '520px',
+            }}
+          >
+            BluBridge Infrastructure for custom AI deployment Solutions
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 mt-14 lg:mt-16 items-start">
+
+            {/* Left — vertical tab list with dot indicators */}
+            <div className="lg:col-span-4" role="tablist">
+              {infraTabs.map((tab, index) => {
+                const active = activeInfraTab === index;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveInfraTab(index)}
+                    data-testid={`infra-tab-${tab.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    role="tab"
+                    aria-selected={active}
+                    className="flex items-center gap-4 w-full text-left transition-colors"
+                    style={{
+                      padding: '13px 18px',
+                      borderRadius: '6px',
+                      background: active ? 'linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.55) 72%, rgba(255,255,255,0) 100%)' : 'transparent',
+                    }}
+                  >
+                    <span
+                      aria-hidden
                       style={{
-                        borderBottom: '1px solid #d4d8e8',
+                        width: '9px',
+                        height: '9px',
+                        borderRadius: '50%',
+                        flexShrink: 0,
+                        background: active ? '#0a1230' : 'transparent',
+                        border: active ? '1px solid #0a1230' : '1px solid #a9b0c6',
+                        transition: 'background-color 180ms ease, border-color 180ms ease',
+                      }}
+                    />
+                    <span
+                      style={{
                         fontFamily: 'Geist, sans-serif',
                         fontSize: '14.5px',
-                        color: active ? '#0a1230' : '#7c86a2',
-                        fontWeight: active ? 500 : 400,
+                        fontWeight: active ? 600 : 400,
+                        color: active ? '#0a1230' : '#5d6580',
                       }}
                     >
-                      <span>{tab.name}</span>
-                      <span
-                        aria-hidden
-                        style={{
-                          fontFamily: 'IBM Plex Mono, monospace',
-                          fontSize: '13px',
-                          color: active ? '#0a1230' : 'transparent',
-                          transition: 'color 200ms ease',
-                        }}
-                      >
-                        →
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
+                      {tab.name}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
-          </div>
 
-          {/* Active tab content — full-width composition */}
-          <div className="mt-20" data-testid="infra-content-card">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-baseline">
-              <div className="lg:col-span-4">
+            {/* Right — elevated detail card */}
+            <div className="lg:col-span-7 lg:col-start-5">
+              <div
+                data-testid="infra-content-card"
+                style={{
+                  background: '#fbfbfd',
+                  borderRadius: '14px',
+                  padding: 'clamp(28px, 3.4vw, 48px)',
+                  boxShadow: '0 18px 44px rgba(10, 18, 48, 0.07), 0 2px 8px rgba(10, 18, 48, 0.04)',
+                }}
+              >
                 <h3
                   style={{
                     fontFamily: 'Geist, sans-serif',
-                    fontSize: 'clamp(32px, 3.8vw, 52px)',
-                    fontWeight: 500,
-                    letterSpacing: '-0.03em',
-                    lineHeight: 1,
+                    fontSize: 'clamp(24px, 2.2vw, 30px)',
+                    fontWeight: 600,
+                    letterSpacing: '-0.02em',
+                    lineHeight: 1.15,
                     color: '#0a1230',
                     margin: 0,
                   }}
                 >
                   {infraTabs[activeInfraTab].title}
                 </h3>
-              </div>
-              <div className="lg:col-span-8">
                 <p
                   style={{
                     fontFamily: 'Inter, sans-serif',
-                    fontSize: '16.5px',
-                    lineHeight: 1.75,
-                    color: '#2a3352',
-                    margin: 0,
-                    maxWidth: '680px',
+                    fontSize: '15px',
+                    lineHeight: 1.7,
+                    color: '#3f4966',
+                    margin: '14px 0 0',
+                    maxWidth: '520px',
                   }}
                 >
                   {infraTabs[activeInfraTab].description}
                 </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10" style={{ marginTop: '38px' }}>
+                  {infraTabs[activeInfraTab].features.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3"
+                      style={{ borderTop: '1px solid #dfe2ee', padding: '15px 0' }}
+                    >
+                      <span
+                        aria-hidden
+                        className="flex items-center justify-center flex-shrink-0"
+                        style={{ width: '19px', height: '19px', borderRadius: '50%', background: '#e9ebf4' }}
+                      >
+                        <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                          <path d="M1.5 5.2L4 7.6L8.5 2.4" stroke="#6a7390" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: '14.5px',
+                          lineHeight: 1.5,
+                          color: '#0a1230',
+                        }}
+                      >
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Features matrix — 2-column typographic list */}
-            <div
-              className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-x-16"
-              style={{ borderTop: '1px solid #d4d8e8', paddingTop: '24px' }}
-            >
-              {infraTabs[activeInfraTab].features.map((feature, i) => (
-                <div
-                  key={i}
-                  className="flex items-baseline gap-5 py-4"
-                  style={{ borderBottom: i < infraTabs[activeInfraTab].features.length - 1 && i !== 0 ? 'none' : 'none' }}
-                >
-                  <span
-                    aria-hidden
-                    style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '12px', color: '#7c86a2', letterSpacing: '0.14em' }}
-                  >
-                    ——
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '15.5px',
-                      lineHeight: 1.55,
-                      color: '#0a1230',
-                    }}
-                  >
-                    {feature}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
