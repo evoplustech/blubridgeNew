@@ -28,8 +28,13 @@ const PassionTypingText = () => {
         if (text.length < word.length) setText(word.slice(0, text.length + 1));
         else { s.deleting = true; setText(word.slice(0, text.length - 1)); }
       } else {
-        if (text.length > 0) setText(word.slice(0, text.length - 1));
-        else { s.deleting = false; s.wordIndex = (s.wordIndex + 1) % PHRASE_WORDS.length; }
+        if (text.length > 1) {
+          setText(word.slice(0, text.length - 1));
+        } else {
+          s.deleting = false;
+          s.wordIndex = (s.wordIndex + 1) % PHRASE_WORDS.length;
+          setText(PHRASE_WORDS[s.wordIndex].slice(0, 1));
+        }
       }
     }, delay);
     return () => clearTimeout(t);
@@ -107,29 +112,22 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* ===== OUR MISSION ===== */}
-      <section className="au-mission" data-testid="about-mission">
-        <svg aria-hidden="true" className="au-mission-paths" viewBox="0 0 1440 620" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="au-mission-line" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#0a1230" stopOpacity="0"></stop>
-              <stop offset="60%" stopColor="#0a1230" stopOpacity="1"></stop>
-              <stop offset="100%" stopColor="#0a1230" stopOpacity="1"></stop>
-            </linearGradient>
-          </defs>
-          <path d="M 0,120 C 380,120 700,420 1180,520" stroke="url(#au-mission-line)" strokeWidth="1" fill="none"></path>
-          <path d="M 0,380 C 460,380 820,500 1180,520" stroke="url(#au-mission-line)" strokeWidth="1" fill="none"></path>
-          <path d="M 0,600 C 500,600 900,540 1180,520" stroke="url(#au-mission-line)" strokeWidth="1" fill="none"></path>
-          <rect x="1176" y="516" width="8" height="8" fill="#0a1230" fillOpacity="0.35"></rect>
-        </svg>
+      {/* ===== OUR MISSION (3-column editorial row) ===== */}
+      <section className="au-mission au-mission-row" data-testid="about-mission">
         <div className="bb-container au-mission-inner">
-          <div className="au-mission-head">
-            <h2 data-testid="our-mission-title" className="au-mission-title">Our Mission</h2>
-          </div>
-          <div className="au-mission-statement-wrap">
-            <p data-testid="our-mission-description" className="au-mission-statement">We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.</p>
-            <div className="au-mission-cta-row">
-              <Link className="bb-btn-primary au-mission-cta" data-testid="mission-cta-btn" to="/careers">Join us <span aria-hidden="true" style={{ fontFamily: '"IBM Plex Mono"' }}>↗</span></Link>
+          <div className="aum-grid">
+            <div className="aum-left">
+              <h2 data-testid="our-mission-title" className="au-mission-title aum-title">Our Mission</h2>
+              <span aria-hidden="true" className="aum-dash"></span>
+            </div>
+            <div className="aum-mid">
+              <p data-testid="our-mission-description" className="aum-statement">We build AI systems for open ecosystems and enterprise environments with emphasis on open-weight models and applied AI capabilities engineered through disciplined training, evaluation rigor, and systems-aware design. Our mission is to advance AI as an engineering discipline grounded in measurable progress, reproducible methods, and technical correctness, with research and applied programs aligned to real-world operating constraints.</p>
+            </div>
+            <div className="aum-right">
+              <Link className="aum-join" data-testid="mission-cta-btn" to="/careers">
+                <span aria-hidden="true" className="aum-join-circle"><span className="aum-join-arrow">→</span></span>
+                <span className="aum-join-label">Join us</span>
+              </Link>
             </div>
           </div>
         </div>

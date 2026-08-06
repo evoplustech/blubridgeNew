@@ -819,3 +819,26 @@ html.mscur-active body {
   .au-method-phrase-slot { min-height: 110px; padding: 32px 24px; }
   .au-method-cell { padding: 32px 24px; }
 }
+
+/* ===== ABOUT US — OUR MISSION 3-column editorial row ===== */
+.au-mission-row { padding: 96px 0; }
+.aum-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr) minmax(0, 3fr); align-items: center; }
+.aum-left { padding-right: clamp(24px, 3vw, 48px); }
+.aum-title { max-width: 6ch; }
+.aum-dash { background: var(--au-ink, #0a1230); display: block; height: 1px; margin-top: 56px; opacity: 0.6; width: 56px; }
+.aum-mid { border-left: 1px solid var(--au-line, #0a12301a); border-right: 1px solid var(--au-line, #0a12301a); padding: 8px clamp(28px, 4vw, 64px); }
+.aum-statement { color: var(--au-ink, #0a1230); font-family: Inter, sans-serif; font-size: 15.5px; line-height: 1.95; margin: 0; max-width: 60ch; }
+.aum-right { display: flex; justify-content: center; padding-left: clamp(24px, 3vw, 48px); }
+.aum-join { align-items: center; display: inline-flex; gap: 18px; text-decoration: none; }
+.aum-join-circle { align-items: center; border: 1px solid var(--au-ink-3, #6b7593); border-radius: 50%; display: inline-flex; height: 52px; justify-content: center; transition: background-color .22s ease, border-color .22s ease; width: 52px; }
+.aum-join-arrow { color: var(--au-ink, #0a1230); display: inline-block; font-size: 20px; transition: transform .22s cubic-bezier(.22,1,.36,1); }
+.aum-join-label { color: var(--au-ink, #0a1230); font-family: Geist, Inter, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
+.aum-join:hover .aum-join-circle { background: var(--au-ink, #0a1230); border-color: var(--au-ink, #0a1230); }
+.aum-join:hover .aum-join-arrow { color: #fff; transform: translateX(3px); }
+@media (max-width: 1024px) {
+  .aum-grid { gap: 40px; grid-template-columns: 1fr; }
+  .aum-left { padding-right: 0; }
+  .aum-dash { margin-top: 28px; }
+  .aum-mid { border-left: none; border-right: none; border-top: 1px solid var(--au-line, #0a12301a); border-bottom: 1px solid var(--au-line, #0a12301a); padding: 32px 0; }
+  .aum-right { justify-content: flex-start; padding-left: 0; }
+}

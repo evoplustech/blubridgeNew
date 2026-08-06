@@ -43,3 +43,7 @@
 
 ## 2026-08-06 (fork 2, cont.) — About Us page: exact 1:1 copy from premium-pages-ui reference
 - `pages/AboutUs.jsx` rewritten as EXACT copy of https://premium-pages-ui.preview.emergentagent.com/about-us (excl. header/footer AND the "Know more about our Research" section which was kept from the existing page as user requested): au-hero (eyebrow + heading + team photo + para + Get in touch), au-mission (SVG path lines, indented statement, Join us CTA), au-method (Our Purpose cell + "It's Our Hunger./Precision." typing animation with blinking caret + 3 method cells with dark emphasis middle). All au-* CSS + responsive rules appended to index.css. Team photo downloaded to /public/images/cdn/183b87_3g9ggy4y_SA7.jpg. Verified via screenshots.
+
+## 2026-08-06 (fork 2, cont.) — About Us fixes
+- Our Mission rebuilt as 3-column editorial row per user screenshot: "Our Mission" title + dash (left), vertical hairlines, mission paragraph (middle), circled → arrow + "Join us" link to /careers (right). Same content, testids preserved. Responsive stack <1024px.
+- Fixed typing animation bug in PassionTypingText: word-switch branch never re-triggered the effect (text stayed ''), so animation stalled after first cycle. Now types/deletes "Hunger." ↔ "Precision." continuously — verified via sampled inner_text.
