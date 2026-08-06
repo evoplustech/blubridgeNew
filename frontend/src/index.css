@@ -754,7 +754,7 @@ html.mscur-active body {
 .au-hero-row-2 { grid-gap: 40px; align-items: start; display: grid; gap: 40px; grid-template-columns: repeat(12, minmax(0, 1fr)); }
 .au-hero-photo-col { grid-column: 1 / span 8; min-width: 0; }
 .au-hero-photo { aspect-ratio: 7008/4411; background: #0000; border-radius: 10px; display: block; height: auto; object-fit: contain; width: 100%; }
-.au-hero-side-col { display: flex; flex-direction: column; gap: 24px; grid-column: 9 / span 4; padding-top: 4px; }
+.au-hero-side-col { display: flex; flex-direction: column; gap: 24px; grid-column: 9 / span 4; padding-top: 0; }
 .au-hero-para { color: var(--au-ink); font-family: Inter, sans-serif; font-size: 15.5px; line-height: 1.7; margin: 0; }
 .au-hero-cta { align-self: flex-start; }
 .au-mission { background: #e8eaf3; overflow: hidden; padding: 128px 0 144px; position: relative; }
@@ -791,6 +791,7 @@ html.mscur-active body {
   .au-hero-heading { font-size: clamp(36px, 6vw, 60px); }
   .au-hero-row-2 { gap: 32px; grid-template-columns: 1fr; }
   .au-hero-photo-col, .au-hero-side-col { grid-column: 1 / -1; }
+  .au-hero-side-col { padding-top: 0; }
   .au-mission { padding: 96px 0; }
   .au-mission-statement { font-size: clamp(20px, 2.6vw, 26px); grid-column: 1 / span 12; }
   .au-mission-cta-row { grid-column: 1 / span 12; }
