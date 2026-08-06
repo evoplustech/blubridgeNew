@@ -14,3 +14,11 @@
 - Custom cursor: circle-with-dot design site-wide (accent variant on interactive elements)
 - Footer: 5-column layout (brand | Product | Solutions | Company | contact form)
 - NOTE: frontend auto-rebuild watcher unreliable (inotify) — use manual `yarn build` + supervisor restart when build seems stale
+
+## 2026-08-06 (fork session)
+- "What we can do for you" — 6th iteration: rebuilt as EDITORIAL INDEX BAR + JOURNAL SPREAD
+  - Oversized left-anchored title with baseline hairline extending right
+  - Horizontal 5-column capability index bar bounded by top/bottom hairlines with fine vertical rule separators
+  - Active capability marked by an animated solid ink underline block (scaleX transition)
+  - Two-column journal spread below: large active heading (cols 1-7) + description (cols 8-12) with a short ink dash accent
+  - Strict content lock respected; no boxes/gradients/badges

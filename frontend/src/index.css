@@ -240,10 +240,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 [data-testid="capabilities-selector"] button:focus-visible {
   outline: none;
+  background: rgba(10, 18, 48, 0.03);
 }
-[data-testid="capabilities-selector"] button:focus-visible .bb-cap-label {
-  border-bottom-color: #2b4c8c;
-  color: #0a1230;
+[data-testid="capabilities-selector"] .bb-cap-cell:hover {
+  color: #0a1230 !important;
 }
 @media (prefers-reduced-motion: reduce) {
   [data-testid="capability-stage"] { animation: none !important; }
