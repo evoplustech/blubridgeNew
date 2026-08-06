@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Radio, ShieldCheck, GraduationCap, Code2, Factory, Landmark, HeartPulse,
@@ -171,7 +171,7 @@ const ExpertiseSection = () => {
   );
 };
 
-/* ==================== CAPABILITIES — ACCORDION ==================== */
+/* ==================== CAPABILITIES — READING FRAME ==================== */
 const capabilities = [
   {
     title: 'Smart Agents',
@@ -202,101 +202,153 @@ const capabilities = [
 
 const CapabilitiesAccordion = () => {
   const [activeCap, setActiveCap] = useState(0);
+  const tabRefs = useRef([]);
   const cap = capabilities[activeCap];
 
+  const onTablistKeyDown = (e) => {
+    let next = null;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (activeCap + 1) % capabilities.length;
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (activeCap - 1 + capabilities.length) % capabilities.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = capabilities.length - 1;
+    if (next !== null) {
+      e.preventDefault();
+      setActiveCap(next);
+      tabRefs.current[next]?.focus();
+    }
+  };
+
   return (
-    <section style={{ background: '#f0f1f9', paddingTop: '112px', paddingBottom: '128px' }} data-testid="capabilities-index">
-      <div className="bb-container">
+    <section style={{ background: '#f0f1f9', paddingTop: '96px', paddingBottom: '104px' }} data-testid="capabilities-index">
+      <div style={{ maxWidth: '1260px', width: 'calc(100% - 48px)', margin: '0 auto' }} className="lg:!w-[calc(100%-96px)]">
+
         <h2
           data-testid="capabilities-heading"
           style={{
             fontFamily: 'Geist, sans-serif',
-            fontSize: 'clamp(36px, 5vw, 64px)',
+            fontSize: 'clamp(40px, 5.2vw, 74px)',
             letterSpacing: '-0.03em',
-            lineHeight: 1,
+            lineHeight: 1.04,
             fontWeight: 500,
             color: '#0a1230',
             margin: 0,
-            maxWidth: '780px',
+            maxWidth: '820px',
           }}
         >
           What we can do for you
         </h2>
 
-        {/* Inline contents line — flowing selector of capability titles */}
-        <div
-          className="flex flex-wrap items-baseline"
-          role="tablist"
-          data-testid="capabilities-selector"
-          style={{ marginTop: '56px', columnGap: 'clamp(28px, 4vw, 64px)', rowGap: '14px' }}
-        >
-          {capabilities.map((c, i) => {
-            const active = activeCap === i;
-            return (
-              <button
-                key={c.title}
-                role="tab"
-                aria-selected={active}
-                data-testid={`capability-toggle-${i}`}
-                onClick={() => setActiveCap(i)}
-                style={{
-                  fontFamily: 'Geist, sans-serif',
-                  fontSize: 'clamp(17px, 1.6vw, 21px)',
-                  fontWeight: 500,
-                  letterSpacing: '-0.01em',
-                  color: active ? '#0a1230' : '#7c86a2',
-                  background: 'transparent',
-                  padding: '6px 0',
-                  borderBottom: active ? '1px solid #0a1230' : '1px solid transparent',
-                  transition: 'color 200ms ease, border-color 200ms ease',
-                  cursor: 'pointer',
-                }}
-              >
-                {c.title}
-              </button>
-            );
-          })}
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12" style={{ marginTop: 'clamp(48px, 5vw, 72px)' }}>
 
-        {/* Reading stage — indented editorial passage for the active capability */}
-        <div
-          key={activeCap}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-y-8"
-          data-testid="capability-stage"
-          style={{ marginTop: 'clamp(48px, 6vw, 88px)', animation: 'bbFadeIn 350ms ease forwards' }}
-        >
-          <div className="lg:col-span-9 lg:col-start-4">
+          {/* Capability index — vertical on desktop, wrapped typographic rows below lg */}
+          <div className="lg:col-span-4">
+            <div
+              role="tablist"
+              aria-orientation="vertical"
+              aria-label="What we can do for you"
+              data-testid="capabilities-selector"
+              className="flex flex-row flex-wrap lg:flex-col gap-x-8 gap-y-2 lg:gap-y-1"
+              onKeyDown={onTablistKeyDown}
+            >
+              {capabilities.map((c, i) => {
+                const active = activeCap === i;
+                return (
+                  <button
+                    key={c.title}
+                    ref={(el) => (tabRefs.current[i] = el)}
+                    role="tab"
+                    id={`capability-tab-${i}`}
+                    aria-selected={active}
+                    aria-controls="capability-panel"
+                    tabIndex={active ? 0 : -1}
+                    data-testid={`capability-toggle-${i}`}
+                    onClick={() => setActiveCap(i)}
+                    className="flex items-center text-left w-auto lg:w-full"
+                    style={{
+                      minHeight: '44px',
+                      background: 'transparent',
+                      cursor: 'pointer',
+                      padding: 0,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: 'Geist, sans-serif',
+                        fontSize: 'clamp(17px, 1.4vw, 20px)',
+                        fontWeight: active ? 600 : 400,
+                        letterSpacing: '-0.01em',
+                        lineHeight: 1.3,
+                        color: active ? '#0a1230' : '#68718c',
+                        paddingLeft: active ? '10px' : '0px',
+                        transition: 'color 190ms ease, padding-left 190ms ease',
+                        whiteSpace: 'nowrap',
+                      }}
+                      className={active ? 'bb-cap-label-active' : ''}
+                    >
+                      {c.title}
+                    </span>
+                    {/* Registration rule — active tab only, runs toward the binding line */}
+                    <span
+                      aria-hidden
+                      className="hidden lg:block flex-1"
+                      style={{
+                        height: '1px',
+                        background: active ? '#0a1230' : 'transparent',
+                        marginLeft: '18px',
+                        transition: 'background-color 190ms ease',
+                      }}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Structural binding line */}
+          <div className="hidden lg:flex lg:col-span-1 justify-center self-stretch" aria-hidden>
+            <span style={{ width: '1px', background: '#d4d8e8', display: 'block' }} />
+          </div>
+
+          {/* Active capability reading area */}
+          <div
+            key={activeCap}
+            role="tabpanel"
+            id="capability-panel"
+            aria-labelledby={`capability-tab-${activeCap}`}
+            className="lg:col-span-7 mt-12 lg:mt-0"
+            data-testid="capability-stage"
+            style={{ animation: 'bbCapReveal 190ms ease forwards' }}
+          >
             <h3
               data-testid="capability-active-heading"
               style={{
                 fontFamily: 'Geist, sans-serif',
-                fontSize: 'clamp(26px, 3.4vw, 46px)',
+                fontSize: 'clamp(30px, 4vw, 54px)',
                 fontWeight: 500,
                 letterSpacing: '-0.025em',
-                lineHeight: 1.12,
+                lineHeight: 1.1,
                 color: '#0a1230',
                 margin: 0,
-                maxWidth: '760px',
+                maxWidth: '720px',
               }}
             >
               {cap.heading}
             </h3>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-5">
             <p
               data-testid="capability-active-description"
               style={{
                 fontFamily: 'Inter, sans-serif',
-                fontSize: '16.5px',
-                lineHeight: 1.8,
-                color: '#2a3352',
-                margin: 0,
-                maxWidth: '640px',
+                fontSize: '17px',
+                lineHeight: 1.65,
+                color: '#3f4966',
+                margin: '32px 0 0',
+                maxWidth: '660px',
               }}
             >
               {cap.description}
             </p>
           </div>
+
         </div>
       </div>
     </section>
