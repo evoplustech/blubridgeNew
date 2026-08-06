@@ -105,9 +105,7 @@ export default function Research() {
               <div className="in-folio-edge" aria-hidden="true"></div>
               <div className="grid md:grid-cols-12 gap-6 p-7 md:p-10">
                 <div className="md:col-span-3 md:border-r md:pr-6" style={{ borderColor: 'var(--in-border)' }}>
-                  <p className="in-index mb-3">{pub.index}</p>
-                  <p className="in-meta mb-1" style={{ color: 'var(--in-deep)' }}>{pub.arxiv}</p>
-                  <p className="text-sm mt-4">
+                  <p className="text-sm">
                     <span className="font-bold" style={{ color: 'var(--in-ink)' }}>Published:</span>
                     <span className="ml-1" style={{ color: 'var(--in-ink-2)' }}>{pub.published}</span>
                   </p>
