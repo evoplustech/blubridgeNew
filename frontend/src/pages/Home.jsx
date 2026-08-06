@@ -94,8 +94,18 @@ const ExpertiseSection = () => {
             Our Frontier AI Expertise
           </h2>
           <div className="flex flex-col md:items-end gap-1">
-            <span className="bb-caption inline-flex items-center gap-2">
-              <span className="w-6 h-px bg-bb-ink/60" />
+            <span
+              className="inline-flex items-center gap-3"
+              style={{
+                fontFamily: 'IBM Plex Mono, monospace',
+                fontSize: 'clamp(15px, 1.15vw, 18px)',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: '#0a1230',
+                fontWeight: 500,
+              }}
+            >
+              <span style={{ width: '36px', height: '2px', background: '#0a1230', display: 'inline-block' }} />
               By Industry
             </span>
           </div>
