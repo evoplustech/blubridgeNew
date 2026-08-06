@@ -121,7 +121,7 @@ const ExpertiseSection = () => {
           className="relative"
           role="tablist"
           data-testid="industry-focal-list"
-          style={{ borderTop: '1px solid #d4d8e8' }}
+          style={{ borderTop: '1px solid #8b93ad' }}
         >
           {industries.map((ind, i) => {
             const active = activeIndustry === i;
@@ -135,7 +135,7 @@ const ExpertiseSection = () => {
                 aria-selected={active}
                 className="w-full text-left block transition-colors group"
                 style={{
-                  borderBottom: '1px solid #d4d8e8',
+                  borderBottom: '1px solid #8b93ad',
                   padding: active ? 'clamp(28px, 4vw, 56px) 0' : '18px 0',
                   cursor: 'pointer',
                   background: 'transparent',
@@ -152,7 +152,7 @@ const ExpertiseSection = () => {
                     letterSpacing: active ? '-0.05em' : '-0.02em',
                     lineHeight: 1,
                     color: active ? '#0a1230' : '#7c86a2',
-                    fontSize: active ? 'clamp(46px, 7.4vw, 116px)' : 'clamp(15px, 1.15vw, 17px)',
+                    fontSize: active ? 'clamp(46px, 7.4vw, 116px)' : 'clamp(18px, 1.4vw, 22px)',
                     display: 'block',
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
