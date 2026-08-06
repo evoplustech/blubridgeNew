@@ -85,7 +85,8 @@ const industries = [
 const ExpertiseSection = () => {
   const INK = '#0a1230';
   const MUTE = '#5c6684';
-  const RULE = 'rgba(10, 18, 48, 0.12)';
+  const ACCENT = '#2b4c8c';
+  const RULE = 'rgba(10, 18, 48, 0.10)';
 
   return (
     <section
@@ -95,87 +96,93 @@ const ExpertiseSection = () => {
       aria-labelledby="frontier-expertise-heading"
     >
       <div className="bb-container">
-        {/* Masthead */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <h2
-            id="frontier-expertise-heading"
-            className="bb-h2 capitalize"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', margin: 0 }}
-          >
-            Our Frontier AI Expertise
-          </h2>
-        </div>
+        {/* Heading */}
+        <h2
+          id="frontier-expertise-heading"
+          style={{
+            fontFamily: 'Geist, sans-serif',
+            fontSize: 'clamp(34px, 4.4vw, 56px)',
+            fontWeight: 600,
+            letterSpacing: '-0.028em',
+            lineHeight: 1.05,
+            color: INK,
+            margin: 0,
+          }}
+        >
+          Our Frontier AI Expertise
+        </h2>
 
         {/* By Industry label row */}
-        <div className="flex items-center gap-6 mb-10" data-testid="frontier-industries">
+        <div className="flex items-center gap-4 mt-10 mb-4" data-testid="frontier-industries">
           <h3
             style={{
-              fontFamily: 'IBM Plex Mono, monospace',
-              fontSize: '13px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
+              fontFamily: 'Geist, sans-serif',
+              fontSize: '17px',
+              fontWeight: 600,
               color: INK,
-              fontWeight: 500,
               margin: 0,
               whiteSpace: 'nowrap',
             }}
           >
-            <span style={{ color: MUTE, marginRight: '8px' }}>By</span>
-            <span style={{ color: INK }}>Industry</span>
+            <span>By </span>
+            <span style={{ color: ACCENT }}>Industry</span>
           </h3>
           <span aria-hidden style={{ flex: 1, height: '1px', background: RULE }} />
         </div>
 
-        {/* 10-cell numbered grid — 2 cols mobile, 5 cols desktop */}
+        {/* 2-column × 5-row compact list (Ref 2 layout) */}
         <div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+          className="grid grid-cols-1 md:grid-cols-2"
           data-testid="industry-grid"
-          style={{ borderTop: `1px solid ${RULE}`, borderLeft: `1px solid ${RULE}` }}
+          style={{ columnGap: '20px' }}
         >
           {industries.map((ind, i) => {
-            const testid = `expertise-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and').replace(/\s*&\s*/g, '-')}`;
+            const testid = `expertise-${ind.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`;
             return (
               <div
                 key={ind.title}
                 tabIndex={0}
                 data-testid={testid}
-                className="group relative flex flex-col justify-between transition-colors"
+                className="group relative flex items-center gap-5 transition-colors rounded"
                 style={{
-                  borderRight: `1px solid ${RULE}`,
+                  padding: '18px 20px',
                   borderBottom: `1px solid ${RULE}`,
-                  padding: '32px 28px 30px',
-                  minHeight: 'clamp(140px, 14vw, 190px)',
                   cursor: 'default',
                   background: 'transparent',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.55)';
+                  e.currentTarget.style.background = 'rgba(218,225,248,0.6)';
+                  e.currentTarget.querySelector('.fxi-name').style.color = ACCENT;
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.querySelector('.fxi-name').style.color = INK;
                 }}
               >
                 <span
                   aria-hidden
                   style={{
                     fontFamily: 'IBM Plex Mono, monospace',
-                    fontSize: '12px',
-                    letterSpacing: '0.14em',
+                    fontSize: '11px',
+                    letterSpacing: '0.08em',
                     color: MUTE,
                     fontWeight: 500,
+                    width: '20px',
+                    flexShrink: 0,
                   }}
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span
+                  className="fxi-name"
                   style={{
-                    fontFamily: 'Geist, sans-serif',
-                    fontSize: 'clamp(20px, 1.7vw, 26px)',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '16.5px',
                     fontWeight: 500,
-                    letterSpacing: '-0.02em',
-                    lineHeight: 1.15,
+                    letterSpacing: '-0.005em',
+                    lineHeight: 1.3,
                     color: INK,
-                    marginTop: '36px',
+                    transition: 'color 180ms ease',
                   }}
                 >
                   {ind.title}
