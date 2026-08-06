@@ -386,16 +386,12 @@ const Home = () => {
       <ExpertiseSection />
 
       {/* ============================================================
-          SECTION 3 — BY SERVICES · "THE SERVICE FOLDOUT"
-          One continuous typographic canvas. Three services occupy
-          individually judged footprints on a 12-col armature:
-          MC anchors upper-left, VR folds right & lower with a narrow
-          tall reading block, Deployment grounds the base from an
-          offset start. Talk To Us closes lower-right. No rows, no
-          dividers, no cards.
+          SECTION 3 — BY SERVICES
+          Three columns, each framed by a corner-bracket hairline
+          motif (top rule + left drop-line past the title).
           ============================================================ */}
       <section style={{ background: '#f0f1f9', paddingTop: '104px', paddingBottom: '120px' }} data-testid="services-section">
-        <div className="bb-container relative">
+        <div className="bb-container">
 
           {/* Section anchor */}
           <div>
@@ -415,206 +411,106 @@ const Home = () => {
             <span aria-hidden style={{ display: 'block', width: '56px', height: '2px', background: '#0a1230', marginTop: '14px' }} />
           </div>
 
-          {/* Fold-line motif — two perpendicular hairline segments in
-              unused negative space between MC and VR. Desktop only. */}
-          <span
-            aria-hidden
-            className="hidden lg:block absolute pointer-events-none"
-            style={{ top: '218px', left: '58.2%', width: '1px', height: '190px', background: '#d4d8e8' }}
-          />
-          <span
-            aria-hidden
-            className="hidden lg:block absolute pointer-events-none"
-            style={{ top: '218px', left: '58.2%', width: '64px', height: '1px', background: '#d4d8e8' }}
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:gap-12 mt-16 lg:mt-20">
+            {[
+              {
+                title: 'Model Customization',
+                link: '/solutions#model-customization',
+                body: 'Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.',
+                testid: 'solution-model-customization',
+              },
+              {
+                title: 'Value Realization',
+                link: '/solutions#value-realization',
+                body: 'From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.',
+                testid: 'solution-value-realization',
+              },
+              {
+                title: 'Deployment',
+                link: '/solutions#deployment',
+                body: 'Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.',
+                testid: 'solution-deployment',
+              },
+            ].map((s) => (
+              <div key={s.title} className="relative" data-testid={s.testid}>
+                {/* Corner-bracket hairlines: top rule + left drop-line */}
+                <span aria-hidden className="absolute pointer-events-none" style={{ top: 0, left: 0, right: 0, height: '1px', background: '#c9cede' }} />
+                <span aria-hidden className="absolute pointer-events-none" style={{ top: 0, left: 0, width: '1px', height: '160px', background: '#c9cede' }} />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 mt-16 lg:mt-20">
-
-            {/* —— Service 1 · Model Customization — opening anchor, upper-left */}
-            <div className="lg:col-start-1 lg:col-span-6" data-testid="solution-model-customization">
-              <h3
-                style={{
-                  fontFamily: 'Geist, sans-serif',
-                  fontSize: 'clamp(38px, 4.4vw, 62px)',
-                  fontWeight: 500,
-                  letterSpacing: '-0.03em',
-                  lineHeight: 1.02,
-                  color: '#0a1230',
-                  margin: 0,
-                  maxWidth: '560px',
-                }}
-              >
-                Model Customization
-              </h3>
-              <p
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '17px',
-                  lineHeight: 1.62,
-                  color: '#3f4966',
-                  margin: '26px 0 0',
-                  maxWidth: '520px',
-                }}
-              >
-                Research-driven model adaptation using domain data, structured training workflows, and controlled specialization methods. We focus on reproducible training pipelines, evaluation rigor, and system-level correctness.
-              </p>
-              <div style={{ marginTop: '28px' }}>
-                <Link
-                  to="/solutions#model-customization"
-                  data-testid="solution-model-customization-learn-more"
-                  className="inline-flex items-center gap-2 group"
-                  style={{
-                    fontFamily: 'IBM Plex Mono, monospace',
-                    fontSize: '12px',
-                    letterSpacing: '0.18em',
-                    textTransform: 'uppercase',
-                    color: '#0a1230',
-                    borderBottom: '1px solid #0a1230',
-                    paddingBottom: '3px',
-                    textDecoration: 'none',
-                  }}
-                >
-                  Learn More
-                  <span aria-hidden style={{ transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* —— Service 2 · Value Realization — the fold: right + lower, narrow tall block */}
-            <div
-              className="lg:col-start-8 lg:col-span-5 mt-16 lg:mt-0 pl-5 lg:pl-0"
-              style={{ borderLeft: undefined }}
-              data-testid="solution-value-realization"
-            >
-              <div className="lg:pt-[168px] lg:pl-10">
-                <h3
-                  style={{
-                    fontFamily: 'Geist, sans-serif',
-                    fontSize: 'clamp(38px, 4.4vw, 60px)',
-                    fontWeight: 500,
-                    letterSpacing: '-0.03em',
-                    lineHeight: 1.04,
-                    color: '#0a1230',
-                    margin: 0,
-                    maxWidth: '360px',
-                  }}
-                >
-                  Value Realization
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '17px',
-                    lineHeight: 1.68,
-                    color: '#3f4966',
-                    margin: '26px 0 0',
-                    maxWidth: '380px',
-                  }}
-                >
-                  From use-case validation to engineering prototypes, we help translate AI experimentation into measurable technical outcomes and deployment-ready system designs.
-                </p>
-                <div style={{ marginTop: '28px' }}>
-                  <Link
-                    to="/solutions#value-realization"
-                    data-testid="solution-value-realization-learn-more"
-                    className="inline-flex items-center gap-2 group"
+                <div style={{ paddingTop: '44px', paddingLeft: '28px' }}>
+                  <h3
                     style={{
-                      fontFamily: 'IBM Plex Mono, monospace',
-                      fontSize: '12px',
-                      letterSpacing: '0.18em',
-                      textTransform: 'uppercase',
+                      fontFamily: 'Geist, sans-serif',
+                      fontSize: 'clamp(36px, 3.4vw, 48px)',
+                      fontWeight: 500,
+                      letterSpacing: '-0.03em',
+                      lineHeight: 1.08,
                       color: '#0a1230',
-                      borderBottom: '1px solid #0a1230',
-                      paddingBottom: '3px',
-                      textDecoration: 'none',
+                      margin: 0,
+                      maxWidth: '320px',
                     }}
                   >
-                    Learn More
-                    <span aria-hidden style={{ transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* —— Service 3 · Deployment — lower stabilizing anchor, offset start */}
-            <div
-              className="lg:col-start-3 lg:col-span-7 mt-16 lg:mt-[88px]"
-              data-testid="solution-deployment"
-            >
-              <h3
-                style={{
-                  fontFamily: 'Geist, sans-serif',
-                  fontSize: 'clamp(38px, 4.4vw, 60px)',
-                  fontWeight: 500,
-                  letterSpacing: '-0.03em',
-                  lineHeight: 1.02,
-                  color: '#0a1230',
-                  margin: 0,
-                  whiteSpace: 'normal',
-                }}
-              >
-                Deployment
-              </h3>
-              <div className="lg:pl-16" style={{ marginTop: '24px' }}>
-                <p
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '17px',
-                    lineHeight: 1.62,
-                    color: '#3f4966',
-                    margin: 0,
-                    maxWidth: '460px',
-                  }}
-                >
-                  Engineering-led deployment architectures across cloud, private, and controlled infrastructure environments, with focus on reliability, performance, and operational constraints.
-                </p>
-                <div style={{ marginTop: '28px' }}>
-                  <Link
-                    to="/solutions#deployment"
-                    data-testid="solution-deployment-learn-more"
-                    className="inline-flex items-center gap-2 group"
+                    {s.title}
+                  </h3>
+                  <p
                     style={{
-                      fontFamily: 'IBM Plex Mono, monospace',
-                      fontSize: '12px',
-                      letterSpacing: '0.18em',
-                      textTransform: 'uppercase',
-                      color: '#0a1230',
-                      borderBottom: '1px solid #0a1230',
-                      paddingBottom: '3px',
-                      textDecoration: 'none',
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '16px',
+                      lineHeight: 1.65,
+                      color: '#3f4966',
+                      margin: '30px 0 0',
+                      maxWidth: '380px',
                     }}
                   >
-                    Learn More
-                    <span aria-hidden style={{ transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-                  </Link>
+                    {s.body}
+                  </p>
+                  <div style={{ marginTop: '30px' }}>
+                    <Link
+                      to={s.link}
+                      data-testid={`${s.testid}-learn-more`}
+                      className="inline-flex items-center gap-2 group"
+                      style={{
+                        fontFamily: 'IBM Plex Mono, monospace',
+                        fontSize: '12px',
+                        letterSpacing: '0.18em',
+                        textTransform: 'uppercase',
+                        color: '#0a1230',
+                        borderBottom: '1px solid #0a1230',
+                        paddingBottom: '3px',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      Learn More
+                      <span aria-hidden style={{ transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* —— Closing control · Talk To Us — lower-right, aligned to Deployment's base */}
-            <div className="lg:col-start-10 lg:col-span-3 mt-14 lg:mt-0 flex lg:items-end lg:justify-end">
-              <Link
-                to="/contact"
-                data-testid="support-talk-to-us-btn"
-                className="inline-flex items-center gap-3 group"
-                style={{
-                  background: '#0a1230',
-                  color: '#ffffff',
-                  fontFamily: 'Geist, sans-serif',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  padding: '15px 30px',
-                  borderRadius: '3px',
-                  textDecoration: 'none',
-                  minHeight: '48px',
-                }}
-              >
-                Talk To Us
-                <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
-              </Link>
-            </div>
-
+            ))}
           </div>
+
+          <div className="mt-16 lg:mt-20 flex justify-end">
+            <Link
+              to="/contact"
+              data-testid="support-talk-to-us-btn"
+              className="inline-flex items-center gap-3 group"
+              style={{
+                background: '#0a1230',
+                color: '#ffffff',
+                fontFamily: 'Geist, sans-serif',
+                fontSize: '14px',
+                fontWeight: 500,
+                padding: '15px 30px',
+                borderRadius: '3px',
+                textDecoration: 'none',
+                minHeight: '48px',
+              }}
+            >
+              Talk To Us
+              <span aria-hidden style={{ fontFamily: 'IBM Plex Mono', transition: 'transform 180ms ease' }} className="inline-block group-hover:translate-x-1">↗</span>
+            </Link>
+          </div>
+
         </div>
       </section>
 
