@@ -753,7 +753,7 @@ html.mscur-active body {
 .au-hero-heading { color: var(--au-ink); font-family: Geist, Inter, sans-serif; font-size: clamp(40px, 6vw, 88px); font-weight: 500; letter-spacing: -.035em; line-height: .98; margin: 0; }
 .au-hero-row-2 { grid-gap: 40px; align-items: start; display: grid; gap: 40px; grid-template-columns: repeat(12, minmax(0, 1fr)); }
 .au-hero-photo-col { grid-column: 1 / span 8; min-width: 0; }
-.au-hero-photo { aspect-ratio: 7008/4411; background: #0000; display: block; height: auto; object-fit: contain; width: 100%; }
+.au-hero-photo { aspect-ratio: 7008/4411; background: #0000; border-radius: 10px; display: block; height: auto; object-fit: contain; width: 100%; }
 .au-hero-side-col { display: flex; flex-direction: column; gap: 24px; grid-column: 9 / span 4; padding-top: 4px; }
 .au-hero-para { color: var(--au-ink); font-family: Inter, sans-serif; font-size: 15.5px; line-height: 1.7; margin: 0; }
 .au-hero-cta { align-self: flex-start; }
