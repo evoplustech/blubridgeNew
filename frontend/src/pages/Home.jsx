@@ -195,7 +195,7 @@ const CapabilitiesAccordion = () => {
         }
         .cap-cta-row {
           align-self: end;
-          padding-bottom: 22px;
+          padding-bottom: 52px;
         }
         .cap-fade { animation: capFade 240ms ease both; }
         @keyframes capFade { from { opacity: 0; } to { opacity: 1; } }
