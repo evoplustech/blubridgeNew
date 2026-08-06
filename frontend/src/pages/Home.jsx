@@ -202,9 +202,7 @@ const capabilities = [
 
 const CapabilitiesAccordion = () => {
   const [activeCap, setActiveCap] = useState(0);
-  const [locatorLeft, setLocatorLeft] = useState(0);
   const tabRefs = useRef([]);
-  const ruleRef = useRef(null);
 
   const onTablistKeyDown = (e) => {
     let next = null;
@@ -219,116 +217,81 @@ const CapabilitiesAccordion = () => {
     }
   };
 
-  useEffect(() => {
-    const measure = () => {
-      const rule = ruleRef.current;
-      const tab = tabRefs.current[activeCap];
-      if (rule && tab) {
-        setLocatorLeft(tab.getBoundingClientRect().left - rule.getBoundingClientRect().left);
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, [activeCap]);
-
   const cap = capabilities[activeCap];
-  const fieldPlacement = [
-    'lg:col-start-1 lg:col-span-3',
-    'lg:col-start-4 lg:col-span-4',
-    'lg:col-start-8 lg:col-span-5',
-    'lg:col-start-2 lg:col-span-4',
-    'col-span-2 lg:col-start-6 lg:col-span-7',
-  ];
 
   return (
-    <section style={{ background: '#f0f1f9', paddingTop: '96px', paddingBottom: '104px' }} data-testid="capabilities-index">
+    <section style={{ background: '#f0f1f9', paddingTop: '96px', paddingBottom: '96px' }} data-testid="capabilities-index">
       <div style={{ maxWidth: '1280px', width: 'calc(100% - 44px)', margin: '0 auto' }} className="lg:!w-[calc(100%-96px)]">
 
-        <h2
-          data-testid="capabilities-heading"
-          style={{
-            fontFamily: 'Geist, sans-serif',
-            fontSize: 'clamp(42px, 5vw, 76px)',
-            letterSpacing: '-0.03em',
-            lineHeight: 1.04,
-            fontWeight: 500,
-            color: '#0a1230',
-            margin: 0,
-            maxWidth: '850px',
-          }}
-        >
-          What we can do for you
-        </h2>
+        {/* Header zone — title (cols 1-7) + compact capability index (cols 9-12) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-8">
+          <div className="lg:col-span-7">
+            <h2
+              data-testid="capabilities-heading"
+              style={{
+                fontFamily: 'Geist, sans-serif',
+                fontSize: 'clamp(40px, 5vw, 74px)',
+                letterSpacing: '-0.03em',
+                lineHeight: 1.05,
+                fontWeight: 500,
+                color: '#0a1230',
+                margin: 0,
+                maxWidth: '620px',
+              }}
+            >
+              What we can do for you
+            </h2>
+          </div>
 
-        {/* Editorial capability field — two typeset rows of capability names */}
-        <div
-          role="tablist"
-          aria-label="What we can do for you"
-          data-testid="capabilities-selector"
-          onKeyDown={onTablistKeyDown}
-          className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-7 lg:gap-y-12"
-          style={{ marginTop: 'clamp(44px, 4.8vw, 68px)' }}
-        >
-          {capabilities.map((c, i) => {
-            const active = activeCap === i;
-            return (
-              <div key={c.title} className={fieldPlacement[i]}>
-                <button
-                  ref={(el) => (tabRefs.current[i] = el)}
-                  role="tab"
-                  id={`capability-tab-${i}`}
-                  aria-selected={active}
-                  aria-controls="capability-panel"
-                  tabIndex={active ? 0 : -1}
-                  data-testid={`capability-toggle-${i}`}
-                  onClick={() => setActiveCap(i)}
-                  className="text-left"
-                  style={{ background: 'transparent', cursor: 'pointer', minHeight: '44px', padding: 0 }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'Geist, sans-serif',
-                      fontSize: 'clamp(19px, 2.7vw, 36px)',
-                      fontWeight: active ? 600 : 400,
-                      letterSpacing: '-0.02em',
-                      lineHeight: 1.15,
-                      color: active ? '#0a1230' : '#5d6580',
-                      transition: 'color 180ms ease',
-                      display: 'inline',
-                      paddingBottom: '12px',
-                      borderBottom: active ? '2px solid #0a1230' : '2px solid transparent',
-                    }}
+          <div className="lg:col-start-9 lg:col-span-4 lg:pt-2">
+            <div
+              role="tablist"
+              aria-label="What we can do for you"
+              data-testid="capabilities-selector"
+              onKeyDown={onTablistKeyDown}
+              className="grid grid-cols-2 gap-x-7"
+            >
+              {capabilities.map((c, i) => {
+                const active = activeCap === i;
+                return (
+                  <button
+                    key={c.title}
+                    ref={(el) => (tabRefs.current[i] = el)}
+                    role="tab"
+                    id={`capability-tab-${i}`}
+                    aria-selected={active}
+                    aria-controls="capability-panel"
+                    tabIndex={active ? 0 : -1}
+                    data-testid={`capability-toggle-${i}`}
+                    onClick={() => setActiveCap(i)}
+                    className={`text-left ${i === 4 ? 'col-span-2' : ''}`}
+                    style={{ background: 'transparent', cursor: 'pointer', minHeight: '44px', padding: '10px 0' }}
                   >
-                    {c.title}
-                  </span>
-                </button>
-              </div>
-            );
-          })}
+                    <span
+                      className="bb-cap-label"
+                      style={{
+                        fontFamily: 'Geist, sans-serif',
+                        fontSize: '16.5px',
+                        fontWeight: active ? 600 : 500,
+                        letterSpacing: '-0.01em',
+                        lineHeight: 1.35,
+                        color: active ? '#0a1230' : '#5d6580',
+                        transition: 'color 180ms ease, border-color 180ms ease',
+                        display: 'inline',
+                        paddingBottom: '8px',
+                        borderBottom: active ? '2px solid #0a1230' : '2px solid transparent',
+                      }}
+                    >
+                      {c.title}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
-        {/* Structural rule + moving locator segment */}
-        <div
-          ref={ruleRef}
-          aria-hidden
-          className="relative"
-          style={{ height: '1px', background: '#d4d8e8', marginTop: 'clamp(28px, 3vw, 40px)' }}
-        >
-          <span
-            className="bb-cap-locator"
-            style={{
-              position: 'absolute',
-              top: '-1px',
-              left: `${locatorLeft}px`,
-              width: '56px',
-              height: '3px',
-              background: '#0a1230',
-            }}
-          />
-        </div>
-
-        {/* Active capability annotation — open reading block */}
+        {/* Reading stage — open, box-free, one shared left axis */}
         <div className="grid grid-cols-1 lg:grid-cols-12">
           <div
             key={activeCap}
@@ -336,20 +299,20 @@ const CapabilitiesAccordion = () => {
             id="capability-panel"
             aria-labelledby={`capability-tab-${activeCap}`}
             data-testid="capability-stage"
-            className="lg:col-start-3 lg:col-span-8"
-            style={{ marginTop: 'clamp(40px, 4vw, 56px)', animation: 'bbCapReveal 170ms ease forwards' }}
+            className="lg:col-start-2 lg:col-span-9"
+            style={{ marginTop: 'clamp(48px, 5.5vw, 76px)', maxWidth: '820px', animation: 'bbCapReveal 170ms ease forwards' }}
           >
             <h3
               data-testid="capability-active-heading"
               style={{
                 fontFamily: 'Geist, sans-serif',
-                fontSize: 'clamp(30px, 4vw, 54px)',
+                fontSize: 'clamp(32px, 4vw, 56px)',
                 fontWeight: 500,
                 letterSpacing: '-0.025em',
                 lineHeight: 1.12,
                 color: '#0a1230',
                 margin: 0,
-                maxWidth: '760px',
+                maxWidth: '800px',
               }}
             >
               {cap.heading}
@@ -358,7 +321,7 @@ const CapabilitiesAccordion = () => {
               data-testid="capability-active-description"
               style={{
                 fontFamily: 'Inter, sans-serif',
-                fontSize: '17px',
+                fontSize: '17.5px',
                 lineHeight: 1.65,
                 color: '#3f4966',
                 margin: '30px 0 0',
