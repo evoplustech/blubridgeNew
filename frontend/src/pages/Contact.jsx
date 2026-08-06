@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, Linkedin, Building2, ChevronRight } from 'lucide-react';
+import { Phone, Mail, Linkedin, Twitter, Building2, ChevronRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
@@ -223,7 +223,7 @@ const Contact = () => {
   const offices = [
     { region: 'India', address: 'Plot #E160 Tiger Varadhachari Road,', line2: 'Kalakshetra Colony, Besant Nagar,', line3: 'Chennai – 600090', map: 'https://maps.google.com/?q=Plot+E160+Tiger+Varadhachari+Road+Kalakshetra+Colony+Besant+Nagar+Chennai+600090' },
     { region: 'India', address: '30, Norton Rd, Mandavelipakkam,', line2: 'Raja Annamalai Puram,', line3: 'Chennai, Tamil Nadu 600028', map: 'https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028' },
-    { region: 'USA', address: 'Zeal Solutions Inc', line2: '5 Independence Way, Suite 300,', line3: 'Princeton, New Jersey - 08540', map: 'https://www.google.com/maps/place/5+Independence+Way,+Princeton,+NJ+08540/@40.3430,-74.6514,17z' },
+    { region: 'USA', address: 'BLUBRIDGE INC', line2: '254 Chapman Rd, STE 208 #28314,', line3: 'Newark, Delaware 19702 USA', map: 'https://maps.google.com/?q=254+Chapman+Rd+STE+208+%2328314+Newark+Delaware+19702+USA' },
   ];
 
   /* ==============================================================
@@ -260,6 +260,7 @@ const Contact = () => {
     { label: 'Contact Number', value: '+91 8925987250',                 href: 'tel:+91 8925987250',                          Icon: Phone,    testId: 'channel-contact-number' },
     { label: 'Email',          value: 'info@blubridge.com',             href: 'mailto:info@blubridge.com',                    Icon: Mail,     testId: 'channel-email' },
     { label: 'LinkedIn',       value: 'linkedin.com/company/blubridge', href: 'https://www.linkedin.com/company/blubridge/', Icon: Linkedin, testId: 'channel-linkedin' },
+    { label: 'X (Twitter)',    value: 'x.com/BlubridgeAI',              href: 'https://x.com/BlubridgeAI',                    Icon: Twitter,  testId: 'channel-twitter' },
   ];
 
   return (

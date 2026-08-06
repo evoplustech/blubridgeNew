@@ -50,3 +50,7 @@
 
 ## 2026-08-06 (fork 2, cont.) — Contact page redesigned from user's two design references
 - `pages/Contact.jsx` re-skinned (content + logic 100% preserved: same 3 channels, form fields, validation, verify email, /api/contacts/submit, offices data, testids): left rail = Contact Us title + accent dash + white channel cards (icon tile, mono label, value, chevron, hover lift) + dot-grid accent; right = floating white form card (16px radius, soft shadow) over blue blob accent, full-width dark Submit; OUR OFFICES = centered tick + heading + single white card with 3 hairline-divided columns (circle Building2 icon, region title, address, maps link). All cx-* CSS in index.css. Form submit verified via curl (HTTP 200).
+
+## 2026-08-06 (fork 2, cont.) — Contact details updated
+- USA office corrected to: BLUBRIDGE INC, 254 Chapman Rd, STE 208 #28314, Newark, Delaware 19702 USA (+ updated maps link).
+- Added X (Twitter) channel card below LinkedIn: x.com/BlubridgeAI → https://x.com/BlubridgeAI (testid channel-twitter). Verified via screenshot.
