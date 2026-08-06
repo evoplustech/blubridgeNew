@@ -122,5 +122,10 @@ Apply full editorial redesign to:
 - NOTE: frontend-watcher inotify sometimes misses changes — run `yarn build` manually + `sudo supervisorctl restart frontend` if build stale.
 - Verified via screenshots: 4 job rows, new job detail page renders, cursor dot+ring trailing and hover states working.
 
+## 2026-06 (fork 4) — BY SERVICES "Service Foldout" rebuild
+- Home `services-section` fully rebuilt per user's detailed brief: old three-row ledger (title-left/desc-right, full-width dividers, pill Talk To Us) deleted. New asymmetric editorial foldout on 12-col grid: BY SERVICES anchor (27px semibold + 56px rule), Model Customization upper-left anchor (62px title, 520px desc), Value Realization folded right & lower (col 8-12, pt-168, narrow 380px reading block), Deployment offset lower anchor (col-start-3, inset desc 460px), rectangular 3px Talk To Us lower-right aligned with Deployment base. One restrained 2-segment perpendicular fold-line motif in negative space (desktop only). Content verbatim, order preserved, all links/testids intact (solution-*-learn-more, support-talk-to-us-btn). Unused `services` array removed from Home.jsx.
+- Verified via screenshots at 1440px and 390px (no horizontal overflow, correct reading order, mobile indentation subtle, ≥16px body).
+- Full-app regression via testing_agent still PENDING (carried debt: CustomCursor pointer-events clickability check).
+
 ## 2026-06 (fork 3, cont.) — Latest research paper
 - Added "Nova: An End-to-End MLIR Compiler for Deep Learning" (July 2026, arXiv 2608.00029, 7 authors) as the newest entry at the top of Research.jsx papers list, content copied verbatim from reference site (dev-workflow-preview /research). Page now lists 4 papers. Verified via screenshot.
