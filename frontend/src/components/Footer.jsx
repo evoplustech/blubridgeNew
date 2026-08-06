@@ -58,32 +58,32 @@ const Footer = () => {
       <div className="bb-container" style={{ paddingTop: '72px', paddingBottom: '36px' }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-14 lg:gap-x-10">
 
-          {/* Brand + contact form column */}
+          {/* Contact form + brand column */}
           <div className="lg:col-span-5">
-            <img src="/images/blubridge-logo.svg" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain', marginBottom: '18px' }} />
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', lineHeight: 1.7, color: '#3f4966', maxWidth: '300px', margin: 0 }}>
-              BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
-            </p>
+            <h4 style={{ ...colLabel, color: '#6a7390', marginBottom: '22px' }}>Contact Us</h4>
+            <form onSubmit={handleSubmit} style={{ maxWidth: '486px' }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <Input type="text" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className={boxInput} data-testid="footer-first-name" />
+                <Input type="text" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} className={boxInput} data-testid="footer-last-name" />
+              </div>
+              <Input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} className={`${boxInput} mt-3 w-full`} required data-testid="footer-email" />
+              <Input type="text" placeholder="Message (optional)" value={message} onChange={(e) => setMessage(e.target.value)} className={`${boxInput} mt-3 w-full`} data-testid="footer-message" />
+              <Button
+                type="submit"
+                disabled={loading}
+                className="mt-4 h-12 w-full text-white hover:bg-[#172449]"
+                style={{ backgroundColor: '#0a1230', borderRadius: '6px', fontFamily: 'Geist, sans-serif', fontSize: '14.5px', fontWeight: 600 }}
+                data-testid="footer-submit"
+              >
+                {loading ? 'Submitting...' : 'Contact Now'}
+              </Button>
+            </form>
 
-            <div style={{ marginTop: '96px' }}>
-              <h4 style={{ ...colLabel, color: '#6a7390', marginBottom: '22px' }}>Contact Us</h4>
-              <form onSubmit={handleSubmit} style={{ maxWidth: '486px' }}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <Input type="text" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className={boxInput} data-testid="footer-first-name" />
-                  <Input type="text" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} className={boxInput} data-testid="footer-last-name" />
-                </div>
-                <Input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} className={`${boxInput} mt-3 w-full`} required data-testid="footer-email" />
-                <Input type="text" placeholder="Message (optional)" value={message} onChange={(e) => setMessage(e.target.value)} className={`${boxInput} mt-3 w-full`} data-testid="footer-message" />
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className="mt-4 h-12 w-full text-white hover:bg-[#172449]"
-                  style={{ backgroundColor: '#0a1230', borderRadius: '6px', fontFamily: 'Geist, sans-serif', fontSize: '14.5px', fontWeight: 600 }}
-                  data-testid="footer-submit"
-                >
-                  {loading ? 'Submitting...' : 'Contact Now'}
-                </Button>
-              </form>
+            <div style={{ marginTop: '48px' }}>
+              <img src="/images/blubridge-logo.svg" alt="BluBridge" style={{ height: '22px', width: 'auto', objectFit: 'contain', marginBottom: '18px' }} />
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', lineHeight: 1.7, color: '#3f4966', maxWidth: '300px', margin: 0 }}>
+                BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
+              </p>
             </div>
           </div>
 
