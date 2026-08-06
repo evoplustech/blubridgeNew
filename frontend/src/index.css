@@ -257,7 +257,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes bbLineDraw {
-  from { stroke-dashoffset: 240; }
+  from { stroke-dashoffset: 470; }
   to   { stroke-dashoffset: 0; }
 }
 
@@ -278,8 +278,8 @@ h1, h2, h3, h4, h5, h6 {
 .bb-reveal-4 { animation-delay: 560ms; }
 
 .bb-line-draw {
-  stroke-dasharray: 240;
-  stroke-dashoffset: 240;
+  stroke-dasharray: 470;
+  stroke-dashoffset: 470;
   animation: bbLineDraw 1600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
