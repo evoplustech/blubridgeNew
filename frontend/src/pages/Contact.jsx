@@ -494,7 +494,6 @@ const Contact = () => {
       {/* ===== SECTION 2 — OUR OFFICES ===== */}
       <section className="cx-offices" data-testid="offices-card">
         <div className="bb-container">
-          <span className="cx-offices-tick" aria-hidden="true"></span>
           <h2 className="cx-offices-title">OUR OFFICES</h2>
           <div className="cx-off-card">
             {offices.map((office, i) => (
