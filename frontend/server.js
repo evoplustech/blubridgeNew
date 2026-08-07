@@ -1170,7 +1170,7 @@ const seoContent = {
     `
   },
   '/policies/terms-conditions': {
-    title: 'Terms and Conditions | Blubridge',
+    title: 'Terms | Blubridge',
     description: 'Read the Terms of Use governing access to Blubridge Technologies websites, APIs, and services.',
     content: `
       <h1>Terms and Conditions</h1>
@@ -1214,6 +1214,15 @@ const defaultSeo = seoContent['/'];
 // Function to get SEO content for a path
 function getSeoForPath(urlPath) {
   const normalizedPath = urlPath.split('?')[0].split('#')[0];
+  // Title-only overrides (keep meta description/content = current fallback behaviour)
+  const titleOnlyOverrides = {
+    '/Research/FLUX-Data': 'FLUX: Data Worth Training On | BluBridge',
+    '/Research/FLUX-3': 'FLUX: Data Worth Training On | BluBridge',
+    '/Research/FLUX-4': 'FLUX: Data Worth Training On | BluBridge',
+  };
+  if (titleOnlyOverrides[normalizedPath]) {
+    return { ...defaultSeo, title: titleOnlyOverrides[normalizedPath] };
+  }
   return seoContent[normalizedPath] || defaultSeo;
 }
 

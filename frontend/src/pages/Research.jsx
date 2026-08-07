@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, FileText, Users } from 'lucide-react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const publications = [
   {
@@ -56,6 +57,7 @@ const publications = [
 const tokenOrder = ['t-c', 't-d', 't-a', 't-b', 't-d', 't-c', 't-a', 't-d', 't-b', 't-c', 't-a', 't-b'];
 
 export default function Research() {
+  useDocumentTitle('Research | Blubridge');
   const rootRef = useRef(null);
 
   useEffect(() => {

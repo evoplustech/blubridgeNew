@@ -45,7 +45,7 @@ const JobDetail = () => {
   const [showApplicationForm, setShowApplicationForm] = useState(false);
   const formRef = useRef(null);
 
-  useDocumentTitle(job ? `${job.title} | Careers | BluBridge` : 'Job Not Found | BluBridge');
+  useDocumentTitle(job ? `${job.title}` : 'Job Not Found | BluBridge');
 
   const handleApplyClick = () => {
     setShowApplicationForm(true);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Database, Sparkles, Zap, TrendingUp, PenTool, Users, Check } from 'lucide-react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const customizationCards = [
   {
@@ -99,6 +100,7 @@ const heroNodes = [
 ];
 
 export default function SolutionsNew() {
+  useDocumentTitle('Applied AI Solutions - For your Use Case | Blubridge');
   const [activeTab, setActiveTab] = useState(0);
   const sectionRefs = useRef([]);
 

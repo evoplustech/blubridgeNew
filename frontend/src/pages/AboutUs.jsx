@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const PHRASE_WORDS = ['Hunger.', 'Precision.'];
 
@@ -69,6 +70,7 @@ const methodCells = [
 ];
 
 const AboutUs = () => {
+  useDocumentTitle('About Us | Blubridge');
   const rootRef = useRef(null);
 
   useEffect(() => {
