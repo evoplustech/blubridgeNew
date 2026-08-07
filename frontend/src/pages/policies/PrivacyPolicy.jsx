@@ -30,7 +30,7 @@ const PrivacyPolicy = () => {
     <div 
       style={{
         minHeight: '100vh',
-        backgroundColor: 'rgb(243, 241, 233)',
+        backgroundColor: '#F0F1F9',
         paddingTop: '80px',
         paddingBottom: '80px'
       }}
