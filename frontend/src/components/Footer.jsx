@@ -48,15 +48,15 @@ const Footer = () => {
   return (
     <footer data-testid="site-footer" style={{ backgroundColor: '#eceefa', color: '#0a1230', borderTop: '1px solid #d4d8e8' }}>
       <div className="bb-container" style={{ paddingTop: '72px', paddingBottom: '40px' }}>
-        <div className="grid grid-cols-2 sm:grid-cols-6 lg:grid-cols-12 gap-x-8 gap-y-12">
+        <div className="bb-footer-grid">
 
           {/* Logo */}
-          <div className="col-span-2 sm:col-span-6 lg:col-span-2">
+          <div className="bb-footer-col bb-footer-logo">
             <img alt="BluBridge" src="/images/blubridge-logo.svg" style={{ height: '24px', width: 'auto', objectFit: 'contain', display: 'block' }} />
           </div>
 
           {/* Product */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+          <div className="bb-footer-col">
             <h4 className="bb-eyebrow mb-5" style={{ minHeight: '18px' }}>Product</h4>
             <ul className="space-y-3">
               <li className="text-bb-ink-2 text-[13.5px] font-mono">Coming Soon</li>
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
 
           {/* Pages */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+          <div className="bb-footer-col">
             <h4 className="bb-eyebrow mb-5" style={{ minHeight: '18px' }}>Pages</h4>
             <ul className="space-y-3" data-testid="footer-pages-list">
               <li><Link className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors" to="/">Home</Link></li>
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
 
           {/* Connect */}
-          <div className="col-span-2 sm:col-span-2 lg:col-span-2">
+          <div className="bb-footer-col">
             <h4 className="bb-eyebrow mb-5" style={{ minHeight: '18px' }}>Connect</h4>
             <ul className="space-y-3" data-testid="footer-connect-list">
               <li><a href="https://www.linkedin.com/company/blubridge/" target="_blank" rel="noopener noreferrer" className="text-[14px] text-bb-ink hover:text-bb-accent transition-colors">LinkedIn</a></li>
@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Us */}
-          <div className="col-span-2 sm:col-span-6 lg:col-span-4">
+          <div className="bb-footer-col bb-footer-contact">
             <h4 className="bb-eyebrow mb-5" style={{ minHeight: '18px' }}>Contact Us</h4>
             <form className="grid grid-cols-1 sm:grid-cols-2 gap-3" onSubmit={handleSubmit}>
               <Input type="text" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className={inputCls} data-testid="footer-first-name" />

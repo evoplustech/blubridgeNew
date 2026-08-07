@@ -74,7 +74,7 @@ const offices = [
 const connectChannels = [
   { label: 'Phone',       value: '+91 8925987250',                 href: 'tel:+91 8925987250',                          Icon: Phone,    testId: 'connect-phone' },
   { label: 'Email',       value: 'careers@blubridge.com',          href: 'mailto:careers@blubridge.com',                 Icon: Mail,     testId: 'connect-email' },
-  { label: 'LinkedIn',    value: 'linkedin.com/company/blubridge', href: 'https://www.linkedin.com/company/blubridge/', Icon: Linkedin, testId: 'connect-linkedin' },
+  { label: 'LinkedIn',    value: 'linked/blubridge',               href: 'https://www.linkedin.com/company/blubridge/', Icon: Linkedin, testId: 'connect-linkedin' },
   { label: 'X (Twitter)', value: 'x.com/BlubridgeAI',              href: 'https://x.com/BlubridgeAI',                    Icon: Twitter,  testId: 'connect-twitter' },
 ];
 

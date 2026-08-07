@@ -286,7 +286,7 @@ const Home = () => {
         />
 
         <div className="bb-container relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-16 lg:pt-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-8 lg:pt-10 items-center">
             {/* LEFT — editorial copy (asymmetric 7 cols) */}
             <div className="lg:col-span-7 lg:pr-6 flex flex-col justify-center">
               <h1

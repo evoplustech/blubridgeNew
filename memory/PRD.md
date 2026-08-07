@@ -25,6 +25,7 @@ Complete visual and structural redesign of the BluBridge website combining appro
 - **2026-06 (this session): Removed PUB/00x index and arXiv ID labels from all publication cards on Research page (kept Published date + View on arXiv button)**
 - **2026-06 (this session): Home hero heading changed to "Building Tailored AI Systems / for Hard Problems" (was "Beyond the Horizon"), font clamp reduced to fit; hero subtitle changed to "a Frontier AI Research company", rebuilt + verified on preview**
 - **2026-06-06 (this session): Verified About Us padding fix is live in PREVIEW (computed padding-top: 0px, text Y == photo Y == 457 on desktop; mobile OK). User's reported recurrence was caused by viewing the STALE DEPLOYED build (`main.ce732460.css`); current build is `main.f4b22752.css`. RESOLUTION: user must REDEPLOY.**
+- **2026-02 (this session): 3 UI polish fixes — (1) Footer: switched to `.bb-footer-grid` with `grid-template-columns: auto auto auto auto minmax(320px, 1fr)` and uniform `column-gap: clamp(32px, 5.5vw, 88px)` for even inter-column gutters. (2) Careers Let's Connect: LinkedIn display text changed to "linked/blubridge" (href unchanged), email `careers@blubridge.com` now `white-space: nowrap`, channels use flex+space-between so all 4 fit without truncation. (3) Home Hero: reduced inner grid `pt-16 lg:pt-20` → `pt-8 lg:pt-10` (~48px less top space on desktop).**
 
 ## Backlog
 ### P0
