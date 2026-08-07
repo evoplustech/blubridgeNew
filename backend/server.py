@@ -645,10 +645,9 @@ async def root():
     return {"message": "Hello World"}
 
 
-@api_router.get("/health")
-async def health_check():
-    """Lightweight health-check for external uptime pings. No DB, no auth, no side effects."""
-    return JSONResponse(content={"status": "ok"}, status_code=200)
+@app.api_route("/health", methods=["GET", "HEAD"])
+async def health():
+    return Response(status_code=200)
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
