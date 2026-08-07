@@ -26,7 +26,7 @@ const TermsConditions = () => {
     <div 
       style={{
         minHeight: '100vh',
-        backgroundColor: '#F0F1F9',
+        backgroundColor: '#F1F2FA',
         paddingTop: '80px',
         paddingBottom: '80px'
       }}
@@ -38,7 +38,7 @@ const TermsConditions = () => {
       }}>
         {/* Main Card */}
         <div style={{
-          backgroundColor: '#f0f1f9',
+          backgroundColor: '#FFFFFF',
           borderRadius: '20px',
           padding: '60px',
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)'
@@ -362,7 +362,7 @@ const TermsConditions = () => {
             <div style={{
               marginTop: '16px',
               padding: '20px',
-              backgroundColor: '#f8f7f4',
+              backgroundColor: '#F8F9FD',
               borderRadius: '8px',
               border: '1px solid #e8e6e0'
             }}>
