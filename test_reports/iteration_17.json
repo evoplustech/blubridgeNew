@@ -1,0 +1,29 @@
+{
+  "summary": "Step 14 smoke test after git-hygiene verification. Backend was NOT modified. Created /app/backend/tests/test_git_hygiene_smoke.py with 7 tests: API health, contact submit (footer_form valid + invalid email), job application submit (valid + invalid), and a security-hygiene grep for Resend-key pattern across all git-tracked files. All 7 tests PASS. Backend logs confirm 'Resend notification sent for Job Application' — Resend integration is live and functional with RESEND_API_KEY read from env. No 500 errors observed. No hardcoded 're_[A-Za-z0-9]{20,}' pattern found in any tracked source file.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/contacts/submit & /api/job-applications/submit", "issue": "Return 422 (FastAPI/Pydantic default) instead of 400 for invalid payloads — not a bug, just noting for API consumers/docs consistency."}
+    ]
+  },
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [
+    "/app/backend/tests/test_git_hygiene_smoke.py",
+    "/app/test_reports/pytest/gh_hygiene_smoke.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "server.py is 1919 lines — should be split into modules (routes, models, email, security) per >700 line guideline.",
+    "BREVO_SENDER_EMAIL and RESEND_FROM/TO emails are hardcoded (lines 40-46). Consider moving to env vars for portability.",
+    ".gitignore correctly ignores .env files; backend .env holds the real RESEND_API_KEY (not printed). Historical commits leaked the key — user rotated & scrubbed history separately (not verified here).",
+    "In-memory RateLimiter (line 57) will not work across multiple backend replicas — acceptable for single-instance MVP."
+  ],
+  "updated_files": ["/app/backend/tests/test_git_hygiene_smoke.py"],
+  "success_rate": {"backend": "100% (7/7)", "frontend": "N/A (skipped as requested)"},
+  "test_credentials": "Not needed for this scope",
+  "seed_data_creation": "Two test rows created: contact (email=test_gh_hygiene@example.com, type=footer_form) and job application (email=test_gh_job@example.com, jobTitle=TEST_GH_Hygiene_Role). Both prefixed with test_gh_ for easy cleanup.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Reusable pytest smoke suite lives at /app/backend/tests/test_git_hygiene_smoke.py — includes a git-tracked-files scan for the Resend key pattern. Run with: pytest /app/backend/tests/test_git_hygiene_smoke.py -v. All 7 pass currently.",
+  "rca of the issue": "N/A — no bug in this iteration. Original GH013 push-protection error was due to a Resend key present in old local git commits at backend/server.py:39-40. Current tracked source is clean; server.py:44 reads RESEND_API_KEY from os.environ.get() with an empty fallback so the app cannot crash on a missing key. Verified end-to-end: Resend notification actually delivered during test_job_application_submit_valid (see backend log: 'Resend notification sent for Job Application')."
+}
