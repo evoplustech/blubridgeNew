@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
-const PHRASES = [
-  "It's our Numerical Fidelity.",
-  "It's our Training Throughput",
-  "It's our Inference Latency",
-  "It's our Evaluation Benchmarks",
+const TERMS = [
+  "Numerical Fidelity.",
+  "Training Throughput",
+  "Inference Latency",
+  "Evaluation Benchmarks",
 ];
-const LONGEST_PHRASE = "It's our Evaluation Benchmarks";
-const CYCLE_MS = 2800;
+const LONGEST_TERM = "Evaluation Benchmarks";
+const CYCLE_MS = 3200;
 
 const PrecisionScanReveal = () => {
   const [index, setIndex] = useState(0);
@@ -39,7 +39,7 @@ const PrecisionScanReveal = () => {
   useEffect(() => {
     if (reduce || !inView) return;
     const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % PHRASES.length);
+      setIndex((i) => (i + 1) % TERMS.length);
     }, CYCLE_MS);
     return () => clearInterval(timer);
   }, [reduce, inView]);
@@ -47,19 +47,37 @@ const PrecisionScanReveal = () => {
   if (reduce) {
     return (
       <div className="au-phrase-stage" data-testid="passion-typing-text" ref={wrapRef}>
-        <h3 className="au-phrase" data-testid="passion-heading">{PHRASES[0]}</h3>
+        <div className="pms-outer">
+          <h3 className="au-phrase pms-static" data-testid="passion-heading">
+            <span className="pms-line">
+              <span className="pms-prefix">It&apos;s our</span>
+              <span className="pms-term-static">{TERMS[0]}</span>
+              <span className="pms-underline pms-underline-static" aria-hidden="true" />
+            </span>
+          </h3>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="au-phrase-stage" data-testid="passion-typing-text" ref={wrapRef}>
-      <div className={`psr-frame${inView ? '' : ' psr-paused'}`}>
-        <h3 className="au-phrase psr-sizer" aria-hidden="true">{LONGEST_PHRASE}</h3>
-        <h3 key={index} className="au-phrase psr-phrase" data-testid="passion-heading">
-          <span className="psr-text">{PHRASES[index]}</span>
-          <span className="psr-line" aria-hidden="true">
-            <span className="psr-dot" />
+      <div className={`pms-outer${inView ? '' : ' pms-paused'}`}>
+        {/* Invisible sizer: reserves outer height + longest full statement width */}
+        <h3 className="au-phrase pms-sizer" aria-hidden="true">
+          <span className="pms-prefix">It&apos;s our</span>
+          <span>{LONGEST_TERM}</span>
+        </h3>
+        {/* Screen-reader accessible label (announced once, no re-announcement) */}
+        <span className="pms-sr-only">It&apos;s our Numerical Fidelity, Training Throughput, Inference Latency, and Evaluation Benchmarks.</span>
+        {/* Active animated phrase — inline-flex sized to actual content so underline matches */}
+        <h3 className="au-phrase pms-active" aria-hidden="true" data-testid="passion-heading">
+          <span className="pms-prefix">It&apos;s our</span>
+          <span key={index} className="pms-term-wrap">
+            <span className="pms-term">{TERMS[index]}</span>
+          </span>
+          <span key={`u-${index}`} className="pms-underline" aria-hidden="true">
+            <span className="pms-dot" aria-hidden="true" />
           </span>
         </h3>
       </div>

@@ -819,28 +819,69 @@ html.mscur-active body {
   }
 }
 
-/* ===== ABOUT US — Precision Scan Reveal ===== */
-.psr-frame { position: relative; display: inline-block; }
-.psr-sizer { visibility: hidden; pointer-events: none; white-space: nowrap; margin: 0; }
-.psr-phrase {
+/* ===== ABOUT US — Precision Metric Swap ===== */
+.pms-sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.pms-outer {
+  position: relative;
+  display: inline-block;
+}
+.pms-sizer {
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  margin: 0;
+}
+.pms-active {
   position: absolute;
   inset: 0;
   margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  width: max-content;
   white-space: nowrap;
   color: var(--au-ink, #0a1230);
   overflow: visible;
 }
-.psr-text {
+.pms-static {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+.pms-line {
+  display: inline-flex;
+  align-items: baseline;
+  width: max-content;
+  position: relative;
+}
+.pms-prefix {
+  display: inline-block;
+  margin-right: 0.28em;
+}
+.pms-term-wrap {
+  display: inline-block;
+  overflow: visible;
+}
+.pms-term-static {
+  display: inline-block;
+}
+.pms-term {
   display: inline-block;
   clip-path: inset(0 100% 0 0);
+  transform: translateY(11px);
+  opacity: 0;
   animation:
-    psr-reveal 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
-    psr-exit 400ms cubic-bezier(0.22, 1, 0.36, 1) 2400ms forwards;
+    pms-term-in 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    pms-term-out 600ms cubic-bezier(0.22, 1, 0.36, 1) 2500ms forwards;
   will-change: clip-path, transform, opacity;
 }
-.psr-line {
+.pms-underline {
   position: absolute;
   left: 0;
+  right: 0;
   bottom: -10px;
   height: 1px;
   width: 100%;
@@ -848,10 +889,15 @@ html.mscur-active body {
   transform-origin: left center;
   transform: scaleX(0);
   animation:
-    psr-line-in 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
-    psr-line-fade 500ms ease 1100ms forwards;
+    pms-underline-in 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    pms-underline-out 500ms cubic-bezier(0.22, 1, 0.36, 1) 2500ms forwards;
+  will-change: transform, opacity;
 }
-.psr-dot {
+.pms-underline-static {
+  transform: scaleX(1);
+  animation: none;
+}
+.pms-dot {
   position: absolute;
   right: -3px;
   top: -2.5px;
@@ -859,29 +905,48 @@ html.mscur-active body {
   height: 6px;
   border-radius: 50%;
   background: var(--bb-accent, #2b4c8c);
-  box-shadow: 0 0 0 2px rgba(240, 241, 249, 0.9);
+  box-shadow: 0 0 0 2px rgba(241, 242, 250, 0.9);
+  opacity: 0;
+  animation:
+    pms-dot-in 300ms cubic-bezier(0.22, 1, 0.36, 1) 400ms forwards,
+    pms-dot-fade 500ms ease 1150ms forwards;
 }
-.psr-frame.psr-paused .psr-text,
-.psr-frame.psr-paused .psr-line { animation-play-state: paused; }
+.pms-outer.pms-paused .pms-term,
+.pms-outer.pms-paused .pms-underline,
+.pms-outer.pms-paused .pms-dot { animation-play-state: paused; }
 
-@keyframes psr-reveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0 0 0); }
+@keyframes pms-term-in {
+  0%   { clip-path: inset(0 100% 0 0); transform: translateY(11px); opacity: 0; }
+  40%  { opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); transform: translateY(0); opacity: 1; }
 }
-@keyframes psr-exit {
+@keyframes pms-term-out {
   0%   { clip-path: inset(0 0 0 0); transform: translateY(0); opacity: 1; }
-  100% { clip-path: inset(0 0 100% 0); transform: translateY(-8px); opacity: 0; }
+  100% { clip-path: inset(0 0 100% 0); transform: translateY(-9px); opacity: 0; }
 }
-@keyframes psr-line-in {
+@keyframes pms-underline-in {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
 }
-@keyframes psr-line-fade {
+@keyframes pms-underline-out {
+  0%   { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0); opacity: 0; }
+}
+@keyframes pms-dot-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pms-dot-fade {
   from { opacity: 1; }
   to   { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .psr-text, .psr-line { animation: none !important; clip-path: none !important; transform: none !important; opacity: 1 !important; }
+  .pms-term, .pms-underline, .pms-dot {
+    animation: none !important;
+    clip-path: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 @media (max-width: 1024px) {
   .au-hero { padding-bottom: 64px; padding-top: 40px; }
