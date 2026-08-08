@@ -109,7 +109,7 @@ const Header = () => {
             textTransform: 'uppercase',
           }}
         >
-          <span>Building Frontier AI Intelligence capabilities tailored for you</span>
+          <span>Tailored AI Systems: Large Language Models &amp; Domain Specific Models</span>
         </div>
 
         <div className="bb-container">

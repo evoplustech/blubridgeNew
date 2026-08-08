@@ -6,7 +6,7 @@ import pytest
 import requests
 import os
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://premium-minimal-site.preview.emergentagent.com')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://frontend-qa-3.preview.emergentagent.com')
 
 # Admin credentials
 ADMIN_USERNAME = "admin"

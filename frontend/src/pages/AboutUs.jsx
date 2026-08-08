@@ -2,51 +2,67 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
-const PHRASE_WORDS = ['Hunger.', 'Precision.'];
+const PHRASES = [
+  "It's our Numerical Fidelity.",
+  "It's our Training Throughput",
+  "It's our Inference Latency",
+  "It's our Evaluation Benchmarks",
+];
+const LONGEST_PHRASE = "It's our Evaluation Benchmarks";
+const CYCLE_MS = 2800;
 
-const PassionTypingText = () => {
-  const [text, setText] = useState('');
-  const [caretOn, setCaretOn] = useState(true);
-  const stateRef = useRef({ wordIndex: 0, deleting: false });
+const PrecisionScanReveal = () => {
+  const [index, setIndex] = useState(0);
+  const [inView, setInView] = useState(true);
+  const [reduce, setReduce] = useState(false);
+  const wrapRef = useRef(null);
 
   useEffect(() => {
-    const blink = setInterval(() => setCaretOn((c) => !c), 500);
-    return () => clearInterval(blink);
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduce(mq.matches);
+    const handler = () => setReduce(mq.matches);
+    mq.addEventListener?.('change', handler);
+    return () => mq.removeEventListener?.('change', handler);
   }, []);
 
   useEffect(() => {
-    const s = stateRef.current;
-    const word = PHRASE_WORDS[s.wordIndex];
-    let delay;
-    if (!s.deleting) {
-      if (text.length < word.length) delay = 70;
-      else { delay = 1500; }
-    } else {
-      delay = 45;
-    }
-    const t = setTimeout(() => {
-      if (!s.deleting) {
-        if (text.length < word.length) setText(word.slice(0, text.length + 1));
-        else { s.deleting = true; setText(word.slice(0, text.length - 1)); }
-      } else {
-        if (text.length > 1) {
-          setText(word.slice(0, text.length - 1));
-        } else {
-          s.deleting = false;
-          s.wordIndex = (s.wordIndex + 1) % PHRASE_WORDS.length;
-          setText(PHRASE_WORDS[s.wordIndex].slice(0, 1));
-        }
-      }
-    }, delay);
-    return () => clearTimeout(t);
-  }, [text]);
+    if (!wrapRef.current) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    io.observe(wrapRef.current);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (reduce || !inView) return;
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % PHRASES.length);
+    }, CYCLE_MS);
+    return () => clearInterval(timer);
+  }, [reduce, inView]);
+
+  if (reduce) {
+    return (
+      <div className="au-phrase-stage" data-testid="passion-typing-text" ref={wrapRef}>
+        <h3 className="au-phrase" data-testid="passion-heading">{PHRASES[0]}</h3>
+      </div>
+    );
+  }
 
   return (
-    <div className="au-phrase-stage" data-testid="passion-typing-text">
-      <h3 className="au-phrase" data-testid="passion-heading">
-        <span className="au-phrase-static">It's Our </span>
-        <span className="au-phrase-anim">{text}<span aria-hidden="true" className="au-phrase-caret" style={{ opacity: caretOn ? 1 : 0 }}></span></span>
-      </h3>
+    <div className="au-phrase-stage" data-testid="passion-typing-text" ref={wrapRef}>
+      <div className={`psr-frame${inView ? '' : ' psr-paused'}`}>
+        <h3 className="au-phrase psr-sizer" aria-hidden="true">{LONGEST_PHRASE}</h3>
+        <h3 key={index} className="au-phrase psr-phrase" data-testid="passion-heading">
+          <span className="psr-text">{PHRASES[index]}</span>
+          <span className="psr-line" aria-hidden="true">
+            <span className="psr-dot" />
+          </span>
+        </h3>
+      </div>
     </div>
   );
 };
@@ -145,7 +161,7 @@ const AboutUs = () => {
               <p className="au-method-cell-body">BluBridge exists to advance AI research and translate it into deployable systems. Our efforts are application-driven and grounded in real infrastructure, data behavior, and operating constraints.</p>
             </article>
             <div className="au-method-phrase-slot" data-testid="method-phrase-slot">
-              <PassionTypingText />
+              <PrecisionScanReveal />
             </div>
           </div>
           <div className="au-method-lower">
