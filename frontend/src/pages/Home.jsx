@@ -295,7 +295,7 @@ const Home = () => {
                 data-testid="hero-heading"
               >
                 <span className="block">Building Tailored AI Systems</span>
-                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>for <span className="bb-real-shine" data-testid="hero-real-word">real</span> Hard Problems</span>
+                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>for Hard Problems</span>
               </h1>
 
               <div className="mt-10 max-w-[520px] bb-reveal bb-reveal-3">
