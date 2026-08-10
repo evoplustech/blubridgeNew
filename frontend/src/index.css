@@ -868,7 +868,7 @@ html.mscur-active body {
 .pms-term-static {
   display: inline-block;
   font-size: clamp(40px, 5.2vw, 68px);
-  color: #c8cdd8;
+  color: #A5A5A3;
 }
 .pms-term {
   display: inline-block;
@@ -880,7 +880,7 @@ html.mscur-active body {
     pms-term-out 600ms cubic-bezier(0.22, 1, 0.36, 1) 2500ms forwards;
   will-change: clip-path, transform, opacity;
   font-size: clamp(40px, 5.2vw, 68px);
-  color: #c8cdd8;
+  color: #A5A5A3;
 }
 /* Sizer term span (last child, not the prefix) matches the enlarged term to reserve proper width/height */
 .pms-sizer > span:not(.pms-prefix) {
