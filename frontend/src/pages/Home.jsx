@@ -298,33 +298,11 @@ const Home = () => {
                 <span className="block">AI Systems</span>
                 <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>
                   for{' '}
-                  <span className="bb-real-slot" aria-label="real">
-                    <span className="bb-real">
-                      real
-                      <svg
-                        className="bb-real-underline"
-                        viewBox="0 0 120 24"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M4 10 C 22 4, 46 16, 72 8 S 108 12, 116 6"
-                          fill="none"
-                          stroke="#e63946"
-                          strokeWidth="3.6"
-                          strokeLinecap="round"
-                        />
-                        <path
-                          d="M8 20 C 30 15, 62 22, 90 17 S 110 19, 116 17"
-                          fill="none"
-                          stroke="#e63946"
-                          strokeWidth="2.8"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </span>
+                  <span className="pms-sr-only">real</span>
+                  <span className="bb-real-slot" aria-hidden="true">
+                    <img src="/real-brush.png" alt="" className="bb-real-img" draggable="false" />
                   </span>
-                  {' '}Hard
+                  Hard
                 </span>
                 <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>Problems</span>
               </h1>

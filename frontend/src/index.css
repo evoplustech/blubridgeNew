@@ -7,7 +7,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -786,76 +785,35 @@ html.mscur-active body {
 .au-phrase-anim { color: var(--au-accent); }
 .au-phrase-caret { background: var(--au-accent); display: inline-block; height: .85em; margin-left: 2px; transition: opacity .15s ease; vertical-align: -.08em; width: 2px; }
 
-/* ===== HERO — "real" handwritten script + slot open + draw-on underline ===== */
+/* ===== HERO — "real" brush artwork: synchronized left-to-right reveal ===== */
 .bb-real-slot {
+  --bb-real-w: 1.55em;
   display: inline-block;
   overflow: hidden;
-  vertical-align: baseline;
-  max-width: 0;
   white-space: nowrap;
-  animation: bb-real-slot 5600ms cubic-bezier(0.7, 0, 0.3, 1) infinite;
-  will-change: max-width;
+  width: 0;
+  margin-right: 0;
+  vertical-align: -0.34em;
+  animation: bb-real-slot 5200ms cubic-bezier(0.7, 0, 0.3, 1) infinite;
+  will-change: width, margin-right;
 }
-.bb-real {
-  position: relative;
-  display: inline-block;
-  font-family: 'Caveat Brush', 'Caveat', cursive;
-  font-weight: 400;
-  color: #e63946;
-  font-size: 1.12em;
-  line-height: 1;
-  padding: 0 0.02em;
-  transform: rotate(-5deg);
-  transform-origin: 50% 60%;
-  opacity: 0;
-  animation: bb-real-fade 5600ms cubic-bezier(0.7, 0, 0.3, 1) infinite;
-  will-change: opacity, transform;
-}
-.bb-real-underline {
-  position: absolute;
-  left: -8%;
-  right: -8%;
-  bottom: -0.16em;
-  width: 116%;
-  height: 0.5em;
-  overflow: visible;
-  pointer-events: none;
-}
-.bb-real-underline path {
-  stroke-dasharray: 160;
-  stroke-dashoffset: 160;
-  animation: bb-real-draw 5600ms cubic-bezier(0.7, 0, 0.3, 1) infinite;
-  vector-effect: non-scaling-stroke;
-}
-.bb-real-underline path:nth-child(2) {
-  animation-delay: 180ms;
+.bb-real-img {
+  display: block;
+  width: var(--bb-real-w);
+  max-width: none;
+  height: auto;
+  user-select: none;
 }
 @keyframes bb-real-slot {
-  0%   { max-width: 0;   }
-  16%  { max-width: 3em; }
-  84%  { max-width: 3em; }
-  100% { max-width: 0;   }
-}
-@keyframes bb-real-fade {
-  0%   { opacity: 0; transform: rotate(-5deg) translateY(4px); }
-  18%  { opacity: 0; transform: rotate(-5deg) translateY(4px); }
-  32%  { opacity: 1; transform: rotate(-5deg) translateY(0);   }
-  82%  { opacity: 1; transform: rotate(-5deg) translateY(0);   }
-  92%  { opacity: 0; transform: rotate(-5deg) translateY(0);   }
-  100% { opacity: 0; transform: rotate(-5deg) translateY(0);   }
-}
-@keyframes bb-real-draw {
-  0%   { stroke-dashoffset: 160; opacity: 1; }
-  22%  { stroke-dashoffset: 160; opacity: 1; }
-  46%  { stroke-dashoffset: 0;   opacity: 1; }
-  82%  { stroke-dashoffset: 0;   opacity: 1; }
-  92%  { stroke-dashoffset: 0;   opacity: 0; }
-  100% { stroke-dashoffset: 160; opacity: 0; }
+  0%       { width: 0; margin-right: 0; }
+  15.385%  { width: 0; margin-right: 0; }
+  29.808%  { width: var(--bb-real-w); margin-right: 0.22em; }
+  68.269%  { width: var(--bb-real-w); margin-right: 0.22em; }
+  82.692%  { width: 0; margin-right: 0; }
+  100%     { width: 0; margin-right: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .bb-real-slot { animation: none; max-width: 3em; }
-  .bb-real { animation: none; opacity: 1; transform: rotate(-5deg); }
-  .bb-real-underline path { animation: none; stroke-dashoffset: 0; }
+  .bb-real-slot { animation: none; width: var(--bb-real-w); margin-right: 0.22em; }
 }
 
 /* ===== ABOUT US — Precision Metric Swap ===== */

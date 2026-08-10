@@ -53,3 +53,8 @@ Complete visual and structural redesign of the BluBridge website combining appro
 
 ## Integrations
 - Resend (emails, needs user API key), Clicky Analytics, MongoDB
+
+## Update (2026-06 fork): Hero "real" artwork V2
+- Replaced Caveat Brush font + SVG underline "real" with the user-supplied brush artwork (transparent PNG extracted from screenshot, bg #f1f1f5 removed, tight crop 208x142, saved at /app/frontend/public/real-brush.png).
+- New impl: .bb-real-slot (overflow-hidden inline-block, width 0 -> 1.55em + margin-right sync, 5.2s loop, cubic-bezier(0.7,0,0.3,1)), img.bb-real-img fixed width for left-to-right reveal. aria-hidden img + sr-only "real" for a11y. prefers-reduced-motion keeps artwork visible.
+- Removed Caveat Google Font import (unused elsewhere). Files: Home.jsx (hero third row), index.css.
