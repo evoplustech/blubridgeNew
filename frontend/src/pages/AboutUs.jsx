@@ -4,11 +4,11 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const TERMS = [
   "Numerical Fidelity.",
-  "Training Throughput",
-  "Inference Latency",
-  "Evaluation Benchmarks",
+  "Training Throughput.",
+  "Inference Latency.",
+  "Evaluation Benchmarks.",
 ];
-const LONGEST_TERM = "Evaluation Benchmarks";
+const LONGEST_TERM = "Evaluation Benchmarks.";
 const CYCLE_MS = 3200;
 
 const PrecisionScanReveal = () => {
@@ -52,7 +52,6 @@ const PrecisionScanReveal = () => {
             <span className="pms-line">
               <span className="pms-prefix">It&apos;s our</span>
               <span className="pms-term-static">{TERMS[0]}</span>
-              <span className="pms-underline pms-underline-static" aria-hidden="true" />
             </span>
           </h3>
         </div>
@@ -70,14 +69,11 @@ const PrecisionScanReveal = () => {
         </h3>
         {/* Screen-reader accessible label (announced once, no re-announcement) */}
         <span className="pms-sr-only">It&apos;s our Numerical Fidelity, Training Throughput, Inference Latency, and Evaluation Benchmarks.</span>
-        {/* Active animated phrase — inline-flex sized to actual content so underline matches */}
+        {/* Active animated phrase — only the term slides; "It's our" stays fixed */}
         <h3 className="au-phrase pms-active" aria-hidden="true" data-testid="passion-heading">
           <span className="pms-prefix">It&apos;s our</span>
           <span key={index} className="pms-term-wrap">
             <span className="pms-term">{TERMS[index]}</span>
-          </span>
-          <span key={`u-${index}`} className="pms-underline" aria-hidden="true">
-            <span className="pms-dot" aria-hidden="true" />
           </span>
         </h3>
       </div>

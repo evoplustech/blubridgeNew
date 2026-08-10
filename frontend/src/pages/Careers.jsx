@@ -31,7 +31,7 @@ const roleCards = [
       'Mathematics round after 15 days (study material is provided),',
       'Interview round',
       'Paid internship begins',
-      'Paid internship is converted to full-time in 3-6 months period.',
+      'Paid internship is converted to full-time offer in 3-6 months period.',
     ],
   },
   {
