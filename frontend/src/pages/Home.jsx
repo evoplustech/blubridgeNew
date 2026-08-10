@@ -294,8 +294,37 @@ const Home = () => {
                 style={{ fontSize: 'clamp(40px, 5.2vw, 76px)', lineHeight: 1.02 }}
                 data-testid="hero-heading"
               >
-                <span className="block">Building Tailored AI Systems</span>
-                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>for Hard Problems</span>
+                <span className="block">Building Tailored</span>
+                <span className="block">AI Systems</span>
+                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>
+                  for{' '}
+                  <span className="bb-real" aria-label="real">
+                    real
+                    <svg
+                      className="bb-real-underline"
+                      viewBox="0 0 120 24"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 10 C 22 4, 46 16, 72 8 S 108 12, 116 6"
+                        fill="none"
+                        stroke="#e63946"
+                        strokeWidth="3.6"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M8 20 C 30 15, 62 22, 90 17 S 110 19, 116 17"
+                        fill="none"
+                        stroke="#e63946"
+                        strokeWidth="2.8"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>{' '}
+                  Hard
+                </span>
+                <span className="block" style={{ color: 'var(--bb-ink-2)', fontWeight: 400 }}>Problems</span>
               </h1>
 
               <div className="mt-10 max-w-[520px] bb-reveal bb-reveal-3">
