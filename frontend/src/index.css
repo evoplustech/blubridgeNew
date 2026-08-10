@@ -867,7 +867,7 @@ html.mscur-active body {
 }
 .pms-term-static {
   display: inline-block;
-  font-size: clamp(40px, 5.2vw, 68px);
+  font-size: clamp(28px, 3.4vw, 48px);
   color: #A5A5A3;
 }
 .pms-term {
@@ -879,12 +879,12 @@ html.mscur-active body {
     pms-term-in 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
     pms-term-out 600ms cubic-bezier(0.22, 1, 0.36, 1) 2500ms forwards;
   will-change: clip-path, transform, opacity;
-  font-size: clamp(40px, 5.2vw, 68px);
+  font-size: clamp(28px, 3.4vw, 48px);
   color: #A5A5A3;
 }
 /* Sizer term span (last child, not the prefix) matches the enlarged term to reserve proper width/height */
 .pms-sizer > span:not(.pms-prefix) {
-  font-size: clamp(40px, 5.2vw, 68px);
+  font-size: clamp(28px, 3.4vw, 48px);
 }
 .pms-underline {
   position: absolute;
@@ -991,7 +991,7 @@ html.mscur-active body {
   .au-phrase { font-size: clamp(24px, 6.5vw, 34px); }
   .pms-term,
   .pms-term-static,
-  .pms-sizer > span:not(.pms-prefix) { font-size: clamp(30px, 8.5vw, 46px); }
+  .pms-sizer > span:not(.pms-prefix) { font-size: clamp(24px, 7vw, 36px); }
   .au-method-phrase-slot { min-height: 110px; padding: 32px 24px; }
   .au-method-cell { padding: 32px 24px; }
 }
