@@ -9,10 +9,15 @@ const TERMS = [
   "Evaluation Benchmarks.",
 ];
 const LONGEST_TERM = "Evaluation Benchmarks.";
-const CYCLE_MS = 3200;
+const TYPE_MS = 70;
+const DELETE_MS = 40;
+const HOLD_MS = 1500;
+const NEXT_MS = 400;
 
 const PrecisionScanReveal = () => {
   const [index, setIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [phase, setPhase] = useState('typing'); // 'typing' | 'holding' | 'deleting' | 'pausing'
   const [inView, setInView] = useState(true);
   const [reduce, setReduce] = useState(false);
   const wrapRef = useRef(null);
@@ -38,11 +43,30 @@ const PrecisionScanReveal = () => {
 
   useEffect(() => {
     if (reduce || !inView) return;
-    const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % TERMS.length);
-    }, CYCLE_MS);
-    return () => clearInterval(timer);
-  }, [reduce, inView]);
+    const current = TERMS[index];
+    let timer;
+    if (phase === 'typing') {
+      if (displayed.length < current.length) {
+        timer = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), TYPE_MS);
+      } else {
+        timer = setTimeout(() => setPhase('holding'), 0);
+      }
+    } else if (phase === 'holding') {
+      timer = setTimeout(() => setPhase('deleting'), HOLD_MS);
+    } else if (phase === 'deleting') {
+      if (displayed.length > 0) {
+        timer = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), DELETE_MS);
+      } else {
+        timer = setTimeout(() => setPhase('pausing'), 0);
+      }
+    } else if (phase === 'pausing') {
+      timer = setTimeout(() => {
+        setIndex((i) => (i + 1) % TERMS.length);
+        setPhase('typing');
+      }, NEXT_MS);
+    }
+    return () => clearTimeout(timer);
+  }, [displayed, phase, index, reduce, inView]);
 
   if (reduce) {
     return (
@@ -61,7 +85,7 @@ const PrecisionScanReveal = () => {
 
   return (
     <div className="au-phrase-stage" data-testid="passion-typing-text" ref={wrapRef}>
-      <div className={`pms-outer${inView ? '' : ' pms-paused'}`}>
+      <div className="pms-outer">
         {/* Invisible sizer: reserves outer height + longest full statement width */}
         <h3 className="au-phrase pms-sizer" aria-hidden="true">
           <span className="pms-prefix">It&apos;s our</span>
@@ -69,12 +93,11 @@ const PrecisionScanReveal = () => {
         </h3>
         {/* Screen-reader accessible label (announced once, no re-announcement) */}
         <span className="pms-sr-only">It&apos;s our Numerical Fidelity, Training Throughput, Inference Latency, and Evaluation Benchmarks.</span>
-        {/* Active animated phrase — only the term slides; "It's our" stays fixed */}
+        {/* Active typewriter phrase — only the term types; "It's our" stays fixed */}
         <h3 className="au-phrase pms-active" aria-hidden="true" data-testid="passion-heading">
           <span className="pms-prefix">It&apos;s our</span>
-          <span key={index} className="pms-term-wrap">
-            <span className="pms-term">{TERMS[index]}</span>
-          </span>
+          <span className="pms-term">{displayed}</span>
+          <span className="pms-caret" aria-hidden="true" />
         </h3>
       </div>
     </div>

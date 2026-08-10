@@ -872,34 +872,31 @@ html.mscur-active body {
 }
 .pms-term {
   display: inline-block;
-  transform: translateY(28px);
-  opacity: 0;
-  animation:
-    pms-term-in 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
-    pms-term-out 600ms cubic-bezier(0.22, 1, 0.36, 1) 2500ms forwards;
-  will-change: transform, opacity;
   font-size: clamp(28px, 3.4vw, 48px);
   color: #2b4c8c;
+  white-space: pre;
+}
+.pms-caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.85em;
+  margin-left: 2px;
+  vertical-align: -0.08em;
+  background: #2b4c8c;
+  animation: pms-caret-blink 1s steps(2, start) infinite;
 }
 /* Sizer term span (last child, not the prefix) matches the enlarged term to reserve proper width/height */
 .pms-sizer > span:not(.pms-prefix) {
   font-size: clamp(28px, 3.4vw, 48px);
 }
-.pms-outer.pms-paused .pms-term { animation-play-state: paused; }
 
-@keyframes pms-term-in {
-  0%   { transform: translateY(28px); opacity: 0; }
-  100% { transform: translateY(0);    opacity: 1; }
-}
-@keyframes pms-term-out {
-  0%   { transform: translateY(0);     opacity: 1; }
-  100% { transform: translateY(-28px); opacity: 0; }
+@keyframes pms-caret-blink {
+  to { visibility: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pms-term {
+  .pms-caret {
     animation: none !important;
-    transform: none !important;
-    opacity: 1 !important;
+    visibility: hidden !important;
   }
 }
 @media (max-width: 1024px) {
