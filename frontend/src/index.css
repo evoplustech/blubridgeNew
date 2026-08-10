@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -786,28 +786,37 @@ html.mscur-active body {
 .au-phrase-anim { color: var(--au-accent); }
 .au-phrase-caret { background: var(--au-accent); display: inline-block; height: .85em; margin-left: 2px; transition: opacity .15s ease; vertical-align: -.08em; width: 2px; }
 
-/* ===== HERO — "real" handwritten script + draw-on underline ===== */
+/* ===== HERO — "real" handwritten script + slot open + draw-on underline ===== */
+.bb-real-slot {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: baseline;
+  max-width: 0;
+  white-space: nowrap;
+  animation: bb-real-slot 5600ms cubic-bezier(0.7, 0, 0.3, 1) infinite;
+  will-change: max-width;
+}
 .bb-real {
   position: relative;
   display: inline-block;
-  font-family: 'Caveat', cursive;
-  font-weight: 700;
+  font-family: 'Caveat Brush', 'Caveat', cursive;
+  font-weight: 400;
   color: #e63946;
-  font-size: 1.05em;
+  font-size: 1.12em;
   line-height: 1;
-  padding: 0 0.06em;
-  transform: rotate(-4deg) translateY(-0.05em);
+  padding: 0 0.02em;
+  transform: rotate(-5deg);
   transform-origin: 50% 60%;
-  clip-path: inset(0 100% 0 0);
-  animation: bb-real-write 6000ms cubic-bezier(0.65, 0, 0.35, 1) infinite;
-  will-change: clip-path, opacity;
+  opacity: 0;
+  animation: bb-real-fade 5600ms cubic-bezier(0.7, 0, 0.3, 1) infinite;
+  will-change: opacity, transform;
 }
 .bb-real-underline {
   position: absolute;
-  left: -6%;
-  right: -6%;
-  bottom: -0.18em;
-  width: 112%;
+  left: -8%;
+  right: -8%;
+  bottom: -0.16em;
+  width: 116%;
   height: 0.5em;
   overflow: visible;
   pointer-events: none;
@@ -815,37 +824,38 @@ html.mscur-active body {
 .bb-real-underline path {
   stroke-dasharray: 160;
   stroke-dashoffset: 160;
-  animation: bb-real-draw 6000ms cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  animation: bb-real-draw 5600ms cubic-bezier(0.7, 0, 0.3, 1) infinite;
   vector-effect: non-scaling-stroke;
 }
 .bb-real-underline path:nth-child(2) {
-  animation-delay: 220ms;
+  animation-delay: 180ms;
 }
-@keyframes bb-real-write {
-  0%   { clip-path: inset(0 100% 0 0); opacity: 0.85; }
-  22%  { clip-path: inset(0 0 0 0);    opacity: 1;    }
-  75%  { clip-path: inset(0 0 0 0);    opacity: 1;    }
-  90%  { clip-path: inset(0 0 0 0);    opacity: 0;    }
-  100% { clip-path: inset(0 100% 0 0); opacity: 0;    }
+@keyframes bb-real-slot {
+  0%   { max-width: 0;   }
+  16%  { max-width: 3em; }
+  84%  { max-width: 3em; }
+  100% { max-width: 0;   }
+}
+@keyframes bb-real-fade {
+  0%   { opacity: 0; transform: rotate(-5deg) translateY(4px); }
+  18%  { opacity: 0; transform: rotate(-5deg) translateY(4px); }
+  32%  { opacity: 1; transform: rotate(-5deg) translateY(0);   }
+  82%  { opacity: 1; transform: rotate(-5deg) translateY(0);   }
+  92%  { opacity: 0; transform: rotate(-5deg) translateY(0);   }
+  100% { opacity: 0; transform: rotate(-5deg) translateY(0);   }
 }
 @keyframes bb-real-draw {
   0%   { stroke-dashoffset: 160; opacity: 1; }
-  18%  { stroke-dashoffset: 160; opacity: 1; }
-  38%  { stroke-dashoffset: 0;   opacity: 1; }
-  75%  { stroke-dashoffset: 0;   opacity: 1; }
-  90%  { stroke-dashoffset: 0;   opacity: 0; }
+  22%  { stroke-dashoffset: 160; opacity: 1; }
+  46%  { stroke-dashoffset: 0;   opacity: 1; }
+  82%  { stroke-dashoffset: 0;   opacity: 1; }
+  92%  { stroke-dashoffset: 0;   opacity: 0; }
   100% { stroke-dashoffset: 160; opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .bb-real {
-    animation: none;
-    clip-path: none;
-    opacity: 1;
-  }
-  .bb-real-underline path {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
+  .bb-real-slot { animation: none; max-width: 3em; }
+  .bb-real { animation: none; opacity: 1; transform: rotate(-5deg); }
+  .bb-real-underline path { animation: none; stroke-dashoffset: 0; }
 }
 
 /* ===== ABOUT US — Precision Metric Swap ===== */
