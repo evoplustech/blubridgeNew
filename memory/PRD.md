@@ -63,3 +63,8 @@ Complete visual and structural redesign of the BluBridge website combining appro
 - Header.jsx: nav gets .bb-nav-home-compact class when route is '/' and not scrolled -> height 68px (was 76). Scrolled 64px and all other pages/mobile unchanged.
 - Home.jsx hero: inline paddings moved to .bb-hero-home class (mobile 48/96 unchanged; desktop pt 24 / pb 80). Hero grid lg:pt-10 -> lg:pt-4.
 - Verified @1348x926: gap nav-bottom->headline 139->99px, hero lifted 48px (both columns), section height 751->687px, About Us nav 76px, mobile intact, no h-scroll.
+
+## Update (2026-06 fork): Fixed 8-9px band under Home navbar
+- Root cause: main padding-top 112px vs compact Home header ~103px -> pale strip.
+- Fix: App.js route-scoped .bb-main-home class (7rem mobile, 103px >=1024px); Header.jsx border-bottom 1px solid #d4d8e8 on Home (transparent unscrolled elsewhere, unchanged).
+- Verified by testing_agent (iteration_18.json, 100% pass): no band, 1px border, nav 68->64 on scroll, other pages + mobile untouched.

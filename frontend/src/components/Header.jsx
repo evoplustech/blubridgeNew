@@ -91,7 +91,7 @@ const Header = () => {
           backgroundColor: 'rgba(240, 241, 249, 0.86)',
           backdropFilter: 'saturate(140%) blur(16px)',
           WebkitBackdropFilter: 'saturate(140%) blur(16px)',
-          borderBottom: `1px solid ${isScrolled ? '#d4d8e8' : 'transparent'}`,
+          borderBottom: `1px solid ${isScrolled || location.pathname === '/' ? '#d4d8e8' : 'transparent'}`,
           transition: 'border-color 300ms ease, background-color 300ms ease',
         }}
       >

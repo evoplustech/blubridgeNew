@@ -1,0 +1,52 @@
+{
+  "summary": "Frontend-only verification of Home header/hero gap fix. All layout assertions passed on desktop (1348x926) and mobile (390x844). Scope protection on /about-us, /careers, /contact confirmed unchanged.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_measurements": {
+    "desktop_home_1348x926": {
+      "header_bottom_px": 103.25,
+      "hero_top_px": 103,
+      "gap_px": -0.25,
+      "main_padding_top": "103px",
+      "main_class": "bb-main-home",
+      "nav_height_unscrolled": 68,
+      "nav_height_scrolled": 64,
+      "border_bottom": "1px solid rgb(212, 216, 232)",
+      "box_shadow": "none",
+      "border_persists_on_scroll": true,
+      "hero_content_intact": {
+        "headline_4_lines": true,
+        "real_brush_img": true,
+        "cta_button": true,
+        "pipeline_visual": true
+      }
+    },
+    "scope_protection": {
+      "/about-us":  {"nav": 76, "mainPT": "112px", "border_color": "rgba(0, 0, 0, 0)"},
+      "/careers":   {"nav": 76, "mainPT": "112px", "border_color": "rgba(0, 0, 0, 0)"},
+      "/contact":   {"nav": 76, "mainPT": "112px", "border_color": "rgba(0, 0, 0, 0)"}
+    },
+    "mobile_home_390x844": {
+      "main_padding_top": "112px",
+      "hero_top_px": 112,
+      "nav_height": 76,
+      "horizontal_scroll": false,
+      "mobile_menu_toggle_works": true,
+      "note": "Mobile uses the 7rem (112px) fallback of .bb-main-home (media query only activates >=1024px), which is expected/correct behavior."
+    }
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped as requested)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Bug fix verified. Desktop Home header ends at 103.25, hero starts at 103 (sub-pixel overlap, no 8-9px band). Header border on Home is 1px solid rgb(212,216,232) with no box-shadow. Nav collapses 68->64 on scroll and border persists. Other pages (/about-us, /careers, /contact) retain 76px nav, 112px main paddingTop, transparent header border-bottom when not scrolled. Mobile Home renders fine, no horizontal scroll, mobile menu toggle works.",
+  "rca of the issue": "Original bug caused by main padding-top (112px) larger than reduced fixed header height (~103px on Home desktop) producing a pale 8-9px band. Fix uses route-scoped .bb-main-home class with 103px padding at >=1024px on Home only, plus 1px solid #d4d8e8 header border on Home to eliminate visual seam. Verified GAP = -0.25px (sub-pixel overlap = no visible band)."
+}

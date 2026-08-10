@@ -85,13 +85,14 @@ import AdminSettings from './pages/admin/AdminSettings';
 const AppLayout = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
+  const isHome = location.pathname === '/';
 
   return (
     <>
       <ScrollToTop />
       <CustomCursor />
       {!isAdminRoute && <Header />}
-      <main className={isAdminRoute ? "" : "pt-32"} style={isAdminRoute ? {} : { paddingTop: "7rem" }}>
+      <main className={isAdminRoute ? "" : isHome ? "bb-main-home" : "pt-32"} style={isAdminRoute || isHome ? {} : { paddingTop: "7rem" }}>
         <Routes>
           {/* Admin Routes - No Header/Footer */}
           <Route path="/admin" element={<AdminLogin />} />

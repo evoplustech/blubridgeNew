@@ -786,8 +786,10 @@ html.mscur-active body {
 .au-phrase-caret { background: var(--au-accent); display: inline-block; height: .85em; margin-left: 2px; transition: opacity .15s ease; vertical-align: -.08em; width: 2px; }
 
 /* ===== HOME — compact header + hero spacing (desktop only) ===== */
+.bb-main-home { padding-top: 7rem; }
 .bb-hero-home { padding-top: 48px; padding-bottom: 96px; }
 @media (min-width: 1024px) {
+  .bb-main-home { padding-top: 103px; }
   .bb-nav-home-compact { height: 68px !important; }
   .bb-hero-home { padding-top: 24px; padding-bottom: 80px; }
 }
