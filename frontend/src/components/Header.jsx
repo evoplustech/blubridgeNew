@@ -114,7 +114,7 @@ const Header = () => {
 
         <div className="bb-container">
           <nav
-            className="flex items-center justify-between"
+            className={`flex items-center justify-between${location.pathname === '/' && !isScrolled ? ' bb-nav-home-compact' : ''}`}
             style={{ height: isScrolled ? '64px' : '76px', transition: 'height 240ms ease' }}
           >
             {/* Logo (untouched) */}

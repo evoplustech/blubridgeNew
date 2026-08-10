@@ -272,7 +272,7 @@ const Home = () => {
       {/* ============================================================
           SECTION 1 — HERO (#f0f1f9)
           ============================================================ */}
-      <section className="relative overflow-hidden" data-testid="hero-section" style={{ paddingTop: '48px', paddingBottom: '96px', background: '#f0f1f9' }}>
+      <section className="relative overflow-hidden bb-hero-home" data-testid="hero-section" style={{ background: '#f0f1f9' }}>
         {/* Faint diagonal grid backdrop */}
         <div
           aria-hidden
@@ -286,7 +286,7 @@ const Home = () => {
         />
 
         <div className="bb-container relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-8 lg:pt-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-8 lg:pt-4 items-center">
             {/* LEFT — editorial copy (asymmetric 7 cols) */}
             <div className="lg:col-span-7 lg:pr-6 flex flex-col justify-center">
               <h1

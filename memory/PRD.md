@@ -58,3 +58,8 @@ Complete visual and structural redesign of the BluBridge website combining appro
 - Replaced Caveat Brush font + SVG underline "real" with the user-supplied brush artwork (transparent PNG extracted from screenshot, bg #f1f1f5 removed, tight crop 208x142, saved at /app/frontend/public/real-brush.png).
 - New impl: .bb-real-slot (overflow-hidden inline-block, width 0 -> 1.55em + margin-right sync, 5.2s loop, cubic-bezier(0.7,0,0.3,1)), img.bb-real-img fixed width for left-to-right reveal. aria-hidden img + sr-only "real" for a11y. prefers-reduced-motion keeps artwork visible.
 - Removed Caveat Google Font import (unused elsewhere). Files: Home.jsx (hero third row), index.css.
+
+## Update (2026-06 fork): Home compact header + hero spacing (desktop >=1024px only)
+- Header.jsx: nav gets .bb-nav-home-compact class when route is '/' and not scrolled -> height 68px (was 76). Scrolled 64px and all other pages/mobile unchanged.
+- Home.jsx hero: inline paddings moved to .bb-hero-home class (mobile 48/96 unchanged; desktop pt 24 / pb 80). Hero grid lg:pt-10 -> lg:pt-4.
+- Verified @1348x926: gap nav-bottom->headline 139->99px, hero lifted 48px (both columns), section height 751->687px, About Us nav 76px, mobile intact, no h-scroll.
