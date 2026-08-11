@@ -68,3 +68,7 @@ Complete visual and structural redesign of the BluBridge website combining appro
 - Root cause: main padding-top 112px vs compact Home header ~103px -> pale strip.
 - Fix: App.js route-scoped .bb-main-home class (7rem mobile, 103px >=1024px); Header.jsx border-bottom 1px solid #d4d8e8 on Home (transparent unscrolled elsewhere, unchanged).
 - Verified by testing_agent (iteration_18.json, 100% pass): no band, 1px border, nav 68->64 on scroll, other pages + mobile untouched.
+
+## Update — Jun 2026 (fork)
+- Removed the 5.2s reveal/hide loop on the hero word "real" (deleted `bb-real-slot` keyframes/animation in index.css). The brush artwork is now permanently static in its fully revealed state (width 1.55em, margin-right 0.22em). No other hero element changed. Verified via screenshot: identical state at load and after 5.5s, animationName=none.
+- PENDING (P0, recurring x12): full frontend regression test via testing_agent (CustomCursor pointer-events clickability check).

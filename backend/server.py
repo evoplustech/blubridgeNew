@@ -260,7 +260,7 @@ ALLOWED_ORIGINS = [
     "https://www.blubridge.ai",
     "https://blubridge.com",
     "https://www.blubridge.com",
-    "https://home-about-careers.preview.emergentagent.com",
+    "https://brush-reveal-deploy.preview.emergentagent.com",
 ]
 # Add any custom CORS origins from env
 extra_origins = os.environ.get('CORS_ORIGINS', '')
