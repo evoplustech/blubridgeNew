@@ -72,3 +72,8 @@ Complete visual and structural redesign of the BluBridge website combining appro
 ## Update — Jun 2026 (fork)
 - Removed the 5.2s reveal/hide loop on the hero word "real" (deleted `bb-real-slot` keyframes/animation in index.css). The brush artwork is now permanently static in its fully revealed state (width 1.55em, margin-right 0.22em). No other hero element changed. Verified via screenshot: identical state at load and after 5.5s, animationName=none.
 - PENDING (P0, recurring x12): full frontend regression test via testing_agent (CustomCursor pointer-events clickability check).
+
+## Update — Jun 2026 (Solutions menu fix)
+- FIXED: Solutions dropdown worked only once. Root causes: (1) Header.jsx un-cleared close timeouts snapped dropdown shut on re-hover — added openDropdown/closeDropdown with timer refs; (2) ScrollToTop.jsx only watched pathname so hash clicks on /solutions never scrolled — now depends on full location and scrollIntoView on hash (scroll-margin-top 120px for the 3 section ids).
+- Verified by testing_agent (iteration_19.json, 35/36 pass). P0 site-wide regression ALSO done: CustomCursor not blocking clicks, nav/CTAs/contact form all clickable.
+- New backlog item confirmed by test: contact form clears silently after submit — needs success toast (already P2).

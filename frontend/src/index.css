@@ -812,6 +812,9 @@ html.mscur-active body {
   user-select: none;
 }
 
+/* ===== Anchor targets: offset for fixed header ===== */
+#model-customization, #value-realization, #deployment { scroll-margin-top: 120px; }
+
 /* ===== ABOUT US — Precision Metric Swap ===== */
 .pms-sr-only {
   position: absolute; width: 1px; height: 1px;

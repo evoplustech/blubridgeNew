@@ -40,7 +40,26 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
+  const closeTimerRef = useRef(null);
+  const openTimerRef = useRef(null);
   const location = useLocation();
+
+  const openDropdown = (name) => {
+    if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; }
+    if (openTimerRef.current) { clearTimeout(openTimerRef.current); openTimerRef.current = null; }
+    setActiveDropdown(name);
+    openTimerRef.current = setTimeout(() => setDropdownVisible(true), 10);
+  };
+
+  const closeDropdown = () => {
+    if (openTimerRef.current) { clearTimeout(openTimerRef.current); openTimerRef.current = null; }
+    setDropdownVisible(false);
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+      closeTimerRef.current = null;
+    }, 220);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -148,8 +167,8 @@ const Header = () => {
               {/* Solutions */}
               <div
                 className="relative"
-                onMouseEnter={() => { setActiveDropdown('solutions'); setTimeout(() => setDropdownVisible(true), 10); }}
-                onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 220); }}
+                onMouseEnter={() => openDropdown('solutions')}
+                onMouseLeave={closeDropdown}
               >
                 <button
                   data-testid="nav-solutions"
@@ -198,8 +217,8 @@ const Header = () => {
               {/* Products */}
               <div
                 className="relative"
-                onMouseEnter={() => { setActiveDropdown('products'); setTimeout(() => setDropdownVisible(true), 10); }}
-                onMouseLeave={() => { setDropdownVisible(false); setTimeout(() => setActiveDropdown(null), 220); }}
+                onMouseEnter={() => openDropdown('products')}
+                onMouseLeave={closeDropdown}
               >
                 <button data-testid="nav-products" className="flex items-center gap-1.5 text-[14px] font-medium text-bb-ink hover:text-bb-accent transition-colors">
                   <span>Products</span>
@@ -233,8 +252,8 @@ const Header = () => {
               {/* Company */}
               <div
                 className="relative"
-                onMouseEnter={() => setActiveDropdown('company')}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => openDropdown('company')}
+                onMouseLeave={closeDropdown}
               >
                 <button data-testid="nav-company" className="flex items-center gap-1.5 text-[14px] font-medium text-bb-ink hover:text-bb-accent transition-colors">
                   <span>Company</span>
