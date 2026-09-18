@@ -10,6 +10,7 @@ import Home1 from './pages/Home1';
 import Products from './pages/Products';
 import Solutions from './pages/Solutions';
 import GetInTouch from './pages/GetInTouch';
+import GetInTouchV2 from './pages/GetInTouchV2';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Pricing from './pages/Pricing';
@@ -161,6 +162,7 @@ const AppLayout = () => {
           {/* Contact Routes */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/get-in-touch" element={<GetInTouch />} />
+          <Route path="/get-in-touch-1" element={<GetInTouchV2 />} />
           <Route path="/contact/sales" element={<ContactSales />} />
           <Route path="/contact/general-enquiry" element={<GeneralEnquiry />} />
           <Route path="/partners" element={<Partners />} />

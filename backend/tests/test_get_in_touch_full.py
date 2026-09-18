@@ -162,9 +162,14 @@ def admin_headers(admin_token):
 @pytest.fixture(scope="module")
 def seed_enquiry():
     """Create a fresh enquiry for admin tests."""
-    time.sleep(6)
+    time.sleep(20)
     payload = _payload(firstName="AdminSeed", lastName="RowX", email=f"qa.adm.{uuid.uuid4().hex[:8]}@example.com", role="Director")
     r = requests.post(ENQ, json=payload, timeout=30)
+    tries = 0
+    while r.status_code == 429 and tries < 4:
+        time.sleep(30)
+        r = requests.post(ENQ, json=payload, timeout=30)
+        tries += 1
     assert r.status_code == 200, r.text
     return {"id": r.json()["id"], "payload": payload}
 
