@@ -1341,6 +1341,44 @@ html.mscur-active body {
   .git7-submit { width: 100%; }
 }
 
+/* ===== GET IN TOUCH V8 (/get-in-touch-7) — frontend-only placeholder form, scoped .git8-* ===== */
+.git8-page { background: #f0f1f9; }
+.git8-section { padding: 72px 0 120px; }
+.git8-grid { align-items: start; display: grid; gap: 48px clamp(56px, 6vw, 104px); grid-template-columns: minmax(0, 38fr) minmax(0, 62fr); }
+.git8-intro { position: sticky; top: 130px; }
+.git8-eyebrow { color: #2b4c8c; display: block; font-family: IBM Plex Mono, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+.git8-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: clamp(38px, 4.2vw, 62px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin: 22px 0 0; }
+.git8-lede { color: #3f4966; font-family: Inter, sans-serif; font-size: 16px; line-height: 1.7; margin: 26px 0 0; max-width: 420px; }
+.git8-form { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+.git8-field { display: flex; flex-direction: column; min-width: 0; }
+.git8-full { grid-column: 1 / -1; }
+.git8-sr { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.git8-input { background: #ffffff; border: 1px solid #d4d8e8; border-radius: 2px; box-sizing: border-box; color: #0a1230; font-family: Inter, sans-serif; font-size: 15px; height: 52px; outline: none; padding: 0 16px; transition: border-color 160ms ease, box-shadow 160ms ease; width: 100%; }
+.git8-input::placeholder { color: #6b7490; }
+.git8-input:focus { border-color: #0a1230; box-shadow: 0 0 0 2px rgba(10, 18, 48, 0.08); }
+.git8-input-error, .git8-input-error:focus { border-color: #dc2626; box-shadow: none; }
+.git8-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230a1230' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-position: right 16px center; background-repeat: no-repeat; cursor: pointer; padding-right: 44px; }
+.git8-select-empty { color: #6b7490; }
+.git8-textarea { height: auto; line-height: 1.6; min-height: 168px; padding: 14px 16px; resize: vertical; }
+.git8-counter { color: #3f4966; font-family: Inter, sans-serif; font-size: 13px; margin-top: 8px; }
+.git8-err { color: #dc2626; font-family: Inter, sans-serif; font-size: 12.5px; margin: 6px 0 0; }
+.git8-terms { align-items: flex-start; color: #0a1230; cursor: pointer; display: flex; font-family: Inter, sans-serif; font-size: 14.5px; gap: 12px; line-height: 1.6; margin-top: 6px; }
+.git8-terms input { accent-color: #0a1230; cursor: pointer; flex-shrink: 0; height: 17px; margin-top: 3px; width: 17px; }
+.git8-terms a { color: #2b4c8c; text-decoration: underline; text-underline-offset: 3px; }
+.git8-notice { background: #eef2fb; border: 1px solid #c4cbe0; border-radius: 2px; color: #0a1230; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; padding: 12px 16px; }
+.git8-submit { background: #0a1230; border: 1px solid #0a1230; border-radius: 3px; color: #ffffff; cursor: pointer; font-family: Geist, sans-serif; font-size: 16px; font-weight: 500; margin-top: 6px; padding: 15px 24px; transition: background 0.2s ease, border-color 0.2s ease; width: 100%; }
+.git8-submit:hover { background: #2b4c8c; border-color: #2b4c8c; }
+.git8-submit:focus-visible { outline: 2px solid #2b4c8c; outline-offset: 3px; }
+@media (max-width: 1023px) {
+  .git8-section { padding: 48px 0 80px; }
+  .git8-grid { gap: 40px; grid-template-columns: 1fr; }
+  .git8-intro { position: static; }
+  .git8-lede { max-width: 560px; }
+}
+@media (max-width: 639px) {
+  .git8-form { grid-template-columns: 1fr; }
+}
+
 /* ===== ABOUT US — Precision Metric Swap ===== */
 .pms-sr-only {
   position: absolute; width: 1px; height: 1px;

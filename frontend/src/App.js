@@ -16,6 +16,7 @@ import GetInTouchV4 from './pages/GetInTouchV4';
 import GetInTouchV5 from './pages/GetInTouchV5';
 import GetInTouchV6 from './pages/GetInTouchV6';
 import GetInTouchV7 from './pages/GetInTouchV7';
+import GetInTouchV8 from './pages/GetInTouchV8';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Pricing from './pages/Pricing';
@@ -173,6 +174,7 @@ const AppLayout = () => {
           <Route path="/get-in-touch-4" element={<GetInTouchV5 />} />
           <Route path="/get-in-touch-5" element={<GetInTouchV6 />} />
           <Route path="/get-in-touch-6" element={<GetInTouchV7 />} />
+          <Route path="/get-in-touch-7" element={<GetInTouchV8 />} />
           <Route path="/contact/sales" element={<ContactSales />} />
           <Route path="/contact/general-enquiry" element={<GeneralEnquiry />} />
           <Route path="/partners" element={<Partners />} />
