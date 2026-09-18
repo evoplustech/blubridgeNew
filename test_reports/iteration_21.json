@@ -1,0 +1,37 @@
+{
+  "summary": "Full backend + frontend E2E of new 5-field Get In Touch feature (3 visual variants) plus admin CMS integration and /contact regression. Backend: 22/22 comprehensive pytest cases pass in test_get_in_touch_full.py (public POST /api/contact-enquiries validation, trimming, snake_case persistence with no legacy fields, admin login/list/search/detail-marks-viewed/delete/export CSV with exact header, dashboard stats.get_in_touch, unauth 401/403, /contact regression). 3 pre-existing tests in test_contact_enquiries.py failed with HTTP 429 — collateral rate-limit from running back-to-back with the comprehensive suite (not a real bug); those cases are already covered by the comprehensive file. Frontend: all 3 routes (/get-in-touch, /get-in-touch-1, /get-in-touch-2) expose exactly the 4 rail testids, 5 input testids, consent checkbox, verify-email flow (invalid -> error, valid -> 'VERIFIED ✓'), char counter 'N / 1000', 5 error messages on empty submit, valid submission -> git-*-success-message text 'Thanks for getting in touch...', form resets. No legacy phone/company/enquiry-type testids on any variant. Duplicate submit within 1 minute: /get-in-touch and /get-in-touch-1 show the specific 'You have already submitted an enquiry recently...' 409 message; /get-in-touch-2 shows generic 'We couldn't send your enquiry. Please try again.' (minor UX regression). Zero horizontal overflow at 1920 and 390 on all 3 pages (scrollWidth==clientWidth==innerWidth==390 for git-page/git2-page/git3-page). Admin: login works, sidebar has 'Get in Touch', /admin/get-in-touch renders admin-get-in-touch-page + admin-git-table with 30 rows and admin-git-view-<id> buttons; view opens admin-git-detail-modal showing FIRST/LAST NAME, COMPANY EMAIL, ROLE, PROJECT DETAILS, MARKETING UPDATES, SUBMITTED; status flips to 'Viewed'. Export All CSV button present. Dashboard shows 'Get in Touch' stat card (30, +25 new) and 'Manage Get in Touch' quick action. Regression: /contact still has Phone + Company fields and Verify Email button; home page loads with correct title; Solutions dropdown reachable.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "N/A (test file only)", "issue": "backend/tests/test_contact_enquiries.py 3 cases return 429 when run right after test_get_in_touch_full.py — file lacks the inter-test sleeps used in the comprehensive suite. Recommend deleting or adding time.sleep(15) between negative cases; the comprehensive file already covers them."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "GetInTouchV3.jsx (/get-in-touch-2)", "issue": "On duplicate submit within 1 minute the UI shows the generic 'We couldn't send your enquiry. Please try again.' instead of the friendly 409 message shown on /get-in-touch and /get-in-touch-1 ('You have already submitted an enquiry recently. Please wait a moment before trying again.'). Behaviour still safe (no false success), only UX/consistency.", "selector": "[data-testid=\"git3-submit-error\"]", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_get_in_touch_full.py",
+    "/app/backend/tests/test_contact_enquiries.py",
+    "/app/test_reports/pytest/iteration21_results.xml"
+  ],
+  "action_items": [
+    "(Low) Make /get-in-touch-2 handle 409 with the same friendly message string as the other two variants (check catch branch in GetInTouchV3.jsx handleSubmit — likely missing the `err.response?.status === 409` branch)."
+  ],
+  "critical_code_review_comments": [
+    "GetInTouchV3.jsx appears to have a diverged catch handler vs GetInTouch.jsx / GetInTouchV2.jsx — extract a shared submit handler / error-mapper hook (useContactEnquirySubmit) to avoid future drift across the 3 variants.",
+    "Rate limiter is aggressive enough that back-to-back automated tests need explicit sleeps; consider exposing a test-only header or higher window in non-prod to reduce flaky 429s.",
+    "Admin detail modal labels are uppercased via CSS but rendered text is capitalised — fine; just noting for accessibility name matching."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (22/22 comprehensive)", "frontend": "100% functional; 1 low-priority UX inconsistency on /get-in-touch-2 duplicate error message"},
+  "test_credentials": "admin/admin at /admin (from /app/memory/test_credentials.md)",
+  "seed_data_creation": "Created ~10 contact_enquiries rows via public POST during UI + pytest runs with unique qa.* emails (as expected by problem statement).",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Use /app/backend/tests/test_get_in_touch_full.py as the canonical regression suite; the older test_contact_enquiries.py has redundant cases that 429 when both run in same session. Preview URL: https://brush-reveal-deploy.preview.emergentagent.com. Frontend is a static build served by supervisor; rebuild via `cd /app/frontend && yarn build && sudo supervisorctl restart frontend` after any source change. Duplicate-enquiry window = 60s per lowercased company_email; use unique emails per test.",
+  "rca of the issue": "Minor 409 UX drift on /get-in-touch-2: GetInTouchV3.jsx's submit catch clause does not branch on axios `err.response?.status === 409` the way GetInTouch.jsx / GetInTouchV2.jsx do, so it falls through to the generic fallback. Fix: mirror the 409 branch and set the same friendly message to git3-submit-error."
+}
