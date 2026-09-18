@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Compass, Mail, ShieldCheck, Bug } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
@@ -8,74 +9,63 @@ const MAX_DETAILS = 1000;
 
 const rail = [
   {
-    index: '01',
-    label: 'PROJECT ENQUIRIES',
-    title: 'Project Enquiries',
-    description: 'Planning a new digital product, AI solution or software platform? Tell us what you\u2019re building and where you need our expertise.',
-    cta: 'Discuss your project',
-    href: '#git-form',
+    Icon: Compass,
+    title: 'Project Assistance.',
+    bullets: [
+      'Explore our technology solutions.',
+      'Connect with our team about your requirement.',
+      'Discuss your project with BluBridge specialists.',
+    ],
+    cta: { label: 'Explore solutions', href: '/solutions' },
     testId: 'git-rail-project',
   },
   {
-    index: '02',
-    label: 'AI & TECHNOLOGY',
-    title: 'AI & Technology',
-    description: 'Explore how BluBridge can support AI, automation, custom software and modern technology initiatives.',
-    cta: 'Explore solutions',
-    href: '/solutions',
-    testId: 'git-rail-ai',
+    Icon: Mail,
+    title: 'Business enquiries.',
+    text: <>Connect with us at <a href="mailto:info@blubridge.com" className="git-item-link" data-testid="git-rail-business-email">info@blubridge.com</a> for business, project and collaboration enquiries.</>,
+    testId: 'git-rail-business',
   },
   {
-    index: '03',
-    label: 'PARTNERSHIPS',
-    title: 'Partnerships',
-    description: 'Connect with us about technology partnerships, integrations, strategic collaborations and business opportunities.',
-    cta: 'Partner with BluBridge',
-    href: '/partners',
-    testId: 'git-rail-partnerships',
+    Icon: ShieldCheck,
+    title: 'Data & privacy.',
+    text: 'Have a question regarding your information or privacy? Contact our team for assistance.',
+    cta: { label: 'Contact us', href: 'mailto:privacy@blubridge.com' },
+    testId: 'git-rail-privacy',
   },
   {
-    index: '04',
-    label: 'CAREERS',
-    title: 'Careers',
-    description: 'Interested in working with BluBridge? Discover opportunities to build meaningful technology with our team.',
-    cta: 'Explore careers',
-    href: '/careers',
-    testId: 'git-rail-careers',
+    Icon: Bug,
+    title: 'Security reporting.',
+    text: 'If you identify a potential security issue involving a BluBridge product or service, you can securely report it to our team.',
+    cta: { label: 'Report an issue', href: 'mailto:support@blubridge.com' },
+    note: 'General technical questions should be submitted through our standard contact channels.',
+    testId: 'git-rail-security',
   },
 ];
 
 const emptyForm = { firstName: '', lastName: '', email: '', role: '', message: '', marketingConsent: false };
 
-const RailItem = ({ item }) => {
-  const inner = (
-    <>
-      <span className="git-item-index" aria-hidden="true">{item.index}</span>
-      <span className="git-item-body">
-        <span className="git-item-label">{item.label}</span>
-        <span className="git-item-title">{item.title}</span>
-        <span className="git-item-desc">{item.description}</span>
-        <span className="git-item-cta">{item.cta}<span className="git-item-arrow" aria-hidden="true">→</span></span>
-      </span>
-    </>
-  );
-  if (item.href.startsWith('#')) {
-    return (
-      <a
-        href={item.href}
-        className="git-item"
-        data-testid={item.testId}
-        onClick={(e) => {
-          e.preventDefault();
-          document.getElementById('git-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }}
-      >
-        {inner}
-      </a>
-    );
-  }
-  return <Link to={item.href} className="git-item" data-testid={item.testId}>{inner}</Link>;
+const RailCta = ({ cta, testId }) => {
+  const inner = <>{cta.label}<span className="git-item-arrow" aria-hidden="true">→</span></>;
+  if (cta.href.startsWith('mailto:')) return <a href={cta.href} className="git-item-cta" data-testid={testId}>{inner}</a>;
+  return <Link to={cta.href} className="git-item-cta" data-testid={testId}>{inner}</Link>;
 };
+
+const RailItem = ({ item }) => (
+  <div className="git-item" data-testid={item.testId}>
+    <span className="git-item-icon" aria-hidden="true"><item.Icon strokeWidth={1.6} /></span>
+    <div className="git-item-body">
+      <h3 className="git-item-title">{item.title}</h3>
+      {item.bullets && (
+        <ul className="git-item-bullets">
+          {item.bullets.map((b) => <li key={b}>{b}</li>)}
+        </ul>
+      )}
+      {item.text && <p className="git-item-desc">{item.text}</p>}
+      {item.cta && <RailCta cta={item.cta} testId={`${item.testId}-cta`} />}
+      {item.note && <p className="git-item-note">{item.note}</p>}
+    </div>
+  </div>
+);
 
 const GetInTouch = () => {
   const [formData, setFormData] = useState(emptyForm);
@@ -182,7 +172,6 @@ const GetInTouch = () => {
             <aside className="git-rail" data-testid="git-rail" aria-label="How can we help">
               <div className="git-rail-head">
                 <span className="git-rail-kicker">HOW CAN WE HELP</span>
-                <span className="git-rail-count" aria-hidden="true">04</span>
               </div>
               {rail.map((item) => <RailItem key={item.testId} item={item} />)}
             </aside>
