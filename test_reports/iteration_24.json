@@ -1,0 +1,14 @@
+{
+  "summary": "Full backend + frontend testing of /get-in-touch-6 (V7 project enquiry). Backend: 14/14 pytest passed for POST /api/project-enquiries — valid submission with snake_case persistence (full_name, email lowercased, phone, company, job_title, country, city, message, privacy_consent=true, marketing_consent, status='new', created_at, updated_at); country/message omitted → 200 with null; blank fullName/company/jobTitle/city → 422; invalid email → 422; phone '12' (short) and 16-digit (long) → 422; privacyConsent false/missing → 422; message 1001 chars → 422; duplicate email within 1 minute → 409; regression /api/contact-enquiries → 200. Frontend at 1920: heading 'Let’s build what’s next.' left (x=348) and form right (x=931); all 13 required data-testids present (git7-input-full-name/email/phone/company/job-title, git7-select-country, git7-input-city/message, git7-checkbox-privacy/marketing, git7-submit label 'Submit', git7-char-counter '0 / 1000', git7-privacy-link href=/policies/privacy-policy); no git6-rail/git5-rail on page; empty submit shows all 7 errors (git7-error-fullName,-email,-phone,-company,-jobTitle,-city, git7-error-privacy); phone '12' → phone error; valid fill + privacy → git7-success-message with exact 'Thanks for getting in touch. Your enquiry has been received and our team will get back to you shortly.' and form fields reset; immediate resubmit same email → git7-submit-error with 409 copy. Mobile 390: heading (y=198) above form (y=453), all input widths=350 full-width single column, no horizontal scroll (scrollWidth==innerWidth==390). Regression: /get-in-touch-5 loads with git6-rail (4 cells) and form; /get-in-touch loads with title 'Get in Touch | BluBridge'.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": ["/app/backend/tests/test_project_enquiries.py", "/app/test_reports/pytest/project_enquiries.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": ["/app/backend/tests/test_project_enquiries.py"],
+  "success_rate": {"backend": "100% (14/14)", "frontend": "100%"},
+  "seed_data_creation": "A few project_enquiries docs seeded with unique qa.pe.* @example.com emails during tests; one V7 UI submission with qa.git7.<ts>@example.com.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All acceptance criteria for /get-in-touch-6 and POST /api/project-enquiries pass. Rate limiter is aggressive on public POSTs; test uses ~2.5s spacing plus one 429-retry-after-30s helper. Regression endpoints (/api/contact-enquiries) and /get-in-touch-5, /get-in-touch pages unchanged."
+}
