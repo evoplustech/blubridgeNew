@@ -1123,7 +1123,7 @@ html.mscur-active body {
 .git5-form-head { border-bottom: 1px solid #e6e9f4; padding: clamp(28px, 2.8vw, 40px) clamp(24px, 3.4vw, 56px) 26px; }
 .git5-form-kicker { color: #7c86a2; display: block; font-family: IBM Plex Mono, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
 .git5-form-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: clamp(26px, 2.2vw, 34px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.15; margin: 10px 0 0; }
-.git5-form-body { display: flex; flex-direction: column; gap: 26px; max-width: 880px; padding: clamp(32px, 3vw, 44px) clamp(24px, 3.4vw, 56px) clamp(36px, 3vw, 48px); }
+.git5-form-body { display: flex; flex-direction: column; gap: 26px; padding: clamp(32px, 3vw, 44px) clamp(24px, 3.4vw, 56px) clamp(36px, 3vw, 48px); }
 .git5-row-2 { display: grid; gap: 26px 24px; grid-template-columns: 1fr 1fr; }
 .git5-field { display: flex; flex-direction: column; min-width: 0; }
 .git5-label { color: #0a1230; display: block; font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 9px; text-transform: uppercase; }
@@ -1183,7 +1183,6 @@ html.mscur-active body {
   .git5-hero { padding: 44px 0 40px; }
   .git5-hero-grid { gap: 20px; grid-template-columns: 1fr; padding-top: 28px; }
   .git5-form-section { padding-bottom: 64px; }
-  .git5-form-body { max-width: none; }
   .git5-help { padding-bottom: 80px; }
 }
 @media (max-width: 639px) {
