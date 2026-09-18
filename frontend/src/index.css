@@ -1379,6 +1379,38 @@ html.mscur-active body {
   .git8-form { grid-template-columns: 1fr; }
 }
 
+/* ===== GET IN TOUCH V9 (/get-in-touch-8) — frontend-only minimal six-field form, scoped .git9-* ===== */
+.git9-page { background: #f0f1f9; }
+.git9-section { padding: 72px 0 120px; }
+.git9-grid { align-items: start; display: grid; gap: 48px clamp(56px, 6vw, 104px); grid-template-columns: minmax(0, 44fr) minmax(0, 56fr); }
+.git9-intro { position: sticky; top: 130px; }
+.git9-eyebrow { color: #2b4c8c; display: block; font-family: IBM Plex Mono, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+.git9-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: clamp(38px, 4.2vw, 62px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin: 22px 0 0; }
+.git9-lede { color: #3f4966; font-family: Inter, sans-serif; font-size: 16px; line-height: 1.7; margin: 26px 0 0; max-width: 420px; }
+.git9-form { display: flex; flex-direction: column; gap: 24px; max-width: 600px; }
+.git9-field { display: flex; flex-direction: column; min-width: 0; }
+.git9-label { color: #0a1230; display: block; font-family: Inter, sans-serif; font-size: 15px; font-weight: 500; line-height: 1.4; margin-bottom: 9px; }
+.git9-input { background: #ffffff; border: 1px solid #d4d8e8; border-radius: 4px; box-sizing: border-box; color: #0a1230; font-family: Inter, sans-serif; font-size: 15px; height: 52px; outline: none; padding: 0 16px; transition: border-color 160ms ease; width: 100%; }
+.git9-input::placeholder { color: #9aa3bd; }
+.git9-input:focus { border-color: #2b4c8c; }
+.git9-input:focus-visible { outline: 2px solid rgba(43, 76, 140, 0.25); outline-offset: 1px; }
+.git9-input-error, .git9-input-error:focus { border-color: #dc2626; }
+.git9-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230a1230' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-position: right 16px center; background-repeat: no-repeat; cursor: pointer; padding-right: 44px; }
+.git9-select-empty { color: #9aa3bd; }
+.git9-textarea { height: auto; line-height: 1.6; min-height: 150px; padding: 14px 16px; resize: vertical; }
+.git9-err { color: #dc2626; font-family: Inter, sans-serif; font-size: 12.5px; margin: 6px 0 0; }
+.git9-notice { background: #eef2fb; border: 1px solid #c4cbe0; border-radius: 4px; color: #0a1230; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; padding: 12px 16px; }
+.git9-submit { background: #0a1230; border: 1px solid #0a1230; border-radius: 4px; color: #ffffff; cursor: pointer; font-family: Geist, sans-serif; font-size: 16px; font-weight: 500; height: 54px; margin-top: 4px; padding: 0 24px; transition: background 0.2s ease, border-color 0.2s ease; width: 100%; }
+.git9-submit:hover { background: #2b4c8c; border-color: #2b4c8c; }
+.git9-submit:focus-visible { outline: 2px solid #2b4c8c; outline-offset: 3px; }
+@media (max-width: 1023px) {
+  .git9-section { padding: 48px 0 80px; }
+  .git9-grid { gap: 40px; grid-template-columns: 1fr; }
+  .git9-intro { position: static; }
+  .git9-lede { max-width: 560px; }
+  .git9-form { max-width: none; }
+}
+
 /* ===== ABOUT US — Precision Metric Swap ===== */
 .pms-sr-only {
   position: absolute; width: 1px; height: 1px;
