@@ -826,14 +826,11 @@ class ContactEnquiry(BaseModel):
     firstName: str
     lastName: str
     email: EmailStr
-    phone: Optional[str] = None
-    company: str
-    role: Optional[str] = None
-    enquiryType: str
+    role: str
     message: str
     marketingConsent: bool = False
 
-    @field_validator('firstName', 'lastName', 'company', 'enquiryType')
+    @field_validator('firstName', 'lastName', 'role')
     @classmethod
     def reject_blank(cls, v):
         if not v or not v.strip():
@@ -844,39 +841,25 @@ class ContactEnquiry(BaseModel):
     @classmethod
     def validate_enquiry_message(cls, v):
         if not v or not v.strip():
-            raise ValueError('Message is required')
+            raise ValueError('Project details are required')
         v = v.strip()
-        if len(v) > 1500:
-            raise ValueError('Message must be 1500 characters or fewer')
+        if len(v) > 1000:
+            raise ValueError('Project details must be 1000 characters or fewer')
         return v
-
-    @field_validator('phone')
-    @classmethod
-    def validate_enquiry_phone(cls, v):
-        if v:
-            digits = re.sub(r'[^0-9]', '', v)
-            if not (6 <= len(digits) <= 15):
-                raise ValueError('Invalid phone number')
-            return v.strip()
-        return v
-
-    @field_validator('role')
-    @classmethod
-    def trim_role(cls, v):
-        return v.strip() if v else v
 
 
 @api_router.post("/contact-enquiries")
 async def submit_contact_enquiry(enquiry: ContactEnquiry):
     """Get in Touch enquiry endpoint. Stores in contact_enquiries with duplicate prevention."""
     try:
-        if not validate_email(enquiry.email):
+        company_email = enquiry.email.lower().strip()
+        if not validate_email(company_email):
             raise HTTPException(status_code=400, detail="Invalid email format")
 
         one_minute_ago = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
         existing = await db.contact_enquiries.find_one({
-            "email": enquiry.email.lower().strip(),
-            "createdAt": {"$gte": one_minute_ago}
+            "company_email": company_email,
+            "created_at": {"$gte": one_minute_ago}
         })
         if existing:
             raise HTTPException(
@@ -884,25 +867,29 @@ async def submit_contact_enquiry(enquiry: ContactEnquiry):
                 detail="A similar submission was recently received. Please wait before submitting again."
             )
 
-        now = datetime.now(timezone.utc)
+        now = datetime.now(timezone.utc).isoformat()
         doc = {
             "id": str(uuid.uuid4()),
             "first_name": enquiry.firstName,
             "last_name": enquiry.lastName,
-            "email": enquiry.email.lower().strip(),
-            "phone": enquiry.phone,
-            "company": enquiry.company,
+            "company_email": company_email,
             "role": enquiry.role,
-            "enquiry_type": enquiry.enquiryType,
-            "message": enquiry.message,
+            "project_details": enquiry.message,
             "marketing_consent": enquiry.marketingConsent,
             "status": "new",
-            "createdAt": now.isoformat(),
-            "updatedAt": now.isoformat(),
+            "created_at": now,
+            "updated_at": now,
         }
         await db.contact_enquiries.insert_one(doc)
 
-        await send_contact_form_email("get_in_touch", doc)
+        await send_contact_form_email("get_in_touch", {
+            "first_name": doc["first_name"],
+            "last_name": doc["last_name"],
+            "email": company_email,
+            "role": doc["role"],
+            "project_details": doc["project_details"],
+            "marketing_consent": "Yes" if doc["marketing_consent"] else "No",
+        }, submission_timestamp=now)
 
         return {"message": "Enquiry submitted successfully", "id": doc["id"]}
     except HTTPException:
@@ -1491,17 +1478,20 @@ async def get_admin_stats(authorization: Optional[str] = Header(None)):
         contact_count = await db.contacts.count_documents({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}})
         # Career applications: job applications
         careers_count = await db.job_applications.count_documents({})
+        get_in_touch_count = await db.contact_enquiries.count_documents({})
         
         # Get new (unviewed) counts
         footer_new = await db.contacts.count_documents({"type": "footer_form", "status": {"$ne": "viewed"}})
         contact_new = await db.contacts.count_documents({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}, "status": {"$ne": "viewed"}})
         careers_new = await db.job_applications.count_documents({"status": "pending"})
+        get_in_touch_new = await db.contact_enquiries.count_documents({"status": {"$ne": "viewed"}})
         
         return {
             "footer_forms": {"total": footer_count, "new": footer_new},
             "contact_forms": {"total": contact_count, "new": contact_new},
             "career_applications": {"total": careers_count, "new": careers_new},
-            "total_submissions": footer_count + contact_count + careers_count
+            "get_in_touch": {"total": get_in_touch_count, "new": get_in_touch_new},
+            "total_submissions": footer_count + contact_count + careers_count + get_in_touch_count
         }
     except Exception as e:
         logging.error(f"Error fetching admin stats: {e}")
@@ -1571,6 +1561,37 @@ async def get_contact_submissions_admin(authorization: Optional[str] = Header(No
         raise HTTPException(status_code=500, detail="Failed to fetch submissions")
 
 
+@api_router.get("/admin/submissions/get-in-touch")
+async def get_get_in_touch_submissions_admin(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None):
+    """Get in Touch enquiries (contact_enquiries collection) with pagination"""
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+
+    limit = max(1, min(limit, 200))
+    page = max(1, page)
+
+    try:
+        query = {}
+        if search:
+            safe_search = sanitize_regex_input(search)
+            query["$or"] = [
+                {"first_name": {"$regex": safe_search, "$options": "i"}},
+                {"last_name": {"$regex": safe_search, "$options": "i"}},
+                {"company_email": {"$regex": safe_search, "$options": "i"}},
+                {"role": {"$regex": safe_search, "$options": "i"}}
+            ]
+
+        total = await db.contact_enquiries.count_documents(query)
+        skip = (page - 1) * limit
+        submissions = await db.contact_enquiries.find(query, {"_id": 0}).sort("created_at", -1).skip(skip).to_list(limit)
+        total_pages = (total + limit - 1) // limit if limit > 0 else 1
+        return {"data": submissions, "total": total, "page": page, "limit": limit, "totalPages": total_pages}
+    except Exception as e:
+        logging.error(f"Error fetching get-in-touch submissions: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch submissions")
+
+
 @api_router.get("/admin/submissions/careers")
 async def get_career_applications_admin(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None, status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
     """Get career applications with optional date range filter and pagination"""
@@ -1623,7 +1644,7 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     # Validate form_type
-    if form_type not in ("careers", "footer", "contact"):
+    if form_type not in ("careers", "footer", "contact", "get_in_touch"):
         raise HTTPException(status_code=400, detail="Invalid form type")
     
     try:
@@ -1638,6 +1659,15 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
                         {"$set": {"status": "reviewed", "viewedAt": datetime.now(timezone.utc).isoformat()}}
                     )
                     submission["status"] = "reviewed"
+        elif form_type == "get_in_touch":
+            submission = await db.contact_enquiries.find_one({"id": submission_id}, {"_id": 0})
+            if submission:
+                now_iso = datetime.now(timezone.utc).isoformat()
+                await db.contact_enquiries.update_one(
+                    {"id": submission_id},
+                    {"$set": {"status": "viewed", "updated_at": now_iso}}
+                )
+                submission["status"] = "viewed"
         else:
             # Get from contacts
             submission = await db.contacts.find_one({"id": submission_id}, {"_id": 0})
@@ -1668,7 +1698,7 @@ async def delete_submission(submission_id: str, form_type: str, authorization: O
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     # Validate form_type
-    if form_type not in ("careers", "footer", "contact"):
+    if form_type not in ("careers", "footer", "contact", "get_in_touch"):
         raise HTTPException(status_code=400, detail="Invalid form type")
     
     try:
@@ -1680,6 +1710,8 @@ async def delete_submission(submission_id: str, form_type: str, authorization: O
                 if resume_path.exists():
                     resume_path.unlink()
             result = await db.job_applications.delete_one({"id": submission_id})
+        elif form_type == "get_in_touch":
+            result = await db.contact_enquiries.delete_one({"id": submission_id})
         else:
             result = await db.contacts.delete_one({"id": submission_id})
         
@@ -1875,7 +1907,7 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     # Validate data_type to prevent enumeration
-    valid_types = {"footer", "contact", "careers", "all"}
+    valid_types = {"footer", "contact", "careers", "get_in_touch", "all"}
     if data_type not in valid_types:
         raise HTTPException(status_code=400, detail="Invalid export type")
     
@@ -1883,7 +1915,13 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         import csv
         import io
         
-        if data_type == "footer":
+        if data_type == "get_in_touch":
+            data = await db.contact_enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(100000)
+            headers = ["First Name", "Last Name", "Company Email", "Role", "Project Details", "Marketing Consent", "Status", "Created At"]
+            rows = [[d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), d.get("role", ""), d.get("project_details", ""), "Yes" if d.get("marketing_consent") else "No", d.get("status", ""), d.get("created_at", "")] for d in data]
+            filename = "get_in_touch_export.csv"
+            
+        elif data_type == "footer":
             # Export footer form submissions
             data = await db.contacts.find({"type": "footer_form"}, {"_id": 0}).sort("createdAt", -1).to_list(100000)
             headers = ["First Name", "Last Name", "Email", "Message", "Created At"]
@@ -1921,6 +1959,10 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
             
             for d in career_data:
                 rows.append(["Career Application", "job_application", d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("phone", ""), "", "", d.get("jobTitle", ""), d.get("status", ""), d.get("appliedAt", "")])
+            
+            git_data = await db.contact_enquiries.find({}, {"_id": 0}).to_list(100000)
+            for d in git_data:
+                rows.append(["Get in Touch", "get_in_touch", d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), "", "", d.get("project_details", ""), d.get("role", ""), d.get("status", ""), d.get("created_at", "")])
             
             filename = "all_submissions_export.csv"
         else:

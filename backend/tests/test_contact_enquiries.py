@@ -16,10 +16,7 @@ def _payload(**overrides):
         "firstName": "QA",
         "lastName": "Tester",
         "email": f"qa.api.{uuid.uuid4().hex[:8]}@example.com",
-        "phone": "+91 9876543210",
-        "company": "BluBridge QA",
         "role": "Tester",
-        "enquiryType": "AI & Automation",
         "message": "Automated backend test enquiry.",
         "marketingConsent": False,
     }
@@ -51,12 +48,12 @@ class TestContactEnquiries:
         r = requests.post(URL, json=_payload(email="not-an-email"), timeout=30)
         assert r.status_code == 422, r.text
 
-    def test_message_over_1500_returns_422(self):
+    def test_message_over_1000_returns_422(self):
         time.sleep(15)  # avoid rate limiter
-        r = requests.post(URL, json=_payload(message="x" * 1501), timeout=30)
+        r = requests.post(URL, json=_payload(message="x" * 1001), timeout=30)
         if r.status_code == 429:
             time.sleep(30)
-            r = requests.post(URL, json=_payload(message="x" * 1501), timeout=30)
+            r = requests.post(URL, json=_payload(message="x" * 1001), timeout=30)
         assert r.status_code == 422, r.text
 
     def test_get_not_allowed(self):

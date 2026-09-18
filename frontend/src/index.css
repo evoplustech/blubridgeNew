@@ -815,28 +815,77 @@ html.mscur-active body {
 /* ===== Anchor targets: offset for fixed header ===== */
 #model-customization, #value-realization, #deployment { scroll-margin-top: 120px; }
 
-/* ===== GET IN TOUCH page ===== */
+/* ===== GET IN TOUCH page (scoped .git-*) ===== */
+.git-page { background: #f0f1f9; }
+.git-intro { padding: 56px 0 0; }
 .git-eyebrow { color: #2b4c8c; display: inline-block; font-family: IBM Plex Mono, monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
-.git-lede { color: #3f4966; font-family: Inter, sans-serif; font-size: clamp(15px, 1.4vw, 17px); line-height: 1.65; margin: 0; max-width: 560px; }
-.git-grid { display: grid; grid-template-columns: minmax(0, 4.8fr) minmax(0, 7.2fr); gap: clamp(40px, 5vw, 88px); align-items: start; }
-.git-label { color: #7c86a2; font-family: IBM Plex Mono, monospace; font-size: 10.5px; letter-spacing: 0.2em; margin: 8px 0 20px; text-transform: uppercase; }
-.git-cards { display: flex; flex-direction: column; gap: 16px; }
-.git-card { align-items: center; background: #ffffff; border: 1px solid #e2e6f2; border-radius: 12px; box-shadow: 0 2px 10px -6px rgba(10, 18, 48, 0.12); display: flex; gap: 18px; padding: 22px 22px; text-decoration: none; transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.22s ease; }
-.git-card:hover { border-color: #c4cee8; box-shadow: 0 14px 28px -16px rgba(10, 18, 48, 0.28); transform: translateY(-2px); }
-.git-card-icon { align-items: center; background: #edf1fb; border-radius: 10px; color: #2b4c8c; display: flex; flex-shrink: 0; height: 48px; justify-content: center; width: 48px; }
-.git-card-icon svg { height: 20px; width: 20px; }
-.git-card-body { display: flex; flex-direction: column; min-width: 0; }
-.git-card-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin-top: 5px; }
-.git-card-desc { color: #3f4966; font-family: Inter, sans-serif; font-size: 13.5px; line-height: 1.6; margin-top: 6px; }
-.git-card-cta { align-items: center; color: #2b4c8c; display: inline-flex; font-family: Geist, sans-serif; font-size: 12.5px; font-weight: 500; gap: 7px; margin-top: 12px; }
-.git-card-arrow { display: inline-block; font-family: IBM Plex Mono, monospace; transition: transform 0.22s ease; }
-.git-card:hover .git-card-arrow { transform: translateX(3px); }
-.git-form-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: clamp(18px, 1.8vw, 22px); font-weight: 600; letter-spacing: 0.04em; margin: 0; }
-.git-form-sub { color: #3f4966; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; margin: 10px 0 26px; }
+.git-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: clamp(38px, 4.4vw, 60px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; margin: 16px 0 0; }
+.git-lede { color: #3f4966; font-family: Inter, sans-serif; font-size: clamp(15px, 1.35vw, 17px); line-height: 1.65; margin: 20px 0 0; max-width: 560px; }
+.git-main { padding: 48px 0 112px; }
+.git-grid { align-items: start; display: grid; gap: clamp(40px, 5vw, 80px); grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+
+/* Left rail — one continuous structured panel */
+.git-rail { border-top: 1px solid #0a1230; display: flex; flex-direction: column; }
+.git-rail-head { align-items: baseline; display: flex; justify-content: space-between; padding: 16px 0 14px; }
+.git-rail-kicker { color: #7c86a2; font-family: IBM Plex Mono, monospace; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; }
+.git-rail-count { color: #b6bdd4; font-family: IBM Plex Mono, monospace; font-size: 10.5px; letter-spacing: 0.22em; }
+.git-item { border-top: 1px solid #d4d8e8; display: grid; gap: 0 22px; grid-template-columns: 52px minmax(0, 1fr); padding: 28px 8px 28px 0; position: relative; text-decoration: none; transition: background-color 0.22s ease, padding-left 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
+.git-item::before { background: #2b4c8c; bottom: 0; content: ""; left: 0; position: absolute; top: 0; transition: width 0.22s cubic-bezier(0.22, 1, 0.36, 1); width: 0; }
+.git-item:hover { background-color: rgba(255, 255, 255, 0.55); padding-left: 14px; }
+.git-item:hover::before { width: 2px; }
+.git-item:last-child { border-bottom: 1px solid #d4d8e8; }
+.git-item-index { color: #2b4c8c; font-family: IBM Plex Mono, monospace; font-size: 28px; font-weight: 400; letter-spacing: -0.02em; line-height: 1; padding-top: 2px; }
+.git-item-body { display: flex; flex-direction: column; min-width: 0; }
+.git-item-label { color: #7c86a2; font-family: IBM Plex Mono, monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+.git-item-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin-top: 8px; }
+.git-item-desc { color: #3f4966; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.62; margin-top: 10px; }
+.git-item-cta { align-items: center; color: #0a1230; display: inline-flex; font-family: Geist, sans-serif; font-size: 13px; font-weight: 500; gap: 8px; margin-top: 16px; }
+.git-item-arrow { color: #2b4c8c; display: inline-block; font-family: IBM Plex Mono, monospace; transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
+.git-item:hover .git-item-arrow { transform: translateX(5px); }
+
+/* Right — form */
+.git-form-wrap { scroll-margin-top: 130px; }
+.git-form { background: #ffffff; border: 1px solid #d4d8e8; border-radius: 4px; box-shadow: 0 24px 60px -40px rgba(10, 18, 48, 0.35); padding: clamp(28px, 3.2vw, 48px); }
+.git-form-head { border-bottom: 1px solid #e6e9f4; margin-bottom: 32px; padding-bottom: 22px; }
+.git-form-kicker { color: #2b4c8c; display: block; font-family: IBM Plex Mono, monospace; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; }
+.git-form-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: clamp(22px, 2vw, 28px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.15; margin: 10px 0 0; }
+.git-fields { display: flex; flex-direction: column; gap: 22px; }
+.git-row-2 { display: grid; gap: 22px; grid-template-columns: 1fr 1fr; }
+.git-field { display: flex; flex-direction: column; min-width: 0; }
+.git-label { color: #3f4966; display: block; font-family: IBM Plex Mono, monospace; font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; margin-bottom: 8px; text-transform: uppercase; }
+.git-req { color: #dc2626; margin-left: 4px; }
+.git-input { background: #ffffff; border: 1px solid #d4d8e8; border-radius: 3px; box-sizing: border-box; color: #0a1230; font-family: Inter, sans-serif; font-size: 15px; outline: none; padding: 11px 14px; transition: border-color 180ms ease, box-shadow 180ms ease; width: 100%; }
+.git-input::placeholder { color: #9aa3bd; }
+.git-input:focus { border-color: #0a1230; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.12); }
+.git-input-error, .git-input-error:focus { border-color: #dc2626; }
+.git-textarea { line-height: 1.6; min-height: 150px; padding: 12px 14px; resize: vertical; }
+.git-err { color: #dc2626; font-family: Inter, sans-serif; font-size: 12px; margin: 6px 0 0; }
+.git-err-submit { font-size: 13px; margin: 0; }
+.git-verify-row { display: flex; justify-content: flex-end; margin-top: 10px; }
+.git-verify { background: #ffffff; border: 1px solid #c4cbe0; border-radius: 3px; color: #0a1230; cursor: pointer; font-family: IBM Plex Mono, monospace; font-size: 10.5px; letter-spacing: 0.14em; padding: 8px 14px; text-transform: uppercase; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; }
+.git-verify:hover { border-color: #0a1230; }
+.git-verify-done, .git-verify-done:hover { background: #0a5231; border-color: #0a5231; color: #ffffff; }
 .git-counter { color: #7c86a2; font-family: IBM Plex Mono, monospace; font-size: 11px; margin-top: 6px; text-align: right; }
-.git-success { background: #f0f9f4; border: 1px solid #bfe3cf; border-radius: 8px; color: #0a5231; font-family: Inter, sans-serif; font-size: 13.5px; line-height: 1.6; margin: 0; padding: 12px 16px; }
+.git-consent { align-items: flex-start; color: #3f4966; cursor: pointer; display: flex; font-family: Inter, sans-serif; font-size: 13.5px; gap: 10px; line-height: 1.55; }
+.git-consent input { accent-color: #0a1230; cursor: pointer; flex-shrink: 0; height: 15px; margin-top: 3px; width: 15px; }
+.git-legal { color: #7c86a2; font-family: Inter, sans-serif; font-size: 12.5px; line-height: 1.6; margin: 0; }
+.git-legal a { color: #0a1230; text-decoration: underline; text-underline-offset: 3px; }
+.git-success { background: #f0f9f4; border: 1px solid #bfe3cf; border-radius: 4px; color: #0a5231; font-family: Inter, sans-serif; font-size: 13.5px; line-height: 1.6; margin: 0; padding: 12px 16px; }
+.git-submit { align-items: center; background: #0a1230; border: none; border-radius: 3px; color: #ffffff; cursor: pointer; display: inline-flex; font-family: Geist, sans-serif; font-size: 12.5px; font-weight: 500; gap: 12px; justify-content: center; letter-spacing: 0.12em; margin-top: 4px; padding: 16px 28px; text-transform: uppercase; transition: background 0.2s ease, transform 0.2s ease; width: fit-content; }
+.git-submit:hover { background: #172449; transform: translateY(-1px); }
+.git-submit:disabled { cursor: not-allowed; opacity: 0.7; transform: none; }
+.git-submit-arrow { display: inline-block; font-family: IBM Plex Mono, monospace; transition: transform 0.2s ease; }
+.git-submit:hover .git-submit-arrow { transform: translateX(4px); }
 @media (max-width: 1023px) {
-  .git-grid { gap: 56px; grid-template-columns: 1fr; }
+  .git-intro { padding-top: 40px; }
+  .git-main { padding: 40px 0 80px; }
+  .git-grid { gap: 48px; grid-template-columns: 1fr; }
+}
+@media (max-width: 639px) {
+  .git-row-2 { grid-template-columns: 1fr; }
+  .git-item { grid-template-columns: 40px minmax(0, 1fr); gap: 0 14px; padding: 22px 6px 22px 0; }
+  .git-item-index { font-size: 22px; }
+  .git-submit { width: 100%; }
 }
 
 /* ===== ABOUT US — Precision Metric Swap ===== */

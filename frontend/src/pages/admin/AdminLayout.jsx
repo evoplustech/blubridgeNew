@@ -9,7 +9,8 @@ import {
   Menu, 
   X,
   ChevronRight,
-  Settings
+  Settings,
+  Inbox
 } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 
@@ -65,6 +66,7 @@ const AdminLayout = ({ children }) => {
     { path: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { path: '/admin/footer-forms', icon: FileText, label: 'Footer Forms' },
     { path: '/admin/contact-forms', icon: MessageSquare, label: 'Contact Forms' },
+    { path: '/admin/get-in-touch', icon: Inbox, label: 'Get in Touch' },
     { path: '/admin/careers', icon: Briefcase, label: 'Career Applications' },
     { path: '/admin/settings', icon: Settings, label: 'Settings' },
   ];

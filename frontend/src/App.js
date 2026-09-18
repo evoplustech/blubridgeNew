@@ -79,6 +79,7 @@ import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import FooterForms from './pages/admin/FooterForms';
 import ContactForms from './pages/admin/ContactForms';
+import GetInTouchForms from './pages/admin/GetInTouchForms';
 import CareerApplications from './pages/admin/CareerApplications';
 import AdminSettings from './pages/admin/AdminSettings';
 
@@ -100,6 +101,7 @@ const AppLayout = () => {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/footer-forms" element={<FooterForms />} />
           <Route path="/admin/contact-forms" element={<ContactForms />} />
+          <Route path="/admin/get-in-touch" element={<GetInTouchForms />} />
           <Route path="/admin/careers" element={<CareerApplications />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
           

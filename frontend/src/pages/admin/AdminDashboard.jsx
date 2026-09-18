@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from './AdminLayout';
-import { FileText, MessageSquare, Briefcase, TrendingUp } from 'lucide-react';
+import { FileText, MessageSquare, Briefcase, TrendingUp, Inbox } from 'lucide-react';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -49,6 +49,14 @@ const AdminDashboard = () => {
       color: 'bg-emerald-500'
     },
     {
+      title: 'Get in Touch',
+      icon: Inbox,
+      total: stats?.get_in_touch?.total || 0,
+      new: stats?.get_in_touch?.new || 0,
+      link: '/admin/get-in-touch',
+      color: 'bg-sky-600'
+    },
+    {
       title: 'Career Applications',
       icon: Briefcase,
       total: stats?.career_applications?.total || 0,
@@ -76,7 +84,7 @@ const AdminDashboard = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {statCards.map((card, index) => (
             <div key={index} className="bg-white rounded-xl border border-[#E5E7EB] p-6 hover:shadow-md transition-shadow">
               <div className="flex items-start justify-between">
@@ -110,7 +118,14 @@ const AdminDashboard = () => {
         {/* Quick Actions */}
         <div className="bg-white rounded-xl border border-[#E5E7EB] p-6">
           <h2 className="text-lg font-semibold text-[#0B1F3B] mb-4">Quick Actions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link 
+              to="/admin/get-in-touch"
+              className="flex items-center gap-3 p-4 bg-[#F8F9FA] rounded-lg hover:bg-[#E5E7EB] transition-colors"
+            >
+              <Inbox className="w-5 h-5 text-sky-600" />
+              <span className="font-medium text-[#374151]">Manage Get in Touch</span>
+            </Link>
             <Link 
               to="/admin/footer-forms"
               className="flex items-center gap-3 p-4 bg-[#F8F9FA] rounded-lg hover:bg-[#E5E7EB] transition-colors"
