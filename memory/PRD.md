@@ -77,3 +77,14 @@ Complete visual and structural redesign of the BluBridge website combining appro
 - FIXED: Solutions dropdown worked only once. Root causes: (1) Header.jsx un-cleared close timeouts snapped dropdown shut on re-hover — added openDropdown/closeDropdown with timer refs; (2) ScrollToTop.jsx only watched pathname so hash clicks on /solutions never scrolled — now depends on full location and scrollIntoView on hash (scroll-margin-top 120px for the 3 section ids).
 - Verified by testing_agent (iteration_19.json, 35/36 pass). P0 site-wide regression ALSO done: CustomCursor not blocking clicks, nav/CTAs/contact form all clickable.
 - New backlog item confirmed by test: contact form clears silently after submit — needs success toast (already P2).
+
+## Update — Sep 2026 (Get in Touch page)
+- NEW: /get-in-touch page (frontend/src/pages/GetInTouch.jsx) — hero (eyebrow/h1/lede + accent dash), left rail with 4 help cards (Business/Support/Partnerships/Careers), right enquiry form card reusing cx-* design system. Mobile stacks, no overflow.
+- NEW: POST /api/contact-enquiries (server.py) — ContactEnquiry pydantic model, validation (blank reject, email, optional phone, message ≤1500), duplicate prevention 409/min, stores in contact_enquiries (snake_case, status=new), Resend notification via send_contact_form_email("get_in_touch"), whitelisted in SecurityMiddleware.
+- SEO: title "Get in Touch | BluBridge" + meta description. Privacy link → /policies/privacy-policy. No nav changes; /contact untouched.
+- Tested: iteration_20.json — backend 6/6 pytest, frontend 100% (validation, verify-email, counter, submit, duplicate, mobile/tablet, /contact + site regression). Test suite: /app/backend/tests/test_contact_enquiries.py.
+
+## Update — Sep 2026 (Resume storage migration)
+- Migrated job-application resume uploads from pod-local disk (uploads/resumes) to Emergent Object Storage (blubridge/resumes/{uuid}.ext). Added init_storage/put_object/get_object helpers + startup init; EMERGENT_LLM_KEY added to backend/.env.
+- /api/admin/resume/{id} now serves from object storage with legacy local-file fallback for pre-migration submissions.
+- Verified end-to-end: submit -> storage upload -> admin download bytes match. Fixes blocking lint [ephemeral-upload-storage].

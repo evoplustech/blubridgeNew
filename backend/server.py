@@ -13,6 +13,7 @@ from typing import List, Optional, Literal
 import uuid
 from datetime import datetime, timezone, timedelta
 import httpx
+import requests
 import asyncio
 import base64
 import re
@@ -1080,6 +1081,39 @@ async def get_blog_post_by_slug(slug: str):
 UPLOADS_DIR = ROOT_DIR / "uploads" / "resumes"
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
+# ===== Emergent Object Storage (resume uploads) =====
+STORAGE_BASE = (os.environ.get("INTEGRATION_PROXY_URL") or "").strip() or "https://integrations.emergentagent.com"
+STORAGE_URL = STORAGE_BASE.rstrip("/") + "/objstore/api/v1/storage"
+EMERGENT_KEY = os.environ.get("EMERGENT_LLM_KEY")
+STORAGE_APP_PREFIX = "blubridge"
+_storage_key = None
+
+def init_storage(force: bool = False):
+    """Session-scoped storage key, minted once and reused."""
+    global _storage_key
+    if _storage_key and not force:
+        return _storage_key
+    resp = requests.post(f"{STORAGE_URL}/init", json={"emergent_key": EMERGENT_KEY}, timeout=30)
+    resp.raise_for_status()
+    _storage_key = resp.json()["storage_key"]
+    return _storage_key
+
+def put_object(path: str, data: bytes, content_type: str) -> dict:
+    key = init_storage()
+    resp = requests.put(
+        f"{STORAGE_URL}/objects/{path}",
+        headers={"X-Storage-Key": key, "Content-Type": content_type},
+        data=data, timeout=120
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+def get_object(path: str):
+    key = init_storage()
+    resp = requests.get(f"{STORAGE_URL}/objects/{path}", headers={"X-Storage-Key": key}, timeout=60)
+    resp.raise_for_status()
+    return resp.content, resp.headers.get("Content-Type", "application/octet-stream")
+
 # Allowed file extensions and max file size
 ALLOWED_EXTENSIONS = {'.pdf', '.doc', '.docx'}
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
@@ -1206,12 +1240,11 @@ async def submit_job_application(
         # Generate unique filename
         file_ext = Path(resume.filename).suffix.lower()
         unique_filename = f"{uuid.uuid4()}{file_ext}"
-        file_path = UPLOADS_DIR / unique_filename
+        storage_path = f"{STORAGE_APP_PREFIX}/resumes/{unique_filename}"
         
-        # Save the file
+        # Upload resume to Emergent object storage (survives deployment)
         file_content = await resume.read()
-        with open(file_path, 'wb') as f:
-            f.write(file_content)
+        put_object(storage_path, file_content, resume.content_type or "application/octet-stream")
         
         # Create application document
         application_id = str(uuid.uuid4())
@@ -1222,7 +1255,7 @@ async def submit_job_application(
             "email": email.strip().lower(),
             "phone": phone.strip(),
             "location": location.strip(),
-            "resumeCV": str(file_path),
+            "resumeCV": storage_path,
             "resumeFilename": resume.filename,
             "linkedInProfile": linkedInProfile.strip() if linkedInProfile else None,
             "jobTitle": jobTitle.strip(),
@@ -1673,7 +1706,24 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
         if not application:
             raise HTTPException(status_code=404, detail="Application not found")
         
-        resume_path = Path(application.get("resumeCV", ""))
+        resume_ref = application.get("resumeCV", "")
+        filename = application.get("resumeFilename", "resume.pdf")
+        
+        # Object-storage resumes (new submissions)
+        if resume_ref.startswith(f"{STORAGE_APP_PREFIX}/"):
+            try:
+                data, content_type = get_object(resume_ref)
+            except Exception as e:
+                logging.error(f"Object storage fetch failed for {resume_ref}: {e}")
+                raise HTTPException(status_code=404, detail="Resume file not found")
+            return Response(
+                content=data,
+                media_type=content_type,
+                headers={"Content-Disposition": f'attachment; filename="{filename}"'}
+            )
+        
+        # Legacy local-disk resumes (pre-migration submissions)
+        resume_path = Path(resume_ref)
         # Prevent path traversal: ensure file is within uploads directory
         try:
             resume_path = resume_path.resolve()
@@ -1686,7 +1736,6 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
         if not resume_path.exists():
             raise HTTPException(status_code=404, detail="Resume file not found")
         
-        filename = application.get("resumeFilename", "resume.pdf")
         return FileResponse(
             path=str(resume_path),
             filename=filename,
@@ -2004,6 +2053,14 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+@app.on_event("startup")
+async def startup_storage_init():
+    try:
+        init_storage()
+        logging.info("Object storage initialized")
+    except Exception as e:
+        logging.error(f"Object storage init failed (will retry on first use): {e}")
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
