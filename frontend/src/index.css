@@ -1297,6 +1297,50 @@ html.mscur-active body {
   .git6-col:last-child { border-bottom: none; }
 }
 
+/* ===== GET IN TOUCH V7 (/get-in-touch-6) — minimal two-column, flat underline fields, scoped .git7-* ===== */
+.git7-page { background: #f0f1f9; }
+.git7-section { padding: 72px 0 120px; }
+.git7-grid { align-items: start; display: grid; gap: 48px clamp(56px, 7vw, 120px); grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); }
+.git7-intro { position: sticky; top: 130px; }
+.git7-eyebrow { color: #2b4c8c; display: block; font-family: IBM Plex Mono, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+.git7-title { color: #0a1230; font-family: Geist, Inter, sans-serif; font-size: clamp(38px, 4.2vw, 62px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin: 22px 0 0; }
+.git7-lede { color: #3f4966; font-family: Inter, sans-serif; font-size: 16px; line-height: 1.7; margin: 26px 0 0; max-width: 420px; }
+.git7-form { display: grid; gap: 30px 28px; grid-template-columns: 1fr 1fr; }
+.git7-field { display: flex; flex-direction: column; min-width: 0; }
+.git7-field-full { grid-column: 1 / -1; }
+.git7-label { color: #0a1230; display: block; font-family: Inter, sans-serif; font-size: 14.5px; font-weight: 600; margin-bottom: 8px; }
+.git7-req, .git7-opt { color: #5c6684; font-weight: 400; }
+.git7-star { color: #dc2626; }
+.git7-input { background: #ffffff; border: 1px solid #e2e6f2; border-bottom: 2px solid #2b4c8c; border-radius: 2px 2px 0 0; box-sizing: border-box; color: #0a1230; font-family: Inter, sans-serif; font-size: 15px; height: 50px; outline: none; padding: 0 14px; transition: border-color 160ms ease, background 160ms ease; width: 100%; }
+.git7-input::placeholder { color: #9aa3bd; }
+.git7-input:focus { background: #ffffff; border-color: #c4cbe0; border-bottom-color: #0a1230; }
+.git7-input-error, .git7-input-error:focus { border-bottom-color: #dc2626; }
+.git7-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230a1230' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-position: right 14px center; background-repeat: no-repeat; cursor: pointer; padding-right: 40px; }
+.git7-select-empty { color: #9aa3bd; }
+.git7-textarea { height: auto; line-height: 1.6; min-height: 150px; padding: 13px 14px; resize: vertical; }
+.git7-counter { color: #7c86a2; font-family: Inter, sans-serif; font-size: 12.5px; margin-top: 8px; text-align: right; }
+.git7-err { color: #dc2626; font-family: Inter, sans-serif; font-size: 12.5px; margin: 7px 0 0; }
+.git7-err-submit { font-size: 13.5px; margin: 0; }
+.git7-consents { display: flex; flex-direction: column; gap: 18px; margin-top: 4px; }
+.git7-consent { align-items: flex-start; color: #3f4966; cursor: pointer; display: flex; font-family: Inter, sans-serif; font-size: 14px; gap: 12px; line-height: 1.6; }
+.git7-consent input { accent-color: #0a1230; cursor: pointer; flex-shrink: 0; height: 17px; margin-top: 3px; width: 17px; }
+.git7-consent a { color: #2b4c8c; text-decoration: underline; text-underline-offset: 3px; }
+.git7-success { background: #f0f9f4; border: 1px solid #bfe3cf; border-radius: 2px; color: #0a5231; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; padding: 14px 16px; }
+.git7-submit { background: #0a1230; border: 1px solid #0a1230; border-radius: 3px; color: #ffffff; cursor: pointer; font-family: Geist, sans-serif; font-size: 14.5px; font-weight: 500; min-width: 160px; padding: 14px 30px; transition: background 0.2s ease, border-color 0.2s ease; }
+.git7-submit:hover { background: #2b4c8c; border-color: #2b4c8c; }
+.git7-submit:focus-visible { outline: 2px solid #2b4c8c; outline-offset: 3px; }
+.git7-submit:disabled { cursor: not-allowed; opacity: 0.7; }
+@media (max-width: 1023px) {
+  .git7-section { padding: 48px 0 80px; }
+  .git7-grid { gap: 40px; grid-template-columns: 1fr; }
+  .git7-intro { position: static; }
+  .git7-lede { max-width: 560px; }
+}
+@media (max-width: 639px) {
+  .git7-form { gap: 24px; grid-template-columns: 1fr; }
+  .git7-submit { width: 100%; }
+}
+
 /* ===== ABOUT US — Precision Metric Swap ===== */
 .pms-sr-only {
   position: absolute; width: 1px; height: 1px;

@@ -135,6 +135,7 @@ class SecurityMiddleware(BaseHTTPMiddleware):
         "/api/contacts/submit", 
         "/api/contact-us",
         "/api/contact-enquiries",
+        "/api/project-enquiries",
         "/api/newsletter/subscribe",
         "/api/careers/apply",
         "/api/job-applications/submit",
@@ -896,6 +897,95 @@ async def submit_contact_enquiry(enquiry: ContactEnquiry):
         raise
     except Exception as e:
         logging.error(f"Error submitting contact enquiry: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit enquiry")
+
+
+# Get in Touch v6 (/get-in-touch-6) - project enquiry endpoint
+class ProjectEnquiry(BaseModel):
+    fullName: str
+    email: EmailStr
+    phone: str
+    company: str
+    jobTitle: str
+    country: Optional[str] = None
+    city: str
+    message: Optional[str] = None
+    privacyConsent: bool
+    marketingConsent: bool = False
+
+    @field_validator('fullName', 'company', 'jobTitle', 'city')
+    @classmethod
+    def reject_blank_required(cls, v):
+        if not v or not v.strip():
+            raise ValueError('Required field cannot be blank')
+        return v.strip()
+
+    @field_validator('phone')
+    @classmethod
+    def validate_project_phone(cls, v):
+        digits = re.sub(r'[^0-9]', '', v or '')
+        if not (6 <= len(digits) <= 15):
+            raise ValueError('Invalid phone number')
+        return v.strip()
+
+    @field_validator('country', 'message')
+    @classmethod
+    def trim_optional(cls, v):
+        v = v.strip() if v else None
+        return v or None
+
+    @field_validator('message')
+    @classmethod
+    def limit_message(cls, v):
+        if v and len(v) > 1000:
+            raise ValueError('Message must be 1000 characters or fewer')
+        return v
+
+    @field_validator('privacyConsent')
+    @classmethod
+    def require_privacy(cls, v):
+        if not v:
+            raise ValueError('Privacy consent is required')
+        return v
+
+
+@api_router.post("/project-enquiries")
+async def submit_project_enquiry(enquiry: ProjectEnquiry):
+    try:
+        email = enquiry.email.lower().strip()
+        if not validate_email(email):
+            raise HTTPException(status_code=400, detail="Invalid email format")
+        one_minute_ago = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+        if await db.project_enquiries.find_one({"email": email, "created_at": {"$gte": one_minute_ago}}):
+            raise HTTPException(status_code=409, detail="A similar submission was recently received. Please wait before submitting again.")
+        now = datetime.now(timezone.utc).isoformat()
+        doc = {
+            "id": str(uuid.uuid4()),
+            "full_name": enquiry.fullName,
+            "email": email,
+            "phone": enquiry.phone,
+            "company": enquiry.company,
+            "job_title": enquiry.jobTitle,
+            "country": enquiry.country,
+            "city": enquiry.city,
+            "message": enquiry.message,
+            "privacy_consent": True,
+            "marketing_consent": enquiry.marketingConsent,
+            "status": "new",
+            "created_at": now,
+            "updated_at": now,
+        }
+        await db.project_enquiries.insert_one(doc)
+        await send_contact_form_email("project_enquiry", {
+            "full_name": doc["full_name"], "email": email, "phone": doc["phone"], "company": doc["company"],
+            "job_title": doc["job_title"], "country": doc["country"], "city": doc["city"], "message": doc["message"],
+            "marketing_consent": "Yes" if doc["marketing_consent"] else "No",
+        }, submission_timestamp=now)
+        return {"message": "Enquiry submitted successfully", "id": doc["id"]}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error submitting project enquiry: {e}")
         raise HTTPException(status_code=500, detail="Failed to submit enquiry")
 
 
