@@ -133,6 +133,7 @@ class SecurityMiddleware(BaseHTTPMiddleware):
         "/api/contact",
         "/api/contacts/submit", 
         "/api/contact-us",
+        "/api/contact-enquiries",
         "/api/newsletter/subscribe",
         "/api/careers/apply",
         "/api/job-applications/submit",
@@ -817,6 +818,97 @@ async def submit_unified_contact(submission: ContactSubmission):
     except Exception as e:
         logging.error(f"Error submitting contact form: {e}")
         raise HTTPException(status_code=500, detail="Failed to submit form")
+
+
+# Get in Touch - Dedicated enquiry endpoint
+class ContactEnquiry(BaseModel):
+    firstName: str
+    lastName: str
+    email: EmailStr
+    phone: Optional[str] = None
+    company: str
+    role: Optional[str] = None
+    enquiryType: str
+    message: str
+    marketingConsent: bool = False
+
+    @field_validator('firstName', 'lastName', 'company', 'enquiryType')
+    @classmethod
+    def reject_blank(cls, v):
+        if not v or not v.strip():
+            raise ValueError('Required field cannot be blank')
+        return v.strip()
+
+    @field_validator('message')
+    @classmethod
+    def validate_enquiry_message(cls, v):
+        if not v or not v.strip():
+            raise ValueError('Message is required')
+        v = v.strip()
+        if len(v) > 1500:
+            raise ValueError('Message must be 1500 characters or fewer')
+        return v
+
+    @field_validator('phone')
+    @classmethod
+    def validate_enquiry_phone(cls, v):
+        if v:
+            digits = re.sub(r'[^0-9]', '', v)
+            if not (6 <= len(digits) <= 15):
+                raise ValueError('Invalid phone number')
+            return v.strip()
+        return v
+
+    @field_validator('role')
+    @classmethod
+    def trim_role(cls, v):
+        return v.strip() if v else v
+
+
+@api_router.post("/contact-enquiries")
+async def submit_contact_enquiry(enquiry: ContactEnquiry):
+    """Get in Touch enquiry endpoint. Stores in contact_enquiries with duplicate prevention."""
+    try:
+        if not validate_email(enquiry.email):
+            raise HTTPException(status_code=400, detail="Invalid email format")
+
+        one_minute_ago = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+        existing = await db.contact_enquiries.find_one({
+            "email": enquiry.email.lower().strip(),
+            "createdAt": {"$gte": one_minute_ago}
+        })
+        if existing:
+            raise HTTPException(
+                status_code=409,
+                detail="A similar submission was recently received. Please wait before submitting again."
+            )
+
+        now = datetime.now(timezone.utc)
+        doc = {
+            "id": str(uuid.uuid4()),
+            "first_name": enquiry.firstName,
+            "last_name": enquiry.lastName,
+            "email": enquiry.email.lower().strip(),
+            "phone": enquiry.phone,
+            "company": enquiry.company,
+            "role": enquiry.role,
+            "enquiry_type": enquiry.enquiryType,
+            "message": enquiry.message,
+            "marketing_consent": enquiry.marketingConsent,
+            "status": "new",
+            "createdAt": now.isoformat(),
+            "updatedAt": now.isoformat(),
+        }
+        await db.contact_enquiries.insert_one(doc)
+
+        await send_contact_form_email("get_in_touch", doc)
+
+        return {"message": "Enquiry submitted successfully", "id": doc["id"]}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error submitting contact enquiry: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit enquiry")
 
 
 # Contact Us (Footer Form) - Simple endpoint
