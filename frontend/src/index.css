@@ -1100,6 +1100,14 @@ html.mscur-active body {
   .git3-verify { font-size: 10px; letter-spacing: 0.1em; padding: 0 12px; }
 }
 
+/* ===== GET IN TOUCH V4 (/get-in-touch-3) — same design as V3, order INTRO → FORM → CARDS ===== */
+.git4-page .git3-form-section { padding: 0 0 80px; }
+.git4-page .git3-modules-section { padding: 0 0 120px; }
+@media (max-width: 1023px) {
+  .git4-page .git3-form-section { padding-bottom: 56px; }
+  .git4-page .git3-modules-section { padding-bottom: 88px; }
+}
+
 /* ===== ABOUT US — Precision Metric Swap ===== */
 .pms-sr-only {
   position: absolute; width: 1px; height: 1px;
