@@ -65,6 +65,14 @@ const AdminDashboard = () => {
       color: 'bg-purple-500'
     },
     {
+      title: 'Project Enquiries',
+      icon: Briefcase,
+      total: stats?.project_enquiries?.total || 0,
+      new: stats?.project_enquiries?.new || 0,
+      link: '/admin/project-enquiries',
+      color: 'bg-teal-600'
+    },
+    {
       title: 'Total Submissions',
       icon: TrendingUp,
       total: stats?.total_submissions || 0,
@@ -84,13 +92,13 @@ const AdminDashboard = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {statCards.map((card, index) => (
             <div key={index} className="bg-white rounded-xl border border-[#E5E7EB] p-6 hover:shadow-md transition-shadow">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm font-medium text-[#6B7280]">{card.title}</p>
-                  <p className="text-3xl font-bold text-[#0B1F3B] mt-2">
+                  <p className="text-3xl font-bold text-[#0B1F3B] mt-2" data-testid={`admin-stat-${card.title.toLowerCase().replaceAll(' ', '-')}`}>
                     {loading ? '...' : card.total}
                   </p>
                   {card.new !== null && card.new > 0 && (
@@ -106,6 +114,7 @@ const AdminDashboard = () => {
               {card.link && (
                 <Link 
                   to={card.link}
+                  data-testid={`admin-dashboard-link-${card.link.split('/').pop()}`}
                   className="inline-block mt-4 text-sm text-[#328CC1] hover:text-[#0B1F3B] font-medium"
                 >
                   View all →

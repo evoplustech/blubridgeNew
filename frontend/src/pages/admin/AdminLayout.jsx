@@ -67,6 +67,7 @@ const AdminLayout = ({ children }) => {
     { path: '/admin/footer-forms', icon: FileText, label: 'Footer Forms' },
     { path: '/admin/contact-forms', icon: MessageSquare, label: 'Contact Forms' },
     { path: '/admin/get-in-touch', icon: Inbox, label: 'Get in Touch' },
+    { path: '/admin/project-enquiries', icon: Briefcase, label: 'Project Enquiries' },
     { path: '/admin/careers', icon: Briefcase, label: 'Career Applications' },
     { path: '/admin/settings', icon: Settings, label: 'Settings' },
   ];
@@ -82,6 +83,8 @@ const AdminLayout = ({ children }) => {
           {sidebarOpen && <span className="font-bold text-xl">BluBridge</span>}
           <button 
             onClick={() => setSidebarOpen(!sidebarOpen)}
+            aria-label="Toggle sidebar"
+            data-testid="admin-sidebar-toggle"
             className="p-2 hover:bg-white/10 rounded-lg transition-colors"
           >
             <ChevronRight className={`w-5 h-5 transition-transform ${sidebarOpen ? 'rotate-180' : ''}`} />
@@ -94,6 +97,7 @@ const AdminLayout = ({ children }) => {
             <Link
               key={item.path}
               to={item.path}
+              data-testid={`admin-nav-${item.path.split('/').pop()}`}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                 isActive(item.path) 
                   ? 'bg-[#328CC1] text-white' 
@@ -110,6 +114,7 @@ const AdminLayout = ({ children }) => {
         <div className="p-3 border-t border-white/10">
           <button
             onClick={handleLogout}
+            data-testid="admin-sidebar-logout"
             className="flex items-center gap-3 px-3 py-2.5 w-full text-white/70 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
           >
             <LogOut className="w-5 h-5 flex-shrink-0" />
@@ -123,6 +128,9 @@ const AdminLayout = ({ children }) => {
         <span className="font-bold text-xl">BluBridge</span>
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle admin menu"
+          aria-expanded={mobileMenuOpen}
+          data-testid="admin-mobile-menu-toggle"
           className="p-2 hover:bg-white/10 rounded-lg"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -137,6 +145,7 @@ const AdminLayout = ({ children }) => {
               <Link
                 key={item.path}
                 to={item.path}
+                data-testid={`admin-mobile-nav-${item.path.split('/').pop()}`}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                   isActive(item.path) 
@@ -150,6 +159,7 @@ const AdminLayout = ({ children }) => {
             ))}
             <button
               onClick={handleLogout}
+              data-testid="admin-mobile-logout"
               className="flex items-center gap-3 px-4 py-3 w-full text-white/70 hover:bg-white/10 hover:text-white rounded-lg transition-colors mt-4"
             >
               <LogOut className="w-5 h-5" />
@@ -160,13 +170,14 @@ const AdminLayout = ({ children }) => {
       )}
 
       {/* Main Content */}
-      <main className="flex-1 lg:ml-0 mt-16 lg:mt-0">
+      <main className="flex-1 min-w-0 lg:ml-0 mt-16 lg:mt-0">
         {/* Top Bar */}
         <header className="hidden lg:flex h-16 bg-white border-b border-[#E5E7EB] items-center justify-between px-6">
           <h1 className="text-lg font-semibold text-[#0B1F3B]">Admin Panel</h1>
           <Button
             onClick={handleLogout}
             variant="outline"
+            data-testid="admin-header-logout"
             size="sm"
             className="text-[#6B7280] border-[#E5E7EB] hover:bg-[#F3F4F6]"
           >

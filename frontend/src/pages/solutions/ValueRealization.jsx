@@ -16,7 +16,7 @@ const ValueRealization = () => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animationFrame;
-    // let time = 0;
+    let time = 0;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
@@ -136,7 +136,7 @@ const ValueRealization = () => {
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let animationFrame;
-      // let time = 0;
+      let time = 0;
 
       const resize = () => {
         canvas.width = canvas.offsetWidth * window.devicePixelRatio;

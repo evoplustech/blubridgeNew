@@ -3,8 +3,10 @@
 ## Original Problem Statement
 Complete visual and structural redesign of the BluBridge website combining approved sections from three reference deployments. STRICT CONTENT LOCK: no adding, removing, or paraphrasing existing text. Premium, minimal, light-themed, enterprise-grade editorial appearance.
 
+Contact-page iterations: retain ten isolated variants (`/get-in-touch` through `/get-in-touch-9`) with the established BluBridge styling. Latest approved request: add required Budget currency (₹ / $ / €) + range dropdown to `/get-in-touch-6`, in a full-width row between City and Message, persist it and display it in admin. Approved ranges: Under 10,000; 10,000–50,000; 50,000–100,000; 100,000–500,000; 500,000+ in the selected currency. Other variants' forms remain unchanged.
+
 ## Architecture
-- React frontend served via Express (`/app/frontend/server.js` serves `/app/frontend/build`) — **NOT hot-reload; requires `yarn build` after source changes**
+- React frontend served via Express (`/app/frontend/server.js` serves `/app/frontend/build`). Current server includes a debounced source watcher that automatically runs `yarn build`; a manual `yarn build` can also generate the static bundle. Regular source changes do not require a supervisor restart.
 - FastAPI backend (`/app/backend/server.py`, monolithic)
 - MongoDB
 - Global custom cursor: `/app/frontend/src/components/CustomCursor.jsx`
@@ -33,13 +35,16 @@ Complete visual and structural redesign of the BluBridge website combining appro
 
 ## Backlog
 ### P0
-- Full frontend regression test via testing_agent (skipped by 6 previous agents): routing, clickability (verify CustomCursor.jsx pointer-events: none), form submissions
+- None in the approved budget/admin scope. Cursor clickability and mobile navigation verified in iteration_25; earlier broad regression completed in iteration_19.
 ### P1
-- Home hero final integration per reference (if not fully matching)
+- Await user selection of final contact-page variant.
+- Backend integration for `/get-in-touch-7`, `-8`, `-9` ONLY when requested; submissions remain frontend-only MOCKED by design.
 ### P2
 - Success toast for contact form (replace browser alert)
+- Active section highlight in Solutions menu
 - Shared editorial ProductPageLayout for 8 industry pages
 - Open Graph previews
+- Potential enhancement: dedicated currency/budget filters for admin enquiry triage (not yet requested).
 ### P3
 - Refactor backend server.py into MVC structure
 - Consolidate FLUX/BluTrain research pages into one dynamic component
@@ -47,7 +52,7 @@ Complete visual and structural redesign of the BluBridge website combining appro
 
 ## Critical Notes for Next Agent
 - STRICT CONTENT LOCK — never invent text
-- Frontend serves a STATIC BUILD: after editing `src/`, run `cd /app/frontend && yarn build` then `sudo supervisorctl restart frontend`
+- Frontend serves a STATIC BUILD: verify automatic rebuild completion after editing `src/`, or run `cd /app/frontend && yarn build`. No regular source-change restart needed.
 - If user reports a "recurring" visual bug, FIRST check whether they're viewing the deployed site (compare CSS build hash) before re-fixing code
 - User wants minimal credit consumption
 
@@ -89,12 +94,24 @@ Complete visual and structural redesign of the BluBridge website combining appro
 - /get-in-touch-7 (GetInTouchV8.jsx, scoped .git8-*): FRONTEND-ONLY (no API/backend by user request — backend to be added later). Heading LEFT, placeholder-style form RIGHT: First Name*, Last Name* / Company Email*, Company Name* / Job Title*, Phone Number (optional) / Select a country* (full) / Comments* (≤300, counter 'N of 300 max characters') / Terms checkbox (→ /policies/terms-conditions, /policies/privacy-policy) / full-width 'Start a conversation'. Frontend validation only; valid submit shows notice 'Form validated successfully. Backend connection will be added later.' Self-verified: 8 inline errors on empty submit, counter, zero network calls, mobile stack.
 - /get-in-touch-8 (GetInTouchV9.jsx, scoped .git9-*): FRONTEND-ONLY (no backend by request). Heading LEFT (44%), minimal form RIGHT (max 600px): Name, Email, Company's website (optional, URL-validated), Services select (8 BluBridge options), Project size select (5), details textarea, full-width 'Get in touch'. Visible labels, light theme, no card. Valid submit → notice 'Form is ready. Backend integration will be added later.' Self-verified: 5 errors on empty submit, URL error, zero network calls, mobile stack.
 - /get-in-touch-9 (GetInTouchV10.jsx, scoped .git10-*): FRONTEND-ONLY. Reference-pattern: pale-blue form panel LEFT ('Let's Connect': First Name, Last Name, Phone, Organization Name, Business Email, Select Enquiry (same 5 options as /contact), 'Schedule a Meeting'); RIGHT: existing heading + direct contact from /contact (Phone +91 8925987250, Email info@blubridge.com, Location Besant Nagar Chennai office, LinkedIn). Valid submit → dev notice, no API. Self-verified.
+- UPDATE: 'How can we help' 4-section block REMOVED from /get-in-touch-3 (V4) and /get-in-touch-4 (V5) per user — both pages are now hero + form only. Also restored `let time = 0;` in solutions/ValueRealization.jsx (someone had commented it out → lint blocker).
 - Backend POST /api/contact-enquiries: body {firstName,lastName,email,role,message,marketingConsent}; stores id, first_name, last_name, company_email, role, project_details, marketing_consent, status=new, created_at, updated_at (no extra columns). 422 blank/invalid/>1000, 409 dup per email/min. Email notification via send_contact_form_email("get_in_touch").
 - Admin: sidebar "Get in Touch" → /admin/get-in-touch (GetInTouchForms.jsx): list/search/pagination, view (marks viewed), delete, CSV export. Endpoints: GET /api/admin/submissions/get-in-touch, /api/admin/submission/{id}?form_type=get_in_touch (GET/DELETE), /api/admin/export/get_in_touch, stats.get_in_touch in /api/admin/dashboard/stats. Dashboard stat card + quick link.
 - Tested: iteration_21.json — backend 22/22 (tests/test_get_in_touch_full.py), frontend 3 routes + admin + /contact regression pass. Tester's "409 UX drift on /get-in-touch-2" was a false positive (429 rate limit) — self-verified 200→409 friendly message.
-- NOTE: frontend is a static build → after src edits run `cd /app/frontend && yarn build` (bg, ~25s) then `sudo supervisorctl restart frontend`. Do NOT use `// eslint-disable-line react-hooks/exhaustive-deps` (rule not registered → build fails).
+- NOTE: frontend is a static build with an automatic rebuild watcher; allow ~25s or run `cd /app/frontend && yarn build`. Do NOT use `// eslint-disable-line react-hooks/exhaustive-deps` (rule not registered → build fails).
 
 ## Update — Sep 2026 (Resume storage migration)
 - Migrated job-application resume uploads from pod-local disk (uploads/resumes) to Emergent Object Storage (blubridge/resumes/{uuid}.ext). Added init_storage/put_object/get_object helpers + startup init; EMERGENT_LLM_KEY added to backend/.env.
 - /api/admin/resume/{id} now serves from object storage with legacy local-file fallback for pre-migration submissions.
 - Verified end-to-end: submit -> storage upload -> admin download bytes match. Fixes blocking lint [ephemeral-upload-storage].
+
+## Update — 2026-09-19: Required project budget + admin integration
+- `/get-in-touch-6` → `GetInTouchV7.jsx`: required Budget row between City and Message, default ₹, selectable ₹/$/€, five approved ranges, inline validation, scoped `.git7-budget-controls` styling, reset to ₹/empty range after successful submission.
+- POST `/api/project-enquiries`: required validated `budget` string, e.g. `€ 100,000–500,000`; all 15 combinations accepted, missing/null/blank/unsupported values rejected with 422. Persists to MongoDB `project_enquiries` and includes budget in the existing email notification payload. Existing records need no migration; output models allow absent budget.
+- IMPORTANT correction to handoff: ProjectEnquiries admin page did NOT exist at session start. Implemented `/admin/project-enquiries` with sidebar/dashboard integration, searchable paginated list, budget column, detail modal with all fields, viewed status, confirmed deletion, refresh, CSV export. Older records show `Not provided` in list and details.
+- Backend routes: GET `/api/admin/submissions/project-enquiries`; GET/DELETE `/api/admin/submission/{id}?form_type=project_enquiry`; GET `/api/admin/export/project_enquiry`; combined `/api/admin/export/all` includes project records and Budget. Dashboard stats include project_enquiries. Existing admin token verification reused; no credentials or authentication behavior changed. MongoDB `_id` excluded; typed project list/record/receipt models used.
+- Frontend files added: `pages/admin/ProjectEnquiries.jsx`, `ProjectEnquiryDetail.jsx`, `useProjectEnquiries.js`. Added optional closeTestId support to shared Dialog, admin login input/button test selectors and linked labels. AdminLayout gets min-w-0 for wrapping.
+- Smoke test found the closed mobile nav panel translated beyond viewport. Header now hides the closed panel; opening/closing/link navigation verified. Other contact variants' content and styles unchanged. Cursor ring/dot already had pointer-events:none; actual clicks now verified.
+- Verification: build compiled; Python compile passed; iteration_25 backend **21/21 passed**, including all valid budgets, invalid required values, persistence, protected admin CRUD/export/stats. Frontend real submission/reset/currency-switch, admin actions, navigation and desktop/mobile verified. Final self-test resolved the tester's only coverage gap: a temporary legacy record with long unbroken name/company text rendered `Not provided` in list/detail; no overflow at 1920×800 or 390×844, and test fixture deleted. See `/app/test_reports/iteration_25.json` and `iteration_25_followup.md`.
+- Existing Resend send calls logged success during tests; inbox receipt not independently checked. No new integrations or credentials. `/get-in-touch-7`, `-8`, `-9` remain **MOCKED** frontend-only as requested.
+- Next action: user review at `/get-in-touch-6` and `/admin/project-enquiries`. No known blockers in this scope; P1/P2/P3 backlog above remains deferred.

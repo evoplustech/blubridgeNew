@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, Mail, ShieldCheck, Bug } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
@@ -10,72 +9,7 @@ const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const MAX_DETAILS = 1000;
 
-const rail = [
-  {
-    index: '01',
-    Icon: Compass,
-    title: 'Project Assistance.',
-    bullets: [
-      'Explore our technology solutions.',
-      'Connect with our team about your requirement.',
-      'Discuss your project with BluBridge specialists.',
-    ],
-    cta: { label: 'Explore solutions', href: '/solutions' },
-    testId: 'git3-rail-project',
-  },
-  {
-    index: '02',
-    Icon: Mail,
-    title: 'Business enquiries.',
-    text: <>Connect with us at <a href="mailto:info@blubridge.com" className="git3-module-link" data-testid="git3-rail-business-email">info@blubridge.com</a> for business, project and collaboration enquiries.</>,
-    testId: 'git3-rail-business',
-  },
-  {
-    index: '03',
-    Icon: ShieldCheck,
-    title: 'Data & privacy.',
-    text: 'Have a question regarding your information or privacy? Contact our team for assistance.',
-    cta: { label: 'Contact us', href: 'mailto:privacy@blubridge.com' },
-    testId: 'git3-rail-privacy',
-  },
-  {
-    index: '04',
-    Icon: Bug,
-    title: 'Security reporting.',
-    text: 'If you identify a potential security issue involving a BluBridge product or service, you can securely report it to our team.',
-    cta: { label: 'Report an issue', href: 'mailto:support@blubridge.com' },
-    note: 'General technical questions should be submitted through our standard contact channels.',
-    testId: 'git3-rail-security',
-  },
-];
-
 const emptyForm = { firstName: '', lastName: '', email: '', role: '', message: '', marketingConsent: false };
-
-const RailCta = ({ cta, testId }) => {
-  const inner = <>{cta.label}<span className="git3-cta-arrow" aria-hidden="true">→</span></>;
-  if (cta.href.startsWith('mailto:')) return <a href={cta.href} className="git3-module-cta" data-testid={testId}>{inner}</a>;
-  return <Link to={cta.href} className="git3-module-cta" data-testid={testId}>{inner}</Link>;
-};
-
-const RailItem = ({ item }) => (
-  <article className="git3-module" data-testid={item.testId}>
-    <div className="git3-module-head">
-      <span className="git3-module-index" aria-hidden="true">{item.index}</span>
-      <span className="git3-module-icon" aria-hidden="true"><item.Icon strokeWidth={1.5} /></span>
-    </div>
-    <h3 className="git3-module-title">{item.title}</h3>
-    {item.bullets && (
-      <ul className="git3-module-bullets">
-        {item.bullets.map((b) => <li key={b}>{b}</li>)}
-      </ul>
-    )}
-    {item.text && <p className="git3-module-desc">{item.text}</p>}
-    <div className="git3-module-foot">
-      {item.cta && <RailCta cta={item.cta} testId={`${item.testId}-cta`} />}
-      {item.note && <p className="git3-module-note">{item.note}</p>}
-    </div>
-  </article>
-);
 
 const GetInTouchV4 = () => {
   const [formData, setFormData] = useState(emptyForm);
@@ -264,19 +198,6 @@ const GetInTouchV4 = () => {
           </form>
         </div>
       </section>
-      {/* ===== SECTION 2 — horizontal contact navigation ===== */}
-      <section className="git3-modules-section">
-        <div className="bb-container">
-          <div className="git3-section-head">
-            <span className="git3-kicker">HOW CAN WE HELP</span>
-            <span className="git3-kicker git3-kicker-muted" aria-hidden="true">01 — 04</span>
-          </div>
-          <div className="git3-modules" data-testid="git3-rail">
-            {rail.map((item) => <RailItem key={item.testId} item={item} />)}
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };

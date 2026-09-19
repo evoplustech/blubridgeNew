@@ -77,7 +77,7 @@ const AdminLogin = () => {
           <h2 className="text-xl font-semibold text-[#0B1F3B] mb-6 text-center">Sign In</h2>
 
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-700 text-sm">
+            <div role="alert" data-testid="admin-login-error" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-700 text-sm">
               <AlertCircle className="w-4 h-4" />
               {error}
             </div>
@@ -85,11 +85,13 @@ const AdminLogin = () => {
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-[#374151] mb-1.5">Username</label>
+              <label htmlFor="admin-username" className="block text-sm font-medium text-[#374151] mb-1.5">Username</label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" />
                 <Input
                   type="text"
+                  id="admin-username"
+                  data-testid="admin-login-username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="pl-10 h-11 border-[#E5E7EB] focus:border-[#328CC1] focus:ring-[#328CC1]"
@@ -100,11 +102,13 @@ const AdminLogin = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#374151] mb-1.5">Password</label>
+              <label htmlFor="admin-password" className="block text-sm font-medium text-[#374151] mb-1.5">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" />
                 <Input
                   type="password"
+                  id="admin-password"
+                  data-testid="admin-login-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-10 h-11 border-[#E5E7EB] focus:border-[#328CC1] focus:ring-[#328CC1]"
@@ -116,6 +120,7 @@ const AdminLogin = () => {
 
             <Button
               type="submit"
+              data-testid="admin-login-submit"
               disabled={loading}
               className="w-full h-11 bg-[#0B1F3B] hover:bg-[#162B4D] text-white font-medium"
             >

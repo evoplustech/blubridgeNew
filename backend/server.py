@@ -901,6 +901,13 @@ async def submit_contact_enquiry(enquiry: ContactEnquiry):
 
 
 # Get in Touch v6 (/get-in-touch-6) - project enquiry endpoint
+PROJECT_BUDGETS = {
+    f"{currency} {budget_range}"
+    for currency in ("₹", "$", "€")
+    for budget_range in ("Under 10,000", "10,000–50,000", "50,000–100,000", "100,000–500,000", "500,000+")
+}
+
+
 class ProjectEnquiry(BaseModel):
     fullName: str
     email: EmailStr
@@ -909,6 +916,7 @@ class ProjectEnquiry(BaseModel):
     jobTitle: str
     country: Optional[str] = None
     city: str
+    budget: str
     message: Optional[str] = None
     privacyConsent: bool
     marketingConsent: bool = False
@@ -919,6 +927,14 @@ class ProjectEnquiry(BaseModel):
         if not v or not v.strip():
             raise ValueError('Required field cannot be blank')
         return v.strip()
+
+    @field_validator('budget')
+    @classmethod
+    def validate_budget(cls, v):
+        v = v.strip()
+        if v not in PROJECT_BUDGETS:
+            raise ValueError('Select a valid budget currency and range')
+        return v
 
     @field_validator('phone')
     @classmethod
@@ -949,7 +965,38 @@ class ProjectEnquiry(BaseModel):
         return v
 
 
-@api_router.post("/project-enquiries")
+class ProjectEnquiryReceipt(BaseModel):
+    message: str
+    id: str
+
+
+class ProjectEnquiryRecord(BaseModel):
+    id: str
+    full_name: str
+    email: str
+    phone: str
+    company: str
+    job_title: str
+    country: Optional[str] = None
+    city: str
+    budget: Optional[str] = None  # Existing submissions predate the required budget field.
+    message: Optional[str] = None
+    privacy_consent: bool
+    marketing_consent: bool = False
+    status: str
+    created_at: str
+    updated_at: str
+
+
+class ProjectEnquiryPage(BaseModel):
+    data: List[ProjectEnquiryRecord]
+    total: int
+    page: int
+    limit: int
+    totalPages: int
+
+
+@api_router.post("/project-enquiries", response_model=ProjectEnquiryReceipt)
 async def submit_project_enquiry(enquiry: ProjectEnquiry):
     try:
         email = enquiry.email.lower().strip()
@@ -968,6 +1015,7 @@ async def submit_project_enquiry(enquiry: ProjectEnquiry):
             "job_title": enquiry.jobTitle,
             "country": enquiry.country,
             "city": enquiry.city,
+            "budget": enquiry.budget,
             "message": enquiry.message,
             "privacy_consent": True,
             "marketing_consent": enquiry.marketingConsent,
@@ -979,6 +1027,7 @@ async def submit_project_enquiry(enquiry: ProjectEnquiry):
         await send_contact_form_email("project_enquiry", {
             "full_name": doc["full_name"], "email": email, "phone": doc["phone"], "company": doc["company"],
             "job_title": doc["job_title"], "country": doc["country"], "city": doc["city"], "message": doc["message"],
+            "budget": doc["budget"],
             "marketing_consent": "Yes" if doc["marketing_consent"] else "No",
         }, submission_timestamp=now)
         return {"message": "Enquiry submitted successfully", "id": doc["id"]}
@@ -1569,19 +1618,22 @@ async def get_admin_stats(authorization: Optional[str] = Header(None)):
         # Career applications: job applications
         careers_count = await db.job_applications.count_documents({})
         get_in_touch_count = await db.contact_enquiries.count_documents({})
+        project_count = await db.project_enquiries.count_documents({})
         
         # Get new (unviewed) counts
         footer_new = await db.contacts.count_documents({"type": "footer_form", "status": {"$ne": "viewed"}})
         contact_new = await db.contacts.count_documents({"type": {"$in": ["contact_us", "contact_sales", "general_enquiry"]}, "status": {"$ne": "viewed"}})
         careers_new = await db.job_applications.count_documents({"status": "pending"})
         get_in_touch_new = await db.contact_enquiries.count_documents({"status": {"$ne": "viewed"}})
+        project_new = await db.project_enquiries.count_documents({"status": {"$ne": "viewed"}})
         
         return {
             "footer_forms": {"total": footer_count, "new": footer_new},
             "contact_forms": {"total": contact_count, "new": contact_new},
             "career_applications": {"total": careers_count, "new": careers_new},
             "get_in_touch": {"total": get_in_touch_count, "new": get_in_touch_new},
-            "total_submissions": footer_count + contact_count + careers_count + get_in_touch_count
+            "project_enquiries": {"total": project_count, "new": project_new},
+            "total_submissions": footer_count + contact_count + careers_count + get_in_touch_count + project_count
         }
     except Exception as e:
         logging.error(f"Error fetching admin stats: {e}")
@@ -1682,6 +1734,22 @@ async def get_get_in_touch_submissions_admin(authorization: Optional[str] = Head
         raise HTTPException(status_code=500, detail="Failed to fetch submissions")
 
 
+@api_router.get("/admin/submissions/project-enquiries", response_model=ProjectEnquiryPage)
+async def get_project_enquiries_admin(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None):
+    token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    limit = max(1, min(limit, 200))
+    page = max(1, page)
+    query = {}
+    if search:
+        safe_search = sanitize_regex_input(search)
+        query["$or"] = [{field: {"$regex": safe_search, "$options": "i"}} for field in ("full_name", "email", "company", "job_title", "budget")]
+    total = await db.project_enquiries.count_documents(query)
+    submissions = await db.project_enquiries.find(query, {"_id": 0}).sort("created_at", -1).skip((page - 1) * limit).to_list(limit)
+    return {"data": submissions, "total": total, "page": page, "limit": limit, "totalPages": (total + limit - 1) // limit}
+
+
 @api_router.get("/admin/submissions/careers")
 async def get_career_applications_admin(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None, status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
     """Get career applications with optional date range filter and pagination"""
@@ -1734,7 +1802,7 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     # Validate form_type
-    if form_type not in ("careers", "footer", "contact", "get_in_touch"):
+    if form_type not in ("careers", "footer", "contact", "get_in_touch", "project_enquiry"):
         raise HTTPException(status_code=400, detail="Invalid form type")
     
     try:
@@ -1749,6 +1817,13 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
                         {"$set": {"status": "reviewed", "viewedAt": datetime.now(timezone.utc).isoformat()}}
                     )
                     submission["status"] = "reviewed"
+        elif form_type == "project_enquiry":
+            submission = await db.project_enquiries.find_one({"id": submission_id}, {"_id": 0})
+            if submission:
+                now_iso = datetime.now(timezone.utc).isoformat()
+                await db.project_enquiries.update_one({"id": submission_id}, {"$set": {"status": "viewed", "updated_at": now_iso}})
+                submission.update(status="viewed", updated_at=now_iso)
+                return ProjectEnquiryRecord.model_validate(submission)
         elif form_type == "get_in_touch":
             submission = await db.contact_enquiries.find_one({"id": submission_id}, {"_id": 0})
             if submission:
@@ -1788,7 +1863,7 @@ async def delete_submission(submission_id: str, form_type: str, authorization: O
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     # Validate form_type
-    if form_type not in ("careers", "footer", "contact", "get_in_touch"):
+    if form_type not in ("careers", "footer", "contact", "get_in_touch", "project_enquiry"):
         raise HTTPException(status_code=400, detail="Invalid form type")
     
     try:
@@ -1802,6 +1877,8 @@ async def delete_submission(submission_id: str, form_type: str, authorization: O
             result = await db.job_applications.delete_one({"id": submission_id})
         elif form_type == "get_in_touch":
             result = await db.contact_enquiries.delete_one({"id": submission_id})
+        elif form_type == "project_enquiry":
+            result = await db.project_enquiries.delete_one({"id": submission_id})
         else:
             result = await db.contacts.delete_one({"id": submission_id})
         
@@ -1997,7 +2074,7 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         raise HTTPException(status_code=401, detail="Unauthorized")
     
     # Validate data_type to prevent enumeration
-    valid_types = {"footer", "contact", "careers", "get_in_touch", "all"}
+    valid_types = {"footer", "contact", "careers", "get_in_touch", "project_enquiry", "all"}
     if data_type not in valid_types:
         raise HTTPException(status_code=400, detail="Invalid export type")
     
@@ -2005,7 +2082,14 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         import csv
         import io
         
-        if data_type == "get_in_touch":
+        if data_type == "project_enquiry":
+            data = await db.project_enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(100000)
+            fields = ["full_name", "email", "phone", "company", "job_title", "country", "city", "budget", "message", "privacy_consent", "marketing_consent", "status", "created_at"]
+            headers = [field.replace("_", " ").title() for field in fields]
+            rows = [[d.get(field, "") if field not in ("privacy_consent", "marketing_consent") else ("Yes" if d.get(field) else "No") for field in fields] for d in data]
+            filename = "project_enquiries_export.csv"
+
+        elif data_type == "get_in_touch":
             data = await db.contact_enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(100000)
             headers = ["First Name", "Last Name", "Company Email", "Role", "Project Details", "Marketing Consent", "Status", "Created At"]
             rows = [[d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), d.get("role", ""), d.get("project_details", ""), "Yes" if d.get("marketing_consent") else "No", d.get("status", ""), d.get("created_at", "")] for d in data]
@@ -2054,6 +2138,11 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
             for d in git_data:
                 rows.append(["Get in Touch", "get_in_touch", d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), "", "", d.get("project_details", ""), d.get("role", ""), d.get("status", ""), d.get("created_at", "")])
             
+            headers.append("Budget")
+            rows = [row + [""] for row in rows]
+            project_data = await db.project_enquiries.find({}, {"_id": 0}).to_list(100000)
+            for d in project_data:
+                rows.append(["Project Enquiry", "project_enquiry", d.get("full_name", ""), "", d.get("email", ""), d.get("phone", ""), d.get("company", ""), d.get("message", ""), d.get("job_title", ""), d.get("status", ""), d.get("created_at", ""), d.get("budget", "")])
             filename = "all_submissions_export.csv"
         else:
             raise HTTPException(status_code=400, detail="Invalid data type")
@@ -2062,6 +2151,9 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         output = io.StringIO()
         writer = csv.writer(output)
         writer.writerow(headers)
+        if data_type in ("project_enquiry", "all"):
+            # Treat user-entered text as text, never spreadsheet formulas.
+            rows = [[("'" + str(value)) if str(value).lstrip().startswith(("=", "+", "-", "@")) else value for value in row] for row in rows]
         writer.writerows(rows)
         
         # Return as downloadable file

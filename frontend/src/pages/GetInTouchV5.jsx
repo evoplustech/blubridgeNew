@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, Mail, ShieldCheck, Bug } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
@@ -10,64 +9,7 @@ const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const MAX_DETAILS = 1000;
 
-const rail = [
-  {
-    index: '01',
-    Icon: Compass,
-    title: 'Project Assistance.',
-    bullets: [
-      'Explore our technology solutions.',
-      'Connect with our team about your requirement.',
-      'Discuss your project with BluBridge specialists.',
-    ],
-    cta: { label: 'Explore solutions', href: '/solutions' },
-    testId: 'git5-rail-project',
-  },
-  {
-    index: '02',
-    Icon: Mail,
-    title: 'Business enquiries.',
-    text: <>Connect with us at <a href="mailto:info@blubridge.com" className="git5-module-link" data-testid="git5-rail-business-email">info@blubridge.com</a> for business, project and collaboration enquiries.</>,
-    testId: 'git5-rail-business',
-  },
-  {
-    index: '03',
-    Icon: ShieldCheck,
-    title: 'Data & privacy.',
-    text: 'Have a question regarding your information or privacy? Contact our team for assistance.',
-    cta: { label: 'Contact us', href: 'mailto:privacy@blubridge.com' },
-    testId: 'git5-rail-privacy',
-  },
-  {
-    index: '04',
-    Icon: Bug,
-    title: 'Security reporting.',
-    text: 'If you identify a potential security issue involving a BluBridge product or service, you can securely report it to our team.',
-    cta: { label: 'Report an issue', href: 'mailto:support@blubridge.com' },
-    note: 'General technical questions should be submitted through our standard contact channels.',
-    testId: 'git5-rail-security',
-  },
-];
-
 const emptyForm = { firstName: '', lastName: '', email: '', role: '', message: '', marketingConsent: false };
-
-const RailCta = ({ cta, testId }) => {
-  const inner = <>{cta.label}<span className="git5-cta-arrow" aria-hidden="true">→</span></>;
-  if (cta.href.startsWith('mailto:')) return <a href={cta.href} className="git5-col-cta" data-testid={testId}>{inner}</a>;
-  return <Link to={cta.href} className="git5-col-cta" data-testid={testId}>{inner}</Link>;
-};
-
-const RailItem = ({ item }) => (
-  <div className="git5-col" data-testid={item.testId}>
-    <h3 className="git5-col-title"><item.Icon className="git5-col-icon" strokeWidth={1.6} aria-hidden="true" />{item.title}</h3>
-    {item.bullets && <ul className="git5-col-bullets">{item.bullets.map((b) => <li key={b}>{b}</li>)}</ul>}
-    {item.text && <p className="git5-col-desc">{item.text}</p>}
-    <div className="git5-col-foot">
-      {item.cta && <RailCta cta={item.cta} testId={`${item.testId}-cta`} />}
-      {item.note && <p className="git5-col-note">{item.note}</p>}
-    </div>
-  </div>
-);
 
 const GetInTouchV5 = () => {
   const [formData, setFormData] = useState(emptyForm);
@@ -251,15 +193,6 @@ const GetInTouchV5 = () => {
         </div>
       </section>
 
-      {/* How can we help */}
-      <section className="git5-help">
-        <div className="bb-container">
-          <div className="git5-help-head"><span className="git5-eyebrow">HOW CAN WE HELP</span></div>
-          <div className="git5-cols" data-testid="git5-rail">
-            {rail.map((item) => <RailItem key={item.testId} item={item} />)}
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

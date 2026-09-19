@@ -1,0 +1,46 @@
+{
+  "summary": "Completed backend + frontend validation for /get-in-touch-6 budget field and new admin project enquiries flow. Backend pytest passed with budget validation, auth rejection checks, admin list/detail/delete/export/stats coverage. UI verified real submit, currency+range behavior, reset defaults, admin view/search/refresh/delete(cancel+confirm), responsive checks, and mobile header menu fix behavior.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Legacy project enquiries without budget in admin UI",
+        "issue": "No existing legacy record surfaced in UI list during this run, so visual 'Not provided' rendering could not be observed live (API/model path validated).",
+        "affected_selectors": [
+          "[data-testid^='admin-project-budget-']",
+          "[data-testid='admin-project-detail-budget']"
+        ]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_project_enquiries.py",
+    "/app/test_reports/pytest/project_enquiries_iter25.xml"
+  ],
+  "action_items": [
+    "Add data-testid attributes to AdminLogin inputs/button for stronger automated testability.",
+    "Optional: keep at least one known legacy project_enquiry fixture (without budget) in staging seed data for stable UI regression of 'Not provided'."
+  ],
+  "critical_code_review_comments": [
+    "AdminLogin interactive controls currently lack data-testid attributes, reducing selector stability for automated regression.",
+    "Custom cursor fixed elements can appear as false-positive overflow offenders in raw bounding-box scans; filter hidden cursor layers in future visual-overflow diagnostics."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_project_enquiries.py",
+    "/app/test_reports/iteration_25.json"
+  ],
+  "success_rate": {
+    "backend": "100% (21/21)",
+    "frontend": "96%"
+  },
+  "seed_data_creation": "Created TEST_QA project enquiry records for validation; deletion flow verified in UI for TEST record and backend cleanup fixture removes TEST_QA backend test records.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Screenshots captured for required responsive checks: git7 desktop/mobile and admin desktop/mobile (+ admin detail modal). Public rate limiter remains aggressive; spacing submissions helped avoid 429. /get-in-touch-7/-8/-9 showed no budget field leakage and remain frontend-only MOCKED submissions by design.",
+  "rca of the issue": "No blocking functional defects found in tested scope. One selector failure occurred initially when mobile Research click targeted hidden desktop link; rerun with scoped mobile-panel selector passed, confirming menu behavior is healthy."
+}

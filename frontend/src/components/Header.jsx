@@ -290,6 +290,7 @@ const Header = () => {
               className="lg:hidden text-bb-ink p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
               data-testid="nav-mobile-toggle"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -309,6 +310,8 @@ const Header = () => {
 
       {/* Mobile panel */}
       <div
+        hidden={!mobileMenuOpen}
+        data-testid="nav-mobile-panel"
         className={`fixed top-[104px] right-0 bottom-0 w-[88vw] max-w-[380px] lg:hidden overflow-y-auto transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         style={{ zIndex: 9999, background: '#ffffff', borderLeft: '1px solid #d4d8e8' }}
       >

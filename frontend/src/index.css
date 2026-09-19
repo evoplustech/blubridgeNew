@@ -1317,6 +1317,12 @@ html.mscur-active body {
 .git7-input-error, .git7-input-error:focus { border-bottom-color: #dc2626; }
 .git7-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230a1230' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-position: right 14px center; background-repeat: no-repeat; cursor: pointer; padding-right: 40px; }
 .git7-select-empty { color: #9aa3bd; }
+.git7-budget-controls { display: grid; gap: 12px; grid-template-columns: 76px minmax(0, 1fr); }
+.git7-budget-controls .git7-input { min-width: 0; }
+@media (max-width: 359px) {
+  .git7-budget-controls { grid-template-columns: 68px minmax(0, 1fr); gap: 8px; }
+  .git7-budget-controls .git7-select { padding-left: 10px; padding-right: 28px; background-position: right 8px center; font-size: 13px; }
+}
 .git7-textarea { height: auto; line-height: 1.6; min-height: 150px; padding: 13px 14px; resize: vertical; }
 .git7-counter { color: #7c86a2; font-family: Inter, sans-serif; font-size: 12.5px; margin-top: 8px; text-align: right; }
 .git7-err { color: #dc2626; font-family: Inter, sans-serif; font-size: 12.5px; margin: 7px 0 0; }

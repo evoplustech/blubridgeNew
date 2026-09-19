@@ -8,6 +8,8 @@ const API_URL = process.env.REACT_APP_BACKEND_URL;
    Styles scoped under .git7-* (index.css). Backend: POST /api/project-enquiries */
 
 const MAX_MESSAGE = 1000;
+const budgetRanges = ['Under 10,000', '10,000–50,000', '50,000–100,000', '100,000–500,000', '500,000+'];
+const budgetCurrencies = ['₹', '$', '€'];
 
 const countries = [
   'India', 'United States', 'United Kingdom', 'United Arab Emirates', 'Singapore', 'Australia', 'Canada',
@@ -18,6 +20,7 @@ const countries = [
 
 const emptyForm = {
   fullName: '', email: '', phone: '', company: '', jobTitle: '', country: '', city: '', message: '',
+  budgetCurrency: '₹', budgetRange: '',
   privacyConsent: false, marketingConsent: false,
 };
 
@@ -27,7 +30,7 @@ const Field = ({ id, label, required, error, children, full }) => (
       {label} <span className={required ? 'git7-req' : 'git7-opt'}>{required ? '(required)' : '(optional)'}</span>
     </label>
     {children}
-    {error && <p className="git7-err" data-testid={`git7-error-${id}`}>{error}</p>}
+    {error && <p id={`${id}-error`} className="git7-err" data-testid={`git7-error-${id}`}>{error}</p>}
   </div>
 );
 
@@ -60,6 +63,7 @@ const GetInTouchV7 = () => {
     if (!formData.company.trim()) er.company = 'Company is required';
     if (!formData.jobTitle.trim()) er.jobTitle = 'Job title is required';
     if (!formData.city.trim()) er.city = 'City is required';
+    if (!budgetRanges.includes(formData.budgetRange)) er.budgetRange = 'Please select a budget range';
     if (formData.message.trim().length > MAX_MESSAGE) er.message = `Please keep this under ${MAX_MESSAGE} characters`;
     if (!formData.privacyConsent) er.privacyConsent = 'Please accept the privacy policy to continue';
     setErrors(er);
@@ -79,6 +83,7 @@ const GetInTouchV7 = () => {
           fullName: formData.fullName.trim(), email: formData.email.trim().toLowerCase(), phone: formData.phone.trim(),
           company: formData.company.trim(), jobTitle: formData.jobTitle.trim(), country: formData.country || null,
           city: formData.city.trim(), message: formData.message.trim() || null,
+          budget: `${formData.budgetCurrency} ${formData.budgetRange}`,
           privacyConsent: formData.privacyConsent, marketingConsent: formData.marketingConsent,
         }),
       });
@@ -130,6 +135,17 @@ const GetInTouchV7 = () => {
               </Field>
               <Field id="city" label="City" required error={errors.city}>
                 <input id="city" name="city" type="text" placeholder="City name" autoComplete="address-level2" value={formData.city} onChange={onChange} className={cls('city')} data-testid="git7-input-city" />
+              </Field>
+              <Field id="budget-range" label="Budget" required error={errors.budgetRange} full>
+                <div className="git7-budget-controls" data-testid="git7-budget-row">
+                  <select name="budgetCurrency" aria-label="Budget currency" required value={formData.budgetCurrency} onChange={onChange} className="git7-input git7-select" data-testid="git7-budget-currency">
+                    {budgetCurrencies.map(currency => <option key={currency} value={currency}>{currency}</option>)}
+                  </select>
+                  <select id="budget-range" name="budgetRange" required aria-invalid={Boolean(errors.budgetRange)} aria-describedby={errors.budgetRange ? 'budget-range-error' : undefined} value={formData.budgetRange} onChange={onChange} className={`${cls('budgetRange')} git7-select${formData.budgetRange ? '' : ' git7-select-empty'}`} data-testid="git7-budget-range">
+                    <option value="">Select budget range</option>
+                    {budgetRanges.map(range => <option key={range} value={range}>{range}</option>)}
+                  </select>
+                </div>
               </Field>
               <Field id="message" label="Message" error={errors.message} full>
                 <textarea id="message" name="message" rows={5} maxLength={MAX_MESSAGE} placeholder="Add details about your project…" value={formData.message} onChange={onChange} className={`${cls('message')} git7-textarea`} data-testid="git7-input-message" />
