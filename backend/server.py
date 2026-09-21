@@ -26,6 +26,7 @@ from email.mime.multipart import MIMEMultipart
 from collections import defaultdict
 import time
 import html
+from consultation_models import AIConsultationEnquiry, ConsultationRecord, ConsultationPage
 
 
 ROOT_DIR = Path(__file__).parent
@@ -136,6 +137,7 @@ class SecurityMiddleware(BaseHTTPMiddleware):
         "/api/contact-us",
         "/api/contact-enquiries",
         "/api/project-enquiries",
+        "/api/ai-consultation-enquiries",
         "/api/newsletter/subscribe",
         "/api/careers/apply",
         "/api/job-applications/submit",
@@ -1038,6 +1040,30 @@ async def submit_project_enquiry(enquiry: ProjectEnquiry):
         raise HTTPException(status_code=500, detail="Failed to submit enquiry")
 
 
+@api_router.post("/ai-consultation-enquiries", response_model=ProjectEnquiryReceipt, status_code=201)
+async def submit_ai_consultation(enquiry: AIConsultationEnquiry):
+    """Save the complete V11 form alongside legacy AI consultation enquiries."""
+    email = str(enquiry.workEmail).lower()
+    since = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+    if await db.contact_enquiries.find_one({"company_email": email, "created_at": {"$gte": since}}, {"_id": 0, "id": 1}):
+        raise HTTPException(status_code=409, detail="You have already submitted an enquiry recently. Please wait a moment before trying again.")
+    now = datetime.now(timezone.utc).isoformat()
+    doc = {
+        "id": str(uuid.uuid4()), "full_name": enquiry.fullName, "company_email": email,
+        "company": enquiry.company, "phone": enquiry.phone, "role": enquiry.jobTitle,
+        "country": enquiry.country, "city": enquiry.city, "budget": enquiry.budget,
+        "services": enquiry.services, "project_details": enquiry.description,
+        "privacy_consent": enquiry.privacy, "marketing_consent": enquiry.marketing,
+        "source": "/get-in-touch-10", "status": "new", "created_at": now, "updated_at": now,
+    }
+    await db.contact_enquiries.insert_one(doc)
+    # Use a separate payload: insert_one adds a BSON _id to doc.
+    notification = {key: value for key, value in doc.items() if key != "_id"}
+    notification.update(email=email, services=", ".join(enquiry.services), privacy_consent="Yes", marketing_consent="Yes" if enquiry.marketing else "No")
+    await send_contact_form_email("ai_consultation_enquiry", notification, submission_timestamp=now)
+    return {"id": doc["id"], "message": "Your AI consultation enquiry has been received."}
+
+
 # Contact Us (Footer Form) - Simple endpoint
 @api_router.post("/contact-us")
 async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[str] = None, email: str = None, message: Optional[str] = None):
@@ -1703,7 +1729,7 @@ async def get_contact_submissions_admin(authorization: Optional[str] = Header(No
         raise HTTPException(status_code=500, detail="Failed to fetch submissions")
 
 
-@api_router.get("/admin/submissions/get-in-touch")
+@api_router.get("/admin/submissions/get-in-touch", response_model=ConsultationPage)
 async def get_get_in_touch_submissions_admin(authorization: Optional[str] = Header(None), limit: int = 50, page: int = 1, search: Optional[str] = None):
     """Get in Touch enquiries (contact_enquiries collection) with pagination"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
@@ -1721,7 +1747,11 @@ async def get_get_in_touch_submissions_admin(authorization: Optional[str] = Head
                 {"first_name": {"$regex": safe_search, "$options": "i"}},
                 {"last_name": {"$regex": safe_search, "$options": "i"}},
                 {"company_email": {"$regex": safe_search, "$options": "i"}},
-                {"role": {"$regex": safe_search, "$options": "i"}}
+                {"role": {"$regex": safe_search, "$options": "i"}},
+                {"full_name": {"$regex": safe_search, "$options": "i"}},
+                {"company": {"$regex": safe_search, "$options": "i"}},
+                {"services": {"$regex": safe_search, "$options": "i"}},
+                {"budget": {"$regex": safe_search, "$options": "i"}}
             ]
 
         total = await db.contact_enquiries.count_documents(query)
@@ -1833,6 +1863,8 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
                     {"$set": {"status": "viewed", "updated_at": now_iso}}
                 )
                 submission["status"] = "viewed"
+                submission["updated_at"] = now_iso
+                return ConsultationRecord.model_validate(submission)
         else:
             # Get from contacts
             submission = await db.contacts.find_one({"id": submission_id}, {"_id": 0})
@@ -2093,7 +2125,10 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
             data = await db.contact_enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(100000)
             headers = ["First Name", "Last Name", "Company Email", "Role", "Project Details", "Marketing Consent", "Status", "Created At"]
             rows = [[d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), d.get("role", ""), d.get("project_details", ""), "Yes" if d.get("marketing_consent") else "No", d.get("status", ""), d.get("created_at", "")] for d in data]
-            filename = "get_in_touch_export.csv"
+            headers += ["Full Name", "Company", "Phone", "Country", "City", "Budget", "AI Services", "Privacy Consent", "Source", "Updated At"]
+            for row, doc in zip(rows, data):
+                row.extend([doc.get("full_name") or " ".join(filter(None, [doc.get("first_name"), doc.get("last_name")])), doc.get("company", ""), doc.get("phone", ""), doc.get("country", ""), doc.get("city", ""), doc.get("budget", ""), "; ".join(doc.get("services", [])), "" if doc.get("privacy_consent") is None else ("Yes" if doc["privacy_consent"] else "No"), doc.get("source", ""), doc.get("updated_at", "")])
+            filename = "ai_consultation_enquiries_export.csv"
             
         elif data_type == "footer":
             # Export footer form submissions
@@ -2134,15 +2169,16 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
             for d in career_data:
                 rows.append(["Career Application", "job_application", d.get("firstName", ""), d.get("lastName", ""), d.get("email", ""), d.get("phone", ""), "", "", d.get("jobTitle", ""), d.get("status", ""), d.get("appliedAt", "")])
             
-            git_data = await db.contact_enquiries.find({}, {"_id": 0}).to_list(100000)
-            for d in git_data:
-                rows.append(["Get in Touch", "get_in_touch", d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), "", "", d.get("project_details", ""), d.get("role", ""), d.get("status", ""), d.get("created_at", "")])
-            
             headers.append("Budget")
             rows = [row + [""] for row in rows]
             project_data = await db.project_enquiries.find({}, {"_id": 0}).to_list(100000)
             for d in project_data:
                 rows.append(["Project Enquiry", "project_enquiry", d.get("full_name", ""), "", d.get("email", ""), d.get("phone", ""), d.get("company", ""), d.get("message", ""), d.get("job_title", ""), d.get("status", ""), d.get("created_at", ""), d.get("budget", "")])
+            headers += ["Full Name", "Country", "City", "AI Services", "Privacy Consent", "Marketing Consent", "Page Source", "Updated At"]
+            rows = [row + [""] * 8 for row in rows]
+            git_data = await db.contact_enquiries.find({}, {"_id": 0}).to_list(100000)
+            for d in git_data:
+                rows.append(["AI Consultation Enquiry", "get_in_touch", d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), d.get("phone", ""), d.get("company", ""), d.get("project_details", ""), d.get("role", ""), d.get("status", ""), d.get("created_at", ""), d.get("budget", ""), d.get("full_name") or " ".join(filter(None, [d.get("first_name"), d.get("last_name")])), d.get("country", ""), d.get("city", ""), "; ".join(d.get("services", [])), "" if d.get("privacy_consent") is None else ("Yes" if d["privacy_consent"] else "No"), "Yes" if d.get("marketing_consent") else "No", d.get("source", ""), d.get("updated_at", "")])
             filename = "all_submissions_export.csv"
         else:
             raise HTTPException(status_code=400, detail="Invalid data type")
@@ -2151,7 +2187,7 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
         output = io.StringIO()
         writer = csv.writer(output)
         writer.writerow(headers)
-        if data_type in ("project_enquiry", "all"):
+        if data_type in ("get_in_touch", "project_enquiry", "all"):
             # Treat user-entered text as text, never spreadsheet formulas.
             rows = [[("'" + str(value)) if str(value).lstrip().startswith(("=", "+", "-", "@")) else value for value in row] for row in rows]
         writer.writerows(rows)

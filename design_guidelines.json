@@ -1,0 +1,34 @@
+{
+  "project_name": "BluBridge screenshot contact variant",
+  "route": "/get-in-touch-10",
+  "component": "/app/frontend/src/pages/GetInTouchV11.jsx",
+  "stylesheet": "/app/frontend/src/pages/get-in-touch-v11/GetInTouchV11.css",
+  "scope": "Every CSS selector scoped to .git11-page. Preserve GetInTouchV9.jsx, index.css, Header.jsx and Footer.jsx unchanged.",
+  "reference": "https://customer-assets-0z36b82j.emergentagent.net/job_18381b19-a01c-4397-b377-64e684d0013e/artifacts/sdixlbu5_image.png",
+  "approved_user_choices": "Match screenshot layout, wording and fields; multiple service selections; keep site header/footer. Initially frontend-only; user subsequently requested real backend saving of every field with current required/optional rules and admin visibility under AI Consultation Enquiry.",
+  "appearance": {
+    "background": "#f0f2fa",
+    "ink": "#0a102c",
+    "services_background": "#ecf0ff",
+    "inputs": "White, 1px pale border, 3px radius, desktop height 38px",
+    "typography": "Existing Geist; IBM Plex Mono eyebrow",
+    "layout": "970px centred body. Centred intro above full-width services. Two equal form columns with 66px gap and vertical divider. Bottom consents left and navy CTA right. No form cards, heavy shadows or extra imagery.",
+    "responsive": "Six service columns on desktop, three below 900px, two below 768px. Form columns stack below 768px. Controls remain within viewport at 320px."
+  },
+  "copy": {
+    "eyebrow": "GET IN TOUCH",
+    "heading": "Let’s build what’s next.",
+    "subtitle": "From an early idea to your next AI initiative, let’s find the right place to start.",
+    "services_label": "What can we help you with? *",
+    "services_hint": "Choose one or more",
+    "services": ["AI strategy", "Generative AI", "AI agents", "Custom AI models", "AI integration", "Not sure yet"],
+    "default_selection": ["Generative AI"],
+    "left_column": "Your details: Full name*, Work email*, Company*, Phone (optional), Job title (optional)",
+    "right_column": "Your project: Country (optional), City (optional), Budget (optional; Not sure yet), What would you like to achieve? (optional)",
+    "privacy": "I agree to the Privacy Policy. *",
+    "updates": "Send me occasional BluBridge updates. (optional)",
+    "cta": "Let’s talk about AI",
+    "note": "Fields marked * are required."
+  },
+  "behaviour": "POST /api/ai-consultation-enquiries saves all form values and consents in contact_enquiries. Validate required name/email/company/privacy and at least one service; validate optional phone when present. Disable while submitting, reset only on success, retain input on errors. All values visible in Admin /admin/get-in-touch and CSV. Source /get-in-touch-8 remains unchanged and MOCKED."
+}

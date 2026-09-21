@@ -49,7 +49,7 @@ const AdminDashboard = () => {
       color: 'bg-emerald-500'
     },
     {
-      title: 'Get in Touch',
+      title: 'AI Consultation Enquiry',
       icon: Inbox,
       total: stats?.get_in_touch?.total || 0,
       new: stats?.get_in_touch?.new || 0,
@@ -97,7 +97,7 @@ const AdminDashboard = () => {
             <div key={index} className="bg-white rounded-xl border border-[#E5E7EB] p-6 hover:shadow-md transition-shadow">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm font-medium text-[#6B7280]">{card.title}</p>
+                  <p className="text-sm font-medium text-[#6B7280]" data-testid={`admin-stat-label-${card.link ? card.link.split('/').pop() : 'total-submissions'}`}>{card.title}</p>
                   <p className="text-3xl font-bold text-[#0B1F3B] mt-2" data-testid={`admin-stat-${card.title.toLowerCase().replaceAll(' ', '-')}`}>
                     {loading ? '...' : card.total}
                   </p>
@@ -130,10 +130,11 @@ const AdminDashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link 
               to="/admin/get-in-touch"
+              data-testid="admin-ai-consultation-quick-link"
               className="flex items-center gap-3 p-4 bg-[#F8F9FA] rounded-lg hover:bg-[#E5E7EB] transition-colors"
             >
               <Inbox className="w-5 h-5 text-sky-600" />
-              <span className="font-medium text-[#374151]">Manage Get in Touch</span>
+              <span className="font-medium text-[#374151]">Manage AI Consultation Enquiry</span>
             </Link>
             <Link 
               to="/admin/footer-forms"

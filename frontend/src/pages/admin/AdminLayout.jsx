@@ -66,7 +66,7 @@ const AdminLayout = ({ children }) => {
     { path: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { path: '/admin/footer-forms', icon: FileText, label: 'Footer Forms' },
     { path: '/admin/contact-forms', icon: MessageSquare, label: 'Contact Forms' },
-    { path: '/admin/get-in-touch', icon: Inbox, label: 'Get in Touch' },
+    { path: '/admin/get-in-touch', icon: Inbox, label: 'AI Consultation Enquiry' },
     { path: '/admin/project-enquiries', icon: Briefcase, label: 'Project Enquiries' },
     { path: '/admin/careers', icon: Briefcase, label: 'Career Applications' },
     { path: '/admin/settings', icon: Settings, label: 'Settings' },

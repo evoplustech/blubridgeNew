@@ -3,21 +3,26 @@
 ## Original Problem Statement
 Complete visual and structural redesign of the BluBridge website combining approved sections from three reference deployments. STRICT CONTENT LOCK: no adding, removing, or paraphrasing existing text. Premium, minimal, light-themed, enterprise-grade editorial appearance.
 
-Contact-page iterations: retain ten isolated variants (`/get-in-touch` through `/get-in-touch-9`) with the established BluBridge styling. Latest approved request: add required Budget currency (₹ / $ / €) + range dropdown to `/get-in-touch-6`, in a full-width row between City and Message, persist it and display it in admin. Approved ranges: Under 10,000; 10,000–50,000; 50,000–100,000; 100,000–500,000; 500,000+ in the selected currency. Other variants' forms remain unchanged.
+Contact-page iterations: retain eleven isolated variants (`/get-in-touch` through `/get-in-touch-10`) with established BluBridge styling. `/get-in-touch-6` has required Budget currency (₹ / $ / €) + range dropdown between City and Message. Latest approved request: recreate the user's screenshot at `/get-in-touch-10` while keeping source `/get-in-touch-8` completely unchanged; rename admin Get in Touch labels to **AI Consultation Enquiry**; connect the new form so ALL submitted fields, selected AI services and consent choices are persisted and visible in admin details and CSV. Preserve current required/optional fields. Approved budget ranges remain Under 10,000; 10,000–50,000; 50,000–100,000; 100,000–500,000; 500,000+ in the selected currency.
 
 ## Architecture
 - React frontend served via Express (`/app/frontend/server.js` serves `/app/frontend/build`). Current server includes a debounced source watcher that automatically runs `yarn build`; a manual `yarn build` can also generate the static bundle. Regular source changes do not require a supervisor restart.
 - FastAPI backend (`/app/backend/server.py`, monolithic)
 - MongoDB
+- V11 consultation request/response models: `/app/backend/consultation_models.py`; saved alongside legacy enquiries in `contact_enquiries`, no destructive migration.
 - Global custom cursor: `/app/frontend/src/components/CustomCursor.jsx`
 
 ## Key Routes
 - `/` Home, `/about-us`, `/careers`, `/research`, `/contact`, `/solutions/*`, `/products/*`
 - Admin: `/admin` (user: admin / pass: admin)
+- `/get-in-touch-10` → `GetInTouchV11.jsx`, isolated CSS/components under `pages/get-in-touch-v11/`; real submissions.
+- `/admin/get-in-touch` → **AI Consultation Enquiry**, with list/detail/search/CSV; `/admin/project-enquiries` remains the separate v6 Project Enquiries section.
 
 ## Key API Endpoints
 - `POST /api/contacts/submit`
 - `POST /api/job-applications/submit`
+- `POST /api/ai-consultation-enquiries` (v11 real form, public POST only, 201 on saved enquiry)
+- `GET /api/admin/submissions/get-in-touch`, `GET/DELETE /api/admin/submission/{id}?form_type=get_in_touch`, `GET /api/admin/export/get_in_touch`, `GET /api/admin/export/all`
 
 ## Implemented (as of June 2026)
 - All major pages visually overhauled per reference URLs
@@ -35,7 +40,7 @@ Contact-page iterations: retain ten isolated variants (`/get-in-touch` through `
 
 ## Backlog
 ### P0
-- None in the approved budget/admin scope. Cursor clickability and mobile navigation verified in iteration_25; earlier broad regression completed in iteration_19.
+- None in current scope. V11 real submission/admin/CSV flow and rename verified in iteration_27 (21 backend tests, frontend flows passed). Cursor/mobile verified in iteration_25; broad regression completed in iteration_19.
 ### P1
 - Await user selection of final contact-page variant.
 - Backend integration for `/get-in-touch-7`, `-8`, `-9` ONLY when requested; submissions remain frontend-only MOCKED by design.
@@ -115,3 +120,21 @@ Contact-page iterations: retain ten isolated variants (`/get-in-touch` through `
 - Verification: build compiled; Python compile passed; iteration_25 backend **21/21 passed**, including all valid budgets, invalid required values, persistence, protected admin CRUD/export/stats. Frontend real submission/reset/currency-switch, admin actions, navigation and desktop/mobile verified. Final self-test resolved the tester's only coverage gap: a temporary legacy record with long unbroken name/company text rendered `Not provided` in list/detail; no overflow at 1920×800 or 390×844, and test fixture deleted. See `/app/test_reports/iteration_25.json` and `iteration_25_followup.md`.
 - Existing Resend send calls logged success during tests; inbox receipt not independently checked. No new integrations or credentials. `/get-in-touch-7`, `-8`, `-9` remain **MOCKED** frontend-only as requested.
 - Next action: user review at `/get-in-touch-6` and `/admin/project-enquiries`. No known blockers in this scope; P1/P2/P3 backlog above remains deferred.
+
+## Update — 2026-09-21: Screenshot duplicate /get-in-touch-10
+- Created independent `GetInTouchV11.jsx` route with `get-in-touch-v11/EnquiryFields.jsx`, `useEnquiryForm.js`, and `GetInTouchV11.css`. Light screenshot-matched layout: centred intro; six multi-select AI services; Your details / Your project columns; privacy/update checkboxes and CTA. Generative AI selected initially; Budget defaults to Not sure yet.
+- Kept global site header/footer as explicitly approved. **Source `/get-in-touch-8` unchanged**: SHA-256 checks for GetInTouchV9.jsx, index.css, Header.jsx, Footer.jsx all pass; no source styles edited. All new styling is .git11-page scoped.
+- Initial frontend-only version passed iteration_26 except one minor mobile subtitle spacing issue. Fixed with explicit whitespace around the responsive line break; verified in main screenshots and iteration_27. Initial MOCKED behaviour was subsequently replaced by real submission at user's explicit request below.
+
+## Update — 2026-09-21: AI Consultation Enquiry naming + real backend flow
+- Exact admin name **AI Consultation Enquiry** applied to sidebar (desktop/mobile), page heading, dashboard card/quick link and related description. Public wording and existing admin route `/admin/get-in-touch` unchanged.
+- User clarified to retain current requirements: full name, work email, company, at least one AI service and privacy consent required; phone/job title/country/city/budget/description optional; marketing consent optional.
+- New public POST `/api/ai-consultation-enquiries` validates and saves every field in MongoDB. Request fields: fullName, workEmail, company, phone, jobTitle, country, city, budget, description, services, privacy, marketing. Model forbids extra keys, enforces allowed services and budgets, validates optional phone, strips whitespace and lowercases email; duplicate same-email submissions within 60 seconds receive 409. Only the exact new POST is added to the public allowlist; existing admin authentication unchanged.
+- Storage mappings: `full_name`, `company_email`, `company`, `phone`, `role` (job title), `country`, `city`, `budget`, `project_details` (description), `services`, `privacy_consent`, `marketing_consent`, `source=/get-in-touch-10`, `status`, UTC `created_at/updated_at`. Existing first_name/last_name records remain intact and readable. Typed response models exclude BSON _id.
+- Real frontend save: sends one request, disables controls while submitting, prevents double clicks, resets only after success, shows a thank-you. 409/422/429/server/network errors show actionable feedback and preserve inputs. No authentication or API credentials changed. Existing notification helper logs successful sends; inbox receipt not independently verified.
+- Admin page split into small components: GetInTouchForms.jsx, useConsultationEnquiries.js, ConsultationTable.jsx, ConsultationDetail.jsx. List shows name/email/company/role/services/budget/date/status; details show ALL form values plus both consents/source/time. Supports search, pagination, refresh, viewed status and confirmed delete. New and legacy records supported.
+- Dedicated and combined CSV exports include every new field and both consent flags; dangerous spreadsheet prefixes escaped. Dedicated download name now ai_consultation_enquiries_*.csv.
+- Testing: production build + Python compile passed. `/app/test_reports/iteration_27.json`: **21/21 backend tests**, frontend success/reset/error preservation, admin labels/CRUD/search/pagination/export, source isolation, legacy compatibility and responsive 1920×800 / 390×844 flows passed. Main screenshots also show no overflow and fixed mobile subtitle. No unresolved defects.
+- Test cleanup: corrected over-escaped QA email patterns in the tester's cleanup script, then removed eight remaining temporary consultation records and two QA project regression records. Non-QA records untouched.
+- Remaining mocks: ONLY `/get-in-touch-7`, `/get-in-touch-8`, `/get-in-touch-9` remain frontend-only **MOCKED** by prior request. `/get-in-touch-10` is now REAL.
+- Next: user validation of a submitted enquiry under Admin → AI Consultation Enquiry. P1 final-variant selection and P2 admin budget/service filters remain optional backlog, not implemented.

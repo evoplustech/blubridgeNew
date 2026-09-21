@@ -1,0 +1,42 @@
+{
+  "summary": "Completed backend + frontend validation for /get-in-touch-10 real submission flow, admin rename updates, detail/list/export roundtrip, security gates, and regression checks for /get-in-touch-6/-7/-8/-9.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_ai_consultation_enquiries_v11.py",
+    "/app/test_reports/pytest/ai_consultation_iter27.xml",
+    "/tmp/get-in-touch-10-source-before.sha256"
+  ],
+  "action_items": [
+    "No blocking fixes required from this test run.",
+    "Keep /get-in-touch-7, /get-in-touch-8, /get-in-touch-9 as MOCKED per scope; /get-in-touch-10 remains real.",
+    "Optional: trim test suite size to <=20 tests per run guideline (current dedicated suite has 21 focused tests)."
+  ],
+  "critical_code_review_comments": [
+    "AI consultation payload validation is correctly strict (extra keys forbidden, consent enforced, service/budget allowlists enforced).",
+    "CSV exports now include consultation fields and formula-escape dangerous cells for get_in_touch/all exports.",
+    "No API/auth regression detected on existing contact-enquiries and project-enquiries routes.",
+    "Source hash guard passed for protected /get-in-touch-8 related files."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_ai_consultation_enquiries_v11.py",
+    "/app/scripts/cleanup_iter27.py",
+    "/app/test_reports/iteration_27.json"
+  ],
+  "success_rate": {
+    "backend": "100% (21/21)",
+    "frontend": "100% (executed flows passed)"
+  },
+  "seed_data_creation": "Created temporary QA consultation submissions for UI/admin/export checks; cleaned QA test records from contact_enquiries after run.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Validated live POST /api/ai-consultation-enquiries (201), duplicate 409, validation 422, protected admin endpoints, admin list/detail/delete/export/all export, and UI states for success/422/409/429/500/network. Confirmed admin rename to 'AI Consultation Enquiry' across sidebar/page/dashboard/quick link. /get-in-touch-6 works; /get-in-touch-7/-8/-9 remain MOCKED with frontend notices.",
+  "rca of the issue": "No unresolved defects in requested scope. Earlier failed selector in regression smoke was test-script mismatch (wrong text/field ids), not app behavior; corrected selectors passed immediately."
+}
