@@ -12,6 +12,13 @@ export const ConsultationDetail = ({ enquiry, onClose, onDelete, busy, error }) 
   const fields = [
     ['full-name', 'Full name', consultationName(enquiry)], ['email', 'Work email', enquiry.company_email],
     ['company', 'Company', enquiry.company], ['phone', 'Phone', enquiry.phone],
+    ...(enquiry.contact_permission != null ? [
+      ['website', 'Company Website', enquiry.website], ['calling-code', 'Calling Code', enquiry.calling_code],
+      ['country-code', 'Country / Region Code', enquiry.country_code], ['phone-country', 'Phone Country / Region Code', enquiry.phone_country],
+      ['initiative-role', 'What is your role in this initiative?', enquiry.initiative_role],
+      ...(enquiry.initiative_role === 'Other' ? [['other-role', 'Please specify your role', enquiry.other_role]] : []),
+      ['contact-permission', 'Contact Permission', consent(enquiry.contact_permission)],
+    ] : []),
     ['job-title', 'Job title / Role', enquiry.role], ['country', 'Country', enquiry.country],
     ['city', 'City', enquiry.city], ['budget', wizard ? (enquiry.budget_type === 'monthly' ? 'Estimated Monthly Budget (USD)' : 'Estimated Project Budget (USD)') : 'Budget', enquiry.budget || 'Not sure yet / Not provided'],
     ['services', 'AI services', enquiry.services?.join(', ')],

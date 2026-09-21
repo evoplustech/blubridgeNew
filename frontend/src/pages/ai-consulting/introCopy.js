@@ -1,0 +1,2 @@
+export const enquiryHeading = 'Discuss Your AI Requirement';
+export const enquiryDescription = 'Tell us what you are looking to build, improve or deploy. Share your requirement, estimated budget and contact details. Our team will review your enquiry and contact you to discuss the next steps.';

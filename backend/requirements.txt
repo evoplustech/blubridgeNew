@@ -25,6 +25,7 @@ jmespath==1.0.1
 jq==1.10.0
 librt==0.7.3
 limits==5.8.0
+lxml==6.1.1
 markdown-it-py==4.0.0
 mccabe==0.7.0
 mdurl==0.1.2
@@ -37,10 +38,13 @@ packaging==25.0
 pandas==2.3.3
 passlib==1.7.4
 pathspec==0.12.1
+phonenumbers==9.0.39
+pillow==12.2.0
 platformdirs==4.5.1
 pluggy==1.6.0
 pyasn1==0.6.1
 pycodestyle==2.14.0
+pycountry==26.2.16
 pycparser==2.23
 pydantic==2.12.5
 pydantic_core==2.41.5
@@ -53,6 +57,7 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.2.1
 python-jose==3.5.0
 python-multipart==0.0.20
+python-pptx==1.0.2
 pytokens==0.3.0
 pytz==2025.2
 requests==2.32.5
@@ -74,3 +79,4 @@ urllib3==2.6.1
 uvicorn==0.25.0
 watchfiles==1.1.1
 wrapt==2.1.2
+xlsxwriter==3.2.9

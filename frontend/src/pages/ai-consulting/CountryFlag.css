@@ -1,0 +1,6 @@
+/* Bundled SVG flags: independent of the operating system's emoji fonts. */
+.aic-country-value .aic-country-display { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.aic-country-display .aic-country-display-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.aic-country-flag { display: inline-block; width: 21px; height: 14px; flex: 0 0 21px; aspect-ratio: 3 / 2; border-radius: 1px; overflow: hidden; vertical-align: middle; box-shadow: 0 0 0 .5px #0a102c20; }
+.aic-country-trigger svg.aic-country-flag, .aic-country-popover svg.aic-country-flag { width: 21px; height: 14px; }
+.aic-country-flag-fallback { display: inline-block; min-width: 21px; font-size: 11px; line-height: 14px; color: #596274; }

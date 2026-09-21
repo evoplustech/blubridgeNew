@@ -1,167 +1,103 @@
 {
-  "project_name": "BluBridge AI Consulting Contact Form",
-  "route": "/ai-consulting",
-  "design_system": {
-    "theme": "light",
-    "primary_color": "#2b4c8c",
-    "background_color": "#f0f2fa",
-    "text_color": "#0a102c",
-    "muted_color": "#7d8293",
-    "border_color": "#dfe2eb",
-    "error_color": "#b3293a",
-    "font_family": "Geist, sans-serif",
-    "mono_font": "IBM Plex Mono, monospace"
+  "page_route": "/ai-consulting-1",
+  "page_name": "AI Consulting Enterprise Variant",
+  "architecture": {
+    "type": "Asymmetric 2-Part Layout",
+    "left_column_width_desktop": "35%",
+    "right_column_width_desktop": "65%",
+    "form_max_width": "820px",
+    "sticky_left_intro": true,
+    "single_page_form": true
   },
   "typography": {
-    "eyebrow": "text-xs font-mono uppercase tracking-wider color-#434b65",
-    "heading": "text-4xl font-semibold color-#0a102c",
-    "subtitle": "text-base color-#525767",
-    "field_label": "text-xs font-medium color-#0a102c",
-    "helper_text": "text-xs color-#7d8293"
+    "heading_font": "Outfit, Geist, sans-serif",
+    "body_font": "Inter, Geist, sans-serif",
+    "mono_font": "JetBrains Mono, IBM Plex Mono, monospace",
+    "scales": {
+      "eyebrow": "12px, font-weight 600, tracking 0.2em, uppercase, text-blue-600",
+      "h1_desktop": "48px, line-height 1.15, font-weight 700, text-slate-900",
+      "h1_mobile": "32px, line-height 1.2, font-weight 700, text-slate-900",
+      "intro_description": "18px, line-height 1.6, text-slate-600",
+      "section_heading": "22px, font-weight 700, tracking-tight, text-slate-900",
+      "field_label": "15px, font-weight 600, text-slate-900",
+      "input_text": "16px, text-slate-900",
+      "placeholder": "15px, text-slate-400",
+      "helper_text": "14px, text-slate-500",
+      "validation_error": "13px, font-weight 500, text-red-600"
+    }
   },
-  "layout": {
-    "container_max_width": "970px",
-    "desktop_columns": 2,
-    "mobile_columns": 1,
-    "group_spacing": "32px",
-    "field_spacing": "20px"
+  "colors": {
+    "palette_archetype": "Swiss & Enterprise Minimal",
+    "page_background": "#F8FAFC",
+    "left_intro_background": "#F5F7FB",
+    "form_background": "#FFFFFF",
+    "border_default": "#DCE2EA",
+    "border_focus": "#2563EB",
+    "border_error": "#EF4444",
+    "primary_accent": "#1D4ED8",
+    "primary_hover": "#1E40AF",
+    "selected_tile_bg": "#EFF6FF",
+    "selected_tile_border": "#2563EB",
+    "text_primary": "#0F172A",
+    "text_secondary": "#475569",
+    "text_muted": "#94A3B8"
   },
-  "form_structure": {
-    "steps": [
-      "Your Details",
-      "Project Details",
-      "Review"
-    ],
-    "section_title": "Project Details",
-    "subtitle": "Tell us about your requirement so we can understand how to help.",
-    "fields": [
-      {
-        "id": "services",
-        "label": "What can BluBridge help you with? *",
-        "helper": "Select all that apply.",
-        "type": "checkbox_grid",
-        "columns_desktop": 2,
-        "options": [
-          "AI Consulting & Technical Advisory",
-          "Custom AI & Model Development",
-          "Generative AI, LLM & RAG Systems",
-          "AI Agents & Automation",
-          "Model Training & Fine-Tuning",
-          "GPU & AI Systems Optimisation",
-          "Deployment & Integration",
-          "Maintenance & Support",
-          "Not sure — I need guidance",
-          "Other"
-        ],
-        "exclusive_option": "Not sure — I need guidance",
-        "conditional_field": {
-          "trigger_option": "Other",
-          "id": "other_requirement",
-          "label": "Please specify your requirement *",
-          "placeholder": "Briefly specify your requirement",
-          "type": "text"
-        }
-      },
-      {
-        "id": "requirement_details",
-        "label": "Tell us about your requirement *",
-        "type": "textarea",
-        "placeholder": "What problem are you trying to solve? Briefly describe what you would like to build or improve, the expected outcome and any existing systems involved."
-      },
-      {
-        "id": "project_stage",
-        "label": "What is the current stage of your project? *",
-        "type": "dropdown",
-        "placeholder": "Select your project stage",
-        "options": [
-          "Exploring options",
-          "Requirements defined",
-          "Planning a proof of concept or pilot",
-          "Development in progress",
-          "Improving an existing system",
-          "Ready for deployment",
-          "Other"
-        ]
-      },
-      {
-        "id": "start_timeline",
-        "label": "When would you like to start? *",
-        "type": "dropdown",
-        "placeholder": "Select your expected start timeline",
-        "options": [
-          "Within 30 days",
-          "1–3 months",
-          "3–6 months",
-          "More than 6 months",
-          "No fixed start date yet"
-        ]
-      },
-      {
-        "id": "budget_type",
-        "label": "How would you like to specify your budget? *",
-        "type": "radio_group",
-        "helper": "Select whether your estimate covers the project or initial phase, or a recurring monthly engagement.",
-        "options": [
-          "Total project / initial engagement budget",
-          "Monthly budget for an ongoing engagement"
-        ]
-      },
-      {
-        "id": "estimated_budget",
-        "type": "dynamic_dropdown",
-        "cases": {
-          "Total project / initial engagement budget": {
-            "label": "Estimated Project Budget (USD) *",
-            "options": [
-              "Below $10,000",
-              "$10,000–$24,999",
-              "$25,000–$49,999",
-              "$50,000–$99,999",
-              "$100,000–$249,999",
-              "$250,000 or more",
-              "Budget not yet defined"
-            ]
-          },
-          "Monthly budget for an ongoing engagement": {
-            "label": "Estimated Monthly Budget (USD) *",
-            "options": [
-              "Below $5,000 per month",
-              "$5,000–$9,999 per month",
-              "$10,000–$24,999 per month",
-              "$25,000–$49,999 per month",
-              "$50,000 or more per month",
-              "Budget not yet defined"
-            ]
-          }
-        }
-      },
-      {
-        "id": "budget_status",
-        "label": "What is the current status of this budget? *",
-        "type": "dropdown",
-        "placeholder": "Select budget status",
-        "options": [
-          "Budget approved and available",
-          "Budget proposed — approval pending",
-          "Need a scoped proposal to secure approval",
-          "No budget available currently",
-          "I do not know the budget status yet"
-        ]
-      }
-    ]
+  "visual_enhancers": {
+    "left_panel_treatment": "CSS subtle geometric dot grid with radial gradient overlay",
+    "form_container_shadow": "0 4px 24px -2px rgba(15, 23, 42, 0.04)",
+    "divider_line": "1px solid #E2E8F0",
+    "input_height": "52px",
+    "input_radius": "10px",
+    "service_tile_height": "56px"
   },
-  "actions": {
-    "back_button": "Back",
-    "primary_button": "Review & Continue"
+  "component_name": "AiConsultingVariantPage",
+  "grids": {
+    "page_grid": "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16",
+    "left_span": "lg:col-span-4 xl:col-span-4",
+    "right_span": "lg:col-span-8 xl:col-span-8",
+    "contact_fields_grid": "grid grid-cols-1 md:grid-cols-2 gap-6",
+    "service_tiles_grid": "grid grid-cols-1 sm:grid-cols-2 gap-3.5",
+    "budget_choice_grid": "grid grid-cols-1 sm:grid-cols-2 gap-4"
   },
-  "validation_rules": {
-    "inline_messages": true,
-    "error_style": "subtle red border (#b3293a) and text below field"
+  "layouts": {
+    "desktop": "Sticky Left Intro Panel (35%), Scrolling Right Form Area (65%), 2-column input fields",
+    "tablet": "Top Intro Panel, 2-column input fields",
+    "mobile": "Single column stacked, Intro at top, Form below, 1-column input fields and service tiles, full-width CTA"
   },
+  "motion": {
+    "transitions": "transition-colors duration-200 ease-in-out, transition-border-color duration-200 ease-in-out",
+    "scroll_behavior": "smooth scroll to first invalid field on submission error"
+  },
+  "accessibility": {
+    "contrast_ratio": "APCA & WCAG AA compliant (>4.5:1 for body text)",
+    "focus_state": "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600",
+    "testing_pattern": "data-testid='ai-consulting-1-[field-name]'",
+    "aria_labels": "Full ARIA role support for country dropdown, custom service tiles, radio budget choices"
+  },
+  "media": {
+    "use_stock_photos": false,
+    "use_heavy_illustrations": false,
+    "visual_decoration": "CSS-only geometric textures and line accents"
+  },
+  "3d_libraries": {
+    "required": false
+  },
+  "image_urls": [],
+  "instructions_to_main_agent": [
+    "Do NOT edit /ai-consulting page, source AiConsulting.jsx or AiConsulting.css",
+    "Create new route component at src/pages/AiConsultingVariant.jsx and mount on /ai-consulting-1 in App.js",
+    "Scope all CSS rules strictly under .aic-alt-page class",
+    "Reuse exact field components, hook logic, validation rules, choices, and POST /api/ai-consulting-enquiries endpoint",
+    "Implement 35/65 asymmetric desktop layout with sticky left intro panel",
+    "Format service choices as 2-column selectable cards (54-58px height, pale blue active fill)",
+    "Format budget choices as horizontal selectable radio panels",
+    "Include data-testid attributes on all interactive fields and options"
+  ],
   "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
-    "Preserve existing headers, footers, typography and brand color schemes.",
-    "Ensure all interactive elements have explicit data-testid attributes.",
-    "Do not add heavy gradients, glassmorphism, or dark modes unless specified.",
-    "Ensure keyboard accessibility and visible focus rings on interactive elements."
+    "Avoid generic AI slop, centered layout templates, or multi-step wizard cards",
+    "Layer depth through precise 1px borders, generous padding, and subtle shadows",
+    "Never apply transition: all globally; transition specific properties only",
+    "Ensure input focus rings are high-contrast and clear",
+    "Keep all content verifiably identical to AI_CONSULTING_CONTENT_INVENTORY.md"
   ]
 }

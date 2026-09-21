@@ -72,6 +72,13 @@ class ConsultationRecord(BaseModel):
     start_timeline: Optional[str] = None
     budget_type: Optional[str] = None
     budget_status: Optional[str] = None
+    website: Optional[str] = None
+    initiative_role: Optional[str] = None
+    other_role: Optional[str] = None
+    country_code: Optional[str] = None
+    phone_country: Optional[str] = None
+    calling_code: Optional[str] = None
+    contact_permission: Optional[bool] = None
     privacy_consent: Optional[bool] = None
     marketing_consent: bool = False
     source: Optional[str] = None

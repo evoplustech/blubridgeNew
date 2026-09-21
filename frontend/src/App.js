@@ -21,6 +21,9 @@ import GetInTouchV9 from './pages/GetInTouchV9';
 import GetInTouchV10 from './pages/GetInTouchV10';
 import GetInTouchV11 from './pages/GetInTouchV11';
 import AiConsulting from './pages/AiConsulting';
+import AiConsultingVariant from './pages/AiConsultingVariant';
+import AiConsultingWorksheet from './pages/AiConsultingWorksheet';
+import AiConsultingDuplicate from './pages/AiConsultingDuplicate';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Pricing from './pages/Pricing';
@@ -184,6 +187,9 @@ const AppLayout = () => {
           <Route path="/get-in-touch-9" element={<GetInTouchV10 />} />
           <Route path="/get-in-touch-10" element={<GetInTouchV11 />} />
           <Route path="/ai-consulting" element={<AiConsulting />} />
+          <Route path="/ai-consulting-1" element={<AiConsultingVariant />} />
+          <Route path="/ai-consulting-2" element={<AiConsultingWorksheet />} />
+          <Route path="/ai-consulting-3" element={<AiConsultingDuplicate />} />
           <Route path="/contact/sales" element={<ContactSales />} />
           <Route path="/contact/general-enquiry" element={<GeneralEnquiry />} />
           <Route path="/partners" element={<Partners />} />

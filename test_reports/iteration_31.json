@@ -1,0 +1,43 @@
+{
+  "summary": "Completed backend regression and full frontend/admin retest for /ai-consulting single-page submission flow. Critical submit regression is fixed: live UI now sends JSON POST, keeps URL clean, shows exact success text, persists records, and renders new fields in admin modal/export.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Admin legacy redirect check (/admin/project-enquiries)",
+        "issue": "Final URL resolved to /admin login during unauthenticated/locked session checks, so runtime redirect-to-/admin/get-in-touch could not be conclusively re-verified in this pass.",
+        "affected_selectors": []
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_ai_consulting_enquiries_v30.py",
+    "/app/test_reports/pytest/ai_consulting_iter31.xml"
+  ],
+  "action_items": [
+    "Main agent to quickly self-verify /admin/project-enquiries redirect behavior with stable authenticated session (already defined in App route).",
+    "Optional UX refinement: for +44 search, default-first option may be Isle of Man; if UK should be preferred, add ranking preference rule."
+  ],
+  "critical_code_review_comments": [
+    "Frontend submit wiring fix is present and effective: useEnquiryForm.handleSubmit is bound to form onSubmit, no native GET/query leak observed.",
+    "Server-side and client-side validation mapping for 422/409/429/500/network paths is working; values are retained and success state is not shown on failures.",
+    "backend/server.py remains very large and high-coupling; splitting modules would reduce regression risk."
+  ],
+  "updated_files": [
+    "/app/test_reports/iteration_31.json"
+  ],
+  "success_rate": {
+    "backend": "100% (21/21)",
+    "frontend": "96%"
+  },
+  "seed_data_creation": "Created live UI QA records with qa.aic31.*@example.com for verification (e.g., qa.aic31.livefinal.1790009838@example.com, qa.aic31.mobile.1790009886@example.com). No existing user data modified.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Verified on public URL from frontend/.env. Confirmed: query cleanup preserves utm/hash, empty/invalid submit sends no POST, India keyboard selection and +91 autosync, Enter-key submit path, one POST on pending double-click, exact success text 'Success Fully Submitted', admin detail modal includes new fields (country_code, phone_country, calling_code, website, initiativeRole/otherRole, contact permission, budget fields), desktop+mobile screenshots captured under /app/test_reports/screenshots_iter31/. CSV export download triggered from admin UI. FAILURE PATHS were tested with PLAYWRIGHT ROUTE INTERCEPTS (MOCKED network responses for 422/409/429/500/network and retry), while core submit/admin verification used REAL endpoints.",
+  "rca of the issue": "User-reported issue (URL query leak + missing success + missing backend record) is not reproducible now. Reproduced fixed behavior: submit sends exactly one JSON POST /api/ai-consulting-enquiries (201), URL unchanged, success confirmation and receipt shown, record visible in admin and CSV."
+}

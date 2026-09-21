@@ -1,0 +1,5 @@
+/* Copy-specific wrapping for /ai-consulting-3; the source variant is untouched. */
+.aic-third-page .aic-alt-heading { overflow-wrap: anywhere; }
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .aic-third-page .aic-alt-heading { font-size: 36px; }
+}

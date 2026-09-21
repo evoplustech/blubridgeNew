@@ -1,4 +1,5 @@
-import { budgets, budgetStatuses, stages, timelines, services, GUIDANCE } from './options';
+import { budgets, budgetStatuses, stages, timelines, services } from './options';
+import { countryByCode, parsePhone } from './countryData';
 
 export const validateDetails = value => {
   const errors = {};
@@ -6,15 +7,29 @@ export const validateDetails = value => {
   if (!value.workEmail.trim()) errors.workEmail = 'Please enter your work email.';
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.workEmail.trim())) errors.workEmail = 'Please enter a valid email address.';
   if (!value.company.trim()) errors.company = 'Please enter your company name.';
-  if (value.phone.trim() && (!/^[+()\d\s.-]+$/.test(value.phone.trim()) || !/^\d{6,15}$/.test(value.phone.replace(/\D/g, '')))) errors.phone = 'Please enter a valid phone number.';
-  if (!value.privacy) errors.privacy = 'Please agree to the Privacy Policy to continue.';
+  if (!value.jobTitle.trim()) errors.jobTitle = 'Please enter your job title.';
+  if (!countryByCode[value.countryCode]) errors.countryCode = 'Please select your country / region.';
+  if (!value.phone.trim()) errors.phone = 'Please enter your phone number.';
+  else if (!parsePhone(value.phone, value.phoneCountry)) errors.phone = 'Please enter a valid phone number for the selected calling code.';
+  if (value.website.trim()) {
+    try {
+      const url = new URL(value.website.trim());
+      if (!['http:', 'https:'].includes(url.protocol) || !url.hostname.includes('.')) errors.website = 'Please enter a valid website URL, including https://.';
+    } catch { errors.website = 'Please enter a valid website URL, including https://.'; }
+  }
+  return errors;
+};
+
+export const validateEnquiry = value => {
+  const errors = validateDetails(value);
+  Object.assign(errors, validateProject(value));
+  if (!value.contactPermission) errors.contactPermission = 'Please give permission for BluBridge to contact you regarding this enquiry.';
   return errors;
 };
 
 export const validateProject = value => {
   const errors = {};
   if (!value.services.length || value.services.some(service => !services.some(([, label]) => label === service))) errors.services = 'Please select at least one option.';
-  if (value.services.includes(GUIDANCE) && value.services.length > 1) errors.services = 'Please select guidance on its own.';
   if (value.services.includes('Other') && !value.otherRequirement.trim()) errors.otherRequirement = 'Please specify your requirement.';
   if (!value.requirement.trim()) errors.requirement = 'Please tell us about your requirement.';
   if (!stages.includes(value.stage)) errors.stage = 'Please select your project stage.';

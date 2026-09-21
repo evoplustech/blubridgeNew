@@ -18,7 +18,9 @@ Latest approved scope (2026-09-21): `/ai-consulting` preserves existing pages an
 - `/` Home, `/about-us`, `/careers`, `/research`, `/contact`, `/solutions/*`, `/products/*`
 - Admin: `/admin` (user: admin / pass: admin)
 - `/get-in-touch-10` → `GetInTouchV11.jsx`, isolated CSS/components under `pages/get-in-touch-v11/`; real submissions.
-- `/ai-consulting` → `AiConsulting.jsx`, isolated `.aic-page` styles and components under `pages/ai-consulting/`; three-step wizard with REAL final submission.
+- `/ai-consulting` → `AiConsulting.jsx`, isolated `.aic-page` styles and shared form components under `pages/ai-consulting/`; now a single-page form with REAL submission (supersedes historical wizard flow below).
+- `/ai-consulting-1` → `AiConsultingVariant.jsx`, sticky left intro/right form; `/ai-consulting-2` → `AiConsultingWorksheet.jsx`, editorial worksheet.
+- `/ai-consulting-3` → `AiConsultingDuplicate.jsx`, independent page composition and intro copy, reusing unchanged form components/hooks and the variant stylesheet; any extra styles are scoped to `.aic-third-page`.
 - `/admin/get-in-touch` → **AI Consulting Enquiry**, with all contact/project fields in list/detail/search/CSV. Old `/admin/project-enquiries` redirects here; its menu/card/page are removed from active UI while stored records and backend APIs remain intact.
 
 ## Key API Endpoints
@@ -166,3 +168,12 @@ Latest approved scope (2026-09-21): `/ai-consulting` preserves existing pages an
 - Final targeted browser test: Enter on step1 and step2 inputs stays on step with zeroPOSTs; explicit keyboard Continue works; Enter on Review Submit sends exactly one real POST; exact success wording shown. Overflow offenders [] at1920×800 and390×844. Temporary keyboard test record deleted through authenticated API. See `/app/test_reports/iteration_29_followup.md`.
 - Protected V11 page/components/styles, Header/Footer/index.css hashes unchanged. No credentials changed. Only earlier `/get-in-touch-7`, `-8`, `-9` remain **MOCKED**; `/ai-consulting` and `/get-in-touch-10` are REAL.
 - Next: user review; optional future follow-up statuses or downloadable enquiry summary. No unresolved issues in this scope.
+
+## Update — 2026-09-21: Isolated /ai-consulting-3 screenshot copy
+- Approved scope: change the third variant's intro using the supplied new-copy screenshot and existing intro screenshot; preserve `/ai-consulting-1`, all form content/behaviour, backend, and the established light layout.
+- Replaced the thin wrapper around `AiConsultingVariant` with independent page JSX in `AiConsultingDuplicate.jsx`. Shared field components, validation/submission hooks, introCopy.js and source stylesheet remain untouched. The existing App.js route needed no change.
+- New left intro, transcribed from reference `eer6o7u1_image.png`: **AI CONSULTING SERVICES** / **Turn Ambition Into Measurable Outcomes.** / **BluBridge combines frontier AI research with full-stack engineering to build tailored AI systems. From strategy and custom model development to deployment and support, we work around your business goals.**
+- Updated only this route's client meta description to match its paragraph. No dark redesign, extra marketing CTA, benefit blocks, or form text changes. Added `.aic-third-page`-only headline wrapping and a narrow-desktop font adjustment; no shared styles modified.
+- Verification: production build compiled; all 26 protected-source SHA-256 checks passed. Live browser checks at 1920×800 and 390×844 passed exact copy, unchanged form text vs variant 1, required validation, clearing errors after input, default +1/SVG flag, and variant 1 content after route switching. Horizontal overflow arrays were empty at both sizes. See `/app/test_reports/ai_consulting_3_copy_verification.md`.
+- No real enquiry submitted during this copy-only check; backend unchanged and no new mocks or credentials. Existing `/get-in-touch-7`, `-8`, `-9` submissions remain **MOCKED** by prior request.
+- P0: none remaining for this request. P1/Next: user review of `/ai-consulting-3` and final variant selection. P2: other form integrations and site improvements remain deferred. Optional enhancement: compare enquiry completion rates across variants before choosing the final version.

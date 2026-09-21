@@ -28,6 +28,8 @@ import time
 import html
 from consultation_models import AIConsultationEnquiry, ConsultationRecord, ConsultationPage
 from consulting_wizard_models import AIConsultingWizardEnquiry, BUDGET_TYPE_LABELS, WIZARD_EXPORT_FIELDS, wizard_export_values
+from enquiry_contact_validation import PHONE_REGIONS
+import phonenumbers
 
 
 ROOT_DIR = Path(__file__).parent
@@ -1076,18 +1078,20 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
     doc = {
         "id": str(uuid.uuid4()), "full_name": enquiry.fullName, "company_email": email,
         "company": enquiry.company, "phone": enquiry.phone, "role": enquiry.jobTitle,
-        "country": enquiry.country, "city": enquiry.city, "services": enquiry.services,
+        "country": enquiry.country, "country_code": enquiry.countryCode, "services": enquiry.services,
+        "website": enquiry.website, "initiative_role": enquiry.initiativeRole, "other_role": enquiry.otherRole or None,
+        "phone_country": enquiry.phoneCountry, "calling_code": "+" + str(phonenumbers.country_code_for_region(PHONE_REGIONS.get(enquiry.phoneCountry, enquiry.phoneCountry))),
         "other_requirement": enquiry.otherRequirement or None, "project_details": enquiry.requirement,
         "project_stage": enquiry.stage, "start_timeline": enquiry.timeline,
         "budget_type": enquiry.budgetType, "budget": enquiry.estimatedBudget, "budget_status": enquiry.budgetStatus,
-        "privacy_consent": enquiry.privacy, "marketing_consent": enquiry.marketing,
+        "privacy_consent": enquiry.contactPermission, "contact_permission": enquiry.contactPermission, "marketing_consent": False,
         "source": "/ai-consulting", "status": "new", "created_at": now, "updated_at": now,
     }
     await db.contact_enquiries.insert_one(doc)
     # Notification delivery is secondary to the confirmed database write.
     try:
         notification = {key: value for key, value in doc.items() if key != "_id"}
-        notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS[enquiry.budgetType], privacy_consent="Yes", marketing_consent="Yes" if enquiry.marketing else "No")
+        notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS[enquiry.budgetType], privacy_consent="Acknowledged", contact_permission="Yes", marketing_consent="No")
         await send_contact_form_email("ai_consulting_enquiry", notification, submission_timestamp=now)
     except Exception:
         logging.exception("AI consulting enquiry %s saved; email notification failed", doc["id"])

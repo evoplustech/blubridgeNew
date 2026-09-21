@@ -1,4 +1,6 @@
-export const GUIDANCE = 'Not sure — I need guidance';
+// Display wording only: preserve canonical values used by validation and saved records.
+const displayNames = { Other: 'Other - Please specify', 'GPU & AI Systems Optimisation': 'AI Performance Optimization' };
+export const optionLabel = value => (displayNames[value] || value).replace(/[–—]/g, '-');
 export const services = [
   ['consulting', 'AI Consulting & Technical Advisory'],
   ['custom-ai', 'Custom AI & Model Development'],
@@ -8,7 +10,6 @@ export const services = [
   ['gpu-optimisation', 'GPU & AI Systems Optimisation'],
   ['integration', 'Deployment & Integration'],
   ['support', 'Maintenance & Support'],
-  ['guidance', GUIDANCE],
   ['other', 'Other'],
 ];
 export const stages = ['Exploring options', 'Requirements defined', 'Planning a proof of concept or pilot', 'Development in progress', 'Improving an existing system', 'Ready for deployment', 'Other'];
