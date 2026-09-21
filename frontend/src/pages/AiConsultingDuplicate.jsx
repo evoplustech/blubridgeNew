@@ -9,6 +9,7 @@ import { RequirementsSection } from './ai-consulting/RequirementsSection';
 import { ProjectDetails } from './ai-consulting/ProjectDetails';
 import { FieldError, RequiredMark } from './ai-consulting/FormField';
 import { clearAccidentalQuery } from './ai-consulting/clearAccidentalQuery';
+import { IntroActions } from './ai-consulting-3/IntroActions';
 import './ai-consulting-variant/AiConsultingVariant.css';
 import './ai-consulting-3/AiConsultingDuplicate.css';
 
@@ -27,6 +28,13 @@ const VariantSection = ({ name, title, helper, children }) => <section className
 export default function AiConsultingDuplicate() {
   const state = useEnquiryForm();
   const success = useRef(null);
+  const form = useRef(null);
+  const goToForm = () => {
+    const target = form.current;
+    if (!target) return;
+    (target.querySelector('input:not(:disabled)') || target).focus({ preventScroll: true });
+    target.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  };
   useDocumentTitle('AI Consulting | BluBridge');
   useMetaDescription(enquiryDescription);
   useEffect(() => { clearAccidentalQuery(); }, []);
@@ -40,9 +48,10 @@ export default function AiConsultingDuplicate() {
           <p className="aic-alt-eyebrow" data-testid="aic-eyebrow">AI CONSULTING SERVICES</p>
           <h1 className="aic-alt-heading" data-testid="aic-heading">{enquiryHeading}</h1>
           <p className="aic-alt-subtitle" data-testid="aic-subtitle">{enquiryDescription}</p>
+          <IntroActions onContact={goToForm} />
         </header>
       </aside>
-      <form className="aic-alt-form" method="post" noValidate onSubmitCapture={event => event.preventDefault()} onSubmit={state.handleSubmit} aria-busy={state.isSubmitting} aria-labelledby="aic-form-heading" data-testid="aic-form">
+      <form ref={form} tabIndex={-1} className="aic-alt-form" method="post" noValidate onSubmitCapture={event => event.preventDefault()} onSubmit={state.handleSubmit} aria-busy={state.isSubmitting} aria-labelledby="aic-form-heading" data-testid="aic-form">
         <h2 id="aic-form-heading" className="sr-only" data-testid="aic-form-heading">AI Consulting Enquiry</h2>
         {state.receipt && <div ref={success} tabIndex={-1} className="aic-confirmation" role="status" data-testid="aic-success">
           <p className="font-semibold" data-testid="aic-success-message">Success Fully Submitted</p>
