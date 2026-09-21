@@ -5,6 +5,8 @@ Complete visual and structural redesign of the BluBridge website combining appro
 
 Contact-page iterations: retain eleven isolated variants (`/get-in-touch` through `/get-in-touch-10`) with established BluBridge styling. `/get-in-touch-6` has required Budget currency (₹ / $ / €) + range dropdown between City and Message. Latest approved request: recreate the user's screenshot at `/get-in-touch-10` while keeping source `/get-in-touch-8` completely unchanged; rename admin Get in Touch labels to **AI Consultation Enquiry**; connect the new form so ALL submitted fields, selected AI services and consent choices are persisted and visible in admin details and CSV. Preserve current required/optional fields. Approved budget ranges remain Under 10,000; 10,000–50,000; 50,000–100,000; 100,000–500,000; 500,000+ in the selected currency.
 
+Latest approved scope (2026-09-21): add a separate `/ai-consulting` page preserving all existing pages, site header/footer/branding/fonts/colors. User approved **Your Details → Project Details → Review** because the source contact page was single-step. Project Details must use the user's exact ten services and all supplied field wording/options, exclusive guidance selection, conditional Other specification, required requirement/stage/timeline/budget type/estimated budget/budget status, and project/monthly budget reset. Frontend-only: validate before Review, do NOT submit or connect backend yet. Desktop pairs; tablet/mobile stacked; red required stars and inline errors.
+
 ## Architecture
 - React frontend served via Express (`/app/frontend/server.js` serves `/app/frontend/build`). Current server includes a debounced source watcher that automatically runs `yarn build`; a manual `yarn build` can also generate the static bundle. Regular source changes do not require a supervisor restart.
 - FastAPI backend (`/app/backend/server.py`, monolithic)
@@ -16,6 +18,7 @@ Contact-page iterations: retain eleven isolated variants (`/get-in-touch` throug
 - `/` Home, `/about-us`, `/careers`, `/research`, `/contact`, `/solutions/*`, `/products/*`
 - Admin: `/admin` (user: admin / pass: admin)
 - `/get-in-touch-10` → `GetInTouchV11.jsx`, isolated CSS/components under `pages/get-in-touch-v11/`; real submissions.
+- `/ai-consulting` → `AiConsulting.jsx`, isolated `.aic-page` styles and components under `pages/ai-consulting/`; frontend-only three-step wizard, no API calls or storage.
 - `/admin/get-in-touch` → **AI Consultation Enquiry**, with list/detail/search/CSV; `/admin/project-enquiries` remains the separate v6 Project Enquiries section.
 
 ## Key API Endpoints
@@ -40,9 +43,10 @@ Contact-page iterations: retain eleven isolated variants (`/get-in-touch` throug
 
 ## Backlog
 ### P0
-- None in current scope. V11 real submission/admin/CSV flow and rename verified in iteration_27 (21 backend tests, frontend flows passed). Cursor/mobile verified in iteration_25; broad regression completed in iteration_19.
+- None in current scope. AI consulting wizard passed iteration_28 (frontend exact copy, all interactions/validation/responsiveness). V11 real submission/admin/CSV verified in iteration_27. Cursor/mobile verified in iteration_25; broad regression completed in iteration_19.
 ### P1
 - Await user selection of final contact-page variant.
+- `/ai-consulting` backend/admin integration ONLY when requested. Its project-stage/timeline/budget-status schema is not yet implemented server-side; current wizard must remain non-submitting.
 - Backend integration for `/get-in-touch-7`, `-8`, `-9` ONLY when requested; submissions remain frontend-only MOCKED by design.
 ### P2
 - Success toast for contact form (replace browser alert)
@@ -138,3 +142,14 @@ Contact-page iterations: retain eleven isolated variants (`/get-in-touch` throug
 - Test cleanup: corrected over-escaped QA email patterns in the tester's cleanup script, then removed eight remaining temporary consultation records and two QA project regression records. Non-QA records untouched.
 - Remaining mocks: ONLY `/get-in-touch-7`, `/get-in-touch-8`, `/get-in-touch-9` remain frontend-only **MOCKED** by prior request. `/get-in-touch-10` is now REAL.
 - Next: user validation of a submitted enquiry under Admin → AI Consultation Enquiry. P1 final-variant selection and P2 admin budget/service filters remain optional backlog, not implemented.
+
+## Update — 2026-09-21: /ai-consulting Project Details wizard
+- Added standalone `/ai-consulting` route and `AiConsulting.jsx`; retained the same page intro, Geist/IBM Plex Mono fonts, light BluBridge palette, header/footer, and 970px container. Only new page files and App.js routing changed. All existing V11 page/components/CSS, Header/Footer and index.css pass original SHA-256 checks (`/tmp/ai-consulting-protected-before.sha256`).
+- Approved flow: Your Details (existing full name/work email/company/phone/job title/country/city + consent fields) → Project Details → read-only Review. Back/Edit preserve local entries. Review shows `Not submitted`; final Submit enquiry is disabled. No form API calls, persistence, or backend changes.
+- Project Details uses exact user title/subtitle and ten service labels from `pages/ai-consulting/options.js`. Native checkbox cards are two columns on desktop, one column below 1024px; keyboard/focus states and selected blue treatment. Guidance is mutually exclusive with all normal options, including Other. Other shows a required specification input; removing it clears its hidden value/error.
+- Required description textarea, project stage and expected timeline with all exact placeholders/options. Radio budget type switches exact Project/Monthly USD labels and options immediately; resets prior estimated budget even if `Budget not yet defined` exists in both sets. Estimated budget starts disabled until type selected. Required budget status includes all five user-supplied statuses. Pairs stack on tablet/mobile.
+- Inline validation blocks Review & Continue until all seven required project fields and conditional Other are valid; whitespace rejected, first invalid control focused, errors clear as values become valid. Red stars and subtle errors, accessible native controls and focus styles; no intrusive alerts, decorative graphics or distracting animation.
+- Modular files: `options.js`, `validation.js`, `useConsultingWizard.js`, `FormField.jsx`, `ContactDetails.jsx`, `ServiceSelection.jsx`, `ProjectDetails.jsx`, `ReviewDetails.jsx`, `AiConsulting.css` under `frontend/src/pages/ai-consulting/`.
+- Verification: `yarn build` successful. Main smoke desktop1920×800/mobile390×844 overflow arrays empty. `/app/test_reports/iteration_28.json` reports all requested checks passed: exact options/order, exclusive guidance, Other, radio/reset logic, required/whitespace validation, keyboard interactions, Back/Edit preservation, read-only Review, zero mutating API calls and no new storage. Additional 320/768/1024/1440 responsive checks passed. No unresolved defects.
+- **MOCKED/non-submitting:** `/ai-consulting`, plus earlier `/get-in-touch-7`, `-8`, `-9`. `/get-in-touch-10` remains REAL and untouched. No credentials created or changed.
+- Next action: user review of the new wizard. Backend/admin integration is intentionally deferred; potential future enhancement is a downloadable enquiry summary.

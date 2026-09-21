@@ -1,34 +1,167 @@
 {
-  "project_name": "BluBridge screenshot contact variant",
-  "route": "/get-in-touch-10",
-  "component": "/app/frontend/src/pages/GetInTouchV11.jsx",
-  "stylesheet": "/app/frontend/src/pages/get-in-touch-v11/GetInTouchV11.css",
-  "scope": "Every CSS selector scoped to .git11-page. Preserve GetInTouchV9.jsx, index.css, Header.jsx and Footer.jsx unchanged.",
-  "reference": "https://customer-assets-0z36b82j.emergentagent.net/job_18381b19-a01c-4397-b377-64e684d0013e/artifacts/sdixlbu5_image.png",
-  "approved_user_choices": "Match screenshot layout, wording and fields; multiple service selections; keep site header/footer. Initially frontend-only; user subsequently requested real backend saving of every field with current required/optional rules and admin visibility under AI Consultation Enquiry.",
-  "appearance": {
-    "background": "#f0f2fa",
-    "ink": "#0a102c",
-    "services_background": "#ecf0ff",
-    "inputs": "White, 1px pale border, 3px radius, desktop height 38px",
-    "typography": "Existing Geist; IBM Plex Mono eyebrow",
-    "layout": "970px centred body. Centred intro above full-width services. Two equal form columns with 66px gap and vertical divider. Bottom consents left and navy CTA right. No form cards, heavy shadows or extra imagery.",
-    "responsive": "Six service columns on desktop, three below 900px, two below 768px. Form columns stack below 768px. Controls remain within viewport at 320px."
+  "project_name": "BluBridge AI Consulting Contact Form",
+  "route": "/ai-consulting",
+  "design_system": {
+    "theme": "light",
+    "primary_color": "#2b4c8c",
+    "background_color": "#f0f2fa",
+    "text_color": "#0a102c",
+    "muted_color": "#7d8293",
+    "border_color": "#dfe2eb",
+    "error_color": "#b3293a",
+    "font_family": "Geist, sans-serif",
+    "mono_font": "IBM Plex Mono, monospace"
   },
-  "copy": {
-    "eyebrow": "GET IN TOUCH",
-    "heading": "Let’s build what’s next.",
-    "subtitle": "From an early idea to your next AI initiative, let’s find the right place to start.",
-    "services_label": "What can we help you with? *",
-    "services_hint": "Choose one or more",
-    "services": ["AI strategy", "Generative AI", "AI agents", "Custom AI models", "AI integration", "Not sure yet"],
-    "default_selection": ["Generative AI"],
-    "left_column": "Your details: Full name*, Work email*, Company*, Phone (optional), Job title (optional)",
-    "right_column": "Your project: Country (optional), City (optional), Budget (optional; Not sure yet), What would you like to achieve? (optional)",
-    "privacy": "I agree to the Privacy Policy. *",
-    "updates": "Send me occasional BluBridge updates. (optional)",
-    "cta": "Let’s talk about AI",
-    "note": "Fields marked * are required."
+  "typography": {
+    "eyebrow": "text-xs font-mono uppercase tracking-wider color-#434b65",
+    "heading": "text-4xl font-semibold color-#0a102c",
+    "subtitle": "text-base color-#525767",
+    "field_label": "text-xs font-medium color-#0a102c",
+    "helper_text": "text-xs color-#7d8293"
   },
-  "behaviour": "POST /api/ai-consultation-enquiries saves all form values and consents in contact_enquiries. Validate required name/email/company/privacy and at least one service; validate optional phone when present. Disable while submitting, reset only on success, retain input on errors. All values visible in Admin /admin/get-in-touch and CSV. Source /get-in-touch-8 remains unchanged and MOCKED."
+  "layout": {
+    "container_max_width": "970px",
+    "desktop_columns": 2,
+    "mobile_columns": 1,
+    "group_spacing": "32px",
+    "field_spacing": "20px"
+  },
+  "form_structure": {
+    "steps": [
+      "Your Details",
+      "Project Details",
+      "Review"
+    ],
+    "section_title": "Project Details",
+    "subtitle": "Tell us about your requirement so we can understand how to help.",
+    "fields": [
+      {
+        "id": "services",
+        "label": "What can BluBridge help you with? *",
+        "helper": "Select all that apply.",
+        "type": "checkbox_grid",
+        "columns_desktop": 2,
+        "options": [
+          "AI Consulting & Technical Advisory",
+          "Custom AI & Model Development",
+          "Generative AI, LLM & RAG Systems",
+          "AI Agents & Automation",
+          "Model Training & Fine-Tuning",
+          "GPU & AI Systems Optimisation",
+          "Deployment & Integration",
+          "Maintenance & Support",
+          "Not sure — I need guidance",
+          "Other"
+        ],
+        "exclusive_option": "Not sure — I need guidance",
+        "conditional_field": {
+          "trigger_option": "Other",
+          "id": "other_requirement",
+          "label": "Please specify your requirement *",
+          "placeholder": "Briefly specify your requirement",
+          "type": "text"
+        }
+      },
+      {
+        "id": "requirement_details",
+        "label": "Tell us about your requirement *",
+        "type": "textarea",
+        "placeholder": "What problem are you trying to solve? Briefly describe what you would like to build or improve, the expected outcome and any existing systems involved."
+      },
+      {
+        "id": "project_stage",
+        "label": "What is the current stage of your project? *",
+        "type": "dropdown",
+        "placeholder": "Select your project stage",
+        "options": [
+          "Exploring options",
+          "Requirements defined",
+          "Planning a proof of concept or pilot",
+          "Development in progress",
+          "Improving an existing system",
+          "Ready for deployment",
+          "Other"
+        ]
+      },
+      {
+        "id": "start_timeline",
+        "label": "When would you like to start? *",
+        "type": "dropdown",
+        "placeholder": "Select your expected start timeline",
+        "options": [
+          "Within 30 days",
+          "1–3 months",
+          "3–6 months",
+          "More than 6 months",
+          "No fixed start date yet"
+        ]
+      },
+      {
+        "id": "budget_type",
+        "label": "How would you like to specify your budget? *",
+        "type": "radio_group",
+        "helper": "Select whether your estimate covers the project or initial phase, or a recurring monthly engagement.",
+        "options": [
+          "Total project / initial engagement budget",
+          "Monthly budget for an ongoing engagement"
+        ]
+      },
+      {
+        "id": "estimated_budget",
+        "type": "dynamic_dropdown",
+        "cases": {
+          "Total project / initial engagement budget": {
+            "label": "Estimated Project Budget (USD) *",
+            "options": [
+              "Below $10,000",
+              "$10,000–$24,999",
+              "$25,000–$49,999",
+              "$50,000–$99,999",
+              "$100,000–$249,999",
+              "$250,000 or more",
+              "Budget not yet defined"
+            ]
+          },
+          "Monthly budget for an ongoing engagement": {
+            "label": "Estimated Monthly Budget (USD) *",
+            "options": [
+              "Below $5,000 per month",
+              "$5,000–$9,999 per month",
+              "$10,000–$24,999 per month",
+              "$25,000–$49,999 per month",
+              "$50,000 or more per month",
+              "Budget not yet defined"
+            ]
+          }
+        }
+      },
+      {
+        "id": "budget_status",
+        "label": "What is the current status of this budget? *",
+        "type": "dropdown",
+        "placeholder": "Select budget status",
+        "options": [
+          "Budget approved and available",
+          "Budget proposed — approval pending",
+          "Need a scoped proposal to secure approval",
+          "No budget available currently",
+          "I do not know the budget status yet"
+        ]
+      }
+    ]
+  },
+  "actions": {
+    "back_button": "Back",
+    "primary_button": "Review & Continue"
+  },
+  "validation_rules": {
+    "inline_messages": true,
+    "error_style": "subtle red border (#b3293a) and text below field"
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Preserve existing headers, footers, typography and brand color schemes.",
+    "Ensure all interactive elements have explicit data-testid attributes.",
+    "Do not add heavy gradients, glassmorphism, or dark modes unless specified.",
+    "Ensure keyboard accessibility and visible focus rings on interactive elements."
+  ]
 }
