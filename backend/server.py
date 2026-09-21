@@ -27,6 +27,7 @@ from collections import defaultdict
 import time
 import html
 from consultation_models import AIConsultationEnquiry, ConsultationRecord, ConsultationPage
+from consulting_wizard_models import AIConsultingWizardEnquiry, BUDGET_TYPE_LABELS, WIZARD_EXPORT_FIELDS, wizard_export_values
 
 
 ROOT_DIR = Path(__file__).parent
@@ -138,6 +139,7 @@ class SecurityMiddleware(BaseHTTPMiddleware):
         "/api/contact-enquiries",
         "/api/project-enquiries",
         "/api/ai-consultation-enquiries",
+        "/api/ai-consulting-enquiries",
         "/api/newsletter/subscribe",
         "/api/careers/apply",
         "/api/job-applications/submit",
@@ -1062,6 +1064,34 @@ async def submit_ai_consultation(enquiry: AIConsultationEnquiry):
     notification.update(email=email, services=", ".join(enquiry.services), privacy_consent="Yes", marketing_consent="Yes" if enquiry.marketing else "No")
     await send_contact_form_email("ai_consultation_enquiry", notification, submission_timestamp=now)
     return {"id": doc["id"], "message": "Your AI consultation enquiry has been received."}
+
+
+@api_router.post("/ai-consulting-enquiries", response_model=ProjectEnquiryReceipt, status_code=201)
+async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
+    email = str(enquiry.workEmail).lower()
+    since = (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()
+    if await db.contact_enquiries.find_one({"company_email": email, "created_at": {"$gte": since}}, {"_id": 0, "id": 1}):
+        raise HTTPException(status_code=409, detail="You have already submitted an enquiry recently. Please wait a moment before trying again.")
+    now = datetime.now(timezone.utc).isoformat()
+    doc = {
+        "id": str(uuid.uuid4()), "full_name": enquiry.fullName, "company_email": email,
+        "company": enquiry.company, "phone": enquiry.phone, "role": enquiry.jobTitle,
+        "country": enquiry.country, "city": enquiry.city, "services": enquiry.services,
+        "other_requirement": enquiry.otherRequirement or None, "project_details": enquiry.requirement,
+        "project_stage": enquiry.stage, "start_timeline": enquiry.timeline,
+        "budget_type": enquiry.budgetType, "budget": enquiry.estimatedBudget, "budget_status": enquiry.budgetStatus,
+        "privacy_consent": enquiry.privacy, "marketing_consent": enquiry.marketing,
+        "source": "/ai-consulting", "status": "new", "created_at": now, "updated_at": now,
+    }
+    await db.contact_enquiries.insert_one(doc)
+    # Notification delivery is secondary to the confirmed database write.
+    try:
+        notification = {key: value for key, value in doc.items() if key != "_id"}
+        notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS[enquiry.budgetType], privacy_consent="Yes", marketing_consent="Yes" if enquiry.marketing else "No")
+        await send_contact_form_email("ai_consulting_enquiry", notification, submission_timestamp=now)
+    except Exception:
+        logging.exception("AI consulting enquiry %s saved; email notification failed", doc["id"])
+    return {"id": doc["id"], "message": "Your AI consulting enquiry has been received."}
 
 
 # Contact Us (Footer Form) - Simple endpoint
@@ -2128,7 +2158,10 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
             headers += ["Full Name", "Company", "Phone", "Country", "City", "Budget", "AI Services", "Privacy Consent", "Source", "Updated At"]
             for row, doc in zip(rows, data):
                 row.extend([doc.get("full_name") or " ".join(filter(None, [doc.get("first_name"), doc.get("last_name")])), doc.get("company", ""), doc.get("phone", ""), doc.get("country", ""), doc.get("city", ""), doc.get("budget", ""), "; ".join(doc.get("services", [])), "" if doc.get("privacy_consent") is None else ("Yes" if doc["privacy_consent"] else "No"), doc.get("source", ""), doc.get("updated_at", "")])
-            filename = "ai_consultation_enquiries_export.csv"
+            headers += [label for _, label in WIZARD_EXPORT_FIELDS]
+            for row, doc in zip(rows, data):
+                row.extend(wizard_export_values(doc))
+            filename = "ai_consulting_enquiries_export.csv"
             
         elif data_type == "footer":
             # Export footer form submissions
@@ -2175,10 +2208,11 @@ async def export_data(data_type: str, authorization: Optional[str] = Header(None
             for d in project_data:
                 rows.append(["Project Enquiry", "project_enquiry", d.get("full_name", ""), "", d.get("email", ""), d.get("phone", ""), d.get("company", ""), d.get("message", ""), d.get("job_title", ""), d.get("status", ""), d.get("created_at", ""), d.get("budget", "")])
             headers += ["Full Name", "Country", "City", "AI Services", "Privacy Consent", "Marketing Consent", "Page Source", "Updated At"]
-            rows = [row + [""] * 8 for row in rows]
+            headers += [label for _, label in WIZARD_EXPORT_FIELDS]
+            rows = [row + [""] * (8 + len(WIZARD_EXPORT_FIELDS)) for row in rows]
             git_data = await db.contact_enquiries.find({}, {"_id": 0}).to_list(100000)
             for d in git_data:
-                rows.append(["AI Consultation Enquiry", "get_in_touch", d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), d.get("phone", ""), d.get("company", ""), d.get("project_details", ""), d.get("role", ""), d.get("status", ""), d.get("created_at", ""), d.get("budget", ""), d.get("full_name") or " ".join(filter(None, [d.get("first_name"), d.get("last_name")])), d.get("country", ""), d.get("city", ""), "; ".join(d.get("services", [])), "" if d.get("privacy_consent") is None else ("Yes" if d["privacy_consent"] else "No"), "Yes" if d.get("marketing_consent") else "No", d.get("source", ""), d.get("updated_at", "")])
+                rows.append(["AI Consulting Enquiry", "get_in_touch", d.get("first_name", ""), d.get("last_name", ""), d.get("company_email", ""), d.get("phone", ""), d.get("company", ""), d.get("project_details", ""), d.get("role", ""), d.get("status", ""), d.get("created_at", ""), d.get("budget", ""), d.get("full_name") or " ".join(filter(None, [d.get("first_name"), d.get("last_name")])), d.get("country", ""), d.get("city", ""), "; ".join(d.get("services", [])), "" if d.get("privacy_consent") is None else ("Yes" if d["privacy_consent"] else "No"), "Yes" if d.get("marketing_consent") else "No", d.get("source", ""), d.get("updated_at", "")] + wizard_export_values(d))
             filename = "all_submissions_export.csv"
         else:
             raise HTTPException(status_code=400, detail="Invalid data type")

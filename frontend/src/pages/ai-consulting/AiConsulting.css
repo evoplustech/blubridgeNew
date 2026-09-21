@@ -1,6 +1,11 @@
 /* New /ai-consulting only; shared branding and existing contact pages are untouched. */
 .aic-page { --aic-bg: #f0f2fa; --aic-ink: #0a102c; --aic-blue: #2b4c8c; --aic-line: #dfe2eb; --aic-muted: #646b7c; --aic-error: #b3293a; background: var(--aic-bg); color: var(--aic-ink); font-family: 'Geist', sans-serif; letter-spacing: 0; padding: 40px 24px 48px; }
 .aic-page .aic-container { max-width: 970px; width: 100%; margin: 0 auto; }
+.aic-page .aic-submit-fields { min-width: 0; border: 0; padding: 0; margin: 0; }
+.aic-page .aic-confirmation { border-left: 3px solid var(--aic-blue); padding: 14px 16px; margin-bottom: 24px; background: white; font-size: 14px; line-height: 22px; overflow-wrap: anywhere; }
+.aic-page .aic-confirmation .aic-helper { margin-top: 6px; }
+.aic-page .aic-restart { margin-top: 20px; }
+.aic-page .aic-submit-error { margin-top: 16px; }
 .aic-page .aic-intro { text-align: center; margin-bottom: 26px; }
 .aic-page .aic-eyebrow { font-family: 'IBM Plex Mono', monospace; color: #434b65; font-size: 10px; line-height: 14px; margin: 0; }
 .aic-page .aic-heading { font-family: 'Geist', sans-serif; font-size: 48px; line-height: 1.1; font-weight: 600; letter-spacing: 0; color: var(--aic-ink); margin: 18px 0 10px; }

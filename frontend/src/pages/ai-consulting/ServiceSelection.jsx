@@ -17,7 +17,7 @@ export const ServiceSelection = ({ state }) => {
       <FieldError name="services" error={projectErrors.services} />
     </fieldset>
     {project.services.includes('Other') && <div className="aic-other-field" data-testid="aic-other-field">
-      <FormField name="otherRequirement" label="Please specify your requirement" placeholder="Briefly specify your requirement" value={project.otherRequirement} onChange={changeProject} error={projectErrors.otherRequirement} />
+      <FormField name="otherRequirement" label="Please specify your requirement" placeholder="Briefly specify your requirement" maxLength={1000} value={project.otherRequirement} onChange={changeProject} error={projectErrors.otherRequirement} />
     </div>}
   </div>;
 };

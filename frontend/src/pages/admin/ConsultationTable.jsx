@@ -4,7 +4,7 @@ import { Button } from '../../components/ui/button';
 import { consultationName } from './ConsultationDetail';
 
 const columns = 'grid grid-cols-1 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1.5fr)_minmax(0,1fr)_80px] gap-4';
-export const ConsultationTable = ({ state }) => <div role="table" aria-label="AI consultation enquiries" className="border-y border-gray-200" data-testid="admin-git-table">
+export const ConsultationTable = ({ state }) => <div role="table" aria-label="AI consulting enquiries" className="border-y border-gray-200" data-testid="admin-git-table">
   <div role="row" className={`${columns} hidden md:grid bg-gray-50 p-4 text-xs font-semibold text-gray-500`}>
     {['Contact', 'Company / Role', 'AI services / Budget', 'Date / Status', 'Actions'].map(label => <div role="columnheader" key={label}>{label}</div>)}
   </div>
@@ -21,6 +21,7 @@ export const ConsultationTable = ({ state }) => <div role="table" aria-label="AI
       <div role="cell" className="min-w-0 text-gray-600">
         <p data-testid={`admin-git-services-${item.id}`}>{item.services?.join(', ') || 'Not recorded'}</p>
         <p className="mt-1 text-[#0B1F3B]" data-testid={`admin-git-budget-${item.id}`}>{item.budget || 'Not provided'}</p>
+        {item.budget_type && <p className="mt-1 text-xs" data-testid={`admin-git-budget-type-${item.id}`}>{item.budget_type === 'monthly' ? 'Monthly budget' : 'Project budget'}</p>}
       </div>
       <div role="cell" className="min-w-0 text-gray-500">
         <p data-testid={`admin-git-date-${item.id}`}>{new Date(item.created_at).toLocaleString()}</p>

@@ -16,7 +16,7 @@ This document provides the section-level implementation blueprint for the new `/
 ## 3. Form Steps Structure
 1. **Step 1: Your Details** (Existing Full name, Work email, Company, Job title, Phone, Country, City, privacy and marketing choices)
 2. **Step 2: Project Details** (The updated specialized AI Consulting form requirements)
-3. **Step 3: Review** (Read-only summary with Edit and Back; final Submit enquiry disabled, no submission/API/storage)
+3. **Step 3: Review** (Edit and Back until final submission; Submit enquiry now saves all fields to backend and displays exact `Success Fully Submitted`. Prior frontend-only scope was superseded by user approval.)
 
 ---
 
@@ -156,6 +156,8 @@ This document provides the section-level implementation blueprint for the new `/
   - Validates all Step 2 fields upon click.
   - If valid: transitions to Step 3 (Review step).
   - No backend submission at this stage.
+
+Final Review Submit is now connected to POST `/api/ai-consulting-enquiries`. Review & Continue itself remains navigation only. Successful saves show confirmation/reference and lock edits; failed saves preserve data for retry. All fields appear in Admin → AI Consulting Enquiry and CSV. Old Project Enquiries UI is removed, its stored data retained.
 
 ---
 

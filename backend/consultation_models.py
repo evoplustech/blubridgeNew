@@ -67,6 +67,11 @@ class ConsultationRecord(BaseModel):
     budget: Optional[str] = None
     services: List[str] = Field(default_factory=list)
     project_details: Optional[str] = None
+    other_requirement: Optional[str] = None
+    project_stage: Optional[str] = None
+    start_timeline: Optional[str] = None
+    budget_type: Optional[str] = None
+    budget_status: Optional[str] = None
     privacy_consent: Optional[bool] = None
     marketing_consent: bool = False
     source: Optional[str] = None

@@ -5,7 +5,7 @@ Complete visual and structural redesign of the BluBridge website combining appro
 
 Contact-page iterations: retain eleven isolated variants (`/get-in-touch` through `/get-in-touch-10`) with established BluBridge styling. `/get-in-touch-6` has required Budget currency (₹ / $ / €) + range dropdown between City and Message. Latest approved request: recreate the user's screenshot at `/get-in-touch-10` while keeping source `/get-in-touch-8` completely unchanged; rename admin Get in Touch labels to **AI Consultation Enquiry**; connect the new form so ALL submitted fields, selected AI services and consent choices are persisted and visible in admin details and CSV. Preserve current required/optional fields. Approved budget ranges remain Under 10,000; 10,000–50,000; 50,000–100,000; 100,000–500,000; 500,000+ in the selected currency.
 
-Latest approved scope (2026-09-21): add a separate `/ai-consulting` page preserving all existing pages, site header/footer/branding/fonts/colors. User approved **Your Details → Project Details → Review** because the source contact page was single-step. Project Details must use the user's exact ten services and all supplied field wording/options, exclusive guidance selection, conditional Other specification, required requirement/stage/timeline/budget type/estimated budget/budget status, and project/monthly budget reset. Frontend-only: validate before Review, do NOT submit or connect backend yet. Desktop pairs; tablet/mobile stacked; red required stars and inline errors.
+Latest approved scope (2026-09-21): `/ai-consulting` preserves existing pages and BluBridge branding with **Your Details → Project Details → Review**. Exact ten services/options, exclusive guidance, conditional Other, stage/timeline/budget controls and responsive validation remain. User subsequently requested REAL Submit enquiry saving every field in **AI Consulting Enquiry** admin + CSV, with exact success text **Success Fully Submitted**. Also remove only the old Project Enquiries admin page/menu/card, redirect its URL to current AI Consulting Enquiry, and preserve old records/public form behavior.
 
 ## Architecture
 - React frontend served via Express (`/app/frontend/server.js` serves `/app/frontend/build`). Current server includes a debounced source watcher that automatically runs `yarn build`; a manual `yarn build` can also generate the static bundle. Regular source changes do not require a supervisor restart.
@@ -18,13 +18,14 @@ Latest approved scope (2026-09-21): add a separate `/ai-consulting` page preserv
 - `/` Home, `/about-us`, `/careers`, `/research`, `/contact`, `/solutions/*`, `/products/*`
 - Admin: `/admin` (user: admin / pass: admin)
 - `/get-in-touch-10` → `GetInTouchV11.jsx`, isolated CSS/components under `pages/get-in-touch-v11/`; real submissions.
-- `/ai-consulting` → `AiConsulting.jsx`, isolated `.aic-page` styles and components under `pages/ai-consulting/`; frontend-only three-step wizard, no API calls or storage.
-- `/admin/get-in-touch` → **AI Consultation Enquiry**, with list/detail/search/CSV; `/admin/project-enquiries` remains the separate v6 Project Enquiries section.
+- `/ai-consulting` → `AiConsulting.jsx`, isolated `.aic-page` styles and components under `pages/ai-consulting/`; three-step wizard with REAL final submission.
+- `/admin/get-in-touch` → **AI Consulting Enquiry**, with all contact/project fields in list/detail/search/CSV. Old `/admin/project-enquiries` redirects here; its menu/card/page are removed from active UI while stored records and backend APIs remain intact.
 
 ## Key API Endpoints
 - `POST /api/contacts/submit`
 - `POST /api/job-applications/submit`
 - `POST /api/ai-consultation-enquiries` (v11 real form, public POST only, 201 on saved enquiry)
+- `POST /api/ai-consulting-enquiries` (wizard-specific strict schema in `backend/consulting_wizard_models.py`, public POST only, saves to contact_enquiries, 201 receipt)
 - `GET /api/admin/submissions/get-in-touch`, `GET/DELETE /api/admin/submission/{id}?form_type=get_in_touch`, `GET /api/admin/export/get_in_touch`, `GET /api/admin/export/all`
 
 ## Implemented (as of June 2026)
@@ -43,10 +44,10 @@ Latest approved scope (2026-09-21): add a separate `/ai-consulting` page preserv
 
 ## Backlog
 ### P0
-- None in current scope. AI consulting wizard passed iteration_28 (frontend exact copy, all interactions/validation/responsiveness). V11 real submission/admin/CSV verified in iteration_27. Cursor/mobile verified in iteration_25; broad regression completed in iteration_19.
+- None in current scope. Real wizard submit/admin/export/menu-removal passed iteration_29 (21 backend tests). Its single Enter-key issue was fixed and verified via final targeted desktop/mobile browser flow; see iteration_29_followup.md.
 ### P1
 - Await user selection of final contact-page variant.
-- `/ai-consulting` backend/admin integration ONLY when requested. Its project-stage/timeline/budget-status schema is not yet implemented server-side; current wizard must remain non-submitting.
+- User verification of real `/ai-consulting` submit, exact success message and complete fields in AI Consulting Enquiry admin.
 - Backend integration for `/get-in-touch-7`, `-8`, `-9` ONLY when requested; submissions remain frontend-only MOCKED by design.
 ### P2
 - Success toast for contact form (replace browser alert)
@@ -153,3 +154,15 @@ Latest approved scope (2026-09-21): add a separate `/ai-consulting` page preserv
 - Verification: `yarn build` successful. Main smoke desktop1920×800/mobile390×844 overflow arrays empty. `/app/test_reports/iteration_28.json` reports all requested checks passed: exact options/order, exclusive guidance, Other, radio/reset logic, required/whitespace validation, keyboard interactions, Back/Edit preservation, read-only Review, zero mutating API calls and no new storage. Additional 320/768/1024/1440 responsive checks passed. No unresolved defects.
 - **MOCKED/non-submitting:** `/ai-consulting`, plus earlier `/get-in-touch-7`, `-8`, `-9`. `/get-in-touch-10` remains REAL and untouched. No credentials created or changed.
 - Next action: user review of the new wizard. Backend/admin integration is intentionally deferred; potential future enhancement is a downloadable enquiry summary.
+
+## Update — 2026-09-21: Wizard real submission, success message, old admin removal
+- User reported Submit enquiry disabled, then explicitly approved backend saving and all data in **AI Consulting Enquiry**. This supersedes the earlier frontend-only scope. Enabled real final submission, while Continue/Review & Continue remain navigation only.
+- New `consulting_wizard_models.py` validates all wizard fields, exact service/stage/timeline/budget/status options, exclusive guidance, conditional Other, privacy and contact values. POST `/api/ai-consulting-enquiries` added to exact public POST allowlist; existing admin authorization remains unchanged.
+- Saves in `contact_enquiries`: prior full_name/company_email/company/phone/role/country/city/services/project_details/consents plus **other_requirement, project_stage, start_timeline, budget_type, budget, budget_status**, source `/ai-consulting`, status and UTC timestamps. Extended optional output fields preserve all legacy/V11 records. Notification is attempted after saving; email failure cannot undo the save.
+- New `useWizardSubmission.js`: sending latch prevents double clicks, pending state disables edit/back/submit, HTTP/network errors retain data, server field errors return to the appropriate step, recent duplicate email receives409. On201 shows exact **Success Fully Submitted** plus explanatory confirmation/reference, locks submitted review, and offers Start a new enquiry.
+- Admin name is now exact **AI Consulting Enquiry** (sidebar/page/dashboard/detail); route remains `/admin/get-in-touch`. Detail shows all new wizard fields, conditional specification and dynamic USD project/monthly budget label. List distinguishes project/monthly budgets. Dedicated/combined CSV exports append all five new project fields; both consent flags and every previous field retained.
+- User requested only old Project Enquiries UI removal. Removed its sidebar/menu and dashboard card, removed active page import/mount, and changed `/admin/project-enquiries` to a replace redirect to `/admin/get-in-touch`. Existing `project_enquiries` records and old public `/get-in-touch-6` API flow preserved; no destructive deletion/migration. Legacy unused page source remains unmounted.
+- Validation: Python compile and frontend build passed. Main live submit reproduced user's Other/Test/project-budget screenshot and returned201. Iteration_29 **21/21 backend tests passed**, full admin data/CSV, old records preservation, old-route redirect/menu removal, success/retry/reset/double-click and desktop/mobile verification passed. Tester found Enter in pre-review text fields advanced the wizard; fixed by preventing implicit Enter from INPUT elements on early steps while preserving keyboard activation of Continue buttons and textarea line breaks.
+- Final targeted browser test: Enter on step1 and step2 inputs stays on step with zeroPOSTs; explicit keyboard Continue works; Enter on Review Submit sends exactly one real POST; exact success wording shown. Overflow offenders [] at1920×800 and390×844. Temporary keyboard test record deleted through authenticated API. See `/app/test_reports/iteration_29_followup.md`.
+- Protected V11 page/components/styles, Header/Footer/index.css hashes unchanged. No credentials changed. Only earlier `/get-in-touch-7`, `-8`, `-9` remain **MOCKED**; `/ai-consulting` and `/get-in-touch-10` are REAL.
+- Next: user review; optional future follow-up statuses or downloadable enquiry summary. No unresolved issues in this scope.

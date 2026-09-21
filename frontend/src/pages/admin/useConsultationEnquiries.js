@@ -60,7 +60,7 @@ export const useConsultationEnquiries = () => {
       const response = await request('export/get_in_touch');
       const url = URL.createObjectURL(await response.blob());
       const a = document.createElement('a'); a.href = url;
-      a.download = `ai_consultation_enquiries_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.download = `ai_consulting_enquiries_${new Date().toISOString().slice(0, 10)}.csv`;
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (err) { setError(err.message); }

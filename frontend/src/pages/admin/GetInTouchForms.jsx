@@ -13,8 +13,8 @@ export default function GetInTouchForms() {
     <div className="space-y-6 min-w-0" data-testid="admin-get-in-touch-page">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#0B1F3B]" data-testid="admin-ai-consultation-heading">AI Consultation Enquiry</h1>
-          <p className="text-[#6B7280] mt-1" data-testid="admin-ai-consultation-description">Manage AI consultation enquiries</p>
+          <h1 className="text-2xl font-bold text-[#0B1F3B]" data-testid="admin-ai-consultation-heading">AI Consulting Enquiry</h1>
+          <p className="text-[#6B7280] mt-1" data-testid="admin-ai-consultation-description">Manage AI consulting enquiries</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button onClick={state.exportCSV} variant="outline" size="sm" className="bg-green-50 border-green-200 text-green-700 hover:bg-green-100" disabled={state.exporting} data-testid="admin-git-export"><Download className="w-4 h-4 mr-2" />{state.exporting ? 'Exporting…' : 'Export All CSV'}</Button>
@@ -24,7 +24,7 @@ export default function GetInTouchForms() {
       <form onSubmit={state.handleSearch} className="flex gap-2">
         <div className="relative flex-1 min-w-0 max-w-md">
           <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-          <Input aria-label="Search AI consultation enquiries" value={state.search} onChange={e => state.setSearch(e.target.value)} placeholder="Search name, email, company or service…" className="pl-9" data-testid="admin-git-search" />
+          <Input aria-label="Search AI consulting enquiries" value={state.search} onChange={e => state.setSearch(e.target.value)} placeholder="Search name, email, company or service…" className="pl-9" data-testid="admin-git-search" />
         </div>
         <Button type="submit" data-testid="admin-git-search-btn">Search</Button>
       </form>

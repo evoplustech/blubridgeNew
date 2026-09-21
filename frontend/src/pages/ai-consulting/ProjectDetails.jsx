@@ -8,7 +8,7 @@ export const ProjectDetails = ({ state }) => {
   const props = name => ({ name, value: project[name], error: projectErrors[name], onChange: changeProject });
   return <div className="aic-groups" data-testid="aic-project-details">
     <ServiceSelection state={state} />
-    <FormField {...props('requirement')} label="Tell us about your requirement" type="textarea" placeholder="What problem are you trying to solve? Briefly describe what you would like to build or improve, the expected outcome and any existing systems involved." />
+    <FormField {...props('requirement')} label="Tell us about your requirement" type="textarea" maxLength={5000} placeholder="What problem are you trying to solve? Briefly describe what you would like to build or improve, the expected outcome and any existing systems involved." />
     <div className="aic-two-columns" data-testid="aic-stage-timeline-row">
       <FormField {...props('stage')} label="What is the current stage of your project?" placeholder="Select your project stage" options={stages} />
       <FormField {...props('timeline')} label="When would you like to start?" placeholder="Select your expected start timeline" options={timelines} />

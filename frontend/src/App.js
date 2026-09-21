@@ -1,7 +1,7 @@
 import React from 'react';
 // Fine-tuning page updated v2
 import './App.css';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Toaster } from './components/ui/toaster';
@@ -91,7 +91,6 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import FooterForms from './pages/admin/FooterForms';
 import ContactForms from './pages/admin/ContactForms';
 import GetInTouchForms from './pages/admin/GetInTouchForms';
-import ProjectEnquiries from './pages/admin/ProjectEnquiries';
 import CareerApplications from './pages/admin/CareerApplications';
 import AdminSettings from './pages/admin/AdminSettings';
 
@@ -114,7 +113,7 @@ const AppLayout = () => {
           <Route path="/admin/footer-forms" element={<FooterForms />} />
           <Route path="/admin/contact-forms" element={<ContactForms />} />
           <Route path="/admin/get-in-touch" element={<GetInTouchForms />} />
-          <Route path="/admin/project-enquiries" element={<ProjectEnquiries />} />
+          <Route path="/admin/project-enquiries" element={<Navigate to="/admin/get-in-touch" replace />} />
           <Route path="/admin/careers" element={<CareerApplications />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
           

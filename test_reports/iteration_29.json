@@ -1,0 +1,45 @@
+{
+  "summary": "Completed backend + frontend validation for /ai-consulting real submit flow, admin AI Consulting Enquiry surfaces, exports, redirect/removal behavior, responsive checks, and protected hash regression.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "AiConsulting wizard step navigation",
+        "issue": "Pressing Enter on Step 1 (Your Details) submits the form and moves to Project Details. Requirement says Enter should submit only on Review step.",
+        "selector": "[data-testid=\"aic-form\"] + [data-testid=\"aic-company\"]",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_ai_consulting_enquiries_v29.py",
+    "/app/test_reports/pytest/ai_consulting_iter29.xml"
+  ],
+  "action_items": [
+    "Block Enter-key submit behavior on non-review wizard steps (/ai-consulting).",
+    "Re-test wizard keyboard behavior after fix (Step 1/2 Enter should not navigate or submit)."
+  ],
+  "critical_code_review_comments": [
+    "backend/server.py is 2300+ lines; split into focused modules (security, public forms, admin APIs, export handlers) to reduce regression risk.",
+    "Current AI consulting submission logic (frontend + backend) correctly prevents duplicate POST on rapid double-click via sending latch and disabled state.",
+    "CSV exports correctly include wizard fields and apply formula-escape for user-entered values."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_ai_consulting_enquiries_v29.py",
+    "/app/test_reports/iteration_29.json"
+  ],
+  "success_rate": {
+    "backend": "100% (21/21)",
+    "frontend": "95% (1 high-priority behavior mismatch)"
+  },
+  "seed_data_creation": "Created temporary QA records with qa.aic29.* emails for backend/frontend checks; cleaned test records from contact_enquiries and project_enquiries after run.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Key artifacts: /app/test_reports/screenshots_iter29/ai_consulting_success_desktop_1920x800.jpeg, ai_consulting_success_mobile_390x844.jpeg, admin_desktop_list_modal_1920x800.jpeg, admin_mobile_menu_390x844.jpeg, admin_mobile_list_390x844.jpeg, admin_mobile_modal_390x844.jpeg. Protected hash check passed via /tmp/ai-consulting-submit-protected-before.sha256. Verified old /admin/project-enquiries redirects to /admin/get-in-touch and old menu label is absent. Verified frontend error-state handling for 422/409/429/500/network via route interception.",
+  "rca of the issue": "RCA for Enter-key bug: the form-level onSubmit handler (state.next) is active for all steps, so pressing Enter in Step 1 inputs triggers normal submit behavior and advances step when current inputs are valid. Mitigation: intercept Enter key for non-review steps (or make non-review actions explicit button-only) while retaining Enter submit on Review step."
+}

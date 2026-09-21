@@ -49,7 +49,7 @@ const AdminDashboard = () => {
       color: 'bg-emerald-500'
     },
     {
-      title: 'AI Consultation Enquiry',
+      title: 'AI Consulting Enquiry',
       icon: Inbox,
       total: stats?.get_in_touch?.total || 0,
       new: stats?.get_in_touch?.new || 0,
@@ -63,14 +63,6 @@ const AdminDashboard = () => {
       new: stats?.career_applications?.new || 0,
       link: '/admin/careers',
       color: 'bg-purple-500'
-    },
-    {
-      title: 'Project Enquiries',
-      icon: Briefcase,
-      total: stats?.project_enquiries?.total || 0,
-      new: stats?.project_enquiries?.new || 0,
-      link: '/admin/project-enquiries',
-      color: 'bg-teal-600'
     },
     {
       title: 'Total Submissions',
@@ -134,7 +126,7 @@ const AdminDashboard = () => {
               className="flex items-center gap-3 p-4 bg-[#F8F9FA] rounded-lg hover:bg-[#E5E7EB] transition-colors"
             >
               <Inbox className="w-5 h-5 text-sky-600" />
-              <span className="font-medium text-[#374151]">Manage AI Consultation Enquiry</span>
+              <span className="font-medium text-[#374151]">Manage AI Consulting Enquiry</span>
             </Link>
             <Link 
               to="/admin/footer-forms"
