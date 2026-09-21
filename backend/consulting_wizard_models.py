@@ -30,7 +30,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     contactPermission: bool
     services: List[WizardService] = Field(min_length=1, max_length=10)
     otherRequirement: str = Field(default='', max_length=1000, validate_default=True)
-    requirement: str = Field(min_length=1, max_length=5000)
+    requirement: str = Field(default='', max_length=5000, validate_default=True)
     stage: Literal['Exploring options', 'Requirements defined', 'Planning a proof of concept or pilot', 'Development in progress', 'Improving an existing system', 'Ready for deployment', 'Other']
     timeline: Literal['Within 30 days', '1–3 months', '3–6 months', 'More than 6 months', 'No fixed start date yet']
     budgetType: Literal['project', 'monthly']
@@ -70,11 +70,16 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('otherRequirement')
     @classmethod
     def conditional_other(cls, value, info: ValidationInfo):
-        if 'Other' in info.data.get('services', []):
-            if not value:
-                raise ValueError('Please specify your requirement.')
-            return value
-        return ''
+        # Legacy clients may still supply this field. Current forms use the
+        # single `requirement` textarea, required only for Other services.
+        return value if 'Other' in info.data.get('services', []) else ''
+
+    @field_validator('requirement')
+    @classmethod
+    def conditional_requirement(cls, value, info: ValidationInfo):
+        if 'Other' in info.data.get('services', []) and not value:
+            raise ValueError('Please tell us about your requirement.')
+        return value
 
     @field_validator('estimatedBudget')
     @classmethod

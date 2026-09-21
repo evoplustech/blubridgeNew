@@ -30,8 +30,7 @@ export const validateEnquiry = value => {
 export const validateProject = value => {
   const errors = {};
   if (!value.services.length || value.services.some(service => !services.some(([, label]) => label === service))) errors.services = 'Please select at least one option.';
-  if (value.services.includes('Other') && !value.otherRequirement.trim()) errors.otherRequirement = 'Please specify your requirement.';
-  if (!value.requirement.trim()) errors.requirement = 'Please tell us about your requirement.';
+  if (value.services.includes('Other') && !value.requirement.trim()) errors.requirement = 'Please tell us about your requirement.';
   if (!stages.includes(value.stage)) errors.stage = 'Please select your project stage.';
   if (!timelines.includes(value.timeline)) errors.timeline = 'Please select your expected start timeline.';
   if (!Object.hasOwn(budgets, value.budgetType)) errors.budgetType = 'Please select how you would like to specify your budget.';

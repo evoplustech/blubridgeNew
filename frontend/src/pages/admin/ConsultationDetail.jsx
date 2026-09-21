@@ -22,7 +22,7 @@ export const ConsultationDetail = ({ enquiry, onClose, onDelete, busy, error }) 
     ['job-title', 'Job title / Role', enquiry.role], ['country', 'Country', enquiry.country],
     ['city', 'City', enquiry.city], ['budget', wizard ? (enquiry.budget_type === 'monthly' ? 'Estimated Monthly Budget (USD)' : 'Estimated Project Budget (USD)') : 'Budget', enquiry.budget || 'Not sure yet / Not provided'],
     ['services', 'AI services', enquiry.services?.join(', ')],
-    ...(wizard && enquiry.services?.includes('Other') ? [['other-requirement', 'Please specify your requirement', enquiry.other_requirement]] : []),
+    ...(wizard && enquiry.services?.includes('Other') && enquiry.other_requirement ? [['other-requirement', 'Please specify your requirement', enquiry.other_requirement]] : []),
     ['description', wizard ? 'Tell us about your requirement' : 'What would you like to achieve?', enquiry.project_details],
     ...(wizard ? [
       ['project-stage', 'What is the current stage of your project?', enquiry.project_stage],

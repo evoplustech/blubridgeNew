@@ -1,5 +1,9 @@
 # Locked source inventory — /ai-consulting → /ai-consulting-1
 
+## Latest approved override — 2026-09-21
+This historical snapshot is superseded for the Other field on all four `/ai-consulting`, `-1`, `-2`, `-3` routes. User approved removing duplicate `otherRequirement` input and showing only `requirement` (label/placeholder unchanged, max5000) inside **Other - Please specify** when selected. Collapsed initially; checkbox click/Space expands; deselection collapses. Description required only when Other selected. Draft survives toggling but submits empty when hidden. Backend accepts empty/omitted description for non-Other and rejects blank/whitespace for Other. Legacy `other_requirement` remains readable/exportable; no migration. See PRD update and iteration_33.json. Other form choices and layouts remain as they were immediately before this request.
+
+## Historical source snapshot
 Source snapshot: `/app/memory/ai-consulting-source-lock.sha256`. Source files, existing CSS, header/footer, hooks, validation and backend must not be edited for the design alternative. Only App.js adds a route/import. Both designs render the same existing field components and use the same validated submission hook; all content below is retained verbatim.
 
 ## Page and sections

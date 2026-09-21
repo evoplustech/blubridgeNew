@@ -4,7 +4,7 @@ import { validateEnquiry } from './validation';
 import { focusError } from './fieldUtils';
 import { useWizardSubmission } from './useWizardSubmission';
 
-const emptyForm = { fullName: '', workEmail: '', company: '', jobTitle: '', website: '', countryCode: '', phoneCountry: 'US', phone: '', services: [], otherRequirement: '', requirement: '', stage: '', timeline: '', budgetType: '', estimatedBudget: '', budgetStatus: '', contactPermission: false };
+const emptyForm = { fullName: '', workEmail: '', company: '', jobTitle: '', website: '', countryCode: '', phoneCountry: 'US', phone: '', services: [], requirement: '', stage: '', timeline: '', budgetType: '', estimatedBudget: '', budgetStatus: '', contactPermission: false };
 
 export const useEnquiryForm = () => {
   const [form, setForm] = useState(emptyForm);
@@ -27,7 +27,7 @@ export const useEnquiryForm = () => {
   const choosePhoneCountry = code => update({ ...form, phoneCountry: code });
   const toggleService = service => {
     const selected = form.services.includes(service) ? form.services.filter(value => value !== service) : [...form.services, service];
-    update({ ...form, services: selected, otherRequirement: selected.includes('Other') ? form.otherRequirement : '' });
+    update({ ...form, services: selected });
   };
   const handleSubmit = event => {
     event.preventDefault();
@@ -35,7 +35,7 @@ export const useEnquiryForm = () => {
     const nextErrors = validateEnquiry(form);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) { focusError(nextErrors); return; }
-    submission.submit({ ...form, country: countryByCode[form.countryCode].name, phone: parsePhone(form.phone, form.phoneCountry).number }, serverErrors => { setErrors(serverErrors); focusError(serverErrors); });
+    submission.submit({ ...form, requirement: form.services.includes('Other') ? form.requirement : '', country: countryByCode[form.countryCode].name, phone: parsePhone(form.phone, form.phoneCountry).number }, serverErrors => { setErrors(serverErrors); focusError(serverErrors); });
   };
   // Keep the form event handler separate from the JSON submission transport.
   return { form, errors, change, chooseCountry, choosePhoneCountry, toggleService, handleSubmit, disabled, isSubmitting: submission.isSubmitting, receipt: submission.receipt, submitError: submission.submitError };
