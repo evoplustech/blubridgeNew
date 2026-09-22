@@ -8,6 +8,7 @@ const consent = value => value == null ? 'Not recorded' : value ? 'Yes' : 'No';
 export const ConsultationDetail = ({ enquiry, onClose, onDelete, busy, error }) => {
   if (!enquiry) return null;
   const wizard = enquiry.source === '/ai-consulting';
+  const serviceRequirements = Object.entries(enquiry.service_requirements || {});
   const budgetType = enquiry.budget_type === 'monthly' ? 'Monthly budget for an ongoing engagement' : enquiry.budget_type === 'project' ? 'Total project / initial engagement budget' : null;
   const fields = [
     ['full-name', 'Full name', consultationName(enquiry)], ['email', 'Work email', enquiry.company_email],
@@ -23,7 +24,7 @@ export const ConsultationDetail = ({ enquiry, onClose, onDelete, busy, error }) 
     ['city', 'City', enquiry.city], ['budget', wizard ? (enquiry.budget_type === 'monthly' ? 'Estimated Monthly Budget (USD)' : 'Estimated Project Budget (USD)') : 'Budget', enquiry.budget || 'Not sure yet / Not provided'],
     ['services', 'AI services', enquiry.services?.join(', ')],
     ...(wizard && enquiry.services?.includes('Other') && enquiry.other_requirement ? [['other-requirement', 'Please specify your requirement', enquiry.other_requirement]] : []),
-    ['description', wizard ? 'Tell us about your requirement' : 'What would you like to achieve?', enquiry.project_details],
+    ...(serviceRequirements.length ? serviceRequirements.map(([service, requirement], index) => [`service-requirement-${index}`, service === 'Other' ? 'Other - Please specify' : service, requirement]) : [['description', wizard ? 'Tell us about your requirement' : 'What would you like to achieve?', enquiry.project_details]]),
     ...(wizard ? [
       ['project-stage', 'What is the current stage of your project?', enquiry.project_stage],
       ['start-timeline', 'When would you like to start?', enquiry.start_timeline],
@@ -39,8 +40,8 @@ export const ConsultationDetail = ({ enquiry, onClose, onDelete, busy, error }) 
     <DialogContent aria-describedby={undefined} className="max-w-[calc(100%_-_2rem)] sm:max-w-2xl max-h-[85vh] overflow-y-auto rounded-lg" data-testid="admin-git-detail-modal" closeTestId="admin-git-detail-close">
       <DialogHeader><DialogTitle className="pr-6 leading-snug" data-testid="admin-git-detail-heading">AI Consulting Enquiry Details</DialogTitle></DialogHeader>
       <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {fields.map(([key, label, value]) => <div key={key} className={`min-w-0${['services', 'description', 'other-requirement'].includes(key) ? ' sm:col-span-2' : ''}`}>
-          <dt className="text-xs text-gray-500">{label}</dt>
+        {fields.map(([key, label, value]) => <div key={key} className={`min-w-0${['services', 'description', 'other-requirement'].includes(key) || key.startsWith('service-requirement-') ? ' sm:col-span-2' : ''}`}>
+          <dt className="text-xs text-gray-500" data-testid={`admin-git-detail-${key}-label`}>{label}</dt>
           <dd className="mt-1 text-sm text-[#0B1F3B] whitespace-pre-wrap [overflow-wrap:anywhere]" data-testid={`admin-git-detail-${key}`}>{value || 'Not provided'}</dd>
         </div>)}
       </dl>

@@ -66,6 +66,8 @@ class ConsultationRecord(BaseModel):
     city: Optional[str] = None
     budget: Optional[str] = None
     services: List[str] = Field(default_factory=list)
+    service_requirements: Optional[dict[str, str]] = None
+    form_variant: Optional[str] = None
     project_details: Optional[str] = None
     other_requirement: Optional[str] = None
     project_stage: Optional[str] = None

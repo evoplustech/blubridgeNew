@@ -1,5 +1,8 @@
 # Locked source inventory — /ai-consulting → /ai-consulting-1
 
+## Variant-specific override — 2026-09-22
+Only `/ai-consulting-4` and `/ai-consulting-5` now show an independent required description immediately below EVERY selected service. Each page has its own section/state/transport/CSS; base and variants1–3 retain Other-only expansion. Standard label: **Tell us about your requirement**. Placeholder: **Briefly describe what you need help with regarding [exact service display name].** Other label: **Please specify your requirement**. Other placeholder: **Please describe the AI service or requirement you are looking for.** Required error: **Please tell us about your requirement.** Drafts survive deselection but only selected answers are sent as `serviceRequirements` dictionary with `formVariant`4/5. All existing service names and unrelated fields remain unchanged. See PRD current scope and iteration_34.json (18backend tests and scoped UI passed).
+
 ## Latest approved override — 2026-09-21
 This historical snapshot is superseded for the Other field on all four `/ai-consulting`, `-1`, `-2`, `-3` routes. User approved removing duplicate `otherRequirement` input and showing only `requirement` (label/placeholder unchanged, max5000) inside **Other - Please specify** when selected. Collapsed initially; checkbox click/Space expands; deselection collapses. Description required only when Other selected. Draft survives toggling but submits empty when hidden. Backend accepts empty/omitted description for non-Other and rejects blank/whitespace for Other. Legacy `other_requirement` remains readable/exportable; no migration. See PRD update and iteration_33.json. Other form choices and layouts remain as they were immediately before this request.
 

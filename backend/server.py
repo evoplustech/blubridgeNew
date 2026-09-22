@@ -28,6 +28,7 @@ import time
 import html
 from consultation_models import AIConsultationEnquiry, ConsultationRecord, ConsultationPage
 from consulting_wizard_models import AIConsultingWizardEnquiry, BUDGET_TYPE_LABELS, WIZARD_EXPORT_FIELDS, wizard_export_values
+from consulting_service_requirements import service_requirements_summary
 from enquiry_contact_validation import PHONE_REGIONS
 import phonenumbers
 
@@ -1087,11 +1088,16 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
         "privacy_consent": enquiry.contactPermission, "contact_permission": enquiry.contactPermission, "marketing_consent": False,
         "source": "/ai-consulting", "status": "new", "created_at": now, "updated_at": now,
     }
+    if enquiry.serviceRequirements is not None:
+        doc["service_requirements"] = enquiry.serviceRequirements
+        doc["form_variant"] = enquiry.formVariant
     await db.contact_enquiries.insert_one(doc)
     # Notification delivery is secondary to the confirmed database write.
     try:
         notification = {key: value for key, value in doc.items() if key != "_id"}
         notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS[enquiry.budgetType], privacy_consent="Acknowledged", contact_permission="Yes", marketing_consent="No")
+        if enquiry.serviceRequirements:
+            notification["project_details"] = service_requirements_summary(enquiry.serviceRequirements)
         await send_contact_form_email("ai_consulting_enquiry", notification, submission_timestamp=now)
     except Exception:
         logging.exception("AI consulting enquiry %s saved; email notification failed", doc["id"])

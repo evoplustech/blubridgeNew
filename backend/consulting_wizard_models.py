@@ -1,16 +1,29 @@
-from typing import List, Literal, Optional
+import json
+from typing import Annotated, Dict, List, Literal, Optional
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, ValidationInfo, field_validator
 from enquiry_contact_validation import country_code, normalise_phone, website_url
+from consulting_service_requirements import validate_service_requirements
 
 WizardService = Literal['AI Consulting & Technical Advisory', 'Custom AI & Model Development', 'Generative AI, LLM & RAG Systems', 'AI Agents & Automation', 'Model Training & Fine-Tuning', 'GPU & AI Systems Optimisation', 'Deployment & Integration', 'Maintenance & Support', 'Not sure — I need guidance', 'Other']
 PROJECT_BUDGETS = ['Below $10,000', '$10,000–$24,999', '$25,000–$49,999', '$50,000–$99,999', '$100,000–$249,999', '$250,000 or more', 'Budget not yet defined']
 MONTHLY_BUDGETS = ['Below $5,000 per month', '$5,000–$9,999 per month', '$10,000–$24,999 per month', '$25,000–$49,999 per month', '$50,000 or more per month', 'Budget not yet defined']
 BUDGET_TYPE_LABELS = {'project': 'Total project / initial engagement budget', 'monthly': 'Monthly budget for an ongoing engagement'}
 WIZARD_EXPORT_FIELDS = [('other_requirement', 'Other Requirement'), ('project_stage', 'Project Stage'), ('start_timeline', 'Expected Start Timeline'), ('budget_type', 'Budget Type'), ('budget_status', 'Budget Status'), ('website', 'Company Website'), ('initiative_role', 'Role In Initiative'), ('other_role', 'Other Role'), ('country_code', 'Country Code'), ('phone_country', 'Phone Country'), ('calling_code', 'Calling Code'), ('contact_permission', 'Contact Permission')]
+WIZARD_EXPORT_FIELDS.append(('service_requirements', 'Service Requirements'))
 
 
 def wizard_export_values(doc):
-    return [BUDGET_TYPE_LABELS.get(doc.get(key), '') if key == 'budget_type' else ('' if doc.get(key) is None else 'Yes' if doc[key] else 'No') if key == 'contact_permission' else doc.get(key, '') for key, _ in WIZARD_EXPORT_FIELDS]
+    values = []
+    for key, _ in WIZARD_EXPORT_FIELDS:
+        value = doc.get(key, '')
+        if key == 'budget_type':
+            value = BUDGET_TYPE_LABELS.get(value, '')
+        elif key == 'contact_permission':
+            value = '' if doc.get(key) is None else 'Yes' if doc[key] else 'No'
+        elif key == 'service_requirements':
+            value = json.dumps(value, ensure_ascii=False) if value else ''
+        values.append(value)
+    return values
 
 
 class AIConsultingWizardEnquiry(BaseModel):
@@ -29,6 +42,8 @@ class AIConsultingWizardEnquiry(BaseModel):
     otherRole: Optional[str] = Field(default=None, max_length=200)
     contactPermission: bool
     services: List[WizardService] = Field(min_length=1, max_length=10)
+    formVariant: Optional[Literal['ai-consulting-4', 'ai-consulting-5']] = None
+    serviceRequirements: Optional[Dict[str, Annotated[str, Field(max_length=5000)]]] = Field(default=None, max_length=9, validate_default=True)
     otherRequirement: str = Field(default='', max_length=1000, validate_default=True)
     requirement: str = Field(default='', max_length=5000, validate_default=True)
     stage: Literal['Exploring options', 'Requirements defined', 'Planning a proof of concept or pilot', 'Development in progress', 'Improving an existing system', 'Ready for deployment', 'Other']
@@ -74,10 +89,16 @@ class AIConsultingWizardEnquiry(BaseModel):
         # single `requirement` textarea, required only for Other services.
         return value if 'Other' in info.data.get('services', []) else ''
 
+    @field_validator('serviceRequirements')
+    @classmethod
+    def per_service_requirements(cls, value, info: ValidationInfo):
+        return validate_service_requirements(value, info.data.get('services', []), info.data.get('formVariant') in ('ai-consulting-4', 'ai-consulting-5'))
+
     @field_validator('requirement')
     @classmethod
     def conditional_requirement(cls, value, info: ValidationInfo):
-        if 'Other' in info.data.get('services', []) and not value:
+        per_service = info.data.get('formVariant') in ('ai-consulting-4', 'ai-consulting-5') or info.data.get('serviceRequirements') is not None
+        if not per_service and 'Other' in info.data.get('services', []) and not value:
             raise ValueError('Please tell us about your requirement.')
         return value
 

@@ -24,6 +24,8 @@ import AiConsulting from './pages/AiConsulting';
 import AiConsultingVariant from './pages/AiConsultingVariant';
 import AiConsultingWorksheet from './pages/AiConsultingWorksheet';
 import AiConsultingDuplicate from './pages/AiConsultingDuplicate';
+import AiConsultingVariant4 from './pages/AiConsultingVariant4';
+import AiConsultingVariant5 from './pages/AiConsultingVariant5';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Pricing from './pages/Pricing';
@@ -190,6 +192,8 @@ const AppLayout = () => {
           <Route path="/ai-consulting-1" element={<AiConsultingVariant />} />
           <Route path="/ai-consulting-2" element={<AiConsultingWorksheet />} />
           <Route path="/ai-consulting-3" element={<AiConsultingDuplicate />} />
+          <Route path="/ai-consulting-4" element={<AiConsultingVariant4 />} />
+          <Route path="/ai-consulting-5" element={<AiConsultingVariant5 />} />
           <Route path="/contact/sales" element={<ContactSales />} />
           <Route path="/contact/general-enquiry" element={<GeneralEnquiry />} />
           <Route path="/partners" element={<Partners />} />
