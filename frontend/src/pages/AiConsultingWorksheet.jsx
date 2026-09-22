@@ -57,13 +57,13 @@ export default function AiConsultingWorksheet() {
             <WorksheetSection name="contact" title="Contact Information" helper="Tell us who you are and how we can reach you."><ContactDetails state={state} /></WorksheetSection>
             <WorksheetSection name="requirements" title="Project Requirements" helper="Help us understand your involvement and what you are looking to achieve."><RequirementsSection state={state} /></WorksheetSection>
             <WorksheetSection name="timeline-budget" title="Project Timeline & Budget" helper="Tell us where the project currently stands and your expected investment range."><ProjectDetails state={state} /></WorksheetSection>
-            <WorksheetSection name="permission" title="Contact Permission">
+            <section className="aic-sheet-section" aria-label="Contact permission" data-testid="aic-section-permission">
               <label className="aic-choice aic-permission" htmlFor="aic-contact-permission" data-testid="aic-contact-permission-label">
                 <input id="aic-contact-permission" name="contactPermission" type="checkbox" required checked={state.form.contactPermission} onChange={state.change} aria-invalid={Boolean(state.errors.contactPermission)} aria-describedby={state.errors.contactPermission ? 'aic-contact-permission-error' : undefined} data-testid="aic-contact-permission" />
                 <span>I agree that BluBridge may contact me by phone or email regarding this enquiry. I acknowledge the <Link to="/policies/privacy-policy" data-testid="aic-privacy-link">Privacy Policy</Link>.<RequiredMark /></span>
               </label>
               <FieldError name="contactPermission" error={state.errors.contactPermission} />
-            </WorksheetSection>
+            </section>
             <div className="aic-actions"><Button type="submit" className="aic-primary" disabled={state.disabled} data-testid="aic-submit-enquiry">{state.receipt ? 'Enquiry Submitted' : state.isSubmitting ? 'Submitting…' : 'Submit Enquiry'}</Button></div>
           </fieldset>
           {state.submitError && <p className="aic-error aic-submit-error" role="alert" data-testid="aic-submit-error">{state.submitError}</p>}
