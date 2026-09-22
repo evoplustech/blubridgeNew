@@ -15,7 +15,7 @@ import './ai-consulting-3/AiConsultingDuplicate.css';
 
 // This route owns its copy; the other variants and shared form behaviour stay unchanged.
 const enquiryHeading = 'Turn Ambition Into Measurable Outcomes.';
-const enquiryDescription = 'BluBridge combines frontier AI research with full-stack engineering to build tailored AI systems. From strategy and custom model development to deployment and support, we work around your business goals.';
+const enquiryDescription = 'We Combine frontier AI research with full-stack engineering to build tailored AI systems. From strategy and custom model development to deployment and support, we work around your business goals.';
 
 const VariantSection = ({ name, title, helper, children }) => <section className="aic-alt-section" aria-labelledby={`aic-${name}-heading`} data-testid={`aic-section-${name}`}>
   <header className="aic-alt-section-heading">
