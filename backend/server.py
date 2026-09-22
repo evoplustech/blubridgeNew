@@ -8,7 +8,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict, EmailStr, field_validator
+from pydantic import BaseModel, Field, ConfigDict, EmailStr, field_validator, model_validator
+from fastapi.exceptions import RequestValidationError
 from typing import List, Optional, Literal
 import uuid
 from datetime import datetime, timezone, timedelta
@@ -40,6 +41,10 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+from security_sessions import SecurityServices, ADMIN_COOKIE, GUEST_COOKIE, FORM_COOKIE, principal_context, token_hash, hash_password as secure_hash_password, verify_password, verify_admin_token as secure_verify_admin_token
+from security_gateway import SecurityGateway
+from security_uploads import validate_document
+security_services = SecurityServices(db)
 
 # Brevo (Sendinblue) Email configuration
 BREVO_API_KEY = os.environ.get('Backend_Email_Key', '')
@@ -119,10 +124,7 @@ def sanitize_regex_input(value):
     return re.escape(value)
 
 def get_client_ip(request: Request) -> str:
-    forwarded = request.headers.get("x-forwarded-for")
-    if forwarded:
-        return forwarded.split(",")[0].strip()
-    return request.client.host if request.client else "unknown"
+    return security_services.client_ip(request)
 
 class SecurityMiddleware(BaseHTTPMiddleware):
     """
@@ -262,28 +264,18 @@ class SecurityMiddleware(BaseHTTPMiddleware):
         return response
 
 # Add security middleware FIRST
-app.add_middleware(SecurityMiddleware)
+app.add_middleware(SecurityGateway, services=security_services, router=app.router)
 
 # CORS: Restrict to known origins
-ALLOWED_ORIGINS = [
-    "https://blubridge.ai",
-    "https://www.blubridge.ai",
-    "https://blubridge.com",
-    "https://www.blubridge.com",
-    "https://brush-reveal-deploy.preview.emergentagent.com",
-]
+ALLOWED_ORIGINS = list(security_services.origins)
 # Add any custom CORS origins from env
 extra_origins = os.environ.get('CORS_ORIGINS', '')
 if extra_origins and extra_origins != '*':
     ALLOWED_ORIGINS.extend([o.strip() for o in extra_origins.split(',') if o.strip()])
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=ALLOWED_ORIGINS,
-    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization", "X-Requested-With"],
-)
+@app.exception_handler(RequestValidationError)
+async def safe_validation_errors(request, exception):
+    return JSONResponse(status_code=422, content={'detail': [{'loc': list(error['loc']), 'msg': error['msg'], 'type': error['type']} for error in exception.errors()]})
 
 
 # Define Models
@@ -295,27 +287,27 @@ class StatusCheck(BaseModel):
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class StatusCheckCreate(BaseModel):
-    client_name: str
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
+    client_name: str = Field(min_length=1, max_length=120)
 
 # LEGACY: Keep old ContactForm model for backward compatibility
 class ContactForm(BaseModel):
-    firstName: str
-    lastName: str
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
+    firstName: str = Field(min_length=1, max_length=120)
+    lastName: str = Field(min_length=1, max_length=120)
     email: EmailStr
-    company: Optional[str] = None
-    phone: Optional[str] = None
-    message: str
-    interest: str = "general"
-    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    company: Optional[str] = Field(default=None, max_length=200)
+    phone: Optional[str] = Field(default=None, max_length=40)
+    message: str = Field(min_length=1, max_length=5000)
+    interest: str = Field(default='general', max_length=120)
 
 # NEW: Unified Contact Submission Model with type field
 class ContactSubmission(BaseModel):
-    model_config = ConfigDict(extra="allow")  # Allow extra fields for flexibility
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True, str_max_length=5000)
     
     type: Literal["contact_sales", "general_enquiry", "contact_us", "footer_form"]
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
+    firstName: Optional[str] = Field(default=None, max_length=120)
+    lastName: Optional[str] = Field(default=None, max_length=120)
     email: EmailStr
     company: Optional[str] = None
     phone: Optional[str] = None
@@ -331,9 +323,22 @@ class ContactSubmission(BaseModel):
     heardAbout: Optional[str] = None
     # General enquiry specific
     enquiryCategory: Optional[str] = None
-    # System fields
-    createdAt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    @model_validator(mode='after')
+    def fields_for_form(self):
+        common = {'type', 'email', 'firstName', 'lastName', 'message'}
+        allowed = {
+            'footer_form': common,
+            'general_enquiry': common | {'company'},
+            'contact_us': common | {'phone', 'enquiryCategory'},
+            'contact_sales': common | {'company', 'country', 'jobTitle', 'purpose', 'useCase', 'gpuType', 'expectedGpuCount', 'projectStartTimeline', 'heardAbout'},
+        }
+        if not self.model_fields_set <= allowed[self.type]:
+            raise ValueError('Unexpected fields for this form')
+        if self.type != 'footer_form' and (not self.firstName or not self.lastName):
+            raise ValueError('First and last names are required')
+        if self.phone and not re.fullmatch(r'[+\d\s().-]{6,40}', self.phone):
+            raise ValueError('Invalid phone number')
+        return self
     
     @field_validator('email')
     @classmethod
@@ -346,15 +351,14 @@ class ContactSubmission(BaseModel):
     @classmethod
     def validate_string_length(cls, v):
         if v and isinstance(v, str) and len(v) > 5000:
-            return v[:5000]  # Truncate instead of reject
+            raise ValueError('Field exceeds the maximum length')
         return v
 
 class NewsletterSubscribe(BaseModel):
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
     email: EmailStr
-    firstName: str
-    lastName: str
-    subscribed_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    firstName: str = Field(min_length=1, max_length=120)
+    lastName: str = Field(min_length=1, max_length=120)
 
 class BlogPost(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
@@ -368,8 +372,9 @@ class BlogPost(BaseModel):
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class BlogPostCreate(BaseModel):
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True, str_max_length=20000)
     title: str
-    slug: str
+    slug: str = Field(min_length=1, max_length=160, pattern=r'^[a-zA-Z0-9_-]+$')
     excerpt: str
     content: str
     image: str
@@ -450,7 +455,7 @@ async def send_email_notification(form_type: str, form_data: dict):
                     if response.status_code == 201:
                         logging.info(f"Brevo email notification sent for {form_type_label}")
                     else:
-                        logging.error(f"Brevo email failed: {response.status_code} - {response.text}")
+                        logging.error('Brevo email failed with a non-success status')
             except Exception as e:
                 logging.error(f"Failed to send Brevo email notification: {e}")
         
@@ -732,21 +737,22 @@ async def submit_contact_form(form: ContactForm):
             "message": form.message,
             "interest": form.interest,  # Keep original for reference
             "createdAt": datetime.now(timezone.utc).isoformat(),
-            "id": form.id
+            "id": str(uuid.uuid4())
         }
         
-        # Save to unified 'contacts' collection
-        await db.contacts.insert_one(doc)
-        
-        # Also save to legacy collection for backward compatibility
+        await security_services.reserve_submission(doc['email'], doc['type'])
+        # Keep both historical stores consistent without exposing partial writes.
         legacy_doc = form.model_dump()
-        legacy_doc['created_at'] = legacy_doc['created_at'].isoformat()
-        await db.contact_forms.insert_one(legacy_doc)
+        legacy_doc.update(id=doc['id'], created_at=doc['createdAt'])
+        async with await client.start_session() as session:
+            async with session.start_transaction():
+                await db.contacts.insert_one(doc, session=session)
+                await db.contact_forms.insert_one(legacy_doc, session=session)
         
         # Send email notification (non-blocking) — to contact@blubridge.ai
         await send_contact_form_email(form_type, doc)
         
-        return {"message": "Contact form submitted successfully", "id": form.id}
+        return {"message": "Contact form submitted successfully", "id": doc['id']}
     except HTTPException:
         raise
     except Exception as e:
@@ -797,7 +803,7 @@ async def submit_unified_contact(submission: ContactSubmission):
         # Build document with only non-null fields
         doc = {
             "type": submission.type,
-            "id": submission.id or str(uuid.uuid4())
+            "id": str(uuid.uuid4())
         }
         
         # Add all provided fields (exclude None values)
@@ -816,6 +822,7 @@ async def submit_unified_contact(submission: ContactSubmission):
             doc['createdAt'] = datetime.now(timezone.utc).isoformat()
         
         # Save to unified 'contacts' collection
+        await security_services.reserve_submission(doc['email'], doc['type'])
         await db.contacts.insert_one(doc)
         
         # Send email notification (non-blocking) — to contact@blubridge.ai
@@ -831,6 +838,7 @@ async def submit_unified_contact(submission: ContactSubmission):
 
 # Get in Touch - Dedicated enquiry endpoint
 class ContactEnquiry(BaseModel):
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True, str_max_length=1000)
     firstName: str
     lastName: str
     email: EmailStr
@@ -888,6 +896,7 @@ async def submit_contact_enquiry(enquiry: ContactEnquiry):
             "created_at": now,
             "updated_at": now,
         }
+        await security_services.reserve_submission(doc['company_email'], 'enquiry')
         await db.contact_enquiries.insert_one(doc)
 
         await send_contact_form_email("get_in_touch", {
@@ -916,6 +925,7 @@ PROJECT_BUDGETS = {
 
 
 class ProjectEnquiry(BaseModel):
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True, str_max_length=1000)
     fullName: str
     email: EmailStr
     phone: str
@@ -1030,6 +1040,7 @@ async def submit_project_enquiry(enquiry: ProjectEnquiry):
             "created_at": now,
             "updated_at": now,
         }
+        await security_services.reserve_submission(doc['email'], 'project')
         await db.project_enquiries.insert_one(doc)
         await send_contact_form_email("project_enquiry", {
             "full_name": doc["full_name"], "email": email, "phone": doc["phone"], "company": doc["company"],
@@ -1061,6 +1072,7 @@ async def submit_ai_consultation(enquiry: AIConsultationEnquiry):
         "privacy_consent": enquiry.privacy, "marketing_consent": enquiry.marketing,
         "source": "/get-in-touch-10", "status": "new", "created_at": now, "updated_at": now,
     }
+    await security_services.reserve_submission(doc['company_email'], 'enquiry')
     await db.contact_enquiries.insert_one(doc)
     # Use a separate payload: insert_one adds a BSON _id to doc.
     notification = {key: value for key, value in doc.items() if key != "_id"}
@@ -1091,6 +1103,7 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
     if enquiry.serviceRequirements is not None:
         doc["service_requirements"] = enquiry.serviceRequirements
         doc["form_variant"] = enquiry.formVariant
+    await security_services.reserve_submission(doc['company_email'], 'enquiry')
     await db.contact_enquiries.insert_one(doc)
     # Notification delivery is secondary to the confirmed database write.
     try:
@@ -1150,6 +1163,7 @@ async def submit_contact_us(firstName: Optional[str] = None, lastName: Optional[
         doc["type"] = "contact_us"  # Ensure type is always set
         
         # Save to unified 'contacts' collection
+        await security_services.reserve_submission(doc['email'], doc['type'])
         await db.contacts.insert_one(doc)
         
         # Send email notification (non-blocking) — to contact@blubridge.ai
@@ -1197,16 +1211,16 @@ async def subscribe_newsletter(subscription: NewsletterSubscribe):
         # Check if email already exists
         existing = await db.newsletter_subscribers.find_one({"email": subscription.email})
         if existing:
-            raise HTTPException(status_code=400, detail="Email already subscribed")
+            return {"message": "Successfully subscribed to newsletter", "id": str(uuid.uuid4())}
         
         doc = subscription.model_dump()
-        doc['subscribed_at'] = doc['subscribed_at'].isoformat()
+        doc.update(id=str(uuid.uuid4()), subscribed_at=datetime.now(timezone.utc).isoformat())
         await db.newsletter_subscribers.insert_one(doc)
         
         # Send Gmail notification (non-blocking)
         await send_gmail_notification("newsletter", doc)
         
-        return {"message": "Successfully subscribed to newsletter", "id": subscription.id}
+        return {"message": "Successfully subscribed to newsletter", "id": doc['id']}
     except HTTPException:
         raise
     except Exception as e:
@@ -1245,6 +1259,7 @@ async def create_blog_post(post: BlogPostCreate, authorization: Optional[str] = 
 
 @api_router.get("/blog/posts", response_model=List[BlogPost])
 async def get_blog_posts(limit: int = 50):
+    limit = max(1, min(limit, 200))
     posts = await db.blog_posts.find({}, {"_id": 0}).sort("created_at", -1).to_list(limit)
     for post in posts:
         if isinstance(post['created_at'], str):
@@ -1339,7 +1354,9 @@ def validate_file(filename: str, file_size: int, file_content: bytes = None) -> 
             if pattern in file_content[:1024]:
                 return False, "File contains potentially dangerous content"
     
-    return True, ""
+    if file_content:
+        return validate_document(filename, file_content)
+    return False, 'Empty documents are not allowed'
 
 def validate_email(email: str) -> bool:
     """Validate email format"""
@@ -1369,11 +1386,11 @@ async def submit_job_application(
         errors = {}
         
         # First Name validation
-        if not firstName or len(firstName.strip()) < 2:
+        if not firstName or not 2 <= len(firstName.strip()) <= 120:
             errors['firstName'] = 'First name must be at least 2 characters'
         
         # Last Name validation
-        if not lastName or len(lastName.strip()) < 2:
+        if not lastName or not 2 <= len(lastName.strip()) <= 120:
             errors['lastName'] = 'Last name must be at least 2 characters'
         
         # Email validation
@@ -1385,11 +1402,11 @@ async def submit_job_application(
             errors['phone'] = 'Please enter a valid phone number (10-15 digits)'
         
         # Location validation
-        if not location or len(location.strip()) < 1:
+        if not location or not 1 <= len(location.strip()) <= 200:
             errors['location'] = 'Location is required'
         
         # Job Title validation
-        if not jobTitle or len(jobTitle.strip()) < 1:
+        if not jobTitle or not 1 <= len(jobTitle.strip()) <= 200:
             errors['jobTitle'] = 'Job title is required'
         
         # Resume validation
@@ -1397,7 +1414,7 @@ async def submit_job_application(
             errors['resume'] = 'Resume is required'
         else:
             # Read file content to check size
-            file_content = await resume.read()
+            file_content = await resume.read(MAX_FILE_SIZE + 1)
             file_size = len(file_content)
             await resume.seek(0)  # Reset file pointer
             
@@ -1456,6 +1473,7 @@ async def submit_job_application(
         }
         
         # Save to MongoDB
+        await security_services.reserve_submission(application_doc['email'], 'job:' + application_doc['jobTitle'])
         await db.job_applications.insert_one(application_doc)
         
         # Send email notification (non-blocking)
@@ -1472,7 +1490,7 @@ async def submit_job_application(
         }
         await send_gmail_notification("job_application", email_data)
         
-        logging.info(f"Job application submitted: {application_id} for {jobTitle}")
+        logging.info('Job application stored successfully')
         
         return {
             "success": True,
@@ -1551,52 +1569,41 @@ async def update_application_status(application_id: str, status: str, authorizat
 
 # ==================== ADMIN PANEL APIs ====================
 
-# Admin credentials stored in database (with fallback to defaults)
-DEFAULT_ADMIN_USERNAME = "admin"
-DEFAULT_ADMIN_PASSWORD = "admin"
-
-# Simple token store (In production, use Redis or database)
-admin_tokens = {}
-TOKEN_EXPIRY_HOURS = 24
+# Administrator credentials and revocable sessions are stored server-side only.
 
 class AdminLogin(BaseModel):
-    username: str
-    password: str
+    model_config = ConfigDict(extra='forbid')
+    username: str = Field(min_length=1, max_length=120)
+    password: str = Field(min_length=1, max_length=128)
 
 class AdminTokenResponse(BaseModel):
     token: str
     message: str
 
 class AdminPasswordChange(BaseModel):
-    currentPassword: str
-    newPassword: str
-    confirmPassword: str
+    model_config = ConfigDict(extra='forbid')
+    currentPassword: str = Field(min_length=1, max_length=128)
+    newPassword: str = Field(min_length=12, max_length=72)
+    confirmPassword: str = Field(min_length=12, max_length=72)
 
 def hash_password(password: str) -> str:
-    """Hash password using SHA256 with salt"""
-    return hashlib.sha256(password.encode()).hexdigest()
+    return secure_hash_password(password)
 
 def generate_admin_token():
     """Generate a secure admin token"""
     return secrets.token_urlsafe(32)
 
 def verify_admin_token(token: str) -> bool:
-    """Verify if admin token is valid and not expired"""
-    if token not in admin_tokens:
-        return False
-    token_data = admin_tokens[token]
-    created_at = datetime.fromisoformat(token_data["created_at"])
-    if datetime.now(timezone.utc) - created_at > timedelta(hours=TOKEN_EXPIRY_HOURS):
-        del admin_tokens[token]
-        return False
-    return True
+    return secure_verify_admin_token(token)
 
 async def get_admin_credentials():
-    """Get admin credentials from database or use defaults"""
-    admin_doc = await db.admin_settings.find_one({"type": "credentials"})
-    if admin_doc:
-        return admin_doc.get("username", DEFAULT_ADMIN_USERNAME), admin_doc.get("passwordHash")
-    return DEFAULT_ADMIN_USERNAME, hash_password(DEFAULT_ADMIN_PASSWORD)
+    principal = principal_context.get()
+    if not principal:
+        raise HTTPException(401, 'Not authenticated')
+    admin_doc = await db.admin_settings.find_one({'type': 'credentials', 'auth_id': principal['id']}, {'_id': 0})
+    if not admin_doc:
+        raise HTTPException(401, 'Not authenticated')
+    return admin_doc['username'], admin_doc['passwordHash']
 
 async def get_admin_token(authorization: Optional[str] = None):
     """Dependency to verify admin authentication"""
@@ -1616,44 +1623,35 @@ async def get_admin_token(authorization: Optional[str] = None):
 
 
 @api_router.post("/admin/login")
-async def admin_login(credentials: AdminLogin, request: Request):
-    """Admin login endpoint with brute force protection"""
-    client_ip = get_client_ip(request)
-    
-    # Check for brute force lockout
-    now = time.time()
-    login_failures[client_ip] = [t for t in login_failures[client_ip] if now - t < LOGIN_LOCKOUT_SECONDS]
-    if len(login_failures[client_ip]) >= MAX_LOGIN_FAILURES:
-        logging.warning(f"Admin login locked out for IP: {client_ip}")
-        raise HTTPException(status_code=429, detail="Too many failed attempts. Please try again later.")
-    
-    stored_username, stored_password_hash = await get_admin_credentials()
-    input_password_hash = hash_password(credentials.password)
-    
-    if credentials.username == stored_username and input_password_hash == stored_password_hash:
-        # Clear failures on success
-        login_failures.pop(client_ip, None)
-        token = generate_admin_token()
-        admin_tokens[token] = {
-            "username": credentials.username,
-            "created_at": datetime.now(timezone.utc).isoformat()
-        }
-        return {"token": token, "message": "Login successful"}
-    
-    # Track failed attempt
-    login_failures[client_ip].append(now)
-    logging.warning(f"Failed admin login attempt from IP: {client_ip}")
-    raise HTTPException(status_code=401, detail="Invalid credentials")
+async def admin_login(credentials: AdminLogin, request: Request, response: Response):
+    return await security_services.login(credentials, request, response)
 
 
 @api_router.post("/admin/logout")
-async def admin_logout(authorization: Optional[str] = Header(None)):
-    """Admin logout endpoint"""
-    if authorization:
-        token = authorization[7:] if authorization.startswith("Bearer ") else authorization
-        if token in admin_tokens:
-            del admin_tokens[token]
+async def admin_logout(response: Response):
+    principal = principal_context.get()
+    await db.admin_sessions.delete_one({'id': principal['session_id']})
+    response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='strict')
     return {"message": "Logged out successfully"}
+
+
+@api_router.get('/admin/session')
+async def admin_session(request: Request, response: Response):
+    try:
+        await security_services.authenticate(request)
+        token = request.cookies[ADMIN_COOKIE]
+    except HTTPException:
+        response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='strict')
+        token = security_services.signed_context('guest')
+        security_services.cookie(response, GUEST_COOKIE, token, 1800)
+    return {'csrfToken': security_services.csrf_for(token)}
+
+
+@api_router.get('/form-context')
+async def public_form_context(response: Response):
+    token = security_services.signed_context('form')
+    security_services.cookie(response, FORM_COOKIE, token, 1800)
+    return {'formToken': token}
 
 
 @api_router.get("/admin/verify")
@@ -1865,7 +1863,8 @@ async def get_career_applications_admin(authorization: Optional[str] = Header(No
 
 
 @api_router.get("/admin/submission/{submission_id}")
-async def get_submission_detail(submission_id: str, form_type: str, authorization: Optional[str] = Header(None)):
+@api_router.patch("/admin/submission/{submission_id}")
+async def get_submission_detail(submission_id: str, form_type: str, request: Request, authorization: Optional[str] = Header(None)):
     """Get a single submission detail and mark as viewed"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
@@ -1881,7 +1880,7 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
             submission = await db.job_applications.find_one({"id": submission_id}, {"_id": 0})
             if submission:
                 # Mark as viewed (change status from pending to reviewed if still pending)
-                if submission.get("status") == "pending":
+                if request.method == 'PATCH' and submission.get("status") == "pending":
                     await db.job_applications.update_one(
                         {"id": submission_id},
                         {"$set": {"status": "reviewed", "viewedAt": datetime.now(timezone.utc).isoformat()}}
@@ -1889,14 +1888,14 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
                     submission["status"] = "reviewed"
         elif form_type == "project_enquiry":
             submission = await db.project_enquiries.find_one({"id": submission_id}, {"_id": 0})
-            if submission:
+            if submission and request.method == 'PATCH':
                 now_iso = datetime.now(timezone.utc).isoformat()
                 await db.project_enquiries.update_one({"id": submission_id}, {"$set": {"status": "viewed", "updated_at": now_iso}})
                 submission.update(status="viewed", updated_at=now_iso)
                 return ProjectEnquiryRecord.model_validate(submission)
         elif form_type == "get_in_touch":
             submission = await db.contact_enquiries.find_one({"id": submission_id}, {"_id": 0})
-            if submission:
+            if submission and request.method == 'PATCH':
                 now_iso = datetime.now(timezone.utc).isoformat()
                 await db.contact_enquiries.update_one(
                     {"id": submission_id},
@@ -1908,7 +1907,7 @@ async def get_submission_detail(submission_id: str, form_type: str, authorizatio
         else:
             # Get from contacts
             submission = await db.contacts.find_one({"id": submission_id}, {"_id": 0})
-            if submission:
+            if submission and request.method == 'PATCH':
                 # Mark as viewed
                 await db.contacts.update_one(
                     {"id": submission_id},
@@ -1943,8 +1942,8 @@ async def delete_submission(submission_id: str, form_type: str, authorization: O
             # Delete from job_applications and remove resume file
             application = await db.job_applications.find_one({"id": submission_id})
             if application and application.get("resumeCV"):
-                resume_path = Path(application["resumeCV"])
-                if resume_path.exists():
+                resume_path = Path(application["resumeCV"]).resolve()
+                if resume_path.is_relative_to(UPLOADS_DIR.resolve()) and resume_path.is_file():
                     resume_path.unlink()
             result = await db.job_applications.delete_one({"id": submission_id})
         elif form_type == "get_in_touch":
@@ -1978,7 +1977,8 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
             raise HTTPException(status_code=404, detail="Application not found")
         
         resume_ref = application.get("resumeCV", "")
-        filename = application.get("resumeFilename", "resume.pdf")
+        filename = Path(application.get("resumeFilename", "resume.pdf").replace('\\', '/')).name
+        from urllib.parse import quote
         
         # Object-storage resumes (new submissions)
         if resume_ref.startswith(f"{STORAGE_APP_PREFIX}/"):
@@ -1990,7 +1990,7 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
             return Response(
                 content=data,
                 media_type=content_type,
-                headers={"Content-Disposition": f'attachment; filename="{filename}"'}
+                headers={"Content-Disposition": "attachment; filename*=UTF-8''" + quote(filename, safe='')}
             )
         
         # Legacy local-disk resumes (pre-migration submissions)
@@ -1999,7 +1999,7 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
         try:
             resume_path = resume_path.resolve()
             uploads_resolved = UPLOADS_DIR.resolve()
-            if not str(resume_path).startswith(str(uploads_resolved)):
+            if not resume_path.is_relative_to(uploads_resolved):
                 raise HTTPException(status_code=403, detail="Access denied")
         except (ValueError, OSError):
             raise HTTPException(status_code=403, detail="Invalid file path")
@@ -2020,7 +2020,7 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
 
 
 @api_router.post("/admin/change-password")
-async def change_admin_password(password_data: AdminPasswordChange, authorization: Optional[str] = Header(None)):
+async def change_admin_password(password_data: AdminPasswordChange, response: Response, authorization: Optional[str] = Header(None)):
     """Change admin password"""
     token = authorization[7:] if authorization and authorization.startswith("Bearer ") else authorization
     if not token or not verify_admin_token(token):
@@ -2032,28 +2032,30 @@ async def change_admin_password(password_data: AdminPasswordChange, authorizatio
             raise HTTPException(status_code=400, detail="New passwords do not match")
         
         # Validate password length
-        if len(password_data.newPassword) < 6:
-            raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
+        if len(password_data.newPassword) < 12:
+            raise HTTPException(status_code=400, detail="Password must be at least 12 characters")
         
         # Verify current password
         stored_username, stored_password_hash = await get_admin_credentials()
-        current_hash = hash_password(password_data.currentPassword)
-        
-        if current_hash != stored_password_hash:
+        if not await asyncio.to_thread(verify_password, password_data.currentPassword, stored_password_hash):
             raise HTTPException(status_code=400, detail="Current password is incorrect")
         
         # Update password in database
-        new_password_hash = hash_password(password_data.newPassword)
+        new_password_hash = await asyncio.to_thread(hash_password, password_data.newPassword)
+        principal = principal_context.get()
         await db.admin_settings.update_one(
-            {"type": "credentials"},
+            {"type": "credentials", "auth_id": principal['id']},
             {"$set": {
                 "type": "credentials",
                 "username": stored_username,
                 "passwordHash": new_password_hash,
-                "updatedAt": datetime.now(timezone.utc).isoformat()
+                "updatedAt": datetime.now(timezone.utc).isoformat(),
+                "auth_version": principal['auth_version'] + 1
             }},
-            upsert=True
+            upsert=False
         )
+        await db.admin_sessions.delete_many({'user_id': principal['id']})
+        response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='strict')
         
         return {"success": True, "message": "Password changed successfully"}
     except HTTPException:
@@ -2308,8 +2310,8 @@ async def cleanup_duplicate_records(authorization: Optional[str] = Header(None))
                 # Also delete resume file if exists
                 app_doc = await db.job_applications.find_one({"id": id_to_remove})
                 if app_doc and app_doc.get("resumeCV"):
-                    resume_path = Path(app_doc["resumeCV"])
-                    if resume_path.exists():
+                    resume_path = Path(app_doc["resumeCV"]).resolve()
+                    if resume_path.is_relative_to(UPLOADS_DIR.resolve()) and resume_path.is_file():
                         resume_path.unlink()
                 await db.job_applications.delete_one({"id": id_to_remove})
                 cleanup_results["job_applications"]["duplicates_removed"] += 1
@@ -2356,10 +2358,13 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
+from security_logging import install_privacy_filter
+install_privacy_filter()
 logger = logging.getLogger(__name__)
 
 @app.on_event("startup")
 async def startup_storage_init():
+    await security_services.initialize()
     try:
         init_storage()
         logging.info("Object storage initialized")

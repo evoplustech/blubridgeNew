@@ -1,0 +1,18 @@
+[
+  {
+    "check": "secure configured credentials log in through browser",
+    "status": "pass"
+  },
+  {
+    "check": "external cookie SameSite",
+    "status": "limitation",
+    "observed": "None",
+    "expected_at_application": "Strict",
+    "cause": "preview response rewriting outside application"
+  },
+  {
+    "check": "run completion",
+    "status": "fail",
+    "error_type": "TimeoutError"
+  }
+]

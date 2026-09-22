@@ -4,6 +4,7 @@ import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Settings, Lock, Download, FileText, MessageSquare, Briefcase, Database, AlertCircle, CheckCircle, Trash2, RefreshCw } from 'lucide-react';
 
+import { adminFetch as fetch } from './secureApi';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const AdminSettings = () => {
@@ -45,8 +46,8 @@ const AdminSettings = () => {
       return;
     }
 
-    if (newPassword.length < 6) {
-      setMessage({ type: 'error', text: 'Password must be at least 6 characters' });
+    if (newPassword.length < 12) {
+      setMessage({ type: 'error', text: 'Password must be at least 12 characters' });
       return;
     }
 
@@ -215,7 +216,7 @@ const AdminSettings = () => {
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="Enter new password (min 6 characters)"
+                  placeholder="Enter new password (min 12 characters)"
                   className="border-[#E5E7EB] focus:border-[#328CC1]"
                   required
                 />

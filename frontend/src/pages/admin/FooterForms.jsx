@@ -5,6 +5,7 @@ import { Search, Eye, Trash2, RefreshCw, Mail, User, Calendar, X, Download } fro
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 
+import { adminFetch as fetch } from './secureApi';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const FooterForms = () => {

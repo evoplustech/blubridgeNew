@@ -1,0 +1,88 @@
+{
+  "summary": "Executed scoped backend+frontend regression for /admin auth and /ai-consulting base flow. Backend auth/session and base enquiry API mostly pass, but admin cookie policy violates required SameSite=Strict and browser /ai-consulting submission proof remains blocked by dropdown interaction instability.",
+  "backend_issues": {
+    "critical": [
+      {
+        "endpoint": "/api/admin/login",
+        "issue": "Set-Cookie for __Host-bb-admin returned SameSite=None; Partitioned instead of required SameSite=Strict.",
+        "priority": "CRITICAL"
+      }
+    ],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "AiConsulting base dropdowns",
+        "issue": "Keyboard/typeahead flow for stage/timeline/budget did not reliably persist selected values, leaving required fields invalid at submit.",
+        "selector": "[data-testid='aic-stage'], [data-testid='aic-timeline'], [data-testid='aic-estimated-budget'], [data-testid='aic-budget-status']",
+        "priority": "HIGH"
+      },
+      {
+        "component": "AiConsulting consent",
+        "issue": "Consent checkbox interaction was blocked/unreliable when dropdown remained open in overlay state.",
+        "selector": "[data-testid='aic-contact-permission']",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "Real base form submission with disabled/loading guard verification",
+        "issue": "Could not complete end-to-end browser success path after 3 attempts due dropdown state/selection instability; therefore immediate Submitting…/spinner/aria-busy and one-POST browser proof could not be conclusively validated.",
+        "affected_selectors": [
+          "[data-testid='aic-stage']",
+          "[data-testid='aic-timeline']",
+          "[data-testid='aic-estimated-budget']",
+          "[data-testid='aic-budget-status']",
+          "[data-testid='aic-submit-enquiry']"
+        ]
+      },
+      {
+        "flow": "Real browser /admin login verification",
+        "issue": "Browser automation did not produce a clean pass signal for dashboard redirect in this run, while API-level auth flow with current env credentials passed.",
+        "affected_selectors": [
+          "[data-testid='admin-login-submit']",
+          "[data-testid='admin-header-logout']"
+        ]
+      }
+    ],
+    "design_issues": [
+      {
+        "screen": "/ai-consulting",
+        "issues": [
+          "Open dropdown overlay can persist across section boundaries and interfere with lower control interactions."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_admin_auth_iter36.py",
+    "/app/backend/tests/test_ai_consulting_base_submit_iter36.py",
+    "/app/test_reports/pytest/iter36_targeted_backend.xml"
+  ],
+  "action_items": [
+    "Fix admin auth cookie attributes to enforce SameSite=Strict for __Host-bb-admin in deployed response path.",
+    "Stabilize Radix dropdown keyboard/typeahead selection persistence on base /ai-consulting (stage, timeline, estimatedBudget, budgetStatus).",
+    "Ensure open dropdown does not block consent checkbox and submit interactions.",
+    "Re-run browser proof for one real submission: immediate disabled/loading state, exactly one POST, success text, reference, locked controls, and DB record cleanup by exact created ID."
+  ],
+  "critical_code_review_comments": [
+    "security_sessions.cookie() sets samesite='strict', but live Set-Cookie observed as SameSite=None; Partitioned, indicating attribute mutation in runtime/deployment path that breaks requirement.",
+    "SecurityGateway correctly applies CSRF+cookie auth for admin and form-context token for public forms; backend canonical punctuation persistence for stage/timeline/budget/budgetStatus passed API regression.",
+    "Legacy backend tests using Bearer admin token are stale versus current cookie+CSRF flow and should be retired to prevent false confidence."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_admin_auth_iter36.py",
+    "/app/backend/tests/test_ai_consulting_base_submit_iter36.py",
+    "/app/test_reports/iteration_36.json"
+  ],
+  "success_rate": {
+    "backend": "67% (2/3 passed in targeted run)",
+    "frontend": "35% (partial; submit-critical path blocked)"
+  },
+  "seed_data_creation": "Created one temporary QA ai-consulting enquiry via API test and deleted only the exact created id in teardown/finally.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Stopped additional Playwright rewrites after 3 failed attempts on same dropdown/submit path per loop-prevention. Last attempts used keyboard (ArrowDown/typeahead/Enter/Escape) plus direct option testids; selection state still dropped before submit. Browser auth was attempted with current env credentials without printing secrets; API auth regression proved login/verify/logout success. Focus next on dropdown state management and deployed cookie attribute mutation source.",
+  "rca of the issue": "RCA-1 (security): Application code sets Strict cookies, but observed response cookie arrives as SameSite=None; Partitioned, likely mutated after app-layer (proxy/edge/runtime cookie policy), causing requirement mismatch. RCA-2 (frontend): Dropdown state can remain open or lose selected values under keyboard/typeahead progression; resulting validation failures prevent reaching submitting state and one-POST proof in browser flow."
+}

@@ -13,6 +13,7 @@ import {
   Inbox
 } from 'lucide-react';
 import { Button } from '../../components/ui/button';
+import { adminFetch as fetch } from './secureApi';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -24,17 +25,9 @@ const AdminLayout = ({ children }) => {
 
   useEffect(() => {
     // Verify token on mount
-    const token = localStorage.getItem('adminToken');
-    if (!token) {
-      navigate('/admin');
-      return;
-    }
-
     const verifyToken = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/admin/verify`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
+        const response = await fetch(`${API_URL}/api/admin/verify`);
         if (!response.ok) {
           localStorage.removeItem('adminToken');
           navigate('/admin');
@@ -49,11 +42,9 @@ const AdminLayout = ({ children }) => {
   }, [navigate]);
 
   const handleLogout = async () => {
-    const token = localStorage.getItem('adminToken');
     try {
       await fetch(`${API_URL}/api/admin/logout`, {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}` }
+        method: 'POST'
       });
     } catch (err) {
       console.error('Logout error:', err);

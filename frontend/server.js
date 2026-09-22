@@ -2,9 +2,13 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { execSync } = require('child_process');
+require('dotenv').config({ path: path.join(__dirname, '.env'), quiet: true });
+const securityHeaders = require('./securityHeaders');
 
 const app = express();
-const PORT = 3000;
+securityHeaders(app);
+const PORT = Number(process.env.PORT);
+if (!PORT) throw new Error('PORT is required');
 
 const buildDir = path.join(__dirname, 'build');
 const indexPath = path.join(buildDir, 'index.html');
@@ -83,7 +87,7 @@ fs.watchFile(indexPath, { interval: 2000 }, () => {
 });
 
 app.get('/build-version.json', (req, res) => {
-  res.json({ version: buildVersion });
+  res.status(404).send('Not found');
 });
 
 // Live reload script injected into pages
@@ -101,18 +105,7 @@ const liveReloadScript = `
 </script>
 `;
 
-// Security headers middleware
-app.use((req, res, next) => {
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-  res.removeHeader('X-Powered-By');
-  next();
-});
+// Headers and confinement are installed before every route, including early errors.
 
 // Block source map requests in production
 app.use((req, res, next) => {
@@ -1228,14 +1221,14 @@ function getSeoForPath(urlPath) {
 
 // Serve static files from build directory
 app.use(express.static(path.join(__dirname, 'build'), {
-  index: false
+  index: false, dotfiles: 'deny'
 }));
 
 // Fallback: also serve raw public assets (images, favicons, etc.)
 // This guarantees /images/* remain reachable even if a build somehow
 // skipped copying the public folder.
 app.use(express.static(path.join(__dirname, 'public'), {
-  index: false,
+  index: false, dotfiles: 'deny',
   maxAge: '1d'
 }));
 
@@ -1266,8 +1259,8 @@ Object.entries(faviconFiles).forEach(([route, { file, type }]) => {
 // Handle all routes
 app.get('/{*splat}', (req, res) => {
   // Check if it's a static file request
-  const staticPath = path.join(__dirname, 'build', req.path);
-  if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
+  const staticPath = securityHeaders.confinedFile(buildDir, req.path);
+  if (staticPath) {
     return res.sendFile(staticPath);
   }
 
@@ -1332,11 +1325,16 @@ app.get('/{*splat}', (req, res) => {
     );
 
     // Inject live reload script before </body>
-    modifiedHtml = modifiedHtml.replace('</body>', liveReloadScript + '</body>');
+    // Do not expose an unauthenticated development polling endpoint.
 
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.send(modifiedHtml);
   });
+});
+
+app.use((error, req, res, next) => {
+  console.error('Request failed:', error.name);
+  if (!res.headersSent) res.status(500).send('Unable to process request');
 });
 
 app.listen(PORT, '0.0.0.0', () => {

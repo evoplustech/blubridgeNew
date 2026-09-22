@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AdminLayout from './AdminLayout';
 import { FileText, MessageSquare, Briefcase, TrendingUp, Inbox } from 'lucide-react';
 
+import { adminFetch as fetch } from './secureApi';
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const AdminDashboard = () => {

@@ -1,0 +1,12 @@
+# Authentication/security verification playbook
+
+Read `/app/memory/test_credentials.md`; never print secrets or cookie values. Existing custom admin URLs are preserved. The security integration guide's bcrypt and HttpOnly-cookie pattern is applied to the existing opaque token flow with additional persistent revocation, CSRF and server-side roles; no public registration, default seed or JWT bearer fallback is introduced.
+
+1. In an isolated test database, confirm bcrypt hashes, explicit admin role/auth_id/auth_version, and unique session-id plus TTL indexes. A public caller cannot supply or alter these fields.
+2. GET `/api/admin/session` using a cookie jar. POST `/api/admin/login` with configured credentials and returned `X-CSRF-Token`. Assert Secure, HttpOnly, SameSite=Strict, Path=/ cookies and no auth token in JSON/browser storage. Invalid/default credentials fail generically.
+3. Authenticated `/api/admin/verify` and authorized reads succeed; absent/forged/expired/revoked cookies and bearer/localStorage tokens fail. Unsupported methods return405; unknown paths404. Two isolated admin accounts must not mutate each other's credential record. A synthetic non-admin principal cannot access staff routes. Global enquiry records intentionally belong to staff administration, not end-user tenants.
+4. State changes require matching CSRF and allowed Origin. Test missing/mismatched tokens, duplicate cookies/headers, cross-origin preflights, role/body/query/ID tampering and method overrides. Legacy detail GET marks viewed and therefore additionally requires CSRF until a compatible separate mutation is implemented.
+5. Logout invalidates replay; changing a password invalidates all that account's sessions. Idle and absolute expiry are enforced server-side. Session identifiers rotate on successful login. No startup password reset occurs.
+6. Test brute force and shared Mongo limits in isolated fixtures, including spoofed forwarding headers. Do not lock out the real operator or delete its rate-limit records.
+7. Public forms use `/api/form-context` and a same-site bound `X-BB-Form-Token`; allow at least1second from token creation. They remain anonymous/create-only. Test footer, all AI variants, other active forms and file uploads; use only uniquely identified test data.
+8. Verify all unauthorized methods cannot read/update/delete existing or test enquiries; verify authorized CRUD/export using only test fixtures. Do not run live duplicate cleanup, bulk deletion, or password changes on the production operator.

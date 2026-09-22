@@ -1,0 +1,82 @@
+[
+  {
+    "check": "empty validation sends no enquiry POST",
+    "status": "pass"
+  },
+  {
+    "check": "aic-stage keyboard selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-timeline keyboard selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-estimated-budget mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-estimated-budget mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-budget-status mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "all six dropdowns, budget reset and consent work in full form",
+    "status": "pass"
+  },
+  {
+    "check": "desktop full form no horizontal overflow",
+    "status": "pass"
+  },
+  {
+    "check": "immediate disabled loading spinner during delayed real request",
+    "status": "pass"
+  },
+  {
+    "check": "desktop real success, one POST, one DB row, canonical data and locked controls",
+    "status": "pass"
+  },
+  {
+    "check": "empty validation sends no enquiry POST",
+    "status": "pass"
+  },
+  {
+    "check": "aic-stage mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-timeline mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-estimated-budget mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-estimated-budget mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "aic-budget-status mouse selection persists",
+    "status": "pass"
+  },
+  {
+    "check": "all six dropdowns, budget reset and consent work in full form",
+    "status": "pass"
+  },
+  {
+    "check": "mobile full form no horizontal overflow",
+    "status": "pass"
+  },
+  {
+    "check": "immediate disabled loading spinner during delayed real request",
+    "status": "pass"
+  },
+  {
+    "check": "mobile real success, one POST, one DB row, canonical data and locked controls",
+    "status": "pass"
+  }
+]

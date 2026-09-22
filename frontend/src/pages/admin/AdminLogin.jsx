@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Lock, User, AlertCircle } from 'lucide-react';
+import { adminFetch as fetch } from './secureApi';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -15,17 +16,12 @@ const AdminLogin = () => {
 
   // Check if already logged in
   useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    if (token) {
-      verifyToken(token);
-    }
+    verifyToken();
   }, []);
 
-  const verifyToken = async (token) => {
+  const verifyToken = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/admin/verify`, {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
+      const response = await fetch(`${API_URL}/api/admin/verify`);
       if (response.ok) {
         navigate('/admin/dashboard');
       } else {
@@ -51,7 +47,6 @@ const AdminLogin = () => {
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('adminToken', data.token);
         navigate('/admin/dashboard');
       } else {
         setError(data.detail || 'Invalid credentials');

@@ -1,0 +1,71 @@
+{
+  "summary": "Scoped regression executed for reported /ai-consulting submission failure and base dropdown/consent changes. Backend public-form submissions are fixed for the email/company_email duplicate guard path (no 500 reproduced). Browser automation could not complete a full successful submit due blocking dropdown/interaction behavior in timeline/budget section.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "AiConsulting base dropdowns",
+        "issue": "Keyboard/typeahead selection flow leaves dropdown state inconsistent (stage menu remained open and timeline stayed unselected), preventing clean progression to submit.",
+        "selector": "[data-testid='aic-stage'], [data-testid='aic-timeline']",
+        "priority": "HIGH"
+      },
+      {
+        "component": "AiConsulting consent checkbox",
+        "issue": "Checkbox interaction became unreliable during open-dropdown state; automation observed check action not changing state and submit path blocked.",
+        "selector": "[data-testid='aic-contact-permission']",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "Mandatory real-browser submit verification (/ai-consulting)",
+        "issue": "Could not reach success state in three attempts because form remained invalid after dropdown interactions; therefore one-POST/double-click and one-row persistence could not be proven through browser path.",
+        "affected_selectors": [
+          "[data-testid='aic-stage']",
+          "[data-testid='aic-timeline']",
+          "[data-testid='aic-contact-permission']",
+          "[data-testid='aic-submit-enquiry']"
+        ]
+      }
+    ],
+    "design_issues": [
+      {
+        "screen": "/ai-consulting",
+        "issues": [
+          "Consent copy desktop line-height and inline wording target passed in first run; mobile/extra-width overflow and privacy-link navigation checks are pending because full script terminated early when submit path blocked."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_ai_consulting_submission_guard_iter36.py",
+    "/app/test_reports/pytest/ai_consulting_iter36_backend.xml"
+  ],
+  "action_items": [
+    "Fix base dropdown keyboard interaction so Enter/typeahead reliably selects and closes menus for stage/timeline.",
+    "Fix consent checkbox interaction robustness when dropdown portals are active/open.",
+    "After UI fix, rerun mandatory real-browser proof: successful submit banner, receipt, disabled controls, exactly one POST on double-click, and one persisted row verification.",
+    "Code review: options.js currently forces en/em dashes to hyphens in optionLabel; this conflicts with requirement to preserve canonical display punctuation."
+  ],
+  "critical_code_review_comments": [
+    "backend/server.py duplicate guard calls now use company_email at three target endpoints and passed live proof-token API regression (contact/consultation/consulting) without 500.",
+    "frontend/src/pages/ai-consulting/options.js optionLabel replaces en/em dashes with hyphen (`replace(/[–—]/g, '-')`), likely violating requested canonical display text behavior.",
+    "Several older backend tests still assume deprecated Bearer-token admin login response; keep future auth tests aligned to cookie+CSRF flow from /api/admin/session + /api/admin/login."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_ai_consulting_submission_guard_iter36.py",
+    "/app/test_reports/iteration_35.json"
+  ],
+  "success_rate": {
+    "backend": "100% (7/7 passed)",
+    "frontend": "40% (partial checks only; mandatory submit proof blocked)"
+  },
+  "seed_data_creation": "Created temporary QA records via public API for three endpoints using unique emails; cleaned via pytest teardown.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Used public URL from frontend/.env. Backend regression test includes required form-context token flow and validates 201/200 success + duplicate 409 + DB persistence for /api/contact-enquiries, /api/ai-consultation-enquiries, /api/ai-consulting-enquiries. Playwright attempts (3) hit UI blocker in base dropdown/consent interaction before successful submit verification. Screenshot evidence in /app/test_reports/screenshots_iter36/.",
+  "rca of the issue": "Reported backend KeyError class issue appears resolved: live API paths no longer throw 500 and persist correctly with company_email. Remaining blocker is frontend interaction sequencing in new dropdown/checkbox flow; stage/timeline keyboard handling left form invalid and interfered with consent/submission completion in automation."
+}
