@@ -1,0 +1,34 @@
+{
+  "summary": "Completed frontend-only verification for /admin/get-in-touch enquiry detail popup with real APIs, one-login session, temporary Mongo fixtures, responsive/layout/accessibility/delete/export regressions, and protected-file integrity check.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/tests/verify_admin_detail_iteration_37.py",
+    "/app/test_reports/admin_detail_layout/iteration_37_raw.json"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "No scope regressions found in ConsultationDetail popup behavior. All tested flows passed with real APIs.",
+    "Minor code hygiene: useConsultationEnquiries still sets an Authorization header from localStorage although secureApi strips it and auth is cookie+CSRF based."
+  ],
+  "updated_files": [
+    "/app/tests/verify_admin_detail_iteration_37.py",
+    "/app/test_reports/iteration_37.json"
+  ],
+  "success_rate": {
+    "backend": "N/A (not requested)",
+    "frontend": "100% (16/16 checks passed)"
+  },
+  "seed_data_creation": "Created 4 temporary tagged contact_enquiries fixtures (legacy fallback, monthly wizard, variant4, variant5) and deleted only those exact fixture IDs in cleanup.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Single browser login/session used to avoid lockout. Real existing viewed record opened via search without exposing personal values. Network interception was used only for negative delete-error simulation (request abort) and delayed-live-delete busy-state assertion; no mocked success responses. Protected source hash verification passed for all 208 tracked files.",
+  "rca of the issue": "No issue reproduced in current scoped popup validation."
+}

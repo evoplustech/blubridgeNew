@@ -1,0 +1,76 @@
+{
+  "results": [
+    {
+      "check": "Admin login single-session",
+      "status": "pass"
+    },
+    {
+      "check": "Get-in-touch admin page load",
+      "status": "pass"
+    },
+    {
+      "check": "Existing viewed record opens and Escape closes",
+      "status": "pass"
+    },
+    {
+      "check": "Legacy fallback record fields and missing defaults",
+      "status": "pass"
+    },
+    {
+      "check": "Monthly wizard details and consent render unchanged",
+      "status": "pass"
+    },
+    {
+      "check": "Per-service requirements preserve values without generic-description duplication",
+      "status": "pass"
+    },
+    {
+      "check": "Responsive modal layout and sticky controls",
+      "status": "pass"
+    },
+    {
+      "check": "Header X and footer Close dismiss modal",
+      "status": "pass"
+    },
+    {
+      "check": "Body scroll resets when opening another enquiry",
+      "status": "pass"
+    },
+    {
+      "check": "Focus trap and keyboard body scroll",
+      "status": "pass"
+    },
+    {
+      "check": "Delete cancel preserves record and keeps dialog open",
+      "status": "pass"
+    },
+    {
+      "check": "Delete failure shows error in fixed footer (network abort interception)",
+      "status": "pass",
+      "note": "INTERCEPTION_USED_FOR_TEST_ONLY"
+    },
+    {
+      "check": "Delete confirms, disables busy button, and removes only selected fixture",
+      "status": "pass"
+    },
+    {
+      "check": "View action marks status as viewed",
+      "status": "pass"
+    },
+    {
+      "check": "Export includes temporary fixture values",
+      "status": "pass"
+    },
+    {
+      "check": "Protected source hashes",
+      "status": "pass",
+      "checked_files": 208
+    }
+  ],
+  "fixture_ids": [
+    "qa-git-legacy-19d1b391-fdc5-461b-9091-8e469c68d03c",
+    "qa-git-monthly-a0ed07ff-c6ef-4ad9-ab5f-fb3aeec4b951",
+    "qa-git-v4-dd4d9d0c-5a4c-4874-8567-d6e888c8bdc0",
+    "qa-git-v5-3c47e149-a736-4b06-8100-e0a0eafe6c53"
+  ]
+}

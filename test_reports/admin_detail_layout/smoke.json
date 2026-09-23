@@ -1,0 +1,20 @@
+[
+  {
+    "check": "Screenshot enquiry saved fields preserved",
+    "status": "pass"
+  },
+  {
+    "check": "1920 responsive modal; pinned header, close/footer; all details scrollable",
+    "status": "pass",
+    "modal_width": 960
+  },
+  {
+    "check": "390 responsive modal; pinned header, close/footer; all details scrollable",
+    "status": "pass",
+    "modal_width": 366
+  },
+  {
+    "check": "Close button dismisses popup",
+    "status": "pass"
+  }
+]

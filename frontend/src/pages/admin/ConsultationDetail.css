@@ -1,0 +1,52 @@
+.consultation-detail-modal {
+  --detail-ink: #0b1f3b;
+  --detail-muted: #596274;
+  --detail-line: #e3e7ed;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 48px);
+  max-width: 960px;
+  max-height: calc(100dvh - 64px);
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--detail-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--detail-ink);
+  font-family: 'Geist', sans-serif;
+  letter-spacing: 0;
+}
+.consultation-detail-modal .consultation-detail-header { flex-shrink: 0; padding: 24px 76px 24px 32px; border-bottom: 1px solid var(--detail-line); text-align: left; }
+.consultation-detail-modal .consultation-detail-header h2 { margin: 0; font-size: 18px; line-height: 26px; font-weight: 600; letter-spacing: 0; overflow-wrap: anywhere; }
+.consultation-detail-modal > button[data-testid='admin-git-detail-close'] { top: 17px; right: 22px; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px; opacity: 1; color: var(--detail-muted); transition: background-color 140ms ease, color 140ms ease; }
+.consultation-detail-modal > button[data-testid='admin-git-detail-close']:hover { background-color: #f1f4f8; color: var(--detail-ink); }
+.consultation-detail-modal .consultation-detail-body { min-height: 0; padding: 0 32px; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: thin; scrollbar-color: #b9c3d2 #f7f8fa; scrollbar-gutter: stable; }
+.consultation-detail-modal .consultation-detail-body:focus-visible { outline: 2px solid #2b4c8c; outline-offset: -3px; }
+.consultation-detail-modal .consultation-detail-section { padding: 28px 0 32px; }
+.consultation-detail-modal .consultation-detail-section + .consultation-detail-section { border-top: 1px solid var(--detail-line); }
+.consultation-detail-modal .consultation-detail-section h3 { margin: 0 0 22px; font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: 0; color: var(--detail-ink); }
+.consultation-detail-modal .consultation-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; margin: 0; }
+.consultation-detail-modal .consultation-detail-field { min-width: 0; }
+.consultation-detail-modal .consultation-detail-field-wide { grid-column: 1 / -1; }
+.consultation-detail-modal dt { font-size: 13px; line-height: 20px; color: var(--detail-muted); overflow-wrap: anywhere; }
+.consultation-detail-modal dd { margin: 6px 0 0; font-size: 15px; line-height: 24px; font-weight: 400; white-space: pre-wrap; overflow-wrap: anywhere; }
+.consultation-detail-modal .consultation-detail-missing { color: var(--detail-muted); }
+.consultation-detail-modal .consultation-detail-footer { flex-shrink: 0; padding: 16px 32px; border-top: 1px solid var(--detail-line); background-color: #f8f9fb; }
+.consultation-detail-modal .consultation-detail-actions { display: flex; justify-content: flex-end; gap: 12px; }
+.consultation-detail-modal .consultation-detail-actions button { min-width: 96px; min-height: 40px; transition: background-color 140ms ease, color 140ms ease; }
+.consultation-detail-modal .consultation-detail-error { margin: 0 0 12px; color: #b3293a; font-size: 14px; line-height: 22px; overflow-wrap: anywhere; }
+@media (max-width: 639px) {
+  .consultation-detail-modal { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
+  .consultation-detail-modal .consultation-detail-header { padding: 20px 64px 20px 20px; }
+  .consultation-detail-modal .consultation-detail-header h2 { font-size: 16px; line-height: 24px; }
+  .consultation-detail-modal > button[data-testid='admin-git-detail-close'] { top: 12px; right: 12px; }
+  .consultation-detail-modal .consultation-detail-body { padding: 0 20px; }
+  .consultation-detail-modal .consultation-detail-section { padding: 24px 0; }
+  .consultation-detail-modal .consultation-detail-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .consultation-detail-modal dd { font-size: 14px; line-height: 22px; }
+  .consultation-detail-modal .consultation-detail-footer { padding: 14px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consultation-detail-modal, .consultation-detail-modal button { animation: none !important; transition: none !important; }
+}
