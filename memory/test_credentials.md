@@ -13,3 +13,10 @@
 - Owner retrieval: privately open `backend/.env` in the project editor and use `ADMIN_USERNAME` / `ADMIN_PASSWORD` at `/admin`. Do not paste these values into chat or a public report.
 - Configured credentials verified against the current external preview: login, authenticated verify and dashboard returned200; logout returned200 and subsequent verify returned401. Real browser login, dashboard reload, mobile logout and post-logout401 also passed; see `test_reports/iteration_36_followup_admin.json`.
 - Cookie-policy caveat: application emits SameSite=Strict; preview ingress rewrites it to SameSite=None; Partitioned. Secure/HttpOnly, CSRF, origin checks and persistent revocation remain enabled. This is an unresolved infrastructure policy difference, not a credential failure; do not weaken application protections.
+
+## Authorized credential rotation — 2026-09-23 (current)
+- User explicitly requested username `admin`, then chose a generated strong replacement while preserving the existing minimum12-character password policy. The earlier user-supplied short password was NOT installed.
+- Current username: `admin`. Current password: read `ADMIN_PASSWORD` from `/app/backend/.env` privately. Generated using32 cryptographically random bytes and stored in that mode0600 file only; never copy into chat, source, screenshots or reports. `ADMIN_USERNAME` is synchronized to `admin`.
+- Changed via existing authenticated, CSRF-protected `POST /api/admin/change-password`; bcrypt credential hash and auth_version updated, every existing session revoked. No new account, auth-code edits or security-policy exceptions.
+- Verified before restart: new login, authenticated verify and dashboard200; prior password401 and old-session replay401; verification-session logout200 and subsequent verify401. Results without secrets: `/app/test_reports/admin_rotation_20260923.json`.
+- This rotation supersedes prior credential values. Unrelated environment keys are preserved. Backend restarted after the environment update; new login/dashboard/logout passed again, confirming credentials survive restart. All verification sessions were logged out.

@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-23T06:16:59.272570+00:00",
+  "username": "admin",
+  "checks": [
+    {
+      "check": "Expected existing administrator confirmed",
+      "status": "pass"
+    },
+    {
+      "check": "CSRF context obtained",
+      "status": "pass"
+    },
+    {
+      "check": "Current administrator authenticated before rotation",
+      "status": "pass"
+    },
+    {
+      "check": "Strong replacement generated within existing password policy",
+      "status": "pass"
+    },
+    {
+      "check": "Private staged configuration preserves unrelated keys",
+      "status": "pass"
+    },
+    {
+      "check": "Password changed through existing CSRF-protected endpoint",
+      "status": "pass"
+    },
+    {
+      "check": "New bcrypt password active; previous password no longer matches",
+      "status": "pass"
+    },
+    {
+      "check": "All previous administrator sessions revoked",
+      "status": "pass"
+    },
+    {
+      "check": "Private backend configuration synchronized at mode0600",
+      "status": "pass"
+    },
+    {
+      "check": "Previously authenticated cookie rejected after rotation",
+      "status": "pass"
+    },
+    {
+      "check": "CSRF context obtained",
+      "status": "pass"
+    },
+    {
+      "check": "Old password rejected by live login",
+      "status": "pass"
+    },
+    {
+      "check": "CSRF context obtained",
+      "status": "pass"
+    },
+    {
+      "check": "New private password accepted by live login",
+      "status": "pass"
+    },
+    {
+      "check": "New session authenticated",
+      "status": "pass"
+    },
+    {
+      "check": "New session can access dashboard",
+      "status": "pass"
+    },
+    {
+      "check": "Verification session logged out and revoked",
+      "status": "pass"
+    },
+    {
+      "check": "New credentials survive backend restart; dashboard and logout verified",
+      "status": "pass"
+    }
+  ],
+  "credentials_printed": false,
+  "known_limitations": [
+    "Preview infrastructure still rewrites SameSite=Strict; no cookie configuration changed."
+  ]
+}
