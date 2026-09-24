@@ -2,6 +2,9 @@
 const path = require("path");
 require("dotenv").config();
 
+// ESLint 9 is not compatible with CRA's eslint-webpack-plugin; linting runs separately, never in the build.
+process.env.DISABLE_ESLINT_PLUGIN = "true";
+
 // Meta descriptions for each route
 const metaDescriptions = {
   '/': 'Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.',

@@ -59,3 +59,23 @@ Do BOTH:
 
 Proof: a clean `NODE_ENV=production yarn install --frozen-lockfile` + `CI=true craco build` in an isolated
 sandbox completed successfully with `AW-18460200148` present in `build/index.html`.
+
+## Build failure fix #3 (2026-09-24) — now works with the EXISTING Render build command
+Reproduced Render's exact chain locally (`npm install ajv@^7 --save-dev && npm install --legacy-peer-deps && npm run build`
+with `NODE_ENV=production`) and found three chained defects:
+1. `overrides` for ajv conflicted with the `ajv@^7` install -> `EOVERRIDE`. Overrides removed.
+2. CRA 5's hoisted `schema-utils@4` / `ajv-keywords@5` need **ajv 8**; npm was resolving ajv 6, and the
+   `--save-dev` ajv then got pruned entirely by the production install -> `Cannot find module 'ajv/...'`.
+   Fixes: `ajv@^8.17.1` is now a real `dependency`, plus `scripts/ensure-build-deps.js` runs on
+   `postinstall`/`prebuild` and restores a compatible root ajv if an install pruned or downgraded it.
+3. ESLint 9 is incompatible with CRA's eslint-webpack-plugin and `eslint` is dev-only, so the production
+   build crashed on `Cannot find module 'eslint/package.json'`. `craco.config.js` now sets
+   `DISABLE_ESLINT_PLUGIN=true` (committed, so it does not depend on any Render env var).
+Also added `frontend/.npmrc` with `legacy-peer-deps=true` (date-fns/react-day-picker peer conflict).
+
+Verified in isolated sandboxes:
+- Render's exact 3-step npm command + `CI=true npm run build` -> **build exit 0**, `AW-18460200148` in output.
+- `NODE_ENV=production yarn install --frozen-lockfile` -> OK; `CI=true yarn build` -> OK.
+No Render dashboard change is required any more: just redeploy. Keep `REACT_APP_BACKEND_URL` set to
+`https://blubridgebackend.onrender.com` in the frontend env vars (`frontend/.env` is git-ignored, so Render
+env vars are the only source — the log line "injected env (0) from .env" is expected).
