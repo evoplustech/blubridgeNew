@@ -1,0 +1,13 @@
+REACT_APP_BACKEND_URL=https://blubridge.com
+API_PROXY_TARGET=https://blubridgebackend.onrender.com
+PUBLIC_SITE_URL=https://blubridge.com
+NODE_ENV=production
+GENERATE_SOURCEMAP=false
+GOOGLE_ADS_TAG_ID=AW-18460200148
+GOOGLE_ADS_SCRIPT_URL=https://www.googletagmanager.com/gtag/js
+SECURITY_REQUIRE_HTTPS=true
+SECURITY_CSP_SCRIPT_ORIGINS='https://assets.emergent.sh https://static.getclicky.com https://us-assets.i.posthog.com https://www.googletagmanager.com'
+SECURITY_CSP_CONNECT_ORIGINS='https://blubridge.com https://www.blubridge.com https://in.getclicky.com https://static.getclicky.com https://us.i.posthog.com https://us-assets.i.posthog.com https://assets.emergent.sh https://api.emergent.sh'
+SECURITY_CSP_ASSET_ORIGINS='https://assets.emergent.sh https://customer-assets.emergentagent.com https://developers.google.com https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com https://in.getclicky.com https://maps.google.com https://maps.googleapis.com https://static.getclicky.com https://us.i.posthog.com https://www.google.com'
+SECURITY_CSP_GOOGLE_ADS_CONNECT_ORIGINS='https://pagead2.googlesyndication.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://google.com'
+SECURITY_CSP_GOOGLE_ADS_IMAGE_ORIGINS='https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://google.com https://pagead2.googlesyndication.com https://www.googleadservices.com'

@@ -7,6 +7,7 @@ const securityHeaders = require('./securityHeaders');
 const { getPageAccess, publicPaths } = require('./src/routing/pageAccess');
 
 const app = express();
+require('./apiProxy')(app);
 securityHeaders(app);
 const PORT = Number(process.env.PORT);
 if (!PORT) throw new Error('PORT is required');
@@ -18,7 +19,7 @@ function ensureBuildExists() {
   if (!fs.existsSync(indexPath)) {
     console.log('[auto-rebuild] build/index.html missing — rebuilding...');
     try {
-      execSync('cd /app/frontend && yarn build', { stdio: 'inherit', timeout: 120000 });
+      execSync('yarn build', { cwd: __dirname, stdio: 'inherit', timeout: 120000 });
       console.log('[auto-rebuild] Build completed successfully.');
     } catch (e) {
       console.error('[auto-rebuild] Build failed:', e.message);
@@ -48,7 +49,7 @@ function triggerRebuild(reason) {
   isRebuilding = true;
   console.log(`[auto-rebuild] Change detected (${reason}). Rebuilding...`);
   try {
-    execSync('cd /app/frontend && yarn build', { stdio: 'inherit', timeout: 180000 });
+    execSync('yarn build', { cwd: __dirname, stdio: 'inherit', timeout: 180000 });
     console.log('[auto-rebuild] Rebuild completed.');
   } catch (e) {
     console.error('[auto-rebuild] Rebuild failed:', e.message);

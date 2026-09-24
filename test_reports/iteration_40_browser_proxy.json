@@ -1,0 +1,25 @@
+[
+  {
+    "check": "consulting desktop submit via proxy",
+    "status": "pass",
+    "forwarded_api_calls": 6,
+    "created_id": "5c703609-d420-47c4-af77-850510d330b8",
+    "duplicate_status": 409
+  },
+  {
+    "check": "consulting mobile submit via proxy",
+    "status": "pass",
+    "forwarded_api_calls": 6,
+    "created_id": "70a5f554-b794-45b5-b61d-780975147b26",
+    "duplicate_status": 409
+  },
+  {
+    "check": "admin login/verify/logout via proxy",
+    "status": "pass",
+    "forwarded_api_calls": 11
+  },
+  {
+    "check": "proxy forwarding aggregate",
+    "status": "pass"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "context_json": 200,
+  "secure_httponly_samesite_strict_preserved": true,
+  "valid_cookie_and_form_proof_empty_body": 422,
+  "cross_site": 403,
+  "missing_proof": 403,
+  "unknown_api": 404,
+  "records_created": 0
+}
