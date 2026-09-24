@@ -1,0 +1,47 @@
+{
+  "scope": "Read-only configuration diagnosis; real Render environment not accessible",
+  "runtime_required_keys": [
+    "DB_NAME",
+    "MONGO_URL",
+    "SECURITY_ADMIN_RATE_LIMIT",
+    "SECURITY_ALLOWED_ORIGINS",
+    "SECURITY_AUDIT_KEY",
+    "SECURITY_AUDIT_RETENTION_DAYS",
+    "SECURITY_JSON_MAX_BYTES",
+    "SECURITY_PUBLIC_RATE_LIMIT",
+    "SECURITY_REQUIRE_HTTPS",
+    "SECURITY_SESSION_ABSOLUTE_SECONDS",
+    "SECURITY_SESSION_IDLE_SECONDS",
+    "SECURITY_TRUSTED_PROXY_CIDRS",
+    "SECURITY_UPLOAD_MAX_BYTES"
+  ],
+  "checks": [
+    {
+      "check": "All13 direct runtime settings inventoried; present in preview (not proof for Render)",
+      "status": "pass"
+    },
+    {
+      "check": "Reported missing audit-key exception reproduced in isolation",
+      "status": "pass"
+    },
+    {
+      "check": "Complete existing configuration constructs security services without insecure defaults",
+      "status": "pass"
+    },
+    {
+      "check": "Wildcard and HTTP origins remain rejected",
+      "status": "pass"
+    },
+    {
+      "check": "Explicit empty proxy setting is valid and trusts no forwarded peers",
+      "status": "pass"
+    },
+    {
+      "check": "Numeric request/security values valid and HTTPS security header flag true",
+      "status": "pass"
+    }
+  ],
+  "production_files_modified": false,
+  "secrets_rotated": false,
+  "render_status": "Awaiting operator environment update and redeploy verification"
+}
