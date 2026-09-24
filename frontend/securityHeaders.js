@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const path = require('path');
 const fs = require('fs');
+const googleAdsTag = require('./googleAdsTag');
 
 function requiredOrigins(name) {
   if (process.env[name] === undefined) throw new Error(`Missing configuration: ${name}`);
@@ -15,15 +16,19 @@ module.exports = function securityHeaders(app) {
   const scripts = requiredOrigins('SECURITY_CSP_SCRIPT_ORIGINS');
   const connections = requiredOrigins('SECURITY_CSP_CONNECT_ORIGINS');
   const assets = requiredOrigins('SECURITY_CSP_ASSET_ORIGINS');
+  const googleConnections = requiredOrigins('SECURITY_CSP_GOOGLE_ADS_CONNECT_ORIGINS');
+  const googleImages = requiredOrigins('SECURITY_CSP_GOOGLE_ADS_IMAGE_ORIGINS');
+  const addGoogleAdsTag = googleAdsTag();
   app.disable('x-powered-by');
   app.use((req, res, next) => {
     const nonce = crypto.randomBytes(24).toString('base64');
-    const admin = req.path === '/admin' || req.path.startsWith('/admin/');
+    let admin;
+    try { admin = googleAdsTag.isAdminPath(req.path); } catch { return res.status(400).send('Invalid request'); }
     const directives = [
       "default-src 'self'", `script-src 'self' 'nonce-${nonce}' ${admin ? '' : scripts.join(' ')}`,
       "script-src-attr 'none'", "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' data: https://fonts.gstatic.com", `img-src 'self' data: blob: ${assets.join(' ')}`,
-      `media-src 'self' blob: ${assets.join(' ')}`, `connect-src 'self' ${admin ? '' : connections.join(' ')}`,
+      "font-src 'self' data: https://fonts.gstatic.com", `img-src 'self' data: blob: ${[...assets, ...(admin ? [] : googleImages)].join(' ')}`,
+      `media-src 'self' blob: ${assets.join(' ')}`, `connect-src 'self' ${admin ? '' : [...connections, ...googleConnections].join(' ')}`,
       "object-src 'none'", "base-uri 'self'", "form-action 'self'", "frame-ancestors 'none'", "frame-src 'none'", "worker-src 'self' blob:",
     ];
     res.setHeader('Content-Security-Policy', directives.join('; '));
@@ -37,6 +42,7 @@ module.exports = function securityHeaders(app) {
     const originalSend = res.send.bind(res);
     res.send = body => {
       if (typeof body === 'string' && /<!doctype html>|<html[\s>]/i.test(body)) {
+        body = addGoogleAdsTag(body, admin);
         if (admin) {
           body = body.replace(/<script\b[^>]*src=["'](?:https?:)?\/\/[^"']+["'][^>]*>\s*<\/script>/gi, '');
           body = body.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (tag, script) => /posthog\.init/.test(script) ? '' : tag);

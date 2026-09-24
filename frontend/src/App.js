@@ -6,31 +6,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Toaster } from './components/ui/toaster';
 import Home from './pages/Home';
-import Home1 from './pages/Home1';
 import Products from './pages/Products';
-import Solutions from './pages/Solutions';
-import GetInTouch from './pages/GetInTouch';
-import GetInTouchV2 from './pages/GetInTouchV2';
-import GetInTouchV3 from './pages/GetInTouchV3';
-import GetInTouchV4 from './pages/GetInTouchV4';
-import GetInTouchV5 from './pages/GetInTouchV5';
-import GetInTouchV6 from './pages/GetInTouchV6';
-import GetInTouchV7 from './pages/GetInTouchV7';
-import GetInTouchV8 from './pages/GetInTouchV8';
-import GetInTouchV9 from './pages/GetInTouchV9';
-import GetInTouchV10 from './pages/GetInTouchV10';
-import GetInTouchV11 from './pages/GetInTouchV11';
 import AiConsulting from './pages/AiConsulting';
-import AiConsultingVariant from './pages/AiConsultingVariant';
-import AiConsultingWorksheet from './pages/AiConsultingWorksheet';
-import AiConsultingDuplicate from './pages/AiConsultingDuplicate';
-import AiConsultingVariant4 from './pages/AiConsultingVariant4';
-import AiConsultingVariant5 from './pages/AiConsultingVariant5';
 import Contact from './pages/Contact';
-import Blog from './pages/Blog';
-import Pricing from './pages/Pricing';
-import Documentation from './pages/Documentation';
-import Partners from './pages/Partners';
+import NotFound from './pages/NotFound';
+import { getPageAccess } from './routing/pageAccess';
 
 // Product Pages
 import Training from './pages/products/Training';
@@ -54,7 +34,6 @@ import AIDevelopment from './pages/solutions/AIDevelopment';
 
 // Company Pages
 import AboutUs from './pages/AboutUs';
-import MediaKit from './pages/MediaKit';
 import Careers from './pages/Careers';
 import Research from './pages/Research';
 import BluWerp from './pages/Research/BluWerp';
@@ -75,10 +54,6 @@ import Legal from './pages/solutions/industry/Legal';
 import Healthcare from './pages/solutions/industry/Healthcare';
 import ScrollToTop from './components/ScrollToTop';
 import CustomCursor from './components/CustomCursor';
-
-// Contact Sub-pages
-import ContactSales from './pages/contact/Sales';
-import GeneralEnquiry from './pages/contact/GeneralEnquiry';
 
 // Job Detail Page
 import JobDetail from './pages/JobDetail';
@@ -104,6 +79,7 @@ const AppLayout = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
   const isHome = location.pathname === '/';
+  const pageAccess = getPageAccess(location.pathname);
 
   return (
     <>
@@ -111,7 +87,7 @@ const AppLayout = () => {
       <CustomCursor />
       {!isAdminRoute && <Header />}
       <main className={isAdminRoute ? "" : isHome ? "bb-main-home" : "pt-32"} style={isAdminRoute || isHome ? {} : { paddingTop: "7rem" }}>
-        <Routes>
+        {pageAccess === 'not-found' ? <NotFound /> : <Routes>
           {/* Admin Routes - No Header/Footer */}
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
@@ -135,7 +111,7 @@ const AppLayout = () => {
           <Route path="/products/gpu-nodes" element={<GPUNodes />} />
           <Route path="/products/marketplace" element={<Marketplace />} />
           <Route path="/solutions/model-customization" element={<ModelCustomization />} />
-          <Route path="/products/*" element={<Products />} />
+          <Route path="/products" element={<Products />} />
           
           {/* Solution Routes - Cases */}
           <Route path="/solutions/training" element={<SolutionTraining />} />
@@ -158,13 +134,9 @@ const AppLayout = () => {
           {/* Solutions New Page */}
           <Route path="/solutions" element={<SolutionsNew />} />
           
-          {/* Solutions Fallback */}
-          <Route path="/solutions/*" element={<Solutions />} />
-          
           {/* Company Routes */}
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/joinourteam" element={<JoinOurTeam />} />
-          <Route path="/media-kit" element={<MediaKit />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/job/:slug" element={<JobDetail />} />
           <Route path="/research" element={<Research />} />
@@ -177,28 +149,8 @@ const AppLayout = () => {
           
           {/* Contact Routes */}
           <Route path="/contact" element={<Contact />} />
-          <Route path="/get-in-touch" element={<GetInTouch />} />
-          <Route path="/get-in-touch-1" element={<GetInTouchV2 />} />
-          <Route path="/get-in-touch-2" element={<GetInTouchV3 />} />
-          <Route path="/get-in-touch-3" element={<GetInTouchV4 />} />
-          <Route path="/get-in-touch-4" element={<GetInTouchV5 />} />
-          <Route path="/get-in-touch-5" element={<GetInTouchV6 />} />
-          <Route path="/get-in-touch-6" element={<GetInTouchV7 />} />
-          <Route path="/get-in-touch-7" element={<GetInTouchV8 />} />
-          <Route path="/get-in-touch-8" element={<GetInTouchV9 />} />
-          <Route path="/get-in-touch-9" element={<GetInTouchV10 />} />
-          <Route path="/get-in-touch-10" element={<GetInTouchV11 />} />
-          <Route path="/ai-consulting" element={<AiConsulting />} />
-          <Route path="/ai-consulting-1" element={<AiConsultingVariant />} />
-          <Route path="/ai-consulting-2" element={<AiConsultingWorksheet />} />
-          <Route path="/ai-consulting-3" element={<AiConsultingDuplicate />} />
-          <Route path="/ai-consulting-4" element={<AiConsultingVariant4 />} />
-          <Route path="/ai-consulting-5" element={<AiConsultingVariant5 />} />
-          <Route path="/contact/sales" element={<ContactSales />} />
-          <Route path="/contact/general-enquiry" element={<GeneralEnquiry />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/docs" element={<Documentation />} />
+          <Route path="/consulting" element={<AiConsulting />} />
+          <Route path="/ai-consulting" element={<Navigate to={`/consulting${location.search}${location.hash}`} replace />} />
           
           {/* Policy Routes */}
           <Route path="/policies/transparency-and-human-rights" element={<TransparencyHumanRights />} />
@@ -206,8 +158,8 @@ const AppLayout = () => {
           <Route path="/policies/terms-conditions" element={<TermsConditions />} />
           
           {/* Catch all */}
-          <Route path="*" element={<Home />} />
-        </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes>}
       </main>
       {!isAdminRoute && <Footer />}
       <Toaster />

@@ -339,7 +339,7 @@ const Serverless = () => {
               <p className="text-[#2F3A4A] mb-6 leading-relaxed">
                 Serverless with no trade-offs. Ownership of models stays entirely with you, and information is never recycled or used again for learning. Benefit from complete workload separation, embedded regulatory controls, and powerful computing resources which are ss
               </p>
-              <Link to="/gpu-nodes" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
+              <Link to="/products/gpu-nodes" data-testid="serverless-gpu-nodes-link" className="text-orange-400 hover:text-orange-300 inline-flex items-center gap-2">
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

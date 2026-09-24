@@ -4,6 +4,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 require('dotenv').config({ path: path.join(__dirname, '.env'), quiet: true });
 const securityHeaders = require('./securityHeaders');
+const { getPageAccess, publicPaths } = require('./src/routing/pageAccess');
 
 const app = express();
 securityHeaders(app);
@@ -1203,23 +1204,25 @@ const seoContent = {
 
 // Default SEO content
 const defaultSeo = seoContent['/'];
+Object.assign(seoContent, require('./publishedPageSeo'));
+seoContent['/consulting'] = {
+  title: 'AI Consulting | BluBridge',
+  description: 'Tell us what you are looking to build, improve or deploy. Share your requirement, estimated budget and contact details. Our team will review your enquiry and contact you to discuss the next steps.',
+  content: '<h1>Discuss Your AI Requirement</h1>',
+};
+const notFoundSeo = { title: 'Page not found | BluBridge', description: 'This page is not available.', content: '<h1>Page not found</h1>' };
 
 // Function to get SEO content for a path
 function getSeoForPath(urlPath) {
-  const normalizedPath = urlPath.split('?')[0].split('#')[0];
-  // Title-only overrides (keep meta description/content = current fallback behaviour)
-  const titleOnlyOverrides = {
-    '/Research/FLUX-Data': 'FLUX: Data Worth Training On | BluBridge',
-    '/Research/FLUX-3': 'FLUX: Data Worth Training On | BluBridge',
-    '/Research/FLUX-4': 'FLUX: Data Worth Training On | BluBridge',
-  };
-  if (titleOnlyOverrides[normalizedPath]) {
-    return { ...defaultSeo, title: titleOnlyOverrides[normalizedPath] };
-  }
-  return seoContent[normalizedPath] || defaultSeo;
+  const normalizedPath = decodeURIComponent(urlPath.split('?')[0].split('#')[0]).replace(/\/+$/, '') || '/';
+  const canonicalPath = publicPaths.find(path => path.toLowerCase() === normalizedPath.toLowerCase()) || normalizedPath;
+  return seoContent[canonicalPath] || defaultSeo;
 }
 
 // Serve static files from build directory
+require('./pagePublishing')(app);
+// Render the HTML entry through the same nonce/tag pipeline as public routes.
+app.get('/index.html', (req, res) => res.redirect(308, '/'));
 app.use(express.static(path.join(__dirname, 'build'), {
   index: false, dotfiles: 'deny'
 }));
@@ -1263,6 +1266,8 @@ app.get('/{*splat}', (req, res) => {
   if (staticPath) {
     return res.sendFile(staticPath);
   }
+  const unavailable = getPageAccess(req.path) === 'not-found';
+  if (unavailable) res.status(404).setHeader('X-Robots-Tag', 'noindex');
 
   // Read the index.html
   fs.readFile(indexPath, 'utf8', (err, html) => {
@@ -1272,7 +1277,7 @@ app.get('/{*splat}', (req, res) => {
       try {
         execSync('cd /app/frontend && yarn build', { stdio: 'inherit', timeout: 120000 });
         const retryHtml = fs.readFileSync(indexPath, 'utf8');
-        const seo = getSeoForPath(req.path);
+        const seo = unavailable ? notFoundSeo : getSeoForPath(req.path);
         let modifiedHtml = retryHtml.replace(
           /<meta name="description" content="[^"]*"/,
           `<meta name="description" content="${seo.description}"`
@@ -1298,7 +1303,7 @@ app.get('/{*splat}', (req, res) => {
     }
 
     // Get the SEO content for this path
-    const seo = getSeoForPath(req.path);
+    const seo = unavailable ? notFoundSeo : getSeoForPath(req.path);
 
     // Replace the meta description
     let modifiedHtml = html.replace(

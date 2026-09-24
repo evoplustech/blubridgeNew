@@ -1,0 +1,18 @@
+[
+  {
+    "check": "46 public pages render via SPA navigation without links to unpublished pages",
+    "status": "pass"
+  },
+  {
+    "check": "SPA navigation retains exactly one Google script/config",
+    "status": "pass"
+  },
+  {
+    "check": "Admin/public boundaries reload document; Google absent on admin",
+    "status": "pass"
+  },
+  {
+    "check": "Desktop/mobile SPA exclusions show 404 and Back Home works without overflow",
+    "status": "pass"
+  }
+]

@@ -248,8 +248,8 @@ const Narvik = () => {
                 Schedule Site Visit
               </Button>
             </Link>
-            <Link to="/docs">
-              <Button variant="outline" className="border-white text-white hover:bg-[#e8eaf3] px-8 py-6 text-lg">
+            <Link to="/contact" data-testid="narvik-facility-overview-link">
+              <Button variant="outline" data-testid="narvik-facility-overview-button" className="border-white text-white hover:bg-[#e8eaf3] px-8 py-6 text-lg">
                 Download Facility Overview
               </Button>
             </Link>

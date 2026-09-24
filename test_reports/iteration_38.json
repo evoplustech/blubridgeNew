@@ -1,0 +1,55 @@
+{
+  "summary": "Executed both backend and frontend validation for published routing, exclusions, sitemap/robots, Google Ads tag scope, auth cookie/hash checks, and real /consulting submission API flow. Backend suite found one functional regression in route-specific SEO fallback content; frontend browser run hit repeated interaction blocking in consulting timeline/budget -> consent path.",
+  "backend_issues": {
+    "critical": [
+      {
+        "endpoint": "Public HTML routes (SSR meta/seo injection in frontend/server.js)",
+        "issue": "9 approved public routes still inject Home fallback SEO content/title marker (<h1>Beyond the Horizon</h1>) instead of route-specific content. Affected URLs: /careers/job/data-science-ai-ml-engineer, /careers/job/business-development-ai-strategy, /careers/job/social-media-growth-manager-ai-deep-tech, /careers/job/social-media-growth-specialist-freelancer, /products, /Research/FLUX-Data, /Research/FLUX-3, /Research/FLUX-4, /Research/BluTrain.",
+        "priority": "HIGH"
+      }
+    ],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Consulting form dropdown/consent area",
+        "issue": "After selecting timeline/budget fields, dropdown state/overlay remained active and blocked deterministic interaction with consent checkbox during automation (3 consecutive failures).",
+        "selector": "[data-testid='aic-timeline'], [data-testid='aic-estimated-budget'], [data-testid='aic-contact-permission']",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_publish_routes_consulting_iter39.py",
+    "/app/test_reports/pytest/iter39_routes_publish.xml",
+    "/root/.emergent/automation_output/20260924_104302/console_20260924_104302.log",
+    "/root/.emergent/automation_output/20260924_104354/console_20260924_104354.log",
+    "/root/.emergent/automation_output/20260924_104449/console_20260924_104449.log"
+  ],
+  "action_items": [
+    "Add explicit non-home seoContent entries (or route-level handling) for the 9 affected approved public URLs in frontend/server.js so they do not fall back to Home hidden SEO payload.",
+    "Fix consulting Radix dropdown close/focus behavior so budget/timeline selection does not block consent checkbox interaction and submission flow.",
+    "Re-run browser validation for full /consulting real submit UX (desktop/mobile) after dropdown/consent fix."
+  ],
+  "critical_code_review_comments": [
+    "Route catalog in publishedPages.json is correct (46 public + 8 admin), but server-side SEO map coverage is incomplete for several approved routes causing fallback content leak.",
+    "Protected file hash verification against /tmp/publish-protected.json passed: 51/51 unchanged.",
+    "Auth/infra note remains: preview cookie SameSite rewrite behavior is external to app and unchanged in this run."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_publish_routes_consulting_iter39.py",
+    "/app/test_reports/iteration_38.json"
+  ],
+  "success_rate": {
+    "backend": "92% (12/13 tests passed)",
+    "frontend": "Partial (core navigation checks passed; consulting submit UI flow blocked in automation)"
+  },
+  "seed_data_creation": "Created one tagged QA consulting enquiry via real POST and removed it by exact id in test cleanup.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Exact route validations passed: /consulting(200), /consulting/(200), /ai-consulting?qa=1&src=iter39 -> 308 /consulting?qa=1&src=iter39, /ai-consulting/?qa=2&src=iter39 -> 308 /consulting?qa=2&src=iter39. Excluded URLs validated 404+noindex: /media-kit, /get-in-touch, /get-in-touch-1..10, /ai-consulting-1..5, /contact/sales, /contact/general-enquiry, /partners, /pricing, /docs, /blog, /home1, /some-unknown-path, /products/not-real, /solutions/not-real, /careers/job/not-real-role. Sitemap has exactly 46 URLs under https://blubridge.com and includes /consulting while excluding /ai-consulting and admin/media variants. Google tag checks passed on sampled public pages and absent on admin pages in backend suite.",
+  "rca of the issue": "RCA-1 (route fallback): server.js getSeoForPath returns defaultSeo when exact path key is missing; several approved routes are not represented in seoContent/title override map, so hidden SEO block and title regress to Home. RCA-2 (consulting UI automation blocker): dropdown interaction in timeline/budget area can leave menu/overlay focus state active over lower form area (seen in screenshot with open budget menu near consent row), preventing reliable consent checkbox state toggle and end-to-end submit in browser automation."
+}
