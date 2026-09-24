@@ -33,3 +33,12 @@ Then submit a test enquiry on `/consulting` and confirm a 201 in the Network tab
 - If the frontend is later switched to a Render **Web Service**, everything becomes same-origin again and the
   Google tag is de-duplicated automatically by `frontend/googleAdsTag.js` (it skips injection when the tag id
   is already in the HTML and strips it on `/admin`).
+
+## Build failure fix (2026-09-24) — `sh: 1: craco: not found` (exit 127)
+Render installs with `NODE_ENV=production`, which SKIPS `devDependencies`. The build tools
+(`@craco/craco`, `tailwindcss`, `postcss`, `autoprefixer`, `@babel/plugin-proposal-private-property-in-object`)
+were in `devDependencies`, so `craco build` had no binary.
+Fix: those five packages were moved into `dependencies` in `frontend/package.json`.
+Verified locally: `NODE_ENV=production yarn install --frozen-lockfile` now provides `node_modules/.bin/craco`,
+and `CI=true yarn build` succeeds with the Google tag present in `build/index.html`.
+No Render build-command or env change needed — just redeploy.
