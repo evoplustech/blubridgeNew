@@ -7,7 +7,7 @@ import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Fl
 import axios from 'axios';
 
 
-const BACKEND_URL = window.location.origin;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 const API = `${BACKEND_URL}/api`;
 
 const Footer = () => {

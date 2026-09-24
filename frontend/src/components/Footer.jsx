@@ -5,7 +5,7 @@ import { Input } from './ui/input';
 import { useToast } from '../hooks/use-toast';
 import axios from 'axios';
 
-const BACKEND_URL = window.location.origin;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 const API = `${BACKEND_URL}/api`;
 
 const inputCls = 'bg-white border-bb-line text-bb-ink placeholder:text-bb-ink-3 focus-visible:ring-1 focus-visible:ring-bb-accent focus-visible:border-bb-accent rounded-md h-9';

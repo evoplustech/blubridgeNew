@@ -111,7 +111,8 @@ class SecurityGateway:
                     parsed = urlsplit(referer)
                     if f'{parsed.scheme}://{parsed.netloc}' not in self.services.origins:
                         raise HTTPException(403, 'Origin not allowed')
-                if request.headers.get('sec-fetch-site') == 'cross-site':
+                # Cross-site is permitted only from an explicitly allowlisted origin; CSRF/form proofs still apply.
+                if request.headers.get('sec-fetch-site') == 'cross-site' and not allowed_origin:
                     raise HTTPException(403, 'Request verification failed')
 
             query = request.query_params.multi_items()
@@ -145,7 +146,10 @@ class SecurityGateway:
                 if path == '/api/job-applications/submit':
                     await self.services.limit(ip, 'uploads', 3)
                 token = request.cookies.get(FORM_COOKIE, '')
-                if not hmac.compare_digest(token, request.headers.get('x-bb-form-token', '')) or not self.services.check_context(token, 'form', min_age=0.5):
+                header_token = request.headers.get('x-bb-form-token', '')
+                # Browsers that drop cross-site cookies still prove intent via an allowlisted Origin plus the signed token.
+                paired = bool(token) and hmac.compare_digest(token, header_token)
+                if not (paired or allowed_origin) or not self.services.check_context(header_token, 'form', min_age=0.5):
                     raise HTTPException(403, 'Form verification failed. Please try again.')
 
             chunks, total = [], 0

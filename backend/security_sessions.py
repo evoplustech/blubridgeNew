@@ -120,7 +120,8 @@ class SecurityServices:
         return self.fingerprint('csrf:' + token)
 
     def cookie(self, response, name, value, seconds):
-        response.set_cookie(name, value, secure=True, httponly=True, samesite='strict', path='/', max_age=seconds)
+        # SameSite=None is required because the approved frontend origin is a separate host.
+        response.set_cookie(name, value, secure=True, httponly=True, samesite='none', path='/', max_age=seconds)
 
     async def authenticate(self, request):
         token = request.cookies.get(ADMIN_COOKIE, '')

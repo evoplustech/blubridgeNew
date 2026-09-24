@@ -27,7 +27,7 @@ const GeneralEnquiry = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || window.location.origin}/api/contacts/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

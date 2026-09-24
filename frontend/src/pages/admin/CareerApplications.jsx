@@ -6,7 +6,7 @@ import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 
 import { adminFetch as fetch } from './secureApi';
-const API_URL = window.location.origin;
+const API_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 const CareerApplications = () => {
   const [applications, setApplications] = useState([]);

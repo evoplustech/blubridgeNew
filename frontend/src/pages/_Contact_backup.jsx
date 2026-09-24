@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
 
-const API_URL = window.location.origin;
+const API_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 // Country codes with flags and names
 const countryCodes = [

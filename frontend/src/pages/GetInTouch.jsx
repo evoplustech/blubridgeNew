@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Compass, Mail, ShieldCheck, Bug } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-const API_URL = window.location.origin;
+const API_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 const MAX_DETAILS = 1000;
 

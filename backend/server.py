@@ -1631,7 +1631,7 @@ async def admin_login(credentials: AdminLogin, request: Request, response: Respo
 async def admin_logout(response: Response):
     principal = principal_context.get()
     await db.admin_sessions.delete_one({'id': principal['session_id']})
-    response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='strict')
+    response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='none')
     return {"message": "Logged out successfully"}
 
 
@@ -1641,7 +1641,7 @@ async def admin_session(request: Request, response: Response):
         await security_services.authenticate(request)
         token = request.cookies[ADMIN_COOKIE]
     except HTTPException:
-        response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='strict')
+        response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='none')
         token = security_services.signed_context('guest')
         security_services.cookie(response, GUEST_COOKIE, token, 1800)
     return {'csrfToken': security_services.csrf_for(token)}
@@ -2055,7 +2055,7 @@ async def change_admin_password(password_data: AdminPasswordChange, response: Re
             upsert=False
         )
         await db.admin_sessions.delete_many({'user_id': principal['id']})
-        response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='strict')
+        response.delete_cookie(ADMIN_COOKIE, path='/', secure=True, httponly=True, samesite='none')
         
         return {"success": True, "message": "Password changed successfully"}
     except HTTPException:

@@ -14,7 +14,14 @@ module.exports = function googleAdsTag() {
   return (html, admin) => {
     // Run before any third-party code so crossing the admin boundary loads a new CSP/document.
     const navigationBoundary = `<script data-testid="admin-document-boundary">${boundary}</script>`;
-    const googleTag = admin ? '' : `
+    if (admin) {
+      // The tag ships in the built HTML for static hosting; admin documents must not carry it.
+      html = html.replace(/<!-- Google tag \(gtag\.js\) -->/g, '')
+        .replace(/<script\b[^>]*data-testid="google-ads-tag-(?:script|config)"[^>]*>[\s\S]*?<\/script>/gi, '');
+      return html.replace(/<head\b[^>]*>/i, match => `${match}\n${navigationBoundary}`);
+    }
+    const alreadyTagged = html.includes(tagId);
+    const googleTag = alreadyTagged ? '' : `
       <!-- Google tag (gtag.js) -->
       <script async data-testid="google-ads-tag-script" src="${scriptUrl.href.replace(/&/g, '&amp;')}"></script>
       <script data-testid="google-ads-tag-config">

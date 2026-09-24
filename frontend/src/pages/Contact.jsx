@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Phone, Mail, Linkedin, Twitter, Building2, ChevronRight } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-const API_URL = window.location.origin;
+const API_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 /* ------------------------------------------------------------------
    CONTACT — Editorial Redesign (light theme #f0f1f9)

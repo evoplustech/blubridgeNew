@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { adminFetch as fetch } from './secureApi';
-const API_URL = window.location.origin;
+const API_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 const request = async (path, options = {}) => {
   const response = await fetch(`${API_URL}/api/admin/${path}`, { ...options, headers: { Authorization: `Bearer ${localStorage.getItem('adminToken')}` } });
   if (!response.ok) throw new Error(response.status === 401 ? 'Your session has expired. Please sign in again.' : 'Unable to complete this request. Please try again.');

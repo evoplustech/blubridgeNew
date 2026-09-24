@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-const API_URL = window.location.origin;
+const API_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 export const useWizardSubmission = () => {
   const sending = useRef(false);
