@@ -1,0 +1,65 @@
+{
+  "summary": "Frontend-only verification (preview URL) of consulting enquiry submission + Google Ads tag placement + admin flow. All 7 target scenarios PASS.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_results": {
+    "consulting_desktop_1920x1080": {
+      "status": "PASS",
+      "post_status": 201,
+      "success_visible": true,
+      "reference_id": "78020c25-eb61-4ce6-809c-6b79ed03d144",
+      "email_used": "qa.desk.<epoch>@blubridge-qa.dev"
+    },
+    "consulting_mobile_390x844": {
+      "status": "PASS",
+      "post_status": 201,
+      "success_visible": true,
+      "reference_id": "d120ab34-cafe-4077-ad29-3bf826f4e948",
+      "email_used": "qa.mob.<epoch>@blubridge-qa.dev"
+    },
+    "double_click_guard": {
+      "status": "PASS",
+      "details": "Second rapid click on Submit Enquiry blocked - button becomes disabled while isSubmitting. Exactly ONE POST /api/ai-consulting-enquiries observed per submission (network capture)."
+    },
+    "google_ads_tag_public_pages": {
+      "status": "PASS",
+      "details": "For /, /consulting, /solutions, /research, /about-us, /careers, /contact: exactly 1 script src=https://www.googletagmanager.com/gtag/js?id=AW-18460200148, exactly 1 inline gtag block containing AW-18460200148, window.dataLayer present with entries, gtag network request loaded (200-class, no errors). No CSP violations or JS errors related to gtag in console.",
+      "network_request_loaded": true
+    },
+    "direct_visits_include_tag": {
+      "status": "PASS",
+      "details": "Direct navigations (not client-side transitions) to /consulting, /about-us etc served HTML with the gtag script and inline config (verified via both DOM inspection and curl on preview URL)."
+    },
+    "admin_excludes_tag": {
+      "status": "PASS",
+      "details": "GET /admin: 0 gtag scripts, 0 inline gtag config for AW-18460200148, 0 googletagmanager network requests. curl of raw HTML confirms 0 occurrences of AW-18460200148."
+    },
+    "admin_login_flow": {
+      "status": "PASS",
+      "details": "POST /api/admin/login=200, dashboard rendered with Consultation Enquiries + Contact Forms tiles, GET /api/admin/verify (with cookie)=200. POST /api/admin/logout=200 via admin-header-logout data-testid. Post-logout GET /api/admin/verify=401."
+    }
+  },
+  "test_report_links": [
+    "/app/test_reports/screenshots_iter41/desktop_success.jpg",
+    "/app/test_reports/screenshots_iter41/mobile_success.jpg",
+    "/app/test_reports/screenshots_iter41/admin_dashboard.jpg",
+    "/app/test_reports/screenshots_iter41/admin_after_logout.jpg"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Backend rejects emails using RFC-6761 reserved TLD .test (deliverability check via email_validator). This blocked our first attempt (`@blubridge-qa.test` -> 422 with message: 'The part after the @-sign is a special-use or reserved name that cannot be used with email.'). This is CORRECT strict behaviour; documenting so next agent uses a real TLD for QA fixtures (used .dev instead).",
+    "Two logout buttons exist in the admin shell with distinct data-testids (admin-sidebar-logout, admin-header-logout). Both target the same handler; strict-mode role selectors will collide - always use the data-testid.",
+    "Success block placement: Success message renders ABOVE the form (still visible on desktop and mobile) - the aic-success node is scrolled into view. Working as designed."
+  ],
+  "updated_files": [
+    "/app/test_reports/iteration_41.json",
+    "/app/test_reports/screenshots_iter41/*"
+  ],
+  "success_rate": {"frontend": "100% (7/7 scenarios PASS)"},
+  "test_credentials": "Admin creds read from /app/backend/.env via dotenv_values (never printed).",
+  "seed_data_creation": "Created 2 QA consulting enquiries (78020c25... and d120ab34...) via UI. Both cleaned up post-test via direct MongoDB delete on contact_enquiries collection by company_email - verified deleted_count=2.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All fixes for cross-site form POST + Google Ads static tag placement verified in real browser at preview URL. Consulting enquiries are stored in the contact_enquiries collection keyed on company_email (NOT ai_consulting_enquiries). If seeding QA emails, avoid RFC-6761 reserved TLDs (.test/.example/.invalid/.localhost) - use .dev / .com / .io etc. Radix Select dropdowns in ai-consulting-base can be flaky under fast automation - the pick_dropdown helper (open+retry with Escape between attempts) worked reliably.",
+  "rca of the issue": "N/A - user-reported production issues (cross-site 403 + missing gtag on static hosting) are fully addressed in the preview build: (a) submission uses REACT_APP_BACKEND_URL and works cross-site with signed HMAC form-token; (b) gtag baked into public/index.html so it renders even without Express injection, and Express injector strips it on /admin."
+}
