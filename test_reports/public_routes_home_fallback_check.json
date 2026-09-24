@@ -1,0 +1,140 @@
+{
+  "base_url": "https://brush-reveal-deploy.preview.emergentagent.com",
+  "route_count": 22,
+  "flagged_routes_with_home_marker": [],
+  "pass": true,
+  "details": [
+    {
+      "path": "/",
+      "status": 200,
+      "home_fallback_marker": true,
+      "title_snippet": "Frontier AI Research and Enterprise Solutions | Blubridge"
+    },
+    {
+      "path": "/about-us",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "About Us | Blubridge"
+    },
+    {
+      "path": "/careers",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Careers | Blubridge"
+    },
+    {
+      "path": "/joinourteam",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Join Our Team | Blubridge"
+    },
+    {
+      "path": "/careers/job/data-science-ai-ml-engineer",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Data Science / AI ML Engineer | BluBridge"
+    },
+    {
+      "path": "/careers/job/business-development-ai-strategy",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Business Development - AI Strategy &amp; Partnerships | BluBridge"
+    },
+    {
+      "path": "/careers/job/social-media-growth-manager-ai-deep-tech",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Social Media Growth Manager (AI / Deep Tech) | BluBridge"
+    },
+    {
+      "path": "/careers/job/social-media-growth-specialist-freelancer",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Social Media Growth Specialist - Freelancer | BluBridge"
+    },
+    {
+      "path": "/products",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Products | BluBridge"
+    },
+    {
+      "path": "/solutions",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Applied AI Solutions - For your Use Case | Blubridge"
+    },
+    {
+      "path": "/research",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Research | Blubridge"
+    },
+    {
+      "path": "/Research/FLUX",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "FLUX: Data Worth Training | Blubridge"
+    },
+    {
+      "path": "/Research/FLUX-Data",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "FLUX: Data Worth Training On | BluBridge"
+    },
+    {
+      "path": "/Research/FLUX-3",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "FLUX: Data Worth Training On | BluBridge"
+    },
+    {
+      "path": "/Research/FLUX-4",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "FLUX: Data Worth Training On | BluBridge"
+    },
+    {
+      "path": "/Research/Blu-Werp",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Blu-Werp Research | Blubridge"
+    },
+    {
+      "path": "/Research/BluTrain",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "BluTrain: A C++/CUDA Framework for AI Systems | BluBridge"
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Contact us | Blubridge"
+    },
+    {
+      "path": "/consulting",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "AI Consulting | BluBridge"
+    },
+    {
+      "path": "/policies/transparency-and-human-rights",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Transparency and Human Rights | Blubridge"
+    },
+    {
+      "path": "/policies/privacy-policy",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Privacy Policy | Blubridge"
+    },
+    {
+      "path": "/policies/terms-conditions",
+      "status": 200,
+      "home_fallback_marker": false,
+      "title_snippet": "Terms | Blubridge"
+    }
+  ]
+}

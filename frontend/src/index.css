@@ -525,7 +525,7 @@ html.mscur-active body {
 .sxh-bg-grid { background-image: linear-gradient(90deg, rgba(10,18,48,.045) 1px, #0000 0), linear-gradient(180deg, rgba(10,18,48,.045) 1px, #0000 0); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse 90% 80% at 42% 22%, #000 0, #0000 80%); mask-image: radial-gradient(ellipse 90% 80% at 42% 22%, #000 0, #0000 80%); }
 .sxh-glow-left { aspect-ratio: 1.5; background: radial-gradient(closest-side, #ffffffd9, #e9ecfa4d 55%, #0000 78%); left: -8%; top: 4%; width: min(780px, 58vw); }
 .sxh-glow-left, .sxh-glow-right { border-radius: 50%; filter: blur(30px); position: absolute; }
-.sxh-glow-right { animation: sxhDrift 16s ease-in-out infinite alternate; aspect-ratio: 1.25; background: radial-gradient(closest-side, #cbd4f380, #dee4f838 55%, #0000 78%); bottom: 6%; right: -8%; width: min(560px, 46vw); }
+.sxh-glow-right { animation: sxhDrift 16s ease-in-out infinite alternate; aspect-ratio: 1.25; background: radial-gradient(closest-side, #cbd4f380, #dee4f838 55%, #0000 78%); bottom: 6%; right: 0; width: min(560px, 46vw); }
 .sxh-inner { position: relative; width: 100%; z-index: 1; }
 .sxh-meta { align-items: center; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; padding-bottom: clamp(1.5rem, 2.6vw, 2.25rem); position: relative; }
 .sxh-m1, .sxh-m2 { animation: sxhFade .7s ease .15s forwards; opacity: 0; }

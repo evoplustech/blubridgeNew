@@ -65,7 +65,7 @@ const Products = () => {
       <section className="py-24 bg-[#f0f1f9] relative overflow-hidden border-b border-[#d4d8e8]">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-6xl font-bold text-[#0B1F3B] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3B] mb-6" data-testid="products-hero-heading">
               Full-stack AI infrastructure
             </h1>
             <p className="text-xl text-[#2F3A4A] mb-8">
@@ -119,7 +119,7 @@ const Products = () => {
       {/* CTA */}
       <section className="py-24 bg-[#0B1F3B]">
         <div className="container-custom text-center">
-          <h2 className="text-5xl font-bold text-[#0B1F3B] mb-6">
+          <h2 className="text-5xl font-bold text-white mb-6" data-testid="products-contact-heading">
             Ready to scale your AI infrastructure?
           </h2>
           <Link to="/contact">

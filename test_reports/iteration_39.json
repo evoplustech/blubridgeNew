@@ -1,0 +1,62 @@
+{
+  "summary": "Completed frontend-only verification for Products/Solutions visibility scope, sitemap/public catalog alignment, Google tag scope, overflow checks, and /consulting form smoke on the public preview URL.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Products hero heading (/products mobile 390x844)",
+        "issue": "Visible text clipping/truncation on 'infrastructure' in H1 at mobile viewport. Measured H1 clientWidth=350 vs scrollWidth=397; screenshot confirms right-side glyph cut while page itself does not horizontally overflow.",
+        "selector": "h1.text-6xl",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "/products CTA section",
+        "issues": [
+          "Low contrast: section background is dark (#0B1F3B) while heading text also uses dark color class text-[#0B1F3B], reducing readability."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/tests/section_visibility_subset_check.py",
+    "/app/tests/section_source_hash_check.py",
+    "/app/tests/public_routes_home_fallback_check.py",
+    "/app/test_reports/section_visibility_subset_verification.json",
+    "/app/test_reports/section_source_hash_check.json",
+    "/app/test_reports/public_routes_home_fallback_check.json"
+  ],
+  "action_items": [
+    "Adjust /products mobile H1 styling to prevent truncation/clipping (e.g., responsive font size/line-break handling) without redesigning page structure.",
+    "Fix /products CTA heading contrast by using a light text color on dark background.",
+    "Re-run quick mobile visual verification on /products at 390x844 after the H1 and contrast fixes."
+  ],
+  "critical_code_review_comments": [
+    "Route publication config is consistent: publishedPages.json has exactly 22 public URLs and 8 admin URLs, and App.js/pageAccess enforce hidden product/solution/industry details as 404.",
+    "Protected source snapshot check passed for 211/212 files; the only hash delta is /app/frontend/src/index.css, aligned with expected bounded glow adjustment scope.",
+    "No evidence of duplicate Google Ads tag injection on public pages or leakage into /admin during this run."
+  ],
+  "updated_files": [
+    "/app/tests/section_visibility_subset_check.py",
+    "/app/tests/section_source_hash_check.py",
+    "/app/tests/public_routes_home_fallback_check.py",
+    "/app/test_reports/section_visibility_subset_verification.json",
+    "/app/test_reports/section_source_hash_check.json",
+    "/app/test_reports/public_routes_home_fallback_check.json",
+    "/app/test_reports/iteration_39.json"
+  ],
+  "success_rate": {
+    "backend": "N/A (frontend-only request)",
+    "frontend": "95%"
+  },
+  "seed_data_creation": "No persistent test data created; /consulting smoke intentionally avoided real submission.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Verified on public URL from frontend/.env. HTTP subset checks passed: /products,/solutions=200; hidden detail routes and unknown routes=404 with noindex; /ai-consulting=308->/consulting. Sitemap has exactly 22 URLs and excludes product details, solution details, industry routes, and admin. Browser checks passed for /products and /solutions at 1920x800 and 390x844 with no document-level horizontal overflow. /solutions interactions (hero CTA href + deployment tabs) work. Hidden nested route /solutions/industry/healthcare renders NotFound and Back to Home works. /consulting field/dropdown/consent smoke passed without submit. Public head has exactly one Google script + one config; /admin has zero. Existing decorative glow elements can extend visually left, but did not create horizontal overflow after index.css right=0 fix.",
+  "rca of the issue": "Mobile clipping appears tied to fixed text-6xl usage for /products hero H1, causing content width to exceed the heading box on narrow screens (scrollWidth > clientWidth) while container overflow masking hides glyph tail. Contrast issue is direct class-level mismatch in Products.jsx CTA section where dark text is placed on dark background."
+}

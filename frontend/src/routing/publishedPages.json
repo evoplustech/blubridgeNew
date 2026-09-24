@@ -8,22 +8,8 @@
       "/careers/job/social-media-growth-manager-ai-deep-tech",
       "/careers/job/social-media-growth-specialist-freelancer"
     ],
-    "Products": [
-      "/products", "/products/training", "/products/inference", "/products/fine-tuning",
-      "/products/serverless", "/products/sovereign-cloud", "/products/glomfjord",
-      "/products/narvik", "/products/gpu-nodes", "/products/marketplace"
-    ],
-    "Solutions": [
-      "/solutions", "/solutions/model-customization", "/solutions/training",
-      "/solutions/inference", "/solutions/fine-tuning", "/solutions/deployment",
-      "/solutions/value-realization", "/solutions/ai-development"
-    ],
-    "Industries": [
-      "/solutions/industry/telco", "/solutions/industry/software-technology",
-      "/solutions/industry/finance-insurance", "/solutions/industry/manufacturing",
-      "/solutions/industry/education", "/solutions/industry/government",
-      "/solutions/industry/legal", "/solutions/industry/healthcare"
-    ],
+    "Products": ["/products"],
+    "Solutions": ["/solutions"],
     "Research": [
       "/research", "/Research/FLUX", "/Research/FLUX-Data", "/Research/FLUX-3",
       "/Research/FLUX-4", "/Research/Blu-Werp", "/Research/BluTrain"

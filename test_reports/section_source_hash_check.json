@@ -1,0 +1,15 @@
+{
+  "snapshot_file": "/tmp/section-source-protected.json",
+  "total_files": 212,
+  "matched": 211,
+  "missing_count": 0,
+  "mismatch_count": 1,
+  "missing": [],
+  "mismatched": [
+    {
+      "path": "/app/frontend/src/index.css",
+      "expected": "868bd6d99b3b76ebcbb774ba01f063e5483bc1a0510c910b2fc1f69d0abb325b",
+      "actual": "3c50119f31da346a428ddcc134f212e2acc5c2b3dd8c182c1d48bcf00142214c"
+    }
+  ]
+}

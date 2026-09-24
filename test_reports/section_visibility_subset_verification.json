@@ -1,0 +1,172 @@
+{
+  "base_url": "https://brush-reveal-deploy.preview.emergentagent.com",
+  "http_checks": [
+    {
+      "path": "/products",
+      "expected": 200,
+      "status": 200,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/products/",
+      "expected": 200,
+      "status": 200,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/solutions",
+      "expected": 200,
+      "status": 200,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/solutions/",
+      "expected": 200,
+      "status": 200,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/consulting",
+      "expected": 200,
+      "status": 200,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/products/training",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/products/training/",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/PRODUCTS/TRAINING/",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/solutions/model-customization",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/solutions/deployment",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/solutions/industry/healthcare",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/solutions/industry/healthcare/",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/SOLUTIONS/INDUSTRY/HEALTHCARE/",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/some-unknown-path",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/media-kit",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/get-in-touch-8",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/contact/sales",
+      "expected": 404,
+      "status": 404,
+      "pass": true,
+      "location": null
+    },
+    {
+      "path": "/ai-consulting",
+      "expected": 308,
+      "status": 308,
+      "pass": true,
+      "location": "/consulting"
+    }
+  ],
+  "all_http_checks_pass": true,
+  "redirect_check": {
+    "path": "/ai-consulting",
+    "expected_status": 308,
+    "expected_location_path": "/consulting",
+    "pass": true,
+    "actual_location": "/consulting"
+  },
+  "noindex_check_hidden_route": {
+    "path": "/products/training",
+    "status": 404,
+    "x_robots_tag": "noindex, nofollow",
+    "pass": true
+  },
+  "sitemap": {
+    "status": 200,
+    "url_count": 22,
+    "expected_url_count": 22,
+    "count_pass": true,
+    "has_admin": false,
+    "has_product_detail": false,
+    "has_solution_detail": false,
+    "has_industry": false,
+    "exclusion_pass": true
+  },
+  "catalog": {
+    "current_public_count": 22,
+    "expected_public_count": 22,
+    "count_pass": true,
+    "admin_unchanged": true,
+    "unchanged_groups": {
+      "Home": true,
+      "Company": true,
+      "Job details": true,
+      "Research": true,
+      "Contact": true,
+      "Consulting": true,
+      "Policies": true
+    },
+    "all_unchanged_groups_pass": true
+  }
+}

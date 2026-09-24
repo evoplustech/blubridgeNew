@@ -12,26 +12,6 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import { getPageAccess } from './routing/pageAccess';
 
-// Product Pages
-import Training from './pages/products/Training';
-import Inference from './pages/products/Inference';
-import FineTuning from './pages/products/FineTuning';
-import Serverless from './pages/products/Serverless';
-import SovereignCloud from './pages/products/SovereignCloud';
-import Glomfjord from './pages/products/Glomfjord';
-import Narvik from './pages/products/Narvik';
-import GPUNodes from './pages/products/GPUNodes';
-import Marketplace from './pages/products/Marketplace';
-import ModelCustomization from './pages/products/ModelCustomization';
-
-// Solution Pages - Cases
-import SolutionTraining from './pages/solutions/Training';
-import SolutionInference from './pages/solutions/Inference';
-import SolutionFineTuning from './pages/solutions/FineTuning';
-import SolutionDeployment from './pages/solutions/Deployment';
-import ValueRealization from './pages/solutions/ValueRealization';
-import AIDevelopment from './pages/solutions/AIDevelopment';
-
 // Company Pages
 import AboutUs from './pages/AboutUs';
 import Careers from './pages/Careers';
@@ -43,15 +23,6 @@ import FLUXData from './pages/Research/FLUXData';
 import FLUX3 from './pages/Research/FLUX3';
 import FLUX4 from './pages/Research/FLUX4';
 
-// Solution Pages - Industry
-import Telco from './pages/solutions/industry/Telco';
-import SoftwareTechnology from './pages/solutions/industry/SoftwareTechnology';
-import FinanceInsurance from './pages/solutions/industry/FinanceInsurance';
-import Manufacturing from './pages/solutions/industry/Manufacturing';
-import Education from './pages/solutions/industry/Education';
-import Government from './pages/solutions/industry/Government';
-import Legal from './pages/solutions/industry/Legal';
-import Healthcare from './pages/solutions/industry/Healthcare';
 import ScrollToTop from './components/ScrollToTop';
 import CustomCursor from './components/CustomCursor';
 
@@ -100,38 +71,8 @@ const AppLayout = () => {
           
           <Route path="/" element={<Home />} />
           
-          {/* Product Routes - Each unique */}
-          <Route path="/products/training" element={<Training />} />
-          <Route path="/products/inference" element={<Inference />} />
-          <Route path="/products/fine-tuning" element={<FineTuning />} />
-          <Route path="/products/serverless" element={<Serverless />} />
-          <Route path="/products/sovereign-cloud" element={<SovereignCloud />} />
-          <Route path="/products/glomfjord" element={<Glomfjord />} />
-          <Route path="/products/narvik" element={<Narvik />} />
-          <Route path="/products/gpu-nodes" element={<GPUNodes />} />
-          <Route path="/products/marketplace" element={<Marketplace />} />
-          <Route path="/solutions/model-customization" element={<ModelCustomization />} />
+          {/* Only the approved Products and Solutions overview pages are public. */}
           <Route path="/products" element={<Products />} />
-          
-          {/* Solution Routes - Cases */}
-          <Route path="/solutions/training" element={<SolutionTraining />} />
-          <Route path="/solutions/inference" element={<SolutionInference />} />
-          <Route path="/solutions/fine-tuning" element={<SolutionFineTuning />} />
-          <Route path="/solutions/deployment" element={<SolutionDeployment />} />
-          <Route path="/solutions/value-realization" element={<ValueRealization />} />
-          <Route path="/solutions/ai-development" element={<AIDevelopment />} />
-          
-          {/* Solution Routes - Industry */}
-          <Route path="/solutions/industry/telco" element={<Telco />} />
-          <Route path="/solutions/industry/software-technology" element={<SoftwareTechnology />} />
-          <Route path="/solutions/industry/finance-insurance" element={<FinanceInsurance />} />
-          <Route path="/solutions/industry/manufacturing" element={<Manufacturing />} />
-          <Route path="/solutions/industry/education" element={<Education />} />
-          <Route path="/solutions/industry/government" element={<Government />} />
-          <Route path="/solutions/industry/legal" element={<Legal />} />
-          <Route path="/solutions/industry/healthcare" element={<Healthcare />} />
-          
-          {/* Solutions New Page */}
           <Route path="/solutions" element={<SolutionsNew />} />
           
           {/* Company Routes */}

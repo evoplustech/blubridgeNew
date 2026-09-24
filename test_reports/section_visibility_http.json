@@ -1,0 +1,269 @@
+{
+  "public_pages": 22,
+  "hidden_detail_pages": 24,
+  "http_checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/Research/Blu-Werp",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/Research/BluTrain",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/Research/FLUX",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/Research/FLUX-3",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/Research/FLUX-4",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/Research/FLUX-Data",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/about-us",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/careers",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/careers/job/business-development-ai-strategy",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/careers/job/data-science-ai-ml-engineer",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/careers/job/social-media-growth-manager-ai-deep-tech",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/careers/job/social-media-growth-specialist-freelancer",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/consulting",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/joinourteam",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/policies/privacy-policy",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/policies/terms-conditions",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/policies/transparency-and-human-rights",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/products",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/research",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/products/fine-tuning",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/glomfjord",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/gpu-nodes",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/inference",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/marketplace",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/narvik",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/serverless",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/sovereign-cloud",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/training",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/ai-development",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/deployment",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/fine-tuning",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/education",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/finance-insurance",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/government",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/healthcare",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/legal",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/manufacturing",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/software-technology",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/telco",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/inference",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/model-customization",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/training",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/value-realization",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/products/",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/",
+      "status": 200,
+      "result": "pass"
+    },
+    {
+      "path": "/solutions/industry/healthcare/",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/PRODUCTS/TRAINING/",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/media-kit",
+      "status": 404,
+      "result": "pass"
+    },
+    {
+      "path": "/ai-consulting",
+      "status": 308,
+      "result": "pass"
+    }
+  ],
+  "sitemap": "pass",
+  "other_groups_unchanged": true,
+  "protected_source_files_unchanged": 212
+}
