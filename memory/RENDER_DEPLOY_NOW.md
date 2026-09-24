@@ -42,3 +42,20 @@ Fix: those five packages were moved into `dependencies` in `frontend/package.jso
 Verified locally: `NODE_ENV=production yarn install --frozen-lockfile` now provides `node_modules/.bin/craco`,
 and `CI=true yarn build` succeeds with the Google tag present in `build/index.html`.
 No Render build-command or env change needed — just redeploy.
+
+## Build failure fix #2 (2026-09-24) — `Cannot find module 'ajv/dist/compile/codegen'`
+Cause: the Render build command contained `npm install ajv@^7 --save-dev`. That forces root `ajv@7` while
+CRA5's webpack tree needs the matched pair `ajv@6` + `ajv-keywords@3` (and `ajv-keywords@5` needs `ajv@8`),
+so `schema-utils` -> `ajv-keywords` crashed. The ajv hack is the bug, not a missing env var.
+
+Do BOTH:
+1. **Change the Render build command to** (verified working locally against the committed `yarn.lock`):
+   `yarn install --frozen-lockfile && yarn build`
+   Publish directory stays `frontend/build`, root directory `frontend`.
+   (If you must stay on npm: `npm install --legacy-peer-deps && npm run build` — remove the `ajv@^7` install.)
+2. Repo already pins the compatible pair via npm `overrides` in `frontend/package.json`
+   (`ajv ^6.12.6`, `ajv-keywords ^3.5.2`) so npm-based installs resolve correctly too. Yarn 1 ignores this
+   field, and `yarn install --frozen-lockfile` still passes (verified).
+
+Proof: a clean `NODE_ENV=production yarn install --frozen-lockfile` + `CI=true craco build` in an isolated
+sandbox completed successfully with `AW-18460200148` present in `build/index.html`.
