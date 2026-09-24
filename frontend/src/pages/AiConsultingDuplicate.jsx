@@ -54,7 +54,7 @@ export default function AiConsultingDuplicate() {
       <form ref={form} tabIndex={-1} className="aic-alt-form" method="post" noValidate onSubmitCapture={event => event.preventDefault()} onSubmit={state.handleSubmit} aria-busy={state.isSubmitting} aria-labelledby="aic-form-heading" data-testid="aic-form">
         <h2 id="aic-form-heading" className="sr-only" data-testid="aic-form-heading">AI Consulting Enquiry</h2>
         {state.receipt && <div ref={success} tabIndex={-1} className="aic-confirmation" role="status" data-testid="aic-success">
-          <p className="font-semibold" data-testid="aic-success-message">Success Fully Submitted</p>
+          <p className="font-semibold" data-testid="aic-success-message">Successfully Submitted</p>
           <p data-testid="aic-success-details">Your AI consulting enquiry has been received. Our team will be in touch shortly.</p>
         </div>}
         <fieldset className="aic-submit-fields" disabled={state.disabled}>
