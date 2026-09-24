@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = window.location.origin;
 
 /* /get-in-touch-6 — minimal two-column contact page: heading left, project enquiry form right.
    Styles scoped under .git7-* (index.css). Backend: POST /api/project-enquiries */

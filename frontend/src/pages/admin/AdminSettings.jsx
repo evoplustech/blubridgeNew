@@ -5,7 +5,7 @@ import { Input } from '../../components/ui/input';
 import { Settings, Lock, Download, FileText, MessageSquare, Briefcase, Database, AlertCircle, CheckCircle, Trash2, RefreshCw } from 'lucide-react';
 
 import { adminFetch as fetch } from './secureApi';
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = window.location.origin;
 
 const AdminSettings = () => {
   const [currentPassword, setCurrentPassword] = useState('');

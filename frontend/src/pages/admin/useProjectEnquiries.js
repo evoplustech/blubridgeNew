@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { adminFetch as fetch } from './secureApi';
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = window.location.origin;
 const request = async (path, options = {}) => {
   const response = await fetch(`${API_URL}/api/admin/${path}`, {
     ...options, headers: { Authorization: `Bearer ${localStorage.getItem('adminToken')}` },

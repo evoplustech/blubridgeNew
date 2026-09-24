@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Compass, Mail, ShieldCheck, Bug } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = window.location.origin;
 
 /* /get-in-touch-1 — same content, fields, validation & backend as /get-in-touch.
    Visual redesign only. All styles scoped under .git2-page (see index.css). */

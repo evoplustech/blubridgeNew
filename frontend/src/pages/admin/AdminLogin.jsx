@@ -5,7 +5,7 @@ import { Input } from '../../components/ui/input';
 import { Lock, User, AlertCircle } from 'lucide-react';
 import { adminFetch as fetch } from './secureApi';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = window.location.origin;
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');

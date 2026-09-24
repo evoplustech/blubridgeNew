@@ -19,7 +19,7 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
   const [submitMessage, setSubmitMessage] = useState('');
   
   const fileInputRef = useRef(null);
-  const API_URL = process.env.REACT_APP_BACKEND_URL;
+  const API_URL = window.location.origin;
 
   // Validation functions
   const validateFirstName = (value) => {

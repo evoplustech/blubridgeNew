@@ -18,8 +18,7 @@ function proxyTarget() {
       target.username || target.password || target.pathname !== '/' || target.search || target.hash) {
     throw new Error('API_PROXY_TARGET must be an HTTPS origin (HTTP is allowed only for a local backend)');
   }
-  const frontend = configuredUrl('REACT_APP_BACKEND_URL');
-  if (target.origin === frontend.origin || (loopback && target.port === process.env.PORT)) {
+  if (loopback && target.port === process.env.PORT) {
     throw new Error('API_PROXY_TARGET must point to the backend, not the frontend');
   }
   return target.origin;

@@ -1,4 +1,4 @@
-const API = process.env.REACT_APP_BACKEND_URL;
+const API = window.location.origin;
 let csrfPromise;
 localStorage.removeItem('adminToken'); // Remove only the obsolete pre-hardening credential.
 

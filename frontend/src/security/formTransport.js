@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const base = new URL(process.env.REACT_APP_BACKEND_URL);
+const base = new URL(window.location.origin);
 const publicPaths = new Set(['/api/contact', '/api/contacts/submit', '/api/contact-us', '/api/contact-enquiries', '/api/project-enquiries', '/api/ai-consultation-enquiries', '/api/ai-consulting-enquiries', '/api/newsletter/subscribe', '/api/job-applications/submit']);
 const nativeFetch = window.fetch.bind(window);
 let context;
