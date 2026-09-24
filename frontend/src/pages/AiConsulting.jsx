@@ -25,7 +25,7 @@ const FormSection = ({ name, title, helper, children }) => <section className="a
 export default function AiConsulting() {
   const state = useEnquiryForm();
   const success = useRef(null);
-  useDocumentTitle('AI Consulting | BluBridge');
+  useDocumentTitle('Consulting Services & Solutions | BluBridge');
   useMetaDescription(enquiryDescription);
   useEffect(() => { clearAccidentalQuery(); }, []);
   useEffect(() => {
