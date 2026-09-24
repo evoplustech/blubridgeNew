@@ -51,7 +51,6 @@ export default function AiConsultingWorksheet() {
           {state.receipt && <div ref={success} tabIndex={-1} className="aic-confirmation" role="status" data-testid="aic-success">
             <p className="font-semibold" data-testid="aic-success-message">Success Fully Submitted</p>
             <p data-testid="aic-success-details">Your AI consulting enquiry has been received. Our team will be in touch shortly.</p>
-            <p className="aic-helper" data-testid="aic-success-reference">Enquiry reference: {state.receipt.id}</p>
           </div>}
           <fieldset className="aic-submit-fields" disabled={state.disabled}>
             <WorksheetSection name="contact" title="Contact Information" helper="Tell us who you are and how we can reach you."><ContactDetails state={state} /></WorksheetSection>
