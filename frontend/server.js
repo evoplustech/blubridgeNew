@@ -1207,7 +1207,7 @@ const seoContent = {
 const defaultSeo = seoContent['/'];
 Object.assign(seoContent, require('./publishedPageSeo'));
 seoContent['/consulting'] = {
-  title: 'Consulting Services &amp; Solutions | BluBridge',
+  title: 'AI Consulting Services | Tailored AI Systems | BluBridge',
   description: 'Tell us what you are looking to build, improve or deploy. Share your requirement, estimated budget and contact details. Our team will review your enquiry and contact you to discuss the next steps.',
   content: '<h1>Discuss Your AI Requirement</h1>',
 };
