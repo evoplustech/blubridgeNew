@@ -86,6 +86,13 @@ const webpackConfig = {
         };
       }
 
+      // Keep index.html inline scripts verbatim so the Google tag snippet matches Google's canonical form.
+      webpackConfig.plugins.forEach(plugin => {
+        if (plugin.constructor.name === 'HtmlWebpackPlugin' && plugin.options && plugin.options.minify) {
+          plugin.options.minify = { ...plugin.options.minify, minifyJS: false };
+        }
+      });
+
       // Add health check plugin to webpack if enabled
       if (config.enableHealthCheck && healthPluginInstance) {
         webpackConfig.plugins.push(healthPluginInstance);
