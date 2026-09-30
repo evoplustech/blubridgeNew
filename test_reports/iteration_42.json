@@ -1,0 +1,25 @@
+{
+  "summary": "Iter42 regression for GridFS resume migration. All 6 pytest cases pass: newsletter POST, contact-enquiries POST, ai-consulting-enquiries POST, career PDF submit + duplicate 409 + admin login + list + resume byte-identical download + status update + logout + post-logout 401, career TXT rejection with same-email retry (PDF) succeeding (no false duplicate), and >5MB oversized rejection. Real-browser career flow on /careers/job/data-science-ai-ml-engineer: filled form, uploaded PDF, saw 'Application Submitted Successfully!' with zero console errors and zero >=400 /api responses. Consulting page (/consulting) loads cleanly with all form testids, zero console/network errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [
+    "/app/backend/tests/test_gridfs_resume_regression_iter42.py",
+    "/app/test_reports/pytest/iter42_gridfs.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "server.py has grown to 2411 lines - consider splitting into modules (careers, admin, consulting, blog).",
+    "verify_admin_token relies on principal_context being set by SecurityGateway; the Authorization dependency in older endpoints is redundant/misleading now that the gateway rewrites the Bearer header from the session cookie.",
+    "Legacy STORAGE_APP_PREFIX / Emergent Object Storage code and unused UPLOADS_DIR path in download_resume can be removed after any legacy references are migrated - dead code now that all new uploads use GridFS.",
+    "update_application_status accepts 'status' as a query parameter rather than JSON body - non-idiomatic and inconsistent with other PATCH endpoints."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_gridfs_resume_regression_iter42.py"
+  ],
+  "success_rate": {"backend": "100% (6/6)", "frontend": "100% (career submit + consulting load verified in browser)"},
+  "test_credentials": "Loaded via dotenv_values from /app/backend/.env; not printed.",
+  "seed_data_creation": "Each pytest run creates job_applications with TEST_ prefixed emails and deletes them via /api/admin/submission/{id}?form_type=career during teardown. GridFS resumes for cleaned records are removed transitively when the application delete cascades (submission delete handler). One browser-created application (testqa_<ts>@example.com, jobTitle 'Data Science / AI ML Engineer') was left in db.job_applications - main agent may purge if desired.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Career upload path is now GridFS bucket 'resumes' with resumeCV='gridfs:<oid>'. Admin resume download at GET /api/admin/resume/{id} handles gridfs:, legacy object-storage, and legacy local-disk refs. Uploads are rate-limited to 3/60s per IP so any new upload test must sleep between attempts. Public form POSTs require GET /api/form-context first then wait >=0.5s before submitting with X-BB-Form-Token and an allowlisted Origin. Admin auth is cookie-based; the SecurityGateway rewrites Authorization from the cookie automatically, so Bearer tokens are never returned to clients."
+}
