@@ -4,7 +4,7 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
+from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorGridFSBucket
 import os
 import logging
 from pathlib import Path
@@ -1295,6 +1295,9 @@ EMERGENT_KEY = os.environ.get("EMERGENT_LLM_KEY")
 STORAGE_APP_PREFIX = "blubridge"
 _storage_key = None
 
+# Resumes live in the application database so uploads work on any host without extra credentials.
+resume_bucket = AsyncIOMotorGridFSBucket(db, bucket_name="resumes")
+
 def init_storage(force: bool = False):
     """Session-scoped storage key, minted once and reused."""
     global _storage_key
@@ -1449,11 +1452,18 @@ async def submit_job_application(
         # Generate unique filename
         file_ext = Path(resume.filename).suffix.lower()
         unique_filename = f"{uuid.uuid4()}{file_ext}"
-        storage_path = f"{STORAGE_APP_PREFIX}/resumes/{unique_filename}"
-        
-        # Upload resume to Emergent object storage (survives deployment)
+
+        # Store the resume in GridFS so it survives deploys and needs no external storage service
         file_content = await resume.read()
-        put_object(storage_path, file_content, resume.content_type or "application/octet-stream")
+        file_id = await resume_bucket.upload_from_stream(
+            unique_filename,
+            file_content,
+            metadata={
+                "contentType": resume.content_type or "application/octet-stream",
+                "originalFilename": resume.filename,
+            },
+        )
+        storage_path = f"gridfs:{file_id}"
         
         # Create application document
         application_id = str(uuid.uuid4())
@@ -1980,7 +1990,23 @@ async def download_resume(application_id: str, authorization: Optional[str] = He
         filename = Path(application.get("resumeFilename", "resume.pdf").replace('\\', '/')).name
         from urllib.parse import quote
         
-        # Object-storage resumes (new submissions)
+        # GridFS resumes (current submissions)
+        if resume_ref.startswith("gridfs:"):
+            try:
+                from bson import ObjectId
+                stream = await resume_bucket.open_download_stream(ObjectId(resume_ref.split(':', 1)[1]))
+                data = await stream.read()
+                content_type = (stream.metadata or {}).get("contentType", "application/octet-stream")
+            except Exception as e:
+                logging.error(f"GridFS fetch failed for {resume_ref}: {e}")
+                raise HTTPException(status_code=404, detail="Resume file not found")
+            return Response(
+                content=data,
+                media_type=content_type,
+                headers={"Content-Disposition": "attachment; filename*=UTF-8''" + quote(filename, safe='')}
+            )
+
+        # Object-storage resumes (earlier submissions)
         if resume_ref.startswith(f"{STORAGE_APP_PREFIX}/"):
             try:
                 data, content_type = get_object(resume_ref)
