@@ -1483,8 +1483,15 @@ async def submit_job_application(
         }
         
         # Save to MongoDB
-        await security_services.reserve_submission(application_doc['email'], 'job:' + application_doc['jobTitle'])
-        await db.job_applications.insert_one(application_doc)
+        claim_category = 'job:' + application_doc['jobTitle']
+        await security_services.reserve_submission(application_doc['email'], claim_category)
+        try:
+            await db.job_applications.insert_one(application_doc)
+        except Exception:
+            # Never leave a claim behind on a failed write, otherwise the retry gets a false duplicate error.
+            await security_services.release_submission(application_doc['email'], claim_category)
+            await resume_bucket.delete(file_id)
+            raise
         
         # Send email notification (non-blocking)
         email_data = {
@@ -1508,8 +1515,10 @@ async def submit_job_application(
             "id": application_id
         }
         
+    except HTTPException:
+        raise
     except Exception as e:
-        logging.error(f"Error submitting job application: {e}")
+        logging.error(f"Error submitting job application: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Failed to submit application. Please try again.")
 
 

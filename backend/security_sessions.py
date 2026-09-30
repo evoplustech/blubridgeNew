@@ -180,6 +180,11 @@ class SecurityServices:
         except DuplicateKeyError:
             raise HTTPException(409, 'A similar submission was recently received. Please wait before submitting again.')
 
+    async def release_submission(self, email, category):
+        """Drop a claim when the submission it guarded failed, so the user can retry immediately."""
+        identifier = self.fingerprint('submission:' + category + ':' + email.strip().casefold())
+        await self.db.security_submission_claims.delete_one({'_id': identifier})
+
     async def initialize(self):
         await self.db.admin_sessions.create_index('id', unique=True)
         await self.db.admin_sessions.create_index('expires_at', expireAfterSeconds=0)
