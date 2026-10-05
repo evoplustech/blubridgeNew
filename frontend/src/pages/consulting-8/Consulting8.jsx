@@ -7,7 +7,7 @@ import { PremiumSelect } from '../consulting-3/PremiumSelect';
 import './Consulting8.css';
 
 /* /consulting-8 — focused Google Ads landing page ("focus frame" concept).
-   No site header/footer (see App.js isFocusLanding). Saves to Admin → Contact Forms
+   Uses the site's standard Header/Footer. Saves to Admin → Contact Forms
    (type "contact_us", formVariant "consulting-8") via the existing endpoint, email flow and rate limits. */
 
 const HELP_OPTIONS = ['AI Strategy', 'Generative AI', 'AI Agents & Automation', 'AI Development', 'Data & AI', 'Not Sure Yet', 'Other'].map(v => ({ value: v, label: v }));
@@ -118,13 +118,7 @@ export default function Consulting8() {
   };
 
   return <div className="c8-page" data-testid="consulting8-page">
-    <header className="c8-topbar">
-      <div className="c8-shell c8-topbar-inner">
-        <Link to="/" aria-label="BluBridge home" data-testid="c8-logo"><img src="/images/blubridge-logo.svg" alt="BluBridge" className="c8-logo" /></Link>
-      </div>
-    </header>
-
-    <main className="c8-main">
+    <div className="c8-main">
       <section className="c8-shell c8-hero" aria-labelledby="c8-headline">
         <p className="c8-eyebrow" data-testid="c8-eyebrow">BluBridge AI Consulting</p>
         <h1 id="c8-headline" className="c8-headline" data-testid="c8-headline">Ready to Put AI to Work?</h1>
@@ -192,13 +186,7 @@ export default function Consulting8() {
         <p>Have a question before getting started?</p>
         <button type="button" className="c8-question-link" onClick={focusForm} data-testid="c8-talk-link">Talk to Our AI Team <ArrowRight size={16} aria-hidden="true" /></button>
       </section>
-    </main>
+    </div>
 
-    <footer className="c8-footer">
-      <div className="c8-shell c8-footer-inner">
-        <span>© {new Date().getFullYear()} BluBridge</span>
-        <Link to="/policies/privacy-policy">Privacy Policy</Link>
-      </div>
-    </footer>
   </div>;
 }

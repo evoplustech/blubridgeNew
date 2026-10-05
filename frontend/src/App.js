@@ -57,16 +57,14 @@ const AppLayout = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
   const isHome = location.pathname === '/';
-  // Paid-search landing page renders its own minimal top bar/footer (no site navigation).
-  const isFocusLanding = /^\/consulting-8\/?$/i.test(location.pathname);
   const pageAccess = getPageAccess(location.pathname);
 
   return (
     <>
       <ScrollToTop />
       <CustomCursor />
-      {!isAdminRoute && !isFocusLanding && <Header />}
-      <main className={isAdminRoute || isFocusLanding ? "" : isHome ? "bb-main-home" : "pt-32"} style={isAdminRoute || isHome || isFocusLanding ? {} : { paddingTop: "7rem" }}>
+      {!isAdminRoute && <Header />}
+      <main className={isAdminRoute ? "" : isHome ? "bb-main-home" : "pt-32"} style={isAdminRoute || isHome ? {} : { paddingTop: "7rem" }}>
         {pageAccess === 'not-found' ? <NotFound /> : <Routes>
           {/* Admin Routes - No Header/Footer */}
           <Route path="/admin" element={<AdminLogin />} />
@@ -118,7 +116,7 @@ const AppLayout = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>}
       </main>
-      {!isAdminRoute && !isFocusLanding && <Footer />}
+      {!isAdminRoute && <Footer />}
       <Toaster />
     </>
   );
