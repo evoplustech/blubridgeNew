@@ -1,0 +1,116 @@
+/* /consulting-8 only — "focus frame" landing page. Warm white, charcoal type, BluBridge navy accent. */
+.c8-page { min-height: 100vh; display: flex; flex-direction: column; background: #f8f7f4; color: #1d1f24; font-family: 'Inter', sans-serif; }
+.c8-shell { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.c8-main { flex: 1; }
+
+/* Minimal top bar */
+.c8-topbar { border-bottom: 1px solid #ebe8e1; background: #f8f7f4; }
+.c8-topbar-inner { display: flex; align-items: center; height: 60px; }
+.c8-logo { width: 150px; height: 21px; object-fit: contain; display: block; }
+
+/* Hero + panel */
+.c8-hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 28px; }
+.c8-eyebrow { font-size: 11.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #2b4c8c; }
+.c8-page .c8-headline { margin-top: 12px; font-family: 'Geist', 'Inter', sans-serif; font-size: 36px; line-height: 1.06; font-weight: 600; letter-spacing: -0.04em; color: #15171c; }
+.c8-lede { margin-top: 14px; max-width: 600px; font-size: 16px; line-height: 1.55; color: #4b4f58; }
+@media (min-width: 640px) {
+  .c8-hero { padding-top: 36px; }
+  .c8-page .c8-headline { font-size: 50px; }
+  .c8-lede { font-size: 17px; }
+}
+@media (min-width: 1024px) { .c8-page .c8-headline { font-size: 56px; } }
+
+.c8-frame-wrap { position: relative; width: 100%; max-width: 640px; margin-top: 24px; text-align: left; }
+@media (min-width: 640px) { .c8-frame-wrap { margin-top: 30px; } }
+/* The ONE design feature: a thin, oversized offset frame behind the panel (desktop only). */
+.c8-frame { display: none; }
+@media (min-width: 900px) {
+  .c8-frame { display: block; position: absolute; inset: 26px -34px -26px 34px; border: 1px solid rgba(43, 76, 140, 0.32); border-radius: 22px; pointer-events: none; }
+}
+.c8-panel { position: relative; padding: 22px 20px 20px; border: 1px solid #e4e0d8; border-radius: 18px; background: #ffffff; box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 24px 48px -36px rgba(20, 22, 28, 0.22); }
+@media (min-width: 640px) { .c8-panel { padding: 28px 32px 24px; } }
+
+.c8-panel-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; padding-bottom: 16px; border-bottom: 1px solid #efece6; }
+.c8-page .c8-panel-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 21px; font-weight: 600; letter-spacing: -0.02em; color: #15171c; }
+.c8-panel-note { font-size: 13px; color: #6b6f78; }
+
+.c8-form { display: grid; gap: 14px; margin-top: 18px; }
+.c8-row { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 560px) { .c8-row { grid-template-columns: 1fr 1fr; } }
+.c8-field { min-width: 0; }
+.c8-label { display: block; margin-bottom: 6px; font-size: 13.5px; font-weight: 600; color: #1d1f24; }
+.c8-req { color: #b3293a; font-weight: 500; }
+.c8-input { display: block; width: 100%; height: 52px; padding: 0 15px; border: 1px solid #d9d5cc; border-radius: 10px; background: #fff; font-family: 'Inter', sans-serif; font-size: 16px; color: #15171c; outline: none; transition: border-color 140ms ease, box-shadow 140ms ease; }
+.c8-input::placeholder { color: #8d9099; }
+.c8-input:hover:not(:disabled) { border-color: #b9b4a9; }
+.c8-input:focus { border-color: #2b4c8c; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.12); }
+.c8-input-primary { border-color: #c9c4b9; }
+.c8-invalid, .c8-invalid:hover { border-color: #b3293a; }
+.c8-input:disabled { background: #f7f6f3; color: #6b6f78; }
+.c8-textarea { height: 96px; min-height: 96px; padding: 13px 15px; line-height: 1.5; resize: vertical; }
+.c8-error { margin-top: 6px; font-size: 12.5px; color: #b3293a; }
+/* Shared dropdown, matched to this page's controls */
+.c8-form .c3-select-trigger { height: 52px; padding-left: 15px; border-color: #d9d5cc; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 16px; box-shadow: none; }
+.c8-form .c3-select-trigger:hover:not(:disabled) { border-color: #b9b4a9; background: #fff; }
+.c8-form .c3-select-trigger[data-state='open'], .c8-form .c3-select-trigger:focus-visible { border-color: #2b4c8c; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.12); }
+.c8-form .c3-select-trigger.c3-invalid { border-color: #b3293a; }
+.c8-form .c3-placeholder .c3-select-value { color: #8d9099; }
+
+.c8-submit-error { padding: 10px 14px; border: 1px solid #f1c9cf; border-radius: 10px; background: #fdf3f4; font-size: 13.5px; color: #9b1c2c; }
+.c8-cta { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 56px; margin-top: 4px; border: 0; border-radius: 10px; background: #0a1230; color: #fff; font-size: 16.5px; font-weight: 600; letter-spacing: 0.005em; cursor: pointer; transition: background-color 150ms ease, transform 150ms ease; }
+.c8-cta svg { transition: transform 150ms ease; }
+.c8-cta:hover:not(:disabled) { background: #1a2a5e; }
+.c8-cta:hover:not(:disabled) svg { transform: translateX(3px); }
+.c8-cta:focus-visible { outline: none; box-shadow: 0 0 0 3px #fff, 0 0 0 5px #2b4c8c; }
+.c8-cta:disabled { opacity: 0.75; cursor: not-allowed; }
+.c8-trust { margin-top: 2px; text-align: center; font-size: 14px; font-weight: 600; color: #1d1f24; }
+.c8-privacy { margin-top: -6px; text-align: center; font-size: 12.5px; color: #6b6f78; }
+.c8-privacy a { color: #2b4c8c; text-decoration: underline; text-underline-offset: 2px; }
+
+.c8-success { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 36px 8px 32px; outline: none; }
+.c8-success-icon { color: #2b4c8c; }
+.c8-page .c8-success-title { margin-top: 16px; font-family: 'Geist', 'Inter', sans-serif; font-size: 30px; font-weight: 600; letter-spacing: -0.03em; color: #15171c; }
+.c8-success-text { margin-top: 12px; max-width: 440px; font-size: 16px; line-height: 1.6; color: #3f434c; }
+.c8-success-sub { margin-top: 10px; font-size: 14px; color: #6b6f78; }
+
+/* Capability strip */
+.c8-pillars { margin-top: 48px; }
+@media (min-width: 900px) { .c8-pillars { margin-top: 64px; } }
+.c8-pillar-list { display: grid; grid-template-columns: 1fr 1fr; list-style: none; margin: 0; padding: 0; border-top: 1px solid #e4e0d8; border-bottom: 1px solid #e4e0d8; }
+.c8-pillar { padding: 18px 14px; }
+.c8-pillar:nth-child(2n) { border-left: 1px solid #e4e0d8; }
+.c8-pillar:nth-child(-n+2) { border-bottom: 1px solid #e4e0d8; }
+@media (min-width: 900px) {
+  .c8-pillar-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .c8-pillar { padding: 22px 26px; border-bottom: 0 !important; }
+  .c8-pillar + .c8-pillar { border-left: 1px solid #e4e0d8; }
+}
+.c8-pillar-title { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #0a1230; }
+.c8-pillar-text { margin-top: 6px; font-size: 14px; line-height: 1.5; color: #4b4f58; }
+
+.c8-question { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 14px; padding-top: 36px; padding-bottom: 44px; font-size: 15px; color: #4b4f58; }
+.c8-question-link { display: inline-flex; align-items: center; gap: 6px; padding: 6px 0; border: 0; background: none; font-size: 15px; font-weight: 600; color: #2b4c8c; cursor: pointer; }
+.c8-question-link:hover { color: #0a1230; text-decoration: underline; text-underline-offset: 3px; }
+
+.c8-footer { border-top: 1px solid #ebe8e1; }
+.c8-footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 18px; padding-bottom: 18px; font-size: 13px; color: #6b6f78; }
+.c8-footer a { color: #4b4f58; }
+.c8-footer a:hover { color: #0a1230; text-decoration: underline; }
+
+/* Compact first screen: keep label, headline, copy, full form, CTA and trust line above the fold */
+@media (min-width: 640px) {
+  .c8-topbar-inner { height: 54px; }
+  .c8-hero { padding-top: 22px; }
+  .c8-page .c8-headline { margin-top: 8px; }
+  .c8-lede { margin-top: 10px; max-width: 680px; font-size: 16.5px; }
+  .c8-frame-wrap { margin-top: 20px; }
+  .c8-panel { padding: 20px 30px 18px; }
+  .c8-panel-head { padding-bottom: 12px; }
+  .c8-form { margin-top: 14px; gap: 11px; }
+  .c8-row { gap: 14px; }
+  .c8-label { margin-bottom: 5px; }
+  .c8-input, .c8-form .c3-select-trigger { height: 50px; }
+  .c8-textarea { height: 90px; min-height: 90px; }
+  .c8-cta { height: 54px; margin-top: 2px; }
+  .c8-trust { margin-top: 0; }
+}
