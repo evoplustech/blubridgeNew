@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Loader2, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Loader2, Mail, Phone, MapPin, ArrowRight, Lightbulb, Cpu, Sparkles, Bot, BrainCircuit, Gauge, Rocket, LifeBuoy, MoreHorizontal } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
-import { FormField } from '../ai-consulting/FormField';
-import { countries, parsePhone } from '../ai-consulting/countryData';
-import { services } from '../ai-consulting/options';
+import { FormField, FieldError, RequiredMark } from '../ai-consulting/FormField';
+import { PremiumSelect } from './PremiumSelect';
+import { CountryFlag } from '../ai-consulting/CountryFlag';
+import { countries, countryByCode, filterCountry, parsePhone } from '../ai-consulting/countryData';
+import { services, optionLabel } from '../ai-consulting/options';
 import { focusError } from '../ai-consulting/fieldUtils';
 import { useWizardSubmission } from '../ai-consulting/useWizardSubmission';
 import { clearAccidentalQuery } from '../ai-consulting/clearAccidentalQuery';
@@ -17,9 +19,24 @@ import '../ai-consulting-base/Dropdowns.css';
 /* /consulting-3 — copy of /consulting with a short two-column enquiry form.
    Submits to the same /api/ai-consulting-enquiries endpoint (formVariant "consulting-3"). */
 
-const COUNTRY_NAMES = countries.map(c => c.name);
-const codeByName = Object.fromEntries(countries.map(c => [c.name, c.code]));
-const AREAS = services.map(([, label]) => label); // same services as /consulting (already ends with "Other")
+const COUNTRY_OPTIONS = countries.map(c => ({ value: c.code, label: c.name, leading: <CountryFlag code={c.code} name={c.name} /> }));
+
+// Same services as /consulting (already ends with "Other"); icons + one-line hints for the premium dropdown.
+const AREA_META = {
+  consulting: [Lightbulb, 'Strategy, roadmaps and architecture reviews'],
+  'custom-ai': [Cpu, 'Purpose-built models trained on your data'],
+  'generative-ai': [Sparkles, 'Assistants, enterprise search and RAG'],
+  agents: [Bot, 'Autonomous workflows and tool-using agents'],
+  'model-training': [BrainCircuit, 'Adapt foundation models to your domain'],
+  'gpu-optimisation': [Gauge, 'Faster, more efficient training and inference'],
+  integration: [Rocket, 'Ship models into production systems'],
+  support: [LifeBuoy, 'Monitoring, upkeep and continuous improvement'],
+  other: [MoreHorizontal, 'Tell us what you have in mind'],
+};
+const AREA_OPTIONS = services.map(([key, label]) => {
+  const [Icon, description] = AREA_META[key] || [MoreHorizontal, ''];
+  return { value: label, label: label === 'Other' ? 'Other' : optionLabel(label), description, leading: <span className="c3-icon-tile"><Icon strokeWidth={1.9} /></span> };
+});
 
 // Offices — first 3 entries of "Our Offices" on /careers, as written there.
 const OFFICES = [
@@ -54,7 +71,7 @@ const validate = f => {
   if (!f.workEmail.trim()) e.workEmail = 'Please enter your work email.';
   else if (!EMAIL_RE.test(f.workEmail.trim())) e.workEmail = 'Please enter a valid email address.';
   if (!f.phone.trim()) e.phone = 'Please enter your phone number.';
-  else if (f.country && !parsePhone(f.phone, codeByName[f.country])) e.phone = 'Please enter a valid phone number for the selected country.';
+  else if (f.country && !parsePhone(f.phone, f.country)) e.phone = 'Please enter a valid phone number for the selected country.';
   else if (!f.country && !/^[+()\d\s.-]{6,40}$/.test(f.phone.trim())) e.phone = 'Please enter a valid phone number.';
   if (!f.jobTitle.trim()) e.jobTitle = 'Please enter your job title.';
   if (!f.country) e.country = 'Please select your country.';
@@ -103,7 +120,7 @@ export default function Consulting3() {
     const nextErrors = validate(form);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) { focusError(nextErrors); return; }
-    const code = codeByName[form.country];
+    const code = form.country;
     const firstName = form.firstName.trim();
     const lastName = form.lastName.trim();
     submission.submit({
@@ -114,7 +131,7 @@ export default function Consulting3() {
       phone: parsePhone(form.phone, code).number,
       phoneCountry: code,
       countryCode: code,
-      country: form.country,
+      country: countryByCode[code].name,
       jobTitle: form.jobTitle.trim(),
       company: form.company.trim(),
       website: form.website.trim() || null,
@@ -128,6 +145,12 @@ export default function Consulting3() {
   };
 
   const props = name => ({ name, value: form[name], onChange: change, error: errors[name], disabled });
+  const pick = name => value => change({ target: { name, value } });
+  const selectField = (name, label, extra) => <div className="aic-field">
+    <label htmlFor={`aic-${name}`} className="aic-label" data-testid={`aic-${name}-label`}>{label}<RequiredMark /></label>
+    <PremiumSelect id={`aic-${name}`} value={form[name]} onChange={pick(name)} error={errors[name]} disabled={disabled} {...extra} />
+    <FieldError name={name} error={errors[name]} />
+  </div>;
 
   return <div data-testid="consulting3-page">
     <section className="aic-page aic-base-smooth-page" data-testid="ai-consulting-page">
@@ -171,9 +194,9 @@ export default function Consulting3() {
               <FormField {...props('workEmail')} label="Work Email" placeholder="you@company.com" type="email" autoComplete="email" maxLength={254} />
               <FormField {...props('phone')} label="Phone" placeholder="Phone" type="tel" autoComplete="tel" maxLength={40} />
               <FormField {...props('jobTitle')} label="Job Title" placeholder="Job Title" autoComplete="organization-title" maxLength={200} />
-              <FormField {...props('country')} label="Country" placeholder="Select Country" options={COUNTRY_NAMES} />
+              {selectField('country', 'Country', { options: COUNTRY_OPTIONS, placeholder: 'Select Country', searchable: true, searchPlaceholder: 'Search countries', emptyText: 'No country found.', filter: filterCountry })}
               <FormField {...props('company')} label="Company Name" placeholder="Company" autoComplete="organization" maxLength={200} />
-              <FormField {...props('area')} label="Area of Interest" placeholder="Please Select" options={AREAS} />
+              {selectField('area', 'Area of Interest', { options: AREA_OPTIONS, placeholder: 'Please Select', wide: true })}
               <div className="aic-full-width"><FormField {...props('website')} label="Website URL" placeholder="https://www.company.com" type="url" autoComplete="url" required={false} maxLength={2048} /></div>
               <div className="aic-full-width"><FormField {...props('requirement')} label="Tell us about your project" placeholder="Tell us about your project" type="textarea" required={false} maxLength={5000} /></div>
             </div>
