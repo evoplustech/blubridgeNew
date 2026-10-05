@@ -1,0 +1,6 @@
+/* /consulting-3 only: keep the intro heading on exactly two lines. */
+.aic-page .aic-heading.c3-heading { font-size: clamp(30px, 8vw, 42px); line-height: 1.12; }
+.aic-page .aic-heading.c3-heading .c3-heading-line { display: block; white-space: nowrap; }
+@media (min-width: 1024px) {
+  .aic-page .aic-heading.c3-heading { font-size: clamp(30px, 2.9vw, 42px); }
+}

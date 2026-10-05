@@ -15,6 +15,7 @@ import { clearAccidentalQuery } from '../ai-consulting/clearAccidentalQuery';
 import { enquiryHeading, enquiryDescription } from '../ai-consulting/introCopy';
 import '../ai-consulting/AiConsulting.css';
 import '../ai-consulting-base/Dropdowns.css';
+import './Consulting3.css';
 
 /* /consulting-3 — copy of /consulting with a short two-column enquiry form.
    Submits to the same /api/ai-consulting-enquiries endpoint (formVariant "consulting-3"). */
@@ -160,7 +161,9 @@ export default function Consulting3() {
           <aside data-testid="consulting3-contact-panel">
             <header className="aic-intro" style={{ textAlign: 'left', margin: 0 }}>
               <p className="aic-eyebrow" data-testid="aic-eyebrow">GET IN TOUCH</p>
-              <h1 className="aic-heading" data-testid="aic-heading">{enquiryHeading}</h1>
+              <h1 className="aic-heading c3-heading" data-testid="aic-heading" aria-label={enquiryHeading}>
+                {(() => { const i = enquiryHeading.lastIndexOf(' '); return <><span className="c3-heading-line" aria-hidden="true">{enquiryHeading.slice(0, i)}</span><span className="c3-heading-line" aria-hidden="true">{enquiryHeading.slice(i + 1)}</span></>; })()}
+              </h1>
               <p className="aic-subtitle" data-testid="aic-subtitle">{enquiryDescription}</p>
             </header>
             <div className="mt-10 space-y-8">
