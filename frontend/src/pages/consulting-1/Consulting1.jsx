@@ -1,10 +1,12 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ArrowRight, ChevronDown, CheckCircle2, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import {
-  CONTACT_EMAIL, CONTACT_PHONE, telHref, SERVICE_TYPES as INQUIRY_TYPES, COUNTRIES, LOCATIONS, useConsultingContactForm,
+  CONTACT_EMAIL, CONTACT_PHONE, telHref, LOCATIONS, useConsultingContactForm,
 } from '../consulting-shared/consultingContact';
+import { PremiumSelect } from '../consulting-3/PremiumSelect';
+import { COUNTRY_NAME_OPTIONS, SERVICE_OPTIONS } from '../consulting-shared/premiumOptions';
 
 const ART = '/images/consulting-1';
 
@@ -152,24 +154,10 @@ export default function Consulting1() {
 
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5">
                       <Field label="Country" htmlFor="country" error={errors.country}>
-                        <div className="relative">
-                          <select id="country" name="country" value={form.country} onChange={onChange}
-                            className={`${fieldBase} h-12 appearance-none pr-10 ${form.country ? '' : 'text-[#9aa3b8]'} ${border('country')}`} data-testid="select-country">
-                            <option value="" disabled>Select a country</option>
-                            {COUNTRIES.map(c => <option key={c} value={c} className="text-[#0a1230]">{c}</option>)}
-                          </select>
-                          <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5b6580]" />
-                        </div>
+                        <PremiumSelect id="country" value={form.country} onChange={v => onChange({ target: { name: 'country', value: v } })} error={errors.country} options={COUNTRY_NAME_OPTIONS} placeholder="Select a country" searchable searchPlaceholder="Search countries" emptyText="No country found." testId="select-country" />
                       </Field>
                       <Field label="Inquiry Type" htmlFor="inquiryType" error={errors.inquiryType}>
-                        <div className="relative">
-                          <select id="inquiryType" name="inquiryType" value={form.inquiryType} onChange={onChange}
-                            className={`${fieldBase} h-12 appearance-none pr-10 ${form.inquiryType ? '' : 'text-[#9aa3b8]'} ${border('inquiryType')}`} data-testid="select-inquiry-type">
-                            <option value="" disabled>Select an option</option>
-                            {INQUIRY_TYPES.map(t => <option key={t} value={t} className="text-[#0a1230]">{t}</option>)}
-                          </select>
-                          <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5b6580]" />
-                        </div>
+                        <PremiumSelect id="inquiryType" value={form.inquiryType} onChange={v => onChange({ target: { name: 'inquiryType', value: v } })} error={errors.inquiryType} options={SERVICE_OPTIONS} placeholder="Select an option" wide testId="select-inquiry-type" />
                       </Field>
                     </div>
 

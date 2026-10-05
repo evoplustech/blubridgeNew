@@ -1,10 +1,12 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ArrowRight, ChevronDown, CheckCircle2, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import {
-  CONTACT_EMAIL, CONTACT_PHONE, telHref, SERVICE_TYPES, COUNTRIES, LOCATIONS, useConsultingContactForm,
+  CONTACT_EMAIL, CONTACT_PHONE, telHref, LOCATIONS, useConsultingContactForm,
 } from '../consulting-shared/consultingContact';
+import { PremiumSelect } from '../consulting-3/PremiumSelect';
+import { COUNTRY_NAME_OPTIONS, SERVICE_OPTIONS } from '../consulting-shared/premiumOptions';
 
 const BLUE = '#1f6fe5';
 const HEAD_FONT = { fontFamily: 'Geist, Inter, sans-serif' };
@@ -22,17 +24,8 @@ function Field({ label, htmlFor, error, children, className = '' }) {
   );
 }
 
-function SelectField({ id, value, onChange, placeholder, options, border, testId }) {
-  return (
-    <div className="relative">
-      <select id={id} name={id} value={value} onChange={onChange}
-        className={`${fieldBase} h-12 appearance-none pr-10 ${value ? '' : 'text-[#5b6580]'} ${border}`} data-testid={testId}>
-        <option value="" disabled>{placeholder}</option>
-        {options.map(o => <option key={o} value={o} className="text-[#0a1230]">{o}</option>)}
-      </select>
-      <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#3b4560]" />
-    </div>
-  );
+function SelectField({ id, value, onChange, placeholder, options, error, testId, ...rest }) {
+  return <PremiumSelect id={id} value={value} onChange={v => onChange({ target: { name: id, value: v } })} error={error} options={options} placeholder={placeholder} testId={testId} {...rest} />;
 }
 
 function InfoCard({ href, Icon, label, value, note, testId }) {
@@ -124,10 +117,10 @@ export default function Consulting2() {
                       value={form.company} onChange={onChange} className={`${fieldBase} h-12 ${border('company')}`} data-testid="input-company" />
                   </Field>
                   <Field label="Country" htmlFor="country" error={errors.country}>
-                    <SelectField id="country" value={form.country} onChange={onChange} placeholder="Select country" options={COUNTRIES} border={border('country')} testId="select-country" />
+                    <SelectField id="country" value={form.country} onChange={onChange} placeholder="Select country" options={COUNTRY_NAME_OPTIONS} error={errors.country} searchable searchPlaceholder="Search countries" emptyText="No country found." testId="select-country" />
                   </Field>
                   <Field label="Service Needed" htmlFor="inquiryType" error={errors.inquiryType}>
-                    <SelectField id="inquiryType" value={form.inquiryType} onChange={onChange} placeholder="Select a service" options={SERVICE_TYPES} border={border('inquiryType')} testId="select-service" />
+                    <SelectField id="inquiryType" value={form.inquiryType} onChange={onChange} placeholder="Select a service" options={SERVICE_OPTIONS} error={errors.inquiryType} wide testId="select-service" />
                   </Field>
                   <Field label="Project Details" htmlFor="message" error={errors.message} className="sm:col-span-2">
                     <textarea id="message" name="message" rows={4} maxLength={4000} placeholder="Tell us about your project, goals or any specific requirements…"

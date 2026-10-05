@@ -57,9 +57,9 @@ const OFFICES = [
   },
 ];
 
-// BluBridge contact details as listed on /careers ("Let's Connect").
+// BluBridge contact details.
 const PHONE = '+91 8925987250';
-const EMAIL = 'careers@blubridge.com';
+const EMAIL = 'info@blubridge.com';
 
 const EMPTY = { firstName: '', lastName: '', workEmail: '', phone: '', jobTitle: '', country: '', company: '', area: '', website: '', requirement: '' };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -168,7 +168,7 @@ export default function Consulting3() {
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#edf1fb] text-[#2b4c8c]"><Mail className="h-5 w-5" strokeWidth={1.8} /></span>
                 <div>
                   <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#0a1230]">Email Us</p>
-                  <p className="mt-1 text-[14px] text-[#4a5470]">Careers: <a href={`mailto:${EMAIL}`} className="text-[#2b4c8c] hover:underline">{EMAIL}</a></p>
+                  <p className="mt-1 text-[14px] text-[#4a5470]"><a href={`mailto:${EMAIL}`} className="text-[#2b4c8c] hover:underline">{EMAIL}</a></p>
                 </div>
               </div>
               <div className="flex items-start gap-4" data-testid="consulting3-phone">
