@@ -1100,6 +1100,8 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
         "privacy_consent": enquiry.contactPermission, "contact_permission": enquiry.contactPermission, "marketing_consent": False,
         "source": "/ai-consulting", "status": "new", "created_at": now, "updated_at": now,
     }
+    if enquiry.formVariant == 'consulting-3':
+        doc.update(form_variant="consulting-3", first_name=enquiry.firstName, last_name=enquiry.lastName, area_of_interest=", ".join(enquiry.services))
     if enquiry.serviceRequirements is not None:
         doc["service_requirements"] = enquiry.serviceRequirements
         doc["form_variant"] = enquiry.formVariant
@@ -1108,7 +1110,7 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
     # Notification delivery is secondary to the confirmed database write.
     try:
         notification = {key: value for key, value in doc.items() if key != "_id"}
-        notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS[enquiry.budgetType], privacy_consent="Acknowledged", contact_permission="Yes", marketing_consent="No")
+        notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS.get(enquiry.budgetType), privacy_consent="Acknowledged", contact_permission="Yes", marketing_consent="No")
         if enquiry.serviceRequirements:
             notification["project_details"] = service_requirements_summary(enquiry.serviceRequirements)
         await send_contact_form_email("ai_consulting_enquiry", notification, submission_timestamp=now)

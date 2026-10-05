@@ -28,6 +28,10 @@ def wizard_export_values(doc):
 
 class AIConsultingWizardEnquiry(BaseModel):
     model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
+    # consulting-3 form variant: optional split name fields (fullName is still sent).
+    formVariant: Optional[Literal['ai-consulting-4', 'ai-consulting-5', 'consulting-3']] = None
+    firstName: Optional[str] = Field(default=None, max_length=120)
+    lastName: Optional[str] = Field(default=None, max_length=120)
     fullName: str = Field(min_length=1, max_length=200)
     workEmail: EmailStr
     company: str = Field(min_length=1, max_length=200)
@@ -42,15 +46,22 @@ class AIConsultingWizardEnquiry(BaseModel):
     otherRole: Optional[str] = Field(default=None, max_length=200)
     contactPermission: bool
     services: List[WizardService] = Field(min_length=1, max_length=10)
-    formVariant: Optional[Literal['ai-consulting-4', 'ai-consulting-5']] = None
     serviceRequirements: Optional[Dict[str, Annotated[str, Field(max_length=5000)]]] = Field(default=None, max_length=9, validate_default=True)
     otherRequirement: str = Field(default='', max_length=1000, validate_default=True)
     requirement: str = Field(default='', max_length=5000, validate_default=True)
-    stage: Literal['Exploring options', 'Requirements defined', 'Planning a proof of concept or pilot', 'Development in progress', 'Improving an existing system', 'Ready for deployment', 'Other']
-    timeline: Literal['Within 30 days', '1–3 months', '3–6 months', 'More than 6 months', 'No fixed start date yet']
-    budgetType: Literal['project', 'monthly']
-    estimatedBudget: str
-    budgetStatus: Literal['Budget approved and available', 'Budget proposed — approval pending', 'Need a scoped proposal to secure approval', 'No budget available currently', 'I do not know the budget status yet']
+    # Required for every form except the short consulting-3 variant (enforced below).
+    stage: Optional[Literal['Exploring options', 'Requirements defined', 'Planning a proof of concept or pilot', 'Development in progress', 'Improving an existing system', 'Ready for deployment', 'Other']] = Field(default=None, validate_default=True)
+    timeline: Optional[Literal['Within 30 days', '1–3 months', '3–6 months', 'More than 6 months', 'No fixed start date yet']] = Field(default=None, validate_default=True)
+    budgetType: Optional[Literal['project', 'monthly']] = Field(default=None, validate_default=True)
+    estimatedBudget: Optional[str] = Field(default=None, validate_default=True)
+    budgetStatus: Optional[Literal['Budget approved and available', 'Budget proposed — approval pending', 'Need a scoped proposal to secure approval', 'No budget available currently', 'I do not know the budget status yet']] = Field(default=None, validate_default=True)
+
+    @field_validator('stage', 'timeline', 'budgetType', 'budgetStatus')
+    @classmethod
+    def required_unless_short_form(cls, value, info: ValidationInfo):
+        if value is None and info.data.get('formVariant') != 'consulting-3':
+            raise ValueError('Field required')
+        return value
 
     @field_validator('countryCode', 'phoneCountry')
     @classmethod
@@ -98,13 +109,16 @@ class AIConsultingWizardEnquiry(BaseModel):
     @classmethod
     def conditional_requirement(cls, value, info: ValidationInfo):
         per_service = info.data.get('formVariant') in ('ai-consulting-4', 'ai-consulting-5') or info.data.get('serviceRequirements') is not None
-        if not per_service and 'Other' in info.data.get('services', []) and not value:
+        short_form = info.data.get('formVariant') == 'consulting-3'  # project text is optional there
+        if not per_service and not short_form and 'Other' in info.data.get('services', []) and not value:
             raise ValueError('Please tell us about your requirement.')
         return value
 
     @field_validator('estimatedBudget')
     @classmethod
     def correct_budget_range(cls, value, info: ValidationInfo):
+        if value is None and info.data.get('formVariant') == 'consulting-3':
+            return value
         options = {'project': PROJECT_BUDGETS, 'monthly': MONTHLY_BUDGETS}.get(info.data.get('budgetType'), [])
         if value not in options:
             raise ValueError('Please select a valid estimate for this budget type.')
