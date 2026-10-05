@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Loader2, Mail, Paperclip, Mic, Square, X, FileText, Info, CheckCircle2 } from 'lucide-react';
+import { Check, Loader2, Paperclip, Mic, Square, X, FileText, Info, CheckCircle2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import { services, optionLabel } from '../ai-consulting/options';
@@ -9,7 +9,7 @@ import { clearAccidentalQuery } from '../ai-consulting/clearAccidentalQuery';
 import { PremiumSelect } from '../consulting-3/PremiumSelect';
 import './Consulting4.css';
 
-/* /consulting-4 — copy of /consulting with a two-column contact section and an offices section.
+/* /consulting-4 — copy of /consulting with a two-column contact section.
    Submits to the existing /api/ai-consulting-enquiries endpoint (formVariant "consulting-4");
    attachments go first to /api/ai-consulting-attachments and are linked by id. */
 
@@ -17,7 +17,6 @@ const API = window.location.origin;
 const MAX_BYTES = 5 * 1024 * 1024; // matches the backend attachment/file limit (MAX_FILE_SIZE)
 const FILE_EXT = ['.pdf', '.doc', '.docx'];
 const MAX_RECORD_SECONDS = 300;
-const CONTACT_EMAIL = 'info@blubridge.com';
 
 const SUBJECT_OPTIONS = services.map(([, value]) => ({ value, label: value === 'Other' ? 'Other' : optionLabel(value) }));
 const BUDGET_OPTIONS = ['Less than $10k', '$10k - $50k', '$50k - $100k', '$100k+', 'Not sure yet'].map(v => ({ value: v, label: v }));
@@ -27,17 +26,6 @@ const STEPS = [
   'Our Pre-Sales Manager will send you a proposal.',
   'Then, we get started on your project.',
 ];
-
-// Offices — every entry from "Our Offices" on /careers, sorted by country.
-const OFFICES = {
-  India: [
-    { id: 'besant-nagar', name: 'Chennai, Tamil Nadu, IN', lines: ['No. E160 Tiger Varadhachari Road,', 'Kalakshetra Colony, Besant Nagar,', 'Chennai – 600090'] },
-    { id: 'mandavelipakkam', name: 'Chennai, Tamil Nadu, IN', lines: ['30, Norton Rd, Mandavelipakkam,', 'Raja Annamalai Puram,', 'Chennai, Tamil Nadu – 600028'] },
-  ],
-  USA: [
-    { id: 'newark-de', name: 'Newark, Delaware, US', company: 'BLUBRIDGE INC', lines: ['254 Chapman Rd, STE 208 #28314,', 'Newark, Delaware 19702 USA'] },
-  ],
-};
 
 const EMPTY = { challenge: '', name: '', email: '', phone: '', company: '', subject: '', budget: '', nda: false, consent: false };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -92,7 +80,6 @@ export default function Consulting4() {
   const [recState, setRecState] = useState('idle'); // idle | recording
   const [seconds, setSeconds] = useState(0);
   const [uploading, setUploading] = useState(false);
-  const [tab, setTab] = useState('India');
   const fileInput = useRef(null);
   const recorder = useRef(null);
   const timer = useRef(null);
@@ -328,30 +315,6 @@ export default function Consulting4() {
               {submission.submitError && <p className="c4-error c4-submit-error" role="alert" data-testid="c4-submit-error">{submission.submitError}</p>}
             </div>
           </form>}
-        </div>
-      </div>
-    </section>
-
-    {/* ===== OUR OFFICES ===== */}
-    <section className="c4-offices" data-testid="c4-offices">
-      <div className="bb-container c4-offices-grid">
-        <div>
-          <h2 className="c4-offices-title" data-testid="c4-offices-heading">Our Offices</h2>
-          <p className="c4-offices-text">Say hello to our friendly team at one of our offices.</p>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="c4-mail" data-testid="c4-offices-email"><Mail size={16} aria-hidden="true" /> {CONTACT_EMAIL}</a>
-        </div>
-        <div>
-          <div className="c4-tabs" role="tablist" aria-label="Office regions">
-            {Object.keys(OFFICES).map(region => <button key={region} type="button" role="tab" id={`c4-tab-${region}`} aria-selected={tab === region} aria-controls="c4-tabpanel"
-              className={`c4-tab${tab === region ? ' c4-tab-active' : ''}`} onClick={() => setTab(region)} data-testid={`c4-tab-${region.toLowerCase()}`}>{region}</button>)}
-          </div>
-          <div id="c4-tabpanel" role="tabpanel" aria-labelledby={`c4-tab-${tab}`} className="c4-office-list" data-testid="c4-office-list">
-            {OFFICES[tab].map(o => <div key={o.id} className="c4-office" data-testid={`c4-office-${o.id}`}>
-              <p className="c4-office-name">{o.name}</p>
-              {o.company && <p className="c4-office-line">{o.company}</p>}
-              <p className="c4-office-line">{o.lines.map((l, i) => <React.Fragment key={l}>{l}{i < o.lines.length - 1 && <br />}</React.Fragment>)}</p>
-            </div>)}
-          </div>
         </div>
       </div>
     </section>

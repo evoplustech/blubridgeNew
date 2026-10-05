@@ -81,21 +81,3 @@
 .c4-success { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 28px; border: 1px solid #cfe8d9; border-radius: 12px; background: #f1faf4; color: #1f8a4c; outline: none; }
 .c4-success-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: #0a1230; }
 .c4-success-text { font-size: 15px; color: #3d4659; }
-
-/* ---------- Offices ---------- */
-.c4-offices { background: #fff; padding: 64px 0 72px; }
-.c4-offices-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
-@media (min-width: 1024px) { .c4-offices { padding: 80px 0 88px; } .c4-offices-grid { grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr); } }
-.c4-offices-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 34px; font-weight: 600; letter-spacing: -0.02em; }
-.c4-offices-text { margin-top: 12px; max-width: 280px; font-size: 15px; line-height: 1.6; color: #596274; }
-.c4-mail { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 500; color: #2b4c8c; }
-.c4-mail:hover { text-decoration: underline; text-underline-offset: 3px; }
-.c4-tabs { display: flex; gap: 8px; }
-.c4-tab { height: 38px; padding: 0 18px; border: 1px solid #dfe2eb; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #0a1230; cursor: pointer; transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease; }
-.c4-tab:hover:not(.c4-tab-active) { border-color: #b9c3db; }
-.c4-tab-active { background: #0a1230; border-color: #0a1230; color: #fff; }
-.c4-tab:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.3); }
-.c4-office-list { margin-top: 30px; display: grid; grid-template-columns: 1fr; gap: 28px 40px; }
-@media (min-width: 640px) { .c4-office-list { grid-template-columns: 1fr 1fr; } }
-.c4-office-name { font-size: 15px; font-weight: 600; color: #0a1230; }
-.c4-office-line { margin-top: 6px; font-size: 14px; line-height: 1.6; color: #4a5470; }
