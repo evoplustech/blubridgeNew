@@ -8,6 +8,7 @@ import { Toaster } from './components/ui/toaster';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import AiConsulting from './pages/AiConsulting';
+import Consulting1 from './pages/consulting-1/Consulting1';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import { getPageAccess } from './routing/pageAccess';
@@ -91,6 +92,7 @@ const AppLayout = () => {
           {/* Contact Routes */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/consulting" element={<AiConsulting />} />
+          <Route path="/consulting-1" element={<Consulting1 />} />
           <Route path="/ai-consulting" element={<Navigate to={`/consulting${location.search}${location.hash}`} replace />} />
           
           {/* Policy Routes */}

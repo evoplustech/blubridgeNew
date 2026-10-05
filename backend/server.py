@@ -329,7 +329,7 @@ class ContactSubmission(BaseModel):
         allowed = {
             'footer_form': common,
             'general_enquiry': common | {'company'},
-            'contact_us': common | {'phone', 'enquiryCategory'},
+            'contact_us': common | {'phone', 'enquiryCategory', 'company', 'country'},
             'contact_sales': common | {'company', 'country', 'jobTitle', 'purpose', 'useCase', 'gpuType', 'expectedGpuCount', 'projectStartTimeline', 'heardAbout'},
         }
         if not self.model_fields_set <= allowed[self.type]:

@@ -321,6 +321,24 @@ const ContactForms = () => {
                     <p className="mt-1 text-[#0B1F3B]">{selectedSubmission.jobTitle || '-'}</p>
                   </div>
                 </div>
+                {(selectedSubmission.phone || selectedSubmission.country) && (
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-medium text-[#6B7280] uppercase">Phone</label>
+                      <p className="mt-1 text-[#0B1F3B]" data-testid="detail-phone">{selectedSubmission.phone || '-'}</p>
+                    </div>
+                    <div>
+                      <label className="text-xs font-medium text-[#6B7280] uppercase">Country</label>
+                      <p className="mt-1 text-[#0B1F3B]" data-testid="detail-country">{selectedSubmission.country || '-'}</p>
+                    </div>
+                  </div>
+                )}
+                {selectedSubmission.enquiryCategory && (
+                  <div>
+                    <label className="text-xs font-medium text-[#6B7280] uppercase">Inquiry Type</label>
+                    <p className="mt-1 text-[#0B1F3B]" data-testid="detail-inquiry-type">{selectedSubmission.enquiryCategory}</p>
+                  </div>
+                )}
                 <div>
                   <label className="text-xs font-medium text-[#6B7280] uppercase">Form Type</label>
                   <p className="mt-1 text-[#0B1F3B]">{getFormTypeLabel(selectedSubmission.type)}</p>
