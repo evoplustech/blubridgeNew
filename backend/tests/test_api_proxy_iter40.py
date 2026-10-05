@@ -112,7 +112,7 @@ app.listen(process.env.PORT, '127.0.0.1');
     proxy_env = os.environ.copy()
     proxy_env["PORT"] = str(proxy_port)
     proxy_env["API_PROXY_TARGET"] = f"http://127.0.0.1:{upstream_port}"
-    proxy_env["REACT_APP_BACKEND_URL"] = "https://brush-reveal-deploy.preview.emergentagent.com"
+    proxy_env["REACT_APP_BACKEND_URL"] = "https://blubridge-setup.preview.emergentagent.com"
     proxy = subprocess.Popen(
         ["node", str(proxy_file)],
         cwd=str(root),
@@ -165,7 +165,7 @@ def test_local_proxy_valid_cookie_and_form_token_empty_body_is_422(local_fronten
         f"{LOCAL_FRONTEND}/api/ai-consulting-enquiries",
         json={},
         headers={
-            "Origin": "https://brush-reveal-deploy.preview.emergentagent.com",
+            "Origin": "https://blubridge-setup.preview.emergentagent.com",
             "X-BB-Form-Token": token,
             "Cookie": f"__Host-bb-form={cookie_value}",
         },
@@ -191,7 +191,7 @@ def test_local_proxy_missing_form_proof_rejected_403(local_frontend_ready):
     response = session.post(
         f"{LOCAL_FRONTEND}/api/ai-consulting-enquiries",
         json={},
-        headers={"Origin": "https://brush-reveal-deploy.preview.emergentagent.com"},
+        headers={"Origin": "https://blubridge-setup.preview.emergentagent.com"},
         timeout=25,
     )
     assert response.status_code == 403
@@ -236,7 +236,7 @@ def test_proto_proxy_preserves_path_query_and_body(proto_stub_stack):
         headers={
             "Content-Type": "application/octet-stream",
             "Cookie": "c1=v1",
-            "Origin": "https://brush-reveal-deploy.preview.emergentagent.com",
+            "Origin": "https://blubridge-setup.preview.emergentagent.com",
             "Sec-Fetch-Site": "same-site",
             "X-CSRF-Token": "csrf123",
             "X-Forwarded-For": "8.8.8.8",
@@ -253,7 +253,7 @@ def test_proto_proxy_preserves_path_query_and_body(proto_stub_stack):
     assert body["bodyBase64"] == base64.b64encode(payload).decode()
     headers = body["headers"]
     assert headers.get("cookie") == "c1=v1"
-    assert headers.get("origin") == "https://brush-reveal-deploy.preview.emergentagent.com"
+    assert headers.get("origin") == "https://blubridge-setup.preview.emergentagent.com"
     assert headers.get("sec-fetch-site") == "same-site"
     assert headers.get("x-csrf-token") == "csrf123"
     assert "x-forwarded-for" not in headers
@@ -287,7 +287,7 @@ app.listen(process.env.PORT, '127.0.0.1');
     env = os.environ.copy()
     env["PORT"] = str(port)
     env["API_PROXY_TARGET"] = "http://127.0.0.1:65534"
-    env["REACT_APP_BACKEND_URL"] = "https://brush-reveal-deploy.preview.emergentagent.com"
+    env["REACT_APP_BACKEND_URL"] = "https://blubridge-setup.preview.emergentagent.com"
     process = subprocess.Popen(["node", str(proxy_file)], cwd=str(root), env=env)
     try:
         _wait_http(f"http://127.0.0.1:{port}/not-api")

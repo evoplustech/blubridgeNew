@@ -18,5 +18,5 @@
   "seed_data_creation": "Created a handful of contact_enquiries MongoDB docs via the endpoint using unique qa.api.* and qa.git.ui.* emails (expected per instructions).",
   "retest_needed": false,
   "should_main_agent_self_test": false,
-  "context_for_next_testing_agent": "POST /api/contact-enquiries is whitelisted in SecurityMiddleware.PUBLIC_POST_PATHS. Duplicate window = 1 minute per lowercased email. GET on that path is 405 (only POST defined). SecurityMiddleware rate limiter can return 429 on rapid repeat POSTs — add ~15s sleep between negative tests when batching. Frontend testids all present as documented; use data-testid selectors. Preview URL: https://brush-reveal-deploy.preview.emergentagent.com."
+  "context_for_next_testing_agent": "POST /api/contact-enquiries is whitelisted in SecurityMiddleware.PUBLIC_POST_PATHS. Duplicate window = 1 minute per lowercased email. GET on that path is 405 (only POST defined). SecurityMiddleware rate limiter can return 429 on rapid repeat POSTs — add ~15s sleep between negative tests when batching. Frontend testids all present as documented; use data-testid selectors. Preview URL: https://blubridge-setup.preview.emergentagent.com."
 }
