@@ -323,18 +323,21 @@ class ContactSubmission(BaseModel):
     heardAbout: Optional[str] = None
     # General enquiry specific
     enquiryCategory: Optional[str] = None
+    # Marks short landing-page variants of contact_us (consulting-6: single "Full Name" field)
+    formVariant: Optional[Literal['consulting-6']] = None
     @model_validator(mode='after')
     def fields_for_form(self):
         common = {'type', 'email', 'firstName', 'lastName', 'message'}
         allowed = {
             'footer_form': common,
             'general_enquiry': common | {'company'},
-            'contact_us': common | {'phone', 'enquiryCategory', 'company', 'country'},
+            'contact_us': common | {'phone', 'enquiryCategory', 'company', 'country', 'formVariant'},
             'contact_sales': common | {'company', 'country', 'jobTitle', 'purpose', 'useCase', 'gpuType', 'expectedGpuCount', 'projectStartTimeline', 'heardAbout'},
         }
         if not self.model_fields_set <= allowed[self.type]:
             raise ValueError('Unexpected fields for this form')
-        if self.type != 'footer_form' and (not self.firstName or not self.lastName):
+        last_name_optional = self.formVariant == 'consulting-6'
+        if self.type != 'footer_form' and (not self.firstName or (not self.lastName and not last_name_optional)):
             raise ValueError('First and last names are required')
         if self.phone and not re.fullmatch(r'[+\d\s().-]{6,40}', self.phone):
             raise ValueError('Invalid phone number')
@@ -781,7 +784,7 @@ async def submit_unified_contact(submission: ContactSubmission):
         if submission.type == "contact_us":
             if not submission.firstName or not submission.firstName.strip():
                 raise HTTPException(status_code=400, detail="First name is required")
-            if not submission.lastName or not submission.lastName.strip():
+            if submission.formVariant != 'consulting-6' and (not submission.lastName or not submission.lastName.strip()):
                 raise HTTPException(status_code=400, detail="Last name is required")
             if not submission.message or not submission.message.strip():
                 raise HTTPException(status_code=400, detail="Message is required")

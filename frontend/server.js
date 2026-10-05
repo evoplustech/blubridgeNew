@@ -1222,6 +1222,11 @@ seoContent['/consulting-2'] = {
   content: '<h1>Let\u2019s Build Intelligent Systems Together</h1><p>Contact the BluBridge AI consulting team. Offices in Chennai, India and Delaware, USA.</p>',
 };
 seoContent['/consulting-3'] = { ...seoContent['/consulting'] };
+seoContent['/consulting-6'] = {
+  title: 'AI Consulting Services | Talk to an AI Consultant | BluBridge',
+  description: 'Talk to a BluBridge AI consultant. From AI strategy and generative AI to AI agents and enterprise implementation - tell us your requirement and we will connect with you.',
+  content: '<h1>Let\u2019s Talk About Your AI Initiative</h1><p>Tell us what you\u2019re looking to solve. Our AI consulting team will review your requirements and connect with you to discuss the right approach.</p>',
+};
 const notFoundSeo = { title: 'Page not found | BluBridge', description: 'This page is not available.', content: '<h1>Page not found</h1>' };
 
 // Function to get SEO content for a path
