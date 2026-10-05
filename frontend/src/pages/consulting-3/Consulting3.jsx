@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Loader2, Mail, Phone, MapPin, ArrowRight, Lightbulb, Cpu, Sparkles, Bot, BrainCircuit, Gauge, Rocket, LifeBuoy, MoreHorizontal } from 'lucide-react';
+import { Loader2, Mail, Phone, ArrowRight, Lightbulb, Cpu, Sparkles, Bot, BrainCircuit, Gauge, Rocket, LifeBuoy, MoreHorizontal } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
@@ -38,25 +38,6 @@ const AREA_OPTIONS = services.map(([key, label]) => {
   const [Icon, description] = AREA_META[key] || [MoreHorizontal, ''];
   return { value: label, label: label === 'Other' ? 'Other' : optionLabel(label), description, leading: <span className="c3-icon-tile"><Icon strokeWidth={1.9} /></span> };
 });
-
-// Offices — first 3 entries of "Our Offices" on /careers, as written there.
-const OFFICES = [
-  {
-    id: 'besant-nagar', city: 'Chennai', region: 'Tamil Nadu, IN',
-    lines: ['No. E160 Tiger Varadhachari Road,', 'Kalakshetra Colony, Besant Nagar,', 'Chennai – 600090'],
-    mapUrl: 'https://www.google.com/maps/place/Blubridge+Technologies/@12.9954492,80.2654151,17z/data=!3m1!4b1!4m6!3m5!1s0x3a5267e2599dbced:0xc9079da2f4d833f!8m2!3d12.995444!4d80.26799!16s%2Fg%2F11mry3n8lv',
-  },
-  {
-    id: 'mandavelipakkam', city: 'Chennai', region: 'Tamil Nadu, IN',
-    lines: ['30, Norton Rd, Mandavelipakkam,', 'Raja Annamalai Puram,', 'Chennai, Tamil Nadu – 600028'],
-    mapUrl: 'https://www.google.com/maps/place/30,+Norton+Rd,+Mandavelipakkam,+Mandaveli,+Chennai,+Tamil+Nadu+600028/@13.0280416,80.2681674,17z',
-  },
-  {
-    id: 'newark-de', city: 'Newark', region: 'Delaware, US', company: 'BLUBRIDGE INC',
-    lines: ['254 Chapman Rd, STE 208 #28314,', 'Newark, Delaware 19702 USA'],
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=254+Chapman+Rd+STE+208+Newark+Delaware+19702',
-  },
-];
 
 // BluBridge contact details.
 const PHONE = '+91 8925987250';
@@ -218,27 +199,5 @@ export default function Consulting3() {
       </div>
     </section>
 
-    {/* Our Offices */}
-    <section className="bg-[#f0f1f9] py-20 lg:py-24" data-testid="consulting3-offices">
-      <div className="bb-container">
-        <h2 className="text-center text-[32px] font-medium tracking-[-0.03em] text-[#0a1230] sm:text-[40px]" style={{ fontFamily: 'Geist, Inter, sans-serif' }} data-testid="consulting3-offices-heading">Our Offices</h2>
-        <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 gap-x-6 gap-y-14 md:grid-cols-3">
-          {OFFICES.map(o => (
-            <article key={o.id} className="relative flex flex-col rounded-xl border border-[#e2e6f2] bg-white px-7 pb-7 pt-12 shadow-[0_2px_14px_-8px_rgba(10,18,48,0.18)]" data-testid={`consulting3-office-${o.id}`}>
-              <span className="absolute -top-5 left-6 flex h-11 w-11 items-center justify-center rounded-full bg-[#0a1230] text-white shadow-md" aria-hidden="true"><MapPin className="h-5 w-5" strokeWidth={1.8} /></span>
-              <h3 className="text-[19px] font-semibold text-[#0a1230]" style={{ fontFamily: 'Geist, Inter, sans-serif' }}>{o.city}, {o.region.split(', ')[1] === 'IN' ? 'India' : 'USA'}</h3>
-              <p className="mt-1 text-[13px] text-[#6b7590]">{o.region}</p>
-              {o.company && <p className="mt-4 text-[14px] font-medium text-[#0a1230]">{o.company}</p>}
-              <p className={`${o.company ? 'mt-1' : 'mt-4'} flex-1 text-[14px] leading-[1.7] text-[#4a5470]`}>
-                {o.lines.map((l, i) => <React.Fragment key={l}>{l}{i < o.lines.length - 1 && <br />}</React.Fragment>)}
-              </p>
-              <a href={o.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-medium text-[#2b4c8c] hover:underline" data-testid={`consulting3-map-${o.id}`}>
-                View on Google Maps <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
   </div>;
 }

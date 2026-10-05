@@ -1,9 +1,9 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
+import { Mail, Phone, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import {
-  CONTACT_EMAIL, CONTACT_PHONE, telHref, LOCATIONS, useConsultingContactForm,
+  CONTACT_EMAIL, CONTACT_PHONE, telHref, useConsultingContactForm,
 } from '../consulting-shared/consultingContact';
 import { PremiumSelect } from '../consulting-3/PremiumSelect';
 import { COUNTRY_NAME_OPTIONS, SERVICE_OPTIONS } from '../consulting-shared/premiumOptions';
@@ -155,40 +155,6 @@ export default function Consulting2() {
         </div>
       </section>
 
-      {/* ===== LOCATIONS ===== */}
-      <section className="relative pb-24" data-testid="consulting2-locations">
-        <div className="bb-container">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-5">
-              <span className="h-px w-16 bg-[#d5dbe8]" aria-hidden="true" />
-              <p className="text-[13px] font-semibold uppercase tracking-[0.16em]" style={{ color: BLUE }}>Our locations</p>
-              <span className="h-px w-16 bg-[#d5dbe8]" aria-hidden="true" />
-            </div>
-            <h2 className="mt-4 text-[32px] font-bold tracking-[-0.03em] sm:text-[40px]" style={HEAD_FONT}>BluBridge’s Global Presence</h2>
-            <p className="mx-auto mt-3 max-w-[560px] text-[16px] text-[#4a5470]">We work with organizations around the world. Find our key locations below.</p>
-          </div>
-
-          <div className="mx-auto mt-12 grid max-w-[1100px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {LOCATIONS.map(loc => (
-              <article key={loc.id} className="group flex flex-col rounded-xl border border-[#edf0f7] bg-white p-7 shadow-[0_4px_18px_-12px_rgba(10,18,48,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_40px_-26px_rgba(10,18,48,0.32)]" data-testid={`c2-location-card-${loc.id}`}>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#eaf1fd]" style={{ color: BLUE }}>
-                  <MapPin className="h-5 w-5" strokeWidth={2.2} />
-                </span>
-                <h3 className="mt-5 text-[19px] font-bold" style={HEAD_FONT}>{loc.title}</h3>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="mt-1.5 text-[14px] text-[#4a5470] hover:text-[#1f6fe5]">{CONTACT_EMAIL}</a>
-                <a href={telHref(CONTACT_PHONE)} className="text-[14px] text-[#6b7590] hover:text-[#1f6fe5]">{CONTACT_PHONE}</a>
-                <span className="mt-5 block h-px w-full bg-[#edf0f7]" aria-hidden="true" />
-                <address className="mt-5 flex-1 text-[14px] not-italic leading-[1.7] text-[#4a5470]">
-                  {loc.lines.map(l => <span key={l} className="block">{l}</span>)}
-                </address>
-                <a href={loc.map} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold hover:underline" style={{ color: BLUE }} data-testid={`c2-location-map-${loc.id}`}>
-                  View on Google Maps <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

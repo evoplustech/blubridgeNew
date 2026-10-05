@@ -1,9 +1,9 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
+import { Mail, Phone, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import {
-  CONTACT_EMAIL, CONTACT_PHONE, telHref, LOCATIONS, useConsultingContactForm,
+  CONTACT_EMAIL, CONTACT_PHONE, telHref, useConsultingContactForm,
 } from '../consulting-shared/consultingContact';
 import { PremiumSelect } from '../consulting-3/PremiumSelect';
 import { COUNTRY_NAME_OPTIONS, SERVICE_OPTIONS } from '../consulting-shared/premiumOptions';
@@ -200,62 +200,6 @@ export default function Consulting1() {
         </div>
       </section>
 
-      {/* ===== LOCATIONS ===== */}
-      <section className="bg-[#f6f8fc] py-20 lg:py-28" data-testid="consulting1-locations">
-        <div className="bb-container">
-          <div className="mx-auto max-w-[760px] text-center">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.28em] text-[#2b6cd4]">Our locations</p>
-            <h2
-              className="mt-4 text-[34px] font-bold leading-[1.1] tracking-[-0.03em] text-[#0a1230] sm:text-[44px]"
-              style={{ fontFamily: 'Geist, Inter, sans-serif' }}
-            >
-              Global presence. Local support.
-            </h2>
-            <p className="mt-5 text-[17px] leading-[1.6] text-[#4a5470]">
-              We partner with organizations around the world. Find an office near you or get in touch with our team.
-            </p>
-          </div>
-
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {LOCATIONS.map(loc => (
-              <article
-                key={loc.id}
-                className="group relative flex flex-col overflow-hidden rounded-xl border border-[#e8ecf5] bg-white p-7 shadow-[0_2px_12px_-8px_rgba(10,18,48,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgba(10,18,48,0.3)]"
-                data-testid={`location-card-${loc.id}`}
-              >
-                <img
-                  src={loc.art}
-                  alt={loc.artAlt}
-                  loading="lazy"
-                  className="pointer-events-none absolute right-4 top-5 h-[96px] w-auto max-w-[42%] select-none object-contain object-right-bottom opacity-80"
-                />
-                <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#0b2c5f] text-white">
-                  <MapPin className="h-[18px] w-[18px]" strokeWidth={2} />
-                </span>
-                <h3 className="relative mt-5 max-w-[58%] text-[19px] font-semibold leading-snug text-[#0a1230]">{loc.title}</h3>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="relative mt-2 text-[14px] text-[#2f3a56] hover:text-[#2b6cd4]">{CONTACT_EMAIL}</a>
-                <a href={telHref(CONTACT_PHONE)} className="relative mt-0.5 text-[14px] text-[#5b6580] hover:text-[#2b6cd4]">{CONTACT_PHONE}</a>
-
-                <span className="relative mt-6 block h-px w-full bg-[#e8ecf5]" aria-hidden="true" />
-
-                <address className="relative mt-5 flex-1 text-[14px] not-italic leading-[1.7] text-[#4a5470]">
-                  {loc.lines.map(l => <span key={l} className="block">{l}</span>)}
-                </address>
-
-                <a
-                  href={loc.map}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-[#2b6cd4] hover:text-[#0b2c5f]"
-                  data-testid={`location-map-${loc.id}`}
-                >
-                  View on Google Maps <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
