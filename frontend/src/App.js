@@ -11,6 +11,7 @@ import AiConsulting from './pages/AiConsulting';
 import Consulting1 from './pages/consulting-1/Consulting1';
 import Consulting2 from './pages/consulting-2/Consulting2';
 import Consulting3 from './pages/consulting-3/Consulting3';
+import Consulting4 from './pages/consulting-4/Consulting4';
 import Consulting6 from './pages/consulting-6/Consulting6';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -98,6 +99,7 @@ const AppLayout = () => {
           <Route path="/consulting-1" element={<Consulting1 />} />
           <Route path="/consulting-2" element={<Consulting2 />} />
           <Route path="/consulting-3" element={<Consulting3 />} />
+          <Route path="/consulting-4" element={<Consulting4 />} />
           <Route path="/consulting-6" element={<Consulting6 />} />
           <Route path="/ai-consulting" element={<Navigate to={`/consulting${location.search}${location.hash}`} replace />} />
           

@@ -15,7 +15,8 @@ from starlette.routing import Match
 from security_sessions import ADMIN_COOKIE, FORM_COOKIE, principal_context
 
 PUBLIC_GET = frozenset({'/api', '/api/', '/health', '/api/admin/session', '/api/form-context', '/api/blog/posts'})
-PUBLIC_POST = frozenset({'/api/contact', '/api/contacts/submit', '/api/contact-us', '/api/contact-enquiries', '/api/project-enquiries', '/api/ai-consultation-enquiries', '/api/ai-consulting-enquiries', '/api/newsletter/subscribe', '/api/job-applications/submit'})
+PUBLIC_POST = frozenset({'/api/contact', '/api/contacts/submit', '/api/contact-us', '/api/contact-enquiries', '/api/project-enquiries', '/api/ai-consultation-enquiries', '/api/ai-consulting-enquiries', '/api/newsletter/subscribe', '/api/job-applications/submit', '/api/ai-consulting-attachments'})
+UPLOAD_POST = frozenset({'/api/job-applications/submit', '/api/ai-consulting-attachments'})
 ALLOWED_HEADERS = frozenset({'content-type', 'x-csrf-token', 'x-bb-form-token', 'x-requested-with'})
 
 
@@ -143,7 +144,7 @@ class SecurityGateway:
                 scope['headers'] = [(k, v) for k, v in scope['headers'] if k.lower() != b'authorization'] + [(b'authorization', ('Bearer ' + request.cookies[ADMIN_COOKIE]).encode())]
             if path in PUBLIC_POST:
                 await self.services.limit(ip, 'public-submit', int(os.environ['SECURITY_PUBLIC_RATE_LIMIT']))
-                if path == '/api/job-applications/submit':
+                if path in UPLOAD_POST:
                     await self.services.limit(ip, 'uploads', 3)
                 token = request.cookies.get(FORM_COOKIE, '')
                 header_token = request.headers.get('x-bb-form-token', '')
@@ -153,7 +154,7 @@ class SecurityGateway:
                     raise HTTPException(403, 'Form verification failed. Please try again.')
 
             chunks, total = [], 0
-            cap = int(os.environ['SECURITY_UPLOAD_MAX_BYTES'] if path == '/api/job-applications/submit' else os.environ['SECURITY_JSON_MAX_BYTES'])
+            cap = int(os.environ['SECURITY_UPLOAD_MAX_BYTES'] if path in UPLOAD_POST else os.environ['SECURITY_JSON_MAX_BYTES'])
             while True:
                 message = await asyncio.wait_for(receive(), timeout=15)
                 if message['type'] == 'http.disconnect':
@@ -166,11 +167,11 @@ class SecurityGateway:
                 if not message.get('more_body', False):
                     break
             body = b''.join(chunks)
-            if path in PUBLIC_POST and path != '/api/job-applications/submit' and request.headers.get('content-type', '').split(';')[0].strip().lower() != 'application/json':
+            if path in PUBLIC_POST and path not in UPLOAD_POST and request.headers.get('content-type', '').split(';')[0].strip().lower() != 'application/json':
                 raise HTTPException(415, 'Expected application/json')
             if body:
                 content_type = request.headers.get('content-type', '').split(';')[0].strip().lower()
-                if path == '/api/job-applications/submit':
+                if path in UPLOAD_POST:
                     if content_type != 'multipart/form-data':
                         raise HTTPException(415, 'Expected multipart form data')
                 elif content_type != 'application/json':
@@ -193,7 +194,7 @@ class SecurityGateway:
                     return {'type': 'http.request', 'body': body, 'more_body': False}
                 return await receive()
 
-            if path == '/api/job-applications/submit' and body:
+            if path in UPLOAD_POST and body:
                 parsed_request = Request(scope, receive=replay)
                 form = await parsed_request.form(max_files=1, max_fields=12)
                 try:

@@ -573,7 +573,7 @@ async def send_gmail_notification(form_type: str, form_data: dict, submission_ti
 # Separate email sender for Contact & Footer forms — sends to contact@blubridge.ai
 CONTACT_FORM_TO_EMAIL = "contact@blubridge.ai"
 
-async def send_contact_form_email(form_type: str, form_data: dict, submission_timestamp: str = None):
+async def send_contact_form_email(form_type: str, form_data: dict, submission_timestamp: str = None, attachments: list = None):
     """Send email for contact/footer forms to contact@blubridge.ai. Isolated from job application emails."""
     
     def _send():
@@ -644,6 +644,9 @@ async def send_contact_form_email(form_type: str, form_data: dict, submission_ti
             user_email = form_data.get('email')
             if user_email and isinstance(user_email, str) and '@' in user_email:
                 params["reply_to"] = user_email
+
+            if attachments:
+                params["attachments"] = [{"filename": a["filename"], "content": list(a["content"])} for a in attachments]
             
             resend.Emails.send(params)
             logging.info(f"Contact form email sent to {CONTACT_FORM_TO_EMAIL} for {form_type_label}")
@@ -1096,7 +1099,7 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
         "company": enquiry.company, "phone": enquiry.phone, "role": enquiry.jobTitle,
         "country": enquiry.country, "country_code": enquiry.countryCode, "services": enquiry.services,
         "website": enquiry.website, "initiative_role": enquiry.initiativeRole, "other_role": enquiry.otherRole or None,
-        "phone_country": enquiry.phoneCountry, "calling_code": "+" + str(phonenumbers.country_code_for_region(PHONE_REGIONS.get(enquiry.phoneCountry, enquiry.phoneCountry))),
+        "phone_country": enquiry.phoneCountry, "calling_code": ("+" + str(phonenumbers.country_code_for_region(PHONE_REGIONS.get(enquiry.phoneCountry, enquiry.phoneCountry)))) if enquiry.phoneCountry else None,
         "other_requirement": enquiry.otherRequirement or None, "project_details": enquiry.requirement,
         "project_stage": enquiry.stage, "start_timeline": enquiry.timeline,
         "budget_type": enquiry.budgetType, "budget": enquiry.estimatedBudget, "budget_status": enquiry.budgetStatus,
@@ -1108,15 +1111,38 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
     if enquiry.serviceRequirements is not None:
         doc["service_requirements"] = enquiry.serviceRequirements
         doc["form_variant"] = enquiry.formVariant
+    attachment_files = []
+    if enquiry.formVariant == 'consulting-4':
+        doc.update(form_variant="consulting-4", subject=", ".join(enquiry.services), project_budget=enquiry.projectBudget, nda_first=bool(enquiry.ndaFirst))
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat()
+    for attachment_id in dict.fromkeys(enquiry.attachmentIds or []):
+        found = await consulting_attachment_files.find_one({"metadata.attachment_id": attachment_id, "metadata.status": "pending"})
+        if not found or found["metadata"].get("created_at", "") < cutoff:
+            raise HTTPException(status_code=400, detail="Your attachment has expired. Please attach it again.")
+        attachment_files.append(found)
+    if attachment_files:
+        doc["attachments"] = [{"id": f["metadata"]["attachment_id"], "filename": f["filename"], "size": f["length"], "content_type": f["metadata"].get("content_type"), "kind": f["metadata"].get("kind")} for f in attachment_files]
     await security_services.reserve_submission(doc['company_email'], 'enquiry')
     await db.contact_enquiries.insert_one(doc)
+    email_attachments = []
+    for f in attachment_files:
+        await consulting_attachment_files.update_one({"_id": f["_id"]}, {"$set": {"metadata.status": "linked", "metadata.enquiry_id": doc["id"]}})
+        try:
+            stream = await consulting_attachment_bucket.open_download_stream(f["_id"])
+            email_attachments.append({"filename": f["filename"], "content": await stream.read()})
+        except Exception:
+            logging.exception("Could not read attachment for enquiry %s", doc["id"])
     # Notification delivery is secondary to the confirmed database write.
     try:
         notification = {key: value for key, value in doc.items() if key != "_id"}
         notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS.get(enquiry.budgetType), privacy_consent="Acknowledged", contact_permission="Yes", marketing_consent="No")
+        if enquiry.formVariant == 'consulting-4':
+            notification["nda_first"] = "Yes" if enquiry.ndaFirst else "No"
+        if doc.get("attachments"):
+            notification["attachments"] = "; ".join(f"{a['filename']} ({max(1, round(a['size'] / 1024))} KB, {a.get('kind') or 'file'})" for a in doc["attachments"]) + " - attached to this email"
         if enquiry.serviceRequirements:
             notification["project_details"] = service_requirements_summary(enquiry.serviceRequirements)
-        await send_contact_form_email("ai_consulting_enquiry", notification, submission_timestamp=now)
+        await send_contact_form_email("ai_consulting_enquiry", notification, submission_timestamp=now, attachments=email_attachments or None)
     except Exception:
         logging.exception("AI consulting enquiry %s saved; email notification failed", doc["id"])
     return {"id": doc["id"], "message": "Your AI consulting enquiry has been received."}
@@ -1302,6 +1328,9 @@ _storage_key = None
 
 # Resumes live in the application database so uploads work on any host without extra credentials.
 resume_bucket = AsyncIOMotorGridFSBucket(db, bucket_name="resumes")
+# Attachments for the /consulting-4 enquiry form (file or recorded voice message)
+consulting_attachment_bucket = AsyncIOMotorGridFSBucket(db, bucket_name="consulting_attachments")
+consulting_attachment_files = db["consulting_attachments.files"]
 
 def init_storage(force: bool = False):
     """Session-scoped storage key, minted once and reused."""
@@ -1375,6 +1404,47 @@ def validate_phone(phone: str) -> bool:
     """Validate phone number (10-15 digits)"""
     digits = re.sub(r'\D', '', phone)
     return 10 <= len(digits) <= 15
+
+
+AUDIO_SIGNATURES = {
+    '.webm': lambda b: b.startswith(b'\x1a\x45\xdf\xa3'),
+    '.ogg': lambda b: b.startswith(b'OggS'),
+    '.m4a': lambda b: b[4:8] == b'ftyp',
+    '.mp4': lambda b: b[4:8] == b'ftyp',
+    '.mp3': lambda b: b.startswith(b'ID3') or (len(b) > 1 and b[0] == 0xFF and (b[1] & 0xE0) == 0xE0),
+    '.wav': lambda b: b.startswith(b'RIFF') and b[8:12] == b'WAVE',
+}
+AUDIO_TYPES = {'.webm': 'audio/webm', '.ogg': 'audio/ogg', '.m4a': 'audio/mp4', '.mp4': 'audio/mp4', '.mp3': 'audio/mpeg', '.wav': 'audio/wav'}
+DOC_TYPES = {'.pdf': 'application/pdf', '.doc': 'application/msword', '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}
+
+
+@api_router.post("/ai-consulting-attachments", status_code=201)
+async def upload_consulting_attachment(file: UploadFile = File(...)):
+    """One file (PDF/DOC/DOCX) or a recorded voice message for the /consulting-4 enquiry form."""
+    name = os.path.basename((file.filename or '').replace('\\', '/')).strip()
+    name = re.sub(r'[^A-Za-z0-9._ -]', '_', name)[:150]
+    ext = os.path.splitext(name)[1].lower()
+    content = await file.read(MAX_FILE_SIZE + 1)
+    if not name or ext not in DOC_TYPES and ext not in AUDIO_TYPES:
+        raise HTTPException(status_code=400, detail="Please attach a PDF, DOC or DOCX file, or a voice recording.")
+    if len(content) == 0:
+        raise HTTPException(status_code=400, detail="The selected file is empty.")
+    if len(content) > MAX_FILE_SIZE:
+        raise HTTPException(status_code=400, detail=f"File is too large. Maximum size is {MAX_FILE_SIZE // (1024 * 1024)}MB.")
+    if ext in DOC_TYPES:
+        ok, message = validate_file(name, len(content), content)
+        kind, content_type = 'document', DOC_TYPES[ext]
+    else:
+        ok, message = AUDIO_SIGNATURES[ext](content[:16]), 'Invalid audio recording.'
+        kind, content_type = 'voice message', AUDIO_TYPES[ext]
+    if not ok:
+        raise HTTPException(status_code=400, detail=message)
+    attachment_id = str(uuid.uuid4())
+    await consulting_attachment_bucket.upload_from_stream(name, content, metadata={
+        "attachment_id": attachment_id, "status": "pending", "kind": kind, "content_type": content_type,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    })
+    return {"attachmentId": attachment_id, "filename": name, "size": len(content), "kind": kind}
 
 
 @api_router.post("/job-applications/submit")

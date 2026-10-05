@@ -35,7 +35,9 @@ module.exports = function securityHeaders(app) {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()');
+    // Microphone is allowed only on /consulting-4 (voice-message recording on its enquiry form).
+    const microphone = /^\/consulting-4\/?$/i.test(req.path) ? 'microphone=(self)' : 'microphone=()';
+    res.setHeader('Permissions-Policy', `camera=(), ${microphone}, geolocation=(), payment=(), usb=()`);
     res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
     if (process.env.SECURITY_REQUIRE_HTTPS === 'true') res.setHeader('Strict-Transport-Security', 'max-age=31536000');
     if (admin) res.setHeader('Cache-Control', 'no-store');

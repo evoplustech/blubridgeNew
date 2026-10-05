@@ -76,3 +76,11 @@
 
 .c3-popover-wide { width: max(var(--radix-popover-trigger-width), 400px); }
 .c3-popover-wide .c3-list { max-height: 360px !important; }
+
+/* Optional underline variant (used by /consulting-4) */
+.c3-select-trigger.c3-select-underline { height: 46px; padding: 0 2px; border: 0; border-bottom: 1px solid #c9cfdd; border-radius: 0; background: transparent; box-shadow: none; font-size: 15px; }
+.c3-select-trigger.c3-select-underline:hover:not(:disabled) { background: transparent; border-bottom-color: #8e98b3; }
+.c3-select-trigger.c3-select-underline[data-state='open'], .c3-select-trigger.c3-select-underline:focus-visible { border-bottom-color: #0a1230; box-shadow: 0 1px 0 0 #0a1230; }
+.c3-select-trigger.c3-select-underline.c3-invalid { border-bottom-color: #b3293a; box-shadow: none; }
+.c3-select-trigger.c3-select-underline .c3-chevron { width: 22px; height: 22px; background: transparent; }
+.c3-select-trigger.c3-select-underline[data-state='open'] .c3-chevron { background: transparent; color: #0a1230; }

@@ -8,7 +8,7 @@ import './PremiumSelect.css';
  * Premium dropdown used only on /consulting-3.
  * options: [{ value, label, description?, leading? (ReactNode) }]
  */
-export function PremiumSelect({ id, value, onChange, options, placeholder, error, disabled, searchable = false, searchPlaceholder = 'Search', emptyText = 'No results found.', filter, testId, wide = false }) {
+export function PremiumSelect({ id, value, onChange, options, placeholder, error, disabled, searchable = false, searchPlaceholder = 'Search', emptyText = 'No results found.', filter, testId, wide = false, variant = 'box' }) {
   const [open, setOpen] = useState(false);
   const selected = options.find(o => o.value === value);
   const select = v => { onChange(v); setOpen(false); };
@@ -18,7 +18,7 @@ export function PremiumSelect({ id, value, onChange, options, placeholder, error
       <button
         id={id} type="button" role="combobox" disabled={disabled}
         aria-expanded={open} aria-haspopup="listbox" aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined}
-        className={`c3-select-trigger${error ? ' c3-invalid' : ''}${selected ? '' : ' c3-placeholder'}`}
+        className={`c3-select-trigger${variant === 'underline' ? ' c3-select-underline' : ''}${error ? ' c3-invalid' : ''}${selected ? '' : ' c3-placeholder'}`}
         data-testid={testId || id}
       >
         <span className="c3-select-value">

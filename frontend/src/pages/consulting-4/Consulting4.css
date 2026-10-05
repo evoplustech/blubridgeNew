@@ -1,0 +1,101 @@
+/* /consulting-4 only. Brand: navy #0a1230 (site primary), light #f0f1f9, accent #2b4c8c. */
+.c4-page { font-family: 'Inter', sans-serif; color: #0a1230; }
+
+/* ---------- Contact section ---------- */
+.c4-contact { position: relative; overflow: hidden; background: #f0f1f9; }
+.c4-contact-grid { display: grid; grid-template-columns: 1fr; }
+.c4-panel { position: relative; z-index: 0; padding: 56px 0 52px; color: #fff; }
+.c4-panel::before { content: ''; position: absolute; z-index: -1; inset: 0 -100vw; background: #0a1230; }
+.c4-form-wrap { padding: 52px 0 64px; }
+@media (min-width: 1024px) {
+  .c4-contact-grid { grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr); }
+  .c4-panel { padding: 80px 64px 80px 0; }
+  .c4-panel::before { inset: 0 0 0 -100vw; }
+  .c4-form-wrap { padding: 80px 0 88px 76px; }
+}
+
+.c4-panel .c4-panel-title { color: #fff; font-family: 'Geist', 'Inter', sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+.c4-panel-text { margin-top: 14px; max-width: 280px; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.82); }
+.c4-panel-subtitle { margin-top: 22px; font-size: 15px; font-weight: 600; }
+.c4-steps { position: relative; margin-top: 20px; display: grid; gap: 26px; list-style: none; padding: 0; }
+.c4-steps::before { content: ''; position: absolute; left: 9px; top: 12px; bottom: 12px; width: 1px; background: rgba(255, 255, 255, 0.35); }
+.c4-step { position: relative; display: flex; align-items: flex-start; gap: 14px; max-width: 300px; font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, 0.9); }
+.c4-step-dot { position: relative; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 19px; height: 19px; margin-top: 1px; border-radius: 999px; background: #fff; color: #0a1230; }
+.c4-step-dot-last { background: rgba(255, 255, 255, 0.55); }
+
+.c4-form-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 34px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
+.c4-form-text { margin-top: 10px; font-size: 15.5px; color: #596274; }
+.c4-form { margin-top: 30px; display: grid; grid-template-columns: 1fr; column-gap: 28px; row-gap: 18px; }
+@media (min-width: 640px) { .c4-form { grid-template-columns: 1fr 1fr; } .c4-span-2 { grid-column: 1 / -1; } }
+
+.c4-field { min-width: 0; }
+.c4-input-row { position: relative; display: flex; align-items: flex-end; }
+.c4-input {
+  width: 100%; height: 46px; padding: 0 2px; border: 0; border-bottom: 1px solid #c9cfdd; border-radius: 0; background: transparent;
+  font-family: 'Geist', 'Inter', sans-serif; font-size: 15px; color: #0a1230; outline: none; transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.c4-input::placeholder { color: #697386; }
+.c4-input:hover:not(:disabled) { border-bottom-color: #8e98b3; }
+.c4-input:focus { border-bottom-color: #0a1230; box-shadow: 0 1px 0 0 #0a1230; }
+.c4-input.c4-invalid { border-bottom-color: #b3293a; }
+.c4-input:disabled { color: #697386; }
+.c4-textarea { height: auto; min-height: 46px; padding: 12px 28px 10px 2px; resize: none; line-height: 1.5; overflow-y: auto; }
+.c4-hint { display: inline-flex; color: #8e98b3; cursor: help; }
+.c4-input-row .c4-hint { position: absolute; right: 2px; bottom: 14px; }
+.c4-error { margin-top: 6px; font-size: 12.5px; color: #b3293a; }
+
+.c4-extras { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; margin-top: 6px; }
+.c4-attach-actions { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.c4-link { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 500; color: #2b4c8c; background: none; border: 0; padding: 4px 0; cursor: pointer; }
+.c4-link:hover:not(:disabled) { color: #0a1230; text-decoration: underline; text-underline-offset: 3px; }
+.c4-link:disabled { opacity: 0.55; cursor: not-allowed; }
+.c4-recording { color: #b3293a; }
+.c4-recording::before { content: ''; width: 8px; height: 8px; border-radius: 999px; background: #d92d20; animation: c4-pulse 1.2s ease-in-out infinite; }
+.c4-rec-time { font-variant-numeric: tabular-nums; color: #596274; }
+@keyframes c4-pulse { 50% { opacity: 0.25; } }
+
+.c4-check { position: relative; display: inline-flex; align-items: flex-start; gap: 11px; font-size: 14px; line-height: 1.55; color: #3d4659; cursor: pointer; }
+.c4-check input { position: absolute; opacity: 0; width: 18px; height: 18px; margin: 0; }
+.c4-box { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-top: 2px; border: 1px solid #aab3c7; border-radius: 4px; background: #fff; color: transparent; transition: background-color 120ms ease, border-color 120ms ease; }
+.c4-check input:checked + .c4-box { background: #0a1230; border-color: #0a1230; color: #fff; }
+.c4-check input:focus-visible + .c4-box { box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.25); }
+.c4-check input[aria-invalid='true'] + .c4-box { border-color: #b3293a; }
+.c4-check .c4-hint { margin-top: 3px; }
+.c4-consent { font-size: 13.5px; color: #4a5470; }
+.c4-consent a { color: #2b4c8c; text-decoration: underline; text-underline-offset: 2px; }
+
+.c4-attachments { display: grid; gap: 10px; }
+.c4-chip { display: flex; align-items: center; gap: 10px; min-width: 0; max-width: 520px; padding: 8px 10px 8px 12px; border: 1px solid #dfe2eb; border-radius: 10px; background: #fff; color: #2b4c8c; }
+.c4-chip-name { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; color: #0a1230; }
+.c4-chip-size { flex-shrink: 0; font-size: 12.5px; color: #697386; }
+.c4-chip audio { flex: 1; min-width: 0; height: 34px; }
+.c4-chip button { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; color: #596274; background: #f3f5fa; border: 0; cursor: pointer; }
+.c4-chip button:hover:not(:disabled) { background: #fde8ea; color: #b3293a; }
+
+.c4-submit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 168px; height: 48px; padding: 0 30px; margin-top: 8px; border: 0; border-radius: 8px; background: #0a1230; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; transition: background-color 150ms ease; }
+.c4-submit:hover:not(:disabled) { background: #1b2a5c; }
+.c4-submit:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(43, 76, 140, 0.3); }
+.c4-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+@media (max-width: 639px) { .c4-submit { width: 100%; } }
+
+.c4-success { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 28px; border: 1px solid #cfe8d9; border-radius: 12px; background: #f1faf4; color: #1f8a4c; outline: none; }
+.c4-success-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: #0a1230; }
+.c4-success-text { font-size: 15px; color: #3d4659; }
+
+/* ---------- Offices ---------- */
+.c4-offices { background: #fff; padding: 64px 0 72px; }
+.c4-offices-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 1024px) { .c4-offices { padding: 80px 0 88px; } .c4-offices-grid { grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr); } }
+.c4-offices-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 34px; font-weight: 600; letter-spacing: -0.02em; }
+.c4-offices-text { margin-top: 12px; max-width: 280px; font-size: 15px; line-height: 1.6; color: #596274; }
+.c4-mail { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 500; color: #2b4c8c; }
+.c4-mail:hover { text-decoration: underline; text-underline-offset: 3px; }
+.c4-tabs { display: flex; gap: 8px; }
+.c4-tab { height: 38px; padding: 0 18px; border: 1px solid #dfe2eb; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #0a1230; cursor: pointer; transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease; }
+.c4-tab:hover:not(.c4-tab-active) { border-color: #b9c3db; }
+.c4-tab-active { background: #0a1230; border-color: #0a1230; color: #fff; }
+.c4-tab:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.3); }
+.c4-office-list { margin-top: 30px; display: grid; grid-template-columns: 1fr; gap: 28px 40px; }
+@media (min-width: 640px) { .c4-office-list { grid-template-columns: 1fr 1fr; } }
+.c4-office-name { font-size: 15px; font-weight: 600; color: #0a1230; }
+.c4-office-line { margin-top: 6px; font-size: 14px; line-height: 1.6; color: #4a5470; }
