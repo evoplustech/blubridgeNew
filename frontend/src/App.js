@@ -12,6 +12,7 @@ import Consulting1 from './pages/consulting-1/Consulting1';
 import Consulting2 from './pages/consulting-2/Consulting2';
 import Consulting3 from './pages/consulting-3/Consulting3';
 import Consulting4 from './pages/consulting-4/Consulting4';
+import Consulting5 from './pages/consulting-5/Consulting5';
 import Consulting6 from './pages/consulting-6/Consulting6';
 import Consulting7 from './pages/consulting-7/Consulting7';
 import Consulting8 from './pages/consulting-8/Consulting8';
@@ -102,6 +103,7 @@ const AppLayout = () => {
           <Route path="/consulting-2" element={<Consulting2 />} />
           <Route path="/consulting-3" element={<Consulting3 />} />
           <Route path="/consulting-4" element={<Consulting4 />} />
+          <Route path="/consulting-5" element={<Consulting5 />} />
           <Route path="/consulting-6" element={<Consulting6 />} />
           <Route path="/consulting-7" element={<Consulting7 />} />
           <Route path="/consulting-8" element={<Consulting8 />} />

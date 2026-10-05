@@ -1114,11 +1114,18 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
     attachment_files = []
     if enquiry.formVariant == 'consulting-4':
         doc.update(form_variant="consulting-4", subject=", ".join(enquiry.services), project_budget=enquiry.projectBudget, nda_first=bool(enquiry.ndaFirst))
+    if enquiry.formVariant == 'consulting-5':
+        if len(enquiry.attachmentIds or []) > 1:
+            raise HTTPException(status_code=400, detail="Only one file can be attached.")
+        doc.update(form_variant="consulting-5", referral_source=enquiry.referralSource, budget_min=enquiry.budgetMin * 1000, budget_max=enquiry.budgetMax * 1000,
+                   budget_range=f"${enquiry.budgetMin}k - ${enquiry.budgetMax}k")
     cutoff = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat()
     for attachment_id in dict.fromkeys(enquiry.attachmentIds or []):
         found = await consulting_attachment_files.find_one({"metadata.attachment_id": attachment_id, "metadata.status": "pending"})
         if not found or found["metadata"].get("created_at", "") < cutoff:
             raise HTTPException(status_code=400, detail="Your attachment has expired. Please attach it again.")
+        if enquiry.formVariant == 'consulting-5' and (found["metadata"].get("variant") != 'consulting-5' or found["length"] > CONSULTING5_MAX_BYTES):
+            raise HTTPException(status_code=400, detail="Max file size: 2MB. Allowed file formats: doc, xls, pdf, jpg, png.")
         attachment_files.append(found)
     if attachment_files:
         doc["attachments"] = [{"id": f["metadata"]["attachment_id"], "filename": f["filename"], "size": f["length"], "content_type": f["metadata"].get("content_type"), "kind": f["metadata"].get("kind")} for f in attachment_files]
@@ -1138,6 +1145,9 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
         notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS.get(enquiry.budgetType), privacy_consent="Acknowledged", contact_permission="Yes", marketing_consent="No")
         if enquiry.formVariant == 'consulting-4':
             notification["nda_first"] = "Yes" if enquiry.ndaFirst else "No"
+        if enquiry.formVariant == 'consulting-5':
+            notification["how_did_you_hear_about_us"] = enquiry.referralSource
+            notification["budget_range"] = doc["budget_range"]
         if doc.get("attachments"):
             notification["attachments"] = "; ".join(f"{a['filename']} ({max(1, round(a['size'] / 1024))} KB, {a.get('kind') or 'file'})" for a in doc["attachments"]) + " - attached to this email"
         if enquiry.serviceRequirements:
@@ -1445,6 +1455,43 @@ async def upload_consulting_attachment(file: UploadFile = File(...)):
         "created_at": datetime.now(timezone.utc).isoformat(),
     })
     return {"attachmentId": attachment_id, "filename": name, "size": len(content), "kind": kind}
+
+
+CONSULTING5_MAX_BYTES = 2 * 1024 * 1024
+CONSULTING5_TYPES = {
+    '.pdf': ('application/pdf', lambda b: b.startswith(b'%PDF-')),
+    '.doc': ('application/msword', lambda b: b.startswith(b'\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1')),
+    '.xls': ('application/vnd.ms-excel', lambda b: b.startswith(b'\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1')),
+    '.docx': ('application/vnd.openxmlformats-officedocument.wordprocessingml.document', lambda b: b.startswith(b'PK\x03\x04')),
+    '.xlsx': ('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', lambda b: b.startswith(b'PK\x03\x04')),
+    '.jpg': ('image/jpeg', lambda b: b.startswith(b'\xff\xd8\xff')),
+    '.jpeg': ('image/jpeg', lambda b: b.startswith(b'\xff\xd8\xff')),
+    '.png': ('image/png', lambda b: b.startswith(b'\x89PNG\r\n\x1a\n')),
+}
+
+
+@api_router.post("/ai-consulting-attachments/consulting-5", status_code=201)
+async def upload_consulting5_attachment(file: UploadFile = File(...)):
+    """One file for the /consulting-5 enquiry form: doc, docx, xls, xlsx, pdf, jpg, jpeg, png - max 2MB."""
+    name = os.path.basename((file.filename or '').replace('\\', '/')).strip()
+    name = re.sub(r'[^A-Za-z0-9._ -]', '_', name)[:150]
+    ext = os.path.splitext(name)[1].lower()
+    content = await file.read(CONSULTING5_MAX_BYTES + 1)
+    if not name or ext not in CONSULTING5_TYPES:
+        raise HTTPException(status_code=400, detail="Allowed file formats: doc, xls, pdf, jpg, png.")
+    if not content:
+        raise HTTPException(status_code=400, detail="The selected file is empty.")
+    if len(content) > CONSULTING5_MAX_BYTES:
+        raise HTTPException(status_code=400, detail="File is too large. Max file size: 2MB.")
+    content_type, signature_ok = CONSULTING5_TYPES[ext]
+    if not signature_ok(content[:16]):
+        raise HTTPException(status_code=400, detail="The file content does not match its extension.")
+    attachment_id = str(uuid.uuid4())
+    await consulting_attachment_bucket.upload_from_stream(name, content, metadata={
+        "attachment_id": attachment_id, "status": "pending", "kind": "document", "content_type": content_type,
+        "variant": "consulting-5", "created_at": datetime.now(timezone.utc).isoformat(),
+    })
+    return {"attachmentId": attachment_id, "filename": name, "size": len(content)}
 
 
 @api_router.post("/job-applications/submit")

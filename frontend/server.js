@@ -1238,6 +1238,7 @@ seoContent['/consulting-8'] = {
   description: 'Exploring an AI opportunity, solving a business challenge or ready to build? Tell BluBridge where you are and our AI consultants will help you move forward.',
   content: '<h1>Ready to Put AI to Work?</h1><p>Whether you\u2019re exploring an opportunity, solving a business challenge or ready to build, tell us where you are and we\u2019ll help you move forward.</p>',
 };
+seoContent['/consulting-5'] = { ...seoContent['/consulting'] };
 const notFoundSeo = { title: 'Page not found | BluBridge', description: 'This page is not available.', content: '<h1>Page not found</h1>' };
 
 // Function to get SEO content for a path

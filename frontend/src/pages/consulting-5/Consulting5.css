@@ -1,0 +1,67 @@
+/* /consulting-5 only. Site fonts + brand (navy #0a1230, accent #2b4c8c); page background comes from .aic-page. */
+.c5-card { width: 100%; max-width: 600px; margin: 8px auto 0; padding: 28px 22px 24px; border: 1px solid #e2e6f2; border-radius: 14px; background: #fff; box-shadow: 0 1px 2px rgba(10, 18, 48, 0.04), 0 24px 56px -40px rgba(10, 18, 48, 0.3); font-family: 'Inter', sans-serif; color: #0a1230; }
+@media (min-width: 640px) { .c5-card { padding: 34px 34px 28px; } }
+.aic-page .c5-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 30px; font-weight: 600; letter-spacing: -0.025em; color: #0a1230; }
+.c5-intro { margin-top: 12px; font-size: 14.5px; line-height: 1.7; color: #4a5470; }
+.c5-intro a { color: #2b4c8c; text-decoration: underline; text-underline-offset: 2px; }
+.c5-form { margin-top: 22px; display: grid; gap: 14px; }
+.c5-row { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 560px) { .c5-row { grid-template-columns: 1fr 1fr; } }
+.c5-field { min-width: 0; }
+
+.c5-control { position: relative; display: flex; align-items: center; border: 1px solid #dfe2eb; border-radius: 8px; background: #fff; transition: border-color 140ms ease, box-shadow 140ms ease; }
+.c5-control:hover { border-color: #b9c3db; }
+.c5-control:focus-within { border-color: #2b4c8c; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.12); }
+.c5-control-invalid, .c5-control-invalid:hover { border-color: #b3293a; }
+.c5-control-top { align-items: flex-start; }
+.c5-icon { position: absolute; left: 15px; color: #6b7590; pointer-events: none; }
+.c5-control-top .c5-icon { top: 15px; }
+.c5-control .c5-input { padding-left: 44px; border: 0; box-shadow: none; }
+.c5-input { display: block; width: 100%; height: 50px; padding: 0 14px; border: 1px solid #dfe2eb; border-radius: 8px; background: #fff; font-family: 'Inter', sans-serif; font-size: 15px; color: #0a1230; outline: none; }
+.c5-input::placeholder { color: #7c8499; }
+.c5-input:disabled { background: #f6f7fb; }
+.c5-textarea { height: 96px; min-height: 96px; padding-top: 13px; padding-bottom: 12px; line-height: 1.5; resize: vertical; border-radius: 8px; }
+.c5-error { margin-top: 6px; font-size: 12.5px; color: #b3293a; }
+.c5-form .c3-select-trigger { height: 50px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 15px; box-shadow: none; }
+.c5-form .c3-placeholder .c3-select-value { color: #7c8499; }
+
+.c5-file { margin-top: 4px; }
+.c5-file-btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 16px; border: 1px solid #2b4c8c; border-radius: 8px; background: #fff; font-size: 14.5px; font-weight: 600; color: #2b4c8c; cursor: pointer; transition: background-color 140ms ease, color 140ms ease; }
+.c5-file-btn:hover:not(:disabled) { background: #2b4c8c; color: #fff; }
+.c5-file-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.25); }
+.c5-helper { margin-top: 8px; font-size: 12.5px; color: #6b7590; }
+.c5-chip { display: flex; align-items: center; gap: 10px; max-width: 100%; padding: 8px 10px 8px 12px; border: 1px solid #dfe2eb; border-radius: 8px; background: #f7f8fc; color: #2b4c8c; }
+.c5-chip-name { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; color: #0a1230; }
+.c5-chip-size { flex-shrink: 0; font-size: 12.5px; color: #6b7590; }
+.c5-chip button { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 0; border-radius: 6px; background: #eef1f7; color: #596274; cursor: pointer; }
+.c5-chip button:hover:not(:disabled) { background: #fde8ea; color: #b3293a; }
+
+.c5-budget { margin-top: 8px; }
+.c5-budget-title { font-size: 16px; font-weight: 600; color: #0a1230; }
+.c5-budget-sub { margin-top: 6px; font-size: 14px; line-height: 1.55; color: #4a5470; }
+.c5-budget-row { margin-top: 14px; grid-template-columns: 1fr 1fr; }
+.c5-budget-input .c5-input:focus { border-color: #2b4c8c; box-shadow: 0 0 0 3px rgba(43, 76, 140, 0.12); }
+
+/* Dual-handle slider: two overlaid native ranges, only the thumbs receive pointer events */
+.c5-range { position: relative; height: 32px; margin-top: 12px; }
+.c5-range-track { position: absolute; left: 0; right: 0; top: 50%; height: 3px; margin-top: -1.5px; border-radius: 3px;
+  background: linear-gradient(90deg, #d5dae5 var(--c5-from), #2b4c8c var(--c5-from), #2b4c8c var(--c5-to), #d5dae5 var(--c5-to)); }
+.c5-range input[type='range'] { position: absolute; inset: 0; width: 100%; height: 32px; margin: 0; background: transparent; pointer-events: none; -webkit-appearance: none; appearance: none; }
+.c5-range input.c5-range-top { z-index: 2; }
+.c5-range input[type='range']::-webkit-slider-runnable-track { height: 32px; background: transparent; }
+.c5-range input[type='range']::-moz-range-track { height: 32px; background: transparent; }
+.c5-range input[type='range']::-webkit-slider-thumb { -webkit-appearance: none; pointer-events: auto; width: 22px; height: 22px; margin-top: 5px; border: 3px solid #fff; border-radius: 999px; background: #2b4c8c; box-shadow: 0 1px 4px rgba(10, 18, 48, 0.35); cursor: grab; }
+.c5-range input[type='range']::-moz-range-thumb { pointer-events: auto; width: 16px; height: 16px; border: 3px solid #fff; border-radius: 999px; background: #2b4c8c; box-shadow: 0 1px 4px rgba(10, 18, 48, 0.35); cursor: grab; }
+.c5-range input[type='range']:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(43, 76, 140, 0.25); }
+.c5-range input[type='range']:disabled::-webkit-slider-thumb { cursor: not-allowed; opacity: 0.7; }
+
+.c5-submit { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 52px; margin-top: 8px; border: 0; border-radius: 8px; background: #0a1230; color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 150ms ease; }
+.c5-submit:hover:not(:disabled) { background: #1b2a5c; }
+.c5-submit:focus-visible { outline: none; box-shadow: 0 0 0 3px #fff, 0 0 0 5px #2b4c8c; }
+.c5-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+.c5-submit-error { text-align: center; }
+.c5-terms { text-align: center; font-size: 12.5px; line-height: 1.6; color: #6b7590; }
+.c5-terms a { color: #2b4c8c; text-decoration: underline; text-underline-offset: 2px; }
+.c5-success { margin: 0; }
+
+.c5-range input[type='range']:focus { outline: none; }
