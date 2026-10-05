@@ -1,63 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin, ArrowRight, ChevronDown, CheckCircle2, Loader2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
+import {
+  CONTACT_EMAIL, CONTACT_PHONE, telHref, SERVICE_TYPES as INQUIRY_TYPES, COUNTRIES, LOCATIONS, useConsultingContactForm,
+} from '../consulting-shared/consultingContact';
 
-const API_URL = window.location.origin;
 const ART = '/images/consulting-1';
-
-const CONTACT_EMAIL = 'info@blubridge.com';
-const CONTACT_PHONE = '+91 8925987250';
-
-const INQUIRY_TYPES = [
-  'AI Strategy & Roadmap',
-  'Custom Model Development',
-  'Generative AI & LLM Solutions',
-  'Data & ML Engineering',
-  'AI Infrastructure & Deployment',
-  'Partnership',
-  'Other',
-];
-
-const COUNTRIES = [
-  'India', 'United States', 'United Kingdom', 'Canada', 'Australia', 'Singapore', 'United Arab Emirates',
-  'Saudi Arabia', 'Qatar', 'Germany', 'France', 'Netherlands', 'Switzerland', 'Sweden', 'Ireland', 'Spain',
-  'Italy', 'Belgium', 'Denmark', 'Norway', 'Finland', 'Poland', 'Austria', 'Israel', 'Japan', 'South Korea',
-  'China', 'Hong Kong', 'Taiwan', 'Malaysia', 'Indonesia', 'Thailand', 'Vietnam', 'Philippines', 'New Zealand',
-  'South Africa', 'Nigeria', 'Kenya', 'Egypt', 'Brazil', 'Mexico', 'Argentina', 'Chile', 'Colombia',
-  'Sri Lanka', 'Bangladesh', 'Nepal', 'Other',
-];
-
-const LOCATIONS = [
-  {
-    id: 'chennai-besant-nagar',
-    title: 'India: Besant Nagar',
-    lines: ['Plot #E160 Tiger Varadhachari Road,', 'Kalakshetra Colony, Besant Nagar,', 'Chennai – 600090'],
-    map: 'https://maps.google.com/?q=Plot+E160+Tiger+Varadhachari+Road+Kalakshetra+Colony+Besant+Nagar+Chennai+600090',
-    art: `${ART}/chennai-temple-lineart.webp`,
-    artAlt: 'Line drawing of a Chennai temple gopuram',
-  },
-  {
-    id: 'chennai-ra-puram',
-    title: 'India: R.A. Puram',
-    lines: ['30, Norton Rd, Mandavelipakkam,', 'Raja Annamalai Puram,', 'Chennai, Tamil Nadu 600028'],
-    map: 'https://maps.google.com/?q=30+Norton+Rd+Mandavelipakkam+Raja+Annamalai+Puram+Chennai+600028',
-    art: `${ART}/chennai-central-lineart.webp`,
-    artAlt: 'Line drawing of Chennai Central clock tower',
-  },
-  {
-    id: 'usa-delaware',
-    title: 'USA: Delaware',
-    lines: ['BLUBRIDGE INC', '254 Chapman Rd, STE 208 #28314,', 'Newark, Delaware 19702 USA'],
-    map: 'https://maps.google.com/?q=254+Chapman+Rd+STE+208+%2328314+Newark+Delaware+19702+USA',
-    art: `${ART}/delaware-lineart.webp`,
-    artAlt: 'Line drawing of the Delaware Memorial Bridge and a colonial building',
-  },
-];
-
-const EMPTY = { fullName: '', email: '', phone: '', company: '', country: '', inquiryType: '', message: '' };
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const PHONE_RE = /^[+\d\s().-]{6,40}$/;
 
 const labelCls = 'block text-[13px] font-medium text-[#0a1230] mb-2';
 const fieldBase =
@@ -79,80 +28,8 @@ export default function Consulting1() {
   useDocumentTitle('Talk to Our AI Consultants | BluBridge');
   useMetaDescription('Have an AI initiative in mind? Share your goals with BluBridge consultants and get a response within one business day.');
 
-  const [form, setForm] = useState(EMPTY);
-  const [errors, setErrors] = useState({});
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
+  const { form, errors, submitting, submitError, submitted, setSubmitted, onChange, onSubmit } = useConsultingContactForm();
   const border = name => (errors[name] ? 'border-[#d14343]' : 'border-[#dde2ee]');
-
-  const onChange = e => {
-    const { name, value } = e.target;
-    setForm(f => ({ ...f, [name]: value }));
-    if (errors[name]) setErrors(er => ({ ...er, [name]: '' }));
-  };
-
-  const validate = () => {
-    const er = {};
-    const nameParts = form.fullName.trim().split(/\s+/).filter(Boolean);
-    if (!form.fullName.trim()) er.fullName = 'Please enter your full name';
-    else if (nameParts.length < 2) er.fullName = 'Please enter your first and last name';
-    else if (form.fullName.trim().length > 200) er.fullName = 'Name is too long';
-    if (!form.email.trim()) er.email = 'Please enter your work email';
-    else if (!EMAIL_RE.test(form.email.trim())) er.email = 'Please enter a valid email address';
-    if (!form.phone.trim()) er.phone = 'Please enter your phone number';
-    else if (!PHONE_RE.test(form.phone.trim()) || form.phone.replace(/\D/g, '').length < 6) er.phone = 'Please enter a valid phone number';
-    if (!form.company.trim()) er.company = 'Please enter your company name';
-    if (!form.country) er.country = 'Please select a country';
-    if (!form.inquiryType) er.inquiryType = 'Please select an inquiry type';
-    if (!form.message.trim()) er.message = 'Please tell us about your inquiry';
-    setErrors(er);
-    return Object.keys(er).length === 0;
-  };
-
-  const onSubmit = async e => {
-    e.preventDefault();
-    if (submitting) return;
-    setSubmitError('');
-    if (!validate()) return;
-    setSubmitting(true);
-    const [firstName, ...rest] = form.fullName.trim().split(/\s+/);
-    try {
-      const response = await fetch(`${API_URL}/api/contacts/submit`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'contact_us',
-          firstName: firstName.slice(0, 120),
-          lastName: rest.join(' ').slice(0, 120),
-          email: form.email.trim().toLowerCase(),
-          phone: form.phone.trim(),
-          company: form.company.trim(),
-          country: form.country,
-          enquiryCategory: form.inquiryType,
-          message: form.message.trim(),
-        }),
-      });
-      if (response.ok) {
-        setSubmitted(true);
-        setForm(EMPTY);
-        setErrors({});
-      } else if (response.status === 409) {
-        setSubmitError('You have already submitted this form recently. Please wait a moment before trying again.');
-      } else if (response.status === 429) {
-        setSubmitError('Too many attempts. Please wait a minute and try again.');
-      } else {
-        let detail = '';
-        try { const data = await response.json(); detail = typeof data.detail === 'string' ? data.detail : ''; } catch { /* ignore */ }
-        setSubmitError(detail || 'Failed to submit form. Please try again.');
-      }
-    } catch {
-      setSubmitError('Failed to submit form. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
-  };
 
   return (
     <div className="bg-white text-[#0a1230]" style={{ fontFamily: 'Inter, sans-serif' }} data-testid="consulting1-page">
@@ -206,7 +83,7 @@ export default function Consulting1() {
                     </span>
                   </span>
                 </a>
-                <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} className="group flex items-start gap-6" data-testid="consulting1-phone">
+                <a href={telHref(CONTACT_PHONE)} className="group flex items-start gap-6" data-testid="consulting1-phone">
                   <span className="flex h-[60px] w-[60px] flex-shrink-0 items-center justify-center rounded-full bg-[#edf2fc] text-[#0b2c5f] transition-colors group-hover:bg-[#dfe8fa]">
                     <Phone className="h-[22px] w-[22px]" strokeWidth={1.8} />
                   </span>
@@ -369,7 +246,7 @@ export default function Consulting1() {
                 </span>
                 <h3 className="relative mt-5 max-w-[58%] text-[19px] font-semibold leading-snug text-[#0a1230]">{loc.title}</h3>
                 <a href={`mailto:${CONTACT_EMAIL}`} className="relative mt-2 text-[14px] text-[#2f3a56] hover:text-[#2b6cd4]">{CONTACT_EMAIL}</a>
-                <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} className="relative mt-0.5 text-[14px] text-[#5b6580] hover:text-[#2b6cd4]">{CONTACT_PHONE}</a>
+                <a href={telHref(CONTACT_PHONE)} className="relative mt-0.5 text-[14px] text-[#5b6580] hover:text-[#2b6cd4]">{CONTACT_PHONE}</a>
 
                 <span className="relative mt-6 block h-px w-full bg-[#e8ecf5]" aria-hidden="true" />
 
