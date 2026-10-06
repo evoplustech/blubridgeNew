@@ -1,5 +1,5 @@
 /* /consulting-9 only. Light, typographic, navy (#0a1230) ink with a restrained #2b4c8c accent. */
-.c9-page { background: #fbfbfa; color: #0a1230; font-family: 'Inter', sans-serif; border-bottom: 1px solid #eceef2; }
+.c9-page { background: #f7f8fa; color: #0a1230; font-family: 'Inter', sans-serif; border-bottom: 1px solid #eceef2; }
 .c9-shell { width: 100%; max-width: 1200px; margin: 0 auto; padding: 36px 20px 56px; display: grid; grid-template-columns: 1fr; gap: 36px; }
 @media (min-width: 1024px) {
   .c9-shell { grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); gap: 72px; align-items: center; padding: 40px 32px 56px; }

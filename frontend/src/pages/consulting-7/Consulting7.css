@@ -1,5 +1,5 @@
 /* /consulting-7 only. White, typographic, thin rules, navy brand (#0a1230) with #2b4c8c accent. */
-.c7-page { background: #fff; color: #0a1230; font-family: 'Inter', sans-serif; }
+.c7-page { background: #f7f8fa; color: #0a1230; font-family: 'Inter', sans-serif; }
 .c7-wide { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 .c7-narrow { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 20px; }
 
