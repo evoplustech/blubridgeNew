@@ -20,7 +20,7 @@
 .c12-canvas { border-top: 1px solid #0a1230; display: grid; grid-template-columns: 1fr; }
 @media (min-width: 1100px) { .c12-canvas { grid-template-columns: 170px minmax(0, 1fr); } }
 .c12-main { min-width: 0; }
-@media (min-width: 1100px) { .c12-main { border-left: 1px solid #e1e4ea; padding-left: 56px; } .c12-main form, .c12-success { max-width: 880px; } }
+@media (min-width: 1100px) { .c12-main { grid-column: 2; border-left: 1px solid #e1e4ea; padding-left: 56px; } .c12-main form, .c12-success { max-width: 880px; } }
 
 /* Side index (desktop only) */
 .c12-index { display: none; }

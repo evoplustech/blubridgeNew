@@ -1,0 +1,31 @@
+{
+  "summary": "Full backend+frontend test of new /consulting-12 'AI Opportunity Canvas' route. 4/4 backend pytest cases pass. All 25+ frontend assertions (desktop + mobile) pass. One real production write created with 'TEST - please delete' marker as instructed.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "/consulting-12 success state (desktop 1920)", "issues": ["Thank-you headline wraps very narrowly (approx 6-9 chars per line) because it renders inside the narrower main column while the left intro title column is empty. Minor polish item — not a functional blocker. Consider widening the success block to span the full canvas width or horizontally centre it."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_consulting12.py",
+    "/app/test_reports/pytest/consulting12_iter45.xml"
+  ],
+  "action_items": [
+    "(Optional) Improve success-state layout width on desktop so the thank-you headline doesn't wrap in a narrow column."
+  ],
+  "critical_code_review_comments": [
+    "Consulting12.jsx uses window.location.origin for API base instead of process.env.REACT_APP_BACKEND_URL. Works in production (same origin) but deviates from the stated environment convention and would break if frontend/backend are split.",
+    "Backend security gateway requires /api/form-context handshake + >=0.5s wait before public POSTs — the frontend handles this correctly via formTransport.js. Documented here for future testers."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_consulting12.py"
+  ],
+  "success_rate": {"backend": "100% (4/4)", "frontend": "100% (all assertions)"},
+  "test_credentials": "None required (public form).",
+  "seed_data_creation": "1 production contact_us submission with firstName='UI Tester' (name field used 'UI Tester'), formVariant='consulting-12', message prefixed 'TEST - please delete'. Email: test-c12-ui-<random>@example.com. 1 backend pytest submission: test-c12-<random>@example.com message 'TEST - please delete. Consulting-12 pytest submission.' Please delete both.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Public form POSTs on this backend require X-BB-Form-Token header + session cookie from GET /api/form-context, with >=0.5s delay (min_age). See /app/backend/tests/test_consulting12.py 'session' fixture. SPA GET routes return HTTP 404 at ingress but serve HTML — use the UI (Playwright) to assert route rendering rather than requests.get status codes. HIDE_FORM_PATHS now includes /consulting-10, /consulting-11, /consulting-12. ContactSubmission.formVariant Literal includes consulting-6..12 and lastName is optional for those variants."
+}
