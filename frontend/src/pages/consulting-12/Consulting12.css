@@ -1,0 +1,122 @@
+/* /consulting-12 only. "AI Opportunity Canvas" — editorial report look on #f7f8fa: rules, numbering, navy used sparingly. */
+.c12-page { background: #f7f8fa; color: #0a1230; font-family: 'Inter', sans-serif; }
+.c12-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 28px 20px 56px; }
+@media (min-width: 768px) { .c12-wrap { padding: 40px 32px 72px; } }
+
+/* Intro */
+.c12-intro { display: grid; grid-template-columns: 1fr; gap: 16px; padding-bottom: 24px; }
+@media (min-width: 1024px) { .c12-intro { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: end; padding-bottom: 28px; } }
+.c12-eyebrow { font-size: 11.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #2b4c8c; }
+.c12-page .c12-title { margin-top: 12px; font-family: 'Geist', 'Inter', sans-serif; font-size: 34px; line-height: 1.06; font-weight: 600; letter-spacing: -0.034em; color: #0a1230; }
+.c12-br { display: none; }
+@media (min-width: 640px) { .c12-page .c12-title { font-size: 44px; } .c12-br { display: inline; } }
+@media (min-width: 1024px) { .c12-page .c12-title { font-size: 52px; } }
+.c12-intro-copy { max-width: 460px; }
+.c12-lead { font-size: 15.5px; line-height: 1.6; color: #333b52; }
+.c12-sublead { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: #5d6579; }
+.c12-note { margin-top: 10px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: 0.04em; color: #7a8295; }
+
+/* Canvas */
+.c12-canvas { border-top: 1px solid #0a1230; display: grid; grid-template-columns: 1fr; }
+@media (min-width: 1100px) { .c12-canvas { grid-template-columns: 170px minmax(0, 1fr); } }
+.c12-main { min-width: 0; }
+@media (min-width: 1100px) { .c12-main { border-left: 1px solid #e1e4ea; padding-left: 56px; } .c12-main form, .c12-success { max-width: 880px; } }
+
+/* Side index (desktop only) */
+.c12-index { display: none; }
+@media (min-width: 1100px) {
+  .c12-index { display: block; position: sticky; top: 112px; align-self: start; padding-top: 30px; }
+  .c12-index ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+}
+.c12-index-link { display: flex; align-items: baseline; gap: 12px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #a3a9b8; transition: color 180ms ease; }
+.c12-index-link:hover { color: #596274; }
+.c12-index-link:focus-visible { outline: 2px solid #2b4c8c; outline-offset: 4px; border-radius: 2px; }
+.c12-index-num { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 500; letter-spacing: 0.04em; }
+.c12-index-on { color: #0a1230; }
+
+/* Sections */
+.c12-section { margin: 0; padding: 26px 0 28px; border: 0; border-bottom: 1px solid #e1e4ea; min-width: 0; scroll-margin-top: 110px; }
+@media (min-width: 768px) { .c12-section { padding: 30px 0 32px; } }
+.c12-head { margin-bottom: 18px; }
+.c12-tag { display: flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #596274; }
+.c12-tag-num { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 500; letter-spacing: 0.04em; color: #2b4c8c; }
+.c12-tag-sep { width: 18px; height: 1px; background: #c3c9d6; }
+.c12-q { display: block; margin-top: 10px; font-family: 'Geist', 'Inter', sans-serif; font-size: 24px; line-height: 1.2; font-weight: 600; letter-spacing: -0.022em; color: #0a1230; }
+@media (min-width: 768px) { .c12-q { font-size: 30px; } }
+.c12-req { color: #b42318; font-weight: 500; }
+.c12-sub { margin-top: 6px; max-width: 620px; font-size: 15px; line-height: 1.55; color: #5d6579; }
+
+/* Editorial index of objectives */
+.c12-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid #d5d9e2; }
+.c12-list > li { border-bottom: 1px solid #e1e4ea; }
+.c12-opt { position: relative; display: flex; align-items: center; gap: 18px; width: 100%; min-height: 52px; padding: 12px 8px 12px 14px; text-align: left; background: transparent; border: 0; font-size: 16px; color: #262e45; cursor: pointer; transition: background-color 170ms ease, color 170ms ease; }
+.c12-opt::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: transparent; transition: background-color 170ms ease; }
+.c12-opt:hover:not(:disabled) { background: #f0f2f6; }
+.c12-opt:focus-visible { outline: none; background: #eef1f7; box-shadow: inset 0 0 0 2px rgba(43, 76, 140, 0.35); }
+.c12-opt-num { flex: none; width: 22px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #9aa1b2; transition: color 170ms ease; }
+.c12-opt-text { flex: 1; line-height: 1.35; transition: transform 170ms ease; }
+.c12-opt:hover:not(:disabled) .c12-opt-text { transform: translateX(3px); }
+.c12-opt-ind { flex: none; display: inline-flex; color: #9aa1b2; transition: color 170ms ease, transform 170ms ease; }
+.c12-opt:hover:not(:disabled) .c12-opt-ind { color: #0a1230; }
+.c12-opt-on { background: #eef2f9; color: #0a1230; font-weight: 500; }
+.c12-opt-on::before { background: #0a1230; }
+.c12-opt-on .c12-opt-num, .c12-opt-on .c12-opt-ind { color: #0a1230; }
+.c12-opt-on:hover:not(:disabled) { background: #e8edf6; }
+.c12-list-invalid { border-top-color: #e59a92; }
+.c12-other { padding: 2px 8px 16px 54px; background: #eef2f9; }
+
+/* Writing pad */
+.c12-pad { position: relative; background: #fff; border: 1px solid #e1e4ea; border-left: 2px solid #c3c9d6; border-radius: 4px; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.c12-pad:focus-within { border-color: #c9cfdb; border-left-color: #0a1230; box-shadow: 0 1px 0 #0a1230; }
+.c12-pad-invalid, .c12-pad-invalid:focus-within { border-color: #e59a92; border-left-color: #d92d20; box-shadow: none; }
+.c12-pad-input { display: block; width: 100%; height: 112px; min-height: 100px; padding: 14px 16px; border: 0; background: repeating-linear-gradient(to bottom, transparent 0, transparent 27px, #f0f2f6 27px, #f0f2f6 28px); background-position: 0 13px; font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 28px; color: #0a1230; resize: vertical; outline: none; }
+.c12-pad-input::placeholder { color: #9aa1b2; }
+.c12-helper { margin-top: 8px; font-size: 13px; color: #7a8295; }
+.c12-error { margin-top: 8px; font-size: 13px; color: #b42318; }
+
+/* Underline fields */
+.c12-fields { display: grid; grid-template-columns: 1fr; gap: 22px; }
+@media (min-width: 640px) { .c12-fields { grid-template-columns: 1fr 1fr; gap: 40px; } }
+.c12-label { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #3d4659; }
+.c12-line { display: block; width: 100%; height: 44px; padding: 0 2px; border: 0; border-bottom: 1px solid #b9c1d2; border-radius: 0; background: transparent; font-family: 'Inter', sans-serif; font-size: 16px; color: #0a1230; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.c12-line::placeholder { color: #9aa1b2; }
+.c12-line:hover:not(:focus) { border-bottom-color: #7a8295; }
+.c12-line:focus { outline: none; border-bottom-color: #0a1230; box-shadow: 0 1px 0 #0a1230; }
+.c12-line-invalid, .c12-line-invalid:focus { border-bottom-color: #d92d20; box-shadow: 0 1px 0 #d92d20; }
+
+/* Sign-off */
+.c12-signoff { padding-top: 26px; display: flex; flex-direction: column; gap: 18px; }
+@media (min-width: 768px) { .c12-signoff { flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 40px; } }
+.c12-reassure { margin-top: 8px; max-width: 380px; font-size: 14px; line-height: 1.55; color: #5d6579; }
+.c12-reassure strong { display: block; font-weight: 600; color: #0a1230; }
+.c12-cta { display: flex; flex-direction: column; align-items: stretch; }
+@media (min-width: 768px) { .c12-cta { align-items: flex-end; } }
+.c12-submit { min-height: 52px; padding: 0 28px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; border: 0; border-radius: 4px; background: #0a1230; color: #fff; font-size: 15.5px; font-weight: 600; letter-spacing: 0.01em; cursor: pointer; transition: background-color 160ms ease; }
+@media (min-width: 768px) { .c12-submit { min-width: 236px; } }
+.c12-submit svg { transition: transform 170ms ease; }
+.c12-submit:hover:not(:disabled) { background: #16224a; }
+.c12-submit:hover:not(:disabled) svg { transform: translateX(4px); }
+.c12-submit:focus-visible { outline: none; box-shadow: 0 0 0 3px #f7f8fa, 0 0 0 5px #2b4c8c; }
+.c12-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+.c12-privacy { margin-top: 10px; font-size: 11.5px; color: #8a91a3; text-align: center; }
+@media (min-width: 768px) { .c12-privacy { text-align: right; } }
+.c12-privacy a { color: #5d6579; text-decoration: underline; text-underline-offset: 3px; }
+.c12-privacy a:hover { color: #2b4c8c; }
+.c12-submit-error { margin-top: 14px; padding: 10px 12px; border-left: 2px solid #d92d20; background: #fef3f2; font-size: 13.5px; color: #b42318; }
+
+/* Success */
+.c12-success { padding: 32px 0 36px; outline: none; border-bottom: 1px solid #e1e4ea; }
+.c12-success .c12-tag { color: #1f8a4c; }
+.c12-textlink { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #2b4c8c; }
+.c12-textlink:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Capability ledger */
+.c12-ledger { margin-top: 52px; }
+.c12-ledger-title { font-size: 11.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #596274; }
+.c12-ledger-grid { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 26px; }
+@media (min-width: 720px) { .c12-ledger-grid { grid-template-columns: 1fr 1fr; gap: 32px 56px; } }
+@media (min-width: 1100px) { .c12-ledger-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; } }
+.c12-entry-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid #0a1230; }
+.c12-entry-title { font-size: 12.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #0a1230; }
+.c12-entry-num { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; color: #8a91a3; }
+.c12-entry-text { margin-top: 12px; font-size: 14.5px; line-height: 1.55; color: #4a5470; }
