@@ -10,7 +10,7 @@ const API = `${BACKEND_URL}/api`;
 
 const inputCls = 'bg-white border-bb-line text-bb-ink placeholder:text-bb-ink-3 focus-visible:ring-1 focus-visible:ring-bb-accent focus-visible:border-bb-accent rounded-md h-9';
 
-const HIDE_FORM_PATHS = ['/consulting-10'];
+const HIDE_FORM_PATHS = ['/consulting-10', '/consulting-11'];
 
 const Footer = () => {
   const hideForm = HIDE_FORM_PATHS.includes(useLocation().pathname.replace(/\/+$/, ''));
