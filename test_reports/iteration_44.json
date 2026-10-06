@@ -1,0 +1,27 @@
+{
+  "summary": "Full regression on NEW /consulting-10 and /consulting-11 landing pages (desktop + mobile) plus backend formVariant acceptance. All 19 frontend assertions passed on each page (c10: 19/19; c11: 20/20) and 2/2 backend pytest cases passed. Footer form correctly hidden on /consulting-10 and /consulting-11, still visible on / and /consulting-9. 2 real submissions were made (one per page) using TEST emails with 'TEST - please delete' message, plus 2 backend curl-style submissions via pytest.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_consulting_10_11.py",
+    "/app/test_reports/pytest/pytest_c10_c11.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Both pages share near-identical validation / toggleGoal / trackLead / submit logic. Consider extracting to a shared hook (useConsultationForm) under /pages/consulting-shared to avoid drift between the two variants.",
+    "/consulting-10 textarea maxLength=4000 vs /consulting-11 maxLength=5000 — inconsistency not critical but worth aligning.",
+    "trackLead swallows all errors silently (empty catch). Minor: fine for GA/GTM resilience but a one-line comment is already present."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "100%", "frontend": "100%" },
+  "test_credentials": "none (public forms)",
+  "seed_data_creation": "4 TEST submissions saved to production Atlas: 1 UI submit per page (test-c10-*/test-c11-* @example.com) + 2 pytest submits. All contain 'TEST - please delete' in the message.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend requires X-BB-Form-Token header obtained from GET /api/form-context plus >=0.5s delay before POST /api/contacts/submit (see /app/backend/security_gateway.py line 149-154). Frontend handles this automatically via /app/frontend/src/security/formTransport.js. For CURL/pytest you MUST fetch /api/form-context first, sleep ~1.1s, and set X-BB-Form-Token header + Origin matching an allow-listed origin. See /app/backend/tests/test_consulting_10_11.py for the pattern. Rate-limit (429) and duplicate (409 within 1 minute, same email+type) handling is already implemented and surfaced in both forms. formVariant Literal in server.py line 327 and the lastName-optional allowlist line 790 both include consulting-10 and consulting-11.",
+  "rca of the issue": "No issues found."
+}
