@@ -1,0 +1,28 @@
+{
+  "summary": "Tested new /consulting-9 route (backend + frontend). All acceptance criteria met: 55/45 split desktop layout, form visible above fold, chip multi-select with exclusive 'Not Sure' both ways, inline validation on empty submit, invalid email caught, successful submission shows thank-you (c9-success) and pushes generate_lead to dataLayer only after success. Mobile 390x844 stacks intro->form, chips render 2-col, no horizontal overflow. Backgrounds for both /consulting-9 and /consulting-7 are rgb(247,248,250) (#f7f8fa). Backend accepts formVariant=consulting-9 without lastName and rejects 'consulting-99' (422).",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_consulting9_iter43.py",
+    "/app/test_reports/pytest/consulting9_iter43.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Consulting9.jsx fetches `${window.location.origin}/api/contacts/submit` instead of REACT_APP_BACKEND_URL. Works because the Node server proxies /api, but is inconsistent with environment-variable guideline. Low priority — consider aligning with other consulting pages for consistency.",
+    "Form token / honeypot gating relies on same-site cookie + signed X-BB-Form-Token header. The fetch call does not explicitly include credentials; it works because same-origin fetch sends cookies by default. If this page is ever embedded/proxied cross-origin, add credentials: 'include' + X-BB-Form-Token header per other variants."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_consulting9_iter43.py"
+  ],
+  "success_rate": { "backend": "100%", "frontend": "100%" },
+  "test_credentials": "N/A (public form)",
+  "seed_data_creation": "One real submission posted to Atlas with email test-c9-<random>@example.com and message 'TEST - please delete'. Backend tests created one additional submission with 'TEST - please delete' marker. Total <=2 submissions as requested.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "/api/contacts/submit requires GET /api/form-context first to obtain cookie + formToken; wait ~1.1s before POST and send X-BB-Form-Token header plus Origin. Duplicate email within 1 min -> 409; rate limit -> 429. Keep DB submissions minimal.",
+  "rca of the issue": "No issue — feature works end to end."
+}
