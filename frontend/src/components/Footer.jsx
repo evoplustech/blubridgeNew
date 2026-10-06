@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useToast } from '../hooks/use-toast';
@@ -10,7 +10,10 @@ const API = `${BACKEND_URL}/api`;
 
 const inputCls = 'bg-white border-bb-line text-bb-ink placeholder:text-bb-ink-3 focus-visible:ring-1 focus-visible:ring-bb-accent focus-visible:border-bb-accent rounded-md h-9';
 
+const HIDE_FORM_PATHS = ['/consulting-10'];
+
 const Footer = () => {
+  const hideForm = HIDE_FORM_PATHS.includes(useLocation().pathname.replace(/\/+$/, ''));
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -86,7 +89,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Us */}
-          <div className="bb-footer-col bb-footer-contact">
+          {!hideForm && <div className="bb-footer-col bb-footer-contact">
             <h4 className="bb-eyebrow mb-5" style={{ minHeight: '18px' }}>Contact Us</h4>
             <form className="grid grid-cols-1 sm:grid-cols-2 gap-3" onSubmit={handleSubmit}>
               <Input type="text" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className={inputCls} data-testid="footer-first-name" />
@@ -100,7 +103,7 @@ const Footer = () => {
             <p className="mt-4" data-testid="footer-privacy-statement" style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '11.5px', lineHeight: 1.6, color: '#6b7593', margin: '16px 0 0' }}>
               BluBridge is committed to protecting your privacy. We only use your information to provide requested content.
             </p>
-          </div>
+          </div>}
         </div>
 
         {/* Baseline */}
