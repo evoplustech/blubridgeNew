@@ -1119,6 +1119,8 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
             raise HTTPException(status_code=400, detail="Only one file can be attached.")
         doc.update(form_variant="consulting-5", referral_source=enquiry.referralSource, budget_min=enquiry.budgetMin * 1000, budget_max=enquiry.budgetMax * 1000,
                    budget_range=f"${enquiry.budgetMin}k - ${enquiry.budgetMax}k")
+    if enquiry.formVariant == 'consulting-13':
+        doc.update(form_variant="consulting-13", source="/consulting-13", first_name=enquiry.firstName, last_name=enquiry.lastName, subject=enquiry.subject, message=enquiry.requirement, terms_accepted=bool(enquiry.termsAccepted))
     cutoff = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat()
     for attachment_id in dict.fromkeys(enquiry.attachmentIds or []):
         found = await consulting_attachment_files.find_one({"metadata.attachment_id": attachment_id, "metadata.status": "pending"})
@@ -1145,6 +1147,8 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
         notification.update(email=email, services=", ".join(enquiry.services), budget_type=BUDGET_TYPE_LABELS.get(enquiry.budgetType), privacy_consent="Acknowledged", contact_permission="Yes", marketing_consent="No")
         if enquiry.formVariant == 'consulting-4':
             notification["nda_first"] = "Yes" if enquiry.ndaFirst else "No"
+        if enquiry.formVariant == 'consulting-13':
+            notification["terms_accepted"] = "Yes"
         if enquiry.formVariant == 'consulting-5':
             notification["how_did_you_hear_about_us"] = enquiry.referralSource
             notification["budget_range"] = doc["budget_range"]

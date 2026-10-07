@@ -353,3 +353,5 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - 2026-06: Added /consulting-12 ("AI Opportunity Canvas": editorial numbered canvas, sticky side index, index-style objective rows, notepad textarea, underline fields, sign-off row, capability ledger). Saves formVariant consulting-12; footer form hidden.
 
 - 2026-06: Admin AI Consulting Enquiry list: per-row checkboxes, header Select all/Deselect all (current page, indeterminate state), selection bar with "N selected", Delete selected (confirm) and Clear selection. Selection resets on page/search change.
+
+- 2026-06: Added /consulting-13 (copy of /consulting with short form: first/last name, company*, phone, email*, subject*, message*, terms checkbox*). Uses /api/ai-consulting-enquiries with formVariant consulting-13; model gained optional subject/termsAccepted.
