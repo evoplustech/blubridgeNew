@@ -359,3 +359,5 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - 2026-06: Added /consulting-14 (copy of /consulting: Name*, Corporate E-mail*, Phone*, Requirements*, up to 3 attachments doc/docx/pdf/ppt/pptx 3MB each via /api/ai-consulting-attachments/consulting-14, NDA checkbox, consent text). formVariant consulting-14; model gained ndaRequested; attachmentIds max 3 (others still limited to 2 server-side).
 
 - 2026-06: Redesigned /consulting-13 (ADC-style: big hero, General inquiries + Partnerships & media left, underline form right, black pill buttons, dark "Connect with our experts" CTA) and /consulting-14 (Andersen-style: dark hero with line pattern, Contact us + What happens next 3-step timeline, light form card with underline inputs + yellow button, white "Let's discuss your project!" chips + Next that prefill/focus requirements). Logic/backend unchanged.
+
+- 2026-06: Added /consulting-15 (centered hero, 2/3 form card with Personal/Organization/Project groups, 6 service checkboxes, industry/timeline/budget dropdowns; 1/3 Email/Website/What to Expect cards). formVariant consulting-15; model gained industry/projectTimeline/budgetRange.
