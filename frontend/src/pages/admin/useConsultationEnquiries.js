@@ -20,6 +20,7 @@ export const useConsultationEnquiries = () => {
   const [busy, setBusy] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState('');
+  const [checked, setChecked] = useState([]);
   const refresh = () => setRevision(value => value + 1);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export const useConsultationEnquiries = () => {
       .then(response => response.json()).then(data => {
         if (controller.signal.aborted) return;
         if (page > Math.max(1, data.totalPages)) setPage(Math.max(1, data.totalPages));
-        else setResult(data);
+        else { setResult(data); setChecked([]); }
       }).catch(err => { if (err.name !== 'AbortError') setError(err.message); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
@@ -55,6 +56,17 @@ export const useConsultationEnquiries = () => {
     } catch (err) { setError(err.message); }
     finally { setBusy(false); }
   };
+  const toggleChecked = id => setChecked(prev => (prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]));
+  const toggleAll = () => setChecked(prev => (result.data.length && prev.length === result.data.length ? [] : result.data.map(item => item.id)));
+  const clearChecked = () => setChecked([]);
+  const removeChecked = async () => {
+    if (!checked.length || !window.confirm(`Are you sure you want to delete ${checked.length} selected ${checked.length === 1 ? 'enquiry' : 'enquiries'}?`)) return;
+    setBusy(true); setError('');
+    const results = await Promise.allSettled(checked.map(id => request(`submission/${id}?form_type=get_in_touch`, { method: 'DELETE' })));
+    const failed = results.filter(r => r.status === 'rejected').length;
+    if (failed) setError(`${failed} of ${checked.length} enquiries could not be deleted. Please try again.`);
+    setSelected(null); setBusy(false); refresh();
+  };
   const exportCSV = async () => {
     setExporting(true); setError('');
     try {
@@ -67,5 +79,5 @@ export const useConsultationEnquiries = () => {
     } catch (err) { setError(err.message); }
     finally { setExporting(false); }
   };
-  return { result, page, setPage, limit, setLimit, search, setSearch, selected, setSelected, loading, busy, exporting, error, refresh, handleSearch, view, remove, exportCSV };
+  return { result, page, setPage, limit, setLimit, search, setSearch, selected, setSelected, loading, busy, exporting, error, refresh, handleSearch, view, remove, exportCSV, checked, toggleChecked, toggleAll, clearChecked, removeChecked };
 };
