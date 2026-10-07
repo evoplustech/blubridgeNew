@@ -30,7 +30,7 @@ def wizard_export_values(doc):
 class AIConsultingWizardEnquiry(BaseModel):
     model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
     # consulting-3 / consulting-4 are short page variants (see validators below); fullName is always sent.
-    formVariant: Optional[Literal['ai-consulting-4', 'ai-consulting-5', 'consulting-3', 'consulting-4', 'consulting-5', 'consulting-13']] = None
+    formVariant: Optional[Literal['ai-consulting-4', 'ai-consulting-5', 'consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14']] = None
     firstName: Optional[str] = Field(default=None, max_length=120)
     lastName: Optional[str] = Field(default=None, max_length=120)
     fullName: str = Field(min_length=1, max_length=200)
@@ -62,7 +62,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     projectBudget: Optional[Literal['Less than $10k', '$10k - $50k', '$50k - $100k', '$100k+', 'Not sure yet']] = Field(default=None, validate_default=True)
     ndaFirst: Optional[bool] = None
     # Up to two uploads from /api/ai-consulting-attachments (one file + one voice message)
-    attachmentIds: Optional[List[Annotated[str, Field(pattern=r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')]]] = Field(default=None, max_length=2)
+    attachmentIds: Optional[List[Annotated[str, Field(pattern=r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')]]] = Field(default=None, max_length=3)
 
     # consulting-5 fields (optional on the server for every other form)
     referralSource: Optional[Literal['Google search', 'LinkedIn', 'Referral', 'Social media', 'Event or conference', 'Other']] = Field(default=None, validate_default=True)
@@ -72,6 +72,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     # consulting-13 fields (optional on the server for every other form)
     subject: Optional[str] = Field(default=None, max_length=300)
     termsAccepted: Optional[bool] = None
+    ndaRequested: Optional[bool] = None
 
     @model_validator(mode='after')
     def consulting13_required(self):
@@ -87,7 +88,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('services')
     @classmethod
     def services_unless_consulting5(cls, value, info: ValidationInfo):
-        if not value and info.data.get('formVariant') not in ('consulting-5', 'consulting-13'):
+        if not value and info.data.get('formVariant') not in ('consulting-5', 'consulting-13', 'consulting-14'):
             raise ValueError('List should have at least 1 item after validation, not 0')
         return value
 
@@ -114,7 +115,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('stage', 'timeline', 'budgetType', 'budgetStatus')
     @classmethod
     def required_unless_short_form(cls, value, info: ValidationInfo):
-        if value is None and info.data.get('formVariant') not in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13'):
+        if value is None and info.data.get('formVariant') not in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14'):
             raise ValueError('Field required')
         return value
 
@@ -130,7 +131,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     def required_text_unless_consulting4(cls, value, info: ValidationInfo):
         if not value:
             variant = info.data.get('formVariant')
-            if variant == 'consulting-4' or (variant in ('consulting-5', 'consulting-13') and info.field_name != 'company'):
+            if variant in ('consulting-4', 'consulting-14') or (variant in ('consulting-5', 'consulting-13') and info.field_name != 'company'):
                 return None
             raise ValueError('Field required')
         return value
@@ -138,7 +139,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('countryCode', 'phoneCountry')
     @classmethod
     def valid_country(cls, value, info: ValidationInfo):
-        if not value and info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13'):
+        if not value and info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14'):
             return None
         if not value:
             raise ValueError('Field required')
@@ -152,9 +153,11 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('phone')
     @classmethod
     def valid_phone(cls, value, info: ValidationInfo):
-        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13'):
-            # Optional, no country selector on that page: accept a plain international number.
+        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14'):
+            # Plain international number, no country selector on these pages (required only on consulting-14).
             if not value:
+                if info.data.get('formVariant') == 'consulting-14':
+                    raise ValueError('Please enter your phone number.')
                 return None
             if not re.fullmatch(r'[+\d\s().-]{6,40}', value) or not 6 <= len(re.sub(r'\D', '', value)) <= 15:
                 raise ValueError('Please enter a valid phone number.')
@@ -194,9 +197,9 @@ class AIConsultingWizardEnquiry(BaseModel):
     @classmethod
     def conditional_requirement(cls, value, info: ValidationInfo):
         per_service = info.data.get('formVariant') in ('ai-consulting-4', 'ai-consulting-5') or info.data.get('serviceRequirements') is not None
-        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13'):
+        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14'):
             if not value:
-                raise ValueError({'consulting-4': 'Please describe your challenge or goal.', 'consulting-13': 'Please enter a message.'}.get(info.data.get('formVariant'), 'Please tell us how we can help.'))
+                raise ValueError({'consulting-4': 'Please describe your challenge or goal.', 'consulting-13': 'Please enter a message.', 'consulting-14': 'Please describe your project requirements.'}.get(info.data.get('formVariant'), 'Please tell us how we can help.'))
             return value
         short_form = info.data.get('formVariant') == 'consulting-3'  # project text is optional there
         if not per_service and not short_form and 'Other' in info.data.get('services', []) and not value:
@@ -206,7 +209,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('estimatedBudget')
     @classmethod
     def correct_budget_range(cls, value, info: ValidationInfo):
-        if value is None and info.data.get('formVariant') in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13'):
+        if value is None and info.data.get('formVariant') in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14'):
             return value
         options = {'project': PROJECT_BUDGETS, 'monthly': MONTHLY_BUDGETS}.get(info.data.get('budgetType'), [])
         if value not in options:

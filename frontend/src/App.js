@@ -21,6 +21,7 @@ import Consulting10 from './pages/consulting-10/Consulting10';
 import Consulting11 from './pages/consulting-11/Consulting11';
 import Consulting12 from './pages/consulting-12/Consulting12';
 import Consulting13 from './pages/consulting-13/Consulting13';
+import Consulting14 from './pages/consulting-14/Consulting14';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import { getPageAccess } from './routing/pageAccess';
@@ -117,6 +118,7 @@ const AppLayout = () => {
           <Route path="/consulting-11" element={<Consulting11 />} />
           <Route path="/consulting-12" element={<Consulting12 />} />
           <Route path="/consulting-13" element={<Consulting13 />} />
+          <Route path="/consulting-14" element={<Consulting14 />} />
           <Route path="/ai-consulting" element={<Navigate to={`/consulting${location.search}${location.hash}`} replace />} />
           
           {/* Policy Routes */}

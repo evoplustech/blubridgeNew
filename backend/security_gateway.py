@@ -15,8 +15,8 @@ from starlette.routing import Match
 from security_sessions import ADMIN_COOKIE, FORM_COOKIE, principal_context
 
 PUBLIC_GET = frozenset({'/api', '/api/', '/health', '/api/admin/session', '/api/form-context', '/api/blog/posts'})
-PUBLIC_POST = frozenset({'/api/contact', '/api/contacts/submit', '/api/contact-us', '/api/contact-enquiries', '/api/project-enquiries', '/api/ai-consultation-enquiries', '/api/ai-consulting-enquiries', '/api/newsletter/subscribe', '/api/job-applications/submit', '/api/ai-consulting-attachments', '/api/ai-consulting-attachments/consulting-5'})
-UPLOAD_POST = frozenset({'/api/job-applications/submit', '/api/ai-consulting-attachments', '/api/ai-consulting-attachments/consulting-5'})
+PUBLIC_POST = frozenset({'/api/contact', '/api/contacts/submit', '/api/contact-us', '/api/contact-enquiries', '/api/project-enquiries', '/api/ai-consultation-enquiries', '/api/ai-consulting-enquiries', '/api/newsletter/subscribe', '/api/job-applications/submit', '/api/ai-consulting-attachments', '/api/ai-consulting-attachments/consulting-5', '/api/ai-consulting-attachments/consulting-14'})
+UPLOAD_POST = frozenset({'/api/job-applications/submit', '/api/ai-consulting-attachments', '/api/ai-consulting-attachments/consulting-5', '/api/ai-consulting-attachments/consulting-14'})
 ALLOWED_HEADERS = frozenset({'content-type', 'x-csrf-token', 'x-bb-form-token', 'x-requested-with'})
 
 
