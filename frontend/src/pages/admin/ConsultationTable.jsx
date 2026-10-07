@@ -26,7 +26,7 @@ export const ConsultationTable = ({ state }) => {
   </div>
   <div role="rowgroup" className="divide-y divide-gray-200">
     {state.loading ? <p role="status" className="p-8 text-center text-gray-500" data-testid="admin-git-loading">Loading…</p> : !state.result.data.length ? <p className="p-8 text-center text-gray-500" data-testid="admin-git-empty">No enquiries found</p> : state.result.data.map(item => <div role="row" key={item.id} aria-selected={state.checked.includes(item.id)} className={`${columns} p-4 text-sm [overflow-wrap:anywhere] ${state.checked.includes(item.id) ? 'bg-[#0B1F3B]/[0.03]' : 'bg-white'}`} data-testid={`admin-git-row-${item.id}`}>
-      <div role="cell" className="row-span-4 md:row-span-1"><input type="checkbox" className={boxCls} checked={state.checked.includes(item.id)} disabled={state.busy} onChange={() => state.toggleChecked(item.id)}
+      <div role="cell" className="row-span-5 md:row-span-1"><input type="checkbox" className={boxCls} checked={state.checked.includes(item.id)} disabled={state.busy} onChange={() => state.toggleChecked(item.id)}
         aria-label={`Select enquiry from ${consultationName(item)}`} data-testid={`admin-git-select-${item.id}`} /></div>
       <div role="cell" className="min-w-0">
         <p className="font-medium text-[#0B1F3B]" data-testid={`admin-git-name-${item.id}`}>{consultationName(item)}</p>

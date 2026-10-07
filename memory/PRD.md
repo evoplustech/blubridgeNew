@@ -351,3 +351,5 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - 2026-06: Added /consulting-10 (two-column consultation layout, numbered 2x2 capability matrix, goal tiles multi/exclusive/Other, Name+Email only) and /consulting-11 ("Guided AI Brief": centered brief with visual Goal/Context/Details progress, numbered selection board, capability strip, closing note). Both save to Contact Forms (formVariant consulting-10/11), fire generate_lead after success. Footer contact form hidden on /consulting-10 and /consulting-11 via HIDE_FORM_PATHS in Footer.jsx.
 
 - 2026-06: Added /consulting-12 ("AI Opportunity Canvas": editorial numbered canvas, sticky side index, index-style objective rows, notepad textarea, underline fields, sign-off row, capability ledger). Saves formVariant consulting-12; footer form hidden.
+
+- 2026-06: Admin AI Consulting Enquiry list: per-row checkboxes, header Select all/Deselect all (current page, indeterminate state), selection bar with "N selected", Delete selected (confirm) and Clear selection. Selection resets on page/search change.

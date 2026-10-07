@@ -1,0 +1,31 @@
+{
+  "summary": "Attempted to test the new Select-all/Deselect bulk-delete feature on /admin/get-in-touch. BLOCKER: ADMIN_USERNAME and ADMIN_PASSWORD are MISSING from /app/backend/.env, so the admin UI cannot be reached by this agent. The .env currently contains only Backend_Email_Key, CORS_ORIGINS, DB_NAME, MONGO_URL, RESEND_API_KEY, SECURITY_* and SMTP_PASSWORD. Memory file /app/memory/test_credentials.md still says both keys should be in backend/.env mode-0600 after the 2026-09-23 rotation, so they appear to have been lost/not re-provisioned in this forked preview. The DB admin_settings record is intact (login endpoint returns 401 on admin/admin, i.e. real credentials still required). Static code review of ConsultationTable.jsx / useConsultationEnquiries.js / GetInTouchForms.jsx was completed and the implementation looks correct against the spec. Fixture pipeline was verified end-to-end via the public API: /api/form-context handshake + 2 consulting-4 POSTs with 'TEST bulk-delete' succeeded (ids 32ab7d54… and 62e215af…), then cleaned up via direct MongoDB delete_many on contact_enquiries (deleted_count=2) because UI bulk-delete could not be exercised without credentials.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {"flow": "Admin /admin/get-in-touch bulk-delete UI", "issue": "Could not execute end-to-end UI test because admin credentials are missing from backend/.env; login POST with admin/admin returns 401. All 10 planned Playwright assertions were skipped.", "affected_selectors": ["admin-login-username", "admin-login-password", "admin-git-select-all", "admin-git-select-<id>", "admin-git-selection-bar", "admin-git-selected-count", "admin-git-delete-selected", "admin-git-clear-selection"]}
+    ],
+    "design_issues": []
+  },
+  "critical_code_review_comments": [
+    "ConsultationTable.jsx: toggleAll + select-all semantics look correct (checked=allOn when every row on the page is selected; indeterminate=true when partial). Header checkbox aria-label switches between 'Select all enquiries on this page' and 'Deselect all enquiries on this page', matching the spec of 'current page only'.",
+    "useConsultationEnquiries.js setChecked([]) is called inside the useEffect that reloads data (triggered by page/limit/query change) and inside removeChecked's final refresh, so selection is correctly cleared on page/pageSize/search change and after a successful bulk delete.",
+    "removeChecked uses Promise.allSettled and surfaces partial failures via a readable error (`${failed} of ${checked.length} enquiries could not be deleted…`) which is good UX, though it still calls refresh() so successful deletions are reflected even on partial failure.",
+    "Minor UX: when busy=true the per-row and header checkboxes are disabled but the SelectionBar buttons are also disabled; however the entire row group is NOT dimmed so a user might wonder why nothing clicks for a split-second during a bulk-delete. Not a blocker.",
+    "Confirm prompt uses window.confirm (as requested in the spec)."
+  ],
+  "test_report_links": [],
+  "action_items": [
+    "CRITICAL (main agent): Re-populate ADMIN_USERNAME and ADMIN_PASSWORD in /app/backend/.env (mode 0600) so testing agents (and the owner) can sign in to /admin. The current admin credential hash in MongoDB admin_settings is still valid — do NOT reseed/overwrite it; only restore the two env entries that document the current password. Reference /app/memory/test_credentials.md (2026-09-23 rotation).",
+    "Once credentials are available, re-run iteration_46 Playwright flow (fixture-create via public /api/ai-consulting-enquiries with formVariant='consulting-4', search 'test-bulk', select-all, cancel-confirm, accept-confirm → delete only the TEST fixtures, verify selection cleared on page-size/search change, mobile 390x844 layout)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (not retested — fixture creation path confirmed functional)", "frontend": "0% (login blocked)"},
+  "test_credentials": "MISSING from /app/backend/.env — see action_items.",
+  "seed_data_creation": "Created 2 TEST bulk-delete consulting-4 submissions via public API to exercise the fixture path, then removed them via MongoDB db.contact_enquiries.delete_many({id in [...], full_name:'TEST bulk-delete'}) (deleted_count=2). No production records touched.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "After the main agent restores ADMIN_USERNAME/ADMIN_PASSWORD in backend/.env, use dotenv_values('/app/backend/.env') for creds. Public form POST flow for fixture creation: GET /api/form-context (receive signed __Host-bb-form cookie + formToken), wait ~1s, POST /api/ai-consulting-enquiries with headers {'x-bb-form-token': formToken, 'Origin': REACT_APP_BACKEND_URL} and minimal consulting-4 payload: formVariant, fullName='TEST bulk-delete', workEmail (unique), services=['AI Agents & Automation'], projectBudget='Less than $10k', contactPermission=true, requirement='TEST bulk delete fixture'. Admin selectors to drive: admin-git-search(+btn), admin-git-select-all, admin-git-select-<id>, admin-git-selection-bar, admin-git-selected-count, admin-git-delete-selected, admin-git-clear-selection, admin-git-page-size.",
+  "rca of the issue": "Credential blocker RCA: /app/backend/.env currently has 17 lines and none define ADMIN_USERNAME/ADMIN_PASSWORD. The 2026-09-23 rotation note (memory/test_credentials.md L19) states the generated password was written only into this mode-0600 file and never into chat/source — if this forked preview inherited the DB but a sanitised .env, those keys are gone forever (bcrypt is one-way). Mitigation: either (a) owner provides the password out-of-band for test agents, or (b) a one-time authenticated password rotation via POST /api/admin/change-password from the owner's browser session to a new value that is then persisted in .env again. Testing agent must NOT attempt to overwrite the admin_settings doc in Mongo as that would wipe the owner's active credential."
+}
