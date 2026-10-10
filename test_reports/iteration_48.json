@@ -1,0 +1,51 @@
+{
+  "summary": "Primary bug fix verified in real browser: /careers/job/data-science-ai-ml-engineer form submits end-to-end successfully. POST /api/job-applications/submit returned 200 application/json, [data-testid=success-message] became visible, and the console contained ZERO 'Submission error' / 'Unexpected token' / SyntaxError messages. Direct GET /api/form-context from the page origin returns 200 application/json with a real formToken; six captured in-page requests to /api/form-context during regression navigation were all 200 application/json. GridFS verification: the uploaded resume was stored as resumeCV='gridfs:<oid>', downloadable via GridFSBucket 'resumes' as 434-byte %PDF-. Negative guard verified: when GET **/api/form-context is Playwright-mocked to return text/html, formTransport.js logs the exact error '[forms] /api/form-context did not return JSON: the API origin is misconfigured (check REACT_APP_BACKEND_URL)' and the submit is blocked (zero POSTs to /api/contacts/submit captured); NO uncaught SyntaxError appears. Regression at 1920x800 and 390x844: /, /careers, /careers/job/data-science-ai-ml-engineer, /consulting, /contact and /admin load with zero non-CSP console errors; home has window.gtag typeof 'function' with exactly one [data-testid=google-tag-script]; /admin has gtag undefined and zero loader scripts (admin isolation preserved). Cleanup done via MongoDB (admin API cleanup blocked, see action items): QA job_application + GridFS resume deleted, zero remaining QA records across contacts and ai_consulting_enquiries.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "env config", "issue": "ADMIN_USERNAME and ADMIN_PASSWORD keys are MISSING from /app/backend/.env (only SECURITY_ADMIN_RATE_LIMIT contains 'ADMIN'). memory/test_credentials.md and memory/PRD.md both state these keys should live in mode-0600 backend/.env, and the admin_settings record in Mongo depends on them. POST /api/admin/login with empty creds returns 422 (validated by Pydantic). This blocks ALL admin-API testing (login, dashboard, /api/job-applications listing, /api/admin/resume/{id}, DELETE /api/admin/submission/{id}). Backend endpoint itself appears healthy; the issue is private configuration drift."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_passes": [
+    "Live career submit on preview: input-firstName=QA, input-lastName=TestDelete, input-email=qa.careers.delete@example.com, input-phone=9876543210, input-location='TEST - please delete', input-resume=434-byte minimal PDF -> submit-application-btn -> success-message visible; POST /api/job-applications/submit = 200 application/json; zero console errors",
+    "Direct in-page fetch of /api/form-context: 200 application/json with real {formToken: ...} payload (not HTML)",
+    "GridFS 'resumes' bucket contains the submitted PDF (header b'%PDF-', 434 bytes) referenced by resumeCV='gridfs:6aca75aa50300d29af19ff8a' on the job_applications record",
+    "Negative guard (page.route mocking /api/form-context -> text/html body '<!doctype html>...'): console shows exactly '[forms] /api/form-context did not return JSON: the API origin is misconfigured (check REACT_APP_BACKEND_URL)'; zero POSTs captured to /api/contacts/submit; no uncaught SyntaxError",
+    "Regression /, /careers, /careers/job/data-science-ai-ml-engineer, /consulting, /contact, /admin at 1920x800 and 390x844: zero non-CSP console errors",
+    "Home (/) has window.gtag=='function' and exactly one <script data-testid=google-tag-script>",
+    "/admin boundary: window.gtag=undefined, zero loader scripts, [data-testid=admin-login-submit] visible"
+  ],
+  "not_tested": [
+    "Admin login + dashboard load + CareerApplications list render + /api/admin/resume/{id} HTTP 200 + DELETE /api/admin/submission/{id} + logout 401 — BLOCKED by missing ADMIN_USERNAME/ADMIN_PASSWORD in backend/.env",
+    "Live submission of /consulting (ai-consulting-enquiries), /consulting-9, footer contact, newsletter — skipped to minimize live-DB pollution; relied on prior iter47 mocked proofs that the forms + formTransport.js + generate_lead flow all function; the shared code path (apiOrigin.js + formTransport.js) is identical to the career form which did submit live successfully",
+    "User-facing error UI copy on a FULLY-VALID /contact submission when /api/form-context is HTML — only partially demonstrated (POST was correctly suppressed; required-field client validation triggered before we could prove the specific user-visible error toast)"
+  ],
+  "test_report_links": [
+    "/app/backend/tests/test_iter48_admin_cleanup.py (admin-API test skeleton, currently fails at login due to missing env creds — ready to reuse once creds are restored)"
+  ],
+  "action_items": [
+    "Restore ADMIN_USERNAME and ADMIN_PASSWORD into /app/backend/.env (mode 0600) consistent with memory/test_credentials.md so admin-API regression tests, admin UI login and admin cleanup can be executed. Current admin_settings Mongo doc still holds the bcrypt hash; the plaintext simply needs to be re-persisted in the private env file.",
+    "Optional: on a future iteration, re-run live submission + admin-UI delete for /consulting, /consulting-9, footer and newsletter once admin creds are available, to fully exercise the apiOrigin.js wiring across all 43 call sites (career already covered)."
+  ],
+  "critical_code_review_comments": [
+    "frontend/src/apiOrigin.js is the right single source of truth; the fallback to window.location.origin keeps same-origin preview working while REACT_APP_BACKEND_URL drives static deploys. Good.",
+    "formTransport.js content-type guard is strict (requires 'application/json' substring) and logs a clearly actionable message; failure path correctly resets the cached context promise so subsequent form attempts can recover without a reload.",
+    "server.py is still ~2.4k lines (unchanged since iter42 note). Not a regression, just a reminder for modularization.",
+    "backend/.env currently lacks ADMIN_USERNAME/ADMIN_PASSWORD — any script relying on dotenv_values('/app/backend/.env')['ADMIN_PASSWORD'] (e.g. backend/management/rotate_admin.py) will raise KeyError. Either keep the keys in the private env file as documented, or document the new source-of-truth."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iter48_admin_cleanup.py"
+  ],
+  "success_rate": {"backend": "primary endpoint (POST /api/job-applications/submit + GET /api/form-context) 100%; admin API not executable (missing env creds)", "frontend": "100% for career submit, form-context guard, regression and gtag isolation"},
+  "test_credentials": "ADMIN_USERNAME/ADMIN_PASSWORD not present in /app/backend/.env; admin-API testing could not proceed. See minor backend issue.",
+  "seed_data_creation": "One real job_application was created (QA / TestDelete / qa.careers.delete@example.com, jobTitle 'Data Science / AI ML Engineer', resumeCV='gridfs:6aca75aa50300d29af19ff8a'). Deleted at end of run via direct MongoDB + GridFS delete; verified zero remaining QA records in job_applications, contacts and ai_consulting_enquiries.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "The apiOrigin.js wiring is live and correct on preview — same-origin + content-type-guarded /api/form-context, X-BB-Form-Token flow and >=1s min-age gate work end-to-end for the career multipart POST. If retesting the OTHER public forms live, remember: Contact form has a 'VERIFY EMAIL' OTP step before Submit will actually POST; AI-consulting base form has many required fields including country select, service cards and permission checkbox. Admin-API coverage will unlock once ADMIN_USERNAME/ADMIN_PASSWORD are returned to /app/backend/.env (reuse /app/backend/tests/test_iter48_admin_cleanup.py as the regression harness).",
+  "rca of the issue": "Primary bug (unchanged RCA from problem statement): 43 call sites had been migrated from env-first origin to window.location.origin which broke /api/form-context on static-hosted builds (HTML returned, caused SyntaxError on JSON.parse). Fix: single apiOrigin.js module `export const API_ORIGIN = process.env.REACT_APP_BACKEND_URL || window.location.origin;` imported in all 43 sites; formTransport.getContext() now also rejects non-JSON responses with a clear console error and surfaces a user-facing message. Verified on preview: /api/form-context now returns 200 application/json; career submit returns 200; no SyntaxError in console; negative-guard (HTML response) is caught cleanly and no POST is dispatched."
+}
