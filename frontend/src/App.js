@@ -44,6 +44,7 @@ import FLUX4 from './pages/Research/FLUX4';
 
 import ScrollToTop from './components/ScrollToTop';
 import CustomCursor from './components/CustomCursor';
+import { GoogleTagTracker } from './analytics/GoogleTagTracker';
 
 // Job Detail Page
 import JobDetail from './pages/JobDetail';
@@ -74,6 +75,7 @@ const AppLayout = () => {
   return (
     <>
       <ScrollToTop />
+      <GoogleTagTracker />
       <CustomCursor />
       {!isAdminRoute && <Header />}
       <main className={isAdminRoute ? "" : isHome ? "bb-main-home" : "pt-32"} style={isAdminRoute || isHome ? {} : { paddingTop: "7rem" }}>

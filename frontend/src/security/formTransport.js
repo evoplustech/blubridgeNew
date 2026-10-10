@@ -6,6 +6,13 @@ const nativeFetch = window.fetch.bind(window);
 let context;
 let started = 0;
 
+// Announced after any successful public form POST so analytics can record the lead without touching form code.
+export const FORM_SUCCESS_EVENT = 'bb:form-success';
+const announceSuccess = (url, status) => {
+  if (status < 200 || status >= 300) return;
+  window.dispatchEvent(new CustomEvent(FORM_SUCCESS_EVENT, { detail: { path: new URL(url, base.origin).pathname, status } }));
+};
+
 async function getContext(refresh = false) {
   if (refresh) context = null;
   if (!context) {
@@ -38,6 +45,7 @@ window.fetch = async (input, options = {}) => {
     headers.set('X-BB-Form-Token', await getContext(true));
     response = await nativeFetch(input, { ...options, headers, credentials: 'include' });
   }
+  announceSuccess(url, response.status);
   return response;
 };
 
@@ -48,7 +56,10 @@ axios.interceptors.request.use(async config => {
   }
   return config;
 });
-axios.interceptors.response.use(response => response, async error => {
+axios.interceptors.response.use(response => {
+  if (protectedForm(response.config.url, response.config.method || 'GET')) announceSuccess(response.config.url, response.status);
+  return response;
+}, async error => {
   const config = error.config;
   if (config && !config._formRetry && error.response?.status === 403 && protectedForm(config.url, config.method || 'GET')) {
     config._formRetry = true;
