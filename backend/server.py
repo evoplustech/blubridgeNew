@@ -1119,8 +1119,10 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
             raise HTTPException(status_code=400, detail="Only one file can be attached.")
         doc.update(form_variant="consulting-5", referral_source=enquiry.referralSource, budget_min=enquiry.budgetMin * 1000, budget_max=enquiry.budgetMax * 1000,
                    budget_range=f"${enquiry.budgetMin}k - ${enquiry.budgetMax}k")
-    if enquiry.formVariant not in ('consulting-14', 'consulting-17') and len(enquiry.attachmentIds or []) > 2:
+    if len(enquiry.attachmentIds or []) > {'consulting-14': 3, 'consulting-17': 3, 'consulting-18': 1}.get(enquiry.formVariant, 2):
         raise HTTPException(status_code=400, detail="Too many attachments.")
+    if enquiry.formVariant == 'consulting-18':
+        doc.update(form_variant="consulting-18", source="/consulting-18", message=enquiry.requirement, news_updates_opt_in=bool(enquiry.newsUpdates))
     if enquiry.formVariant == 'consulting-17':
         doc.update(form_variant="consulting-17", source="/consulting-17", message=enquiry.requirement, budget_range=enquiry.budgetRange,
                    how_did_you_hear_about_us=enquiry.referralSource, preferred_call_day=enquiry.preferredDay,
@@ -1139,9 +1141,10 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
             raise HTTPException(status_code=400, detail="Your attachment has expired. Please attach it again.")
         if enquiry.formVariant == 'consulting-5' and (found["metadata"].get("variant") != 'consulting-5' or found["length"] > CONSULTING5_MAX_BYTES):
             raise HTTPException(status_code=400, detail="Max file size: 2MB. Allowed file formats: doc, xls, pdf, jpg, png.")
-        if ((enquiry.formVariant in ('consulting-14', 'consulting-17') or found["metadata"].get("variant") in ('consulting-14', 'consulting-17'))
-                and found["metadata"].get("variant") != enquiry.formVariant) or found["length"] > CONSULTING14_MAX_BYTES:
-            raise HTTPException(status_code=400, detail="No more than 3 files up to 3MB each. Formats: doc, docx, pdf, ppt, pptx.")
+        file_variant = found["metadata"].get("variant")
+        if (enquiry.formVariant in LIMITED_ATTACHMENT_BYTES or file_variant in LIMITED_ATTACHMENT_BYTES) and (
+                file_variant != enquiry.formVariant or found["length"] > LIMITED_ATTACHMENT_BYTES[file_variant]):
+            raise HTTPException(status_code=400, detail="This attachment is not valid for this form. Please attach it again.")
         attachment_files.append(found)
     if attachment_files:
         doc["attachments"] = [{"id": f["metadata"]["attachment_id"], "filename": f["filename"], "size": f["length"], "content_type": f["metadata"].get("content_type"), "kind": f["metadata"].get("kind")} for f in attachment_files]
@@ -1534,18 +1537,18 @@ CONSULTING17_TYPES = {
 }
 
 
-async def _store_limited_attachment(file: UploadFile, variant: str, types: dict, formats: str):
-    """One file per call: max 3MB, extension + signature checked; stored pending in GridFS."""
+async def _store_limited_attachment(file: UploadFile, variant: str, types: dict, formats: str, max_bytes: int = CONSULTING14_MAX_BYTES):
+    """One file per call: size-limited, extension + signature checked; stored pending in GridFS."""
     name = os.path.basename((file.filename or '').replace('\\', '/')).strip()
     name = re.sub(r'[^A-Za-z0-9._ -]', '_', name)[:150]
     ext = os.path.splitext(name)[1].lower()
-    content = await file.read(CONSULTING14_MAX_BYTES + 1)
+    content = await file.read(max_bytes + 1)
     if not name or ext not in types:
         raise HTTPException(status_code=400, detail=f"Allowed formats: {formats}.")
     if not content:
         raise HTTPException(status_code=400, detail="The selected file is empty.")
-    if len(content) > CONSULTING14_MAX_BYTES:
-        raise HTTPException(status_code=400, detail="File is too large. Max file size: 3MB.")
+    if len(content) > max_bytes:
+        raise HTTPException(status_code=400, detail=f"File is too large. Max file size: {max_bytes // (1024 * 1024)}MB.")
     content_type, signature_ok = types[ext]
     if not signature_ok(content[:16]):
         raise HTTPException(status_code=400, detail="The file content does not match its extension.")
@@ -1555,6 +1558,19 @@ async def _store_limited_attachment(file: UploadFile, variant: str, types: dict,
         "content_type": content_type, "variant": variant, "created_at": datetime.now(timezone.utc).isoformat(),
     })
     return {"attachmentId": attachment_id, "filename": name, "size": len(content)}
+
+
+CONSULTING18_TYPES = {
+    **CONSULTING17_TYPES,
+    '.xls': ('application/vnd.ms-excel', _OLE),
+    '.xlsx': ('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', _ZIP),
+}
+LIMITED_ATTACHMENT_BYTES = {'consulting-14': CONSULTING14_MAX_BYTES, 'consulting-17': CONSULTING14_MAX_BYTES, 'consulting-18': MAX_FILE_SIZE}
+
+
+@api_router.post("/ai-consulting-attachments/consulting-18", status_code=201)
+async def upload_consulting18_attachment(file: UploadFile = File(...)):
+    return await _store_limited_attachment(file, 'consulting-18', CONSULTING18_TYPES, 'pdf, doc, docx, xls, xlsx, ppt, pptx, jpg, jpeg, png', MAX_FILE_SIZE)
 
 
 @api_router.post("/ai-consulting-attachments/consulting-14", status_code=201)

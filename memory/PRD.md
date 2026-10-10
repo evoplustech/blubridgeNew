@@ -367,3 +367,5 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - 2026-06: Added /consulting-16: reference particle-wave canvas hero (ported from form-ab-test /consulting-21: same palette, wave function, mask, typography, CTA) + subtle CSS drift; below it the unchanged /consulting enquiry content; CTA smooth-scrolls to form.
 
 - 2026-06: Added /consulting-17 (timeline "What will happen next?" + navy form card: name/email/phone/company, description, budget, drag-drop upload up to 3 files 3MB pdf/doc/docx/ppt/pptx/jpg/png via /api/ai-consulting-attachments/consulting-17, referral dropdown, preferred call day/time/timezone). Shared upload helper _store_limited_attachment for consulting-14/17.
+
+- 2026-06: Added /consulting-18 (/consulting intro + dark "Get in touch" panel: floating-label underline fields with status circles, 1 attachment up to MAX_FILE_SIZE 5MB via /api/ai-consulting-attachments/consulting-18, privacy text, news opt-in flag, disabled-until-valid Send). Fixed: per-variant attachment size map LIMITED_ATTACHMENT_BYTES (3MB cap no longer applied to other forms).

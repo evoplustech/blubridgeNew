@@ -1,0 +1,61 @@
+/* /consulting-18 only — dark navy "Get in touch" panel with underline floating-label fields and status circles. */
+.c18-panel { --c18-bg: #0b1428; --c18-line: rgba(255, 255, 255, 0.22); --c18-muted: #9aa6c2; --c18-accent: #7d9cf0; position: relative; overflow: hidden; margin-top: 8px; padding: 40px 22px 44px; background: var(--c18-bg); color: #fff; border-radius: 4px; isolation: isolate; }
+.c18-panel::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background:
+  linear-gradient(118deg, transparent 0 38%, rgba(125, 156, 240, 0.07) 38% 52%, transparent 52%),
+  linear-gradient(62deg, transparent 0 58%, rgba(255, 255, 255, 0.04) 58% 70%, transparent 70%),
+  linear-gradient(160deg, rgba(43, 76, 140, 0.35), transparent 55%); }
+@media (min-width: 768px) { .c18-panel { padding: 56px 56px 60px; } }
+.aic-page .c18-title { font-family: 'Geist', 'Inter', sans-serif; font-size: 34px; line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; color: #fff; }
+@media (min-width: 768px) { .aic-page .c18-title { font-size: 44px; } }
+.c18-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.c18-grid { margin-top: 36px; display: grid; grid-template-columns: 1fr; gap: 0 40px; }
+@media (min-width: 768px) { .c18-grid { margin-top: 52px; grid-template-columns: 1fr 1fr; } }
+.c18-col { min-width: 0; }
+
+/* Floating-label underline field */
+.c18-field { position: relative; padding-top: 18px; }
+.c18-input { display: block; width: 100%; min-height: 46px; padding: 12px 34px 10px 0; border: 0; border-bottom: 1px solid var(--c18-line); border-radius: 0; background: transparent; color: #fff; font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.4; resize: none; transition: border-color 160ms ease; }
+textarea.c18-input { height: 46px; max-height: 160px; overflow-y: auto; resize: vertical; }
+.c18-input:hover:not(:focus) { border-bottom-color: rgba(255, 255, 255, 0.4); }
+.c18-input:focus { outline: none; border-bottom-color: var(--c18-accent); box-shadow: 0 1px 0 var(--c18-accent); }
+.c18-input:-webkit-autofill { -webkit-text-fill-color: #fff; transition: background-color 9999s ease 0s; }
+.c18-label { position: absolute; left: 0; top: 30px; font-size: 15px; color: var(--c18-muted); pointer-events: none; transform-origin: left top; transition: transform 160ms ease, color 160ms ease; }
+.c18-input:focus + .c18-label, .c18-input:not(:placeholder-shown) + .c18-label { transform: translateY(-22px) scale(0.8); color: #c9d3ec; }
+.c18-status { position: absolute; right: 0; top: 32px; width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.35); display: inline-flex; align-items: center; justify-content: center; transition: background-color 160ms ease, border-color 160ms ease; }
+.c18-status svg { width: 11px; height: 11px; stroke-width: 3; }
+.c18-field-ok .c18-status { background: #2f9e62; border-color: #2f9e62; color: #fff; }
+.c18-field-bad .c18-status { background: #d64545; border-color: #d64545; color: #fff; }
+.c18-field-bad .c18-input { border-bottom-color: #e06666; }
+.c18-error { margin-top: 6px; font-size: 12.5px; color: #ff9d9d; }
+
+/* Attach */
+.c18-attach { margin-top: 28px; }
+.c18-attach-btn { display: inline-flex; align-items: flex-start; gap: 12px; padding: 0; border: 0; background: none; color: #fff; cursor: pointer; text-align: left; }
+.c18-attach-btn svg, .c18-file svg { flex: none; width: 22px; height: 22px; color: var(--c18-accent); transform: rotate(-45deg); }
+.c18-attach-btn strong { display: block; font-size: 15px; font-weight: 500; transition: color 160ms ease; }
+.c18-attach-btn small { display: block; margin-top: 2px; font-size: 14px; color: var(--c18-muted); }
+.c18-attach-btn:hover strong { color: var(--c18-accent); }
+.c18-attach-btn:focus-visible, .c18-file button:focus-visible { outline: 2px solid var(--c18-accent); outline-offset: 4px; border-radius: 2px; }
+.c18-file { display: flex; align-items: center; gap: 10px; max-width: 100%; font-size: 14.5px; }
+.c18-file button { flex: none; padding: 2px; border: 0; background: none; color: var(--c18-muted); cursor: pointer; }
+.c18-file button:hover { color: #fff; }
+.c18-file button svg { width: 16px; height: 16px; transform: none; color: currentColor; }
+
+/* Legal + checkbox */
+.c18-legal { margin-top: 24px; font-size: 12px; line-height: 1.55; color: var(--c18-muted); }
+.c18-legal a { color: var(--c18-accent); text-decoration: underline; text-underline-offset: 2px; }
+.c18-check { position: relative; margin-top: 12px; display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; line-height: 1.5; color: #c9d3ec; cursor: pointer; }
+.c18-check input { position: absolute; opacity: 0; width: 16px; height: 16px; margin: 0; }
+.c18-check-dot { flex: none; margin-top: 1px; width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); display: inline-flex; align-items: center; justify-content: center; color: transparent; transition: background-color 160ms ease, border-color 160ms ease; }
+.c18-check-dot svg { width: 10px; height: 10px; stroke-width: 3.2; }
+.c18-check input:checked + .c18-check-dot { background: var(--c18-accent); border-color: var(--c18-accent); color: #0b1428; }
+.c18-check input:focus-visible + .c18-check-dot { box-shadow: 0 0 0 3px rgba(125, 156, 240, 0.4); }
+
+/* Submit */
+.c18-submit { margin-top: 36px; width: 100%; height: 56px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 2px; background: #fff; color: #0b1428; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 160ms ease, color 160ms ease, opacity 160ms ease; }
+.c18-submit:hover:not(:disabled) { background: #dfe6f8; }
+.c18-submit:focus-visible { outline: 2px solid var(--c18-accent); outline-offset: 3px; }
+.c18-submit:disabled { background: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.35); cursor: not-allowed; }
+.c18-submit svg { width: 18px; height: 18px; }
+.c18-confirmation { margin-top: 24px; padding: 14px 16px; border-left: 3px solid var(--c18-accent); background: rgba(255, 255, 255, 0.07); font-size: 14.5px; outline: none; }
+.c18-submit-error { margin-top: 14px; }
