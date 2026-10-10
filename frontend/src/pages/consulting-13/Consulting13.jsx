@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Loader2, ArrowRight, Mail, Phone, Linkedin } from 'lucide-react';
+import { Loader2, ArrowRight } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import { useWizardSubmission } from '../ai-consulting/useWizardSubmission';
@@ -27,10 +27,6 @@ const validate = f => {
   if (!f.terms) e.terms = 'Please accept the terms and conditions.';
   return e;
 };
-
-const EMAIL = 'info@blubridge.com';
-const PHONE = '+91 8925987250';
-const LINKEDIN = 'https://www.linkedin.com/company/blubridge/';
 
 const FIELDS = [
   ['firstName', 'First name', false, 'text', 'given-name', 120],
@@ -100,22 +96,6 @@ export default function Consulting13() {
     </section>
 
     <section className="c13-wrap c13-main">
-      <aside className="c13-info" aria-label="Contact information" data-testid="c13-info">
-        <div className="c13-block" data-testid="c13-general">
-          <h2 className="c13-block-title">General inquiries</h2>
-          <ul className="c13-links">
-            <li><Mail aria-hidden="true" /><a href={`mailto:${EMAIL}`} data-testid="c13-general-email">{EMAIL}</a></li>
-            <li><Phone aria-hidden="true" /><a href={`tel:${PHONE.replace(/\s/g, '')}`} data-testid="c13-general-phone">{PHONE}</a></li>
-            <li><Linkedin aria-hidden="true" /><a href={LINKEDIN} target="_blank" rel="noopener noreferrer" data-testid="c13-linkedin">LinkedIn</a></li>
-          </ul>
-        </div>
-        <div className="c13-block" data-testid="c13-partnerships">
-          <h2 className="c13-block-title">Partnerships &amp; media</h2>
-          <p className="c13-block-text">For partnership opportunities, press and media requests, our team is happy to hear from you.</p>
-          <a href={`mailto:${EMAIL}?subject=Partnerships%20%26%20media`} className="c13-pill c13-pill-outline" data-testid="c13-send-email">Send email <ArrowRight aria-hidden="true" /></a>
-        </div>
-      </aside>
-
       <form id="c13-form" className="c13-form" method="post" noValidate onSubmit={handleSubmit} aria-busy={submission.isSubmitting} aria-labelledby="c13-form-heading" data-testid="c13-form">
         <h2 id="c13-form-heading" className="c13-form-title">Send us a message</h2>
         {submission.receipt && <div ref={success} tabIndex={-1} className="c13-confirmation" role="status" data-testid="c13-success">

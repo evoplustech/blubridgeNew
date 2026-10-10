@@ -18,7 +18,8 @@
 
 /* Main two-column */
 .c13-main { display: grid; grid-template-columns: 1fr; gap: 48px; padding-bottom: 80px; }
-@media (min-width: 1024px) { .c13-main { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 96px; padding-bottom: 112px; } }
+@media (min-width: 1024px) { .c13-main { padding-bottom: 112px; } }
+.c13-main > .c13-form { width: 100%; }
 .c13-info { display: grid; gap: 40px; align-content: start; }
 @media (min-width: 640px) and (max-width: 1023px) { .c13-info { grid-template-columns: 1fr 1fr; } }
 .c13-block { padding-top: 20px; border-top: 1px solid var(--c13-ink); }

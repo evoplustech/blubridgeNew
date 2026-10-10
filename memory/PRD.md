@@ -371,3 +371,5 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - 2026-06: Added /consulting-18 (/consulting intro + dark "Get in touch" panel: floating-label underline fields with status circles, 1 attachment up to MAX_FILE_SIZE 5MB via /api/ai-consulting-attachments/consulting-18, privacy text, news opt-in flag, disabled-until-valid Send). Fixed: per-variant attachment size map LIMITED_ATTACHMENT_BYTES (3MB cap no longer applied to other forms).
 
 - 2026-06: Added /consulting-19 (navy hero GET STARTED + 6-segment brand accent bar; form card: full name, organization, email, phone, 6 BluBridge services + exclusive Not Sure as checkbox cards, project details, free-text source; "What happens next" card). formVariant consulting-19; model gained sourceText; services required for 19.
+
+- 2026-06: Removed contact-detail sections: /consulting-13 General inquiries + Partnerships & media aside (form now full width), /consulting-15 Email + Website cards (What to Expect card kept, sticky). /consulting-14 had none.

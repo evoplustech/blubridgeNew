@@ -60,6 +60,7 @@
 .c15-confirmation { margin-top: 18px; padding: 14px 16px; border-left: 3px solid var(--c15-navy); border-radius: 4px; background: #f1f5fb; font-size: 14.5px; outline: none; }
 
 .c15-side { display: grid; gap: 22px; }
+@media (min-width: 1024px) { .c15-side { position: sticky; top: 110px; } }
 .c15-info { padding: 22px 22px 24px; }
 .c15-info-head { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; color: var(--c15-ink); }
 .c15-icon { width: 32px; height: 32px; border-radius: 7px; display: inline-flex; align-items: center; justify-content: center; color: #fff; }

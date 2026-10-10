@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Loader2, Mail, Globe, CheckCircle2, Check } from 'lucide-react';
+import { Loader2, CheckCircle2, Check } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import { useWizardSubmission } from '../ai-consulting/useWizardSubmission';
@@ -11,8 +11,6 @@ import './Consulting15.css';
 
 /* /consulting-15 — consultation request page (form card + info cards). Posts to /api/ai-consulting-enquiries with formVariant "consulting-15". */
 
-const EMAIL = 'info@blubridge.com';
-const SITE = 'blubridge.com';
 const SERVICES = services.slice(0, 6).map(([, value]) => value);
 const INDUSTRIES = ['Technology', 'Healthcare', 'Finance', 'Manufacturing', 'Retail', 'Education', 'Government', 'Other'];
 const TIMELINES = ['Immediately', 'Within 1 month', '1-3 months', '3-6 months', 'Just exploring'];
@@ -33,21 +31,8 @@ const validate = f => {
   return e;
 };
 
-const InfoCard = ({ icon: Icon, tone, title, children, testid }) => <div className="c15-card c15-info" data-testid={testid}>
-  <p className="c15-info-head"><span className={`c15-icon c15-icon-${tone}`} aria-hidden="true"><Icon /></span>{title}</p>
-  {children}
-</div>;
-
 function Sidebar() {
-  return <aside className="c15-side" aria-label="Contact information">
-    <InfoCard icon={Mail} tone="navy" title="Email" testid="c15-card-email">
-      <a href={`mailto:${EMAIL}`} className="c15-info-value" data-testid="c15-email-link">{EMAIL}</a>
-      <p className="c15-info-text">Send us an email and we’ll get back to you.</p>
-    </InfoCard>
-    <InfoCard icon={Globe} tone="green" title="Website" testid="c15-card-website">
-      <a href={`https://${SITE}`} className="c15-info-value" data-testid="c15-website-link">{SITE}</a>
-      <p className="c15-info-text">Explore our full range of services and case studies.</p>
-    </InfoCard>
+  return <aside className="c15-side" aria-label="What to expect">
     <div className="c15-card c15-info" data-testid="c15-card-expect">
       <h2 className="c15-expect-title">What to Expect</h2>
       <ul className="c15-expect">
