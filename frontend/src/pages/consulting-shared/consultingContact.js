@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_ORIGIN } from '../../apiOrigin';
 
 export const CONTACT_EMAIL = 'info@blubridge.com';
 export const CONTACT_PHONE = '+91 8925987250';
@@ -98,7 +99,7 @@ export function useConsultingContactForm({ messageLabel = 'inquiry', inquiryLabe
     setSubmitting(true);
     const [firstName, ...rest] = form.fullName.trim().split(/\s+/);
     try {
-      const response = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const response = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

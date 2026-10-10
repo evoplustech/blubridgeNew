@@ -79,3 +79,17 @@ Verified in isolated sandboxes:
 No Render dashboard change is required any more: just redeploy. Keep `REACT_APP_BACKEND_URL` set to
 `https://blubridgebackend.onrender.com` in the frontend env vars (`frontend/.env` is git-ignored, so Render
 env vars are the only source — the log line "injected env (0) from .env" is expected).
+
+## 2026-10-10 — forms broken on live site again ("Unexpected token '<'") + Google tag env
+Root cause: an Oct 5 preview fix replaced the env-first API origin with `window.location.origin` in 43 files,
+so the static site called `blubridge.com/api/*` (served `index.html`). Fixed: all call sites now import
+`API_ORIGIN` from `frontend/src/apiOrigin.js` (= `REACT_APP_BACKEND_URL || window.location.origin`).
+
+Frontend Static Site env vars (build-time, then "Clear build cache & deploy"):
+- `REACT_APP_BACKEND_URL=https://blubridgebackend.onrender.com`
+- `REACT_APP_GOOGLE_TAG_ID=GT-PLHLCK7D`
+- `REACT_APP_GOOGLE_ADS_TAG_ID=AW-18460200148`
+- `REACT_APP_GOOGLE_TAG_SCRIPT_URL=https://www.googletagmanager.com/gtag/js`
+- `REACT_APP_GOOGLE_ADS_CONVERSION_LABEL=<label after the slash in AW-18460200148/…>` (optional; enables the `conversion` event)
+Without `REACT_APP_GOOGLE_TAG_ID` the console shows `[google-tag] not loaded: REACT_APP_GOOGLE_TAG_ID is required` and no tag fires.
+Verify after deploy: open blubridge.com/careers/job/… → Network: `GET https://blubridgebackend.onrender.com/api/form-context` → 200 JSON.

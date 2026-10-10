@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight, Loader2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import './Consulting7.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-7 — single-column Google Ads landing page for AI consulting.
    Saves to Admin → Contact Forms (type "contact_us", formVariant "consulting-7") and reuses the
@@ -107,7 +108,7 @@ export default function Consulting7() {
     };
     if (rest.length) body.lastName = rest.join(' ').slice(0, 120);
     try {
-      const res = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const res = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       });
       if (res.ok) {

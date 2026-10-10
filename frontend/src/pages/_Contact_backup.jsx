@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin } from 'lucide-react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
+import { API_ORIGIN } from '../apiOrigin';
 
-const API_URL = window.location.origin;
+const API_URL = API_ORIGIN;
 
 // Country codes with flags and names
 const countryCodes = [

@@ -3,6 +3,7 @@ import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ArrowRight, Check } from 'lucide-react';
+import { API_ORIGIN } from '../../apiOrigin';
 
 const Sales = () => {
   const [selectedPurpose, setSelectedPurpose] = useState('pricing');
@@ -36,7 +37,7 @@ const Sales = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const response = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

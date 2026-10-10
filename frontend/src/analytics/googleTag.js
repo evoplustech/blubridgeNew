@@ -49,6 +49,18 @@ export function trackEvent(name, params) {
   window.gtag('event', name, params);
 }
 
+// Google Ads conversion target "AW-XXXX/LABEL"; null until REACT_APP_GOOGLE_ADS_CONVERSION_LABEL is configured.
+export function conversionSendTo() {
+  const adsId = process.env.REACT_APP_GOOGLE_ADS_TAG_ID;
+  const label = process.env.REACT_APP_GOOGLE_ADS_CONVERSION_LABEL;
+  if (!adsId || !label) return null;
+  if (!/^[A-Za-z0-9_-]+$/.test(label)) {
+    console.error('[google-tag] invalid Ads conversion label');
+    return null;
+  }
+  return `${adsId}/${label}`;
+}
+
 export function trackPageView({ pathname, search }) {
   trackEvent('page_view', {
     page_title: document.title,

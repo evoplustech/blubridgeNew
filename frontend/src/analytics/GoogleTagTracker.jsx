@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { isAdminPath, loadGoogleTag, trackEvent, trackPageView } from './googleTag';
+import { conversionSendTo, isAdminPath, loadGoogleTag, trackEvent, trackPageView } from './googleTag';
 import { describeClick } from './clickTracking';
 import { describeFormSuccess } from './leadTracking';
 import { FORM_SUCCESS_EVENT } from '../security/formTransport';
@@ -17,7 +17,10 @@ export const GoogleTagTracker = () => {
     };
     const onFormSuccess = event => {
       const lead = describeFormSuccess(event.detail?.path);
-      if (lead) trackEvent(lead.name, lead.params);
+      if (!lead) return;
+      trackEvent(lead.name, lead.params);
+      const sendTo = lead.name === 'generate_lead' && conversionSendTo();
+      if (sendTo) trackEvent('conversion', { send_to: sendTo, ...lead.params });
     };
     document.addEventListener('click', onClick, true);
     window.addEventListener(FORM_SUCCESS_EVENT, onFormSuccess);

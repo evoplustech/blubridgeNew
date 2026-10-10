@@ -10,11 +10,12 @@ import { clearAccidentalQuery } from '../ai-consulting/clearAccidentalQuery';
 import { enquiryDescription } from '../ai-consulting/introCopy';
 import { services, optionLabel } from '../ai-consulting/options';
 import './Consulting14.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-14 — Andersen-style contact layout with a short request form + up to 3 files (uploaded to /api/ai-consulting-attachments/consulting-14, then
    posted to /api/ai-consulting-enquiries with formVariant "consulting-14"). */
 
-const API = window.location.origin;
+const API = API_ORIGIN;
 const MAX_FILES = 3;
 const MAX_BYTES = 3 * 1024 * 1024;
 const FILE_EXT = ['.doc', '.docx', '.pdf', '.ppt', '.pptx'];

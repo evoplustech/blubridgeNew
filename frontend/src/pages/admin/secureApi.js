@@ -1,4 +1,5 @@
-const API = window.location.origin;
+import { API_ORIGIN } from '../../apiOrigin';
+const API = API_ORIGIN;
 let csrfPromise;
 localStorage.removeItem('adminToken'); // Remove only the obsolete pre-hardening credential.
 
@@ -12,7 +13,7 @@ const csrf = () => {
 };
 
 export async function adminFetch(url, options = {}) {
-  const parsed = new URL(url, window.location.origin);
+  const parsed = new URL(url, API_ORIGIN);
   if (parsed.pathname.startsWith('/api/admin/submission/') && (!options.method || options.method.toUpperCase() === 'GET')) {
     options = { ...options, method: 'PATCH' }; // Preserve mark-as-viewed via a CSRF-protected mutation.
   }

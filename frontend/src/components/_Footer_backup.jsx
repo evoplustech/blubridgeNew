@@ -5,9 +5,10 @@ import { Input } from './ui/input';
 import { useToast } from '../hooks/use-toast';
 import { ChevronDown, Menu, X, Cloud, SlidersHorizontal, Server, Zap, Wrench, Flag, MapPin, Sparkles, Building2, Factory,TrendingUp,Rocket } from 'lucide-react';
 import axios from 'axios';
+import { API_ORIGIN } from '../apiOrigin';
 
 
-const BACKEND_URL = window.location.origin;
+const BACKEND_URL = API_ORIGIN;
 const API = `${BACKEND_URL}/api`;
 
 const Footer = () => {

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, forwardRef } from 'react';
 import { Upload, X, Loader2, CheckCircle2, AlertCircle, Linkedin, FileText } from 'lucide-react';
+import { API_ORIGIN } from '../apiOrigin';
 
 const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const JobApplicationForm = forwardRef(({ jobTitle, onClose, isVisible }, ref) =>
   const [submitMessage, setSubmitMessage] = useState('');
   
   const fileInputRef = useRef(null);
-  const API_URL = window.location.origin;
+  const API_URL = API_ORIGIN;
 
   // Validation functions
   const validateFirstName = (value) => {

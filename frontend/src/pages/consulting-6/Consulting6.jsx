@@ -4,6 +4,7 @@ import { Check, CheckCircle2, Loader2 } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import { PremiumSelect } from '../consulting-3/PremiumSelect';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-6 — minimal Google Ads lead-generation page.
    Saves to Admin → Contact Forms (type "contact_us", formVariant "consulting-6") and
@@ -95,7 +96,7 @@ export default function Consulting6() {
     };
     if (rest.length) body.lastName = rest.join(' ').slice(0, 120);
     try {
-      const res = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const res = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       });
       if (res.ok) {

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import useMetaDescription from '../hooks/useMetaDescription';
-const API_URL = window.location.origin;
+import { API_ORIGIN } from '../apiOrigin';
+const API_URL = API_ORIGIN;
 
 /* /get-in-touch-1 — same content, fields, validation & backend as /get-in-touch.
    Visual redesign only. All styles scoped under .git5-page (see index.css). */

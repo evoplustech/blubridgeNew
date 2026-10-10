@@ -4,6 +4,7 @@ import { Check, Loader2, ArrowRight, ArrowUp } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import './Consulting11.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-11 — "Guided AI Brief": centered single-journey brief. Saves to Admin → Contact Forms (formVariant "consulting-11"). */
 
@@ -138,7 +139,7 @@ export default function Consulting11() {
     };
     if (rest.length) body.lastName = rest.join(' ').slice(0, 120);
     try {
-      const res = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const res = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       });
       if (res.ok) { trackLead(); setForm(EMPTY); setDone(true); }

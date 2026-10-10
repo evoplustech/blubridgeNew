@@ -9,12 +9,13 @@ import { enquiryHeading, enquiryDescription } from '../ai-consulting/introCopy';
 import { PremiumSelect } from '../consulting-3/PremiumSelect';
 import '../ai-consulting/AiConsulting.css';
 import './Consulting5.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-5 — copy of /consulting with a single centred "Contact Us" card.
    Submits to the existing /api/ai-consulting-enquiries endpoint (formVariant "consulting-5");
    the optional file goes first to /api/ai-consulting-attachments/consulting-5 (max 2MB). */
 
-const API = window.location.origin;
+const API = API_ORIGIN;
 const CONTACT_EMAIL = 'info@blubridge.com';
 const MAX_BYTES = 2 * 1024 * 1024;
 const FILE_EXT = ['.doc', '.docx', '.xls', '.xlsx', '.pdf', '.jpg', '.jpeg', '.png'];

@@ -9,11 +9,12 @@ import { clearAccidentalQuery } from '../ai-consulting/clearAccidentalQuery';
 import { enquiryHeading, enquiryDescription } from '../ai-consulting/introCopy';
 import '../ai-consulting/AiConsulting.css';
 import './Consulting18.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-18 — /consulting intro + dark "Get in touch" panel. One optional file goes to /api/ai-consulting-attachments/consulting-18
    (backend MAX_FILE_SIZE = 5MB), then the enquiry posts to /api/ai-consulting-enquiries with formVariant "consulting-18". */
 
-const API = window.location.origin;
+const API = API_ORIGIN;
 const MAX_BYTES = 5 * 1024 * 1024;
 const FILE_EXT = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.jpg', '.jpeg', '.png'];
 const EMPTY = { name: '', email: '', phone: '', message: '', updates: false };

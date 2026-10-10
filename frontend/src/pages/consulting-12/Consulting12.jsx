@@ -4,6 +4,7 @@ import { Check, Plus, Loader2, ArrowRight } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import './Consulting12.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-12 — "AI Opportunity Canvas": editorial numbered canvas. Saves to Admin → Contact Forms (formVariant "consulting-12"). */
 
@@ -144,7 +145,7 @@ export default function Consulting12() {
     };
     if (rest.length) body.lastName = rest.join(' ').slice(0, 120);
     try {
-      const res = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const res = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       });
       if (res.ok) { trackLead(); setForm(EMPTY); setDone(true); }

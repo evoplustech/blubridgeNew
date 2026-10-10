@@ -4,7 +4,8 @@ import AdminLayout from './AdminLayout';
 import { FileText, MessageSquare, Briefcase, TrendingUp, Inbox } from 'lucide-react';
 
 import { adminFetch as fetch } from './secureApi';
-const API_URL = window.location.origin;
+import { API_ORIGIN } from '../../apiOrigin';
+const API_URL = API_ORIGIN;
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);

@@ -8,11 +8,12 @@ import { FormField, FieldError } from '../ai-consulting/FormField';
 import { focusError } from '../ai-consulting/fieldUtils';
 import { clearAccidentalQuery } from '../ai-consulting/clearAccidentalQuery';
 import './Consulting17.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-17 — "what happens next" timeline + brand form card. Files go to /api/ai-consulting-attachments/consulting-17,
    then the enquiry posts to /api/ai-consulting-enquiries with formVariant "consulting-17". The call slot is a preference only. */
 
-const API = window.location.origin;
+const API = API_ORIGIN;
 const MAX_FILES = 3;
 const MAX_BYTES = 3 * 1024 * 1024;
 const FILE_EXT = ['.pdf', '.doc', '.docx', '.ppt', '.pptx', '.jpg', '.jpeg', '.png'];

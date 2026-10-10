@@ -4,6 +4,7 @@ import { Check, Loader2, ArrowRight } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import useMetaDescription from '../../hooks/useMetaDescription';
 import './Consulting9.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-9 — 55/45 split lead-gen page. Saves to Admin → Contact Forms (formVariant "consulting-9"). */
 
@@ -108,7 +109,7 @@ export default function Consulting9() {
     };
     if (rest.length) body.lastName = rest.join(' ').slice(0, 120);
     try {
-      const res = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const res = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       });
       if (res.ok) { trackLead(); setForm(EMPTY); setDone(true); }

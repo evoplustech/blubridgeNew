@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_ORIGIN } from '../apiOrigin';
 
-const base = new URL(window.location.origin);
+const base = new URL(API_ORIGIN);
 const publicPaths = new Set(['/api/contact', '/api/contacts/submit', '/api/contact-us', '/api/contact-enquiries', '/api/project-enquiries', '/api/ai-consultation-enquiries', '/api/ai-consulting-enquiries', '/api/newsletter/subscribe', '/api/job-applications/submit', '/api/ai-consulting-attachments', '/api/ai-consulting-attachments/consulting-5', '/api/ai-consulting-attachments/consulting-14', '/api/ai-consulting-attachments/consulting-17', '/api/ai-consulting-attachments/consulting-18']);
 const nativeFetch = window.fetch.bind(window);
 let context;
@@ -18,6 +19,10 @@ async function getContext(refresh = false) {
   if (!context) {
     context = nativeFetch(`${base.origin}/api/form-context`, { credentials: 'include' }).then(async response => {
       if (!response.ok) throw new Error('Unable to verify the form. Please try again.');
+      if (!(response.headers.get('content-type') || '').includes('application/json')) {
+        console.error('[forms] /api/form-context did not return JSON: the API origin is misconfigured (check REACT_APP_BACKEND_URL)');
+        throw new Error('The form service is unavailable. Please try again later.');
+      }
       started = Date.now();
       return (await response.json()).formToken;
     }).catch(error => { context = null; throw error; });
@@ -29,7 +34,7 @@ async function getContext(refresh = false) {
 }
 
 function protectedForm(url, method) {
-  const parsed = new URL(url, window.location.origin);
+  const parsed = new URL(url, API_ORIGIN);
   return parsed.origin === base.origin && publicPaths.has(parsed.pathname) && method.toUpperCase() === 'POST';
 }
 

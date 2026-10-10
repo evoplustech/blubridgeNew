@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { API_ORIGIN } from '../../apiOrigin';
 
 const GeneralEnquiry = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const GeneralEnquiry = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${window.location.origin}/api/contacts/submit`, {
+      const response = await fetch(`${API_ORIGIN}/api/contacts/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

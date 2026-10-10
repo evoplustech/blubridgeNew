@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '../components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import axios from 'axios';
+import { API_ORIGIN } from '../apiOrigin';
 
-const BACKEND_URL = window.location.origin;
+const BACKEND_URL = API_ORIGIN;
 const API = `${BACKEND_URL}/api`;
 
 const Blog = () => {

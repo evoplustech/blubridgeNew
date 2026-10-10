@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import { serverErrorField } from './serviceRequirements';
+import { API_ORIGIN } from '../../apiOrigin';
 
-const API_URL = window.location.origin;
+const API_URL = API_ORIGIN;
 
 export const useServiceSubmission = () => {
   const sending = useRef(false);

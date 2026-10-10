@@ -8,12 +8,13 @@ import { useWizardSubmission } from '../ai-consulting/useWizardSubmission';
 import { clearAccidentalQuery } from '../ai-consulting/clearAccidentalQuery';
 import { PremiumSelect } from '../consulting-3/PremiumSelect';
 import './Consulting4.css';
+import { API_ORIGIN } from '../../apiOrigin';
 
 /* /consulting-4 — copy of /consulting with a two-column contact section.
    Submits to the existing /api/ai-consulting-enquiries endpoint (formVariant "consulting-4");
    attachments go first to /api/ai-consulting-attachments and are linked by id. */
 
-const API = window.location.origin;
+const API = API_ORIGIN;
 const MAX_BYTES = 5 * 1024 * 1024; // matches the backend attachment/file limit (MAX_FILE_SIZE)
 const FILE_EXT = ['.pdf', '.doc', '.docx'];
 const MAX_RECORD_SECONDS = 300;

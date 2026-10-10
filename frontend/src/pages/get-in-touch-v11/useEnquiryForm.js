@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
+import { API_ORIGIN } from '../../apiOrigin';
 
-const API_URL = window.location.origin;
+const API_URL = API_ORIGIN;
 const emptyForm = { fullName: '', workEmail: '', company: '', phone: '', jobTitle: '', country: '', city: '', budget: '', description: '', privacy: false, marketing: false };
 
 export const services = ['AI strategy', 'Generative AI', 'AI agents', 'Custom AI models', 'AI integration', 'Not sure yet'];
