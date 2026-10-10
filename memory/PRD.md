@@ -365,3 +365,5 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - 2026-06: Admin AI Consulting Enquiry: replaced the selection bar with an "Actions" bulk dropdown in the Actions column header (Select all on this page / Deselect all / Delete selected (N) with confirm, count badge).
 
 - 2026-06: Added /consulting-16: reference particle-wave canvas hero (ported from form-ab-test /consulting-21: same palette, wave function, mask, typography, CTA) + subtle CSS drift; below it the unchanged /consulting enquiry content; CTA smooth-scrolls to form.
+
+- 2026-06: Added /consulting-17 (timeline "What will happen next?" + navy form card: name/email/phone/company, description, budget, drag-drop upload up to 3 files 3MB pdf/doc/docx/ppt/pptx/jpg/png via /api/ai-consulting-attachments/consulting-17, referral dropdown, preferred call day/time/timezone). Shared upload helper _store_limited_attachment for consulting-14/17.
