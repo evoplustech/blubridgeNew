@@ -30,7 +30,7 @@ def wizard_export_values(doc):
 class AIConsultingWizardEnquiry(BaseModel):
     model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
     # consulting-3 / consulting-4 are short page variants (see validators below); fullName is always sent.
-    formVariant: Optional[Literal['ai-consulting-4', 'ai-consulting-5', 'consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18']] = None
+    formVariant: Optional[Literal['ai-consulting-4', 'ai-consulting-5', 'consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19']] = None
     firstName: Optional[str] = Field(default=None, max_length=120)
     lastName: Optional[str] = Field(default=None, max_length=120)
     fullName: str = Field(min_length=1, max_length=200)
@@ -77,6 +77,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     industry: Optional[Literal['Technology', 'Healthcare', 'Finance', 'Manufacturing', 'Retail', 'Education', 'Government', 'Other']] = None
     projectTimeline: Optional[Literal['Immediately', 'Within 1 month', '1-3 months', '3-6 months', 'Just exploring']] = None
     budgetRange: Optional[Literal['Under $10k', '$10k - $50k', '$50k - $100k', '$100k+', '$100k - $250k', '$250k+', 'Not sure yet']] = None
+    sourceText: Optional[str] = Field(default=None, max_length=300)  # consulting-19 free-text "How did you hear about us?"
     newsUpdates: Optional[bool] = None  # consulting-18 opt-in flag only (no mailing-list integration)
     # consulting-17 preferred call slot (sent as a preference, confirmed by email)
     preferredDay: Optional[str] = Field(default=None, pattern=r'^\d{4}-\d{2}-\d{2}$')
@@ -94,6 +95,8 @@ class AIConsultingWizardEnquiry(BaseModel):
                 raise ValueError('Please accept the terms and conditions.')
         if self.formVariant == 'consulting-15' and (not self.firstName or not self.lastName):
             raise ValueError('Please enter your first and last name.')
+        if self.formVariant == 'consulting-19' and not self.services:
+            raise ValueError('Please select at least one service.')
         if self.formVariant == 'consulting-17' and not self.budgetRange:
             raise ValueError('Please choose the budget.')
         return self
@@ -101,7 +104,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('services')
     @classmethod
     def services_unless_consulting5(cls, value, info: ValidationInfo):
-        if not value and info.data.get('formVariant') not in ('consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18'):
+        if not value and info.data.get('formVariant') not in ('consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19'):
             raise ValueError('List should have at least 1 item after validation, not 0')
         return value
 
@@ -128,7 +131,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('stage', 'timeline', 'budgetType', 'budgetStatus')
     @classmethod
     def required_unless_short_form(cls, value, info: ValidationInfo):
-        if value is None and info.data.get('formVariant') not in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18'):
+        if value is None and info.data.get('formVariant') not in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19'):
             raise ValueError('Field required')
         return value
 
@@ -144,7 +147,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     def required_text_unless_consulting4(cls, value, info: ValidationInfo):
         if not value:
             variant = info.data.get('formVariant')
-            if variant in ('consulting-4', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18') or (variant in ('consulting-5', 'consulting-13') and info.field_name != 'company'):
+            if variant in ('consulting-4', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19') or (variant in ('consulting-5', 'consulting-13') and info.field_name != 'company'):
                 return None
             raise ValueError('Field required')
         return value
@@ -152,7 +155,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('countryCode', 'phoneCountry')
     @classmethod
     def valid_country(cls, value, info: ValidationInfo):
-        if not value and info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18'):
+        if not value and info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19'):
             return None
         if not value:
             raise ValueError('Field required')
@@ -166,7 +169,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('phone')
     @classmethod
     def valid_phone(cls, value, info: ValidationInfo):
-        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18'):
+        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19'):
             # Plain international number, no country selector on these pages (required only on consulting-14).
             if not value:
                 if info.data.get('formVariant') == 'consulting-14':
@@ -210,9 +213,9 @@ class AIConsultingWizardEnquiry(BaseModel):
     @classmethod
     def conditional_requirement(cls, value, info: ValidationInfo):
         per_service = info.data.get('formVariant') in ('ai-consulting-4', 'ai-consulting-5') or info.data.get('serviceRequirements') is not None
-        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18'):
+        if info.data.get('formVariant') in ('consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19'):
             if not value:
-                raise ValueError({'consulting-4': 'Please describe your challenge or goal.', 'consulting-13': 'Please enter a message.', 'consulting-14': 'Please describe your project requirements.', 'consulting-15': 'Please enter a project description.', 'consulting-17': 'Please describe your project briefly.', 'consulting-18': 'Please enter a message.'}.get(info.data.get('formVariant'), 'Please tell us how we can help.'))
+                raise ValueError({'consulting-4': 'Please describe your challenge or goal.', 'consulting-13': 'Please enter a message.', 'consulting-14': 'Please describe your project requirements.', 'consulting-15': 'Please enter a project description.', 'consulting-17': 'Please describe your project briefly.', 'consulting-18': 'Please enter a message.', 'consulting-19': 'Please enter your project details.'}.get(info.data.get('formVariant'), 'Please tell us how we can help.'))
             return value
         short_form = info.data.get('formVariant') == 'consulting-3'  # project text is optional there
         if not per_service and not short_form and 'Other' in info.data.get('services', []) and not value:
@@ -222,7 +225,7 @@ class AIConsultingWizardEnquiry(BaseModel):
     @field_validator('estimatedBudget')
     @classmethod
     def correct_budget_range(cls, value, info: ValidationInfo):
-        if value is None and info.data.get('formVariant') in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18'):
+        if value is None and info.data.get('formVariant') in ('consulting-3', 'consulting-4', 'consulting-5', 'consulting-13', 'consulting-14', 'consulting-15', 'consulting-17', 'consulting-18', 'consulting-19'):
             return value
         options = {'project': PROJECT_BUDGETS, 'monthly': MONTHLY_BUDGETS}.get(info.data.get('budgetType'), [])
         if value not in options:

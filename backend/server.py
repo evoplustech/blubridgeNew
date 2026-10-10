@@ -1121,6 +1121,9 @@ async def submit_ai_consulting_wizard(enquiry: AIConsultingWizardEnquiry):
                    budget_range=f"${enquiry.budgetMin}k - ${enquiry.budgetMax}k")
     if len(enquiry.attachmentIds or []) > {'consulting-14': 3, 'consulting-17': 3, 'consulting-18': 1}.get(enquiry.formVariant, 2):
         raise HTTPException(status_code=400, detail="Too many attachments.")
+    if enquiry.formVariant == 'consulting-19':
+        doc.update(form_variant="consulting-19", source="/consulting-19", services_of_interest=", ".join(enquiry.services), message=enquiry.requirement,
+                   how_did_you_hear_about_us=enquiry.sourceText)
     if enquiry.formVariant == 'consulting-18':
         doc.update(form_variant="consulting-18", source="/consulting-18", message=enquiry.requirement, news_updates_opt_in=bool(enquiry.newsUpdates))
     if enquiry.formVariant == 'consulting-17':
