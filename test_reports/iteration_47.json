@@ -1,0 +1,50 @@
+{
+  "summary": "Frontend-only verification of native Google Tag integration (GT-PLHLCK7D + AW-18460200148). All core requirements pass: no inline gtag/dataLayer in raw HTML for public or /admin routes; single loader script with correct src; both configs with send_page_view:false; one page_view per SPA navigation on /, /contact, /about-us, /research, /careers, /solutions and the /media-kit 404 page; CTA/outbound/email/submit click rules behave correctly and ordinary non-CTA footer link produces no click event; generate_lead fires on mocked 201 for /api/contacts/submit on both /consulting-9 and /contact with correct form_name and page_path, and does NOT fire on mocked 500; admin pages (/admin, /admin/dashboard) have no gtag/dataLayer/loader script and emit no googletagmanager.com requests, and pushState('/admin') from a public page triggers a full document reload crossing the admin boundary (login form visible, gtag undefined). Mobile menu opens/closes. ONE CSP finding: gtag.js issues fetch(es) to https://www.googletagmanager.com/td?id=... which are blocked by connect-src (connect-src lists google-analytics.com, doubleclick, google.com, googleadservices, but NOT googletagmanager.com). Script loader itself is allowed by script-src and returns 200; the /td blockage produces repeating console 'Refused to connect' errors on every public page but does not block page_view, config, click or generate_lead dataLayer pushes.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Google Tag telemetry fetch",
+        "issue": "CSP connect-src is missing https://www.googletagmanager.com. gtag.js issues fetch calls to https://www.googletagmanager.com/td?id=GT-PLHLCK7D&... that are blocked ('Refused to connect because it violates the document's Content Security Policy'). Loader script (/gtag/js) itself loads fine (script-src ok). dataLayer events still fire, but Google's internal diagnostics/collection pings to googletagmanager.com are suppressed and console shows persistent CSP violations on every public page (/, /contact, /consulting-9, /about-us, /careers at both 1920x800 and 390x844).",
+        "affected_selectors": ["[data-testid=\"google-tag-script\"]"]
+      }
+    ],
+    "design_issues": []
+  },
+  "verified_passes": [
+    "Raw HTML on / and /admin: zero occurrences of googletagmanager.com, gtag('config, window.dataLayer",
+    "Initial load: window.gtag typeof function, dataLayer contains ['js',...], ['config','GT-PLHLCK7D',{send_page_view:false}], ['config','AW-18460200148',{send_page_view:false}], and one page_view with page_path '/' and non-empty page_title",
+    "Exactly one <script data-testid='google-tag-script'> with src https://www.googletagmanager.com/gtag/js?id=GT-PLHLCK7D",
+    "SPA nav to /contact via [data-testid=nav-contact-cta]: new page_view page_path '/contact' title 'Contact us | Blubridge'; click event link_type 'cta' link_url ends with /contact; loader count stays 1",
+    "pushState to /about-us, /research, /careers, /solutions each pushes one page_view with the correct page_path and loader count remains 1",
+    "LinkedIn footer link click (preventDefault) -> click event link_type 'outbound' outbound true link_domain www.linkedin.com",
+    "Footer /policies/privacy-policy link click -> NO click event (correctly ignored, non-CTA internal non-lead route)",
+    "mailto: info@blubridge.com on /contact -> click event link_type 'email' with link_url mailto:...",
+    "/consulting-9 mocked 201: generate_lead {form_name:'contact', page_path:'/consulting-9'} pushed and c9-success element visible",
+    "/contact mocked 201 real submit: generate_lead {form_name:'contact', page_path:'/contact'} pushed",
+    "/consulting-9 mocked 500: NO generate_lead pushed",
+    "/admin and /admin/dashboard: window.gtag undefined, window.dataLayer undefined, zero loader scripts, zero requests to googletagmanager.com",
+    "pushState({}, '', '/admin') from / triggers full document reload; admin login form (data-testid='admin-login-submit') visible, gtag undefined, zero loader scripts",
+    "/media-kit shows [data-testid='page-not-found'] and a page_view with page_path '/media-kit' and title 'Page not found | BluBridge'",
+    "Mobile viewport (390x844) across /, /contact, /consulting-9, /about-us, /careers: gtag function, exactly one loader; mobile menu open/close works"
+  ],
+  "test_report_links": [],
+  "action_items": [
+    "Add https://www.googletagmanager.com to the connect-src directive in frontend/securityHeaders.js (and the matching env var) so gtag's telemetry/diagnostic fetches to https://www.googletagmanager.com/td?... are not blocked. This is a minor CSP gap: it does not break dataLayer event collection via google-analytics.com or doubleclick (which are already allowed) but it floods the console with 'Refused to connect' errors on every public page and may degrade Google's measurement protocol diagnostics."
+  ],
+  "critical_code_review_comments": [
+    "googleTag.js is idempotent and resilient (try/catch, invalid id validation, HTTPS enforcement on loader URL) and correctly scopes to non-admin paths via isAdminPath.",
+    "GoogleTagTracker.jsx uses a capture-phase document click listener and setTimeout(0) for page_view, which correctly captures the updated document.title set by route components.",
+    "clickTracking.js rules match the spec precisely (mailto/tel/outbound/CTA tokens, lead-route CTA inference, submit buttons inside forms). Verified empirically against footer policy link (ignored) and CTA button (counted).",
+    "leadTracking.js only pushes generate_lead for mapped API paths; mocked 500 correctly prevents the bb:form-success dispatch so no event is pushed.",
+    "CSP connect-src omits googletagmanager.com even though the loader script is served from that origin and gtag.js performs same-origin fetch for /td telemetry; add it to eliminate noisy violations."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped per request)", "frontend": "~95% (all functional requirements pass; one CSP connect-src gap)"},
+  "seed_data_creation": "None. All form POSTs were mocked via Playwright page.route; no live DB records were created.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Google Tag native integration is functionally complete and passes all behavioral checks in the review request. The only outstanding item is a CSP connect-src gap for https://www.googletagmanager.com causing repeating 'Refused to connect' console errors on public pages (gtag.js /td telemetry fetches blocked). Loader script, dataLayer, page_view, click and generate_lead flows all operate correctly despite the CSP noise. Admin isolation and admin boundary reload are correctly enforced. Use page.route to mock /api/contacts/submit (and /api/contacts/verify-email, /api/contacts/send-otp if needed) when retesting forms to avoid writing to the live Mongo Atlas.",
+  "rca of the issue": "RCA for CSP violation: securityHeaders.js connect-src allowlists google-analytics.com, region1.google-analytics.com, stats.g.doubleclick.net, pagead2.googlesyndication.com, googleadservices.com, googleads.g.doubleclick.net, ad.doubleclick.net, www.google.com, google.com — but not www.googletagmanager.com. Modern gtag.js posts measurement diagnostics (td endpoint) to its origin (googletagmanager.com), which fails the connect-src check. Repro: load any public page with devtools open and watch for 'Refused to connect ... googletagmanager.com/td' errors. Mitigation: add 'https://www.googletagmanager.com' to the connect-src directive source list (and env-driven CSP configuration)."
+}
