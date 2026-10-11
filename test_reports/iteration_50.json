@@ -1,0 +1,25 @@
+{
+  "summary": "Frontend-only verification that Google tag is fully suppressed on the Emergent preview host while leaving the production allowlist intact. Raw-HTML (curl) and real-browser checks on home, /contact, /consulting-9, /careers, /about-us, /admin confirm NO googletagmanager/gtag(/dataLayer/google-ads-tag-* in markup, NO window.gtag, NO script[src*='googletagmanager.com'], and ZERO network requests to any Google Ads/Analytics endpoints during initial load, SPA navigation (nav-contact-cta + footer link), and the full consulting-9 submit flow (POST /api/contacts/submit mocked -> 201 -> c9-success renders). Console shows exactly the expected info line '[google-tag] disabled on blubridge-setup.preview.emergentagent.com (not a production host)' once per load and no errors. Alt host (cluster-12.preview.emergentcf.cloud) returns 403 Forbidden => no Google calls either. Regression passes: pages render (header/hero/footer), /careers/job/data-science-ai-ml-engineer loads with application form, GET /api/form-context -> 200 application/json, /admin login page renders with data-testid=admin-login-submit, CSP header still present. No tracking leakage detected.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "frontend/securityHeaders.js L22,30: tagHosts is lowercased and publicHost is lowercased + port-stripped + first XFH value via .split(',')[0].trim().replace(/:\\d+$/, '') -> matching IS case-insensitive, strips port, uses the first X-Forwarded-Host value. Safe default: when both XFH and Host headers are missing, publicHost = '' -> tagged=false -> tag stripped. OK.",
+    "frontend/securityHeaders.js L54-57: when !tagged, strips <script src=https://www.googletagmanager.com/...> and any inline <script> whose body contains 'gtag(' (regex /gtag\\(/). Verified in curl output on all public routes (0 matches). Admin branch also strips remote scripts (L53) independently.",
+    "frontend/src/analytics/googleTag.js isAllowedHost: lowercases both sides and uses whitespace-split allowlist from REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS; throws early if the env var is undefined (fail-fast). Production hosts 'www.blubridge.com' / 'blubridge.com' are present in the frontend/.env allowlist -> loadGoogleTag() WOULD return true and boot gtag on production. Preview host returns false and logs the info line (observed).",
+    "Minor nit (not a bug): isAllowedHost does not strip a port from window.location.hostname; browsers never put a port in location.hostname, so this is fine. Documenting for completeness.",
+    "Minor nit (not a bug): securityHeaders.js inline-script stripper is a /gtag\\(/ substring match on raw script text; any legitimate non-Google inline script that happens to contain the literal 'gtag(' would also be removed on preview. No such script exists in the current bundle (verified via curl), but worth being aware of if new inline scripts are added."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped per request)", "frontend": "100%"},
+  "seed_data_creation": "None. POST /api/contacts/submit was mocked via Playwright page.route; no live records created.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Google tag gating is working end-to-end on the preview. Raw-HTML stripping (securityHeaders.js) + runtime isAllowedHost (googleTag.js) are both active and independently sufficient. If main agent flips the allowlist later (e.g., re-enabling preview for QA), re-run this iteration's checks: (1) curl 5 routes for googletagmanager/gtag(/dataLayer; (2) browser check typeof window.gtag/dataLayer + zero requests to googletagmanager.com, google-analytics.com, analytics.google.com, googleads.g.doubleclick.net, googleadservices.com, google.com/ccm, /pagead; (3) console contains the single [google-tag] disabled info line. Alt host blubridge-setup.cluster-12.preview.emergentcf.cloud currently returns 403 Forbidden (ingress restriction). Known pre-existing /about-us .au-method-cell mobile overflow intentionally not reported. Mobile viewport toggle after an existing session may not re-render responsive breakpoints in Playwright; use fresh context when needed.",
+  "rca of the issue": "N/A — no issues found. Behavior matches spec: preview host silently suppresses all Google tag loading and emission."
+}
