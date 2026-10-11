@@ -100,3 +100,8 @@ Verify after deploy: open blubridge.com/careers/job/… → Network: `GET https:
   `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS`. Both are set to `"blubridge.com www.blubridge.com"` in frontend/.env.
 - Render Static Site env: add `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS=blubridge.com www.blubridge.com` (required for the module;
   the raw snippet is always in the static HTML, so keep the `*.onrender.com` default URL private / unlinked).
+
+## 2026-10-11 (final) — tag scoped to /consulting
+- No inline snippet in index.html any more (static hosting cannot gate by route). Add to the frontend Static Site env:
+  `REACT_APP_GOOGLE_TAG_ROUTES=/consulting` (space-separated list if more landing pages are wanted later).
+- Server-side `GOOGLE_TAG_ALLOWED_HOSTS` is no longer read; `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS=blubridge.com www.blubridge.com` remains required.
