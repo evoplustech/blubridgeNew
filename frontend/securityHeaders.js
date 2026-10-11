@@ -18,17 +18,12 @@ module.exports = function securityHeaders(app) {
   const assets = requiredOrigins('SECURITY_CSP_ASSET_ORIGINS');
   const googleConnections = requiredOrigins('SECURITY_CSP_GOOGLE_ADS_CONNECT_ORIGINS');
   const googleImages = requiredOrigins('SECURITY_CSP_GOOGLE_ADS_IMAGE_ORIGINS');
-  if (process.env.GOOGLE_TAG_ALLOWED_HOSTS === undefined) throw new Error('Missing configuration: GOOGLE_TAG_ALLOWED_HOSTS');
-  const tagHosts = process.env.GOOGLE_TAG_ALLOWED_HOSTS.toLowerCase().split(/\s+/).filter(Boolean);
   const addDocumentBoundary = documentBoundary();
   app.disable('x-powered-by');
   app.use((req, res, next) => {
     const nonce = crypto.randomBytes(24).toString('base64');
     let admin;
     try { admin = documentBoundary.isAdminPath(req.path); } catch { return res.status(400).send('Invalid request'); }
-    // Google tag only ships on production hosts, so preview/staging traffic never reaches Google Ads.
-    const publicHost = String(req.headers['x-forwarded-host'] || req.headers.host || '').split(',')[0].trim().replace(/:\d+$/, '').toLowerCase();
-    const tagged = !admin && tagHosts.includes(publicHost);
     const directives = [
       "default-src 'self'", `script-src 'self' 'nonce-${nonce}' ${admin ? '' : scripts.join(' ')}`,
       "script-src-attr 'none'", "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -50,12 +45,10 @@ module.exports = function securityHeaders(app) {
     res.send = body => {
       if (typeof body === 'string' && /<!doctype html>|<html[\s>]/i.test(body)) {
         body = addDocumentBoundary(body);
-        if (admin) body = body.replace(/<script\b[^>]*src=["'](?:https?:)?\/\/[^"']+["'][^>]*>\s*<\/script>/gi, '');
-        if (!tagged) {
-          body = body.replace(/<script\b[^>]*src=["']https:\/\/www\.googletagmanager\.com\/[^"']*["'][^>]*>\s*<\/script>/gi, '');
-          body = body.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (tag, script) => /gtag\(/.test(script) ? '' : tag);
+        if (admin) {
+          body = body.replace(/<script\b[^>]*src=["'](?:https?:)?\/\/[^"']+["'][^>]*>\s*<\/script>/gi, '');
+          body = body.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (tag, script) => /posthog\.init/.test(script) ? '' : tag);
         }
-        if (admin) body = body.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (tag, script) => /posthog\.init/.test(script) ? '' : tag);
         body = body.replace(/<script\b(?![^>]*\bnonce=)/gi, `<script nonce="${nonce}"`);
       }
       return originalSend(body);

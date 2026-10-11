@@ -63,31 +63,18 @@ def _google_nonce_values(head: str):
     return values
 
 
-def _expected_tag_count(base_url):
-    from dotenv import dotenv_values
-    from urllib.parse import urlsplit
-    hosts = (dotenv_values("/app/frontend/.env").get("GOOGLE_TAG_ALLOWED_HOSTS") or "").lower().split()
-    return 1 if urlsplit(base_url).hostname.lower() in hosts else 0
-
-
-def test_public_root_has_inline_google_tag_once_with_nonce(client, base_url):
-    # Global <head> snippet (AW) ships once per public document on production hosts only (GOOGLE_TAG_ALLOWED_HOSTS).
+def test_public_root_has_no_inline_google_tag(client, base_url):
+    # Google tag is booted by the app bundle on /consulting only; raw HTML carries no inline snippet on any route.
     response = client.get(urljoin(base_url + "/", "/"), timeout=25)
     assert response.status_code == 200
     csp = response.headers.get("Content-Security-Policy", "")
     assert csp
     head = _head_html(response.text)
     assert head
-
-    expected = _expected_tag_count(base_url)
-    assert _google_loader_count(head) == expected
-    assert _google_config_count(head) == expected
-
-    nonce = _nonce_from_csp(csp)
-    assert nonce
-    nonces = _google_nonce_values(head)
-    assert len(nonces) == 2 * expected
-    assert all(n == nonce for n in nonces)
+    assert _google_loader_count(head) == 0
+    assert _google_config_count(head) == 0
+    assert _google_nonce_values(head) == []
+    assert _nonce_from_csp(csp)
     assert "https://www.googletagmanager.com" in _directive(csp, "script-src")
     assert "https://analytics.google.com" in _directive(csp, "connect-src")
 
@@ -98,8 +85,8 @@ def test_public_route_variants_and_index_redirect(client, base_url):
         res = client.get(urljoin(base_url + "/", route), timeout=25)
         assert res.status_code == (404 if route == "/not-a-real-page" else 200)
         head = _head_html(res.text)
-        assert _google_loader_count(head) == _expected_tag_count(base_url)
-        assert _google_config_count(head) == _expected_tag_count(base_url)
+        assert _google_loader_count(head) == 0
+        assert _google_config_count(head) == 0
 
     idx = client.get(urljoin(base_url + "/", "/index.html"), allow_redirects=False, timeout=25)
     assert idx.status_code == 308

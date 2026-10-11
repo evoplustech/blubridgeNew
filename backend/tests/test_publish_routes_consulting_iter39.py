@@ -306,45 +306,24 @@ def test_robots_disallow_admin_and_reference_sitemap(client):
     assert "Sitemap: https://blubridge.com/sitemap.xml" in body
 
 
-def _tag_expected_here():
-    from dotenv import dotenv_values
-    from urllib.parse import urlsplit
-    hosts = (dotenv_values("/app/frontend/.env").get("GOOGLE_TAG_ALLOWED_HOSTS") or "").lower().split()
-    return urlsplit(BASE_URL).hostname.lower() in hosts
-
-
-def test_google_tag_inline_once_on_public_and_absent_on_admin(client):
-    # Global <head> snippet (AW) ships only on production hosts (GOOGLE_TAG_ALLOWED_HOSTS); admin documents are always untagged.
-    expected = 1 if _tag_expected_here() else 0
-    for path in ["/", "/consulting", "/contact"]:
+def test_google_tag_absent_from_raw_html_on_public_and_admin(client):
+    # The Google tag is booted by the app bundle on /consulting only (REACT_APP_GOOGLE_TAG_ROUTES); raw HTML never carries it.
+    for path in ["/", "/consulting", "/contact", "/admin", "/admin/dashboard", "/Admin", "/%61dmin"]:
         html = _html_without_cf_challenge(client, path)
         assert "<head" in html.lower(), f"Missing head on {path}"
-        assert html.count(f"googletagmanager.com/gtag/js?id={GOOGLE_ADS_ID}") == expected
-        assert len(re.findall(r"gtag\('config',\s*['\"]AW-18460200148['\"]\)", html)) == expected
-        config_open_tag = re.search(r'<script[^>]*data-testid="google-ads-tag-config"[^>]*>', html)
-        assert (config_open_tag is not None) == bool(expected)
-        if expected:
-            assert 'nonce="' in config_open_tag.group(0)
-
-    for path in ["/admin", "/admin/dashboard", "/Admin", "/%61dmin"]:
-        html = _html_without_cf_challenge(client, path)
         assert "googletagmanager.com/gtag/js" not in html
         assert "gtag('config'" not in html
         assert "window.dataLayer" not in html
 
 
-def test_boundary_script_precedes_google_script_in_public_head(client):
+def test_boundary_script_present_in_public_head(client):
     response = _get_html(client, "/")
     assert response.status_code == 200
     html = response.text
     boundary_idx = html.find('data-testid="admin-document-boundary"')
-    google_idx = html.find('data-testid="google-ads-tag-script"')
     assert boundary_idx != -1
-    if _tag_expected_here():
-        assert google_idx != -1
-        assert boundary_idx < google_idx < html.lower().find("</head>")
-    else:
-        assert google_idx == -1
+    assert boundary_idx < html.lower().find("</head>")
+    assert 'data-testid="google-ads-tag-script"' not in html
 
 
 def test_csp_public_vs_admin_google_scope(client):
