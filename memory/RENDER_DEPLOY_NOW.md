@@ -93,3 +93,10 @@ Frontend Static Site env vars (build-time, then "Clear build cache & deploy"):
 - `REACT_APP_GOOGLE_ADS_CONVERSION_LABEL=<label after the slash in AW-18460200148/…>` (optional; enables the `conversion` event)
 Without `REACT_APP_GOOGLE_TAG_ID` the console shows `[google-tag] not loaded: REACT_APP_GOOGLE_TAG_ID is required` and no tag fires.
 Verify after deploy: open blubridge.com/careers/job/… → Network: `GET https://blubridgebackend.onrender.com/api/form-context` → 200 JSON.
+
+## 2026-10-11 — production-host gating for the Google tag (no preview hits in Google Ads)
+- `public/index.html` carries the global AW snippet; the Express server (preview / Node hosting) strips it unless the
+  request's public host is in `GOOGLE_TAG_ALLOWED_HOSTS`; the bundle module only runs when `location.hostname` is in
+  `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS`. Both are set to `"blubridge.com www.blubridge.com"` in frontend/.env.
+- Render Static Site env: add `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS=blubridge.com www.blubridge.com` (required for the module;
+  the raw snippet is always in the static HTML, so keep the `*.onrender.com` default URL private / unlinked).

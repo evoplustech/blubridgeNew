@@ -9,6 +9,13 @@ export const isAdminPath = pathname => {
 export const configuredTagIds = () =>
   [process.env.REACT_APP_GOOGLE_TAG_ID, process.env.REACT_APP_GOOGLE_ADS_TAG_ID].filter(Boolean);
 
+// Production host allowlist (space-separated); preview/staging hosts never send hits to Google.
+export const isAllowedHost = hostname => {
+  const allowed = process.env.REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS;
+  if (allowed === undefined) throw new Error('REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS is required');
+  return allowed.toLowerCase().split(/\s+/).filter(Boolean).includes(hostname.toLowerCase());
+};
+
 function gtag() { window.dataLayer.push(arguments); }
 
 // Destinations already configured by the global <head> snippet (public/index.html).
@@ -27,6 +34,10 @@ export function loadGoogleTag() {
   if (window[LOADED]) return true;
   if (isAdminPath(window.location.pathname)) return false;
   try {
+    if (!isAllowedHost(window.location.hostname)) {
+      console.info(`[google-tag] disabled on ${window.location.hostname} (not a production host)`);
+      return false;
+    }
     const envIds = configuredTagIds();
     const invalid = envIds.find(id => !TAG_ID.test(id));
     if (invalid) throw new Error(`Invalid Google tag id: ${invalid}`);
