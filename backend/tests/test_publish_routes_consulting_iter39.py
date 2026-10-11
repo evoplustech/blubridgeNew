@@ -306,24 +306,33 @@ def test_robots_disallow_admin_and_reference_sitemap(client):
     assert "Sitemap: https://blubridge.com/sitemap.xml" in body
 
 
-def test_google_tag_absent_from_raw_html_on_public_and_admin(client):
-    # The Google tag is booted natively by the app bundle (src/analytics), never as an inline snippet in the HTML template.
-    for path in ["/", "/consulting", "/contact", "/admin", "/admin/dashboard", "/Admin", "/%61dmin"]:
+def test_google_tag_inline_once_on_public_and_absent_on_admin(client):
+    # Global <head> snippet (AW) is served once on public pages with a CSP nonce; admin documents are untagged.
+    for path in ["/", "/consulting", "/contact"]:
         html = _html_without_cf_challenge(client, path)
         assert "<head" in html.lower(), f"Missing head on {path}"
+        assert html.count(f"googletagmanager.com/gtag/js?id={GOOGLE_ADS_ID}") == 1
+        assert len(re.findall(r"gtag\('config',\s*['\"]AW-18460200148['\"]\)", html)) == 1
+        config_open_tag = re.search(r'<script[^>]*data-testid="google-ads-tag-config"[^>]*>', html)
+        assert config_open_tag is not None
+        assert 'nonce="' in config_open_tag.group(0)
+
+    for path in ["/admin", "/admin/dashboard", "/Admin", "/%61dmin"]:
+        html = _html_without_cf_challenge(client, path)
         assert "googletagmanager.com/gtag/js" not in html
         assert "gtag('config'" not in html
         assert "window.dataLayer" not in html
-        assert 'data-testid="google-ads-tag-' not in html
 
 
-def test_boundary_script_present_in_public_head(client):
+def test_boundary_script_precedes_google_script_in_public_head(client):
     response = _get_html(client, "/")
     assert response.status_code == 200
     html = response.text
     boundary_idx = html.find('data-testid="admin-document-boundary"')
+    google_idx = html.find('data-testid="google-ads-tag-script"')
     assert boundary_idx != -1
-    assert boundary_idx < html.lower().find("</head>")
+    assert google_idx != -1
+    assert boundary_idx < google_idx < html.lower().find("</head>")
 
 
 def test_csp_public_vs_admin_google_scope(client):

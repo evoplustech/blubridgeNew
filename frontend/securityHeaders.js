@@ -47,7 +47,7 @@ module.exports = function securityHeaders(app) {
         body = addDocumentBoundary(body);
         if (admin) {
           body = body.replace(/<script\b[^>]*src=["'](?:https?:)?\/\/[^"']+["'][^>]*>\s*<\/script>/gi, '');
-          body = body.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (tag, script) => /posthog\.init/.test(script) ? '' : tag);
+          body = body.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (tag, script) => /posthog\.init|gtag\(/.test(script) ? '' : tag);
         }
         body = body.replace(/<script\b(?![^>]*\bnonce=)/gi, `<script nonce="${nonce}"`);
       }

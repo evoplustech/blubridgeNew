@@ -63,8 +63,8 @@ def _google_nonce_values(head: str):
     return values
 
 
-def test_public_root_has_no_inline_google_tag_and_nonced_scripts(client, base_url):
-    # Google tag is booted by the app bundle at runtime (src/analytics); raw HTML carries no inline snippet.
+def test_public_root_has_inline_google_tag_once_with_nonce(client, base_url):
+    # Global <head> snippet (AW) once per public document; GT-PLHLCK7D is configured by the app bundle at runtime.
     response = client.get(urljoin(base_url + "/", "/"), timeout=25)
     assert response.status_code == 200
     csp = response.headers.get("Content-Security-Policy", "")
@@ -72,12 +72,14 @@ def test_public_root_has_no_inline_google_tag_and_nonced_scripts(client, base_ur
     head = _head_html(response.text)
     assert head
 
-    assert _google_loader_count(head) == 0
-    assert _google_config_count(head) == 0
-    assert _google_nonce_values(head) == []
+    assert _google_loader_count(head) == 1
+    assert _google_config_count(head) == 1
 
     nonce = _nonce_from_csp(csp)
     assert nonce
+    nonces = _google_nonce_values(head)
+    assert len(nonces) == 2
+    assert all(n == nonce for n in nonces)
     assert "https://www.googletagmanager.com" in _directive(csp, "script-src")
     assert "https://analytics.google.com" in _directive(csp, "connect-src")
 
@@ -88,8 +90,8 @@ def test_public_route_variants_and_index_redirect(client, base_url):
         res = client.get(urljoin(base_url + "/", route), timeout=25)
         assert res.status_code == (404 if route == "/not-a-real-page" else 200)
         head = _head_html(res.text)
-        assert _google_loader_count(head) == 0
-        assert _google_config_count(head) == 0
+        assert _google_loader_count(head) == 1
+        assert _google_config_count(head) == 1
 
     idx = client.get(urljoin(base_url + "/", "/index.html"), allow_redirects=False, timeout=25)
     assert idx.status_code == 308
