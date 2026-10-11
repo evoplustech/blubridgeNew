@@ -1,0 +1,72 @@
+{
+  "summary": "Verified global inline Google Ads tag (AW-18460200148) integration with native analytics module cooperating via existing loader. Raw-HTML (curl) checks on /, /consulting, /contact, /careers and admin isolation on /admin, /admin/dashboard all pass. Live-browser DOM/dataLayer/network checks on home, SPA nav (/contact via CTA, /about-us, /careers via pushState), click rules (outbound LinkedIn, mailto, plain internal privacy), generate_lead on /consulting-9 (POST /api/contacts/submit mocked via page.route) and admin isolation at /admin all pass with no console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verifications": {
+    "raw_html_public_routes": {
+      "paths": ["/", "/consulting", "/contact", "/careers"],
+      "loader_count_each": 1,
+      "config_script_count_each": 1,
+      "data_testid_google_ads_tag_script_present": true,
+      "data_testid_google_ads_tag_config_present": true,
+      "nonce_matches_csp_header": true
+    },
+    "raw_html_admin_routes": {
+      "paths": ["/admin", "/admin/dashboard"],
+      "googletagmanager_hits": 0,
+      "gtag_calls_hits": 0,
+      "dataLayer_hits": 0
+    },
+    "browser_home_state": {
+      "typeof_window_gtag": "function",
+      "loader_scripts_count": 1,
+      "data_testid_google_tag_script_count": 0,
+      "configs": [["config", "AW-18460200148"], ["config", "GT-PLHLCK7D", {"send_page_view": false}]],
+      "first_page_view": {"page_path": "/", "send_to": ["GT-PLHLCK7D"]}
+    },
+    "spa_navigation": {
+      "nav_contact_cta_click": {"page_view_page_path": "/contact", "has_send_to": false, "click_event_link_type": "cta", "loader_count_after": 1},
+      "about_us": {"page_view_page_path": "/about-us", "has_send_to": false, "loader_count_after": 1},
+      "careers": {"page_view_page_path": "/careers", "has_send_to": false, "loader_count_after": 1}
+    },
+    "click_rules": {
+      "linkedin_outbound": {"link_type": "outbound", "outbound": true},
+      "mailto": {"link_type": "email"},
+      "internal_privacy_plain_link": "no click event emitted"
+    },
+    "generate_lead": {
+      "endpoint_mocked": "POST **/api/contacts/submit -> 201 {id:mock,status:new}",
+      "event": {"form_name": "contact", "page_path": "/consulting-9"},
+      "conversion_event_present": false
+    },
+    "admin_isolation_browser": {
+      "typeof_window_gtag": "undefined",
+      "typeof_window_dataLayer": "undefined",
+      "googletagmanager_scripts": 0,
+      "admin_login_submit_visible": true
+    },
+    "network": {
+      "gtag_js_AW_200": true,
+      "GT_destination_200": "https://www.googletagmanager.com/gtag/destination?id=GT-PLHLCK7D 200",
+      "google_ads_collection_hits": "googleads.g.doubleclick.net/pagead/viewthroughconversion + www.google.com/ccm/collect observed"
+    },
+    "regression": {
+      "/careers/job/data-science-ai-ml-engineer": "HTTP 200",
+      "/api/form-context": "HTTP 200 application/json"
+    },
+    "console_errors": "none related to analytics/CSP; one unrelated 401 on admin session probe when visiting /admin unauthenticated (expected)"
+  },
+  "test_report_links": ["/app/test_reports/iteration_49.json"],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped)", "frontend": "100%"},
+  "seed_data_creation": "none; POST /api/contacts/submit was Playwright-route-mocked, no live DB writes",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Inline Google Ads tag (AW-18460200148) is correctly in <head> of index.html with data-testid='google-ads-tag-script' + 'google-ads-tag-config' and nonce matching CSP header per request. Native analytics module reuses the existing loader (no second googletagmanager script), configures only GT-PLHLCK7D with send_page_view:false, and sends the FIRST page_view with send_to:['GT-PLHLCK7D']; subsequent SPA page_views omit send_to. Admin routes are completely stripped of gtag/dataLayer. Mock POST /api/contacts/submit via page.route when testing generate_lead; never submit live. REACT_APP_GOOGLE_ADS_CONVERSION_LABEL is empty so no 'conversion' event is expected."
+}
