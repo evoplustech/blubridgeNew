@@ -32,8 +32,15 @@ function loaderUrl(tagId) {
 }
 
 // Idempotent: boots gtag.js once per document, the first time a tracked route is shown. Misconfiguration is logged, never thrown.
+// True when the document source already carries the tag (see frontend/googleTagSnippet.js).
+export const hasInlineTag = () => Boolean(window.__bbGoogleTagInline);
+
 export function loadGoogleTag() {
   if (window[LOADED]) return true;
+  if (hasInlineTag()) {
+    window[LOADED] = window.__bbGoogleTagInline;
+    return true;
+  }
   try {
     if (!isAllowedHost(window.location.hostname)) {
       console.info(`[google-tag] disabled on ${window.location.hostname} (not a production host)`);

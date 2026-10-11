@@ -63,6 +63,18 @@ def _google_nonce_values(head: str):
     return values
 
 
+def test_consulting_has_inline_google_tag_with_nonce(client, base_url):
+    # /consulting is the only route whose document source carries the snippet; Express nonces both scripts.
+    response = client.get(urljoin(base_url + "/", "/consulting"), timeout=25)
+    assert response.status_code == 200
+    head = _head_html(response.text)
+    assert _google_loader_count(head) == 1
+    assert _google_config_count(head) == 1
+    nonce = _nonce_from_csp(response.headers.get("Content-Security-Policy", ""))
+    assert nonce
+    assert _google_nonce_values(head) == [nonce, nonce]
+
+
 def test_public_root_has_no_inline_google_tag(client, base_url):
     # Google tag is booted by the app bundle on /consulting only; raw HTML carries no inline snippet on any route.
     response = client.get(urljoin(base_url + "/", "/"), timeout=25)

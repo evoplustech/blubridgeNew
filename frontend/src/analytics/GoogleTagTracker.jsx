@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { conversionSendTo, isTrackedPath, loadGoogleTag, trackEvent, trackPageView } from './googleTag';
+import { conversionSendTo, hasInlineTag, isTrackedPath, loadGoogleTag, trackEvent, trackPageView } from './googleTag';
 import { describeClick } from './clickTracking';
 import { describeFormSuccess } from './leadTracking';
 import { FORM_SUCCESS_EVENT } from '../security/formTransport';
@@ -31,7 +31,8 @@ export const GoogleTagTracker = () => {
   }, [tracked]);
 
   useEffect(() => {
-    if (!tracked) return undefined;
+    // The in-source snippet already sends the page view for its own document.
+    if (!tracked || hasInlineTag()) return undefined;
     // Deferred so route components have applied their document titles first.
     const timer = window.setTimeout(() => trackPageView({ pathname, search }), 0);
     return () => window.clearTimeout(timer);

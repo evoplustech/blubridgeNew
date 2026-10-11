@@ -407,3 +407,28 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - Because the Render static site serves the same index.html for every route, the raw snippet cannot be route-gated → removed from `public/index.html`; the bundle module is the single source of truth. `googleTag.js`: `isTrackedPath()` from `REACT_APP_GOOGLE_TAG_ROUTES="/consulting"` (exact path, trailing-slash/case-insensitive, admin never), `isAllowedHost()` from `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS`; loader injected (`gtag/js?id=GT-PLHLCK7D`, testid `google-tag-script`) and both ids configured with `send_page_view:false` the first time /consulting is shown. `GoogleTagTracker` attaches click/lead listeners and sends `page_view` only while on a tracked route; leaving the route detaches them (gtag stays loaded but silent). Inline-cooperation logic and the server-side host gate (`GOOGLE_TAG_ALLOWED_HOSTS`) removed as no longer needed.
 - Tests: iter38/iter39 back to "no inline tag in raw HTML"; `verify_published_navigation.py` host/route-aware. Verified `test_reports/iteration_51.json` 100% with preview temporarily allow-listed and ALL Google requests aborted (no hits reached Ads): untracked pages have no gtag/dataLayer; /consulting boots once with both configs + page_view; clicks/leads only on /consulting; no page_view/click/lead after leaving; admin untagged. Allowlist then locked to production and rebuilt (preview /consulting: gtag undefined, zero Google requests).
 - Render env (frontend Static Site): `REACT_APP_GOOGLE_TAG_ROUTES=/consulting` in addition to the previously listed REACT_APP_GOOGLE_* vars and `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS=blubridge.com www.blubridge.com`. Note: Google Ads "Check installation" static detection won't see a raw snippet; the tag is present in the rendered DOM of blubridge.com/consulting.
+
+## Update — 2026-10-11 (fix): Google tag now in the /consulting HTML SOURCE (Ads "source code not detected")
+- Problem: the tag was booted by the React bundle, so `view-source:` / Google Ads source detection found nothing on
+  blubridge.com/consulting (live source confirmed: 0 occurrences of AW-18460200148 anywhere).
+- New module `frontend/googleTagSnippet.js` renders the canonical snippet (loader `gtag/js?id=AW-18460200148` +
+  `gtag('js')` + `gtag('config','AW-18460200148')` + `gtag('config','GT-PLHLCK7D')`, testids `google-tag-script` /
+  `google-tag-config`) and injects it into `<head>` for `REACT_APP_GOOGLE_TAG_ROUTES` (= `/consulting`) only; admin and
+  every other route are untouched. Used by `server.js` (preview/Node render path) and by the new post-build script.
+- `frontend/scripts/emit-route-html.js` (npm `postbuild`) writes `build/consulting/index.html` + `build/consulting.html`
+  with the snippet, so the Render Static Site serves the tag in the source of /consulting only (Render serves an
+  existing file before the SPA rewrite). `express.static` for build now uses `redirect:false` so /consulting keeps its URL.
+- Preview isolation: `window['ga-disable-<ID>']` was tested and DOES NOT stop Google Ads — a preview page_view reached
+  google.com/ccm. Final design gates the `gtag('config')` calls by `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS`
+  (blubridge.com / www.blubridge.com) inside the snippet: non-production hosts fetch gtag.js but configure nothing, so
+  zero Ads/Analytics hits (verified: only `googletagmanager.com/gtag/js` requested on preview, dataLayer has no config).
+- `googleTag.js` gained `hasInlineTag()`: when the in-source snippet configured the tag the bundle reuses it (one loader,
+  no duplicate page_view) and still handles CTA/outbound clicks + `generate_lead`; otherwise the old module path applies.
+- Verified: preview `/consulting` raw HTML has the snippet, `/`, `/contact`, `/careers`, `/consulting-9`, `/admin` have 0;
+  production host simulated in-browser → `dataLayer` = js + config AW + config GT, `__bbGoogleTagInline` set;
+  pytest iter38/iter39 updated and passing (8 passed).
+- Render (frontend Static Site) env must include `REACT_APP_GOOGLE_TAG_ROUTES=/consulting`,
+  `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS=blubridge.com www.blubridge.com`, `REACT_APP_GOOGLE_ADS_TAG_ID`,
+  `REACT_APP_GOOGLE_TAG_ID`, `REACT_APP_GOOGLE_TAG_SCRIPT_URL`. Build command must run `npm run build`/`yarn build`
+  (postbuild writes the route document). After deploy verify:
+  `curl -s https://blubridge.com/consulting | grep -c AW-18460200148` → 3, and `curl -s https://blubridge.com/ | grep -c AW-18460200148` → 0.

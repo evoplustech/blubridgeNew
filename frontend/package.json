@@ -71,6 +71,7 @@
     "start": "node server.js",
     "start:dev": "craco start",
     "build": "craco build",
+    "postbuild": "node scripts/emit-route-html.js",
     "test": "craco test",
     "postinstall": "node scripts/ensure-build-deps.js",
     "prebuild": "node scripts/ensure-build-deps.js"

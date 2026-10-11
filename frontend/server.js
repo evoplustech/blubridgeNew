@@ -4,6 +4,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 require('dotenv').config({ path: path.join(__dirname, '.env'), quiet: true });
 const securityHeaders = require('./securityHeaders');
+const injectGoogleTag = require('./googleTagSnippet');
 const { getPageAccess, publicPaths } = require('./src/routing/pageAccess');
 
 const app = express();
@@ -1272,7 +1273,8 @@ require('./pagePublishing')(app);
 // Render the HTML entry through the same nonce/tag pipeline as public routes.
 app.get('/index.html', (req, res) => res.redirect(308, '/'));
 app.use(express.static(path.join(__dirname, 'build'), {
-  index: false, dotfiles: 'deny'
+  // redirect:false — tagged routes have a build/<route>/index.html document; never bounce /consulting to /consulting/.
+  index: false, dotfiles: 'deny', redirect: false
 }));
 
 // Fallback: also serve raw public assets (images, favicons, etc.)
@@ -1343,6 +1345,7 @@ app.get('/{*splat}', (req, res) => {
           '<div id="root">',
           `<div id="root">${seoHtml}`
         );
+        modifiedHtml = injectGoogleTag(modifiedHtml, req.path);
         res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         return res.send(modifiedHtml);
       } catch (rebuildErr) {
@@ -1376,6 +1379,9 @@ app.get('/{*splat}', (req, res) => {
       '<div id="root">',
       `<div id="root">${seoHtml}`
     );
+
+    // Google tag lives in the document source, on the tagged routes and production hosts only.
+    modifiedHtml = injectGoogleTag(modifiedHtml, req.path);
 
     // Inject live reload script before </body>
     // Do not expose an unauthenticated development polling endpoint.

@@ -105,3 +105,15 @@ Verify after deploy: open blubridge.com/careers/job/… → Network: `GET https:
 - No inline snippet in index.html any more (static hosting cannot gate by route). Add to the frontend Static Site env:
   `REACT_APP_GOOGLE_TAG_ROUTES=/consulting` (space-separated list if more landing pages are wanted later).
 - Server-side `GOOGLE_TAG_ALLOWED_HOSTS` is no longer read; `REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS=blubridge.com www.blubridge.com` remains required.
+
+## 2026-10-11 (fix) — tag must be in the page SOURCE of /consulting
+- Build writes `build/consulting/index.html` and `build/consulting.html` containing the canonical AW snippet
+  (postbuild: `node scripts/emit-route-html.js`). Render serves existing files before the `/*` → `/index.html` rewrite,
+  so /consulting gets the tagged document and all other routes keep the untagged index.html.
+- Required frontend Static Site env (build-time): REACT_APP_GOOGLE_TAG_ROUTES=/consulting,
+  REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS="blubridge.com www.blubridge.com", REACT_APP_GOOGLE_ADS_TAG_ID=AW-18460200148,
+  REACT_APP_GOOGLE_TAG_ID=GT-PLHLCK7D, REACT_APP_GOOGLE_TAG_SCRIPT_URL=https://www.googletagmanager.com/gtag/js
+  (missing REACT_APP_GOOGLE_TAG_ROUTES only logs and writes no route document — the build still succeeds).
+- Verify after deploy: `curl -s https://blubridge.com/consulting | grep -c AW-18460200148` → 3 ; `/` and `/admin` → 0.
+- Note: the snippet's gtag('config') calls are host-gated, so the *.onrender.com and preview URLs load gtag.js but send
+  no data (ga-disable does NOT work for Google Ads — measured).
