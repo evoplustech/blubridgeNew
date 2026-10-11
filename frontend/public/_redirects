@@ -1,3 +1,8 @@
+# /consulting has its own pre-rendered document (contains the Google Ads tag in the HTML source).
+# Render's catch-all SPA rewrite answers the extensionless path, so point it at the tagged file explicitly.
+/consulting   /consulting/index.html   200
+
+
 /hiring     https://www.blubridge.ai/hiring     301
 /hiring/*   https://www.blubridge.ai/hiring/:splat  301
 

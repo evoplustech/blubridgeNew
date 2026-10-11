@@ -117,3 +117,20 @@ Verify after deploy: open blubridge.com/careers/job/… → Network: `GET https:
 - Verify after deploy: `curl -s https://blubridge.com/consulting | grep -c AW-18460200148` → 3 ; `/` and `/admin` → 0.
 - Note: the snippet's gtag('config') calls are host-gated, so the *.onrender.com and preview URLs load gtag.js but send
   no data (ga-disable does NOT work for Google Ads — measured).
+
+## 2026-10-11 (diagnosis) — live /consulting had no tag, /consulting/ did
+Live evidence after the user's Render deploy (last-modified 11:51 UTC):
+- `curl -sL https://blubridge.com/consulting`        -> AW-18460200148 x0  (md5 identical to `/` = generic index.html)
+- `curl -sL https://blubridge.com/consulting/`       -> x3  (tagged document)
+- `curl -sL https://blubridge.com/consulting.html`   -> x3
+- `curl -sL https://blubridge.com/consulting/index.html` -> x3
+- `/`, `/contact`, `/careers`, `/admin` -> x0
+Root cause: the build artifacts and Render env vars were correct; Render's catch-all SPA rewrite answers the
+EXTENSIONLESS path `/consulting` (that exact path is not a file, and Render does not try `consulting.html` or
+`consulting/index.html` before the rewrite), so the untagged `index.html` was returned.
+Fix (minimal): `frontend/public/_redirects` now starts with `/consulting   /consulting/index.html   200`.
+`_redirects` is proven to work on this site (the /hiring and /hrms 301s are live). If the dashboard catch-all rule
+still wins after the next deploy, add a Render dashboard Rewrite: source `/consulting`,
+destination `/consulting/index.html`, placed ABOVE the `/*` -> `/index.html` rule.
+Interim zero-deploy option: point the Google Ads final URL at `https://blubridge.com/consulting/` (already tagged live).
+Build command stays `... && npm run build` (postbuild writes the route documents); publish dir `frontend/build`.
