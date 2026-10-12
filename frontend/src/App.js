@@ -70,7 +70,7 @@ const AppLayout = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
   const isHome = location.pathname === '/';
-  const pageAccess = getPageAccess(location.pathname);
+  const pageAccess = getPageAccess(location.pathname, window.location.hostname);
 
   return (
     <>

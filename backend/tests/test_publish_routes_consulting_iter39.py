@@ -193,7 +193,7 @@ def test_cors_preflight_uses_credentials_with_explicit_origin(client):
 def test_public_inventory_routes_return_200_not_home_fallback(client):
     pages = __import__("json").loads((FRONTEND_ROOT / "src/routing/publishedPages.json").read_text())
     public_paths = [path for values in pages["public"].values() for path in values]
-    assert len(public_paths) == 46
+    assert len(public_paths) == 41
 
     home_marker = "<h1>Beyond the Horizon</h1>"
     home_title = "Frontier AI Research and Enterprise Solutions | Blubridge"
@@ -273,16 +273,18 @@ def test_excluded_and_unknown_routes_are_404_with_noindex(client):
         assert response.headers.get("location") is None
 
 
-def test_sitemap_has_exact_46_public_urls_and_expected_exclusions(client):
+def test_sitemap_has_exact_22_indexable_urls_and_expected_exclusions(client):
     response = _get_html(client, "/sitemap.xml")
     assert response.status_code == 200
     assert "xml" in response.headers.get("content-type", "").lower()
 
     locs = re.findall(r"<loc>([^<]+)</loc>", response.text)
-    assert len(locs) == 46
-    assert len(set(locs)) == 46
+    assert len(locs) == 22
+    assert len(set(locs)) == 22
     assert all(loc.startswith("https://blubridge.com") for loc in locs)
     assert "https://blubridge.com/consulting" in locs
+    # Consulting variants are internal-only: never indexed, hidden on the live domain.
+    assert not [loc for loc in locs if "/consulting-" in loc]
 
     excluded = [
         "https://blubridge.com/ai-consulting",

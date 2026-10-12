@@ -1309,6 +1309,12 @@ Object.entries(faviconFiles).forEach(([route, { file, type }]) => {
   });
 });
 
+// Public host as seen by the browser: the preview ingress rewrites Host and forwards the real one.
+function publicHost(req) {
+  const forwarded = (req.headers['x-forwarded-host'] || '').split(',')[0].trim();
+  return (forwarded || req.hostname || '').replace(/:\d+$/, '').toLowerCase();
+}
+
 // Handle all routes
 app.get('/{*splat}', (req, res) => {
   // Check if it's a static file request
@@ -1316,7 +1322,7 @@ app.get('/{*splat}', (req, res) => {
   if (staticPath) {
     return res.sendFile(staticPath);
   }
-  const unavailable = getPageAccess(req.path) === 'not-found';
+  const unavailable = getPageAccess(req.path, publicHost(req)) === 'not-found';
   if (unavailable) res.status(404).setHeader('X-Robots-Tag', 'noindex');
 
   // Read the index.html

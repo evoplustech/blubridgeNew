@@ -432,3 +432,20 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
   `REACT_APP_GOOGLE_TAG_ID`, `REACT_APP_GOOGLE_TAG_SCRIPT_URL`. Build command must run `npm run build`/`yarn build`
   (postbuild writes the route document). After deploy verify:
   `curl -s https://blubridge.com/consulting | grep -c AW-18460200148` → 3, and `curl -s https://blubridge.com/ | grep -c AW-18460200148` → 0.
+
+## Update — 2026-10-12: consulting variants hidden on the live domain, kept in preview
+- User: "In consulting landing page only move the /consulting, other consulting pages hide on it in live... Not remove, keep it in local".
+- `src/routing/publishedPages.json` gained an `internalOnly` list (`/consulting-1` … `/consulting-19`). `pageAccess.js`
+  now takes a hostname: an internal-only path resolves to `not-found` unless the host is in
+  `REACT_APP_INTERNAL_PREVIEW_HOSTS` (fails CLOSED — unknown/missing host ⇒ hidden). `App.js` passes
+  `window.location.hostname`; `server.js` passes `publicHost(req)` (first `X-Forwarded-Host`, else Host, port stripped)
+  because the preview ingress rewrites Host.
+- `pagePublishing.js` sitemap now uses `indexablePaths` (public minus internal-only) → 22 URLs, no `/consulting-*`.
+- Routes, components, content, forms and `/consulting` itself are untouched; nothing was deleted.
+- `frontend/.env`: `REACT_APP_INTERNAL_PREVIEW_HOSTS="blubridge-setup.preview.emergentagent.com blubridge-setup.cluster-0.preview.emergentcf.cloud localhost 127.0.0.1"`.
+  Do NOT set this variable on Render — its absence is what hides the variants on blubridge.com.
+- Verified: preview `/consulting-1`, `/consulting-4`, `/consulting-9`, `/consulting-13`, `/consulting-19` render fully;
+  with the host simulated as blubridge.com (requests proxied to the preview build) `/consulting-1` and `/consulting-9`
+  render "404 Page not found" while `/consulting` renders normally. pytest iter38/iter39: 16 passed
+  (only the pre-existing `test_admin_cookie_http_only_and_secure_flags` fails — ADMIN_USERNAME/ADMIN_PASSWORD are absent
+  from backend/.env in this environment). Stale counts in iter39 (46 → 41 public paths, sitemap 46 → 22) corrected.
