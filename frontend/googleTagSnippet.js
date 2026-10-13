@@ -1,7 +1,7 @@
-// Builds the Google tag snippet that ships inside the HTML source of the tracked landing routes.
-// It must live in the document source (not be injected by the bundle) so Google Ads tag detection and
-// "View page source" find it. The snippet is served only for the tagged routes and only for production
-// hosts: `ga-disable-<ID>` does NOT stop Google Ads pings, so a preview host must never receive the tag.
+// Builds the Google tag (gtag.js) snippet that ships inside the HTML <head> source of the site.
+// It must live in the document source (not be injected by the bundle) so Google Ads / Tag Assistant
+// detection and "View page source" find it. Admin pages never configure the tag: the Express renderer
+// skips them entirely, and the statically hosted document guards on the path at runtime.
 
 const envValue = name => {
   const value = process.env[name];
@@ -13,18 +13,13 @@ const envList = name => envValue(name).toLowerCase().split(/\s+/).filter(Boolean
 
 const normalizePath = pathname => pathname.replace(/\/+$/, '').toLowerCase() || '/';
 
+// Routes that also get their own pre-rendered document (see scripts/emit-route-html.js).
 const taggedRoutes = () => envList('REACT_APP_GOOGLE_TAG_ROUTES').map(normalizePath);
 
-const allowedHosts = () => envList('REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS');
-
-const isTaggedPath = pathname => {
-  let decoded;
-  try { decoded = decodeURIComponent(pathname.split('?')[0].split('#')[0]); } catch { return false; }
-  if (/^\/admin(?:\/|$)/i.test(decoded)) return false;
-  return taggedRoutes().includes(normalizePath(decoded));
+const isAdminPath = pathname => {
+  try { return /^\/admin(?:\/|$)/i.test(decodeURIComponent(pathname.split('?')[0].split('#')[0])); }
+  catch { return true; }
 };
-
-const isAllowedHost = hostname => allowedHosts().includes(String(hostname).toLowerCase());
 
 function googleTagSnippet() {
   const adsId = envValue('REACT_APP_GOOGLE_ADS_TAG_ID');
@@ -32,32 +27,31 @@ function googleTagSnippet() {
   const loader = new URL(envValue('REACT_APP_GOOGLE_TAG_SCRIPT_URL'));
   if (loader.protocol !== 'https:') throw new Error('REACT_APP_GOOGLE_TAG_SCRIPT_URL must use HTTPS');
   loader.searchParams.set('id', adsId);
-  const hosts = JSON.stringify(allowedHosts());
-  // gtag.js on its own sends nothing: the gtag('config') calls trigger the Google Ads pings, so gating
-  // them by host keeps the snippet visible in the source while preview/staging hosts report no data.
+  // gtag.js on its own sends nothing: the gtag('config') calls trigger the hits, so guarding them keeps
+  // admin pages free of tracking even when the host serves them the same static document.
   return `<!-- Google tag (gtag.js) -->
 <script async src="${loader.href}" data-testid="google-tag-script"></script>
 <script data-testid="google-tag-config">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  if (${hosts}.indexOf(location.hostname.toLowerCase()) !== -1) {
+  if (!/^\\/admin(?:\\/|$)/i.test(location.pathname)) {
     gtag('js', new Date());
 ${tagIds.map(id => `    gtag('config', '${id}');`).join('\n')}
     window.__bbGoogleTagInline = { tagIds: ${JSON.stringify(tagIds)} };
-  } else {
-    console.info('[google-tag] measurement disabled on ' + location.hostname + ' (not a production host)');
   }
 </script>`;
 }
 
-// Returns html untouched for untagged routes. The snippet ships on every host; only production hosts configure it.
+const SNIPPET_BLOCK = /\n?<!-- Google tag \(gtag\.js\) -->[\s\S]*?<script data-testid="google-tag-config">[\s\S]*?<\/script>/;
+
+// Adds the snippet to every non-admin document, once; strips it from admin documents.
 module.exports = function injectGoogleTag(html, pathname) {
-  if (!isTaggedPath(pathname)) return html;
+  if (isAdminPath(pathname)) return html.replace(SNIPPET_BLOCK, '');
+  if (html.includes('data-testid="google-tag-config"')) return html;
   const snippet = googleTagSnippet();
   return html.replace(/<head\b[^>]*>/i, match => `${match}\n${snippet}`);
 };
 
-module.exports.isTaggedPath = isTaggedPath;
-module.exports.isAllowedHost = isAllowedHost;
+module.exports.isAdminPath = isAdminPath;
 module.exports.taggedRoutes = taggedRoutes;
 module.exports.googleTagSnippet = googleTagSnippet;

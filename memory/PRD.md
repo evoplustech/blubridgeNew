@@ -449,3 +449,25 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
   render "404 Page not found" while `/consulting` renders normally. pytest iter38/iter39: 16 passed
   (only the pre-existing `test_admin_cookie_http_only_and_secure_flags` fails — ADMIN_USERNAME/ADMIN_PASSWORD are absent
   from backend/.env in this environment). Stale counts in iter39 (46 → 41 public paths, sitemap 46 → 22) corrected.
+
+## Update — 2026-10-13: Google tag (gtag.js) now global, in the <head> source of every public page
+- User: "Add google tag manager globally add in header tag" + "Add gtag entire website in header"; chose every public
+  page (admin excluded), fire everywhere INCLUDING the Emergent preview, keep the existing IDs.
+- `googleTagSnippet.js` no longer route- or host-gated: it injects the snippet (loader `gtag/js?id=AW-18460200148`,
+  `gtag('js')`, `config AW-18460200148`, `config GT-PLHLCK7D`) into `<head>` of every non-admin document, is idempotent,
+  and STRIPS the block from admin documents. The inline config is wrapped in a `/^\/admin(\/|$)/` path guard so the
+  statically hosted document cannot configure the tag on admin routes.
+- `scripts/emit-route-html.js` (postbuild) now injects into `build/index.html` itself — the static host serves that for
+  every SPA route — and still writes `build/consulting/index.html` + `build/consulting.html` (used by the `_redirects`
+  rewrite for the extensionless ad landing URL).
+- `googleTag.js`: `isTrackedPath` = any non-admin path (was the REACT_APP_GOOGLE_TAG_ROUTES allowlist).
+  `GoogleTagTracker.jsx`: skips only the FIRST page_view (the in-source snippet already sent it) and reports every
+  later SPA navigation, so no duplicates and no missing route views. Click + `generate_lead` tracking unchanged.
+- Verified on preview: `/`, `/solutions`, `/research`, `/careers`, `/contact`, `/policies/privacy-policy`, `/consulting`,
+  `/consulting-9`, `/Research/FLUX` → 3 occurrences in raw HTML; `/admin`, `/admin/dashboard` → 0.
+  Browser: 1 loader, `dataLayer` = js + config AW + config GT, no duplicate page_view, SPA nav to /contact pushed
+  `click` + one `page_view`; `/admin` has 0 loaders and an empty dataLayer. pytest iter38/iter39: 16 passed
+  (only the pre-existing admin-credential test fails — ADMIN_USERNAME/PASSWORD absent in this environment).
+- NOT DONE: the GTM `<noscript>` iframe. That belongs to a Tag Manager container (`GTM-XXXXXXX`); this site uses the
+  Google tag/Ads IDs, which have no noscript equivalent. Needs a real GTM container ID from the user.
+- Preview now sends real hits to Google Ads (explicit user choice, reversing the earlier preview suppression).

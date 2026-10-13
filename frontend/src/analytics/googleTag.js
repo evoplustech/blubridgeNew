@@ -10,11 +10,8 @@ const envList = name => {
   return process.env[name].toLowerCase().split(/\s+/).filter(Boolean);
 };
 
-const normalizePath = pathname => pathname.replace(/\/+$/, '').toLowerCase() || '/';
-
-// Only the configured landing routes are tracked (REACT_APP_GOOGLE_TAG_ROUTES, e.g. "/consulting"); admin never is.
-export const isTrackedPath = pathname =>
-  !isAdminPath(pathname) && envList('REACT_APP_GOOGLE_TAG_ROUTES').map(normalizePath).includes(normalizePath(pathname));
+// Every page is tracked except admin (the tag ships in the document head site-wide).
+export const isTrackedPath = pathname => !isAdminPath(pathname);
 
 // Production host allowlist; preview/staging hosts never send hits to Google.
 export const isAllowedHost = hostname => envList('REACT_APP_GOOGLE_TAG_ALLOWED_HOSTS').includes(hostname.toLowerCase());

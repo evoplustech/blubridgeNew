@@ -1,6 +1,7 @@
-// Post-build: writes a dedicated HTML document for every Google-tagged route (e.g. build/consulting/index.html)
-// so static hosting (Render Static Site) serves the tag inside the page source on that route only.
-// Render serves an existing file before any SPA rewrite rule, so /consulting resolves to this document.
+// Post-build: puts the Google tag into the HTML source of the static build.
+// - build/index.html  -> every SPA route served by the static host (admin is guarded inside the snippet)
+// - build/consulting/index.html + build/consulting.html -> pre-rendered documents for the ad landing route
+//   (Render answers the extensionless /consulting through the _redirects rewrite).
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '..', '.env'), quiet: true });
@@ -14,24 +15,25 @@ if (!fs.existsSync(indexPath)) {
   process.exit(0);
 }
 
-const html = fs.readFileSync(indexPath, 'utf8');
-
-let routes = [];
+let html;
 try {
-  routes = injectGoogleTag.taggedRoutes();
+  html = injectGoogleTag(fs.readFileSync(indexPath, 'utf8'), '/');
 } catch (error) {
-  console.error(`[route-html] Google tag routes not configured (${error.message}) — no route documents written`);
+  console.error(`[route-html] Google tag not configured (${error.message}) — build left untouched`);
   process.exit(0);
 }
 
+fs.writeFileSync(indexPath, html);
+console.log('[route-html] index.html now carries the Google tag in its source');
+
+let routes = [];
+try { routes = injectGoogleTag.taggedRoutes(); } catch { routes = []; }
+
 routes.forEach(route => {
   const slug = route.replace(/^\//, '');
-  const tagged = injectGoogleTag(html, route);
-  // Both shapes are written so static hosts resolve /consulting with either clean-URL strategy.
-  const targets = [path.join(buildDir, slug, 'index.html'), path.join(buildDir, `${slug}.html`)];
-  targets.forEach(target => {
+  [path.join(buildDir, slug, 'index.html'), path.join(buildDir, `${slug}.html`)].forEach(target => {
     fs.mkdirSync(path.dirname(target), { recursive: true });
-    fs.writeFileSync(target, tagged);
-    console.log(`[route-html] wrote ${path.relative(buildDir, target)} with the Google tag`);
+    fs.writeFileSync(target, html);
+    console.log(`[route-html] wrote ${path.relative(buildDir, target)}`);
   });
 });

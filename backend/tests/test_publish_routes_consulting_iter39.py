@@ -308,12 +308,13 @@ def test_robots_disallow_admin_and_reference_sitemap(client):
     assert "Sitemap: https://blubridge.com/sitemap.xml" in body
 
 
-def test_google_tag_in_raw_html_on_consulting_only(client):
-    # The snippet ships inside the document source of /consulting (Google Ads source detection) and nowhere else.
-    html = _html_without_cf_challenge(client, "/consulting")
-    assert "googletagmanager.com/gtag/js?id=AW-18460200148" in html
-    assert "gtag('config', 'AW-18460200148')" in html
-    for path in ["/", "/contact", "/consulting-9", "/admin", "/admin/dashboard", "/Admin", "/%61dmin"]:
+def test_google_tag_in_raw_html_on_public_pages_not_admin(client):
+    # The snippet ships inside the document source of every public page; admin documents stay clean.
+    for path in ["/", "/consulting", "/contact", "/careers", "/consulting-9"]:
+        html = _html_without_cf_challenge(client, path)
+        assert "googletagmanager.com/gtag/js?id=AW-18460200148" in html, path
+        assert "gtag('config', 'AW-18460200148')" in html, path
+    for path in ["/admin", "/admin/dashboard", "/Admin", "/%61dmin"]:
         html = _html_without_cf_challenge(client, path)
         assert "<head" in html.lower(), f"Missing head on {path}"
         assert "googletagmanager.com/gtag/js" not in html
