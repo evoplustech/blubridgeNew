@@ -5,6 +5,7 @@ import { Input } from '../../components/ui/input';
 import { Settings, Lock, Download, FileText, MessageSquare, Briefcase, Database, AlertCircle, CheckCircle, Trash2, RefreshCw } from 'lucide-react';
 
 import { adminFetch as fetch } from './secureApi';
+import { BlockedEmailDomains } from './BlockedEmailDomains';
 import { API_ORIGIN } from '../../apiOrigin';
 const API_URL = API_ORIGIN;
 
@@ -350,6 +351,9 @@ const AdminSettings = () => {
             </div>
           </div>
         </div>
+
+        {/* Blocked Email Domains Section */}
+        <BlockedEmailDomains notify={setMessage} />
 
         {/* Database Maintenance Section */}
         <div className="bg-white rounded-xl border border-[#E5E7EB] p-6">

@@ -1,7 +1,9 @@
+import { API_ORIGIN } from '../../apiOrigin';
+
 // Personal / free mailbox providers that may not be used as a work email on the consulting enquiry forms.
 // Configurable: add a domain here to block it on both the field and the server (mirror of
 // backend/enquiry_contact_validation.py PERSONAL_EMAIL_DOMAINS).
-export const PERSONAL_EMAIL_DOMAINS = new Set([
+export const DEFAULT_PERSONAL_EMAIL_DOMAINS = new Set([
   // Google
   'gmail.com', 'googlemail.com', 'google.com',
   // Microsoft personal
@@ -55,12 +57,26 @@ export const PERSONAL_EMAIL_DOMAINS = new Set([
 
 const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// The admin-managed list (GET /api/blocked-email-domains) replaces the defaults once it has loaded.
+let blocked = DEFAULT_PERSONAL_EMAIL_DOMAINS;
+
+export const loadBlockedEmailDomains = async () => {
+  try {
+    const response = await window.fetch(`${API_ORIGIN}/api/blocked-email-domains`);
+    if (!response.ok) return;
+    const { domains } = await response.json();
+    if (Array.isArray(domains) && domains.length) blocked = new Set(domains.map(domain => domain.toLowerCase()));
+  } catch {
+    // Keep the bundled defaults when the list cannot be fetched.
+  }
+};
+
 export const PERSONAL_EMAIL_MESSAGE = 'Please enter your company email address. Personal email providers such as Gmail, Yahoo, and Outlook are not allowed.';
 
 // True when the domain, or any parent of it, is a known personal provider (blocks mail.gmail.com too).
 export const isPersonalEmailDomain = domain => {
   const labels = domain.toLowerCase().split('.');
-  return labels.some((_, index) => PERSONAL_EMAIL_DOMAINS.has(labels.slice(index).join('.')));
+  return labels.some((_, index) => blocked.has(labels.slice(index).join('.')));
 };
 
 // Returns an error message, or '' when the value is a usable company email address.

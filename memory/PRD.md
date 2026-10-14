@@ -492,3 +492,24 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - Note: the shared validator also covers the preview-only consulting-4/5 variants, which post to the same endpoint.
 - Pre-existing (unrelated) failures: the older consulting suites (v30, base_submit_iter36) post without the
   `X-BB-Form-Token` header and get 403 from the form guard; the admin-credential test needs ADMIN_USERNAME/PASSWORD.
+
+## Update — 2026-10-14 (b): admin-managed blocked email domain list (no redeploy)
+- Storage: `admin_settings` doc `{type:'blocked_email_domains', domains:[...]}` — seeded automatically with the 223
+  built-in provider defaults on first read, so the full personal-provider block is already in place.
+- Backend (`server.py`): `load_blocked_email_domains()` keeps an in-process list in sync (60s TTL, refreshed on
+  `/api/form-context`, on startup and after every admin change — the pydantic validator is sync so it reads this cache).
+  Endpoints: public `GET /api/blocked-email-domains` (added to `PUBLIC_GET`, `Cache-Control: 60s`),
+  `GET /api/admin/blocked-email-domains` (current + defaults), `PUT /api/admin/blocked-email-domains`
+  (replaces the list, validates each domain via `normalise_email_domain`, 422 on invalid, applies instantly).
+- `enquiry_contact_validation.py`: defaults renamed `DEFAULT_PERSONAL_EMAIL_DOMAINS`; live mutable set +
+  `blocked_email_domains()` / `set_blocked_email_domains()` / `normalise_email_domain()`.
+- Frontend: `personalEmailDomains.js` uses the fetched list (`loadBlockedEmailDomains()` called from
+  `useEnquiryForm`) and falls back to the bundled defaults; new admin card
+  `src/pages/admin/BlockedEmailDomains.jsx` rendered inside `/admin/settings` (add, remove, search, restore defaults,
+  count) with a `loaded` guard so a failed load can never overwrite the stored list with empty state.
+- Tests: `backend/tests/test_blocked_email_domains_admin.py` — 6 passed (defaults seeded, admin list + defaults,
+  401/403 without auth, 422 for invalid domains, an added domain blocks a submission immediately, a removed domain is
+  accepted again while gmail stays blocked). The admin password is not available to tests, so the suite creates and
+  deletes a short-lived admin session directly in Mongo. `test_company_work_email_validation.py` still 30 passed.
+  Admin UI driven in a real browser: 223 chips load, add -> 224 + success toast, search filter, remove -> 223, mobile OK.
+- Cleanup: temporary test session removed, blocklist verified back at 223 domains, no QA enquiry records left.

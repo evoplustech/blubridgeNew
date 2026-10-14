@@ -30,7 +30,13 @@ import html
 from consultation_models import AIConsultationEnquiry, ConsultationRecord, ConsultationPage
 from consulting_wizard_models import AIConsultingWizardEnquiry, BUDGET_TYPE_LABELS, WIZARD_EXPORT_FIELDS, wizard_export_values
 from consulting_service_requirements import service_requirements_summary
-from enquiry_contact_validation import PHONE_REGIONS
+from enquiry_contact_validation import (
+    PHONE_REGIONS,
+    DEFAULT_PERSONAL_EMAIL_DOMAINS,
+    blocked_email_domains,
+    normalise_email_domain,
+    set_blocked_email_domains,
+)
 import phonenumbers
 
 
@@ -1880,11 +1886,82 @@ async def admin_session(request: Request, response: Response):
     return {'csrfToken': security_services.csrf_for(token)}
 
 
+BLOCKED_DOMAINS_TYPE = 'blocked_email_domains'
+_blocked_domains_loaded_at = 0.0
+
+
+class BlockedEmailDomains(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    domains: List[str] = Field(max_length=5000)
+
+
+async def load_blocked_email_domains(force: bool = False):
+    """Keep the in-process blocklist in sync with the admin-managed list (seeded with the defaults)."""
+    global _blocked_domains_loaded_at
+    if not force and time.time() - _blocked_domains_loaded_at < 60:
+        return
+    try:
+        doc = await db.admin_settings.find_one({'type': BLOCKED_DOMAINS_TYPE}, {'_id': 0, 'domains': 1})
+        if not doc:
+            domains = sorted(DEFAULT_PERSONAL_EMAIL_DOMAINS)
+            await db.admin_settings.update_one(
+                {'type': BLOCKED_DOMAINS_TYPE},
+                {'$setOnInsert': {'type': BLOCKED_DOMAINS_TYPE, 'domains': domains,
+                                  'updatedAt': datetime.now(timezone.utc).isoformat()}},
+                upsert=True,
+            )
+        else:
+            domains = doc.get('domains') or sorted(DEFAULT_PERSONAL_EMAIL_DOMAINS)
+        set_blocked_email_domains(domains)
+        _blocked_domains_loaded_at = time.time()
+    except Exception as error:
+        logging.error(f'Blocked email domains not refreshed: {error}')
+
+
 @api_router.get('/form-context')
 async def public_form_context(response: Response):
     token = security_services.signed_context('form')
     security_services.cookie(response, FORM_COOKIE, token, 1800)
+    await load_blocked_email_domains()
     return {'formToken': token}
+
+
+@api_router.get('/blocked-email-domains')
+async def public_blocked_email_domains(response: Response):
+    """Personal mailbox domains the public enquiry forms must reject (admin-managed)."""
+    await load_blocked_email_domains()
+    response.headers['Cache-Control'] = 'public, max-age=60'
+    return {'domains': blocked_email_domains()}
+
+
+@api_router.get('/admin/blocked-email-domains')
+async def admin_get_blocked_email_domains(authorization: Optional[str] = Header(None)):
+    token = authorization[7:] if authorization and authorization.startswith('Bearer ') else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail='Unauthorized')
+    await load_blocked_email_domains(force=True)
+    return {'domains': blocked_email_domains(), 'defaults': sorted(DEFAULT_PERSONAL_EMAIL_DOMAINS)}
+
+
+@api_router.put('/admin/blocked-email-domains')
+async def admin_set_blocked_email_domains(payload: BlockedEmailDomains, authorization: Optional[str] = Header(None)):
+    """Replace the blocklist. Takes effect immediately — no redeploy required."""
+    token = authorization[7:] if authorization and authorization.startswith('Bearer ') else authorization
+    if not token or not verify_admin_token(token):
+        raise HTTPException(status_code=401, detail='Unauthorized')
+    try:
+        domains = sorted({normalise_email_domain(domain) for domain in payload.domains})
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error))
+    await db.admin_settings.update_one(
+        {'type': BLOCKED_DOMAINS_TYPE},
+        {'$set': {'type': BLOCKED_DOMAINS_TYPE, 'domains': domains, 'updatedAt': datetime.now(timezone.utc).isoformat()}},
+        upsert=True,
+    )
+    set_blocked_email_domains(domains)
+    global _blocked_domains_loaded_at
+    _blocked_domains_loaded_at = time.time()
+    return {'domains': blocked_email_domains()}
 
 
 @api_router.get("/admin/verify")
@@ -2614,6 +2691,7 @@ logger = logging.getLogger(__name__)
 @app.on_event("startup")
 async def startup_storage_init():
     await security_services.initialize()
+    await load_blocked_email_domains(force=True)
     try:
         init_storage()
         logging.info("Object storage initialized")

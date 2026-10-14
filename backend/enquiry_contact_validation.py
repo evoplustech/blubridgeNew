@@ -43,7 +43,7 @@ def website_url(value):
 
 # Personal / free mailbox providers that may not be used as a work email on the consulting enquiry forms.
 # Configurable: mirror of frontend/src/pages/ai-consulting/personalEmailDomains.js
-PERSONAL_EMAIL_DOMAINS = {
+DEFAULT_PERSONAL_EMAIL_DOMAINS = {
     # Google
     'gmail.com', 'googlemail.com', 'google.com',
     # Microsoft personal
@@ -99,9 +99,32 @@ PERSONAL_EMAIL_MESSAGE = ('Please enter your company email address. Personal ema
                           'Gmail, Yahoo, and Outlook are not allowed.')
 
 
+# Live blocklist: seeded with the defaults above and replaced by the admin-managed list at runtime.
+_blocked_email_domains = set(DEFAULT_PERSONAL_EMAIL_DOMAINS)
+
+DOMAIN_PATTERN = re.compile(r'^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$')
+
+
+def normalise_email_domain(value):
+    domain = str(value or '').strip().lower().lstrip('@').rstrip('.')
+    if len(domain) > 253 or not DOMAIN_PATTERN.fullmatch(domain):
+        raise ValueError(f'"{value}" is not a valid domain name.')
+    return domain
+
+
+def blocked_email_domains():
+    return sorted(_blocked_email_domains)
+
+
+def set_blocked_email_domains(domains):
+    global _blocked_email_domains
+    _blocked_email_domains = {normalise_email_domain(domain) for domain in domains}
+    return blocked_email_domains()
+
+
 def is_personal_email_domain(domain):
     labels = domain.strip().lower().rstrip('.').split('.')
-    return any('.'.join(labels[index:]) in PERSONAL_EMAIL_DOMAINS for index in range(len(labels)))
+    return any('.'.join(labels[index:]) in _blocked_email_domains for index in range(len(labels)))
 
 
 def work_email(value):

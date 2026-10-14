@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { countryByCode, parsePhone } from './countryData';
 import { validateEnquiry } from './validation';
-import { PERSONAL_EMAIL_MESSAGE } from './personalEmailDomains';
+import { PERSONAL_EMAIL_MESSAGE, loadBlockedEmailDomains } from './personalEmailDomains';
 import { focusError } from './fieldUtils';
 import { useWizardSubmission } from './useWizardSubmission';
 
@@ -11,6 +11,7 @@ export const useEnquiryForm = () => {
   const [form, setForm] = useState(emptyForm);
   const [errors, setErrors] = useState({});
   const submission = useWizardSubmission();
+  useEffect(() => { loadBlockedEmailDomains(); }, []);
   const disabled = submission.isSubmitting || Boolean(submission.receipt);
   const update = next => {
     if (disabled) return;
