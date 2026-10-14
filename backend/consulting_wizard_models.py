@@ -2,7 +2,7 @@ import re
 import json
 from typing import Annotated, Dict, List, Literal, Optional
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, ValidationInfo, field_validator, model_validator
-from enquiry_contact_validation import country_code, normalise_phone, website_url
+from enquiry_contact_validation import country_code, normalise_phone, website_url, work_email
 from consulting_service_requirements import validate_service_requirements
 
 WizardService = Literal['AI Consulting & Technical Advisory', 'Custom AI & Model Development', 'Generative AI, LLM & RAG Systems', 'AI Agents & Automation', 'Model Training & Fine-Tuning', 'GPU & AI Systems Optimisation', 'Deployment & Integration', 'Maintenance & Support', 'Not sure — I need guidance', 'Other']
@@ -100,6 +100,11 @@ class AIConsultingWizardEnquiry(BaseModel):
         if self.formVariant == 'consulting-17' and not self.budgetRange:
             raise ValueError('Please choose the budget.')
         return self
+
+    @field_validator('workEmail')
+    @classmethod
+    def company_email_only(cls, value):
+        return work_email(value)
 
     @field_validator('services')
     @classmethod

@@ -1,11 +1,12 @@
 import { budgets, budgetStatuses, stages, timelines, services } from './options';
 import { countryByCode, parsePhone } from './countryData';
+import { validateWorkEmail } from './personalEmailDomains';
 
 export const validateDetails = value => {
   const errors = {};
   if (!value.fullName.trim()) errors.fullName = 'Please enter your full name.';
-  if (!value.workEmail.trim()) errors.workEmail = 'Please enter your work email.';
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.workEmail.trim())) errors.workEmail = 'Please enter a valid email address.';
+  const workEmailError = validateWorkEmail(value.workEmail);
+  if (workEmailError) errors.workEmail = workEmailError;
   if (!value.company.trim()) errors.company = 'Please enter your company name.';
   if (!value.jobTitle.trim()) errors.jobTitle = 'Please enter your job title.';
   if (!countryByCode[value.countryCode]) errors.countryCode = 'Please select your country / region.';

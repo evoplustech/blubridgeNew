@@ -7,7 +7,7 @@ export const ContactDetails = ({ state }) => {
   const props = name => ({ name, value: state.form[name], onChange: state.change, error: state.errors[name] });
   return <div className="aic-two-columns" data-testid="aic-contact-information">
     <FormField {...props('fullName')} label="Full Name" placeholder="Enter your full name" autoComplete="name" maxLength={200} />
-    <FormField {...props('workEmail')} label="Work Email" placeholder="name@company.com" type="email" autoComplete="email" maxLength={254} />
+    <FormField {...props('workEmail')} label="Work Email (Required)" placeholder="name@company.com" type="email" autoComplete="email" maxLength={254} />
     <FormField {...props('company')} label="Company Name" placeholder="Enter your company name" autoComplete="organization" maxLength={200} />
     <FormField {...props('jobTitle')} label="Job Title" placeholder="Example: CTO, Head of AI, Founder" autoComplete="organization-title" maxLength={200} />
     <div className="aic-field" data-testid="aic-country-field">

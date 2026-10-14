@@ -471,3 +471,24 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - NOT DONE: the GTM `<noscript>` iframe. That belongs to a Tag Manager container (`GTM-XXXXXXX`); this site uses the
   Google tag/Ads IDs, which have no noscript equivalent. Needs a real GTM container ID from the user.
 - Preview now sends real hits to Google Ads (explicit user choice, reversing the earlier preview suppression).
+
+## Update — 2026-10-14: company-email-only validation on the consulting form (/consulting)
+- Label: "Work Email" -> "Work Email (Required)" (the existing `*` required mark, placeholder, styling and layout are unchanged).
+- New `frontend/src/pages/ai-consulting/personalEmailDomains.js`: configurable blocklist (~200 domains — Google,
+  Microsoft personal, Yahoo + regional, Apple, AOL, Proton, GMX/Mail.com, Yandex/Mail.ru, Zoho, Rediff/Indian ISPs,
+  APAC/EU/US free + ISP mailboxes, disposable) with `validateWorkEmail()` (trim, format check, case-insensitive domain
+  match, also blocks sub-domains such as mail.gmail.com). No allowlist of company domains.
+- `validation.js` uses it for `workEmail`; `useEnquiryForm.js` surfaces the personal-provider message immediately on
+  type/paste (other fields keep the existing show-on-submit behaviour); submit stays blocked until the field is valid.
+- Backend: `enquiry_contact_validation.work_email()` mirrors the same list/message; `consulting_wizard_models.py` adds a
+  single `@field_validator('workEmail')` on `AIConsultingWizardEnquiry`, so `/api/ai-consulting-enquiries` rejects
+  blocked domains with 422 even when posted directly (EmailStr already rejects malformed/empty values).
+- Tests: new `backend/tests/test_company_work_email_validation.py` — 30 passed (21 blocked-domain cases incl. uppercase,
+  padded and sub-domain, 6 invalid/empty cases, 3 accepted company domains verified as persisted lower-cased, records
+  cleaned up). Browser on /consulting: label correct, inline message on gmail/yahoo.co.in/outlook/icloud/proton.me,
+  submit blocked, "Please enter a valid email address." for malformed, "Please enter your work email." when empty,
+  no error for employee@company.com / contact@business.in (padded value accepted).
+- Unchanged: layout, CSS, typography, other fields and their labels/messages, submission flow, API shape, DB structure.
+- Note: the shared validator also covers the preview-only consulting-4/5 variants, which post to the same endpoint.
+- Pre-existing (unrelated) failures: the older consulting suites (v30, base_submit_iter36) post without the
+  `X-BB-Form-Token` header and get 403 from the form guard; the admin-credential test needs ADMIN_USERNAME/PASSWORD.

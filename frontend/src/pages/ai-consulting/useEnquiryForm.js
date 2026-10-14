@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { countryByCode, parsePhone } from './countryData';
 import { validateEnquiry } from './validation';
+import { PERSONAL_EMAIL_MESSAGE } from './personalEmailDomains';
 import { focusError } from './fieldUtils';
 import { useWizardSubmission } from './useWizardSubmission';
 
@@ -15,7 +16,12 @@ export const useEnquiryForm = () => {
     if (disabled) return;
     submission.clearSubmission(); setForm(next);
     const validation = validateEnquiry(next);
-    setErrors(previous => Object.fromEntries(Object.keys(previous).filter(key => validation[key]).map(key => [key, validation[key]])));
+    setErrors(previous => {
+      const shown = Object.fromEntries(Object.keys(previous).filter(key => validation[key]).map(key => [key, validation[key]]));
+      // A personal mailbox domain is reported as soon as it is typed or pasted.
+      if (validation.workEmail === PERSONAL_EMAIL_MESSAGE) shown.workEmail = validation.workEmail;
+      return shown;
+    });
   };
   const change = event => {
     const { name, value, type, checked } = event.target;
