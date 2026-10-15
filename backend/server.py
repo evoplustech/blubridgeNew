@@ -476,7 +476,7 @@ async def send_email_notification(form_type: str, form_data: dict):
 
 
 # Gmail SMTP email notification (non-blocking)
-async def send_gmail_notification(form_type: str, form_data: dict, submission_timestamp: str = None):
+async def send_gmail_notification(form_type: str, form_data: dict, submission_timestamp: str = None, attachments: list = None):
     """Send email notification via Resend API. Does not block API response."""
     
     def _send_resend_email():
@@ -560,6 +560,9 @@ async def send_gmail_notification(form_type: str, form_data: dict, submission_ti
             user_email = form_data.get('email')
             if user_email and isinstance(user_email, str) and '@' in user_email:
                 params["reply_to"] = user_email
+
+            if attachments:
+                params["attachments"] = [{"filename": a["filename"], "content": list(a["content"])} for a in attachments]
             
             resend.Emails.send(params)
             
@@ -1725,7 +1728,7 @@ async def submit_job_application(
             "resumeFilename": resume.filename,
             "appliedAt": application_doc["appliedAt"]
         }
-        await send_gmail_notification("job_application", email_data)
+        await send_gmail_notification("job_application", email_data, attachments=[{"filename": resume.filename, "content": file_content}])
         
         logging.info('Job application stored successfully')
         

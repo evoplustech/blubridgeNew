@@ -516,3 +516,4 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 
 ## 2026-06 — SEO meta update
 - Updated meta title/description for /, /about-us, /careers across public/index.html, server.js, craco.config.js, setupProxy.js and page hooks (Home, AboutUs, Careers). Verified raw HTML + runtime.
+- 2026-06: Job application emails (to hiring@blubridge.com, from contact@blubridge.ai via Resend) now attach the uploaded resume/CV file.
