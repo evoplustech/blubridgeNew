@@ -89,8 +89,8 @@ const mono = 'IBM Plex Mono, monospace';
 const thStyle = { fontFamily: mono, fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: FAINT };
 
 const Careers = () => {
-  useDocumentTitle('Careers | Blubridge');
-  useMetaDescription('Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.');
+  useDocumentTitle('Careers at BluBridge | Research, Engineering & Business');
+  useMetaDescription('Learn about careers at BluBridge in AI research, engineering and business, and the teams building core AI technologies and tailored AI systems.');
   const [showJobListings, setShowJobListings] = useState(false);
 
   return (

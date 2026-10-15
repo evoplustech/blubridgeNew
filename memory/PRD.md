@@ -513,3 +513,6 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
   deletes a short-lived admin session directly in Mongo. `test_company_work_email_validation.py` still 30 passed.
   Admin UI driven in a real browser: 223 chips load, add -> 224 + success toast, search filter, remove -> 223, mobile OK.
 - Cleanup: temporary test session removed, blocklist verified back at 223 domains, no QA enquiry records left.
+
+## 2026-06 — SEO meta update
+- Updated meta title/description for /, /about-us, /careers across public/index.html, server.js, craco.config.js, setupProxy.js and page hooks (Home, AboutUs, Careers). Verified raw HTML + runtime.

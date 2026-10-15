@@ -7,21 +7,21 @@ process.env.DISABLE_ESLINT_PLUGIN = "true";
 
 // Meta descriptions for each route
 const metaDescriptions = {
-  '/': 'Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.',
+  '/': 'BluBridge is a frontier AI research company building full-stack AI technologies from first principles and delivering tailored AI systems for enterprises across industries.',
   '/solutions': 'Research-driven AI model customization and deployment engineering solutions for enterprise systems, from domain training to production-grade infrastructure.',
   '/research': 'Explore Blubridge research across deep learning, model training, and AI systems engineering, focused on reproducible methods and scalable infrastructure.',
-  '/about-us': 'How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.',
-  '/careers': 'Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.',
+  '/about-us': 'BluBridge develops core AI technologies from first principles, advancing frontier AI research and translating it into tailored AI systems across industries.',
+  '/careers': 'Learn about careers at BluBridge in AI research, engineering and business, and the teams building core AI technologies and tailored AI systems.',
   '/contact': 'Get in touch with Blubridge to collaborate on AI research, model engineering, and deployment.'
 };
 
 // Page titles for each route
 const pageTitles = {
-  '/': 'Frontier AI Research and Enterprise Solutions | Blubridge',
+  '/': 'Frontier AI Research & Tailored AI Systems | Blubridge',
   '/solutions': 'Applied AI Solutions - For your Use Case | Blubridge',
   '/research': 'Research | Blubridge',
-  '/about-us': 'About Us | Blubridge',
-  '/careers': 'Careers | Blubridge',
+  '/about-us': 'About BluBridge | Frontier AI Research from First Principles',
+  '/careers': 'Careers at BluBridge | Research, Engineering & Business',
   '/contact': 'Contact us | Blubridge'
 };
 

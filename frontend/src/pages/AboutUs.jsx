@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import useMetaDescription from '../hooks/useMetaDescription';
 
 const TERMS = [
   "Numerical Fidelity.",
@@ -123,7 +124,8 @@ const methodCells = [
 ];
 
 const AboutUs = () => {
-  useDocumentTitle('About Us | Blubridge');
+  useDocumentTitle('About BluBridge | Frontier AI Research from First Principles');
+  useMetaDescription('BluBridge develops core AI technologies from first principles, advancing frontier AI research and translating it into tailored AI systems across industries.');
   const rootRef = useRef(null);
 
   useEffect(() => {

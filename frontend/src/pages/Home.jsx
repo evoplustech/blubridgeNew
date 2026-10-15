@@ -263,8 +263,8 @@ const Home = () => {
     { name: "Infrastructure Scaling",   title: "Infrastructure Scaling",   description: "Expanding AI systems seamlessly, ensuring performance is remaining consistent as demand and complexity grow.", features: ["Elastic compute expansion", "High-throughput orchestration", "Load-aware resource scaling", "Production-grade resilience"], link: '/research' }
   ];
 
-  useDocumentTitle('Frontier AI Research and Enterprise Solutions | Blubridge');
-  useMetaDescription('Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.');
+  useDocumentTitle('Frontier AI Research & Tailored AI Systems | Blubridge');
+  useMetaDescription('BluBridge is a frontier AI research company building full-stack AI technologies from first principles and delivering tailored AI systems for enterprises across industries.');
 
   return (
     <div style={{ background: '#f0f1f9' }} className="min-h-screen text-bb-ink" data-testid="home-page">

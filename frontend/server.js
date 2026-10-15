@@ -121,8 +121,8 @@ app.use((req, res, next) => {
 // SEO Content for each route - EXACT visible content from each page
 const seoContent = {
   '/': {
-    title: 'Frontier AI Research and Enterprise Solutions | Blubridge',
-    description: 'Blubridge is an independent AI research lab engineering deep learning systems from first principles and delivering enterprise-grade AI models, infrastructure, and deployment solutions.',
+    title: 'Frontier AI Research & Tailored AI Systems | Blubridge',
+    description: 'BluBridge is a frontier AI research company building full-stack AI technologies from first principles and delivering tailored AI systems for enterprises across industries.',
     content: `
       <h1>Beyond the Horizon</h1>
       <p>Frontier AI Research Lab.</p>
@@ -945,8 +945,8 @@ const seoContent = {
     `
   },
   '/about-us': {
-    title: 'About Us | Blubridge',
-    description: 'How Blubridge came to life, what we stand for, and the principles guiding how we build AI from first principles.',
+    title: 'About BluBridge | Frontier AI Research from First Principles',
+    description: 'BluBridge develops core AI technologies from first principles, advancing frontier AI research and translating it into tailored AI systems across industries.',
     content: `
       <h1>Building the Next Frontier of AI</h1>
       <p>We are an AI research and engineering company with consulting and applied AI programs, developing advanced machine learning systems from first principles. Our work spans model development, systems engineering, inference optimization, and deployment architecture, with technical rigor and reproducibility treated as core requirements. Model and system capabilities are advanced through disciplined research, controlled experimentation, and engineering-driven validation, translating mature capabilities into production AI solutions.</p>
@@ -973,8 +973,8 @@ const seoContent = {
     `
   },
   '/careers': {
-    title: 'Careers | Blubridge',
-    description: 'Join us to build the next frontier of AI. Bring your rigor, ownership, and engineering depth to solve hard, real-world problems.',
+    title: 'Careers at BluBridge | Research, Engineering & Business',
+    description: 'Learn about careers at BluBridge in AI research, engineering and business, and the teams building core AI technologies and tailored AI systems.',
     content: `
       <h1>BluBridge Careers</h1>
       <h2>CURIOSITY WANTED</h2>
