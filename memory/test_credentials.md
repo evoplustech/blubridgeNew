@@ -16,7 +16,7 @@
 
 ## Authorized credential rotation — 2026-09-23 (current)
 - User explicitly requested username `admin`, then chose a generated strong replacement while preserving the existing minimum12-character password policy. The earlier user-supplied short password was NOT installed.
-- Current username: `admin`. Current password: read `ADMIN_PASSWORD` from `/app/backend/.env` privately. Generated using32 cryptographically random bytes and stored in that mode0600 file only; never copy into chat, source, screenshots or reports. `ADMIN_USERNAME` is synchronized to `admin`.
+- Current username: `admin`. Current password: `ufhUgRSgYMKIZb@WVYS-0a_T` (rotated 2026-06 by owner request via direct bcrypt update of the single admin_settings credentials record; auth_version bumped, sessions revoked).
 - Changed via existing authenticated, CSRF-protected `POST /api/admin/change-password`; bcrypt credential hash and auth_version updated, every existing session revoked. No new account, auth-code edits or security-policy exceptions.
 - Verified before restart: new login, authenticated verify and dashboard200; prior password401 and old-session replay401; verification-session logout200 and subsequent verify401. Results without secrets: `/app/test_reports/admin_rotation_20260923.json`.
 - This rotation supersedes prior credential values. Unrelated environment keys are preserved. Backend restarted after the environment update; new login/dashboard/logout passed again, confirming credentials survive restart. All verification sessions were logged out.
