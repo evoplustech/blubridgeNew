@@ -121,7 +121,7 @@ app.use((req, res, next) => {
 // SEO Content for each route - EXACT visible content from each page
 const seoContent = {
   '/': {
-    title: 'Frontier AI Research & Tailored AI Systems | Blubridge',
+    title: 'Blubridge: Delivering Tailored AI Systems for the Enterprises',
     description: 'BluBridge is a frontier AI research company building full-stack AI technologies from first principles and delivering tailored AI systems for enterprises across industries.',
     content: `
       <h1>Beyond the Horizon</h1>

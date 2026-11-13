@@ -17,7 +17,7 @@ const metaDescriptions = {
 
 // Page titles for each route
 const pageTitles = {
-  '/': 'Frontier AI Research & Tailored AI Systems | Blubridge',
+  '/': 'Blubridge: Delivering Tailored AI Systems for the Enterprises',
   '/solutions': 'Applied AI Solutions - For your Use Case | Blubridge',
   '/research': 'Research | Blubridge',
   '/about-us': 'About BluBridge | Frontier AI Research from First Principles',
