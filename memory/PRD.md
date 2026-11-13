@@ -519,3 +519,4 @@ Current approved scope (2026-09-22): six isolated AI consulting pages (`/ai-cons
 - 2026-06: Job application emails (to hiring@blubridge.com, from contact@blubridge.ai via Resend) now attach the uploaded resume/CV file.
 - 2026-06: Live still old build (Last-Modified 13 Oct). Added per-page static HTML (about-us, careers) with own title/description in emit-route-html.js + _redirects rewrites. Needs Save to Github + Render clear-cache deploy + Cloudflare purge.
 - 2026-06: Home meta title changed to "Blubridge: Delivering Tailored AI Systems for the Enterprises" (index.html, server.js, craco.config.js, setupProxy.js, Home.jsx).
+- 2026-06: Live (Render) build is from 23 Oct; new home title not deployed yet. Also Render dashboard catch-all /* -> /index.html rewrite overrides _redirects for extensionless /about-us,/careers (files exist: /about-us/ works). Fix = Render dashboard rewrite rules above catch-all.
