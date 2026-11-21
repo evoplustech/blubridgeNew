@@ -300,7 +300,8 @@ const CareerApplications = () => {
                 <Download className="w-4 h-4 mr-2" />
                 {exporting ? 'Exporting...' : 'Export CSV'}
               </Button>
-              <div className="absolute right-0 top-full mt-1 bg-white border border-[#E5E7EB] rounded-lg shadow-lg hidden group-hover:block z-10 min-w-[180px]">
+              <div className="absolute right-0 top-full pt-1 hidden group-hover:block group-focus-within:block z-20 min-w-[180px]" data-testid="export-csv-menu">
+                <div className="bg-white border border-[#E5E7EB] rounded-lg shadow-lg">
                 <button onClick={() => exportToCSV(true)} className="w-full text-left px-4 py-2.5 text-sm text-[#374151] hover:bg-[#F3F4F6] rounded-t-lg" data-testid="export-all-btn">
                   Export All Data
                 </button>
@@ -312,6 +313,7 @@ const CareerApplications = () => {
                     Export Filtered Data
                   </button>
                 )}
+                </div>
               </div>
             </div>
             <Button onClick={fetchApplications} variant="outline" size="sm">

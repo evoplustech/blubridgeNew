@@ -5,9 +5,7 @@ const entries = [
   ...['/Research/FLUX-Data', '/Research/FLUX-3', '/Research/FLUX-4'].map(path => [path, 'FLUX: Data Worth Training On | BluBridge', 'Introducing FLUX: Data Worth Training On', 'FLUX is a preprocessing pipeline designed to eliminate the trade-off between data quality and token retention for large language model training.']),
   ...[
     ['data-science-ai-ml-engineer', 'Data Science / AI ML Engineer'],
-    ['business-development-ai-strategy', 'Business Development - AI Strategy & Partnerships'],
-    ['social-media-growth-manager-ai-deep-tech', 'Social Media Growth Manager (AI / Deep Tech)'],
-    ['social-media-growth-specialist-freelancer', 'Social Media Growth Specialist - Freelancer'],
+    ['hr-executive-talent-people-operations', 'HR Executive - Talent & People Operations'],
   ].map(([slug, title]) => [`/careers/job/${slug}`, `${title} | BluBridge`, title, `Explore the ${title} opportunity at BluBridge. View responsibilities, requirements and application details.`]),
 ];
 const escape = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

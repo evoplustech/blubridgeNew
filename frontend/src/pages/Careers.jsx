@@ -6,9 +6,7 @@ import useMetaDescription from '../hooks/useMetaDescription';
 
 const jobListings = [
   { id: 1, title: 'Data Science / AI ML Engineer',                          department: 'Research & Development',      team: 'Core ML',                location: 'Chennai', slug: 'data-science-ai-ml-engineer' },
-  { id: 2, title: 'Business Development - AI Strategy & Partnerships',      department: 'Business Development',        team: 'Strategy',               location: 'Chennai', slug: 'business-development-ai-strategy' },
-  { id: 3, title: 'Social Media Growth Manager (AI / Deep Tech)',           department: 'Marketing & Communication',   team: 'Brand & Digital Growth', location: 'Chennai', slug: 'social-media-growth-manager-ai-deep-tech' },
-  { id: 4, title: 'Social Media Growth Specialist - Freelancer',            department: 'Marketing & Communication',   team: 'Digital Marketing',      location: 'Chennai', slug: 'social-media-growth-specialist-freelancer' },
+  { id: 2, title: 'HR Executive - Talent & People Operations',             department: 'Human Resources',             team: 'People & Talent',        location: 'Chennai', slug: 'hr-executive-talent-people-operations' },
 ];
 
 const roleCards = [

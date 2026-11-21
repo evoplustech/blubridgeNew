@@ -50,152 +50,54 @@ export const jobsData = [
     skills: ['AI', 'Machine Learning', 'Data Science', 'Python', 'Tensorflow', 'Java', 'C++', 'Artificial Intelligence', 'Neural Networks', 'Deep Learning', 'Pytorch', 'CUDA']
   },
   {
-    id: 'business-development-ai-strategy',
-    slug: 'business-development-ai-strategy',
-    title: 'Business Development - AI Strategy & Partnerships',
-    department: 'Business Development',
-    team: 'Strategy',
-    location: 'Chennai',
-    experience: '0-1 Years',
-    salary: '5-7 Lacs P.A.',
-    vacancies: 15,
-    batch: '2025, 2026',
-    education: "Bachelor's or Master's in Business, Computer Science, AI/ML, Economics, Mass Communication, or related fields",
+    id: 'hr-executive-talent-people-operations',
+    slug: 'hr-executive-talent-people-operations',
+    title: 'HR Executive - Talent & People Operations',
+    department: 'Human Resources',
+    team: 'People & Talent',
+    location: 'Chennai On-site',
+    experience: '0-4 Years',
+    salary: '4-7 Lacs P.A. + Incentives up to 50K',
+    vacancies: 8,
+    batch: '2024, 2025, 2026',
+    education: "Bachelor's or Master's in Human Resources, Business Administration or related fields",
     employmentType: 'Full Time, Permanent',
-    description: 'This role sits at the intersection of technology, strategy, and global market development. You will work closely with leadership, research, and engineering teams to build the business ecosystem around advanced AI products and research initiatives. You will contribute to shaping industry partnerships, market positioning, enterprise adoption, and strategic growth opportunities.',
+    description: 'We are building a next-generation AI research and technology company focused on developing foundational AI systems. As part of the People & Talent team, you will work closely with leadership to build the company\'s talent ecosystem - designing and executing strategies to identify, attract, and retain high-quality talent across research, engineering, and business teams. The role combines talent acquisition, HR operations, and people programs that support a high-performance research-driven culture.',
     responsibilities: [
-      'Build relationships with enterprises, research institutions, startups, and government bodies within the AI ecosystem',
-      'Support strategic partnerships across industry, academia, and technology communities',
-      "Develop global brand presence through research publications, podcasts, industry forums, and media outreach",
-      'Position the organization within AI research, industry, and technology policy discussions',
-      'Identify and develop enterprise opportunities for AI solutions and research collaborations',
-      'Support lead generation, enterprise engagement, and deal conversion',
-      'Represent the organization at AI conferences, exhibitions, research forums, and technology summits',
-      'Support investor engagement, partnerships, and ecosystem initiatives',
-      'Work closely with engineering and research teams to translate technical capabilities into enterprise solutions',
-      'Act as a bridge between technology teams and external stakeholders'
+      'Design and execute talent acquisition strategies aligned with company growth',
+      'Source candidates across platforms such as LinkedIn, Naukri, Monster, and other professional networks',
+      'Identify and engage talent from universities, research communities, and niche technical ecosystems',
+      'Design and implement HR policies, processes, and operational workflows',
+      'Manage employee lifecycle operations including onboarding, documentation, and compliance',
+      'Improve operational efficiency through structured HR systems and processes',
+      'Develop programs that support employee engagement and long-term retention',
+      'Help build a high-performance culture aligned with research and engineering excellence',
+      'Work closely with leadership to understand talent needs across teams',
+      'Support initiatives related to organizational growth, hiring strategy, and workforce planning'
     ],
     requirements: [
-      'Strong communication, articulation, and relationship-building skills',
-      'Intellectual curiosity about artificial intelligence, emerging technologies, and global tech ecosystems',
-      'Ability to connect business challenges with advanced technology solutions',
-      'Confidence engaging with enterprise leaders, research communities, and industry networks',
-      'Ownership mindset with the ability to identify opportunities and drive initiatives independently'
+      "Bachelor's or Master's degree in Human Resources, Business Administration, or related fields",
+      'Strong organizational skills and attention to detail',
+      'Strong communication, coordination, and relationship-building skills',
+      'Interest in talent strategy, recruitment, and organizational development',
+      'Ability to identify and engage high-quality candidates from niche talent pools',
+      'Strong ownership mindset and ability to execute initiatives independently',
+      'Curiosity about how high-performance teams are built and managed'
     ],
     addedAdvantage: [
-      'Exposure to consulting frameworks, market research, or business strategy',
-      'Familiarity with AI, machine learning, data analytics, or digital transformation',
-      'Experience in technology consulting, strategy, or startup ecosystems',
-      'Ability to understand and communicate technical concepts to business audiences'
+      'Internship or exposure to recruitment coordination or HR operations',
+      'Familiarity with talent sourcing platforms and recruitment workflows',
+      'Interest in technology organizations and hiring technical talent'
     ],
     whyJoin: [
-      'Work within a research-driven organization developing advanced AI systems and foundational technologies',
-      'Gain exposure to AI strategy, industry partnerships, and global market development',
-      'Collaborate closely with researchers, engineers, and technology leaders',
-      'Participate in building the business ecosystem around next-generation AI systems',
-      'Contribute to shaping the global presence of an emerging AI research organization'
+      'Opportunity to help build the talent foundation of a deep-technology AI organization',
+      'Work closely with leadership, researchers, and engineering teams',
+      'Gain exposure to talent strategy, recruiting systems, and organizational design',
+      'Contribute to building a high-performance research and engineering culture',
+      'Competitive salary package with performance-linked incentives',
+      'Health insurance, personal accident and life insurance, generous parental leave, accommodation/transportation allowance, and complimentary lunch and dinner'
     ],
-    skills: ['Business Development', 'Artificial Intelligence', 'Client Relationship Management', 'Marketing', 'B2B', 'Lead Generation', 'Business Growth', 'Technology', 'Global Business Development']
-  },
-  {
-    id: 'social-media-growth-manager-ai-deep-tech',
-    slug: 'social-media-growth-manager-ai-deep-tech',
-    title: 'Social Media Growth Manager (AI / Deep Tech)',
-    department: 'Marketing & Communication',
-    team: 'Brand & Digital Growth',
-    location: 'Chennai',
-    experience: '1-6 Years / Proven Social Media Growth Experience',
-    salary: '4-7 Lacs P.A. + Performance Incentives',
-    vacancies: 7,
-    education: 'Graduation Not Required',
-    employmentType: 'Full Time',
-    description: "This role sits at the intersection of social media growth, creator-led marketing, deep-tech communication, brand positioning, and digital distribution. You will work closely with leadership, research, engineering, hiring, and business teams to understand BluBridge's deep-tech products, research work, company direction, hiring campaigns, and founder communication — and convert those inputs into strong social media campaigns across LinkedIn, X/Twitter, YouTube, Instagram, Medium, and other relevant platforms. Mandatory requirement: the candidate must satisfy at least one platform benchmark — X/Twitter: 500+ followers, YouTube: 10,000+ subscribers, Instagram: 25,000+ followers, or LinkedIn: 5,000+ followers.",
-    responsibilities: [
-      "Plan and execute social media campaigns for BluBridge's deep-tech products, research work, hiring initiatives, founder communication, company milestones, and business initiatives",
-      'Build platform-specific strategies for LinkedIn, X/Twitter, YouTube, Instagram, Medium, and other relevant channels',
-      'Use proven social media growth experience to improve reach, engagement, visibility, follower quality, and brand recall',
-      'Create campaigns that are strategically useful for brand building, hiring, business development, ecosystem visibility, and company positioning',
-      "Convert BluBridge's deep learning products/systems, research outputs, AI systems, infrastructure work, and hiring campaigns into public-facing social media content",
-      'Develop content formats such as LinkedIn posts, X/Twitter threads, Instagram reels, YouTube shorts and long-form concepts, founder posts, product explainers, research announcement posts, hiring campaign content, carousel content, and short video scripts',
-      'Help position BluBridge as a serious AI research and engineering company with a sharp, credible, intelligent, and globally relevant voice across all platforms',
-      "Take ownership of BluBridge's social media growth including content planning, creation direction, posting discipline, engagement strategy, audience development, analytics tracking, campaign reporting, and competitor observation",
-      'Coordinate with designers, video editors, photographers, leadership, and internal teams to execute high-quality content',
-      'Provide clear creative direction for reels, shorts, thumbnails, carousels, posters, research visuals, founder clips, hiring creatives, event coverage, YouTube formats, and campaign assets'
-    ],
-    requirements: [
-      'Must satisfy at least one platform benchmark: X/Twitter 500+ followers, YouTube 10,000+ subscribers, Instagram 25,000+ followers, or LinkedIn 5,000+ followers',
-      'Proven social media growth experience with an existing personal or managed audience base',
-      'Strong understanding of platform algorithms and audience behavior',
-      'Ability to create content that gets reach and builds trust',
-      'Strong writing, articulation, and content judgment',
-      'Ability to understand deep-tech products and convert them into campaigns',
-      'Strong ownership mindset with good sense of branding, hooks, positioning, and digital storytelling',
-      'Ability to show proof of social media growth, reach, engagement, or campaign performance'
-    ],
-    addedAdvantage: [
-      'Professional experience as a content creator, social media strategist, YouTuber, Instagram creator, LinkedIn creator, or X/Twitter growth operator',
-      'Experience in technology, AI, SaaS, startups, education, creator economy, or knowledge-led brands',
-      'Experience in founder branding or company page growth',
-      'Proven ability to write hooks, scripts, captions, threads, and posts independently',
-      'Understanding of AI, machine learning, deep tech, or willingness to learn seriously',
-      'Experience with video content planning, thumbnails, reels, shorts, and YouTube strategy'
-    ],
-    whyJoin: [
-      'Work with a deep-tech AI research and engineering company',
-      'Apply your social media growth experience to deep tech systems and research initiatives',
-      'Build the public presence of an emerging AI technology company working directly with leadership, research, engineering, hiring, and business teams',
-      "Play a direct role in shaping BluBridge's public visibility and digital authority",
-      'Performance-based incentives, ESOP pathways eligibility, health insurance, personal accident and life insurance, accommodation/transportation allowance, and complimentary lunch and dinner'
-    ],
-    skills: ['Social Media Marketing', 'Creative Content', 'SMM', 'SMO', 'YouTube', 'Online Branding', 'Content Marketing', 'Social Media Campaigns', 'Twitter', 'LinkedIn', 'Instagram', 'Content Strategy']
-  },
-  {
-    id: 'social-media-growth-specialist-freelancer',
-    slug: 'social-media-growth-specialist-freelancer',
-    title: 'Social Media Growth Specialist - Freelancer',
-    department: 'Marketing & Communication',
-    team: 'Digital Marketing',
-    location: 'Chennai',
-    experience: '2-7 Years',
-    salary: '3-7 Lacs P.A.',
-    vacancies: 6,
-    education: 'Any Graduate',
-    employmentType: 'Freelance / Contract',
-    description: "We are looking to engage an experienced freelance social media growth specialist who can immediately take ownership of BluBridge's social media strategy, content planning, campaign execution, and digital positioning across LinkedIn, X/Twitter, YouTube, Instagram, Medium, and other relevant platforms. The applicant must have proven experience in creating, managing, or growing social media/content for technical or deep-tech brands — generic social media experience will not be sufficient for this mandate.",
-    responsibilities: [
-      "Plan BluBridge's social media growth strategy",
-      'Create platform-specific content plans for LinkedIn, X/Twitter, YouTube, Instagram, and Medium',
-      "Convert BluBridge's research, AI systems, infrastructure work, hiring campaigns, product updates, and company milestones into strong public-facing content",
-      'Write LinkedIn posts, X threads, founder posts, product explainers, research announcement posts, hiring content, carousel copy, and short video scripts',
-      'Build content calendars and campaign plans',
-      "Improve BluBridge's public positioning as a serious AI research and engineering company",
-      "Coordinate with BluBridge's leadership, research, engineering, hiring, design, and business teams",
-      'Give creative direction for reels, shorts, thumbnails, carousels, posters, research visuals, founder clips, event coverage, and campaign assets',
-      'Track analytics, report performance, and improve platform-wise content execution'
-    ],
-    requirements: [
-      'Proven experience creating, managing, or growing social media/content for technical or deep-tech brands',
-      'Demonstrable proof of social media pages previously handled and technical or B2B technology content created',
-      'Proof of LinkedIn / X / YouTube / Instagram growth work with content performance, reach, engagement, or campaign analytics',
-      'Experience with founder branding, company page growth, or product launch campaigns',
-      'Ability to convert technical inputs into public-facing content',
-      'Ability to understand deep-tech material and simplify complex ideas without making them shallow',
-      "Applicants must share portfolio links, previous pages handled, sample posts/threads/scripts, and a brief note on how they would approach BluBridge's social media positioning"
-    ],
-    addedAdvantage: [
-      'Experience in AI / ML / Deep Tech content, SaaS / Developer tools / Cloud / Infrastructure content, or B2B technology marketing',
-      'Technical founder branding or research-led company communication experience',
-      'LinkedIn and X/Twitter growth for technical brands',
-      'YouTube or short-form video strategy for technology companies',
-      'Product launch or hiring campaign content experience'
-    ],
-    whyJoin: [
-      'Immediate start preferred — freelance / contract engagement',
-      'On-site collaboration (no remote); Chennai-based freelancers preferred if suitable',
-      'Monthly retainer / project-based engagement can be discussed based on scope and capability',
-      'Work directly with the leadership of an emerging AI research and engineering company'
-    ],
-    skills: ['Social Media', 'SEO', 'PPC', 'Digital Marketing', 'Branding', 'Social Media Optimization', 'Content Optimization', 'Marketing', 'SMM', 'SMO', 'Content', 'SEM']
+    skills: ['Talent Acquisition', 'Recruitment', 'Hiring', 'Talent Sourcing', 'Screening', 'Corporate HR', 'Strategic HR', 'Talent Development', 'Retention', 'Talent Engagement', 'Compliance', 'Labour Laws', 'Payroll', 'Human Resource Management']
   }
 ];
 
